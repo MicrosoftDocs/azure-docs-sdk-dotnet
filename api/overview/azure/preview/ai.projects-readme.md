@@ -1,12 +1,12 @@
 ---
 title: Azure AI Projects client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Projects, ai
-ms.date: 05/16/2025
+ms.date: 05/27/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: ai
 ---
-# Azure AI Projects client library for .NET - version 1.0.0-beta.9 
+# Azure AI Projects client library for .NET - version 1.0.0-alpha.20250527.1 
 
 The AI Projects client library (in preview) is part of the Azure AI Foundry SDK and provides easy access to resources in your Azure AI Foundry Project. Use it to:
 
@@ -19,7 +19,7 @@ The AI Projects client library (in preview) is part of the Azure AI Foundry SDK 
 * **Get an Azure AI Inference client** for chat completions, text or image embeddings using the `Inference` extensions.
 
 > **Note:** There have been significant updates with the release of version 1.0.0-beta.9, including breaking changes. Please see new code snippets below and the samples folder. Agents are now implemented in a separate package `Azure.AI.Agents.Persistent`, which will get installed automatically when you install `Azure.AI.Projects`. You can continue using "agents" operations on the `AIProjectsClient` to create, run and delete agents, as before.
-See [full set of Agents samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.0.0-beta.9/sdk/ai/Azure.AI.Agents.Persistent/samples) in their new location. Also see the [change log for the 1.0.0-beta.9 release](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Projects_1.0.0-beta.9/sdk/ai/Azure.AI.Projects/CHANGELOG.md).
+See [full set of Agents samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Agents.Persistent/samples) in their new location. Also see the [change log for the 1.0.0-beta.9 release](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/ai/Azure.AI.Projects/CHANGELOG.md).
 
 [Product documentation][product_doc]
 | [Samples][samples]
@@ -85,7 +85,7 @@ Once the `AIProjectClient` is created, you can call methods in the form of `Get<
 
 ### Performing Agent operations
 
-The `GetPersistentAgentsClient` method on the `AIProjectsClient` gives you access to an authenticated `PersistentAgentsClient` from the `Azure.AI.Agents.Persistent` package. Below we show how to create an Agent and delete it. To see what you can do with the agent you created, see the [many samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.0.0-beta.9/sdk/ai/Azure.AI.Agents.Persistent/samples) associated with the `Azure.AI.Agents.Persistent` package.
+The `GetPersistentAgentsClient` method on the `AIProjectsClient` gives you access to an authenticated `PersistentAgentsClient` from the `Azure.AI.Agents.Persistent` package. Below we show how to create an Agent and delete it. To see what you can do with the agent you created, see the [many samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Agents.Persistent/samples) associated with the `Azure.AI.Agents.Persistent` package.
 
 The code below assumes `ModelDeploymentName` (a string) is defined. It's the deployment name of an AI model in your Foundry Project, as shown in the "Models + endpoints" tab, under the "Name" column.
 ```C# Snippet:AI_Projects_ExtensionsAgentsBasicsSync
@@ -401,14 +401,14 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 
 <!-- LINKS -->
 [RequestFailedException]: https://learn.microsoft.com/dotnet/api/azure.requestfailedexception?view=azure-dotnet
-[samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.0.0-beta.9/sdk/ai/Azure.AI.Projects/tests/Samples
+[samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Projects/tests/Samples
 [api_ref_docs]: https://learn.microsoft.com/dotnet/api/azure.ai.projects?view=azure-dotnet-preview
 [nuget]: https://www.nuget.org/packages/Azure.AI.Projects
-[source_code]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.0.0-beta.9/sdk/ai/Azure.AI.Projects
+[source_code]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Projects
 [product_doc]: https://learn.microsoft.com/azure/ai-studio/
 [azure_identity]: https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet
 [azure_identity_dac]: https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
-[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Projects_1.0.0-beta.9/CONTRIBUTING.md
+[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
