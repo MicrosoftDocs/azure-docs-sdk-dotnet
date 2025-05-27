@@ -1,12 +1,12 @@
 ---
 title: Azure Monitor Ingestion client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Monitor.Ingestion, monitor
-ms.date: 10/09/2023
+ms.date: 05/27/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: monitor
 ---
-# Azure Monitor Ingestion client library for .NET - version 1.1.0-beta.1 
+# Azure Monitor Ingestion client library for .NET - version 1.2.0-alpha.20250527.1 
 
 
 The Azure Monitor Ingestion client library is used to send custom logs to [Azure Monitor][azure_monitor_overview].
@@ -15,10 +15,10 @@ This library allows you to send data from virtually any source to supported buil
 
 **Resources:**
 
-- [Source code](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.Ingestion_1.1.0-beta.1/sdk/monitor/Azure.Monitor.Ingestion/src)
+- [Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.Ingestion/src)
 - [NuGet package](https://www.nuget.org/packages/Azure.Monitor.Ingestion)
 - [Service documentation][azure_monitor_overview]
-- [Change log](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.Ingestion_1.1.0-beta.1/sdk/monitor/Azure.Monitor.Ingestion/CHANGELOG.md)
+- [Change log](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.Ingestion/CHANGELOG.md)
 
 ## Getting started
 
@@ -48,6 +48,20 @@ To authenticate, the following example uses `DefaultAzureCredential` from the `A
 var endpoint = new Uri("<data_collection_endpoint_uri>");
 var credential = new DefaultAzureCredential();
 var client = new LogsIngestionClient(endpoint, credential);
+```
+
+#### Configure client for Azure sovereign cloud
+
+By default, `LogsIngestionClient` is configured to connect to the Azure public cloud. To connect to a sovereign cloud instead, set the `LogsIngestionClientOptions.Audience` property. For example:
+
+```C# Snippet:CreateLogsIngestionClientWithOptions
+var endpoint = new Uri("<data_collection_endpoint_uri>");
+var credential = new DefaultAzureCredential();
+var clientOptions = new LogsIngestionClientOptions
+{
+    Audience = LogsIngestionAudience.AzureChina
+};
+var client = new LogsIngestionClient(endpoint, credential, clientOptions);
 ```
 
 ### Upload the logs
@@ -84,11 +98,11 @@ We guarantee that all client instance methods are thread-safe and independent of
 ### Additional concepts
 
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.Ingestion_1.1.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.Ingestion_1.1.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.Ingestion_1.1.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.Ingestion_1.1.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.Ingestion_1.1.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
@@ -101,7 +115,7 @@ We guarantee that all client instance methods are thread-safe and independent of
 - [Upload custom logs as IEnumerable with EventHandler](#upload-custom-logs-as-ienumerable-with-eventhandler)
 - [Verify logs](#verify-logs)
 
-You can familiarize yourself with different APIs using [samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Ingestion_1.1.0-beta.1/sdk/monitor/Azure.Monitor.Ingestion/samples).
+You can familiarize yourself with different APIs using [samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.Ingestion/samples).
 
 ### Register the client with dependency injection
 
@@ -235,7 +249,7 @@ Task Options_UploadFailed(LogsUploadFailedEventArgs e)
 
 ### Verify logs
 
-You can verify that your data has been uploaded correctly by using the [Azure Monitor Query](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.Ingestion_1.1.0-beta.1/sdk/monitor/Azure.Monitor.Query/README.md#install-the-package) library. Run the [Upload custom logs](#upload-custom-logs) sample first before verifying the logs.
+You can verify that your data has been uploaded correctly by using the [Azure Monitor Query](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.Query/README.md#install-the-package) library. Run the [Upload custom logs](#upload-custom-logs) sample first before verifying the logs.
 
 ```C# Snippet:VerifyLogsAsync
 var workspaceId = "<log_analytics_workspace_id>";
@@ -260,7 +274,7 @@ Console.WriteLine("Table entry count: " +
 
 ## Troubleshooting
 
-For details on diagnosing various failure scenarios, see our [troubleshooting guide](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Ingestion_1.1.0-beta.1/sdk/monitor/Azure.Monitor.Ingestion/TROUBLESHOOTING.md).
+For details on diagnosing various failure scenarios, see our [troubleshooting guide](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.Ingestion/TROUBLESHOOTING.md).
 
 ## Next steps
 
@@ -279,6 +293,4 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 [data_collection_endpoint]: https://learn.microsoft.com/azure/azure-monitor/essentials/data-collection-endpoint-overview
 [data_collection_rule]: https://learn.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview
 [logging]: https://learn.microsoft.com/dotnet/azure/sdk/logging
-
-
 
