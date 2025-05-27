@@ -1,21 +1,21 @@
 ---
 title: Azure Core Expressions DataFactory shared client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Core.Expressions.DataFactory, core
-ms.date: 11/07/2023
+ms.date: 05/27/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: core
 ---
-# Azure Core Expressions DataFactory shared client library for .NET - version 1.0.0-beta.6 
+# Azure Core Expressions DataFactory shared client library for .NET - version 1.1.0-alpha.20250527.1 
 
 
-Azure.Core.Expressions.DataFactory provides classes that represent [Expressions](https://learn.microsoft.com/azure/data-factory/control-flow-expression-language-functions#expressions). 
+Azure.Core.Expressions.DataFactory provides classes that represent [Expressions](https://learn.microsoft.com/azure/data-factory/control-flow-expression-language-functions#expressions).
 
 ## Getting started
 
-Typically, you will not need to install Azure.Core.Expressions.DataFactory; 
-it will be installed for you when you install one of the client libraries using it. 
-In case you want to install it explicitly (to implement your own client library, for example), 
+Typically, you will not need to install Azure.Core.Expressions.DataFactory;
+it will be installed for you when you install one of the client libraries using it.
+In case you want to install it explicitly (to implement your own client library, for example),
 you can find the NuGet package.
 
 ## Key concepts
@@ -68,7 +68,7 @@ When a secure string is used, the value is return masked with '*' characters whe
 }
 ```
 
-A Key Vault Reference can be used to specify a Key Vault where the value of the property is stored. 
+A Key Vault Reference can be used to specify a Key Vault where the value of the property is stored.
 
 ### DataFactoryElement<T>
 
@@ -98,17 +98,17 @@ blobDataSet.FolderPath = DataFactoryElement<string>.FromSecretString("some/secre
 #### Key Vault Secret Reference
 
 ```C# Snippet:DataFactoryElementKeyVaultSecretReference
-var store = new DataFactoryLinkedServiceReference(DataFactoryLinkedServiceReferenceType.LinkedServiceReference,
+var store = new DataFactoryLinkedServiceReference(DataFactoryLinkedServiceReferenceKind.LinkedServiceReference,
     "referenceName");
-var keyVaultReference = new DataFactoryKeyVaultSecretReference(store, "secretName");
-blobDataSet.FolderPath = DataFactoryElement<string>.FromKeyVaultSecretReference(keyVaultReference);
+var keyVaultReference = new DataFactoryKeyVaultSecret(store, "secretName");
+blobDataSet.FolderPath = DataFactoryElement<string>.FromKeyVaultSecret(keyVaultReference);
 ```
 
 In each case the library will be able to serialize and deserialize all scenarios appropriately allowing you to seamlessly use either according to your application's needs.
 
 ## Troubleshooting
 
-Three main ways of troubleshooting failures are [inspecting exceptions](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core.Expressions.DataFactory_1.0.0-beta.6/sdk/core/Azure.Core/samples/Response.md#handling-exceptions), enabling [logging](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core.Expressions.DataFactory_1.0.0-beta.6/sdk/core/Azure.Core/samples/Diagnostics.md#Logging), and [distributed tracing](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core.Expressions.DataFactory_1.0.0-beta.6/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing)
+Three main ways of troubleshooting failures are [inspecting exceptions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Response.md#handling-exceptions), enabling [logging](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#Logging), and [distributed tracing](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing)
 
 ## Next steps
 
@@ -122,11 +122,9 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 
 This project has adopted the [Microsoft Open Source Code of Conduct][code_of_conduct]. For more information see the [Code of Conduct FAQ][code_of_conduct_faq] or contact opencode@microsoft.com with any additional questions or comments.
 
-
-
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core.Expressions.DataFactory_1.0.0-beta.6/sdk/core/Azure.Core/src
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core/Azure.Core/src
 [package]: https://www.nuget.org/packages/Azure.Core/
-[docs]: /dotnet/api/azure.core
+[docs]: https://learn.microsoft.com/dotnet/api/azure.core
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
