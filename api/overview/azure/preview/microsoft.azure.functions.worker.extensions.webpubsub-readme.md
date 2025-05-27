@@ -1,12 +1,12 @@
 ---
 title: Azure Web PubSub extension of isolated-process Azure Functions client library for .NET
 keywords: Azure, dotnet, SDK, API, Microsoft.Azure.Functions.Worker.Extensions.WebPubSub, webpubsub
-ms.date: 09/15/2023
+ms.date: 05/27/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: webpubsub
 ---
-# Azure Web PubSub extension of isolated-process Azure Functions client library for .NET - version 1.7.0-beta.1 
+# Azure Web PubSub extension of isolated-process Azure Functions client library for .NET - version 1.8.0-alpha.20250527.1 
 
 
 This extension defines the binding types and triggers in the .NET isolated worker process for Azure Functions, allowing you to write functions that respond to any event published to Web PubSub.
@@ -24,7 +24,7 @@ API reference documentation |
 Install the client library from [NuGet]:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.Functions.Worker.Extensions.WebPubSub --prerelease
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.WebPubSub
 ```
 
 ### Prerequisites
@@ -33,7 +33,7 @@ You must have an [Azure subscription][free_subs] and an Azure resource group wit
 
 ### Authenticate the client
 
-In order to let the extension work with Azure Web PubSub service, you will need to provide a valid `ConnectionString`. 
+In order to let the extension work with Azure Web PubSub service, you will need to provide a valid `ConnectionString`.
 
 You can find the **Keys** for you Azure Web PubSub service in the [Azure Portal][portal].
 
@@ -161,13 +161,11 @@ For more information see the [Code of Conduct FAQ][coc_faq]
 or contact [opencode@microsoft.com][coc_contact] with any
 additional questions or comments.
 
-
-
 <!-- LINKS -->
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Functions.Worker.Extensions.WebPubSub_1.7.0-beta.1/sdk/webpubsub/Microsoft.Azure.Functions.Worker.Extensions.WebPubSub/src
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub/Microsoft.Azure.Functions.Worker.Extensions.WebPubSub/src
 <!-- [package] TODO: add after initial release -->
 <!-- [api_docs] TODO: add after initial release -->
-[samples]: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Functions.Worker.Extensions.WebPubSub_1.7.0-beta.1/sdk/webpubsub/Microsoft.Azure.Functions.Worker.Extensions.WebPubSub/samples
+[samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub/Microsoft.Azure.Functions.Worker.Extensions.WebPubSub/samples
 [nuget]: https://www.nuget.org/
 [free_subs]: https://azure.microsoft.com/free/dotnet/
 [portal]: https://portal.azure.com/
@@ -178,7 +176,7 @@ additional questions or comments.
 [func_intro]: https://learn.microsoft.com/azure/azure-functions/functions-overview
 [create]: https://learn.microsoft.com/azure/azure-functions/functions-overview
 
-[contrib]: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Functions.Worker.Extensions.WebPubSub_1.7.0-beta.1/CONTRIBUTING.md
+[contrib]: https://github.com/Azure/azure-sdk-for-net/tree/main/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
