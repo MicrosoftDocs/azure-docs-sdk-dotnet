@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.Automanage, automanage
-ms.date: 05/29/2023
+ms.date: 05/27/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: automanage
@@ -36,7 +36,7 @@ dotnet add package Azure.ResourceManager.Automanage
 
 ### Authenticate the Client
 
-To create an authenticated client and start interacting with Azure resources, please see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Automanage_1.1.0-beta.1/doc/dev/mgmt_quickstart.md)
+To create an authenticated client and start interacting with Azure resources, please see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md)
 
 ## Key concepts
 
@@ -46,14 +46,14 @@ Key concepts of the Azure .NET SDK can be found [here](https://azure.github.io/a
 
 Documentation is available to help you learn how to use this package
 
-- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Automanage_1.1.0-beta.1/doc/dev/mgmt_quickstart.md)
-- [API References](/dotnet/api/?view=azure-dotnet)
-- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Automanage_1.1.0-beta.1/sdk/identity/Azure.Identity/README.md)
+- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md)
+- [API References](https://learn.microsoft.com/dotnet/api/?view=azure-dotnet)
+- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md)
 
 ## Examples
 
 Code samples for using the management library for .NET can be found in the following locations
-- [.NET Management Library Code Samples](/samples/browse/?branch=master&languages=csharp&term=managing%20using%20Azure%20.NET%20SDK)
+- [.NET Management Library Code Samples](https://learn.microsoft.com/samples/browse/?branch=master&languages=csharp&term=managing%20using%20Azure%20.NET%20SDK)
 
 ## Troubleshooting
 
@@ -89,7 +89,7 @@ more information see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any additional questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Automanage_1.1.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
