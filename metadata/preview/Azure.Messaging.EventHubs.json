@@ -1,7 +1,7 @@
 {
   "Name": "Azure.Messaging.EventHubs",
-  "Version": "5.12.0-beta.2",
-  "DevVersion": null,
+  "Version": "5.13.0-alpha.20250527.1",
+  "DevVersion": "5.13.0-alpha.20250527.1",
   "DirectoryPath": "sdk/eventhub/Azure.Messaging.EventHubs",
   "ServiceDirectory": "eventhub",
   "ReadMePath": "sdk/eventhub/Azure.Messaging.EventHubs/README.md",
@@ -10,14 +10,26 @@
   "SdkType": "client",
   "IsNewSdk": true,
   "ArtifactName": "Azure.Messaging.EventHubs",
-  "ReleaseStatus": "2025-02-11",
+  "ReleaseStatus": "Unreleased",
   "IncludedForValidation": false,
   "AdditionalValidationPackages": null,
   "ArtifactDetails": {
+    "safeName": "AzureMessagingEventHubs",
     "name": "Azure.Messaging.EventHubs",
-    "safeName": "AzureMessagingEventHubs"
+    "triggeringPaths": [
+      "/sdk/eventhub/Azure.Messaging.EventHubs.Shared",
+      "/sdk/eventhub/ci.yml"
+    ]
   },
-  "CIMatrixConfigs": [],
+  "CIParameters": {
+    "CheckAOTCompat": true,
+    "AOTTestInputs": {
+      "ArtifactName": "Azure.Messaging.EventHubs",
+      "ExpectedWarningsFilepath": "None"
+    },
+    "BuildSnippets": true,
+    "CIMatrixConfigs": []
+  },
   "Namespaces": [
     "Azure.Messaging.EventHubs",
     "Azure.Messaging.EventHubs.Consumer",
@@ -25,5 +37,6 @@
     "Azure.Messaging.EventHubs.Processor",
     "Azure.Messaging.EventHubs.Producer",
     "Microsoft.Extensions.Azure"
-  ]
+  ],
+  "CIMatrixConfigs": []
 }
