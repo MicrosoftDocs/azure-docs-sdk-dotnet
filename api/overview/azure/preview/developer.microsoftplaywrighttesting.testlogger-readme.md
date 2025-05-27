@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.Developer.MicrosoftPlaywrightTesting.TestLogger, playwright-testing
-ms.date: 01/17/2025
+ms.date: 05/27/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: playwright-testing
@@ -22,7 +22,7 @@ dotnet add package Azure.Developer.MicrosoftPlaywrightTesting.TestLogger --prere
 
 ### Authenticate the client
 
-To learn more about options for Microsoft Entra Id authentication, refer to [Azure.Identity credentials](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.MicrosoftPlaywrightTesting.TestLogger_1.0.0-beta.4/sdk/identity/Azure.Identity#credentials). You can also refer to [our samples]<!--(https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.MicrosoftPlaywrightTesting.TestLogger_1.0.0-beta.4/sdk/playwrighttesting/Azure.Developer.MicrosoftPlaywrightTesting.NUnit/samples/Sample1_CustomisingServiceParameters.md)--> on how to configurate different Azure Identity credentials.
+To learn more about options for Microsoft Entra Id authentication, refer to [Azure.Identity credentials](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#credentials). You can also refer to [our samples]<!--(https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/playwrighttesting/Azure.Developer.MicrosoftPlaywrightTesting.NUnit/samples/Sample1_CustomisingServiceParameters.md)--> on how to configurate different Azure Identity credentials.
 
 ### Prerequisites
 
@@ -34,7 +34,7 @@ To learn more about options for Microsoft Entra Id authentication, refer to [Azu
 - [Quickstart: Set up continuous end-to-end testing across different browsers and operating systems](https://aka.ms/mpt/ci)
 - [Explore features and benefits](https://aka.ms/mpt/about)
 - [View Microsoft Playwright Testing service demo](https://youtu.be/GenC1jAeTZE)
-- [Documentation](https://aka.ms/mpt/docs) 
+- [Documentation](https://aka.ms/mpt/docs)
 - [Pricing](https://aka.ms/mpt/pricing)
 - [Share feedback](https://aka.ms/mpt/feedback)
 
@@ -70,5 +70,4 @@ details, visit [cla.microsoft.com][cla].
 This project has adopted the [Microsoft Open Source Code of Conduct][coc].
 For more information see the [Code of Conduct FAQ][coc_faq] or contact
 [opencode@microsoft.com][coc_contact] with any additional questions or comments.
-
 
