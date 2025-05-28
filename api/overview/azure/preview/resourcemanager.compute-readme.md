@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.Compute, compute
-ms.date: 02/25/2025
+ms.date: 05/28/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: compute
@@ -53,7 +53,7 @@ More documentation for the `Azure.Identity.DefaultAzureCredential` class can be 
 
 ## Key concepts
 
-Key concepts of the Azure .NET SDK can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Compute_1.9.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/README.md#key-concepts)
+Key concepts of the Azure .NET SDK can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/README.md#key-concepts)
 
 ## Examples
 
@@ -185,7 +185,7 @@ AvailabilitySetResource availabilitySet = await availabilitySetCollection.GetAsy
 AvailabilitySetResource updatedAvailabilitySet = await availabilitySet.AddTagAsync("key", "value");
 ```
 
-For more detailed examples, take a look at [samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.9.0-beta.1/sdk/compute/Azure.ResourceManager.Compute/samples) we have available.
+For more detailed examples, take a look at [samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/compute/Azure.ResourceManager.Compute/samples) we have available.
 
 ## Troubleshooting
 
@@ -196,8 +196,8 @@ For more detailed examples, take a look at [samples](https://github.com/Azure/az
 
 ### More sample code
 
-- [Managing Disks](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Compute_1.9.0-beta.1/sdk/compute/Azure.ResourceManager.Compute/samples/Sample1_ManagingDisks.md)
-- [Managing Virtual Machines](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Compute_1.9.0-beta.1/sdk/compute/Azure.ResourceManager.Compute/samples/Sample2_ManagingVirtualMachines.md)
+- [Managing Disks](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/compute/Azure.ResourceManager.Compute/samples/Sample1_ManagingDisks.md)
+- [Managing Virtual Machines](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/compute/Azure.ResourceManager.Compute/samples/Sample2_ManagingVirtualMachines.md)
 
 ### More Documentation
 
@@ -224,7 +224,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Compute_1.9.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
