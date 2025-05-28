@@ -40,7 +40,6 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
-        <AssemblyVersion>1.10.0.0</AssemblyVersion>
         <AssemblyVersion>1.11.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
@@ -50,15 +49,16 @@
       </Docs>
     </Member>
     <Member MemberName="CreateOrUpdate">
-      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt; CreateOrUpdate (Azure.WaitUntil waitUntil, string workspaceName, Azure.ResourceManager.Network.NetworkVerifierWorkspaceData data, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt; CreateOrUpdate (Azure.WaitUntil waitUntil, string workspaceName, Azure.ResourceManager.Network.NetworkVerifierWorkspaceData data, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt; CreateOrUpdate(valuetype Azure.WaitUntil waitUntil, string workspaceName, class Azure.ResourceManager.Network.NetworkVerifierWorkspaceData data, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.NetworkVerifierWorkspaceCollection.CreateOrUpdate(Azure.WaitUntil,System.String,Azure.ResourceManager.Network.NetworkVerifierWorkspaceData,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdate (waitUntil As WaitUntil, workspaceName As String, data As NetworkVerifierWorkspaceData, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation(Of NetworkVerifierWorkspaceResource)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdate (waitUntil As WaitUntil, workspaceName As String, data As NetworkVerifierWorkspaceData, cancellationToken As CancellationToken) As ArmOperation(Of NetworkVerifierWorkspaceResource)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member CreateOrUpdate : Azure.WaitUntil * string * Azure.ResourceManager.Network.NetworkVerifierWorkspaceData * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;&#xA;override this.CreateOrUpdate : Azure.WaitUntil * string * Azure.ResourceManager.Network.NetworkVerifierWorkspaceData * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;" Usage="networkVerifierWorkspaceCollection.CreateOrUpdate (waitUntil, workspaceName, data, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt; CreateOrUpdate (Azure.WaitUntil waitUntil, string workspaceName, Azure.ResourceManager.Network.NetworkVerifierWorkspaceData data, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdate (waitUntil As WaitUntil, workspaceName As String, data As NetworkVerifierWorkspaceData, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation(Of NetworkVerifierWorkspaceResource)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
-        <AssemblyVersion>1.10.0.0</AssemblyVersion>
         <AssemblyVersion>1.11.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -87,16 +87,56 @@
           <paramref name="workspaceName" /> or <paramref name="data" /> is null. </exception>
       </Docs>
     </Member>
-    <Member MemberName="CreateOrUpdateAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;&gt; CreateOrUpdateAsync (Azure.WaitUntil waitUntil, string workspaceName, Azure.ResourceManager.Network.NetworkVerifierWorkspaceData data, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;&gt; CreateOrUpdateAsync(valuetype Azure.WaitUntil waitUntil, string workspaceName, class Azure.ResourceManager.Network.NetworkVerifierWorkspaceData data, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.NetworkVerifierWorkspaceCollection.CreateOrUpdateAsync(Azure.WaitUntil,System.String,Azure.ResourceManager.Network.NetworkVerifierWorkspaceData,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateAsync (waitUntil As WaitUntil, workspaceName As String, data As NetworkVerifierWorkspaceData, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation(Of NetworkVerifierWorkspaceResource))" />
-      <MemberSignature Language="F#" Value="abstract member CreateOrUpdateAsync : Azure.WaitUntil * string * Azure.ResourceManager.Network.NetworkVerifierWorkspaceData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;&gt;&#xA;override this.CreateOrUpdateAsync : Azure.WaitUntil * string * Azure.ResourceManager.Network.NetworkVerifierWorkspaceData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;&gt;" Usage="networkVerifierWorkspaceCollection.CreateOrUpdateAsync (waitUntil, workspaceName, data, cancellationToken)" />
+    <Member MemberName="CreateOrUpdate">
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt; CreateOrUpdate (Azure.WaitUntil waitUntil, string workspaceName, Azure.ResourceManager.Network.NetworkVerifierWorkspaceData data, string ifMatch = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt; CreateOrUpdate(valuetype Azure.WaitUntil waitUntil, string workspaceName, class Azure.ResourceManager.Network.NetworkVerifierWorkspaceData data, string ifMatch, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.NetworkVerifierWorkspaceCollection.CreateOrUpdate(Azure.WaitUntil,System.String,Azure.ResourceManager.Network.NetworkVerifierWorkspaceData,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdate (waitUntil As WaitUntil, workspaceName As String, data As NetworkVerifierWorkspaceData, Optional ifMatch As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation(Of NetworkVerifierWorkspaceResource)" />
+      <MemberSignature Language="F#" Value="abstract member CreateOrUpdate : Azure.WaitUntil * string * Azure.ResourceManager.Network.NetworkVerifierWorkspaceData * string * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;&#xA;override this.CreateOrUpdate : Azure.WaitUntil * string * Azure.ResourceManager.Network.NetworkVerifierWorkspaceData * string * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;" Usage="networkVerifierWorkspaceCollection.CreateOrUpdate (waitUntil, workspaceName, data, ifMatch, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
-        <AssemblyVersion>1.10.0.0</AssemblyVersion>
+        <AssemblyVersion>1.11.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="workspaceName" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="data" Type="Azure.ResourceManager.Network.NetworkVerifierWorkspaceData" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="ifMatch" Type="System.String" Index="3" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="4" FrameworkAlternate="azure-dotnet" />
+      </Parameters>
+      <Docs>
+        <param name="waitUntil">
+          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
+        <param name="workspaceName"> Workspace name. </param>
+        <param name="data"> Verifier Workspace object to create/update. </param>
+        <param name="ifMatch"> The entity state (ETag) version of the pool to update. This value can be omitted or set to "*" to apply the operation unconditionally. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Creates Verifier Workspace.
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_Create</description></item><item><term>Default Api Version</term><description>2024-07-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="workspaceName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="workspaceName" /> or <paramref name="data" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateOrUpdateAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;&gt; CreateOrUpdateAsync (Azure.WaitUntil waitUntil, string workspaceName, Azure.ResourceManager.Network.NetworkVerifierWorkspaceData data, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;&gt; CreateOrUpdateAsync(valuetype Azure.WaitUntil waitUntil, string workspaceName, class Azure.ResourceManager.Network.NetworkVerifierWorkspaceData data, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.NetworkVerifierWorkspaceCollection.CreateOrUpdateAsync(Azure.WaitUntil,System.String,Azure.ResourceManager.Network.NetworkVerifierWorkspaceData,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateAsync (waitUntil As WaitUntil, workspaceName As String, data As NetworkVerifierWorkspaceData, cancellationToken As CancellationToken) As Task(Of ArmOperation(Of NetworkVerifierWorkspaceResource))" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="F#" Value="abstract member CreateOrUpdateAsync : Azure.WaitUntil * string * Azure.ResourceManager.Network.NetworkVerifierWorkspaceData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;&gt;&#xA;override this.CreateOrUpdateAsync : Azure.WaitUntil * string * Azure.ResourceManager.Network.NetworkVerifierWorkspaceData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;&gt;" Usage="networkVerifierWorkspaceCollection.CreateOrUpdateAsync (waitUntil, workspaceName, data, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;&gt; CreateOrUpdateAsync (Azure.WaitUntil waitUntil, string workspaceName, Azure.ResourceManager.Network.NetworkVerifierWorkspaceData data, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateAsync (waitUntil As WaitUntil, workspaceName As String, data As NetworkVerifierWorkspaceData, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation(Of NetworkVerifierWorkspaceResource))" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
         <AssemblyVersion>1.11.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -125,6 +165,45 @@
           <paramref name="workspaceName" /> or <paramref name="data" /> is null. </exception>
       </Docs>
     </Member>
+    <Member MemberName="CreateOrUpdateAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;&gt; CreateOrUpdateAsync (Azure.WaitUntil waitUntil, string workspaceName, Azure.ResourceManager.Network.NetworkVerifierWorkspaceData data, string ifMatch = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;&gt; CreateOrUpdateAsync(valuetype Azure.WaitUntil waitUntil, string workspaceName, class Azure.ResourceManager.Network.NetworkVerifierWorkspaceData data, string ifMatch, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.NetworkVerifierWorkspaceCollection.CreateOrUpdateAsync(Azure.WaitUntil,System.String,Azure.ResourceManager.Network.NetworkVerifierWorkspaceData,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateAsync (waitUntil As WaitUntil, workspaceName As String, data As NetworkVerifierWorkspaceData, Optional ifMatch As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation(Of NetworkVerifierWorkspaceResource))" />
+      <MemberSignature Language="F#" Value="abstract member CreateOrUpdateAsync : Azure.WaitUntil * string * Azure.ResourceManager.Network.NetworkVerifierWorkspaceData * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;&gt;&#xA;override this.CreateOrUpdateAsync : Azure.WaitUntil * string * Azure.ResourceManager.Network.NetworkVerifierWorkspaceData * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;&gt;" Usage="networkVerifierWorkspaceCollection.CreateOrUpdateAsync (waitUntil, workspaceName, data, ifMatch, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
+        <AssemblyVersion>1.11.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="workspaceName" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="data" Type="Azure.ResourceManager.Network.NetworkVerifierWorkspaceData" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="ifMatch" Type="System.String" Index="3" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="4" FrameworkAlternate="azure-dotnet" />
+      </Parameters>
+      <Docs>
+        <param name="waitUntil">
+          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
+        <param name="workspaceName"> Workspace name. </param>
+        <param name="data"> Verifier Workspace object to create/update. </param>
+        <param name="ifMatch"> The entity state (ETag) version of the pool to update. This value can be omitted or set to "*" to apply the operation unconditionally. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Creates Verifier Workspace.
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_Create</description></item><item><term>Default Api Version</term><description>2024-07-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="workspaceName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="workspaceName" /> or <paramref name="data" /> is null. </exception>
+      </Docs>
+    </Member>
     <Member MemberName="Exists">
       <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;bool&gt; Exists (string workspaceName, System.Threading.CancellationToken cancellationToken = default);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;bool&gt; Exists(string workspaceName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
@@ -134,7 +213,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
-        <AssemblyVersion>1.10.0.0</AssemblyVersion>
         <AssemblyVersion>1.11.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -149,7 +227,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Checks to see if the resource exists in azure.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2024-05-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2024-07-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
@@ -167,7 +245,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
-        <AssemblyVersion>1.10.0.0</AssemblyVersion>
         <AssemblyVersion>1.11.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -182,7 +259,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Checks to see if the resource exists in azure.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2024-05-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2024-07-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
@@ -200,7 +277,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
-        <AssemblyVersion>1.10.0.0</AssemblyVersion>
         <AssemblyVersion>1.11.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -215,7 +291,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets Verifier Workspace.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2024-05-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2024-07-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
@@ -233,7 +309,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
-        <AssemblyVersion>1.10.0.0</AssemblyVersion>
         <AssemblyVersion>1.11.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -256,7 +331,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets list of Verifier Workspaces.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_List</description></item><item><term>Default Api Version</term><description>2024-05-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_List</description></item><item><term>Default Api Version</term><description>2024-07-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -270,7 +345,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
-        <AssemblyVersion>1.10.0.0</AssemblyVersion>
         <AssemblyVersion>1.11.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -293,7 +367,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets list of Verifier Workspaces.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_List</description></item><item><term>Default Api Version</term><description>2024-05-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_List</description></item><item><term>Default Api Version</term><description>2024-07-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
         <returns> An async collection of <see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -307,7 +381,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
-        <AssemblyVersion>1.10.0.0</AssemblyVersion>
         <AssemblyVersion>1.11.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -322,7 +395,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets Verifier Workspace.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2024-05-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2024-07-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
@@ -340,7 +413,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
-        <AssemblyVersion>1.10.0.0</AssemblyVersion>
         <AssemblyVersion>1.11.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -355,7 +427,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Tries to get details for this resource from the service.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2024-05-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2024-07-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
@@ -373,7 +445,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
-        <AssemblyVersion>1.10.0.0</AssemblyVersion>
         <AssemblyVersion>1.11.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -388,7 +459,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Tries to get details for this resource from the service.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2024-05-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}</description></item><item><term>Operation Id</term><description>VerifierWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2024-07-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Network.NetworkVerifierWorkspaceResource" /></description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
@@ -409,7 +480,6 @@
       </Implements>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
-        <AssemblyVersion>1.10.0.0</AssemblyVersion>
         <AssemblyVersion>1.11.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -437,7 +507,6 @@
       </Implements>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
-        <AssemblyVersion>1.10.0.0</AssemblyVersion>
         <AssemblyVersion>1.11.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -462,7 +531,6 @@
       </Implements>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
-        <AssemblyVersion>1.10.0.0</AssemblyVersion>
         <AssemblyVersion>1.11.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>

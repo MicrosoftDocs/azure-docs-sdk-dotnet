@@ -1,0 +1,864 @@
+<Type Name="SiteManagerExtensions" FullName="Azure.ResourceManager.SiteManager.SiteManagerExtensions">
+  <TypeSignature Language="C#" Value="public static class SiteManagerExtensions" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit SiteManagerExtensions extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Azure.ResourceManager.SiteManager.SiteManagerExtensions" />
+  <TypeSignature Language="VB.NET" Value="Public Module SiteManagerExtensions" />
+  <TypeSignature Language="F#" Value="type SiteManagerExtensions = class" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary> A class to add extension methods to Azure.ResourceManager.SiteManager. </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="CreateOrUpdateSitesByServiceGroup">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; CreateOrUpdateSitesByServiceGroup (this Azure.ResourceManager.Resources.TenantResource tenantResource, Azure.WaitUntil waitUntil, string servicegroupName, string siteName, Azure.ResourceManager.SiteManager.EdgeSiteData data, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; CreateOrUpdateSitesByServiceGroup(class Azure.ResourceManager.Resources.TenantResource tenantResource, valuetype Azure.WaitUntil waitUntil, string servicegroupName, string siteName, class Azure.ResourceManager.SiteManager.EdgeSiteData data, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.CreateOrUpdateSitesByServiceGroup(Azure.ResourceManager.Resources.TenantResource,Azure.WaitUntil,System.String,System.String,Azure.ResourceManager.SiteManager.EdgeSiteData,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function CreateOrUpdateSitesByServiceGroup (tenantResource As TenantResource, waitUntil As WaitUntil, servicegroupName As String, siteName As String, data As EdgeSiteData, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation(Of EdgeSiteResource)" />
+      <MemberSignature Language="F#" Value="static member CreateOrUpdateSitesByServiceGroup : Azure.ResourceManager.Resources.TenantResource * Azure.WaitUntil * string * string * Azure.ResourceManager.SiteManager.EdgeSiteData * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.CreateOrUpdateSitesByServiceGroup (tenantResource, waitUntil, servicegroupName, siteName, data, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tenantResource" Type="Azure.ResourceManager.Resources.TenantResource" RefType="this" />
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
+        <Parameter Name="servicegroupName" Type="System.String" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="data" Type="Azure.ResourceManager.SiteManager.EdgeSiteData" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="tenantResource"> The <see cref="T:Azure.ResourceManager.Resources.TenantResource" /> instance the method will execute against. </param>
+        <param name="waitUntil">
+          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
+        <param name="servicegroupName"> The name of the service group. </param>
+        <param name="siteName"> The name of the site. </param>
+        <param name="data"> The properties of the site. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            create or update Site at SG scope
+            <list type="bullet"><item><term>Request Path</term><description>/providers/Microsoft.Management/serviceGroups/{servicegroupName}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>SitesByServiceGroup_CreateOrUpdate</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerTenantResource.CreateOrUpdateSitesByServiceGroup(Azure.WaitUntil,System.String,System.String,Azure.ResourceManager.SiteManager.EdgeSiteData,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="servicegroupName" /> or <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="tenantResource" />, <paramref name="servicegroupName" />, <paramref name="siteName" /> or <paramref name="data" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateOrUpdateSitesByServiceGroupAsync">
+      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt; CreateOrUpdateSitesByServiceGroupAsync (this Azure.ResourceManager.Resources.TenantResource tenantResource, Azure.WaitUntil waitUntil, string servicegroupName, string siteName, Azure.ResourceManager.SiteManager.EdgeSiteData data, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt; CreateOrUpdateSitesByServiceGroupAsync(class Azure.ResourceManager.Resources.TenantResource tenantResource, valuetype Azure.WaitUntil waitUntil, string servicegroupName, string siteName, class Azure.ResourceManager.SiteManager.EdgeSiteData data, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.CreateOrUpdateSitesByServiceGroupAsync(Azure.ResourceManager.Resources.TenantResource,Azure.WaitUntil,System.String,System.String,Azure.ResourceManager.SiteManager.EdgeSiteData,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function CreateOrUpdateSitesByServiceGroupAsync (tenantResource As TenantResource, waitUntil As WaitUntil, servicegroupName As String, siteName As String, data As EdgeSiteData, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation(Of EdgeSiteResource))" />
+      <MemberSignature Language="F#" Value="static member CreateOrUpdateSitesByServiceGroupAsync : Azure.ResourceManager.Resources.TenantResource * Azure.WaitUntil * string * string * Azure.ResourceManager.SiteManager.EdgeSiteData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.CreateOrUpdateSitesByServiceGroupAsync (tenantResource, waitUntil, servicegroupName, siteName, data, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tenantResource" Type="Azure.ResourceManager.Resources.TenantResource" RefType="this" />
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
+        <Parameter Name="servicegroupName" Type="System.String" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="data" Type="Azure.ResourceManager.SiteManager.EdgeSiteData" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="tenantResource"> The <see cref="T:Azure.ResourceManager.Resources.TenantResource" /> instance the method will execute against. </param>
+        <param name="waitUntil">
+          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
+        <param name="servicegroupName"> The name of the service group. </param>
+        <param name="siteName"> The name of the site. </param>
+        <param name="data"> The properties of the site. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            create or update Site at SG scope
+            <list type="bullet"><item><term>Request Path</term><description>/providers/Microsoft.Management/serviceGroups/{servicegroupName}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>SitesByServiceGroup_CreateOrUpdate</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerTenantResource.CreateOrUpdateSitesByServiceGroup(Azure.WaitUntil,System.String,System.String,Azure.ResourceManager.SiteManager.EdgeSiteData,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="servicegroupName" /> or <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="tenantResource" />, <paramref name="servicegroupName" />, <paramref name="siteName" /> or <paramref name="data" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateOrUpdateSitesBySubscription">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; CreateOrUpdateSitesBySubscription (this Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, Azure.WaitUntil waitUntil, string siteName, Azure.ResourceManager.SiteManager.EdgeSiteData data, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; CreateOrUpdateSitesBySubscription(class Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, valuetype Azure.WaitUntil waitUntil, string siteName, class Azure.ResourceManager.SiteManager.EdgeSiteData data, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.CreateOrUpdateSitesBySubscription(Azure.ResourceManager.Resources.SubscriptionResource,Azure.WaitUntil,System.String,Azure.ResourceManager.SiteManager.EdgeSiteData,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function CreateOrUpdateSitesBySubscription (subscriptionResource As SubscriptionResource, waitUntil As WaitUntil, siteName As String, data As EdgeSiteData, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation(Of EdgeSiteResource)" />
+      <MemberSignature Language="F#" Value="static member CreateOrUpdateSitesBySubscription : Azure.ResourceManager.Resources.SubscriptionResource * Azure.WaitUntil * string * Azure.ResourceManager.SiteManager.EdgeSiteData * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.CreateOrUpdateSitesBySubscription (subscriptionResource, waitUntil, siteName, data, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="subscriptionResource" Type="Azure.ResourceManager.Resources.SubscriptionResource" RefType="this" />
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="data" Type="Azure.ResourceManager.SiteManager.EdgeSiteData" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="subscriptionResource"> The <see cref="T:Azure.ResourceManager.Resources.SubscriptionResource" /> instance the method will execute against. </param>
+        <param name="waitUntil">
+          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
+        <param name="siteName"> Name of Site resource. </param>
+        <param name="data"> Resource create parameters. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Create a Site
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>Site_CreateOrUpdate</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerSubscriptionResource.CreateOrUpdateSitesBySubscription(Azure.WaitUntil,System.String,Azure.ResourceManager.SiteManager.EdgeSiteData,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="subscriptionResource" />, <paramref name="siteName" /> or <paramref name="data" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateOrUpdateSitesBySubscriptionAsync">
+      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt; CreateOrUpdateSitesBySubscriptionAsync (this Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, Azure.WaitUntil waitUntil, string siteName, Azure.ResourceManager.SiteManager.EdgeSiteData data, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt; CreateOrUpdateSitesBySubscriptionAsync(class Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, valuetype Azure.WaitUntil waitUntil, string siteName, class Azure.ResourceManager.SiteManager.EdgeSiteData data, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.CreateOrUpdateSitesBySubscriptionAsync(Azure.ResourceManager.Resources.SubscriptionResource,Azure.WaitUntil,System.String,Azure.ResourceManager.SiteManager.EdgeSiteData,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function CreateOrUpdateSitesBySubscriptionAsync (subscriptionResource As SubscriptionResource, waitUntil As WaitUntil, siteName As String, data As EdgeSiteData, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation(Of EdgeSiteResource))" />
+      <MemberSignature Language="F#" Value="static member CreateOrUpdateSitesBySubscriptionAsync : Azure.ResourceManager.Resources.SubscriptionResource * Azure.WaitUntil * string * Azure.ResourceManager.SiteManager.EdgeSiteData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.CreateOrUpdateSitesBySubscriptionAsync (subscriptionResource, waitUntil, siteName, data, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="subscriptionResource" Type="Azure.ResourceManager.Resources.SubscriptionResource" RefType="this" />
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="data" Type="Azure.ResourceManager.SiteManager.EdgeSiteData" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="subscriptionResource"> The <see cref="T:Azure.ResourceManager.Resources.SubscriptionResource" /> instance the method will execute against. </param>
+        <param name="waitUntil">
+          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
+        <param name="siteName"> Name of Site resource. </param>
+        <param name="data"> Resource create parameters. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Create a Site
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>Site_CreateOrUpdate</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerSubscriptionResource.CreateOrUpdateSitesBySubscription(Azure.WaitUntil,System.String,Azure.ResourceManager.SiteManager.EdgeSiteData,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="subscriptionResource" />, <paramref name="siteName" /> or <paramref name="data" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteSitesByServiceGroup">
+      <MemberSignature Language="C#" Value="public static Azure.Response DeleteSitesByServiceGroup (this Azure.ResourceManager.Resources.TenantResource tenantResource, string servicegroupName, string siteName, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Response DeleteSitesByServiceGroup(class Azure.ResourceManager.Resources.TenantResource tenantResource, string servicegroupName, string siteName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.DeleteSitesByServiceGroup(Azure.ResourceManager.Resources.TenantResource,System.String,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function DeleteSitesByServiceGroup (tenantResource As TenantResource, servicegroupName As String, siteName As String, Optional cancellationToken As CancellationToken = Nothing) As Response" />
+      <MemberSignature Language="F#" Value="static member DeleteSitesByServiceGroup : Azure.ResourceManager.Resources.TenantResource * string * string * System.Threading.CancellationToken -&gt; Azure.Response" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.DeleteSitesByServiceGroup (tenantResource, servicegroupName, siteName, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tenantResource" Type="Azure.ResourceManager.Resources.TenantResource" RefType="this" />
+        <Parameter Name="servicegroupName" Type="System.String" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="tenantResource"> The <see cref="T:Azure.ResourceManager.Resources.TenantResource" /> instance the method will execute against. </param>
+        <param name="servicegroupName"> The name of the service group. </param>
+        <param name="siteName"> The name of the site. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            delete Site at SG scope
+            <list type="bullet"><item><term>Request Path</term><description>/providers/Microsoft.Management/serviceGroups/{servicegroupName}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>SitesByServiceGroup_Delete</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerTenantResource.DeleteSitesByServiceGroup(System.String,System.String,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="servicegroupName" /> or <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="tenantResource" />, <paramref name="servicegroupName" /> or <paramref name="siteName" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteSitesByServiceGroupAsync">
+      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Azure.Response&gt; DeleteSitesByServiceGroupAsync (this Azure.ResourceManager.Resources.TenantResource tenantResource, string servicegroupName, string siteName, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; DeleteSitesByServiceGroupAsync(class Azure.ResourceManager.Resources.TenantResource tenantResource, string servicegroupName, string siteName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.DeleteSitesByServiceGroupAsync(Azure.ResourceManager.Resources.TenantResource,System.String,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function DeleteSitesByServiceGroupAsync (tenantResource As TenantResource, servicegroupName As String, siteName As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="static member DeleteSitesByServiceGroupAsync : Azure.ResourceManager.Resources.TenantResource * string * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.DeleteSitesByServiceGroupAsync (tenantResource, servicegroupName, siteName, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tenantResource" Type="Azure.ResourceManager.Resources.TenantResource" RefType="this" />
+        <Parameter Name="servicegroupName" Type="System.String" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="tenantResource"> The <see cref="T:Azure.ResourceManager.Resources.TenantResource" /> instance the method will execute against. </param>
+        <param name="servicegroupName"> The name of the service group. </param>
+        <param name="siteName"> The name of the site. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            delete Site at SG scope
+            <list type="bullet"><item><term>Request Path</term><description>/providers/Microsoft.Management/serviceGroups/{servicegroupName}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>SitesByServiceGroup_Delete</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerTenantResource.DeleteSitesByServiceGroup(System.String,System.String,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="servicegroupName" /> or <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="tenantResource" />, <paramref name="servicegroupName" /> or <paramref name="siteName" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteSitesBySubscription">
+      <MemberSignature Language="C#" Value="public static Azure.Response DeleteSitesBySubscription (this Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, string siteName, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Response DeleteSitesBySubscription(class Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, string siteName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.DeleteSitesBySubscription(Azure.ResourceManager.Resources.SubscriptionResource,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function DeleteSitesBySubscription (subscriptionResource As SubscriptionResource, siteName As String, Optional cancellationToken As CancellationToken = Nothing) As Response" />
+      <MemberSignature Language="F#" Value="static member DeleteSitesBySubscription : Azure.ResourceManager.Resources.SubscriptionResource * string * System.Threading.CancellationToken -&gt; Azure.Response" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.DeleteSitesBySubscription (subscriptionResource, siteName, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="subscriptionResource" Type="Azure.ResourceManager.Resources.SubscriptionResource" RefType="this" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="subscriptionResource"> The <see cref="T:Azure.ResourceManager.Resources.SubscriptionResource" /> instance the method will execute against. </param>
+        <param name="siteName"> Name of Site resource. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Delete a Site
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>Site_Delete</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerSubscriptionResource.DeleteSitesBySubscription(System.String,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="subscriptionResource" /> or <paramref name="siteName" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteSitesBySubscriptionAsync">
+      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Azure.Response&gt; DeleteSitesBySubscriptionAsync (this Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, string siteName, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; DeleteSitesBySubscriptionAsync(class Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, string siteName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.DeleteSitesBySubscriptionAsync(Azure.ResourceManager.Resources.SubscriptionResource,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function DeleteSitesBySubscriptionAsync (subscriptionResource As SubscriptionResource, siteName As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="static member DeleteSitesBySubscriptionAsync : Azure.ResourceManager.Resources.SubscriptionResource * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.DeleteSitesBySubscriptionAsync (subscriptionResource, siteName, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="subscriptionResource" Type="Azure.ResourceManager.Resources.SubscriptionResource" RefType="this" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="subscriptionResource"> The <see cref="T:Azure.ResourceManager.Resources.SubscriptionResource" /> instance the method will execute against. </param>
+        <param name="siteName"> Name of Site resource. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Delete a Site
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>Site_Delete</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerSubscriptionResource.DeleteSitesBySubscription(System.String,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="subscriptionResource" /> or <paramref name="siteName" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEdgeSite">
+      <MemberSignature Language="C#" Value="public static Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; GetEdgeSite (this Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, string siteName, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Response`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; GetEdgeSite(class Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, string siteName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetEdgeSite(Azure.ResourceManager.Resources.ResourceGroupResource,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetEdgeSite (resourceGroupResource As ResourceGroupResource, siteName As String, Optional cancellationToken As CancellationToken = Nothing) As Response(Of EdgeSiteResource)" />
+      <MemberSignature Language="F#" Value="static member GetEdgeSite : Azure.ResourceManager.Resources.ResourceGroupResource * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetEdgeSite (resourceGroupResource, siteName, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resourceGroupResource" Type="Azure.ResourceManager.Resources.ResourceGroupResource" RefType="this" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="resourceGroupResource"> The <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" /> instance the method will execute against. </param>
+        <param name="siteName"> Name of Site resource. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Get a Site
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>Site_Get</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.SiteManager.EdgeSiteResource" /></description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerResourceGroupResource.GetEdgeSite(System.String,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="resourceGroupResource" /> or <paramref name="siteName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEdgeSiteAsync">
+      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt; GetEdgeSiteAsync (this Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, string siteName, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt; GetEdgeSiteAsync(class Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, string siteName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetEdgeSiteAsync(Azure.ResourceManager.Resources.ResourceGroupResource,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetEdgeSiteAsync (resourceGroupResource As ResourceGroupResource, siteName As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of EdgeSiteResource))" />
+      <MemberSignature Language="F#" Value="static member GetEdgeSiteAsync : Azure.ResourceManager.Resources.ResourceGroupResource * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetEdgeSiteAsync (resourceGroupResource, siteName, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resourceGroupResource" Type="Azure.ResourceManager.Resources.ResourceGroupResource" RefType="this" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="resourceGroupResource"> The <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" /> instance the method will execute against. </param>
+        <param name="siteName"> Name of Site resource. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Get a Site
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>Site_Get</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.SiteManager.EdgeSiteResource" /></description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerResourceGroupResource.GetEdgeSiteAsync(System.String,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="resourceGroupResource" /> or <paramref name="siteName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEdgeSiteResource">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.SiteManager.EdgeSiteResource GetEdgeSiteResource (this Azure.ResourceManager.ArmClient client, Azure.Core.ResourceIdentifier id);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.SiteManager.EdgeSiteResource GetEdgeSiteResource(class Azure.ResourceManager.ArmClient client, class Azure.Core.ResourceIdentifier id) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetEdgeSiteResource(Azure.ResourceManager.ArmClient,Azure.Core.ResourceIdentifier)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetEdgeSiteResource (client As ArmClient, id As ResourceIdentifier) As EdgeSiteResource" />
+      <MemberSignature Language="F#" Value="static member GetEdgeSiteResource : Azure.ResourceManager.ArmClient * Azure.Core.ResourceIdentifier -&gt; Azure.ResourceManager.SiteManager.EdgeSiteResource" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetEdgeSiteResource (client, id)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.SiteManager.EdgeSiteResource</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="client" Type="Azure.ResourceManager.ArmClient" RefType="this" />
+        <Parameter Name="id" Type="Azure.Core.ResourceIdentifier" />
+      </Parameters>
+      <Docs>
+        <param name="client"> The <see cref="T:Azure.ResourceManager.ArmClient" /> instance the method will execute against. </param>
+        <param name="id"> The resource ID of the resource to get. </param>
+        <summary>
+            Gets an object representing an <see cref="T:Azure.ResourceManager.SiteManager.EdgeSiteResource" /> along with the instance operations that can be performed on it but with no data.
+            You can use <see cref="M:Azure.ResourceManager.SiteManager.EdgeSiteResource.CreateResourceIdentifier(System.String,System.String,System.String)" /> to create an <see cref="T:Azure.ResourceManager.SiteManager.EdgeSiteResource" /><see cref="T:Azure.Core.ResourceIdentifier" /> from its components.
+            <item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerArmClient.GetEdgeSiteResource(Azure.Core.ResourceIdentifier)" /> instead.</description></item></summary>
+        <returns> Returns a <see cref="T:Azure.ResourceManager.SiteManager.EdgeSiteResource" /> object. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="client" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEdgeSites">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.SiteManager.EdgeSiteCollection GetEdgeSites (this Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.SiteManager.EdgeSiteCollection GetEdgeSites(class Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetEdgeSites(Azure.ResourceManager.Resources.ResourceGroupResource)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetEdgeSites (resourceGroupResource As ResourceGroupResource) As EdgeSiteCollection" />
+      <MemberSignature Language="F#" Value="static member GetEdgeSites : Azure.ResourceManager.Resources.ResourceGroupResource -&gt; Azure.ResourceManager.SiteManager.EdgeSiteCollection" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetEdgeSites resourceGroupResource" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.SiteManager.EdgeSiteCollection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resourceGroupResource" Type="Azure.ResourceManager.Resources.ResourceGroupResource" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="resourceGroupResource"> The <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" /> instance the method will execute against. </param>
+        <summary>
+            Gets a collection of EdgeSiteResources in the ResourceGroupResource.
+            <item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerResourceGroupResource.GetEdgeSites" /> instead.</description></item></summary>
+        <returns> An object representing collection of EdgeSiteResources and their operations over a EdgeSiteResource. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="resourceGroupResource" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEdgeSites">
+      <MemberSignature Language="C#" Value="public static Azure.Pageable&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; GetEdgeSites (this Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Pageable`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; GetEdgeSites(class Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetEdgeSites(Azure.ResourceManager.Resources.SubscriptionResource,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetEdgeSites (subscriptionResource As SubscriptionResource, Optional cancellationToken As CancellationToken = Nothing) As Pageable(Of EdgeSiteResource)" />
+      <MemberSignature Language="F#" Value="static member GetEdgeSites : Azure.ResourceManager.Resources.SubscriptionResource * System.Threading.CancellationToken -&gt; Azure.Pageable&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetEdgeSites (subscriptionResource, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="subscriptionResource" Type="Azure.ResourceManager.Resources.SubscriptionResource" RefType="this" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="subscriptionResource"> The <see cref="T:Azure.ResourceManager.Resources.SubscriptionResource" /> instance the method will execute against. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            List Site resources by subscription ID
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/providers/Microsoft.Edge/sites</description></item><item><term>Operation Id</term><description>Site_List</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerSubscriptionResource.GetEdgeSites(System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns> A collection of <see cref="T:Azure.ResourceManager.SiteManager.EdgeSiteResource" /> that may take multiple service requests to iterate over. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="subscriptionResource" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEdgeSites">
+      <MemberSignature Language="C#" Value="public static Azure.Pageable&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; GetEdgeSites (this Azure.ResourceManager.Resources.TenantResource tenantResource, string servicegroupName, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Pageable`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; GetEdgeSites(class Azure.ResourceManager.Resources.TenantResource tenantResource, string servicegroupName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetEdgeSites(Azure.ResourceManager.Resources.TenantResource,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetEdgeSites (tenantResource As TenantResource, servicegroupName As String, Optional cancellationToken As CancellationToken = Nothing) As Pageable(Of EdgeSiteResource)" />
+      <MemberSignature Language="F#" Value="static member GetEdgeSites : Azure.ResourceManager.Resources.TenantResource * string * System.Threading.CancellationToken -&gt; Azure.Pageable&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetEdgeSites (tenantResource, servicegroupName, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tenantResource" Type="Azure.ResourceManager.Resources.TenantResource" RefType="this" />
+        <Parameter Name="servicegroupName" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="tenantResource"> The <see cref="T:Azure.ResourceManager.Resources.TenantResource" /> instance the method will execute against. </param>
+        <param name="servicegroupName"> The name of the service group. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            list Site at SG scope
+            <list type="bullet"><item><term>Request Path</term><description>/providers/Microsoft.Management/serviceGroups/{servicegroupName}/providers/Microsoft.Edge/sites</description></item><item><term>Operation Id</term><description>SitesByServiceGroup_ListByServiceGroup</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerTenantResource.GetEdgeSites(System.String,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns> A collection of <see cref="T:Azure.ResourceManager.SiteManager.EdgeSiteResource" /> that may take multiple service requests to iterate over. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="servicegroupName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="tenantResource" /> or <paramref name="servicegroupName" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEdgeSitesAsync">
+      <MemberSignature Language="C#" Value="public static Azure.AsyncPageable&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; GetEdgeSitesAsync (this Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AsyncPageable`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; GetEdgeSitesAsync(class Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetEdgeSitesAsync(Azure.ResourceManager.Resources.SubscriptionResource,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetEdgeSitesAsync (subscriptionResource As SubscriptionResource, Optional cancellationToken As CancellationToken = Nothing) As AsyncPageable(Of EdgeSiteResource)" />
+      <MemberSignature Language="F#" Value="static member GetEdgeSitesAsync : Azure.ResourceManager.Resources.SubscriptionResource * System.Threading.CancellationToken -&gt; Azure.AsyncPageable&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetEdgeSitesAsync (subscriptionResource, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="subscriptionResource" Type="Azure.ResourceManager.Resources.SubscriptionResource" RefType="this" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="subscriptionResource"> The <see cref="T:Azure.ResourceManager.Resources.SubscriptionResource" /> instance the method will execute against. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            List Site resources by subscription ID
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/providers/Microsoft.Edge/sites</description></item><item><term>Operation Id</term><description>Site_List</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerSubscriptionResource.GetEdgeSites(System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns> An async collection of <see cref="T:Azure.ResourceManager.SiteManager.EdgeSiteResource" /> that may take multiple service requests to iterate over. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="subscriptionResource" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEdgeSitesAsync">
+      <MemberSignature Language="C#" Value="public static Azure.AsyncPageable&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; GetEdgeSitesAsync (this Azure.ResourceManager.Resources.TenantResource tenantResource, string servicegroupName, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AsyncPageable`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; GetEdgeSitesAsync(class Azure.ResourceManager.Resources.TenantResource tenantResource, string servicegroupName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetEdgeSitesAsync(Azure.ResourceManager.Resources.TenantResource,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetEdgeSitesAsync (tenantResource As TenantResource, servicegroupName As String, Optional cancellationToken As CancellationToken = Nothing) As AsyncPageable(Of EdgeSiteResource)" />
+      <MemberSignature Language="F#" Value="static member GetEdgeSitesAsync : Azure.ResourceManager.Resources.TenantResource * string * System.Threading.CancellationToken -&gt; Azure.AsyncPageable&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetEdgeSitesAsync (tenantResource, servicegroupName, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tenantResource" Type="Azure.ResourceManager.Resources.TenantResource" RefType="this" />
+        <Parameter Name="servicegroupName" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="tenantResource"> The <see cref="T:Azure.ResourceManager.Resources.TenantResource" /> instance the method will execute against. </param>
+        <param name="servicegroupName"> The name of the service group. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            list Site at SG scope
+            <list type="bullet"><item><term>Request Path</term><description>/providers/Microsoft.Management/serviceGroups/{servicegroupName}/providers/Microsoft.Edge/sites</description></item><item><term>Operation Id</term><description>SitesByServiceGroup_ListByServiceGroup</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerTenantResource.GetEdgeSites(System.String,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns> An async collection of <see cref="T:Azure.ResourceManager.SiteManager.EdgeSiteResource" /> that may take multiple service requests to iterate over. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="servicegroupName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="tenantResource" /> or <paramref name="servicegroupName" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSitesByServiceGroup">
+      <MemberSignature Language="C#" Value="public static Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; GetSitesByServiceGroup (this Azure.ResourceManager.Resources.TenantResource tenantResource, string servicegroupName, string siteName, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Response`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; GetSitesByServiceGroup(class Azure.ResourceManager.Resources.TenantResource tenantResource, string servicegroupName, string siteName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetSitesByServiceGroup(Azure.ResourceManager.Resources.TenantResource,System.String,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetSitesByServiceGroup (tenantResource As TenantResource, servicegroupName As String, siteName As String, Optional cancellationToken As CancellationToken = Nothing) As Response(Of EdgeSiteResource)" />
+      <MemberSignature Language="F#" Value="static member GetSitesByServiceGroup : Azure.ResourceManager.Resources.TenantResource * string * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetSitesByServiceGroup (tenantResource, servicegroupName, siteName, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tenantResource" Type="Azure.ResourceManager.Resources.TenantResource" RefType="this" />
+        <Parameter Name="servicegroupName" Type="System.String" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="tenantResource"> The <see cref="T:Azure.ResourceManager.Resources.TenantResource" /> instance the method will execute against. </param>
+        <param name="servicegroupName"> The name of the service group. </param>
+        <param name="siteName"> The name of the site. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Get Site at SG scope
+            <list type="bullet"><item><term>Request Path</term><description>/providers/Microsoft.Management/serviceGroups/{servicegroupName}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>SitesByServiceGroup_Get</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerTenantResource.GetSitesByServiceGroup(System.String,System.String,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="servicegroupName" /> or <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="tenantResource" />, <paramref name="servicegroupName" /> or <paramref name="siteName" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSitesByServiceGroupAsync">
+      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt; GetSitesByServiceGroupAsync (this Azure.ResourceManager.Resources.TenantResource tenantResource, string servicegroupName, string siteName, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt; GetSitesByServiceGroupAsync(class Azure.ResourceManager.Resources.TenantResource tenantResource, string servicegroupName, string siteName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetSitesByServiceGroupAsync(Azure.ResourceManager.Resources.TenantResource,System.String,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetSitesByServiceGroupAsync (tenantResource As TenantResource, servicegroupName As String, siteName As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of EdgeSiteResource))" />
+      <MemberSignature Language="F#" Value="static member GetSitesByServiceGroupAsync : Azure.ResourceManager.Resources.TenantResource * string * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetSitesByServiceGroupAsync (tenantResource, servicegroupName, siteName, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tenantResource" Type="Azure.ResourceManager.Resources.TenantResource" RefType="this" />
+        <Parameter Name="servicegroupName" Type="System.String" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="tenantResource"> The <see cref="T:Azure.ResourceManager.Resources.TenantResource" /> instance the method will execute against. </param>
+        <param name="servicegroupName"> The name of the service group. </param>
+        <param name="siteName"> The name of the site. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Get Site at SG scope
+            <list type="bullet"><item><term>Request Path</term><description>/providers/Microsoft.Management/serviceGroups/{servicegroupName}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>SitesByServiceGroup_Get</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerTenantResource.GetSitesByServiceGroup(System.String,System.String,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="servicegroupName" /> or <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="tenantResource" />, <paramref name="servicegroupName" /> or <paramref name="siteName" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSitesBySubscription">
+      <MemberSignature Language="C#" Value="public static Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; GetSitesBySubscription (this Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, string siteName, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Response`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; GetSitesBySubscription(class Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, string siteName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetSitesBySubscription(Azure.ResourceManager.Resources.SubscriptionResource,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetSitesBySubscription (subscriptionResource As SubscriptionResource, siteName As String, Optional cancellationToken As CancellationToken = Nothing) As Response(Of EdgeSiteResource)" />
+      <MemberSignature Language="F#" Value="static member GetSitesBySubscription : Azure.ResourceManager.Resources.SubscriptionResource * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetSitesBySubscription (subscriptionResource, siteName, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="subscriptionResource" Type="Azure.ResourceManager.Resources.SubscriptionResource" RefType="this" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="subscriptionResource"> The <see cref="T:Azure.ResourceManager.Resources.SubscriptionResource" /> instance the method will execute against. </param>
+        <param name="siteName"> Name of Site resource. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Get a Site
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>Site_Get</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerSubscriptionResource.GetSitesBySubscription(System.String,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="subscriptionResource" /> or <paramref name="siteName" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSitesBySubscriptionAsync">
+      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt; GetSitesBySubscriptionAsync (this Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, string siteName, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt; GetSitesBySubscriptionAsync(class Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, string siteName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetSitesBySubscriptionAsync(Azure.ResourceManager.Resources.SubscriptionResource,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetSitesBySubscriptionAsync (subscriptionResource As SubscriptionResource, siteName As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of EdgeSiteResource))" />
+      <MemberSignature Language="F#" Value="static member GetSitesBySubscriptionAsync : Azure.ResourceManager.Resources.SubscriptionResource * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.GetSitesBySubscriptionAsync (subscriptionResource, siteName, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="subscriptionResource" Type="Azure.ResourceManager.Resources.SubscriptionResource" RefType="this" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="subscriptionResource"> The <see cref="T:Azure.ResourceManager.Resources.SubscriptionResource" /> instance the method will execute against. </param>
+        <param name="siteName"> Name of Site resource. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Get a Site
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>Site_Get</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerSubscriptionResource.GetSitesBySubscription(System.String,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="subscriptionResource" /> or <paramref name="siteName" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateSitesByServiceGroup">
+      <MemberSignature Language="C#" Value="public static Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; UpdateSitesByServiceGroup (this Azure.ResourceManager.Resources.TenantResource tenantResource, string servicegroupName, string siteName, Azure.ResourceManager.SiteManager.Models.EdgeSitePatch patch, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Response`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; UpdateSitesByServiceGroup(class Azure.ResourceManager.Resources.TenantResource tenantResource, string servicegroupName, string siteName, class Azure.ResourceManager.SiteManager.Models.EdgeSitePatch patch, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.UpdateSitesByServiceGroup(Azure.ResourceManager.Resources.TenantResource,System.String,System.String,Azure.ResourceManager.SiteManager.Models.EdgeSitePatch,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function UpdateSitesByServiceGroup (tenantResource As TenantResource, servicegroupName As String, siteName As String, patch As EdgeSitePatch, Optional cancellationToken As CancellationToken = Nothing) As Response(Of EdgeSiteResource)" />
+      <MemberSignature Language="F#" Value="static member UpdateSitesByServiceGroup : Azure.ResourceManager.Resources.TenantResource * string * string * Azure.ResourceManager.SiteManager.Models.EdgeSitePatch * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.UpdateSitesByServiceGroup (tenantResource, servicegroupName, siteName, patch, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tenantResource" Type="Azure.ResourceManager.Resources.TenantResource" RefType="this" />
+        <Parameter Name="servicegroupName" Type="System.String" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="patch" Type="Azure.ResourceManager.SiteManager.Models.EdgeSitePatch" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="tenantResource"> The <see cref="T:Azure.ResourceManager.Resources.TenantResource" /> instance the method will execute against. </param>
+        <param name="servicegroupName"> The name of the service group. </param>
+        <param name="siteName"> The name of the site. </param>
+        <param name="patch"> The properties of the site. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            update Site at SG scope
+            <list type="bullet"><item><term>Request Path</term><description>/providers/Microsoft.Management/serviceGroups/{servicegroupName}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>SitesByServiceGroup_Update</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerTenantResource.UpdateSitesByServiceGroup(System.String,System.String,Azure.ResourceManager.SiteManager.Models.EdgeSitePatch,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="servicegroupName" /> or <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="tenantResource" />, <paramref name="servicegroupName" />, <paramref name="siteName" /> or <paramref name="patch" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateSitesByServiceGroupAsync">
+      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt; UpdateSitesByServiceGroupAsync (this Azure.ResourceManager.Resources.TenantResource tenantResource, string servicegroupName, string siteName, Azure.ResourceManager.SiteManager.Models.EdgeSitePatch patch, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt; UpdateSitesByServiceGroupAsync(class Azure.ResourceManager.Resources.TenantResource tenantResource, string servicegroupName, string siteName, class Azure.ResourceManager.SiteManager.Models.EdgeSitePatch patch, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.UpdateSitesByServiceGroupAsync(Azure.ResourceManager.Resources.TenantResource,System.String,System.String,Azure.ResourceManager.SiteManager.Models.EdgeSitePatch,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function UpdateSitesByServiceGroupAsync (tenantResource As TenantResource, servicegroupName As String, siteName As String, patch As EdgeSitePatch, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of EdgeSiteResource))" />
+      <MemberSignature Language="F#" Value="static member UpdateSitesByServiceGroupAsync : Azure.ResourceManager.Resources.TenantResource * string * string * Azure.ResourceManager.SiteManager.Models.EdgeSitePatch * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.UpdateSitesByServiceGroupAsync (tenantResource, servicegroupName, siteName, patch, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tenantResource" Type="Azure.ResourceManager.Resources.TenantResource" RefType="this" />
+        <Parameter Name="servicegroupName" Type="System.String" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="patch" Type="Azure.ResourceManager.SiteManager.Models.EdgeSitePatch" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="tenantResource"> The <see cref="T:Azure.ResourceManager.Resources.TenantResource" /> instance the method will execute against. </param>
+        <param name="servicegroupName"> The name of the service group. </param>
+        <param name="siteName"> The name of the site. </param>
+        <param name="patch"> The properties of the site. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            update Site at SG scope
+            <list type="bullet"><item><term>Request Path</term><description>/providers/Microsoft.Management/serviceGroups/{servicegroupName}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>SitesByServiceGroup_Update</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerTenantResource.UpdateSitesByServiceGroup(System.String,System.String,Azure.ResourceManager.SiteManager.Models.EdgeSitePatch,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="servicegroupName" /> or <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="tenantResource" />, <paramref name="servicegroupName" />, <paramref name="siteName" /> or <paramref name="patch" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateSitesBySubscription">
+      <MemberSignature Language="C#" Value="public static Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; UpdateSitesBySubscription (this Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, string siteName, Azure.ResourceManager.SiteManager.Models.EdgeSitePatch patch, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Response`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt; UpdateSitesBySubscription(class Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, string siteName, class Azure.ResourceManager.SiteManager.Models.EdgeSitePatch patch, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.UpdateSitesBySubscription(Azure.ResourceManager.Resources.SubscriptionResource,System.String,Azure.ResourceManager.SiteManager.Models.EdgeSitePatch,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function UpdateSitesBySubscription (subscriptionResource As SubscriptionResource, siteName As String, patch As EdgeSitePatch, Optional cancellationToken As CancellationToken = Nothing) As Response(Of EdgeSiteResource)" />
+      <MemberSignature Language="F#" Value="static member UpdateSitesBySubscription : Azure.ResourceManager.Resources.SubscriptionResource * string * Azure.ResourceManager.SiteManager.Models.EdgeSitePatch * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.UpdateSitesBySubscription (subscriptionResource, siteName, patch, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="subscriptionResource" Type="Azure.ResourceManager.Resources.SubscriptionResource" RefType="this" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="patch" Type="Azure.ResourceManager.SiteManager.Models.EdgeSitePatch" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="subscriptionResource"> The <see cref="T:Azure.ResourceManager.Resources.SubscriptionResource" /> instance the method will execute against. </param>
+        <param name="siteName"> Name of Site resource. </param>
+        <param name="patch"> The resource properties to be updated. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Update a Site
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>Site_Update</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerSubscriptionResource.UpdateSitesBySubscription(System.String,Azure.ResourceManager.SiteManager.Models.EdgeSitePatch,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="subscriptionResource" />, <paramref name="siteName" /> or <paramref name="patch" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateSitesBySubscriptionAsync">
+      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt; UpdateSitesBySubscriptionAsync (this Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, string siteName, Azure.ResourceManager.SiteManager.Models.EdgeSitePatch patch, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt; UpdateSitesBySubscriptionAsync(class Azure.ResourceManager.Resources.SubscriptionResource subscriptionResource, string siteName, class Azure.ResourceManager.SiteManager.Models.EdgeSitePatch patch, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.SiteManager.SiteManagerExtensions.UpdateSitesBySubscriptionAsync(Azure.ResourceManager.Resources.SubscriptionResource,System.String,Azure.ResourceManager.SiteManager.Models.EdgeSitePatch,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function UpdateSitesBySubscriptionAsync (subscriptionResource As SubscriptionResource, siteName As String, patch As EdgeSitePatch, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of EdgeSiteResource))" />
+      <MemberSignature Language="F#" Value="static member UpdateSitesBySubscriptionAsync : Azure.ResourceManager.Resources.SubscriptionResource * string * Azure.ResourceManager.SiteManager.Models.EdgeSitePatch * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt;" Usage="Azure.ResourceManager.SiteManager.SiteManagerExtensions.UpdateSitesBySubscriptionAsync (subscriptionResource, siteName, patch, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.SiteManager</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.SiteManager.EdgeSiteResource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="subscriptionResource" Type="Azure.ResourceManager.Resources.SubscriptionResource" RefType="this" />
+        <Parameter Name="siteName" Type="System.String" />
+        <Parameter Name="patch" Type="Azure.ResourceManager.SiteManager.Models.EdgeSitePatch" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="subscriptionResource"> The <see cref="T:Azure.ResourceManager.Resources.SubscriptionResource" /> instance the method will execute against. </param>
+        <param name="siteName"> Name of Site resource. </param>
+        <param name="patch"> The resource properties to be updated. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Update a Site
+            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/providers/Microsoft.Edge/sites/{siteName}</description></item><item><term>Operation Id</term><description>Site_Update</description></item><item><term>Default Api Version</term><description>2025-03-01-preview</description></item></list><item><term>Mocking</term><description>To mock this method, please mock <see cref="M:Azure.ResourceManager.SiteManager.Mocking.MockableSiteManagerSubscriptionResource.UpdateSitesBySubscription(System.String,Azure.ResourceManager.SiteManager.Models.EdgeSitePatch,System.Threading.CancellationToken)" /> instead.</description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="siteName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="subscriptionResource" />, <paramref name="siteName" /> or <paramref name="patch" /> is null. </exception>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

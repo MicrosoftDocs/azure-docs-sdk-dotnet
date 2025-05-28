@@ -8,6 +8,7 @@
     <AssemblyName>System.ClientModel</AssemblyName>
     <AssemblyVersion>1.4.0.0</AssemblyVersion>
     <AssemblyVersion>1.4.1.0</AssemblyVersion>
+    <AssemblyVersion>1.5.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
@@ -22,18 +23,16 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public ClientCache (int maxSize);" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public ClientCache (int maxSize);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(int32 maxSize) cil managed" />
       <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientCache.#ctor(System.Int32)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (maxSize As Integer)" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (maxSize As Integer)" />
       <MemberSignature Language="F#" Value="new System.ClientModel.Primitives.ClientCache : int -&gt; System.ClientModel.Primitives.ClientCache" Usage="new System.ClientModel.Primitives.ClientCache maxSize" />
-      <MemberSignature Language="C#" Value="public ClientCache (int maxSize = 100);" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (Optional maxSize As Integer = 100)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>System.ClientModel</AssemblyName>
-        <AssemblyVersion>1.4.0.0</AssemblyVersion>
         <AssemblyVersion>1.4.1.0</AssemblyVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="maxSize" Type="System.Int32" />
@@ -47,43 +46,6 @@
       </Docs>
     </Member>
     <Member MemberName="GetClient&lt;T&gt;">
-      <MemberSignature Language="C#" Value="public T GetClient&lt;T&gt; (Func&lt;T&gt; createClient, string? id) where T : class;" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T GetClient&lt;class T&gt;(class System.Func`1&lt;!!T&gt; createClient, string id) cil managed" />
-      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientCache.GetClient``1(System.Func{``0},System.String)" />
-      <MemberSignature Language="VB.NET" Value="Public Function GetClient(Of T As Class) (createClient As Func(Of T), id As String) As T" />
-      <MemberSignature Language="F#" Value="member this.GetClient : Func&lt;'T (requires 'T : null)&gt; * string -&gt; 'T (requires 'T : null)" Usage="clientCache.GetClient (createClient, id)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>System.ClientModel</AssemblyName>
-        <AssemblyVersion>1.4.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>T</ReturnType>
-      </ReturnValue>
-      <TypeParameters>
-        <TypeParameter Name="T">
-          <Constraints>
-            <ParameterAttribute>ReferenceTypeConstraint</ParameterAttribute>
-          </Constraints>
-        </TypeParameter>
-      </TypeParameters>
-      <Parameters>
-        <Parameter Name="createClient" Type="System.Func&lt;T&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="id" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <typeparam name="T">The type of the client.</typeparam>
-        <param name="createClient">A factory function to create the client if not cached.</param>
-        <param name="id">An identifier for the client instance.</param>
-        <summary>
-            Retrieves a client from the cache or creates a new one if it doesn't exist.
-            Updates the last-used timestamp on every hit.
-            </summary>
-        <returns>The cached or newly created client instance.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="GetClient&lt;T&gt;">
       <MemberSignature Language="C#" Value="public T GetClient&lt;T&gt; (object clientId, Func&lt;T&gt; createClient) where T : class;" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T GetClient&lt;class T&gt;(object clientId, class System.Func`1&lt;!!T&gt; createClient) cil managed" />
       <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientCache.GetClient``1(System.Object,System.Func{``0})" />
@@ -93,6 +55,7 @@
       <AssemblyInfo>
         <AssemblyName>System.ClientModel</AssemblyName>
         <AssemblyVersion>1.4.1.0</AssemblyVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>T</ReturnType>
@@ -105,8 +68,8 @@
         </TypeParameter>
       </TypeParameters>
       <Parameters>
-        <Parameter Name="clientId" Type="System.Object" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="createClient" Type="System.Func&lt;T&gt;" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="clientId" Type="System.Object" />
+        <Parameter Name="createClient" Type="System.Func&lt;T&gt;" />
       </Parameters>
       <Docs>
         <typeparam name="T">The type of the client.</typeparam>
