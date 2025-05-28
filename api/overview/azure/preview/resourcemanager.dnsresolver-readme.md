@@ -1,12 +1,12 @@
 ---
 title: Azure Dns Resolver management client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.DnsResolver, dnsresolver
-ms.date: 10/28/2024
+ms.date: 05/28/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: dnsresolver
 ---
-# Azure Dns Resolver management client library for .NET - version 1.2.0-beta.1 
+# Azure Dns Resolver management client library for .NET - version 1.2.0-alpha.20250528.1 
 
 
 Microsoft Azure Dns Private Resolver enables you to query Azure Dns private zones from an on-premises environment and vice versa without deploying VM based Dns servers.
@@ -37,7 +37,7 @@ dotnet add package Azure.ResourceManager.DnsResolver
 
 ### Authenticate the Client
 
-To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.DnsResolver_1.2.0-beta.1/doc/dev/mgmt_quickstart.md).
+To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
 
 ## Key concepts
 
@@ -47,9 +47,9 @@ Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://azu
 
 Documentation is available to help you learn how to use this package:
 
-- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.DnsResolver_1.2.0-beta.1/doc/dev/mgmt_quickstart.md).
-- [API References](/dotnet/api/?view=azure-dotnet).
-- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.DnsResolver_1.2.0-beta.1/sdk/identity/Azure.Identity/README.md).
+- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
+- [API References](https://learn.microsoft.com/dotnet/api/?view=azure-dotnet).
+- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
 
 ## Examples
 
@@ -86,6 +86,6 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.DnsResolver_1.2.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
