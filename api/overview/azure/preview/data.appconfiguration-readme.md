@@ -1,12 +1,12 @@
 ---
 title: Azure App Configuration client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Data.AppConfiguration, appconfiguration
-ms.date: 03/07/2024
+ms.date: 05/28/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: appconfiguration
 ---
-# Azure App Configuration client library for .NET - version 1.4.0-beta.1 
+# Azure App Configuration client library for .NET - version 1.7.0-alpha.20250528.1 
 
 
 Azure App Configuration is a managed service that helps developers centralize their application and feature settings simply and securely.
@@ -100,11 +100,11 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
@@ -227,7 +227,7 @@ Console.WriteLine($"Total number of snapshots retrieved: {count}");
 
 ## Troubleshooting
 
-See our [troubleshooting guide](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/TROUBLESHOOTING.md) for details on how to diagnose various failure scenarios.
+See our [troubleshooting guide](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appconfiguration/Azure.Data.AppConfiguration/TROUBLESHOOTING.md) for details on how to diagnose various failure scenarios.
 
 ## Next steps
 
@@ -235,13 +235,13 @@ See our [troubleshooting guide](https://github.com/Azure/azure-sdk-for-net/tree/
 
 Several App Configuration client library samples are available to you in this GitHub repository.  These include:
 
-* [Hello world](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample1_HelloWorld.md): Create and delete a configuration setting.
-* [Hello world async with labels](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample2_HelloWorldExtended.md): Asynchronously create, update and delete configuration settings with labels.
-* [Make a configuration setting readonly](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample3_SetClearReadOnly.md): Make a configuration setting read-only, and then return it to a read-write state.
-* [Read revision history](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample4_ReadRevisionHistory.md): Read the revision history of a configuration setting that has been changed.
-* [Get a setting if changed](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample5_GetSettingIfChanged.md): Save bandwidth by using a conditional request to retrieve a setting only if it is different from your local copy.
-* [Update a setting if it hasn't changed](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample6_UpdateSettingIfUnchanged.md): Prevent lost updates by using optimistic concurrency to update a setting only if your local updates were applied to the same version as the resource in the configuration store.
-* [Configuration settings snapshot](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample11_SettingsSnapshot.md): Create, retrieve and update status of a configuration settings snapshot.
+* [Hello world](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample1_HelloWorld.md): Create and delete a configuration setting.
+* [Hello world async with labels](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample2_HelloWorldExtended.md): Asynchronously create, update and delete configuration settings with labels.
+* [Make a configuration setting readonly](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample3_SetClearReadOnly.md): Make a configuration setting read-only, and then return it to a read-write state.
+* [Read revision history](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample4_ReadRevisionHistory.md): Read the revision history of a configuration setting that has been changed.
+* [Get a setting if changed](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample5_GetSettingIfChanged.md): Save bandwidth by using a conditional request to retrieve a setting only if it is different from your local copy.
+* [Update a setting if it hasn't changed](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample6_UpdateSettingIfUnchanged.md): Prevent lost updates by using optimistic concurrency to update a setting only if your local updates were applied to the same version as the resource in the configuration store.
+* [Configuration settings snapshot](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample11_SettingsSnapshot.md): Create, retrieve and update status of a configuration settings snapshot.
 * [Create a mock client](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking): Mock a client for testing.
 
  For more details see the [samples README][samples_readme].
@@ -256,29 +256,27 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 
 This project has adopted the [Microsoft Open Source Code of Conduct][code_of_conduct]. For more information see the [Code of Conduct FAQ][code_of_conduct_faq] or contact [opencode@microsoft.com][email_opencode] with any additional questions or comments.
 
-
-
 <!-- LINKS -->
-[azconfig_docs]: /azure/azure-app-configuration/
-[azconfig_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/appconfiguration/CONTRIBUTING.md
-[azconfig_setting_concepts]: /azure/azure-app-configuration/concept-key-value
-[azconfig_asof_snapshot]: /azure/azure-app-configuration/concept-point-time-snapshot
-[aad_grant_access]: /powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0
-[aad_register_app]: /azure/app-service/configure-authentication-provider-aad#-configure-with-advanced-settings
-[azure_identity]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/identity/Azure.Identity
-[azure_identity_dac]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/identity/Azure.Identity/README.md#defaultazurecredential
+[azconfig_docs]: https://learn.microsoft.com/azure/azure-app-configuration/
+[azconfig_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/CONTRIBUTING.md
+[azconfig_setting_concepts]: https://learn.microsoft.com/azure/azure-app-configuration/concept-key-value
+[azconfig_asof_snapshot]: https://learn.microsoft.com/azure/azure-app-configuration/concept-point-time-snapshot
+[aad_grant_access]: https://learn.microsoft.com/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0
+[aad_register_app]: https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad#-configure-with-advanced-settings
+[azure_identity]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity
+[azure_identity_dac]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md#defaultazurecredential
 [azure_portal]: https://portal.azure.com
-[source_root]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/src
-[source_samples]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/samples
+[source_root]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/src
+[source_samples]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/samples
 [reference_docs]: https://azure.github.io/azure-sdk-for-net/appconfiguration.html
-[azure_cli]: /cli/azure
+[azure_cli]: https://learn.microsoft.com/cli/azure
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
-[configuration_client_class]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/src/ConfigurationClient.cs
-[configuration_store]: /azure/azure-app-configuration/quickstart-dotnet-core-app#create-an-app-configuration-store
-[label_concept]: /azure/azure-app-configuration/concept-key-value#label-keys
+[configuration_client_class]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/src/ConfigurationClient.cs
+[configuration_store]: https://learn.microsoft.com/azure/azure-app-configuration/quickstart-dotnet-core-app#create-an-app-configuration-store
+[label_concept]: https://learn.microsoft.com/azure/azure-app-configuration/concept-key-value#label-keys
 [nuget]: https://www.nuget.org/
 [package]: https://www.nuget.org/packages/Azure.Data.AppConfiguration/
-[samples_readme]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/README.md
+[samples_readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/README.md
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
