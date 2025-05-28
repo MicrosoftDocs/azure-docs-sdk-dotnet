@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB SDK for .NET
 description: Reference for Azure Cosmos DB SDK for .NET
-ms.date: 05/27/2025
+ms.date: 05/28/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: cosmosdb

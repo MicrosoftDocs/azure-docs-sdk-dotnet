@@ -1,10 +1,10 @@
 ---
 title: Azure Event Grid SDK for .NET
 description: Reference for Azure Event Grid SDK for .NET
-ms.date: 05/27/2025
+ms.date: 05/28/2025
 ms.topic: reference
 ms.devlang: dotnet
-ms.service: eventgrid
+ms.service: azure-event-grid
 ---
 # Azure Event Grid SDK for .NET - preview
 ## Packages - preview
