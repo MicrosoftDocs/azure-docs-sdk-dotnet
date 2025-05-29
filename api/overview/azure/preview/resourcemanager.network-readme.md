@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.Network, network
-ms.date: 05/23/2025
+ms.date: 05/29/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: network
@@ -11,7 +11,7 @@ ms.service: network
 The networking services in Microsoft Azure provide a variety of networking capabilities that can be used together or separately. Key capabilities are:
 
 - Connectivity services: Connect Azure resources and on-premises resources using any or a combination of these networking services in Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, Virtual network NAT Gateway, Azure DNS, Peering service, and Azure Bastion.
-- Application protection services: Protect your applications using any or a combination of these networking services in Azure - Load Balancer, Private Link, DDoS protection, Firewall, - Network Security Groups, Web Application Firewall, and Virtual Network Endpoints.
+- Application protection services: Protect your applications using any or a combination of these networking services in Azure - Load Balancer, Private Link, Network Security Perimeter, DDoS protection, Firewall, - Network Security Groups, Web Application Firewall, and Virtual Network Endpoints.
 - Application delivery services: Deliver applications in the Azure network using any or a combination of these networking services in Azure - Content Delivery Network (CDN), Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer, and Load Balancer.
 - Network monitoring: Monitor your network resources using any or a combination of these networking services in Azure - Network Watcher, ExpressRoute Monitor, Azure Monitor, or VNet Terminal Access Point (TAP).
 
@@ -41,7 +41,7 @@ dotnet add package Azure.ResourceManager.Network
 
 ### Authenticate the Client
 
-To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Network_1.11.0-beta.2/doc/dev/mgmt_quickstart.md).
+To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
 
 ## Key concepts
 
@@ -51,9 +51,9 @@ Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://azu
 
 Documentation is available to help you learn how to use this package:
 
-- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Network_1.11.0-beta.2/doc/dev/mgmt_quickstart.md).
+- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
 - [API References](https://learn.microsoft.com/dotnet/api/?view=azure-dotnet).
-- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Network_1.11.0-beta.2/sdk/identity/Azure.Identity/README.md).
+- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
 
 ## Examples
 
@@ -90,6 +90,6 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Network_1.11.0-beta.2/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
