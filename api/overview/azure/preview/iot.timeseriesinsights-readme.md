@@ -1,17 +1,26 @@
 ---
-title: Azure IoT Time Series Insights client library for .NET
-keywords: Azure, dotnet, SDK, API, Azure.IoT.TimeSeriesInsights,
-ms.date: 05/27/2021
+title: Azure Time Series Insights client library for .NET
+keywords: Azure, dotnet, SDK, API, Azure.IoT.TimeSeriesInsights, timeseriesinsights
+ms.date: 05/29/2025
 ms.topic: reference
 ms.devlang: dotnet
-ms.service: 
+ms.service: timeseriesinsights
 ---
-# Azure IoT Time Series Insights client library for .NET - version 1.0.0-beta.1 
+# Azure Time Series Insights client library for .NET - version 1.0.0-alpha.20250529.1 
 
 
-This library provides access to the Azure Time Series Insights service.
+---
+[//]: <> (This content is similar to https://github.com/MicrosoftDocs/azure-docs/blob/main/includes/tsi-retirement.md)
 
-  [Source code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/timeseriesinsights)
+**NOTE**
+>The Time Series Insights (TSI) service will no longer be supported after March 2025. Consider migrating existing TSI environments to alternative solutions as soon as possible. For more information on the deprecation and migration, visit our [documentation](https://aka.ms/tsi2adx).
+---
+
+Azure Time Series Insights provides data exploration and telemetry tools to help you improve operational analysis. It's a fully managed analytics, storage, and visualization service where you can explore and analyze billions of Internet of Things (IoT) events simultaneously.
+
+Azure Time Series Insights gives you a global view of your data, so you can quickly validate your IoT solution and avoid costly downtime to mission-critical devices. It can help you discover hidden trends, spot anomalies, and conduct root-cause analysis in near real time.
+
+If you are new to Azure Time Series Insights and would like to learn more about the platform, please make sure you check out the Azure Time Series Insights official [documentation page][tsi_product_documentation].
 
 ## Getting started
 
@@ -21,7 +30,13 @@ For the best development experience, developers should use the official Microsof
 
 ### Install the package
 
-No package has been published for this client library yet.
+Install the Azure Time Series Insights client library for .NET with NuGet:
+
+```dotnetcli
+dotnet add package Azure.IoT.TimeSeriesInsights --prerelease
+```
+
+View the package details at [nuget.org][tsi_nuget].
 
 ### Prerequisites
 
@@ -30,35 +45,36 @@ No package has been published for this client library yet.
 
 ### Authenticate the Client
 
-In order to interact with the Azure Time Series Insights service, you will need to create an instance of a [TokenCredential class][token_credential] and pass it to the constructor of your [TimeSeriesInsightsClient](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/src/TimeSeriesInsightsClient.cs).
+In order to interact with the Azure Time Series Insights service, you will need to create an instance of a [TokenCredential class][token_credential] and pass it to the constructor of your [TimeSeriesInsightsClient](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/src/TimeSeriesInsightsClient.cs).
 
 ## Key concepts
 
-The main concepts of Time Series Insights client include:
+The Time Series Insights client library for .NET provides the following functionality:
+- Retrieving and being able to make changes to the Time Series Insights environment model settings, such as changing the model name or default type ID.
+- Retrieving and being able to add, update and remove Time Series instances.
+- Retrieving and being able to make changes to the Time Series Insights environment types, such as creating, updating and deleting Time Series types.
+- Retrieving and being able to make changes to the Time Series Insights hierarchies, such as creating, updating and deleting Time Series hierarchies.
+- Querying raw events, computed series and aggregate series.
 
-- Instances client: To perform operations such as creating, listing, replacing and deleting Time Series instances.
-- Types client: To perform operations such as creating, listing, replacing and deleting Time Series types.
-- Hierarchies client: To perform operations such as creating, listing, replacing and deleting Time Series hierarchies.
-- Model Settings client: To perform operations such as getting and updating Time Series Model configuration settings.
-- Query client: To query for events, series and aggregate series on Time Series Insights.
+[Source Code][tsi_client_src] | [Package (NuGet)][tsi_nuget] | [Product documentation][tsi_product_documentation] | [Samples][tsi_samples]
 
 ### Thread safety
 We guarantee that all client instance methods are thread-safe and independent of each other ([guideline](https://azure.github.io/azure-sdk/dotnet_introduction.html#dotnet-service-methods-thread-safety)). This ensures that reusing client instances is always safe, even across threads.
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
-[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/core/Azure.Core/README.md#mocking) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
 
 ## Examples
 
-You can familiarize yourself with different APIs using [samples for Time Series Insights](https://github.com/Azure/azure-sdk-for-net/tree/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/samples).
+You can familiarize yourself with different APIs using [samples for Time Series Insights][tsi_samples].
 
 ## Source code folder structure
 
@@ -70,12 +86,12 @@ The Time Series Insights public client, `TimeSeriesInsightsClient`, and the addi
 
 The code generated by autorest using the swagger file defined in the autorest config file.
 
-To regenerate the code, run the powershell script [generate.ps1](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/src/generate.ps1).
+To regenerate the code, run the powershell script [generate.ps1](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/src/generate.ps1).
 
 Any time the client library code is updated, the following scripts need to be run:
 
-- [Export-AdtApis.ps1](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/timeseriesinsights/Export-TsiApis.ps1), which will update the [API surface document](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/api/Azure.IoT.TimeSeriesInsights.netstandard2.0.cs).
-- [Update-Snippets.ps1](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/timeseriesinsights/Update-TsiSnippets.ps1), which will update all the code snippets in the readme files and in the client documentation comments.
+- [Export-AdtApis.ps1](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/timeseriesinsights/Export-TsiApis.ps1), which will update the [API surface document](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/api/Azure.IoT.TimeSeriesInsights.netstandard2.0.cs).
+- [Update-Snippets.ps1](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/timeseriesinsights/Update-TsiSnippets.ps1), which will update all the code snippets in the readme files and in the client documentation comments.
 
 ### /src/Customized
 
@@ -93,7 +109,7 @@ Assembly properties required for running unit tests.
 
 ## Troubleshooting
 
-Time Series Insights service operation failures are usually returned to the user as [TimeSeriesOperationError](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/src/Generated/Models/TimeSeriesOperationError.cs). The TimeSeriesOperationError response is either returned directly by the client library API, or as a nested property within the actual response for the client library API. For example, the DeleteByName API that is part of the hierarchies client returns a TimeSeriesOperationError directly. Whereas, the Replace API that is part of the instances client returns a [InstancesOperationResult](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/src/Generated/Models/InstancesOperationResult.cs), which has a TimeSeriesOperationError property nested within it.
+Time Series Insights service operation failures are usually returned to the user as [TimeSeriesOperationError](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/src/Generated/Models/TimeSeriesOperationError.cs). The TimeSeriesOperationError response is either returned directly by the client library API, or as a nested property within the actual response for the client library API. For example, the DeleteByName API that is part of the hierarchies client returns a TimeSeriesOperationError directly. Whereas, the Replace API that is part of the instances client returns a [InstancesOperationResult](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/src/Generated/Models/InstancesOperationResult.cs), which has a TimeSeriesOperationError property nested within it.
 
 Example below shows use of TimeSeriesInsightsSampleGetTypeById operation, iterate through response error to find out if a type does not exist.
 
@@ -123,7 +139,7 @@ for (int i = 0; i < getTypeByIdResults.Value.Length; i++)
 
 ## Next steps
 
-See implementation examples with our [code samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/samples).
+See implementation examples with our [code samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/samples).
 
 ## Contributing
 
@@ -141,18 +157,21 @@ For more information see the Code of Conduct FAQ or contact opencode@microsoft.c
 <!-- LINKS -->
 [microsoft_sdk_download]: https://azure.microsoft.com/downloads/?sdk=net
 [azure_sdk_target_frameworks]: https://github.com/azure/azure-sdk-for-net#target-frameworks
-[azure_cli]: https://docs.microsoft.com/cli/azure
-[azure_sub]: https://azure.microsoft.com/free/
+[azure_cli]: https://learn.microsoft.com/cli/azure
+[azure_sub]: https://azure.microsoft.com/free/dotnet/
 [package]: https://www.nuget.org/packages/Azure.IoT.TimeSeriesInsights
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [nuget]: https://www.nuget.org/
 [azure_portal]: https://portal.azure.com/
-[azure_rest_api]: https://docs.microsoft.com/rest/api/azure/
-[azure_core_library]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/core/Azure.Core
-[token_credential]: https://docs.microsoft.com/dotnet/api/azure.core.tokencredential?view=azure-dotnet
-[azure_cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure_rest_api]: https://learn.microsoft.com/rest/api/azure/
+[azure_core_library]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core/Azure.Core
+[token_credential]: https://learn.microsoft.com/dotnet/api/azure.core.tokencredential?view=azure-dotnet
+[azure_cli]: https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [iot_cli_extension]: https://github.com/Azure/azure-iot-cli-extension/releases
-[iot_cli_doc]: https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest
-[http_status_code]: https://docs.microsoft.com/dotnet/api/system.net.httpstatuscode?view=netcore-3.1
+[iot_cli_doc]: https://learn.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest
+[http_status_code]: https://learn.microsoft.com/dotnet/api/system.net.httpstatuscode?view=netcore-3.1
 [tsi_nuget]: https://www.nuget.org/packages/Azure.IoT.TimeSeriesInsights
+[tsi_client_src]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/src
+[tsi_product_documentation]: https://learn.microsoft.com/azure/time-series-insights/
+[tsi_samples]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/samples/Readme.md
 
