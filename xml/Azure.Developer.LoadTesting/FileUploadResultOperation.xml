@@ -9,6 +9,7 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <AssemblyVersion>1.0.1.0</AssemblyVersion>
     <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>Azure.Operation&lt;System.BinaryData&gt;</BaseTypeName>
@@ -19,7 +20,7 @@
   <Interfaces />
   <Docs>
     <summary>
-            FileUploadResultOperation.
+            Represents a long-running operation for uploading a file to a test.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>
@@ -33,11 +34,13 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
         <summary>
-            FileUploadOperation.
+            Initializes a new instance of the <see cref="T:Azure.Developer.LoadTesting.FileUploadResultOperation" /> class. This constructor
+            is intended to be used for mocking only.
             </summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -52,6 +55,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="testId" Type="System.String" />
@@ -60,12 +64,13 @@
         <Parameter Name="initialResponse" Type="Azure.Response" />
       </Parameters>
       <Docs>
-        <param name="testId">To be added.</param>
-        <param name="fileName">To be added.</param>
-        <param name="client">To be added.</param>
-        <param name="initialResponse">To be added.</param>
+        <param name="testId">The ID of the test.</param>
+        <param name="fileName">The name of the file uploaded.</param>
+        <param name="client">An instance of the Load Test Administration Client.</param>
+        <param name="initialResponse">The initial response from the server.</param>
         <summary>
-            FileUploadOperation.
+            Initializes a new instance of the <see cref="T:Azure.Developer.LoadTesting.FileUploadResultOperation" /> class which
+            tracks the status of a long-running operation for uploading a file to a test.
             </summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -80,6 +85,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response</ReturnType>
@@ -87,10 +93,14 @@
       <Parameters />
       <Docs>
         <summary>
-            GetRawResponse.
+            The last HTTP response received from the server.
             </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+            The last response returned from the server during the lifecycle of this instance.
+            An instance of <see cref="T:Azure.Developer.LoadTesting.FileUploadResultOperation" /> sends requests to a server in UpdateStatusAsync, UpdateStatus, and other methods.
+            Responses from these requests can be accessed using GetRawResponse.
+            </remarks>
       </Docs>
     </Member>
     <Member MemberName="HasCompleted">
@@ -103,13 +113,14 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
-            HasCompleted
+            Returns true if the long-running operation completed.
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
@@ -125,13 +136,14 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
-            HasValue
+            Returns true if the long-running operation completed successfully and has produced final result (accessible by Value property).
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
@@ -147,13 +159,15 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
-            Id.
+            Gets an ID representing the operation that can be used to poll for the status
+            of the long-running operation.
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
@@ -169,6 +183,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response</ReturnType>
@@ -177,12 +192,14 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="cancellationToken">To be added.</param>
+        <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> used for the service call.</param>
         <summary>
-            UpdateStatus.
+            Calls the server to get updated status of the long-running operation.
             </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>The HTTP response received from the server.</returns>
+        <remarks>
+            This operation will update the value returned from GetRawResponse and might update HasCompleted, HasValue, and Value.
+            </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateStatusAsync">
@@ -195,6 +212,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.ValueTask&lt;Azure.Response&gt;</ReturnType>
@@ -203,12 +221,14 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="cancellationToken">To be added.</param>
+        <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> used for the service call.</param>
         <summary>
-            UpdateStatusAsync.
+            Calls the server to get updated status of the long-running operation.
             </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>The HTTP response received from the server.</returns>
+        <remarks>
+            This operation will update the value returned from GetRawResponse and might update HasCompleted, HasValue, and Value.
+            </remarks>
       </Docs>
     </Member>
     <Member MemberName="Value">
@@ -221,16 +241,19 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.BinaryData</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
-            Value.
+            Final result of the long-running operation.
             </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+            This property can be accessed only after the operation completes successfully (HasValue is true).
+            </remarks>
       </Docs>
     </Member>
   </Members>

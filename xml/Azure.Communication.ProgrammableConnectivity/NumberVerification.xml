@@ -65,11 +65,11 @@
       </Docs>
     </Member>
     <Member MemberName="VerifyWithCode">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NumberVerificationResult&gt; VerifyWithCode (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent numberVerificationWithCodeContent, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.NumberVerificationResult&gt; VerifyWithCode(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent numberVerificationWithCodeContent, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NumberVerificationResult&gt; VerifyWithCode (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent body, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.NumberVerificationResult&gt; VerifyWithCode(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent body, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Communication.ProgrammableConnectivity.NumberVerification.VerifyWithCode(System.String,Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function VerifyWithCode (apcGatewayId As String, numberVerificationWithCodeContent As NumberVerificationWithCodeContent, Optional cancellationToken As CancellationToken = Nothing) As Response(Of NumberVerificationResult)" />
-      <MemberSignature Language="F#" Value="abstract member VerifyWithCode : string * Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NumberVerificationResult&gt;&#xA;override this.VerifyWithCode : string * Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NumberVerificationResult&gt;" Usage="numberVerification.VerifyWithCode (apcGatewayId, numberVerificationWithCodeContent, cancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function VerifyWithCode (apcGatewayId As String, body As NumberVerificationWithCodeContent, Optional cancellationToken As CancellationToken = Nothing) As Response(Of NumberVerificationResult)" />
+      <MemberSignature Language="F#" Value="abstract member VerifyWithCode : string * Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NumberVerificationResult&gt;&#xA;override this.VerifyWithCode : string * Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NumberVerificationResult&gt;" Usage="numberVerification.VerifyWithCode (apcGatewayId, body, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Communication.ProgrammableConnectivity</AssemblyName>
@@ -80,36 +80,27 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="apcGatewayId" Type="System.String" />
-        <Parameter Name="numberVerificationWithCodeContent" Type="Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent" />
+        <Parameter Name="body" Type="Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="apcGatewayId"> The identifier of the APC Gateway resource which should handle this request. </param>
-        <param name="numberVerificationWithCodeContent"> Request to verify number of device - second call. </param>
+        <param name="body"> Body parameter. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary> Verifies the phone number (MSISDN) associated with a device. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="apcGatewayId" /> or <paramref name="numberVerificationWithCodeContent" /> is null. </exception>
+          <paramref name="apcGatewayId" /> or <paramref name="body" /> is null. </exception>
         <example>
 This sample shows how to call VerifyWithCode.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 NumberVerification client = new ProgrammableConnectivityClient(endpoint, credential).GetNumberVerificationClient(apiVersion: "2024-02-09-preview");
 
-NumberVerificationWithCodeContent numberVerificationWithCodeContent = new NumberVerificationWithCodeContent("<apcCode>");
-Response<NumberVerificationResult> response = client.VerifyWithCode("<apcGatewayId>", numberVerificationWithCodeContent);
-]]></code>
-This sample shows how to call VerifyWithCode with all parameters.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-NumberVerification client = new ProgrammableConnectivityClient(endpoint, credential).GetNumberVerificationClient(apiVersion: "2024-02-09-preview");
-
-NumberVerificationWithCodeContent numberVerificationWithCodeContent = new NumberVerificationWithCodeContent("<apcCode>");
-Response<NumberVerificationResult> response = client.VerifyWithCode("<apcGatewayId>", numberVerificationWithCodeContent);
+NumberVerificationWithCodeContent body = new NumberVerificationWithCodeContent("yn");
+Response<NumberVerificationResult> response = client.VerifyWithCode("zdgrzzaxlodrvewbksn", body);
 ]]></code></example>
       </Docs>
     </Member>
@@ -151,30 +142,15 @@ Response<NumberVerificationResult> response = client.VerifyWithCode("<apcGateway
         <example>
 This sample shows how to call VerifyWithCode and parse the result.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 NumberVerification client = new ProgrammableConnectivityClient(endpoint, credential).GetNumberVerificationClient(apiVersion: "2024-02-09-preview");
 
 using RequestContent content = RequestContent.Create(new
 {
-    apcCode = "<apcCode>",
+    apcCode = "yn",
 });
-Response response = client.VerifyWithCode("<apcGatewayId>", content);
-
-JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-Console.WriteLine(result.GetProperty("verificationResult").ToString());
-]]></code>
-This sample shows how to call VerifyWithCode with all parameters and request content and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-NumberVerification client = new ProgrammableConnectivityClient(endpoint, credential).GetNumberVerificationClient(apiVersion: "2024-02-09-preview");
-
-using RequestContent content = RequestContent.Create(new
-{
-    apcCode = "<apcCode>",
-});
-Response response = client.VerifyWithCode("<apcGatewayId>", content);
+Response response = client.VerifyWithCode("zdgrzzaxlodrvewbksn", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("verificationResult").ToString());
@@ -182,11 +158,11 @@ Console.WriteLine(result.GetProperty("verificationResult").ToString());
       </Docs>
     </Member>
     <Member MemberName="VerifyWithCodeAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NumberVerificationResult&gt;&gt; VerifyWithCodeAsync (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent numberVerificationWithCodeContent, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.NumberVerificationResult&gt;&gt; VerifyWithCodeAsync(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent numberVerificationWithCodeContent, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NumberVerificationResult&gt;&gt; VerifyWithCodeAsync (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent body, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.NumberVerificationResult&gt;&gt; VerifyWithCodeAsync(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent body, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Communication.ProgrammableConnectivity.NumberVerification.VerifyWithCodeAsync(System.String,Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function VerifyWithCodeAsync (apcGatewayId As String, numberVerificationWithCodeContent As NumberVerificationWithCodeContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of NumberVerificationResult))" />
-      <MemberSignature Language="F#" Value="abstract member VerifyWithCodeAsync : string * Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NumberVerificationResult&gt;&gt;&#xA;override this.VerifyWithCodeAsync : string * Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NumberVerificationResult&gt;&gt;" Usage="numberVerification.VerifyWithCodeAsync (apcGatewayId, numberVerificationWithCodeContent, cancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function VerifyWithCodeAsync (apcGatewayId As String, body As NumberVerificationWithCodeContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of NumberVerificationResult))" />
+      <MemberSignature Language="F#" Value="abstract member VerifyWithCodeAsync : string * Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NumberVerificationResult&gt;&gt;&#xA;override this.VerifyWithCodeAsync : string * Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NumberVerificationResult&gt;&gt;" Usage="numberVerification.VerifyWithCodeAsync (apcGatewayId, body, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Communication.ProgrammableConnectivity</AssemblyName>
@@ -197,36 +173,27 @@ Console.WriteLine(result.GetProperty("verificationResult").ToString());
       </ReturnValue>
       <Parameters>
         <Parameter Name="apcGatewayId" Type="System.String" />
-        <Parameter Name="numberVerificationWithCodeContent" Type="Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent" />
+        <Parameter Name="body" Type="Azure.Communication.ProgrammableConnectivity.NumberVerificationWithCodeContent" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="apcGatewayId"> The identifier of the APC Gateway resource which should handle this request. </param>
-        <param name="numberVerificationWithCodeContent"> Request to verify number of device - second call. </param>
+        <param name="body"> Body parameter. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary> Verifies the phone number (MSISDN) associated with a device. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="apcGatewayId" /> or <paramref name="numberVerificationWithCodeContent" /> is null. </exception>
+          <paramref name="apcGatewayId" /> or <paramref name="body" /> is null. </exception>
         <example>
 This sample shows how to call VerifyWithCodeAsync.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 NumberVerification client = new ProgrammableConnectivityClient(endpoint, credential).GetNumberVerificationClient(apiVersion: "2024-02-09-preview");
 
-NumberVerificationWithCodeContent numberVerificationWithCodeContent = new NumberVerificationWithCodeContent("<apcCode>");
-Response<NumberVerificationResult> response = await client.VerifyWithCodeAsync("<apcGatewayId>", numberVerificationWithCodeContent);
-]]></code>
-This sample shows how to call VerifyWithCodeAsync with all parameters.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-NumberVerification client = new ProgrammableConnectivityClient(endpoint, credential).GetNumberVerificationClient(apiVersion: "2024-02-09-preview");
-
-NumberVerificationWithCodeContent numberVerificationWithCodeContent = new NumberVerificationWithCodeContent("<apcCode>");
-Response<NumberVerificationResult> response = await client.VerifyWithCodeAsync("<apcGatewayId>", numberVerificationWithCodeContent);
+NumberVerificationWithCodeContent body = new NumberVerificationWithCodeContent("yn");
+Response<NumberVerificationResult> response = await client.VerifyWithCodeAsync("zdgrzzaxlodrvewbksn", body);
 ]]></code></example>
       </Docs>
     </Member>
@@ -268,30 +235,15 @@ Response<NumberVerificationResult> response = await client.VerifyWithCodeAsync("
         <example>
 This sample shows how to call VerifyWithCodeAsync and parse the result.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 NumberVerification client = new ProgrammableConnectivityClient(endpoint, credential).GetNumberVerificationClient(apiVersion: "2024-02-09-preview");
 
 using RequestContent content = RequestContent.Create(new
 {
-    apcCode = "<apcCode>",
+    apcCode = "yn",
 });
-Response response = await client.VerifyWithCodeAsync("<apcGatewayId>", content);
-
-JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-Console.WriteLine(result.GetProperty("verificationResult").ToString());
-]]></code>
-This sample shows how to call VerifyWithCodeAsync with all parameters and request content and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-NumberVerification client = new ProgrammableConnectivityClient(endpoint, credential).GetNumberVerificationClient(apiVersion: "2024-02-09-preview");
-
-using RequestContent content = RequestContent.Create(new
-{
-    apcCode = "<apcCode>",
-});
-Response response = await client.VerifyWithCodeAsync("<apcGatewayId>", content);
+Response response = await client.VerifyWithCodeAsync("zdgrzzaxlodrvewbksn", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("verificationResult").ToString());
@@ -329,25 +281,16 @@ Console.WriteLine(result.GetProperty("verificationResult").ToString());
         <example>
 This sample shows how to call VerifyWithoutCode.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 NumberVerification client = new ProgrammableConnectivityClient(endpoint, credential).GetNumberVerificationClient(apiVersion: "2024-02-09-preview");
 
-NumberVerificationWithoutCodeContent numberVerificationWithoutCodeContent = new NumberVerificationWithoutCodeContent(new NetworkIdentifier("<identifierType>", "<identifier>"), new Uri("http://localhost:3000"));
-Response response = client.VerifyWithoutCode("<apcGatewayId>", numberVerificationWithoutCodeContent);
-]]></code>
-This sample shows how to call VerifyWithoutCode with all parameters.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-NumberVerification client = new ProgrammableConnectivityClient(endpoint, credential).GetNumberVerificationClient(apiVersion: "2024-02-09-preview");
-
-NumberVerificationWithoutCodeContent numberVerificationWithoutCodeContent = new NumberVerificationWithoutCodeContent(new NetworkIdentifier("<identifierType>", "<identifier>"), new Uri("http://localhost:3000"))
+NumberVerificationWithoutCodeContent body = new NumberVerificationWithoutCodeContent(new NetworkIdentifier("ipv4", "12.12.12.12"), new Uri("https://www.contoso.com"))
 {
-    PhoneNumber = "<phoneNumber>",
-    HashedPhoneNumber = "<hashedPhoneNumber>",
+    PhoneNumber = "+14424318793",
+    HashedPhoneNumber = "bwsl",
 };
-Response response = client.VerifyWithoutCode("<apcGatewayId>", numberVerificationWithoutCodeContent);
+Response response = client.VerifyWithoutCode("zdgrzzaxlodrvewbksn", body);
 ]]></code></example>
       </Docs>
     </Member>
@@ -389,7 +332,7 @@ Response response = client.VerifyWithoutCode("<apcGatewayId>", numberVerificatio
         <example>
 This sample shows how to call VerifyWithoutCode.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 NumberVerification client = new ProgrammableConnectivityClient(endpoint, credential).GetNumberVerificationClient(apiVersion: "2024-02-09-preview");
 
@@ -397,33 +340,14 @@ using RequestContent content = RequestContent.Create(new
 {
     networkIdentifier = new
     {
-        identifierType = "<identifierType>",
-        identifier = "<identifier>",
+        identifierType = "ipv4",
+        identifier = "12.12.12.12",
     },
-    redirectUri = "http://localhost:3000",
+    phoneNumber = "+14424318793",
+    hashedPhoneNumber = "bwsl",
+    redirectUri = "https://www.contoso.com",
 });
-Response response = client.VerifyWithoutCode("<apcGatewayId>", content);
-
-Console.WriteLine(response.Status);
-]]></code>
-This sample shows how to call VerifyWithoutCode with all parameters and request content.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-NumberVerification client = new ProgrammableConnectivityClient(endpoint, credential).GetNumberVerificationClient(apiVersion: "2024-02-09-preview");
-
-using RequestContent content = RequestContent.Create(new
-{
-    networkIdentifier = new
-    {
-        identifierType = "<identifierType>",
-        identifier = "<identifier>",
-    },
-    phoneNumber = "<phoneNumber>",
-    hashedPhoneNumber = "<hashedPhoneNumber>",
-    redirectUri = "http://localhost:3000",
-});
-Response response = client.VerifyWithoutCode("<apcGatewayId>", content);
+Response response = client.VerifyWithoutCode("zdgrzzaxlodrvewbksn", content);
 
 Console.WriteLine(response.Status);
 ]]></code></example>
@@ -460,25 +384,16 @@ Console.WriteLine(response.Status);
         <example>
 This sample shows how to call VerifyWithoutCodeAsync.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 NumberVerification client = new ProgrammableConnectivityClient(endpoint, credential).GetNumberVerificationClient(apiVersion: "2024-02-09-preview");
 
-NumberVerificationWithoutCodeContent numberVerificationWithoutCodeContent = new NumberVerificationWithoutCodeContent(new NetworkIdentifier("<identifierType>", "<identifier>"), new Uri("http://localhost:3000"));
-Response response = await client.VerifyWithoutCodeAsync("<apcGatewayId>", numberVerificationWithoutCodeContent);
-]]></code>
-This sample shows how to call VerifyWithoutCodeAsync with all parameters.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-NumberVerification client = new ProgrammableConnectivityClient(endpoint, credential).GetNumberVerificationClient(apiVersion: "2024-02-09-preview");
-
-NumberVerificationWithoutCodeContent numberVerificationWithoutCodeContent = new NumberVerificationWithoutCodeContent(new NetworkIdentifier("<identifierType>", "<identifier>"), new Uri("http://localhost:3000"))
+NumberVerificationWithoutCodeContent body = new NumberVerificationWithoutCodeContent(new NetworkIdentifier("ipv4", "12.12.12.12"), new Uri("https://www.contoso.com"))
 {
-    PhoneNumber = "<phoneNumber>",
-    HashedPhoneNumber = "<hashedPhoneNumber>",
+    PhoneNumber = "+14424318793",
+    HashedPhoneNumber = "bwsl",
 };
-Response response = await client.VerifyWithoutCodeAsync("<apcGatewayId>", numberVerificationWithoutCodeContent);
+Response response = await client.VerifyWithoutCodeAsync("zdgrzzaxlodrvewbksn", body);
 ]]></code></example>
       </Docs>
     </Member>
@@ -520,7 +435,7 @@ Response response = await client.VerifyWithoutCodeAsync("<apcGatewayId>", number
         <example>
 This sample shows how to call VerifyWithoutCodeAsync.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 NumberVerification client = new ProgrammableConnectivityClient(endpoint, credential).GetNumberVerificationClient(apiVersion: "2024-02-09-preview");
 
@@ -528,33 +443,14 @@ using RequestContent content = RequestContent.Create(new
 {
     networkIdentifier = new
     {
-        identifierType = "<identifierType>",
-        identifier = "<identifier>",
+        identifierType = "ipv4",
+        identifier = "12.12.12.12",
     },
-    redirectUri = "http://localhost:3000",
+    phoneNumber = "+14424318793",
+    hashedPhoneNumber = "bwsl",
+    redirectUri = "https://www.contoso.com",
 });
-Response response = await client.VerifyWithoutCodeAsync("<apcGatewayId>", content);
-
-Console.WriteLine(response.Status);
-]]></code>
-This sample shows how to call VerifyWithoutCodeAsync with all parameters and request content.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-NumberVerification client = new ProgrammableConnectivityClient(endpoint, credential).GetNumberVerificationClient(apiVersion: "2024-02-09-preview");
-
-using RequestContent content = RequestContent.Create(new
-{
-    networkIdentifier = new
-    {
-        identifierType = "<identifierType>",
-        identifier = "<identifier>",
-    },
-    phoneNumber = "<phoneNumber>",
-    hashedPhoneNumber = "<hashedPhoneNumber>",
-    redirectUri = "http://localhost:3000",
-});
-Response response = await client.VerifyWithoutCodeAsync("<apcGatewayId>", content);
+Response response = await client.VerifyWithoutCodeAsync("zdgrzzaxlodrvewbksn", content);
 
 Console.WriteLine(response.Status);
 ]]></code></example>

@@ -54,10 +54,14 @@
       </Parameters>
       <Docs>
         <param name="seasonId"> Id of the season resource. </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Creates or updates a season resource. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Creates or updates a season resource.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the request and response payloads.
 
@@ -118,24 +122,26 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="seasonId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateOrUpdate with required parameters and parse the result.
+This sample shows how to call CreateOrUpdate and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetSeasonsClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Seasons client = new FarmBeatsClient(endpoint, credential).GetSeasonsClient();
 
-var data = new {};
-
-Response response = client.CreateOrUpdate("<seasonId>", RequestContent.Create(data));
+using RequestContent content = RequestContent.Create(new object());
+Response response = client.CreateOrUpdate("<seasonId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.ToString());
 ]]></code>
-This sample shows how to call CreateOrUpdate with all parameters and request content, and how to parse the result.
+This sample shows how to call CreateOrUpdate with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetSeasonsClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Seasons client = new FarmBeatsClient(endpoint, credential).GetSeasonsClient();
 
-var data = new {
+using RequestContent content = RequestContent.Create(new
+{
     startDateTime = "2022-05-10T18:57:31.2311892Z",
     endDateTime = "2022-05-10T18:57:31.2311892Z",
     year = 1234,
@@ -144,12 +150,12 @@ var data = new {
     source = "<source>",
     name = "<name>",
     description = "<description>",
-    properties = new {
-        key = new {},
+    properties = new
+    {
+        key = new object(),
     },
-};
-
-Response response = client.CreateOrUpdate("<seasonId>", RequestContent.Create(data));
+});
+Response response = client.CreateOrUpdate("<seasonId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("startDateTime").ToString());
@@ -166,7 +172,7 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
@@ -191,10 +197,14 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
       </Parameters>
       <Docs>
         <param name="seasonId"> Id of the season resource. </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Creates or updates a season resource. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Creates or updates a season resource.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the request and response payloads.
 
@@ -255,24 +265,26 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="seasonId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateOrUpdateAsync with required parameters and parse the result.
+This sample shows how to call CreateOrUpdateAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetSeasonsClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Seasons client = new FarmBeatsClient(endpoint, credential).GetSeasonsClient();
 
-var data = new {};
-
-Response response = await client.CreateOrUpdateAsync("<seasonId>", RequestContent.Create(data));
+using RequestContent content = RequestContent.Create(new object());
+Response response = await client.CreateOrUpdateAsync("<seasonId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.ToString());
 ]]></code>
-This sample shows how to call CreateOrUpdateAsync with all parameters and request content, and how to parse the result.
+This sample shows how to call CreateOrUpdateAsync with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetSeasonsClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Seasons client = new FarmBeatsClient(endpoint, credential).GetSeasonsClient();
 
-var data = new {
+using RequestContent content = RequestContent.Create(new
+{
     startDateTime = "2022-05-10T18:57:31.2311892Z",
     endDateTime = "2022-05-10T18:57:31.2311892Z",
     year = 1234,
@@ -281,12 +293,12 @@ var data = new {
     source = "<source>",
     name = "<name>",
     description = "<description>",
-    properties = new {
-        key = new {},
+    properties = new
+    {
+        key = new object(),
     },
-};
-
-Response response = await client.CreateOrUpdateAsync("<seasonId>", RequestContent.Create(data));
+});
+Response response = await client.CreateOrUpdateAsync("<seasonId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("startDateTime").ToString());
@@ -303,7 +315,7 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
@@ -328,7 +340,11 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
       <Docs>
         <param name="seasonId"> Id of the season. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Deletes a specified season resource. </summary>
+        <summary>
+            [Protocol Method] Deletes a specified season resource.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -337,12 +353,24 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
           <paramref name="seasonId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call Delete with required parameters.
+This sample shows how to call Delete.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetSeasonsClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Seasons client = new FarmBeatsClient(endpoint, credential).GetSeasonsClient();
 
 Response response = client.Delete("<seasonId>");
+
+Console.WriteLine(response.Status);
+]]></code>
+This sample shows how to call Delete with all parameters.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Seasons client = new FarmBeatsClient(endpoint, credential).GetSeasonsClient();
+
+Response response = client.Delete("<seasonId>");
+
 Console.WriteLine(response.Status);
 ]]></code></example>
       </Docs>
@@ -368,7 +396,11 @@ Console.WriteLine(response.Status);
       <Docs>
         <param name="seasonId"> Id of the season. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Deletes a specified season resource. </summary>
+        <summary>
+            [Protocol Method] Deletes a specified season resource.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -377,21 +409,33 @@ Console.WriteLine(response.Status);
           <paramref name="seasonId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call DeleteAsync with required parameters.
+This sample shows how to call DeleteAsync.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetSeasonsClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Seasons client = new FarmBeatsClient(endpoint, credential).GetSeasonsClient();
 
 Response response = await client.DeleteAsync("<seasonId>");
+
+Console.WriteLine(response.Status);
+]]></code>
+This sample shows how to call DeleteAsync with all parameters.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Seasons client = new FarmBeatsClient(endpoint, credential).GetSeasonsClient();
+
+Response response = await client.DeleteAsync("<seasonId>");
+
 Console.WriteLine(response.Status);
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetSeason">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetSeason (string seasonId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetSeason (string seasonId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetSeason(string seasonId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Seasons.GetSeason(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetSeason (seasonId As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetSeason (seasonId As String, context As RequestContext) As Response" />
       <MemberSignature Language="F#" Value="abstract member GetSeason : string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetSeason : string * Azure.RequestContext -&gt; Azure.Response" Usage="seasons.GetSeason (seasonId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -408,8 +452,12 @@ Console.WriteLine(response.Status);
       <Docs>
         <param name="seasonId"> Id of the season. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Gets a specified season resource. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Gets a specified season resource.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -444,12 +492,24 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="seasonId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetSeason with required parameters and parse the result.
+This sample shows how to call GetSeason and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetSeasonsClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Seasons client = new FarmBeatsClient(endpoint, credential).GetSeasonsClient();
 
-Response response = client.GetSeason("<seasonId>");
+Response response = client.GetSeason("<seasonId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetSeason with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Seasons client = new FarmBeatsClient(endpoint, credential).GetSeasonsClient();
+
+Response response = client.GetSeason("<seasonId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("startDateTime").ToString());
@@ -466,15 +526,15 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetSeasonAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetSeasonAsync (string seasonId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetSeasonAsync (string seasonId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetSeasonAsync(string seasonId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Seasons.GetSeasonAsync(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetSeasonAsync (seasonId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetSeasonAsync (seasonId As String, context As RequestContext) As Task(Of Response)" />
       <MemberSignature Language="F#" Value="abstract member GetSeasonAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetSeasonAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="seasons.GetSeasonAsync (seasonId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -491,8 +551,12 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
       <Docs>
         <param name="seasonId"> Id of the season. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Gets a specified season resource. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Gets a specified season resource.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -527,12 +591,24 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="seasonId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetSeasonAsync with required parameters and parse the result.
+This sample shows how to call GetSeasonAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetSeasonsClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Seasons client = new FarmBeatsClient(endpoint, credential).GetSeasonsClient();
 
-Response response = await client.GetSeasonAsync("<seasonId>");
+Response response = await client.GetSeasonAsync("<seasonId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetSeasonAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Seasons client = new FarmBeatsClient(endpoint, credential).GetSeasonsClient();
+
+Response response = await client.GetSeasonAsync("<seasonId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("startDateTime").ToString());
@@ -549,15 +625,15 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetSeasons">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetSeasons (DateTimeOffset? minStartDateTime = default, DateTimeOffset? maxStartDateTime = default, DateTimeOffset? minEndDateTime = default, DateTimeOffset? maxEndDateTime = default, System.Collections.Generic.IEnumerable&lt;int&gt; years = default, System.Collections.Generic.IEnumerable&lt;string&gt; seasonIds = default, System.Collections.Generic.IEnumerable&lt;string&gt; names = default, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters = default, System.Collections.Generic.IEnumerable&lt;string&gt; statuses = default, DateTimeOffset? minCreatedDateTime = default, DateTimeOffset? maxCreatedDateTime = default, DateTimeOffset? minLastModifiedDateTime = default, DateTimeOffset? maxLastModifiedDateTime = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetSeasons (DateTimeOffset? minStartDateTime, DateTimeOffset? maxStartDateTime, DateTimeOffset? minEndDateTime, DateTimeOffset? maxEndDateTime, System.Collections.Generic.IEnumerable&lt;int&gt; years, System.Collections.Generic.IEnumerable&lt;string&gt; seasonIds, System.Collections.Generic.IEnumerable&lt;string&gt; names, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters, System.Collections.Generic.IEnumerable&lt;string&gt; statuses, DateTimeOffset? minCreatedDateTime, DateTimeOffset? maxCreatedDateTime, DateTimeOffset? minLastModifiedDateTime, DateTimeOffset? maxLastModifiedDateTime, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetSeasons(valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minStartDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxStartDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minEndDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxEndDateTime, class System.Collections.Generic.IEnumerable`1&lt;int32&gt; years, class System.Collections.Generic.IEnumerable`1&lt;string&gt; seasonIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; names, class System.Collections.Generic.IEnumerable`1&lt;string&gt; propertyFilters, class System.Collections.Generic.IEnumerable`1&lt;string&gt; statuses, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minLastModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxLastModifiedDateTime, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Seasons.GetSeasons(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetSeasons (Optional minStartDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxStartDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minEndDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxEndDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional years As IEnumerable(Of Integer) = Nothing, Optional seasonIds As IEnumerable(Of String) = Nothing, Optional names As IEnumerable(Of String) = Nothing, Optional propertyFilters As IEnumerable(Of String) = Nothing, Optional statuses As IEnumerable(Of String) = Nothing, Optional minCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetSeasons (minStartDateTime As Nullable(Of DateTimeOffset), maxStartDateTime As Nullable(Of DateTimeOffset), minEndDateTime As Nullable(Of DateTimeOffset), maxEndDateTime As Nullable(Of DateTimeOffset), years As IEnumerable(Of Integer), seasonIds As IEnumerable(Of String), names As IEnumerable(Of String), propertyFilters As IEnumerable(Of String), statuses As IEnumerable(Of String), minCreatedDateTime As Nullable(Of DateTimeOffset), maxCreatedDateTime As Nullable(Of DateTimeOffset), minLastModifiedDateTime As Nullable(Of DateTimeOffset), maxLastModifiedDateTime As Nullable(Of DateTimeOffset), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As Pageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetSeasons : Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;int&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetSeasons : Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;int&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="seasons.GetSeasons (minStartDateTime, maxStartDateTime, minEndDateTime, maxEndDateTime, years, seasonIds, names, propertyFilters, statuses, minCreatedDateTime, maxCreatedDateTime, minLastModifiedDateTime, maxLastModifiedDateTime, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -608,7 +684,11 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of season resources. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of season resources.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -642,23 +722,25 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
         <example>
 This sample shows how to call GetSeasons and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetSeasonsClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Seasons client = new FarmBeatsClient(endpoint, credential).GetSeasonsClient();
 
-foreach (var data in client.GetSeasons())
+foreach (BinaryData item in client.GetSeasons(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetSeasons with all parameters, and how to parse the result.
+This sample shows how to call GetSeasons with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetSeasonsClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Seasons client = new FarmBeatsClient(endpoint, credential).GetSeasonsClient();
 
-foreach (var data in client.GetSeasons(DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, new Int32[]{1234}, new String[]{"<seasonIds>"}, new String[]{"<names>"}, new String[]{"<propertyFilters>"}, new String[]{"<statuses>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, "<skipToken>"))
+foreach (BinaryData item in client.GetSeasons(DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), new int[] { 1234 }, new string[] { "<seasonIds>" }, new string[] { "<names>" }, new string[] { "<propertyFilters>" }, new string[] { "<statuses>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("startDateTime").ToString());
     Console.WriteLine(result.GetProperty("endDateTime").ToString());
     Console.WriteLine(result.GetProperty("year").ToString());
@@ -673,16 +755,16 @@ foreach (var data in client.GetSeasons(DateTimeOffset.UtcNow, DateTimeOffset.Utc
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetSeasonsAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetSeasonsAsync (DateTimeOffset? minStartDateTime = default, DateTimeOffset? maxStartDateTime = default, DateTimeOffset? minEndDateTime = default, DateTimeOffset? maxEndDateTime = default, System.Collections.Generic.IEnumerable&lt;int&gt; years = default, System.Collections.Generic.IEnumerable&lt;string&gt; seasonIds = default, System.Collections.Generic.IEnumerable&lt;string&gt; names = default, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters = default, System.Collections.Generic.IEnumerable&lt;string&gt; statuses = default, DateTimeOffset? minCreatedDateTime = default, DateTimeOffset? maxCreatedDateTime = default, DateTimeOffset? minLastModifiedDateTime = default, DateTimeOffset? maxLastModifiedDateTime = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetSeasonsAsync (DateTimeOffset? minStartDateTime, DateTimeOffset? maxStartDateTime, DateTimeOffset? minEndDateTime, DateTimeOffset? maxEndDateTime, System.Collections.Generic.IEnumerable&lt;int&gt; years, System.Collections.Generic.IEnumerable&lt;string&gt; seasonIds, System.Collections.Generic.IEnumerable&lt;string&gt; names, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters, System.Collections.Generic.IEnumerable&lt;string&gt; statuses, DateTimeOffset? minCreatedDateTime, DateTimeOffset? maxCreatedDateTime, DateTimeOffset? minLastModifiedDateTime, DateTimeOffset? maxLastModifiedDateTime, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetSeasonsAsync(valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minStartDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxStartDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minEndDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxEndDateTime, class System.Collections.Generic.IEnumerable`1&lt;int32&gt; years, class System.Collections.Generic.IEnumerable`1&lt;string&gt; seasonIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; names, class System.Collections.Generic.IEnumerable`1&lt;string&gt; propertyFilters, class System.Collections.Generic.IEnumerable`1&lt;string&gt; statuses, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minLastModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxLastModifiedDateTime, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Seasons.GetSeasonsAsync(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetSeasonsAsync (Optional minStartDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxStartDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minEndDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxEndDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional years As IEnumerable(Of Integer) = Nothing, Optional seasonIds As IEnumerable(Of String) = Nothing, Optional names As IEnumerable(Of String) = Nothing, Optional propertyFilters As IEnumerable(Of String) = Nothing, Optional statuses As IEnumerable(Of String) = Nothing, Optional minCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetSeasonsAsync (minStartDateTime As Nullable(Of DateTimeOffset), maxStartDateTime As Nullable(Of DateTimeOffset), minEndDateTime As Nullable(Of DateTimeOffset), maxEndDateTime As Nullable(Of DateTimeOffset), years As IEnumerable(Of Integer), seasonIds As IEnumerable(Of String), names As IEnumerable(Of String), propertyFilters As IEnumerable(Of String), statuses As IEnumerable(Of String), minCreatedDateTime As Nullable(Of DateTimeOffset), maxCreatedDateTime As Nullable(Of DateTimeOffset), minLastModifiedDateTime As Nullable(Of DateTimeOffset), maxLastModifiedDateTime As Nullable(Of DateTimeOffset), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As AsyncPageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetSeasonsAsync : Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;int&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetSeasonsAsync : Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;int&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="seasons.GetSeasonsAsync (minStartDateTime, maxStartDateTime, minEndDateTime, maxEndDateTime, years, seasonIds, names, propertyFilters, statuses, minCreatedDateTime, maxCreatedDateTime, minLastModifiedDateTime, maxLastModifiedDateTime, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -733,7 +815,11 @@ foreach (var data in client.GetSeasons(DateTimeOffset.UtcNow, DateTimeOffset.Utc
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of season resources. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of season resources.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -767,23 +853,25 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
         <example>
 This sample shows how to call GetSeasonsAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetSeasonsClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Seasons client = new FarmBeatsClient(endpoint, credential).GetSeasonsClient();
 
-await foreach (var data in client.GetSeasonsAsync())
+await foreach (BinaryData item in client.GetSeasonsAsync(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetSeasonsAsync with all parameters, and how to parse the result.
+This sample shows how to call GetSeasonsAsync with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetSeasonsClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Seasons client = new FarmBeatsClient(endpoint, credential).GetSeasonsClient();
 
-await foreach (var data in client.GetSeasonsAsync(DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, new Int32[]{1234}, new String[]{"<seasonIds>"}, new String[]{"<names>"}, new String[]{"<propertyFilters>"}, new String[]{"<statuses>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, "<skipToken>"))
+await foreach (BinaryData item in client.GetSeasonsAsync(DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), new int[] { 1234 }, new string[] { "<seasonIds>" }, new string[] { "<names>" }, new string[] { "<propertyFilters>" }, new string[] { "<statuses>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("startDateTime").ToString());
     Console.WriteLine(result.GetProperty("endDateTime").ToString());
     Console.WriteLine(result.GetProperty("year").ToString());
@@ -798,7 +886,7 @@ await foreach (var data in client.GetSeasonsAsync(DateTimeOffset.UtcNow, DateTim
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>

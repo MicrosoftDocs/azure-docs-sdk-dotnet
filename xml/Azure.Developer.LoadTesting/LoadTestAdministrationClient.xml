@@ -9,6 +9,7 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <AssemblyVersion>1.0.1.0</AssemblyVersion>
     <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
@@ -28,6 +29,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
@@ -45,13 +47,14 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="endpoint" Type="System.Uri" />
         <Parameter Name="credential" Type="Azure.Core.TokenCredential" />
       </Parameters>
       <Docs>
-        <param name="endpoint"> URL to perform data plane API operations on the resource. </param>
+        <param name="endpoint"> The <see cref="T:System.Uri" /> to use. </param>
         <param name="credential"> A credential used to authenticate to an Azure Service. </param>
         <summary> Initializes a new instance of LoadTestAdministrationClient. </summary>
         <remarks>To be added.</remarks>
@@ -69,6 +72,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="endpoint" Type="System.Uri" />
@@ -76,7 +80,7 @@
         <Parameter Name="options" Type="Azure.Developer.LoadTesting.LoadTestingClientOptions" />
       </Parameters>
       <Docs>
-        <param name="endpoint"> URL to perform data plane API operations on the resource. </param>
+        <param name="endpoint"> The <see cref="T:System.Uri" /> to use. </param>
         <param name="credential"> A credential used to authenticate to an Azure Service. </param>
         <param name="options"> The options for configuring the client. </param>
         <summary> Initializes a new instance of LoadTestAdministrationClient. </summary>
@@ -95,6 +99,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response</ReturnType>
@@ -105,11 +110,14 @@
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="testId">
+            Unique name for the load test, must contain only lower-case alphabetic,
+            numeric, underscore or hyphen characters.
+            </param>
         <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
-            [Protocol Method] Associate an app component (collection of azure resources) to a test
+            [Protocol Method] Add an app component to a test.
             <list type="bullet"><item><description>
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
             </description></item></list></summary>
@@ -142,11 +150,6 @@ Schema for <c>TestAppComponents</c>:
   lastModifiedBy: string, # Optional. The user that last modified.
 }
 </code></remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> or <paramref name="content" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call CreateOrUpdateAppComponents and parse the result.
 <code><![CDATA[
@@ -201,6 +204,11 @@ Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedDateTime").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> or <paramref name="content" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
       </Docs>
     </Member>
     <Member MemberName="CreateOrUpdateAppComponentsAsync">
@@ -213,6 +221,7 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
@@ -223,11 +232,14 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="testId">
+            Unique name for the load test, must contain only lower-case alphabetic,
+            numeric, underscore or hyphen characters.
+            </param>
         <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
-            [Protocol Method] Associate an app component (collection of azure resources) to a test
+            [Protocol Method] Add an app component to a test.
             <list type="bullet"><item><description>
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
             </description></item></list></summary>
@@ -260,11 +272,6 @@ Schema for <c>TestAppComponents</c>:
   lastModifiedBy: string, # Optional. The user that last modified.
 }
 </code></remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> or <paramref name="content" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call CreateOrUpdateAppComponentsAsync and parse the result.
 <code><![CDATA[
@@ -319,6 +326,11 @@ Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedDateTime").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> or <paramref name="content" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
       </Docs>
     </Member>
     <Member MemberName="CreateOrUpdateServerMetricsConfig">
@@ -331,6 +343,7 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response</ReturnType>
@@ -341,7 +354,10 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="testId">
+            Unique name for the load test, must contain only lower-case alphabetic,
+            numeric, underscore or hyphen characters.
+            </param>
         <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
@@ -378,11 +394,6 @@ Schema for <c>TestServerMetricConfig</c>:
   lastModifiedBy: string, # Optional. The user that last modified.
 }
 </code></remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> or <paramref name="content" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call CreateOrUpdateServerMetricsConfig and parse the result.
 <code><![CDATA[
@@ -435,6 +446,11 @@ Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedDateTime").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> or <paramref name="content" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
       </Docs>
     </Member>
     <Member MemberName="CreateOrUpdateServerMetricsConfigAsync">
@@ -447,6 +463,7 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
@@ -457,7 +474,10 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="testId">
+            Unique name for the load test, must contain only lower-case alphabetic,
+            numeric, underscore or hyphen characters.
+            </param>
         <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
@@ -494,11 +514,6 @@ Schema for <c>TestServerMetricConfig</c>:
   lastModifiedBy: string, # Optional. The user that last modified.
 }
 </code></remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> or <paramref name="content" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call CreateOrUpdateServerMetricsConfigAsync and parse the result.
 <code><![CDATA[
@@ -551,6 +566,11 @@ Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedDateTime").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> or <paramref name="content" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
       </Docs>
     </Member>
     <Member MemberName="CreateOrUpdateTest">
@@ -563,6 +583,7 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response</ReturnType>
@@ -573,11 +594,11 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
         <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
-            [Protocol Method] Create a new test or update an existing test.
+            [Protocol Method] Create a new test or update an existing test by providing the test Id.
             <list type="bullet"><item><description>
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
             </description></item></list></summary>
@@ -688,11 +709,6 @@ Schema for <c>Test</c>:
   lastModifiedBy: string, # Optional. The user that last modified.
 }
 </code></remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> or <paramref name="content" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call CreateOrUpdateTest and parse the result.
 <code><![CDATA[
@@ -831,6 +847,11 @@ Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedDateTime").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> or <paramref name="content" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
       </Docs>
     </Member>
     <Member MemberName="CreateOrUpdateTestAsync">
@@ -843,6 +864,7 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
@@ -853,11 +875,11 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
         <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
-            [Protocol Method] Create a new test or update an existing test.
+            [Protocol Method] Create a new test or update an existing test by providing the test Id.
             <list type="bullet"><item><description>
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
             </description></item></list></summary>
@@ -968,11 +990,6 @@ Schema for <c>Test</c>:
   lastModifiedBy: string, # Optional. The user that last modified.
 }
 </code></remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> or <paramref name="content" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call CreateOrUpdateTestAsync and parse the result.
 <code><![CDATA[
@@ -1111,6 +1128,85 @@ Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedDateTime").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> or <paramref name="content" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateOrUpdateTestProfile">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response CreateOrUpdateTestProfile (string testProfileId, Azure.Core.RequestContent content, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response CreateOrUpdateTestProfile(string testProfileId, class Azure.Core.RequestContent content, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.CreateOrUpdateTestProfile(System.String,Azure.Core.RequestContent,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateTestProfile (testProfileId As String, content As RequestContent, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="F#" Value="abstract member CreateOrUpdateTestProfile : string * Azure.Core.RequestContent * Azure.RequestContext -&gt; Azure.Response&#xA;override this.CreateOrUpdateTestProfile : string * Azure.Core.RequestContent * Azure.RequestContext -&gt; Azure.Response" Usage="loadTestAdministrationClient.CreateOrUpdateTestProfile (testProfileId, content, context)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testProfileId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="content" Type="Azure.Core.RequestContent" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="context" Type="Azure.RequestContext" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testProfileId"> Unique identifier for the test profile, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="content"> The content to send as the body of the request. </param>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Create a new test profile or update an existing test profile.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testProfileId" /> or <paramref name="content" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testProfileId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateOrUpdateTestProfileAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; CreateOrUpdateTestProfileAsync (string testProfileId, Azure.Core.RequestContent content, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; CreateOrUpdateTestProfileAsync(string testProfileId, class Azure.Core.RequestContent content, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.CreateOrUpdateTestProfileAsync(System.String,Azure.Core.RequestContent,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateTestProfileAsync (testProfileId As String, content As RequestContent, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member CreateOrUpdateTestProfileAsync : string * Azure.Core.RequestContent * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.CreateOrUpdateTestProfileAsync : string * Azure.Core.RequestContent * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="loadTestAdministrationClient.CreateOrUpdateTestProfileAsync (testProfileId, content, context)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testProfileId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="content" Type="Azure.Core.RequestContent" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="context" Type="Azure.RequestContext" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testProfileId"> Unique identifier for the test profile, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="content"> The content to send as the body of the request. </param>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Create a new test profile or update an existing test profile.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testProfileId" /> or <paramref name="content" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testProfileId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
       </Docs>
     </Member>
     <Member MemberName="DeleteTest">
@@ -1123,6 +1219,7 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response</ReturnType>
@@ -1132,20 +1229,15 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
-            [Protocol Method] Delete a test by its name.
+            [Protocol Method] Delete a test by its test Id.
             <list type="bullet"><item><description>
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
             </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call DeleteTest.
 <code><![CDATA[
@@ -1167,6 +1259,11 @@ Response response = client.DeleteTest("<testId>");
 
 Console.WriteLine(response.Status);
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
       </Docs>
     </Member>
     <Member MemberName="DeleteTestAsync">
@@ -1179,6 +1276,7 @@ Console.WriteLine(response.Status);
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
@@ -1188,20 +1286,15 @@ Console.WriteLine(response.Status);
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
-            [Protocol Method] Delete a test by its name.
+            [Protocol Method] Delete a test by its test Id.
             <list type="bullet"><item><description>
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
             </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call DeleteTestAsync.
 <code><![CDATA[
@@ -1223,6 +1316,11 @@ Response response = await client.DeleteTestAsync("<testId>");
 
 Console.WriteLine(response.Status);
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
       </Docs>
     </Member>
     <Member MemberName="DeleteTestFile">
@@ -1235,6 +1333,7 @@ Console.WriteLine(response.Status);
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response</ReturnType>
@@ -1245,8 +1344,8 @@ Console.WriteLine(response.Status);
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
-        <param name="fileName"> File name with file extension like app.jmx. </param>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="fileName"> Name of the file. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
             [Protocol Method] Delete file by the file name for a test
@@ -1255,11 +1354,6 @@ Console.WriteLine(response.Status);
             </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> or <paramref name="fileName" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> or <paramref name="fileName" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call DeleteTestFile.
 <code><![CDATA[
@@ -1281,6 +1375,11 @@ Response response = client.DeleteTestFile("<testId>", "<fileName>");
 
 Console.WriteLine(response.Status);
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> or <paramref name="fileName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> or <paramref name="fileName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
       </Docs>
     </Member>
     <Member MemberName="DeleteTestFileAsync">
@@ -1293,6 +1392,7 @@ Console.WriteLine(response.Status);
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
@@ -1303,8 +1403,8 @@ Console.WriteLine(response.Status);
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
-        <param name="fileName"> File name with file extension like app.jmx. </param>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="fileName"> Name of the file. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
             [Protocol Method] Delete file by the file name for a test
@@ -1313,11 +1413,6 @@ Console.WriteLine(response.Status);
             </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> or <paramref name="fileName" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> or <paramref name="fileName" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call DeleteTestFileAsync.
 <code><![CDATA[
@@ -1339,18 +1434,96 @@ Response response = await client.DeleteTestFileAsync("<testId>", "<fileName>");
 
 Console.WriteLine(response.Status);
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> or <paramref name="fileName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> or <paramref name="fileName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteTestProfile">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response DeleteTestProfile (string testProfileId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response DeleteTestProfile(string testProfileId, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.DeleteTestProfile(System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteTestProfile (testProfileId As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="F#" Value="abstract member DeleteTestProfile : string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.DeleteTestProfile : string * Azure.RequestContext -&gt; Azure.Response" Usage="loadTestAdministrationClient.DeleteTestProfile (testProfileId, context)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testProfileId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="context" Type="Azure.RequestContext" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testProfileId"> Unique identifier for the test profile, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Delete a test profile.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testProfileId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testProfileId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteTestProfileAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; DeleteTestProfileAsync (string testProfileId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; DeleteTestProfileAsync(string testProfileId, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.DeleteTestProfileAsync(System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteTestProfileAsync (testProfileId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member DeleteTestProfileAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.DeleteTestProfileAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="loadTestAdministrationClient.DeleteTestProfileAsync (testProfileId, context)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testProfileId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="context" Type="Azure.RequestContext" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testProfileId"> Unique identifier for the test profile, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Delete a test profile.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testProfileId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testProfileId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetAppComponents">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetAppComponents (string testId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetAppComponents (string testId, Azure.RequestContext context = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetAppComponents(string testId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetAppComponents(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAppComponents (testId As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAppComponents (testId As String, Optional context As RequestContext = Nothing) As Response" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetAppComponents : string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetAppComponents : string * Azure.RequestContext -&gt; Azure.Response" Usage="loadTestAdministrationClient.GetAppComponents (testId, context)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetAppComponents (string testId, Azure.RequestContext context);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAppComponents (testId As String, context As RequestContext) As Response" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response</ReturnType>
@@ -1360,12 +1533,17 @@ Console.WriteLine(response.Status);
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="testId">
+            Unique name for the load test, must contain only lower-case alphabetic,
+            numeric, underscore or hyphen characters.
+            </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
             [Protocol Method] Get associated app component (collection of azure resources) for the given test.
             <list type="bullet"><item><description>
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item><item><description>
+            Please try the simpler <see cref="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetAppComponents(System.String,System.Threading.CancellationToken)" /> convenience overload with strongly typed models first.
             </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>
@@ -1383,11 +1561,6 @@ Schema for <c>TestAppComponents</c>:
   lastModifiedBy: string, # Optional. The user that last modified.
 }
 </code></remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call GetAppComponents and parse the result.
 <code><![CDATA[
@@ -1422,18 +1595,59 @@ Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedDateTime").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetAppComponents">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Developer.LoadTesting.TestAppComponents&gt; GetAppComponents (string testId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Developer.LoadTesting.TestAppComponents&gt; GetAppComponents(string testId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetAppComponents(System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAppComponents (testId As String, Optional cancellationToken As CancellationToken = Nothing) As Response(Of TestAppComponents)" />
+      <MemberSignature Language="F#" Value="abstract member GetAppComponents : string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Developer.LoadTesting.TestAppComponents&gt;&#xA;override this.GetAppComponents : string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Developer.LoadTesting.TestAppComponents&gt;" Usage="loadTestAdministrationClient.GetAppComponents (testId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.Developer.LoadTesting.TestAppComponents&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testId">
+            Unique name for the load test, must contain only lower-case alphabetic,
+            numeric, underscore or hyphen characters.
+            </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> Get associated app component (collection of azure resources) for the given test. </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetAppComponentsAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetAppComponentsAsync (string testId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetAppComponentsAsync (string testId, Azure.RequestContext context = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetAppComponentsAsync(string testId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetAppComponentsAsync(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAppComponentsAsync (testId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAppComponentsAsync (testId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetAppComponentsAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetAppComponentsAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="loadTestAdministrationClient.GetAppComponentsAsync (testId, context)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetAppComponentsAsync (string testId, Azure.RequestContext context);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAppComponentsAsync (testId As String, context As RequestContext) As Task(Of Response)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
@@ -1443,12 +1657,17 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="testId">
+            Unique name for the load test, must contain only lower-case alphabetic,
+            numeric, underscore or hyphen characters.
+            </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
             [Protocol Method] Get associated app component (collection of azure resources) for the given test.
             <list type="bullet"><item><description>
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item><item><description>
+            Please try the simpler <see cref="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetAppComponentsAsync(System.String,System.Threading.CancellationToken)" /> convenience overload with strongly typed models first.
             </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>
@@ -1466,11 +1685,6 @@ Schema for <c>TestAppComponents</c>:
   lastModifiedBy: string, # Optional. The user that last modified.
 }
 </code></remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call GetAppComponentsAsync and parse the result.
 <code><![CDATA[
@@ -1505,18 +1719,59 @@ Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedDateTime").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetAppComponentsAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.TestAppComponents&gt;&gt; GetAppComponentsAsync (string testId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Developer.LoadTesting.TestAppComponents&gt;&gt; GetAppComponentsAsync(string testId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetAppComponentsAsync(System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAppComponentsAsync (testId As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of TestAppComponents))" />
+      <MemberSignature Language="F#" Value="abstract member GetAppComponentsAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.TestAppComponents&gt;&gt;&#xA;override this.GetAppComponentsAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.TestAppComponents&gt;&gt;" Usage="loadTestAdministrationClient.GetAppComponentsAsync (testId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.TestAppComponents&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testId">
+            Unique name for the load test, must contain only lower-case alphabetic,
+            numeric, underscore or hyphen characters.
+            </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> Get associated app component (collection of azure resources) for the given test. </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetServerMetricsConfig">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetServerMetricsConfig (string testId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetServerMetricsConfig (string testId, Azure.RequestContext context = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetServerMetricsConfig(string testId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetServerMetricsConfig(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetServerMetricsConfig (testId As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetServerMetricsConfig (testId As String, Optional context As RequestContext = Nothing) As Response" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetServerMetricsConfig : string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetServerMetricsConfig : string * Azure.RequestContext -&gt; Azure.Response" Usage="loadTestAdministrationClient.GetServerMetricsConfig (testId, context)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetServerMetricsConfig (string testId, Azure.RequestContext context);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetServerMetricsConfig (testId As String, context As RequestContext) As Response" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response</ReturnType>
@@ -1526,12 +1781,17 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="testId">
+            Unique name for the load test, must contain only lower-case alphabetic,
+            numeric, underscore or hyphen characters.
+            </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
             [Protocol Method] List server metrics configuration for the given test.
             <list type="bullet"><item><description>
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item><item><description>
+            Please try the simpler <see cref="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetServerMetricsConfig(System.String,System.Threading.CancellationToken)" /> convenience overload with strongly typed models first.
             </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>
@@ -1549,11 +1809,6 @@ Schema for <c>TestServerMetricConfig</c>:
   lastModifiedBy: string, # Optional. The user that last modified.
 }
 </code></remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call GetServerMetricsConfig and parse the result.
 <code><![CDATA[
@@ -1589,18 +1844,59 @@ Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedDateTime").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetServerMetricsConfig">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Developer.LoadTesting.TestServerMetricsConfiguration&gt; GetServerMetricsConfig (string testId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Developer.LoadTesting.TestServerMetricsConfiguration&gt; GetServerMetricsConfig(string testId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetServerMetricsConfig(System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetServerMetricsConfig (testId As String, Optional cancellationToken As CancellationToken = Nothing) As Response(Of TestServerMetricsConfiguration)" />
+      <MemberSignature Language="F#" Value="abstract member GetServerMetricsConfig : string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Developer.LoadTesting.TestServerMetricsConfiguration&gt;&#xA;override this.GetServerMetricsConfig : string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Developer.LoadTesting.TestServerMetricsConfiguration&gt;" Usage="loadTestAdministrationClient.GetServerMetricsConfig (testId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.Developer.LoadTesting.TestServerMetricsConfiguration&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testId">
+            Unique name for the load test, must contain only lower-case alphabetic,
+            numeric, underscore or hyphen characters.
+            </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> List server metrics configuration for the given test. </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetServerMetricsConfigAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetServerMetricsConfigAsync (string testId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetServerMetricsConfigAsync (string testId, Azure.RequestContext context = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetServerMetricsConfigAsync(string testId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetServerMetricsConfigAsync(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetServerMetricsConfigAsync (testId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetServerMetricsConfigAsync (testId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetServerMetricsConfigAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetServerMetricsConfigAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="loadTestAdministrationClient.GetServerMetricsConfigAsync (testId, context)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetServerMetricsConfigAsync (string testId, Azure.RequestContext context);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetServerMetricsConfigAsync (testId As String, context As RequestContext) As Task(Of Response)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
@@ -1610,12 +1906,17 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="testId">
+            Unique name for the load test, must contain only lower-case alphabetic,
+            numeric, underscore or hyphen characters.
+            </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
             [Protocol Method] List server metrics configuration for the given test.
             <list type="bullet"><item><description>
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item><item><description>
+            Please try the simpler <see cref="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetServerMetricsConfigAsync(System.String,System.Threading.CancellationToken)" /> convenience overload with strongly typed models first.
             </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>
@@ -1633,11 +1934,6 @@ Schema for <c>TestServerMetricConfig</c>:
   lastModifiedBy: string, # Optional. The user that last modified.
 }
 </code></remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call GetServerMetricsConfigAsync and parse the result.
 <code><![CDATA[
@@ -1673,18 +1969,59 @@ Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedDateTime").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetServerMetricsConfigAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.TestServerMetricsConfiguration&gt;&gt; GetServerMetricsConfigAsync (string testId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Developer.LoadTesting.TestServerMetricsConfiguration&gt;&gt; GetServerMetricsConfigAsync(string testId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetServerMetricsConfigAsync(System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetServerMetricsConfigAsync (testId As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of TestServerMetricsConfiguration))" />
+      <MemberSignature Language="F#" Value="abstract member GetServerMetricsConfigAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.TestServerMetricsConfiguration&gt;&gt;&#xA;override this.GetServerMetricsConfigAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.TestServerMetricsConfiguration&gt;&gt;" Usage="loadTestAdministrationClient.GetServerMetricsConfigAsync (testId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.TestServerMetricsConfiguration&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testId">
+            Unique name for the load test, must contain only lower-case alphabetic,
+            numeric, underscore or hyphen characters.
+            </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> List server metrics configuration for the given test. </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetTest">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetTest (string testId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetTest (string testId, Azure.RequestContext context = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetTest(string testId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTest(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTest (testId As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTest (testId As String, Optional context As RequestContext = Nothing) As Response" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetTest : string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetTest : string * Azure.RequestContext -&gt; Azure.Response" Usage="loadTestAdministrationClient.GetTest (testId, context)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetTest (string testId, Azure.RequestContext context);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTest (testId As String, context As RequestContext) As Response" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response</ReturnType>
@@ -1694,12 +2031,14 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
-            [Protocol Method] Get load test details by test name
+            [Protocol Method] Get load test details by test Id
             <list type="bullet"><item><description>
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item><item><description>
+            Please try the simpler <see cref="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTest(System.String,System.Threading.CancellationToken)" /> convenience overload with strongly typed models first.
             </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>
@@ -1756,11 +2095,6 @@ Schema for <c>Test</c>:
   lastModifiedBy: string, # Optional. The user that last modified.
 }
 </code></remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call GetTest and parse the result.
 <code><![CDATA[
@@ -1844,18 +2178,56 @@ Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedDateTime").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTest">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Developer.LoadTesting.LoadTest&gt; GetTest (string testId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Developer.LoadTesting.LoadTest&gt; GetTest(string testId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTest(System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTest (testId As String, Optional cancellationToken As CancellationToken = Nothing) As Response(Of LoadTest)" />
+      <MemberSignature Language="F#" Value="abstract member GetTest : string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Developer.LoadTesting.LoadTest&gt;&#xA;override this.GetTest : string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Developer.LoadTesting.LoadTest&gt;" Usage="loadTestAdministrationClient.GetTest (testId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.Developer.LoadTesting.LoadTest&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> Get load test details by test Id. </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetTestAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetTestAsync (string testId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetTestAsync (string testId, Azure.RequestContext context = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetTestAsync(string testId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestAsync(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestAsync (testId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestAsync (testId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetTestAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetTestAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="loadTestAdministrationClient.GetTestAsync (testId, context)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetTestAsync (string testId, Azure.RequestContext context);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestAsync (testId As String, context As RequestContext) As Task(Of Response)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
@@ -1865,12 +2237,14 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
-            [Protocol Method] Get load test details by test name
+            [Protocol Method] Get load test details by test Id
             <list type="bullet"><item><description>
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item><item><description>
+            Please try the simpler <see cref="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestAsync(System.String,System.Threading.CancellationToken)" /> convenience overload with strongly typed models first.
             </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>
@@ -1927,11 +2301,6 @@ Schema for <c>Test</c>:
   lastModifiedBy: string, # Optional. The user that last modified.
 }
 </code></remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call GetTestAsync and parse the result.
 <code><![CDATA[
@@ -2015,18 +2384,56 @@ Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedDateTime").ToString());
 Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTestAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.LoadTest&gt;&gt; GetTestAsync (string testId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Developer.LoadTesting.LoadTest&gt;&gt; GetTestAsync(string testId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestAsync(System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestAsync (testId As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of LoadTest))" />
+      <MemberSignature Language="F#" Value="abstract member GetTestAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.LoadTest&gt;&gt;&#xA;override this.GetTestAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.LoadTest&gt;&gt;" Usage="loadTestAdministrationClient.GetTestAsync (testId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.LoadTest&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> Get load test details by test Id. </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetTestFile">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetTestFile (string testId, string fileName, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetTestFile (string testId, string fileName, Azure.RequestContext context = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetTestFile(string testId, string fileName, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestFile(System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestFile (testId As String, fileName As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestFile (testId As String, fileName As String, Optional context As RequestContext = Nothing) As Response" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetTestFile : string * string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetTestFile : string * string * Azure.RequestContext -&gt; Azure.Response" Usage="loadTestAdministrationClient.GetTestFile (testId, fileName, context)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetTestFile (string testId, string fileName, Azure.RequestContext context);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestFile (testId As String, fileName As String, context As RequestContext) As Response" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response</ReturnType>
@@ -2037,13 +2444,15 @@ Console.WriteLine(result.GetProperty("lastModifiedBy").ToString());
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
-        <param name="fileName"> File name with file extension like app.jmx. </param>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="fileName"> Name of the file. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
-            [Protocol Method] Get test file by the file name.
+            [Protocol Method] Get all the files that are associated with a test.
             <list type="bullet"><item><description>
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item><item><description>
+            Please try the simpler <see cref="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestFile(System.String,System.String,System.Threading.CancellationToken)" /> convenience overload with strongly typed models first.
             </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>
@@ -2061,11 +2470,6 @@ Schema for <c>FileInfo</c>:
   validationFailureDetails: string, # Optional. Validation failure error details
 }
 </code></remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> or <paramref name="fileName" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> or <paramref name="fileName" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call GetTestFile and parse the result.
 <code><![CDATA[
@@ -2094,18 +2498,58 @@ Console.WriteLine(result.GetProperty("expireDateTime").ToString());
 Console.WriteLine(result.GetProperty("validationStatus").ToString());
 Console.WriteLine(result.GetProperty("validationFailureDetails").ToString());
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> or <paramref name="fileName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> or <paramref name="fileName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTestFile">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Developer.LoadTesting.TestFileInfo&gt; GetTestFile (string testId, string fileName, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Developer.LoadTesting.TestFileInfo&gt; GetTestFile(string testId, string fileName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestFile(System.String,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestFile (testId As String, fileName As String, Optional cancellationToken As CancellationToken = Nothing) As Response(Of TestFileInfo)" />
+      <MemberSignature Language="F#" Value="abstract member GetTestFile : string * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Developer.LoadTesting.TestFileInfo&gt;&#xA;override this.GetTestFile : string * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Developer.LoadTesting.TestFileInfo&gt;" Usage="loadTestAdministrationClient.GetTestFile (testId, fileName, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.Developer.LoadTesting.TestFileInfo&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="fileName" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="fileName"> Name of the file. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> Get all the files that are associated with a test. </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> or <paramref name="fileName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> or <paramref name="fileName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetTestFileAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetTestFileAsync (string testId, string fileName, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetTestFileAsync (string testId, string fileName, Azure.RequestContext context = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetTestFileAsync(string testId, string fileName, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestFileAsync(System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestFileAsync (testId As String, fileName As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestFileAsync (testId As String, fileName As String, Optional context As RequestContext = Nothing) As Task(Of Response)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetTestFileAsync : string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetTestFileAsync : string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="loadTestAdministrationClient.GetTestFileAsync (testId, fileName, context)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetTestFileAsync (string testId, string fileName, Azure.RequestContext context);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestFileAsync (testId As String, fileName As String, context As RequestContext) As Task(Of Response)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
@@ -2116,13 +2560,15 @@ Console.WriteLine(result.GetProperty("validationFailureDetails").ToString());
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
-        <param name="fileName"> File name with file extension like app.jmx. </param>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="fileName"> Name of the file. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
-            [Protocol Method] Get test file by the file name.
+            [Protocol Method] Get all the files that are associated with a test.
             <list type="bullet"><item><description>
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item><item><description>
+            Please try the simpler <see cref="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestFileAsync(System.String,System.String,System.Threading.CancellationToken)" /> convenience overload with strongly typed models first.
             </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>
@@ -2140,11 +2586,6 @@ Schema for <c>FileInfo</c>:
   validationFailureDetails: string, # Optional. Validation failure error details
 }
 </code></remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> or <paramref name="fileName" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> or <paramref name="fileName" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call GetTestFileAsync and parse the result.
 <code><![CDATA[
@@ -2173,18 +2614,58 @@ Console.WriteLine(result.GetProperty("expireDateTime").ToString());
 Console.WriteLine(result.GetProperty("validationStatus").ToString());
 Console.WriteLine(result.GetProperty("validationFailureDetails").ToString());
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> or <paramref name="fileName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> or <paramref name="fileName" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTestFileAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.TestFileInfo&gt;&gt; GetTestFileAsync (string testId, string fileName, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Developer.LoadTesting.TestFileInfo&gt;&gt; GetTestFileAsync(string testId, string fileName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestFileAsync(System.String,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestFileAsync (testId As String, fileName As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of TestFileInfo))" />
+      <MemberSignature Language="F#" Value="abstract member GetTestFileAsync : string * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.TestFileInfo&gt;&gt;&#xA;override this.GetTestFileAsync : string * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.TestFileInfo&gt;&gt;" Usage="loadTestAdministrationClient.GetTestFileAsync (testId, fileName, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.TestFileInfo&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="fileName" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="fileName"> Name of the file. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> Get all the files that are associated with a test. </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> or <paramref name="fileName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> or <paramref name="fileName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetTestFiles">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetTestFiles (string testId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetTestFiles (string testId, Azure.RequestContext context = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetTestFiles(string testId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestFiles(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestFiles (testId As String, Optional context As RequestContext = Nothing) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestFiles (testId As String, Optional context As RequestContext = Nothing) As Pageable(Of BinaryData)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetTestFiles : string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetTestFiles : string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="loadTestAdministrationClient.GetTestFiles (testId, context)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetTestFiles (string testId, Azure.RequestContext context);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestFiles (testId As String, context As RequestContext) As Pageable(Of BinaryData)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;System.BinaryData&gt;</ReturnType>
@@ -2194,12 +2675,14 @@ Console.WriteLine(result.GetProperty("validationFailureDetails").ToString());
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
             [Protocol Method] Get all test files.
             <list type="bullet"><item><description>
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item><item><description>
+            Please try the simpler <see cref="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestFiles(System.String,System.Threading.CancellationToken)" /> convenience overload with strongly typed models first.
             </description></item></list></summary>
         <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
@@ -2217,11 +2700,6 @@ Schema for <c>FileInfoListValue</c>:
   validationFailureDetails: string, # Optional. Validation failure error details
 }
 </code></remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call GetTestFiles and parse the result.
 <code><![CDATA[
@@ -2252,18 +2730,56 @@ foreach (BinaryData item in client.GetTestFiles("<testId>"))
     Console.WriteLine(result.GetProperty("validationFailureDetails").ToString());
 }
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTestFiles">
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;Azure.Developer.LoadTesting.TestFileInfo&gt; GetTestFiles (string testId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class Azure.Developer.LoadTesting.TestFileInfo&gt; GetTestFiles(string testId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestFiles(System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestFiles (testId As String, Optional cancellationToken As CancellationToken = Nothing) As Pageable(Of TestFileInfo)" />
+      <MemberSignature Language="F#" Value="abstract member GetTestFiles : string * System.Threading.CancellationToken -&gt; Azure.Pageable&lt;Azure.Developer.LoadTesting.TestFileInfo&gt;&#xA;override this.GetTestFiles : string * System.Threading.CancellationToken -&gt; Azure.Pageable&lt;Azure.Developer.LoadTesting.TestFileInfo&gt;" Usage="loadTestAdministrationClient.GetTestFiles (testId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Pageable&lt;Azure.Developer.LoadTesting.TestFileInfo&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> Get all test files. </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetTestFilesAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetTestFilesAsync (string testId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetTestFilesAsync (string testId, Azure.RequestContext context = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetTestFilesAsync(string testId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestFilesAsync(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestFilesAsync (testId As String, Optional context As RequestContext = Nothing) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestFilesAsync (testId As String, Optional context As RequestContext = Nothing) As AsyncPageable(Of BinaryData)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetTestFilesAsync : string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetTestFilesAsync : string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="loadTestAdministrationClient.GetTestFilesAsync (testId, context)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetTestFilesAsync (string testId, Azure.RequestContext context);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestFilesAsync (testId As String, context As RequestContext) As AsyncPageable(Of BinaryData)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;System.BinaryData&gt;</ReturnType>
@@ -2273,12 +2789,14 @@ foreach (BinaryData item in client.GetTestFiles("<testId>"))
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="testId"> Unique name for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
             [Protocol Method] Get all test files.
             <list type="bullet"><item><description>
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item><item><description>
+            Please try the simpler <see cref="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestFilesAsync(System.String,System.Threading.CancellationToken)" /> convenience overload with strongly typed models first.
             </description></item></list></summary>
         <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
@@ -2296,11 +2814,6 @@ Schema for <c>FileInfoListValue</c>:
   validationFailureDetails: string, # Optional. Validation failure error details
 }
 </code></remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="testId" /> is null. </exception>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call GetTestFilesAsync and parse the result.
 <code><![CDATA[
@@ -2331,18 +2844,332 @@ await foreach (BinaryData item in client.GetTestFilesAsync("<testId>"))
     Console.WriteLine(result.GetProperty("validationFailureDetails").ToString());
 }
 ]]></code></example>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTestFilesAsync">
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;Azure.Developer.LoadTesting.TestFileInfo&gt; GetTestFilesAsync (string testId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class Azure.Developer.LoadTesting.TestFileInfo&gt; GetTestFilesAsync(string testId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestFilesAsync(System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestFilesAsync (testId As String, Optional cancellationToken As CancellationToken = Nothing) As AsyncPageable(Of TestFileInfo)" />
+      <MemberSignature Language="F#" Value="abstract member GetTestFilesAsync : string * System.Threading.CancellationToken -&gt; Azure.AsyncPageable&lt;Azure.Developer.LoadTesting.TestFileInfo&gt;&#xA;override this.GetTestFilesAsync : string * System.Threading.CancellationToken -&gt; Azure.AsyncPageable&lt;Azure.Developer.LoadTesting.TestFileInfo&gt;" Usage="loadTestAdministrationClient.GetTestFilesAsync (testId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AsyncPageable&lt;Azure.Developer.LoadTesting.TestFileInfo&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testId"> Unique test identifier for the load test, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> Get all test files. </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testId" /> is an empty string, and was expected to be non-empty. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTestProfile">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetTestProfile (string testProfileId, Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetTestProfile(string testProfileId, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestProfile(System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestProfile (testProfileId As String, context As RequestContext) As Response" />
+      <MemberSignature Language="F#" Value="abstract member GetTestProfile : string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetTestProfile : string * Azure.RequestContext -&gt; Azure.Response" Usage="loadTestAdministrationClient.GetTestProfile (testProfileId, context)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testProfileId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="context" Type="Azure.RequestContext" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testProfileId"> Unique identifier for the test profile, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Get load test profile details.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item><item><description>
+            Please try the simpler <see cref="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestProfile(System.String,System.Threading.CancellationToken)" /> convenience overload with strongly typed models first.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testProfileId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testProfileId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTestProfile">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Developer.LoadTesting.TestProfile&gt; GetTestProfile (string testProfileId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Developer.LoadTesting.TestProfile&gt; GetTestProfile(string testProfileId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestProfile(System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestProfile (testProfileId As String, Optional cancellationToken As CancellationToken = Nothing) As Response(Of TestProfile)" />
+      <MemberSignature Language="F#" Value="abstract member GetTestProfile : string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Developer.LoadTesting.TestProfile&gt;&#xA;override this.GetTestProfile : string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Developer.LoadTesting.TestProfile&gt;" Usage="loadTestAdministrationClient.GetTestProfile (testProfileId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.Developer.LoadTesting.TestProfile&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testProfileId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testProfileId"> Unique identifier for the test profile, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> Get load test profile details. </summary>
+        <returns>To be added.</returns>
+        <remarks> Get load test profile details by test profile Id. </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testProfileId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testProfileId" /> is an empty string, and was expected to be non-empty. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTestProfileAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetTestProfileAsync (string testProfileId, Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetTestProfileAsync(string testProfileId, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestProfileAsync(System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestProfileAsync (testProfileId As String, context As RequestContext) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member GetTestProfileAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetTestProfileAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="loadTestAdministrationClient.GetTestProfileAsync (testProfileId, context)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testProfileId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="context" Type="Azure.RequestContext" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testProfileId"> Unique identifier for the test profile, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Get load test profile details.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item><item><description>
+            Please try the simpler <see cref="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestProfileAsync(System.String,System.Threading.CancellationToken)" /> convenience overload with strongly typed models first.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testProfileId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testProfileId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTestProfileAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.TestProfile&gt;&gt; GetTestProfileAsync (string testProfileId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Developer.LoadTesting.TestProfile&gt;&gt; GetTestProfileAsync(string testProfileId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestProfileAsync(System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestProfileAsync (testProfileId As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of TestProfile))" />
+      <MemberSignature Language="F#" Value="abstract member GetTestProfileAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.TestProfile&gt;&gt;&#xA;override this.GetTestProfileAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.TestProfile&gt;&gt;" Usage="loadTestAdministrationClient.GetTestProfileAsync (testProfileId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.LoadTesting.TestProfile&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="testProfileId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="testProfileId"> Unique identifier for the test profile, must contain only lower-case alphabetic, numeric, underscore or hyphen characters. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> Get load test profile details. </summary>
+        <returns>To be added.</returns>
+        <remarks> Get load test profile details by test profile Id. </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="testProfileId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="testProfileId" /> is an empty string, and was expected to be non-empty. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTestProfiles">
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetTestProfiles (DateTimeOffset? lastModifiedStartTime, DateTimeOffset? lastModifiedEndTime, System.Collections.Generic.IEnumerable&lt;string&gt; testProfileIds, System.Collections.Generic.IEnumerable&lt;string&gt; testIds, Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetTestProfiles(valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; lastModifiedStartTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; lastModifiedEndTime, class System.Collections.Generic.IEnumerable`1&lt;string&gt; testProfileIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; testIds, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestProfiles(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestProfiles (lastModifiedStartTime As Nullable(Of DateTimeOffset), lastModifiedEndTime As Nullable(Of DateTimeOffset), testProfileIds As IEnumerable(Of String), testIds As IEnumerable(Of String), context As RequestContext) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="F#" Value="abstract member GetTestProfiles : Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetTestProfiles : Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="loadTestAdministrationClient.GetTestProfiles (lastModifiedStartTime, lastModifiedEndTime, testProfileIds, testIds, context)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Pageable&lt;System.BinaryData&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="lastModifiedStartTime" Type="System.Nullable&lt;System.DateTimeOffset&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="lastModifiedEndTime" Type="System.Nullable&lt;System.DateTimeOffset&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="testProfileIds" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="testIds" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="context" Type="Azure.RequestContext" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="lastModifiedStartTime"> Start DateTime(RFC 3339 literal format) of the last updated time range to filter test profiles. </param>
+        <param name="lastModifiedEndTime"> End DateTime(RFC 3339 literal format) of the last updated time range to filter test profiles. </param>
+        <param name="testProfileIds"> Comma separated list of IDs of the test profiles to filter. </param>
+        <param name="testIds"> Comma separated list IDs of the tests which should be associated with the test profiles to fetch. </param>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] List test profiles.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item><item><description>
+            Please try the simpler <see cref="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestProfiles(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)" /> convenience overload with strongly typed models first.
+            </description></item></list></summary>
+        <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTestProfiles">
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;Azure.Developer.LoadTesting.TestProfile&gt; GetTestProfiles (DateTimeOffset? lastModifiedStartTime = default, DateTimeOffset? lastModifiedEndTime = default, System.Collections.Generic.IEnumerable&lt;string&gt; testProfileIds = default, System.Collections.Generic.IEnumerable&lt;string&gt; testIds = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class Azure.Developer.LoadTesting.TestProfile&gt; GetTestProfiles(valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; lastModifiedStartTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; lastModifiedEndTime, class System.Collections.Generic.IEnumerable`1&lt;string&gt; testProfileIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; testIds, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestProfiles(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestProfiles (Optional lastModifiedStartTime As Nullable(Of DateTimeOffset) = Nothing, Optional lastModifiedEndTime As Nullable(Of DateTimeOffset) = Nothing, Optional testProfileIds As IEnumerable(Of String) = Nothing, Optional testIds As IEnumerable(Of String) = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Pageable(Of TestProfile)" />
+      <MemberSignature Language="F#" Value="abstract member GetTestProfiles : Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;string&gt; * seq&lt;string&gt; * System.Threading.CancellationToken -&gt; Azure.Pageable&lt;Azure.Developer.LoadTesting.TestProfile&gt;&#xA;override this.GetTestProfiles : Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;string&gt; * seq&lt;string&gt; * System.Threading.CancellationToken -&gt; Azure.Pageable&lt;Azure.Developer.LoadTesting.TestProfile&gt;" Usage="loadTestAdministrationClient.GetTestProfiles (lastModifiedStartTime, lastModifiedEndTime, testProfileIds, testIds, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Pageable&lt;Azure.Developer.LoadTesting.TestProfile&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="lastModifiedStartTime" Type="System.Nullable&lt;System.DateTimeOffset&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="lastModifiedEndTime" Type="System.Nullable&lt;System.DateTimeOffset&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="testProfileIds" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="testIds" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="lastModifiedStartTime"> Start DateTime(RFC 3339 literal format) of the last updated time range to filter test profiles. </param>
+        <param name="lastModifiedEndTime"> End DateTime(RFC 3339 literal format) of the last updated time range to filter test profiles. </param>
+        <param name="testProfileIds"> Comma separated list of IDs of the test profiles to filter. </param>
+        <param name="testIds"> Comma separated list IDs of the tests which should be associated with the test profiles to fetch. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> List test profiles. </summary>
+        <returns>To be added.</returns>
+        <remarks> Get all test profiles for the given filters. </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTestProfilesAsync">
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetTestProfilesAsync (DateTimeOffset? lastModifiedStartTime, DateTimeOffset? lastModifiedEndTime, System.Collections.Generic.IEnumerable&lt;string&gt; testProfileIds, System.Collections.Generic.IEnumerable&lt;string&gt; testIds, Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetTestProfilesAsync(valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; lastModifiedStartTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; lastModifiedEndTime, class System.Collections.Generic.IEnumerable`1&lt;string&gt; testProfileIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; testIds, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestProfilesAsync(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestProfilesAsync (lastModifiedStartTime As Nullable(Of DateTimeOffset), lastModifiedEndTime As Nullable(Of DateTimeOffset), testProfileIds As IEnumerable(Of String), testIds As IEnumerable(Of String), context As RequestContext) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="F#" Value="abstract member GetTestProfilesAsync : Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetTestProfilesAsync : Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="loadTestAdministrationClient.GetTestProfilesAsync (lastModifiedStartTime, lastModifiedEndTime, testProfileIds, testIds, context)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AsyncPageable&lt;System.BinaryData&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="lastModifiedStartTime" Type="System.Nullable&lt;System.DateTimeOffset&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="lastModifiedEndTime" Type="System.Nullable&lt;System.DateTimeOffset&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="testProfileIds" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="testIds" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="context" Type="Azure.RequestContext" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="lastModifiedStartTime"> Start DateTime(RFC 3339 literal format) of the last updated time range to filter test profiles. </param>
+        <param name="lastModifiedEndTime"> End DateTime(RFC 3339 literal format) of the last updated time range to filter test profiles. </param>
+        <param name="testProfileIds"> Comma separated list of IDs of the test profiles to filter. </param>
+        <param name="testIds"> Comma separated list IDs of the tests which should be associated with the test profiles to fetch. </param>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] List test profiles.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item><item><description>
+            Please try the simpler <see cref="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestProfilesAsync(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)" /> convenience overload with strongly typed models first.
+            </description></item></list></summary>
+        <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTestProfilesAsync">
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;Azure.Developer.LoadTesting.TestProfile&gt; GetTestProfilesAsync (DateTimeOffset? lastModifiedStartTime = default, DateTimeOffset? lastModifiedEndTime = default, System.Collections.Generic.IEnumerable&lt;string&gt; testProfileIds = default, System.Collections.Generic.IEnumerable&lt;string&gt; testIds = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class Azure.Developer.LoadTesting.TestProfile&gt; GetTestProfilesAsync(valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; lastModifiedStartTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; lastModifiedEndTime, class System.Collections.Generic.IEnumerable`1&lt;string&gt; testProfileIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; testIds, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestProfilesAsync(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestProfilesAsync (Optional lastModifiedStartTime As Nullable(Of DateTimeOffset) = Nothing, Optional lastModifiedEndTime As Nullable(Of DateTimeOffset) = Nothing, Optional testProfileIds As IEnumerable(Of String) = Nothing, Optional testIds As IEnumerable(Of String) = Nothing, Optional cancellationToken As CancellationToken = Nothing) As AsyncPageable(Of TestProfile)" />
+      <MemberSignature Language="F#" Value="abstract member GetTestProfilesAsync : Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;string&gt; * seq&lt;string&gt; * System.Threading.CancellationToken -&gt; Azure.AsyncPageable&lt;Azure.Developer.LoadTesting.TestProfile&gt;&#xA;override this.GetTestProfilesAsync : Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;string&gt; * seq&lt;string&gt; * System.Threading.CancellationToken -&gt; Azure.AsyncPageable&lt;Azure.Developer.LoadTesting.TestProfile&gt;" Usage="loadTestAdministrationClient.GetTestProfilesAsync (lastModifiedStartTime, lastModifiedEndTime, testProfileIds, testIds, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AsyncPageable&lt;Azure.Developer.LoadTesting.TestProfile&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="lastModifiedStartTime" Type="System.Nullable&lt;System.DateTimeOffset&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="lastModifiedEndTime" Type="System.Nullable&lt;System.DateTimeOffset&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="testProfileIds" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="testIds" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="lastModifiedStartTime"> Start DateTime(RFC 3339 literal format) of the last updated time range to filter test profiles. </param>
+        <param name="lastModifiedEndTime"> End DateTime(RFC 3339 literal format) of the last updated time range to filter test profiles. </param>
+        <param name="testProfileIds"> Comma separated list of IDs of the test profiles to filter. </param>
+        <param name="testIds"> Comma separated list IDs of the tests which should be associated with the test profiles to fetch. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> List test profiles. </summary>
+        <returns>To be added.</returns>
+        <remarks> Get all test profiles for the given filters. </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetTests">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetTests (string orderby = default, string search = default, DateTimeOffset? lastModifiedStartTime = default, DateTimeOffset? lastModifiedEndTime = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetTests (string orderby = default, string search = default, DateTimeOffset? lastModifiedStartTime = default, DateTimeOffset? lastModifiedEndTime = default, Azure.RequestContext context = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetTests(string orderby, string search, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; lastModifiedStartTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; lastModifiedEndTime, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTests(System.String,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTests (Optional orderby As String = Nothing, Optional search As String = Nothing, Optional lastModifiedStartTime As Nullable(Of DateTimeOffset) = Nothing, Optional lastModifiedEndTime As Nullable(Of DateTimeOffset) = Nothing, Optional context As RequestContext = Nothing) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTests (Optional orderby As String = Nothing, Optional search As String = Nothing, Optional lastModifiedStartTime As Nullable(Of DateTimeOffset) = Nothing, Optional lastModifiedEndTime As Nullable(Of DateTimeOffset) = Nothing, Optional context As RequestContext = Nothing) As Pageable(Of BinaryData)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetTests : string * string * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetTests : string * string * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="loadTestAdministrationClient.GetTests (orderby, search, lastModifiedStartTime, lastModifiedEndTime, context)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetTests (string orderby, string search, DateTimeOffset? lastModifiedStartTime, DateTimeOffset? lastModifiedEndTime, Azure.RequestContext context);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTests (orderby As String, search As String, lastModifiedStartTime As Nullable(Of DateTimeOffset), lastModifiedEndTime As Nullable(Of DateTimeOffset), context As RequestContext) As Pageable(Of BinaryData)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;System.BinaryData&gt;</ReturnType>
@@ -2502,20 +3329,63 @@ foreach (var data in client.GetTests("<orderby>", "<search>", DateTimeOffset.Utc
 }
 ]]></code></example>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
-        <!-- No matching elements were found for the following include tag -->
-        <include file="Generated/Docs/LoadTestAdministrationClient.xml" path="doc/members/member[@name='GetTests(String,String,DateTimeOffset,DateTimeOffset,Int32,RequestContext)']/*" />
+      </Docs>
+    </Member>
+    <Member MemberName="GetTests">
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;Azure.Developer.LoadTesting.LoadTest&gt; GetTests (string orderby = default, string search = default, DateTimeOffset? lastModifiedStartTime = default, DateTimeOffset? lastModifiedEndTime = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class Azure.Developer.LoadTesting.LoadTest&gt; GetTests(string orderby, string search, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; lastModifiedStartTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; lastModifiedEndTime, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTests(System.String,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTests (Optional orderby As String = Nothing, Optional search As String = Nothing, Optional lastModifiedStartTime As Nullable(Of DateTimeOffset) = Nothing, Optional lastModifiedEndTime As Nullable(Of DateTimeOffset) = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Pageable(Of LoadTest)" />
+      <MemberSignature Language="F#" Value="abstract member GetTests : string * string * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * System.Threading.CancellationToken -&gt; Azure.Pageable&lt;Azure.Developer.LoadTesting.LoadTest&gt;&#xA;override this.GetTests : string * string * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * System.Threading.CancellationToken -&gt; Azure.Pageable&lt;Azure.Developer.LoadTesting.LoadTest&gt;" Usage="loadTestAdministrationClient.GetTests (orderby, search, lastModifiedStartTime, lastModifiedEndTime, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Pageable&lt;Azure.Developer.LoadTesting.LoadTest&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="orderby" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="search" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="lastModifiedStartTime" Type="System.Nullable&lt;System.DateTimeOffset&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="lastModifiedEndTime" Type="System.Nullable&lt;System.DateTimeOffset&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="orderby">
+            Sort on the supported fields in (field asc/desc) format. eg:
+            lastModifiedDateTime asc. Supported fields - lastModifiedDateTime
+            </param>
+        <param name="search">
+            Prefix based, case sensitive search on searchable fields - displayName,
+            createdBy. For example, to search for a test, with display name is Login Test,
+            the search parameter can be Login.
+            </param>
+        <param name="lastModifiedStartTime"> Start DateTime(RFC 3339 literal format) of the last updated time range to filter tests. </param>
+        <param name="lastModifiedEndTime"> End DateTime(RFC 3339 literal format) of the last updated time range to filter tests. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Get all load tests by the fully qualified resource Id e.g
+            subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.LoadTestService/loadtests/{resName}.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetTestsAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetTestsAsync (string orderby = default, string search = default, DateTimeOffset? lastModifiedStartTime = default, DateTimeOffset? lastModifiedEndTime = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetTestsAsync (string orderby = default, string search = default, DateTimeOffset? lastModifiedStartTime = default, DateTimeOffset? lastModifiedEndTime = default, Azure.RequestContext context = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetTestsAsync(string orderby, string search, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; lastModifiedStartTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; lastModifiedEndTime, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestsAsync(System.String,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestsAsync (Optional orderby As String = Nothing, Optional search As String = Nothing, Optional lastModifiedStartTime As Nullable(Of DateTimeOffset) = Nothing, Optional lastModifiedEndTime As Nullable(Of DateTimeOffset) = Nothing, Optional context As RequestContext = Nothing) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestsAsync (Optional orderby As String = Nothing, Optional search As String = Nothing, Optional lastModifiedStartTime As Nullable(Of DateTimeOffset) = Nothing, Optional lastModifiedEndTime As Nullable(Of DateTimeOffset) = Nothing, Optional context As RequestContext = Nothing) As AsyncPageable(Of BinaryData)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetTestsAsync : string * string * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetTestsAsync : string * string * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="loadTestAdministrationClient.GetTestsAsync (orderby, search, lastModifiedStartTime, lastModifiedEndTime, context)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetTestsAsync (string orderby, string search, DateTimeOffset? lastModifiedStartTime, DateTimeOffset? lastModifiedEndTime, Azure.RequestContext context);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestsAsync (orderby As String, search As String, lastModifiedStartTime As Nullable(Of DateTimeOffset), lastModifiedEndTime As Nullable(Of DateTimeOffset), context As RequestContext) As AsyncPageable(Of BinaryData)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;System.BinaryData&gt;</ReturnType>
@@ -2675,8 +3545,48 @@ await foreach (var data in client.GetTestsAsync("<orderby>", "<search>", DateTim
 }
 ]]></code></example>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
-        <!-- No matching elements were found for the following include tag -->
-        <include file="Generated/Docs/LoadTestAdministrationClient.xml" path="doc/members/member[@name='GetTestsAsync(String,String,DateTimeOffset,DateTimeOffset,Int32,RequestContext)']/*" />
+      </Docs>
+    </Member>
+    <Member MemberName="GetTestsAsync">
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;Azure.Developer.LoadTesting.LoadTest&gt; GetTestsAsync (string orderby = default, string search = default, DateTimeOffset? lastModifiedStartTime = default, DateTimeOffset? lastModifiedEndTime = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class Azure.Developer.LoadTesting.LoadTest&gt; GetTestsAsync(string orderby, string search, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; lastModifiedStartTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; lastModifiedEndTime, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Developer.LoadTesting.LoadTestAdministrationClient.GetTestsAsync(System.String,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTestsAsync (Optional orderby As String = Nothing, Optional search As String = Nothing, Optional lastModifiedStartTime As Nullable(Of DateTimeOffset) = Nothing, Optional lastModifiedEndTime As Nullable(Of DateTimeOffset) = Nothing, Optional cancellationToken As CancellationToken = Nothing) As AsyncPageable(Of LoadTest)" />
+      <MemberSignature Language="F#" Value="abstract member GetTestsAsync : string * string * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * System.Threading.CancellationToken -&gt; Azure.AsyncPageable&lt;Azure.Developer.LoadTesting.LoadTest&gt;&#xA;override this.GetTestsAsync : string * string * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * System.Threading.CancellationToken -&gt; Azure.AsyncPageable&lt;Azure.Developer.LoadTesting.LoadTest&gt;" Usage="loadTestAdministrationClient.GetTestsAsync (orderby, search, lastModifiedStartTime, lastModifiedEndTime, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AsyncPageable&lt;Azure.Developer.LoadTesting.LoadTest&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="orderby" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="search" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="lastModifiedStartTime" Type="System.Nullable&lt;System.DateTimeOffset&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="lastModifiedEndTime" Type="System.Nullable&lt;System.DateTimeOffset&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="orderby">
+            Sort on the supported fields in (field asc/desc) format. eg:
+            lastModifiedDateTime asc. Supported fields - lastModifiedDateTime
+            </param>
+        <param name="search">
+            Prefix based, case sensitive search on searchable fields - displayName,
+            createdBy. For example, to search for a test, with display name is Login Test,
+            the search parameter can be Login.
+            </param>
+        <param name="lastModifiedStartTime"> Start DateTime(RFC 3339 literal format) of the last updated time range to filter tests. </param>
+        <param name="lastModifiedEndTime"> End DateTime(RFC 3339 literal format) of the last updated time range to filter tests. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Get all load tests by the fully qualified resource Id e.g
+            subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.LoadTestService/loadtests/{resName}.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Pipeline">
@@ -2689,6 +3599,7 @@ await foreach (var data in client.GetTestsAsync("<orderby>", "<search>", DateTim
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Core.Pipeline.HttpPipeline</ReturnType>
@@ -2792,6 +3703,7 @@ Console.WriteLine(result.GetProperty("validationFailureDetails").ToString());
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Developer.LoadTesting.FileUploadResultOperation</ReturnType>
@@ -2916,6 +3828,7 @@ Console.WriteLine(result.GetProperty("validationFailureDetails").ToString());
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.LoadTesting</AssemblyName>
         <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Developer.LoadTesting.FileUploadResultOperation&gt;</ReturnType>
