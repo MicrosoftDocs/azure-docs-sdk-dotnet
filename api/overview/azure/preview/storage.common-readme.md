@@ -1,12 +1,12 @@
 ---
 title: Azure Storage Common client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Storage.Common, storage
-ms.date: 05/06/2025
+ms.date: 05/29/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: storage
 ---
-# Azure Storage Common client library for .NET - version 12.24.0-beta.1 
+# Azure Storage Common client library for .NET - version 12.25.0-alpha.20250529.2 
 
 
 > Server Version: 2021-02-12, 2020-12-06, 2020-10-02, 2020-08-04, 2020-06-12, 2020-04-08, 2020-02-10, 2019-12-12, 2019-07-07, and 2020-02-02
@@ -57,11 +57,11 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.24.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.24.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.24.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.24.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.24.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
@@ -97,7 +97,7 @@ or contact [opencode@microsoft.com][coc_contact] with any
 additional questions or comments.
 
 <!-- LINKS -->
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.24.0-beta.1/sdk/storage/Azure.Storage.Common/src
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Common/src
 [package]: https://www.nuget.org/packages/Azure.Storage.Common/
 [docs]: https://learn.microsoft.com/dotnet/api/azure.storage
 [rest_docs]: https://learn.microsoft.com/rest/api/storageservices/
@@ -109,17 +109,17 @@ additional questions or comments.
 [storage_account_create_portal]: https://learn.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal
 [azure_cli]: https://learn.microsoft.com/cli/azure
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
-[auth_credentials]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.24.0-beta.1/sdk/storage/Azure.Storage.Common/src/StorageSharedKeyCredential.cs
-[blobs_examples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.24.0-beta.1/sdk/storage/Azure.Storage.Blobs/README.md#Examples
-[files_examples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.24.0-beta.1/sdk/storage/Azure.Storage.Files.Shares/README.md#Examples
-[queues_examples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.24.0-beta.1/sdk/storage/Azure.Storage.Queues/README.md#Examples
-[RequestFailedException]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.24.0-beta.1/sdk/core/Azure.Core/src/RequestFailedException.cs
+[auth_credentials]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Common/src/StorageSharedKeyCredential.cs
+[blobs_examples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Blobs/README.md#Examples
+[files_examples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Files.Shares/README.md#Examples
+[queues_examples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Queues/README.md#Examples
+[RequestFailedException]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core/Azure.Core/src/RequestFailedException.cs
 [error_codes]: https://learn.microsoft.com/rest/api/storageservices/common-rest-api-error-codes
-[samples]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.24.0-beta.1/sdk/storage/Azure.Storage.Common/samples/
-[blobs_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.24.0-beta.1/sdk/storage/Azure.Storage.Blobs/README.md#next-steps
-[files_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.24.0-beta.1/sdk/storage/Azure.Storage.Files.Shares/README.md#next-steps
-[queues_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.24.0-beta.1/sdk/storage/Azure.Storage.Queues/README.md#next-steps
-[storage_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.24.0-beta.1/sdk/storage/CONTRIBUTING.md
+[samples]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Common/samples/
+[blobs_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Blobs/README.md#next-steps
+[files_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Files.Shares/README.md#next-steps
+[queues_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Queues/README.md#next-steps
+[storage_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
