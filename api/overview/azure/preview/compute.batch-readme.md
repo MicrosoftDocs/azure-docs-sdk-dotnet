@@ -1,12 +1,12 @@
 ---
 title: Azure Batch client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Compute.Batch, batch
-ms.date: 03/21/2025
+ms.date: 05/29/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: batch
 ---
-# Azure Batch client library for .NET - version 1.0.0-beta.2 
+# Azure Batch client library for .NET - version 1.0.0-alpha.20250529.1 
 
 
 `Azure.Compute.Batch` allows users to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure.  
@@ -16,7 +16,7 @@ Use the client library for to:
 * Create and manage Batch jobs and tasks
 * View and perform operations on nodes in a Batch pool
 
-  [Source code](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Compute.Batch_1.0.0-beta.2/sdk/batch/Azure.Compute.Batch/src) | [Package (NuGet)](https://www.nuget.org/packages) | [API reference documentation](https://learn.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet) | [Product documentation](https://learn.microsoft.com/azure/batch/)
+  [Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/batch/Azure.Compute.Batch/src) | [Package (NuGet)](https://www.nuget.org/packages) | [API reference documentation](https://learn.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet) | [Product documentation](https://learn.microsoft.com/azure/batch/)
 
 >Note: `Azure.Compute.Batch` replaces 'Microsoft.Azure.Batch`, see the [Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/493be9ef186b0d937d4919f5f42aa657d2598a78/sdk/batch/Azure.Compute.Batch/MigrationGuide.md) for migration guidance.
 
@@ -46,7 +46,7 @@ We strongly recommend using Microsoft Entra ID for Batch account authentication.
 
 #### Authenticate using Microsoft Entra ID
 
-Azure Batch provides integration with Microsoft Entra ID for identity-based authentication of requests. With Azure AD, you can use role-based access control (RBAC) to grant access to your Azure Batch resources to users, groups, or applications. The [Azure Identity library](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Compute.Batch_1.0.0-beta.2/sdk/identity/Azure.Identity/README.md) provides easy Microsoft Entra ID support for authentication.
+Azure Batch provides integration with Microsoft Entra ID for identity-based authentication of requests. With Azure AD, you can use role-based access control (RBAC) to grant access to your Azure Batch resources to users, groups, or applications. The [Azure Identity library](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/README.md) provides easy Microsoft Entra ID support for authentication.
 
 
 ```C# Snippet:Batch_Readme_EntraIDCredential
@@ -80,11 +80,11 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Compute.Batch_1.0.0-beta.2/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Compute.Batch_1.0.0-beta.2/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Compute.Batch_1.0.0-beta.2/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Compute.Batch_1.0.0-beta.2/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Compute.Batch_1.0.0-beta.2/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking?tabs=csharp) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
@@ -988,7 +988,7 @@ Call `GetCertificate` to get the certificate which will return a `GetCertificate
 BatchClient batchClient = new BatchClient(
 new Uri("https://<your account>.eastus.batch.azure.com"), new DefaultAzureCredential());
 
-GetCertificateResponse cerCertificateResponse = batchClient.GetCertificate("ThumbprintAlgorithm", "Thumbprint");
+BatchCertificate cerCertificateResponse = batchClient.GetCertificate("ThumbprintAlgorithm", "Thumbprint");
 ```
 
 #### ListCertificates
@@ -1078,7 +1078,7 @@ Please see [Troubleshooting common batch issues](https://learn.microsoft.com/tro
 
 ## Next steps
 
-View more https://github.com/Azure/azure-sdk-for-net/blob/Azure.Compute.Batch_1.0.0-beta.2/sdk/batch/Azure.Compute.Batch/samples here for common usages of the Batch client library: [Batch Samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Compute.Batch_1.0.0-beta.2/sdk/batch/Azure.Compute.Batch/samples).
+View more https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/batch/Azure.Compute.Batch/samples here for common usages of the Batch client library: [Batch Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/batch/Azure.Compute.Batch/samples).
 
 ## Contributing
 
