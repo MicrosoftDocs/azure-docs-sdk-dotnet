@@ -1,12 +1,12 @@
 ---
 title: Azure Communication Phone Numbers client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Communication.PhoneNumbers, communication
-ms.date: 05/21/2025
+ms.date: 05/29/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: communication
 ---
-# Azure Communication Phone Numbers client library for .NET - version 1.4.0-beta.1 
+# Azure Communication Phone Numbers client library for .NET - version 1.4.0-alpha.20250529.1 
 
 
 Azure Communication Phone Numbers is managing phone numbers for Azure Communication Services.
@@ -92,14 +92,6 @@ Phone numbers can be searched through the search creation API by providing an ar
 
 Phone numbers can also be released using the release API.
 
-#### Browsing and reserving phone numbers
-
-The Browse and Reservations APIs provide an alternate way to acquire phone numbers via a shopping-cart-like experience. This is achieved by splitting the search operation, which finds and reserves numbers using a single LRO, into two separate synchronous steps: Browse and Reservation. 
-
-The browse operation retrieves a random sample of phone numbers that are available for purchase for a given country, with optional filtering criteria to narrow down results. The returned phone numbers are not reserved for any customer.
-
-Reservations represent a collection of phone numbers that are locked by a specific customer and are awaiting purchase. They have an expiration time of 15 minutes after the last modification or 2 hours from creation time. A reservation can include numbers from different countries, in contrast with the Search operation. Customers can Create, Retrieve, Modify (add/remove numbers), Delete, and Purchase reservations. Purchasing a reservation is an LRO.
-
 ### SIP routing client
 
 Direct routing feature allows connecting customer-provided telephony infrastructure to Azure Communication Resources. In order to setup routing configuration properly, customer needs to supply the SIP trunk configuration and SIP routing rules for calls. SIP routing client provides the necessary interface for setting this configuration.
@@ -112,11 +104,11 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.4.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.4.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.4.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.4.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.4.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
@@ -179,53 +171,6 @@ var purchasedPhoneNumber = "<purchased_phone_number>";
 var releaseOperation = await client.StartReleasePhoneNumberAsync(purchasedPhoneNumber);
 await releaseOperation.WaitForCompletionResponseAsync();
 await WaitForCompletionResponseAsync(releaseOperation);
-```
-
-#### Acquiring phone numbers using the Reservations API
-
-Using the Browse API, you can find phone numbers that are available for purchase. Note that these numbers are not reserved for any customer.
-
-```C# Snippet:BrowseAvailablePhoneNumbersAsync
-var browseRequest = new PhoneNumbersBrowseOptions("US", PhoneNumberType.TollFree);
-var browseResponse = await client.BrowseAvailableNumbersAsync(browseRequest);
-var availablePhoneNumbers = browseResponse.Value.PhoneNumbers;
-```
-
-Then, create a new reservation with the numbers from the Browse API response.
-```C# Snippet:CreateReservationAsync
-// Reserve the first two available phone numbers.
-var phoneNumbersToReserve = availablePhoneNumbers.Take(2).ToList();
-
-// The reservation ID needs to be a unique GUID.
-var reservationId = Guid.NewGuid();
-
-var request = new CreateOrUpdateReservationOptions(reservationId)
-{
-    PhoneNumbersToAdd = phoneNumbersToReserve
-};
-var response = await client.CreateOrUpdateReservationAsync(request);
-var reservation = response.Value;
-```
-
-Partial failures are possible, so it is important to check the status of each individual phone number.
-```C# Snippet:CheckForPartialFailure
-var phoneNumbersWithError = reservation.PhoneNumbers.Values
-    .Where(n => n.Status == PhoneNumberAvailabilityStatus.Error);
-
-if (phoneNumbersWithError.Any())
-{
-    // Handle the error for the phone numbers that failed to reserve.
-    foreach (var phoneNumber in phoneNumbersWithError)
-    {
-        Console.WriteLine($"Failed to reserve phone number {phoneNumber.Id}. Error Code: {phoneNumber.Error?.Code} - Message: {phoneNumber.Error?.Message}");
-    }
-}
-```
-
-Once all numbers are reserved, the reservation can be purchased.
-```C# Snippet:StartPurchaseReservationAsync
-var purchaseReservationOperation = await client.StartPurchaseReservationAsync(reservationId);
-await purchaseReservationOperation.WaitForCompletionResponseAsync();
 ```
 
 ### SipRoutingClient
@@ -299,8 +244,8 @@ This project has adopted the [Microsoft Open Source Code of Conduct][coc]. For m
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
 [azure_portal]: https://portal.azure.com
 [azure_identity]: https://learn.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.4.0-beta.1/sdk/communication/Azure.Communication.PhoneNumbers/src
-[source_samples]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.4.0-beta.1/sdk/communication/Azure.Communication.PhoneNumbers/samples
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication/Azure.Communication.PhoneNumbers/src
+[source_samples]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.PhoneNumbers/samples
 [cla]: https://cla.microsoft.com
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
