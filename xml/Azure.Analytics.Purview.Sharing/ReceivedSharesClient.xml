@@ -84,11 +84,11 @@
       </Docs>
     </Member>
     <Member MemberName="ActivateTenantEmailRegistration">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response ActivateTenantEmailRegistration (Azure.Core.RequestContent content, string repeatabilityRequestId = default, Azure.RequestContext context = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response ActivateTenantEmailRegistration(class Azure.Core.RequestContent content, string repeatabilityRequestId, class Azure.RequestContext context) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ReceivedSharesClient.ActivateTenantEmailRegistration(Azure.Core.RequestContent,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function ActivateTenantEmailRegistration (content As RequestContent, Optional repeatabilityRequestId As String = Nothing, Optional context As RequestContext = Nothing) As Response" />
-      <MemberSignature Language="F#" Value="abstract member ActivateTenantEmailRegistration : Azure.Core.RequestContent * string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.ActivateTenantEmailRegistration : Azure.Core.RequestContent * string * Azure.RequestContext -&gt; Azure.Response" Usage="receivedSharesClient.ActivateTenantEmailRegistration (content, repeatabilityRequestId, context)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response ActivateTenantEmailRegistration (Azure.Core.RequestContent content, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response ActivateTenantEmailRegistration(class Azure.Core.RequestContent content, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ReceivedSharesClient.ActivateTenantEmailRegistration(Azure.Core.RequestContent,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function ActivateTenantEmailRegistration (content As RequestContent, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="F#" Value="abstract member ActivateTenantEmailRegistration : Azure.Core.RequestContent * Azure.RequestContext -&gt; Azure.Response&#xA;override this.ActivateTenantEmailRegistration : Azure.Core.RequestContent * Azure.RequestContext -&gt; Azure.Response" Usage="receivedSharesClient.ActivateTenantEmailRegistration (content, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Sharing</AssemblyName>
@@ -99,12 +99,10 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="content" Type="Azure.Core.RequestContent" />
-        <Parameter Name="repeatabilityRequestId" Type="System.String" />
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="content"> The content to send as the body of the request. </param>
-        <param name="repeatabilityRequestId"> If specified, the client directs that the request is repeatable; that is, that the client can make the request multiple times with the same Repeatability-Request-Id and get back an appropriate response without the server executing the request multiple times. The value of the Repeatability-Request-Id is an opaque string representing a client-generated, globally unique for all time, identifier for the request. It is recommended to use version 4 (random) UUIDs. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
             [Protocol Method] Activates the tenant and email combination using the activation code received.
@@ -112,74 +110,37 @@
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
             </description></item></list></summary>
         <returns> The response returned from the service. </returns>
-        <remarks>
-Activates the email registration for current tenant
-
-Below is the JSON schema for the request and response payloads.
-
-Request Body:
-
-Schema for <c>TenantEmailRegistration</c>:
-<code>{
-  properties: {
-    activationCode: string, # Required. Activation code for the registration.
-    activationExpiration: string (ISO 8601 Format), # Optional. Date of the activation expiration. Represented in the standard date-time format as defined by [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339)
-    email: string, # Optional. The email to register.
-    registrationStatus: "ActivationPending" | "Activated" | "ActivationAttemptsExhausted", # Optional. Defines the supported types for registration.
-    state: "Unknown" | "Succeeded" | "Creating" | "Deleting" | "Moving" | "Failed", # Optional. State of the resource
-    tenantId: string, # Optional. The tenant id to register.
-  }, # Optional. Tenant email registration property bag.
-  id: string, # Optional. The unique id of the resource.
-  type: string, # Optional. Type of the resource.
-}
-</code>
-
-Response Body:
-
-Schema for <c>TenantEmailRegistration</c>:
-<code>{
-  properties: {
-    activationCode: string, # Required. Activation code for the registration.
-    activationExpiration: string (ISO 8601 Format), # Optional. Date of the activation expiration. Represented in the standard date-time format as defined by [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339)
-    email: string, # Optional. The email to register.
-    registrationStatus: "ActivationPending" | "Activated" | "ActivationAttemptsExhausted", # Optional. Defines the supported types for registration.
-    state: "Unknown" | "Succeeded" | "Creating" | "Deleting" | "Moving" | "Failed", # Optional. State of the resource
-    tenantId: string, # Optional. The tenant id to register.
-  }, # Optional. Tenant email registration property bag.
-  id: string, # Optional. The unique id of the resource.
-  type: string, # Optional. Type of the resource.
-}
-</code></remarks>
+        <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="content" /> is null. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call ActivateTenantEmailRegistration with required parameters and parse the result.
+This sample shows how to call ActivateTenantEmailRegistration and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-var data = new {};
-
-Response response = client.ActivateTenantEmailRegistration(RequestContent.Create(data));
+using RequestContent content = RequestContent.Create(new object());
+Response response = client.ActivateTenantEmailRegistration(content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.ToString());
 ]]></code>
-This sample shows how to call ActivateTenantEmailRegistration with all parameters and request content, and how to parse the result.
+This sample shows how to call ActivateTenantEmailRegistration with all request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-var data = new {
-    properties = new {
+using RequestContent content = RequestContent.Create(new
+{
+    properties = new
+    {
         activationCode = "<activationCode>",
     },
-};
-
-Response response = client.ActivateTenantEmailRegistration(RequestContent.Create(data), "<repeatabilityRequestId>");
+});
+Response response = client.ActivateTenantEmailRegistration(content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("properties").GetProperty("activationCode").ToString());
@@ -194,11 +155,11 @@ Console.WriteLine(result.GetProperty("type").ToString());
       </Docs>
     </Member>
     <Member MemberName="ActivateTenantEmailRegistrationAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; ActivateTenantEmailRegistrationAsync (Azure.Core.RequestContent content, string repeatabilityRequestId = default, Azure.RequestContext context = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; ActivateTenantEmailRegistrationAsync(class Azure.Core.RequestContent content, string repeatabilityRequestId, class Azure.RequestContext context) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ReceivedSharesClient.ActivateTenantEmailRegistrationAsync(Azure.Core.RequestContent,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function ActivateTenantEmailRegistrationAsync (content As RequestContent, Optional repeatabilityRequestId As String = Nothing, Optional context As RequestContext = Nothing) As Task(Of Response)" />
-      <MemberSignature Language="F#" Value="abstract member ActivateTenantEmailRegistrationAsync : Azure.Core.RequestContent * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.ActivateTenantEmailRegistrationAsync : Azure.Core.RequestContent * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="receivedSharesClient.ActivateTenantEmailRegistrationAsync (content, repeatabilityRequestId, context)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; ActivateTenantEmailRegistrationAsync (Azure.Core.RequestContent content, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; ActivateTenantEmailRegistrationAsync(class Azure.Core.RequestContent content, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ReceivedSharesClient.ActivateTenantEmailRegistrationAsync(Azure.Core.RequestContent,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function ActivateTenantEmailRegistrationAsync (content As RequestContent, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member ActivateTenantEmailRegistrationAsync : Azure.Core.RequestContent * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.ActivateTenantEmailRegistrationAsync : Azure.Core.RequestContent * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="receivedSharesClient.ActivateTenantEmailRegistrationAsync (content, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Sharing</AssemblyName>
@@ -209,12 +170,10 @@ Console.WriteLine(result.GetProperty("type").ToString());
       </ReturnValue>
       <Parameters>
         <Parameter Name="content" Type="Azure.Core.RequestContent" />
-        <Parameter Name="repeatabilityRequestId" Type="System.String" />
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="content"> The content to send as the body of the request. </param>
-        <param name="repeatabilityRequestId"> If specified, the client directs that the request is repeatable; that is, that the client can make the request multiple times with the same Repeatability-Request-Id and get back an appropriate response without the server executing the request multiple times. The value of the Repeatability-Request-Id is an opaque string representing a client-generated, globally unique for all time, identifier for the request. It is recommended to use version 4 (random) UUIDs. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
             [Protocol Method] Activates the tenant and email combination using the activation code received.
@@ -222,74 +181,37 @@ Console.WriteLine(result.GetProperty("type").ToString());
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
             </description></item></list></summary>
         <returns> The response returned from the service. </returns>
-        <remarks>
-Activates the email registration for current tenant
-
-Below is the JSON schema for the request and response payloads.
-
-Request Body:
-
-Schema for <c>TenantEmailRegistration</c>:
-<code>{
-  properties: {
-    activationCode: string, # Required. Activation code for the registration.
-    activationExpiration: string (ISO 8601 Format), # Optional. Date of the activation expiration. Represented in the standard date-time format as defined by [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339)
-    email: string, # Optional. The email to register.
-    registrationStatus: "ActivationPending" | "Activated" | "ActivationAttemptsExhausted", # Optional. Defines the supported types for registration.
-    state: "Unknown" | "Succeeded" | "Creating" | "Deleting" | "Moving" | "Failed", # Optional. State of the resource
-    tenantId: string, # Optional. The tenant id to register.
-  }, # Optional. Tenant email registration property bag.
-  id: string, # Optional. The unique id of the resource.
-  type: string, # Optional. Type of the resource.
-}
-</code>
-
-Response Body:
-
-Schema for <c>TenantEmailRegistration</c>:
-<code>{
-  properties: {
-    activationCode: string, # Required. Activation code for the registration.
-    activationExpiration: string (ISO 8601 Format), # Optional. Date of the activation expiration. Represented in the standard date-time format as defined by [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339)
-    email: string, # Optional. The email to register.
-    registrationStatus: "ActivationPending" | "Activated" | "ActivationAttemptsExhausted", # Optional. Defines the supported types for registration.
-    state: "Unknown" | "Succeeded" | "Creating" | "Deleting" | "Moving" | "Failed", # Optional. State of the resource
-    tenantId: string, # Optional. The tenant id to register.
-  }, # Optional. Tenant email registration property bag.
-  id: string, # Optional. The unique id of the resource.
-  type: string, # Optional. Type of the resource.
-}
-</code></remarks>
+        <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="content" /> is null. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call ActivateTenantEmailRegistrationAsync with required parameters and parse the result.
+This sample shows how to call ActivateTenantEmailRegistrationAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-var data = new {};
-
-Response response = await client.ActivateTenantEmailRegistrationAsync(RequestContent.Create(data));
+using RequestContent content = RequestContent.Create(new object());
+Response response = await client.ActivateTenantEmailRegistrationAsync(content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.ToString());
 ]]></code>
-This sample shows how to call ActivateTenantEmailRegistrationAsync with all parameters and request content, and how to parse the result.
+This sample shows how to call ActivateTenantEmailRegistrationAsync with all request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-var data = new {
-    properties = new {
+using RequestContent content = RequestContent.Create(new
+{
+    properties = new
+    {
         activationCode = "<activationCode>",
     },
-};
-
-Response response = await client.ActivateTenantEmailRegistrationAsync(RequestContent.Create(data), "<repeatabilityRequestId>");
+});
+Response response = await client.ActivateTenantEmailRegistrationAsync(content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("properties").GetProperty("activationCode").ToString());
@@ -413,54 +335,57 @@ Response Body:
           <paramref name="receivedShareId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateOrReplaceReceivedShare with required parameters and request content, and how to parse the result.
+This sample shows how to call CreateOrReplaceReceivedShare and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-var data = new {
-    properties = new {},
+using RequestContent content = RequestContent.Create(new
+{
+    properties = new object(),
     shareKind = "InPlace",
-};
-
-var operation = client.CreateOrReplaceReceivedShare(WaitUntil.Completed, "<receivedShareId>", RequestContent.Create(data));
-
+});
+Operation<BinaryData> operation = client.CreateOrReplaceReceivedShare(WaitUntil.Completed, "<receivedShareId>", content);
 BinaryData responseData = operation.Value;
+
 JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
 Console.WriteLine(result.GetProperty("shareKind").ToString());
-Console.WriteLine(result.ToString());
 ]]></code>
-This sample shows how to call CreateOrReplaceReceivedShare with all parameters and request content, and how to parse the result.
+This sample shows how to call CreateOrReplaceReceivedShare with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-var data = new {
-    properties = new {
+using RequestContent content = RequestContent.Create(new
+{
+    properties = new
+    {
         assetStoreKind = "AdlsGen2Account",
         displayName = "<displayName>",
         shareStatus = "Detached",
-        sink = new {
-            properties = new {
+        sink = new
+        {
+            properties = new
+            {
                 containerName = "<containerName>",
                 folder = "<folder>",
                 mountPath = "<mountPath>",
             },
             storeKind = "AdlsGen2Account",
-            storeReference = new {
+            storeReference = new
+            {
                 referenceName = "<referenceName>",
                 type = "ArmResourceReference",
             },
         },
     },
     shareKind = "InPlace",
-};
-
-var operation = client.CreateOrReplaceReceivedShare(WaitUntil.Completed, "<receivedShareId>", RequestContent.Create(data));
-
+});
+Operation<BinaryData> operation = client.CreateOrReplaceReceivedShare(WaitUntil.Completed, "<receivedShareId>", content);
 BinaryData responseData = operation.Value;
+
 JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
 Console.WriteLine(result.GetProperty("shareKind").ToString());
 Console.WriteLine(result.GetProperty("id").ToString());
@@ -578,54 +503,57 @@ Response Body:
           <paramref name="receivedShareId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateOrReplaceReceivedShareAsync with required parameters and request content, and how to parse the result.
+This sample shows how to call CreateOrReplaceReceivedShareAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-var data = new {
-    properties = new {},
+using RequestContent content = RequestContent.Create(new
+{
+    properties = new object(),
     shareKind = "InPlace",
-};
-
-var operation = await client.CreateOrReplaceReceivedShareAsync(WaitUntil.Completed, "<receivedShareId>", RequestContent.Create(data));
-
+});
+Operation<BinaryData> operation = await client.CreateOrReplaceReceivedShareAsync(WaitUntil.Completed, "<receivedShareId>", content);
 BinaryData responseData = operation.Value;
+
 JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
 Console.WriteLine(result.GetProperty("shareKind").ToString());
-Console.WriteLine(result.ToString());
 ]]></code>
-This sample shows how to call CreateOrReplaceReceivedShareAsync with all parameters and request content, and how to parse the result.
+This sample shows how to call CreateOrReplaceReceivedShareAsync with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-var data = new {
-    properties = new {
+using RequestContent content = RequestContent.Create(new
+{
+    properties = new
+    {
         assetStoreKind = "AdlsGen2Account",
         displayName = "<displayName>",
         shareStatus = "Detached",
-        sink = new {
-            properties = new {
+        sink = new
+        {
+            properties = new
+            {
                 containerName = "<containerName>",
                 folder = "<folder>",
                 mountPath = "<mountPath>",
             },
             storeKind = "AdlsGen2Account",
-            storeReference = new {
+            storeReference = new
+            {
                 referenceName = "<referenceName>",
                 type = "ArmResourceReference",
             },
         },
     },
     shareKind = "InPlace",
-};
-
-var operation = await client.CreateOrReplaceReceivedShareAsync(WaitUntil.Completed, "<receivedShareId>", RequestContent.Create(data));
-
+});
+Operation<BinaryData> operation = await client.CreateOrReplaceReceivedShareAsync(WaitUntil.Completed, "<receivedShareId>", content);
 BinaryData responseData = operation.Value;
+
 JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
 Console.WriteLine(result.GetProperty("shareKind").ToString());
 Console.WriteLine(result.GetProperty("id").ToString());
@@ -634,10 +562,10 @@ Console.WriteLine(result.GetProperty("type").ToString());
       </Docs>
     </Member>
     <Member MemberName="DeleteReceivedShare">
-      <MemberSignature Language="C#" Value="public virtual Azure.Operation&lt;BinaryData&gt; DeleteReceivedShare (Azure.WaitUntil waitUntil, string receivedShareId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Operation&lt;BinaryData&gt; DeleteReceivedShare (Azure.WaitUntil waitUntil, string receivedShareId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Operation`1&lt;class System.BinaryData&gt; DeleteReceivedShare(valuetype Azure.WaitUntil waitUntil, string receivedShareId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ReceivedSharesClient.DeleteReceivedShare(Azure.WaitUntil,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteReceivedShare (waitUntil As WaitUntil, receivedShareId As String, Optional context As RequestContext = Nothing) As Operation(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteReceivedShare (waitUntil As WaitUntil, receivedShareId As String, context As RequestContext) As Operation(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member DeleteReceivedShare : Azure.WaitUntil * string * Azure.RequestContext -&gt; Azure.Operation&lt;BinaryData&gt;&#xA;override this.DeleteReceivedShare : Azure.WaitUntil * string * Azure.RequestContext -&gt; Azure.Operation&lt;BinaryData&gt;" Usage="receivedSharesClient.DeleteReceivedShare (waitUntil, receivedShareId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -690,15 +618,27 @@ Schema for <c>OperationResponse</c>:
           <paramref name="receivedShareId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call DeleteReceivedShare with required parameters and parse the result.
+This sample shows how to call DeleteReceivedShare and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-var operation = client.DeleteReceivedShare(WaitUntil.Completed, "<receivedShareId>");
-
+Operation<BinaryData> operation = client.DeleteReceivedShare(WaitUntil.Completed, "<receivedShareId>", null);
 BinaryData responseData = operation.Value;
+
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
+Console.WriteLine(result.GetProperty("status").ToString());
+]]></code>
+This sample shows how to call DeleteReceivedShare with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
+
+Operation<BinaryData> operation = client.DeleteReceivedShare(WaitUntil.Completed, "<receivedShareId>", null);
+BinaryData responseData = operation.Value;
+
 JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
 Console.WriteLine(result.GetProperty("endTime").ToString());
 Console.WriteLine(result.GetProperty("error").GetProperty("code").ToString());
@@ -711,10 +651,10 @@ Console.WriteLine(result.GetProperty("status").ToString());
       </Docs>
     </Member>
     <Member MemberName="DeleteReceivedShareAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt; DeleteReceivedShareAsync (Azure.WaitUntil waitUntil, string receivedShareId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt; DeleteReceivedShareAsync (Azure.WaitUntil waitUntil, string receivedShareId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Operation`1&lt;class System.BinaryData&gt;&gt; DeleteReceivedShareAsync(valuetype Azure.WaitUntil waitUntil, string receivedShareId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ReceivedSharesClient.DeleteReceivedShareAsync(Azure.WaitUntil,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteReceivedShareAsync (waitUntil As WaitUntil, receivedShareId As String, Optional context As RequestContext = Nothing) As Task(Of Operation(Of BinaryData))" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteReceivedShareAsync (waitUntil As WaitUntil, receivedShareId As String, context As RequestContext) As Task(Of Operation(Of BinaryData))" />
       <MemberSignature Language="F#" Value="abstract member DeleteReceivedShareAsync : Azure.WaitUntil * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt;&#xA;override this.DeleteReceivedShareAsync : Azure.WaitUntil * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt;" Usage="receivedSharesClient.DeleteReceivedShareAsync (waitUntil, receivedShareId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -767,15 +707,27 @@ Schema for <c>OperationResponse</c>:
           <paramref name="receivedShareId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call DeleteReceivedShareAsync with required parameters and parse the result.
+This sample shows how to call DeleteReceivedShareAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-var operation = await client.DeleteReceivedShareAsync(WaitUntil.Completed, "<receivedShareId>");
-
+Operation<BinaryData> operation = await client.DeleteReceivedShareAsync(WaitUntil.Completed, "<receivedShareId>", null);
 BinaryData responseData = operation.Value;
+
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
+Console.WriteLine(result.GetProperty("status").ToString());
+]]></code>
+This sample shows how to call DeleteReceivedShareAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
+
+Operation<BinaryData> operation = await client.DeleteReceivedShareAsync(WaitUntil.Completed, "<receivedShareId>", null);
+BinaryData responseData = operation.Value;
+
 JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
 Console.WriteLine(result.GetProperty("endTime").ToString());
 Console.WriteLine(result.GetProperty("error").GetProperty("code").ToString());
@@ -788,10 +740,10 @@ Console.WriteLine(result.GetProperty("status").ToString());
       </Docs>
     </Member>
     <Member MemberName="GetAllAttachedReceivedShares">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetAllAttachedReceivedShares (string referenceName, string filter = default, string orderby = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetAllAttachedReceivedShares (string referenceName, string filter, string orderby, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetAllAttachedReceivedShares(string referenceName, string filter, string orderby, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ReceivedSharesClient.GetAllAttachedReceivedShares(System.String,System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllAttachedReceivedShares (referenceName As String, Optional filter As String = Nothing, Optional orderby As String = Nothing, Optional context As RequestContext = Nothing) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllAttachedReceivedShares (referenceName As String, filter As String, orderby As String, context As RequestContext) As Pageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetAllAttachedReceivedShares : string * string * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetAllAttachedReceivedShares : string * string * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="receivedSharesClient.GetAllAttachedReceivedShares (referenceName, filter, orderby, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -823,26 +775,25 @@ Console.WriteLine(result.GetProperty("status").ToString());
           <paramref name="referenceName" /> is null. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetAllAttachedReceivedShares with required parameters and parse the result.
+This sample shows how to call GetAllAttachedReceivedShares and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-foreach (var item in client.GetAllAttachedReceivedShares("<referenceName>"))
+foreach (BinaryData item in client.GetAllAttachedReceivedShares("<referenceName>", null, null, null))
 {
     JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("shareKind").ToString());
-    Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetAllAttachedReceivedShares with all parameters, and how to parse the result.
+This sample shows how to call GetAllAttachedReceivedShares with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-foreach (var item in client.GetAllAttachedReceivedShares("<referenceName>", "<filter>", "<orderby>"))
+foreach (BinaryData item in client.GetAllAttachedReceivedShares("<referenceName>", "<filter>", "<orderby>", null))
 {
     JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("shareKind").ToString());
@@ -853,10 +804,10 @@ foreach (var item in client.GetAllAttachedReceivedShares("<referenceName>", "<fi
       </Docs>
     </Member>
     <Member MemberName="GetAllAttachedReceivedSharesAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetAllAttachedReceivedSharesAsync (string referenceName, string filter = default, string orderby = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetAllAttachedReceivedSharesAsync (string referenceName, string filter, string orderby, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetAllAttachedReceivedSharesAsync(string referenceName, string filter, string orderby, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ReceivedSharesClient.GetAllAttachedReceivedSharesAsync(System.String,System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllAttachedReceivedSharesAsync (referenceName As String, Optional filter As String = Nothing, Optional orderby As String = Nothing, Optional context As RequestContext = Nothing) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllAttachedReceivedSharesAsync (referenceName As String, filter As String, orderby As String, context As RequestContext) As AsyncPageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetAllAttachedReceivedSharesAsync : string * string * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetAllAttachedReceivedSharesAsync : string * string * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="receivedSharesClient.GetAllAttachedReceivedSharesAsync (referenceName, filter, orderby, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -888,26 +839,25 @@ foreach (var item in client.GetAllAttachedReceivedShares("<referenceName>", "<fi
           <paramref name="referenceName" /> is null. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetAllAttachedReceivedSharesAsync with required parameters and parse the result.
+This sample shows how to call GetAllAttachedReceivedSharesAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-await foreach (var item in client.GetAllAttachedReceivedSharesAsync("<referenceName>"))
+await foreach (BinaryData item in client.GetAllAttachedReceivedSharesAsync("<referenceName>", null, null, null))
 {
     JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("shareKind").ToString());
-    Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetAllAttachedReceivedSharesAsync with all parameters, and how to parse the result.
+This sample shows how to call GetAllAttachedReceivedSharesAsync with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-await foreach (var item in client.GetAllAttachedReceivedSharesAsync("<referenceName>", "<filter>", "<orderby>"))
+await foreach (BinaryData item in client.GetAllAttachedReceivedSharesAsync("<referenceName>", "<filter>", "<orderby>", null))
 {
     JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("shareKind").ToString());
@@ -918,10 +868,10 @@ await foreach (var item in client.GetAllAttachedReceivedSharesAsync("<referenceN
       </Docs>
     </Member>
     <Member MemberName="GetAllDetachedReceivedShares">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetAllDetachedReceivedShares (string filter = default, string orderby = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetAllDetachedReceivedShares (string filter, string orderby, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetAllDetachedReceivedShares(string filter, string orderby, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ReceivedSharesClient.GetAllDetachedReceivedShares(System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllDetachedReceivedShares (Optional filter As String = Nothing, Optional orderby As String = Nothing, Optional context As RequestContext = Nothing) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllDetachedReceivedShares (filter As String, orderby As String, context As RequestContext) As Pageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetAllDetachedReceivedShares : string * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetAllDetachedReceivedShares : string * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="receivedSharesClient.GetAllDetachedReceivedShares (filter, orderby, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -951,24 +901,23 @@ await foreach (var item in client.GetAllAttachedReceivedSharesAsync("<referenceN
         <example>
 This sample shows how to call GetAllDetachedReceivedShares and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-foreach (var item in client.GetAllDetachedReceivedShares())
+foreach (BinaryData item in client.GetAllDetachedReceivedShares(null, null, null))
 {
     JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("shareKind").ToString());
-    Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetAllDetachedReceivedShares with all parameters, and how to parse the result.
+This sample shows how to call GetAllDetachedReceivedShares with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-foreach (var item in client.GetAllDetachedReceivedShares("<filter>", "<orderby>"))
+foreach (BinaryData item in client.GetAllDetachedReceivedShares("<filter>", "<orderby>", null))
 {
     JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("shareKind").ToString());
@@ -979,10 +928,10 @@ foreach (var item in client.GetAllDetachedReceivedShares("<filter>", "<orderby>"
       </Docs>
     </Member>
     <Member MemberName="GetAllDetachedReceivedSharesAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetAllDetachedReceivedSharesAsync (string filter = default, string orderby = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetAllDetachedReceivedSharesAsync (string filter, string orderby, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetAllDetachedReceivedSharesAsync(string filter, string orderby, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ReceivedSharesClient.GetAllDetachedReceivedSharesAsync(System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllDetachedReceivedSharesAsync (Optional filter As String = Nothing, Optional orderby As String = Nothing, Optional context As RequestContext = Nothing) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllDetachedReceivedSharesAsync (filter As String, orderby As String, context As RequestContext) As AsyncPageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetAllDetachedReceivedSharesAsync : string * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetAllDetachedReceivedSharesAsync : string * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="receivedSharesClient.GetAllDetachedReceivedSharesAsync (filter, orderby, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1012,24 +961,23 @@ foreach (var item in client.GetAllDetachedReceivedShares("<filter>", "<orderby>"
         <example>
 This sample shows how to call GetAllDetachedReceivedSharesAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-await foreach (var item in client.GetAllDetachedReceivedSharesAsync())
+await foreach (BinaryData item in client.GetAllDetachedReceivedSharesAsync(null, null, null))
 {
     JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("shareKind").ToString());
-    Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetAllDetachedReceivedSharesAsync with all parameters, and how to parse the result.
+This sample shows how to call GetAllDetachedReceivedSharesAsync with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-await foreach (var item in client.GetAllDetachedReceivedSharesAsync("<filter>", "<orderby>"))
+await foreach (BinaryData item in client.GetAllDetachedReceivedSharesAsync("<filter>", "<orderby>", null))
 {
     JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("shareKind").ToString());
@@ -1040,10 +988,10 @@ await foreach (var item in client.GetAllDetachedReceivedSharesAsync("<filter>", 
       </Docs>
     </Member>
     <Member MemberName="GetReceivedShare">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetReceivedShare (string receivedShareId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetReceivedShare (string receivedShareId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetReceivedShare(string receivedShareId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ReceivedSharesClient.GetReceivedShare(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetReceivedShare (receivedShareId As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetReceivedShare (receivedShareId As String, context As RequestContext) As Response" />
       <MemberSignature Language="F#" Value="abstract member GetReceivedShare : string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetReceivedShare : string * Azure.RequestContext -&gt; Azure.Response" Usage="receivedSharesClient.GetReceivedShare (receivedShareId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1110,13 +1058,24 @@ Response Body:
           <paramref name="receivedShareId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetReceivedShare with required parameters and parse the result.
+This sample shows how to call GetReceivedShare and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-Response response = client.GetReceivedShare("<receivedShareId>");
+Response response = client.GetReceivedShare("<receivedShareId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("shareKind").ToString());
+]]></code>
+This sample shows how to call GetReceivedShare with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
+
+Response response = client.GetReceivedShare("<receivedShareId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("shareKind").ToString());
@@ -1126,10 +1085,10 @@ Console.WriteLine(result.GetProperty("type").ToString());
       </Docs>
     </Member>
     <Member MemberName="GetReceivedShareAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetReceivedShareAsync (string receivedShareId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetReceivedShareAsync (string receivedShareId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetReceivedShareAsync(string receivedShareId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ReceivedSharesClient.GetReceivedShareAsync(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetReceivedShareAsync (receivedShareId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetReceivedShareAsync (receivedShareId As String, context As RequestContext) As Task(Of Response)" />
       <MemberSignature Language="F#" Value="abstract member GetReceivedShareAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetReceivedShareAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="receivedSharesClient.GetReceivedShareAsync (receivedShareId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1196,13 +1155,24 @@ Response Body:
           <paramref name="receivedShareId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetReceivedShareAsync with required parameters and parse the result.
+This sample shows how to call GetReceivedShareAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-Response response = await client.GetReceivedShareAsync("<receivedShareId>");
+Response response = await client.GetReceivedShareAsync("<receivedShareId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("shareKind").ToString());
+]]></code>
+This sample shows how to call GetReceivedShareAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
+
+Response response = await client.GetReceivedShareAsync("<receivedShareId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("shareKind").ToString());
@@ -1232,11 +1202,11 @@ Console.WriteLine(result.GetProperty("type").ToString());
       </Docs>
     </Member>
     <Member MemberName="RegisterTenantEmailRegistration">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response RegisterTenantEmailRegistration (string repeatabilityRequestId = default, Azure.RequestContext context = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response RegisterTenantEmailRegistration(string repeatabilityRequestId, class Azure.RequestContext context) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ReceivedSharesClient.RegisterTenantEmailRegistration(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function RegisterTenantEmailRegistration (Optional repeatabilityRequestId As String = Nothing, Optional context As RequestContext = Nothing) As Response" />
-      <MemberSignature Language="F#" Value="abstract member RegisterTenantEmailRegistration : string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.RegisterTenantEmailRegistration : string * Azure.RequestContext -&gt; Azure.Response" Usage="receivedSharesClient.RegisterTenantEmailRegistration (repeatabilityRequestId, context)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response RegisterTenantEmailRegistration (Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response RegisterTenantEmailRegistration(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ReceivedSharesClient.RegisterTenantEmailRegistration(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function RegisterTenantEmailRegistration (context As RequestContext) As Response" />
+      <MemberSignature Language="F#" Value="abstract member RegisterTenantEmailRegistration : Azure.RequestContext -&gt; Azure.Response&#xA;override this.RegisterTenantEmailRegistration : Azure.RequestContext -&gt; Azure.Response" Usage="receivedSharesClient.RegisterTenantEmailRegistration context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Sharing</AssemblyName>
@@ -1246,11 +1216,9 @@ Console.WriteLine(result.GetProperty("type").ToString());
         <ReturnType>Azure.Response</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="repeatabilityRequestId" Type="System.String" />
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="repeatabilityRequestId"> If specified, the client directs that the request is repeatable; that is, that the client can make the request multiple times with the same Repeatability-Request-Id and get back an appropriate response without the server executing the request multiple times. The value of the Repeatability-Request-Id is an opaque string representing a client-generated, globally unique for all time, identifier for the request. It is recommended to use version 4 (random) UUIDs. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
             [Protocol Method] Registers the tenant and email combination for activation.
@@ -1258,47 +1226,27 @@ Console.WriteLine(result.GetProperty("type").ToString());
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
             </description></item></list></summary>
         <returns> The response returned from the service. </returns>
-        <remarks>
-Register an email for the current tenant
-
-Below is the JSON schema for the response payload.
-
-Response Body:
-
-Schema for <c>TenantEmailRegistration</c>:
-<code>{
-  properties: {
-    activationCode: string, # Required. Activation code for the registration.
-    activationExpiration: string (ISO 8601 Format), # Optional. Date of the activation expiration. Represented in the standard date-time format as defined by [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339)
-    email: string, # Optional. The email to register.
-    registrationStatus: "ActivationPending" | "Activated" | "ActivationAttemptsExhausted", # Optional. Defines the supported types for registration.
-    state: "Unknown" | "Succeeded" | "Creating" | "Deleting" | "Moving" | "Failed", # Optional. State of the resource
-    tenantId: string, # Optional. The tenant id to register.
-  }, # Optional. Tenant email registration property bag.
-  id: string, # Optional. The unique id of the resource.
-  type: string, # Optional. Type of the resource.
-}
-</code></remarks>
+        <remarks>To be added.</remarks>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call RegisterTenantEmailRegistration and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-Response response = client.RegisterTenantEmailRegistration();
+Response response = client.RegisterTenantEmailRegistration(null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.ToString());
 ]]></code>
-This sample shows how to call RegisterTenantEmailRegistration with all parameters, and how to parse the result.
+This sample shows how to call RegisterTenantEmailRegistration with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-Response response = client.RegisterTenantEmailRegistration("<repeatabilityRequestId>");
+Response response = client.RegisterTenantEmailRegistration(null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("properties").GetProperty("activationCode").ToString());
@@ -1313,11 +1261,11 @@ Console.WriteLine(result.GetProperty("type").ToString());
       </Docs>
     </Member>
     <Member MemberName="RegisterTenantEmailRegistrationAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; RegisterTenantEmailRegistrationAsync (string repeatabilityRequestId = default, Azure.RequestContext context = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; RegisterTenantEmailRegistrationAsync(string repeatabilityRequestId, class Azure.RequestContext context) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ReceivedSharesClient.RegisterTenantEmailRegistrationAsync(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function RegisterTenantEmailRegistrationAsync (Optional repeatabilityRequestId As String = Nothing, Optional context As RequestContext = Nothing) As Task(Of Response)" />
-      <MemberSignature Language="F#" Value="abstract member RegisterTenantEmailRegistrationAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.RegisterTenantEmailRegistrationAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="receivedSharesClient.RegisterTenantEmailRegistrationAsync (repeatabilityRequestId, context)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; RegisterTenantEmailRegistrationAsync (Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; RegisterTenantEmailRegistrationAsync(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ReceivedSharesClient.RegisterTenantEmailRegistrationAsync(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function RegisterTenantEmailRegistrationAsync (context As RequestContext) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member RegisterTenantEmailRegistrationAsync : Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.RegisterTenantEmailRegistrationAsync : Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="receivedSharesClient.RegisterTenantEmailRegistrationAsync context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Sharing</AssemblyName>
@@ -1327,11 +1275,9 @@ Console.WriteLine(result.GetProperty("type").ToString());
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="repeatabilityRequestId" Type="System.String" />
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="repeatabilityRequestId"> If specified, the client directs that the request is repeatable; that is, that the client can make the request multiple times with the same Repeatability-Request-Id and get back an appropriate response without the server executing the request multiple times. The value of the Repeatability-Request-Id is an opaque string representing a client-generated, globally unique for all time, identifier for the request. It is recommended to use version 4 (random) UUIDs. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
             [Protocol Method] Registers the tenant and email combination for activation.
@@ -1339,47 +1285,27 @@ Console.WriteLine(result.GetProperty("type").ToString());
             This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
             </description></item></list></summary>
         <returns> The response returned from the service. </returns>
-        <remarks>
-Register an email for the current tenant
-
-Below is the JSON schema for the response payload.
-
-Response Body:
-
-Schema for <c>TenantEmailRegistration</c>:
-<code>{
-  properties: {
-    activationCode: string, # Required. Activation code for the registration.
-    activationExpiration: string (ISO 8601 Format), # Optional. Date of the activation expiration. Represented in the standard date-time format as defined by [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339)
-    email: string, # Optional. The email to register.
-    registrationStatus: "ActivationPending" | "Activated" | "ActivationAttemptsExhausted", # Optional. Defines the supported types for registration.
-    state: "Unknown" | "Succeeded" | "Creating" | "Deleting" | "Moving" | "Failed", # Optional. State of the resource
-    tenantId: string, # Optional. The tenant id to register.
-  }, # Optional. Tenant email registration property bag.
-  id: string, # Optional. The unique id of the resource.
-  type: string, # Optional. Type of the resource.
-}
-</code></remarks>
+        <remarks>To be added.</remarks>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
 This sample shows how to call RegisterTenantEmailRegistrationAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-Response response = await client.RegisterTenantEmailRegistrationAsync();
+Response response = await client.RegisterTenantEmailRegistrationAsync(null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.ToString());
 ]]></code>
-This sample shows how to call RegisterTenantEmailRegistrationAsync with all parameters, and how to parse the result.
+This sample shows how to call RegisterTenantEmailRegistrationAsync with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ReceivedSharesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ReceivedSharesClient client = new ReceivedSharesClient(endpoint, credential);
 
-Response response = await client.RegisterTenantEmailRegistrationAsync("<repeatabilityRequestId>");
+Response response = await client.RegisterTenantEmailRegistrationAsync(null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("properties").GetProperty("activationCode").ToString());

@@ -34,10 +34,10 @@
       </Docs>
     </Member>
     <Member MemberName="CreateCascadeDeleteJob">
-      <MemberSignature Language="C#" Value="public virtual Azure.Operation&lt;BinaryData&gt; CreateCascadeDeleteJob (Azure.WaitUntil waitUntil, string jobId, string partyId, string tillageDataId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Operation&lt;BinaryData&gt; CreateCascadeDeleteJob (Azure.WaitUntil waitUntil, string jobId, string partyId, string tillageDataId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Operation`1&lt;class System.BinaryData&gt; CreateCascadeDeleteJob(valuetype Azure.WaitUntil waitUntil, string jobId, string partyId, string tillageDataId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.TillageData.CreateCascadeDeleteJob(Azure.WaitUntil,System.String,System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateCascadeDeleteJob (waitUntil As WaitUntil, jobId As String, partyId As String, tillageDataId As String, Optional context As RequestContext = Nothing) As Operation(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateCascadeDeleteJob (waitUntil As WaitUntil, jobId As String, partyId As String, tillageDataId As String, context As RequestContext) As Operation(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member CreateCascadeDeleteJob : Azure.WaitUntil * string * string * string * Azure.RequestContext -&gt; Azure.Operation&lt;BinaryData&gt;&#xA;override this.CreateCascadeDeleteJob : Azure.WaitUntil * string * string * string * Azure.RequestContext -&gt; Azure.Operation&lt;BinaryData&gt;" Usage="tillageData.CreateCascadeDeleteJob (waitUntil, jobId, partyId, tillageDataId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -61,8 +61,12 @@
         <param name="partyId"> Id of the party. </param>
         <param name="tillageDataId"> Id of the tillage data. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Create cascade delete job for tillage data resource. </summary>
-        <returns> The <see cref="T:Azure.Operation`1" /> from the service that will contain a <see cref="T:System.BinaryData" /> object once the asynchronous operation on the service has completed. Details of the body schema for the operation's final value are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Create cascade delete job for tillage data resource.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The <see cref="T:Azure.Operation" /> representing an asynchronous operation on the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -91,15 +95,30 @@ Possible values: 'Waiting', 'Running', 'Succeeded', 'Failed', 'Cancelled'.
           <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateCascadeDeleteJob with required parameters and parse the result.
+This sample shows how to call CreateCascadeDeleteJob and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-var operation = client.CreateCascadeDeleteJob(WaitUntil.Completed, "<jobId>", "<partyId>", "<tillageDataId>");
+Operation<BinaryData> operation = client.CreateCascadeDeleteJob(WaitUntil.Completed, "<jobId>", "<partyId>", "<tillageDataId>", null);
+BinaryData responseData = operation.Value;
 
-BinaryData data = operation.Value;
-JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
+Console.WriteLine(result.GetProperty("partyId").ToString());
+Console.WriteLine(result.GetProperty("resourceId").ToString());
+Console.WriteLine(result.GetProperty("resourceType").ToString());
+]]></code>
+This sample shows how to call CreateCascadeDeleteJob with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
+
+Operation<BinaryData> operation = client.CreateCascadeDeleteJob(WaitUntil.Completed, "<jobId>", "<partyId>", "<tillageDataId>", null);
+BinaryData responseData = operation.Value;
+
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
 Console.WriteLine(result.GetProperty("resourceId").ToString());
 Console.WriteLine(result.GetProperty("resourceType").ToString());
@@ -116,10 +135,10 @@ Console.WriteLine(result.GetProperty("endTime").ToString());
       </Docs>
     </Member>
     <Member MemberName="CreateCascadeDeleteJobAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt; CreateCascadeDeleteJobAsync (Azure.WaitUntil waitUntil, string jobId, string partyId, string tillageDataId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt; CreateCascadeDeleteJobAsync (Azure.WaitUntil waitUntil, string jobId, string partyId, string tillageDataId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Operation`1&lt;class System.BinaryData&gt;&gt; CreateCascadeDeleteJobAsync(valuetype Azure.WaitUntil waitUntil, string jobId, string partyId, string tillageDataId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.TillageData.CreateCascadeDeleteJobAsync(Azure.WaitUntil,System.String,System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateCascadeDeleteJobAsync (waitUntil As WaitUntil, jobId As String, partyId As String, tillageDataId As String, Optional context As RequestContext = Nothing) As Task(Of Operation(Of BinaryData))" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateCascadeDeleteJobAsync (waitUntil As WaitUntil, jobId As String, partyId As String, tillageDataId As String, context As RequestContext) As Task(Of Operation(Of BinaryData))" />
       <MemberSignature Language="F#" Value="abstract member CreateCascadeDeleteJobAsync : Azure.WaitUntil * string * string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt;&#xA;override this.CreateCascadeDeleteJobAsync : Azure.WaitUntil * string * string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt;" Usage="tillageData.CreateCascadeDeleteJobAsync (waitUntil, jobId, partyId, tillageDataId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -143,8 +162,12 @@ Console.WriteLine(result.GetProperty("endTime").ToString());
         <param name="partyId"> Id of the party. </param>
         <param name="tillageDataId"> Id of the tillage data. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Create cascade delete job for tillage data resource. </summary>
-        <returns> The <see cref="T:Azure.Operation`1" /> from the service that will contain a <see cref="T:System.BinaryData" /> object once the asynchronous operation on the service has completed. Details of the body schema for the operation's final value are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Create cascade delete job for tillage data resource.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The <see cref="T:Azure.Operation" /> representing an asynchronous operation on the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -173,15 +196,30 @@ Possible values: 'Waiting', 'Running', 'Succeeded', 'Failed', 'Cancelled'.
           <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateCascadeDeleteJobAsync with required parameters and parse the result.
+This sample shows how to call CreateCascadeDeleteJobAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-var operation = await client.CreateCascadeDeleteJobAsync(WaitUntil.Completed, "<jobId>", "<partyId>", "<tillageDataId>");
+Operation<BinaryData> operation = await client.CreateCascadeDeleteJobAsync(WaitUntil.Completed, "<jobId>", "<partyId>", "<tillageDataId>", null);
+BinaryData responseData = operation.Value;
 
-BinaryData data = operation.Value;
-JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
+Console.WriteLine(result.GetProperty("partyId").ToString());
+Console.WriteLine(result.GetProperty("resourceId").ToString());
+Console.WriteLine(result.GetProperty("resourceType").ToString());
+]]></code>
+This sample shows how to call CreateCascadeDeleteJobAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
+
+Operation<BinaryData> operation = await client.CreateCascadeDeleteJobAsync(WaitUntil.Completed, "<jobId>", "<partyId>", "<tillageDataId>", null);
+BinaryData responseData = operation.Value;
+
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
 Console.WriteLine(result.GetProperty("resourceId").ToString());
 Console.WriteLine(result.GetProperty("resourceType").ToString());
@@ -220,10 +258,14 @@ Console.WriteLine(result.GetProperty("endTime").ToString());
       <Docs>
         <param name="partyId"> ID of the associated party. </param>
         <param name="tillageDataId"> ID of the tillage data resource. </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Creates or updates an tillage data resource under a particular party. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Creates or updates an tillage data resource under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the request and response payloads.
 
@@ -302,35 +344,30 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> or <paramref name="tillageDataId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateOrUpdate with required parameters and parse the result.
+This sample shows how to call CreateOrUpdate and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-var data = new {};
-
-Response response = client.CreateOrUpdate("<partyId>", "<tillageDataId>", RequestContent.Create(data));
+using RequestContent content = RequestContent.Create(new object());
+Response response = client.CreateOrUpdate("<partyId>", "<tillageDataId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.ToString());
 ]]></code>
-This sample shows how to call CreateOrUpdate with all parameters and request content, and how to parse the result.
+This sample shows how to call CreateOrUpdate with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-var data = new {
-    tillageDepth = new {
+using RequestContent content = RequestContent.Create(new
+{
+    tillageDepth = new
+    {
         unit = "<unit>",
-        value = 123.45d,
-    },
-    tillagePressure = new {
-        unit = "<unit>",
-        value = 123.45d,
-    },
-    area = new {
-        unit = "<unit>",
-        value = 123.45d,
+        value = 123.45,
     },
     operationModifiedDateTime = "2022-05-10T18:57:31.2311892Z",
     operationStartDateTime = "2022-05-10T18:57:31.2311892Z",
@@ -340,12 +377,12 @@ var data = new {
     source = "<source>",
     name = "<name>",
     description = "<description>",
-    properties = new {
-        key = new {},
+    properties = new
+    {
+        key = new object(),
     },
-};
-
-Response response = client.CreateOrUpdate("<partyId>", "<tillageDataId>", RequestContent.Create(data));
+});
+Response response = client.CreateOrUpdate("<partyId>", "<tillageDataId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("tillageDepth").GetProperty("unit").ToString());
@@ -370,7 +407,7 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
@@ -397,10 +434,14 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
       <Docs>
         <param name="partyId"> ID of the associated party. </param>
         <param name="tillageDataId"> ID of the tillage data resource. </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Creates or updates an tillage data resource under a particular party. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Creates or updates an tillage data resource under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the request and response payloads.
 
@@ -479,35 +520,30 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> or <paramref name="tillageDataId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateOrUpdateAsync with required parameters and parse the result.
+This sample shows how to call CreateOrUpdateAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-var data = new {};
-
-Response response = await client.CreateOrUpdateAsync("<partyId>", "<tillageDataId>", RequestContent.Create(data));
+using RequestContent content = RequestContent.Create(new object());
+Response response = await client.CreateOrUpdateAsync("<partyId>", "<tillageDataId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.ToString());
 ]]></code>
-This sample shows how to call CreateOrUpdateAsync with all parameters and request content, and how to parse the result.
+This sample shows how to call CreateOrUpdateAsync with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-var data = new {
-    tillageDepth = new {
+using RequestContent content = RequestContent.Create(new
+{
+    tillageDepth = new
+    {
         unit = "<unit>",
-        value = 123.45d,
-    },
-    tillagePressure = new {
-        unit = "<unit>",
-        value = 123.45d,
-    },
-    area = new {
-        unit = "<unit>",
-        value = 123.45d,
+        value = 123.45,
     },
     operationModifiedDateTime = "2022-05-10T18:57:31.2311892Z",
     operationStartDateTime = "2022-05-10T18:57:31.2311892Z",
@@ -517,12 +553,12 @@ var data = new {
     source = "<source>",
     name = "<name>",
     description = "<description>",
-    properties = new {
-        key = new {},
+    properties = new
+    {
+        key = new object(),
     },
-};
-
-Response response = await client.CreateOrUpdateAsync("<partyId>", "<tillageDataId>", RequestContent.Create(data));
+});
+Response response = await client.CreateOrUpdateAsync("<partyId>", "<tillageDataId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("tillageDepth").GetProperty("unit").ToString());
@@ -547,7 +583,7 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
@@ -574,7 +610,11 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
         <param name="partyId"> ID of the associated party resource. </param>
         <param name="tillageDataId"> ID of the tillage data. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Deletes a specified tillage data resource under a particular party. </summary>
+        <summary>
+            [Protocol Method] Deletes a specified tillage data resource under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -583,12 +623,24 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
           <paramref name="partyId" /> or <paramref name="tillageDataId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call Delete with required parameters.
+This sample shows how to call Delete.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
 Response response = client.Delete("<partyId>", "<tillageDataId>");
+
+Console.WriteLine(response.Status);
+]]></code>
+This sample shows how to call Delete with all parameters.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
+
+Response response = client.Delete("<partyId>", "<tillageDataId>");
+
 Console.WriteLine(response.Status);
 ]]></code></example>
       </Docs>
@@ -616,7 +668,11 @@ Console.WriteLine(response.Status);
         <param name="partyId"> ID of the associated party resource. </param>
         <param name="tillageDataId"> ID of the tillage data. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Deletes a specified tillage data resource under a particular party. </summary>
+        <summary>
+            [Protocol Method] Deletes a specified tillage data resource under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -625,21 +681,33 @@ Console.WriteLine(response.Status);
           <paramref name="partyId" /> or <paramref name="tillageDataId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call DeleteAsync with required parameters.
+This sample shows how to call DeleteAsync.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
 Response response = await client.DeleteAsync("<partyId>", "<tillageDataId>");
+
+Console.WriteLine(response.Status);
+]]></code>
+This sample shows how to call DeleteAsync with all parameters.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
+
+Response response = await client.DeleteAsync("<partyId>", "<tillageDataId>");
+
 Console.WriteLine(response.Status);
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetAllTillageData">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetAllTillageData (double? minTillageDepth = default, double? maxTillageDepth = default, double? minTillagePressure = default, double? maxTillagePressure = default, System.Collections.Generic.IEnumerable&lt;string&gt; sources = default, System.Collections.Generic.IEnumerable&lt;string&gt; associatedBoundaryIds = default, DateTimeOffset? minOperationStartDateTime = default, DateTimeOffset? maxOperationStartDateTime = default, DateTimeOffset? minOperationEndDateTime = default, DateTimeOffset? maxOperationEndDateTime = default, DateTimeOffset? minOperationModifiedDateTime = default, DateTimeOffset? maxOperationModifiedDateTime = default, double? minArea = default, double? maxArea = default, System.Collections.Generic.IEnumerable&lt;string&gt; tillageDataIds = default, System.Collections.Generic.IEnumerable&lt;string&gt; names = default, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters = default, System.Collections.Generic.IEnumerable&lt;string&gt; statuses = default, DateTimeOffset? minCreatedDateTime = default, DateTimeOffset? maxCreatedDateTime = default, DateTimeOffset? minLastModifiedDateTime = default, DateTimeOffset? maxLastModifiedDateTime = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetAllTillageData (double? minTillageDepth, double? maxTillageDepth, double? minTillagePressure, double? maxTillagePressure, System.Collections.Generic.IEnumerable&lt;string&gt; sources, System.Collections.Generic.IEnumerable&lt;string&gt; associatedBoundaryIds, DateTimeOffset? minOperationStartDateTime, DateTimeOffset? maxOperationStartDateTime, DateTimeOffset? minOperationEndDateTime, DateTimeOffset? maxOperationEndDateTime, DateTimeOffset? minOperationModifiedDateTime, DateTimeOffset? maxOperationModifiedDateTime, double? minArea, double? maxArea, System.Collections.Generic.IEnumerable&lt;string&gt; tillageDataIds, System.Collections.Generic.IEnumerable&lt;string&gt; names, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters, System.Collections.Generic.IEnumerable&lt;string&gt; statuses, DateTimeOffset? minCreatedDateTime, DateTimeOffset? maxCreatedDateTime, DateTimeOffset? minLastModifiedDateTime, DateTimeOffset? maxLastModifiedDateTime, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetAllTillageData(valuetype System.Nullable`1&lt;float64&gt; minTillageDepth, valuetype System.Nullable`1&lt;float64&gt; maxTillageDepth, valuetype System.Nullable`1&lt;float64&gt; minTillagePressure, valuetype System.Nullable`1&lt;float64&gt; maxTillagePressure, class System.Collections.Generic.IEnumerable`1&lt;string&gt; sources, class System.Collections.Generic.IEnumerable`1&lt;string&gt; associatedBoundaryIds, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minOperationStartDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxOperationStartDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minOperationEndDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxOperationEndDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minOperationModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxOperationModifiedDateTime, valuetype System.Nullable`1&lt;float64&gt; minArea, valuetype System.Nullable`1&lt;float64&gt; maxArea, class System.Collections.Generic.IEnumerable`1&lt;string&gt; tillageDataIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; names, class System.Collections.Generic.IEnumerable`1&lt;string&gt; propertyFilters, class System.Collections.Generic.IEnumerable`1&lt;string&gt; statuses, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minLastModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxLastModifiedDateTime, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.TillageData.GetAllTillageData(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Double},System.Nullable{System.Double},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllTillageData (Optional minTillageDepth As Nullable(Of Double) = Nothing, Optional maxTillageDepth As Nullable(Of Double) = Nothing, Optional minTillagePressure As Nullable(Of Double) = Nothing, Optional maxTillagePressure As Nullable(Of Double) = Nothing, Optional sources As IEnumerable(Of String) = Nothing, Optional associatedBoundaryIds As IEnumerable(Of String) = Nothing, Optional minOperationStartDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxOperationStartDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minOperationEndDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxOperationEndDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minOperationModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxOperationModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minArea As Nullable(Of Double) = Nothing, Optional maxArea As Nullable(Of Double) = Nothing, Optional tillageDataIds As IEnumerable(Of String) = Nothing, Optional names As IEnumerable(Of String) = Nothing, Optional propertyFilters As IEnumerable(Of String) = Nothing, Optional statuses As IEnumerable(Of String) = Nothing, Optional minCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllTillageData (minTillageDepth As Nullable(Of Double), maxTillageDepth As Nullable(Of Double), minTillagePressure As Nullable(Of Double), maxTillagePressure As Nullable(Of Double), sources As IEnumerable(Of String), associatedBoundaryIds As IEnumerable(Of String), minOperationStartDateTime As Nullable(Of DateTimeOffset), maxOperationStartDateTime As Nullable(Of DateTimeOffset), minOperationEndDateTime As Nullable(Of DateTimeOffset), maxOperationEndDateTime As Nullable(Of DateTimeOffset), minOperationModifiedDateTime As Nullable(Of DateTimeOffset), maxOperationModifiedDateTime As Nullable(Of DateTimeOffset), minArea As Nullable(Of Double), maxArea As Nullable(Of Double), tillageDataIds As IEnumerable(Of String), names As IEnumerable(Of String), propertyFilters As IEnumerable(Of String), statuses As IEnumerable(Of String), minCreatedDateTime As Nullable(Of DateTimeOffset), maxCreatedDateTime As Nullable(Of DateTimeOffset), minLastModifiedDateTime As Nullable(Of DateTimeOffset), maxLastModifiedDateTime As Nullable(Of DateTimeOffset), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As Pageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetAllTillageData : Nullable&lt;double&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetAllTillageData : Nullable&lt;double&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="tillageData.GetAllTillageData (minTillageDepth, maxTillageDepth, minTillagePressure, maxTillagePressure, sources, associatedBoundaryIds, minOperationStartDateTime, maxOperationStartDateTime, minOperationEndDateTime, maxOperationEndDateTime, minOperationModifiedDateTime, maxOperationModifiedDateTime, minArea, maxArea, tillageDataIds, names, propertyFilters, statuses, minCreatedDateTime, maxCreatedDateTime, minLastModifiedDateTime, maxLastModifiedDateTime, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -708,7 +776,11 @@ Console.WriteLine(response.Status);
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of tillage data resources across all parties. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of tillage data resources across all parties.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -751,23 +823,25 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
         <example>
 This sample shows how to call GetAllTillageData and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-foreach (var data in client.GetAllTillageData())
+foreach (BinaryData item in client.GetAllTillageData(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetAllTillageData with all parameters, and how to parse the result.
+This sample shows how to call GetAllTillageData with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-foreach (var data in client.GetAllTillageData(1234, 1234, 1234, 1234, new String[]{"<sources>"}, new String[]{"<associatedBoundaryIds>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, 1234, new String[]{"<tillageDataIds>"}, new String[]{"<names>"}, new String[]{"<propertyFilters>"}, new String[]{"<statuses>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, "<skipToken>"))
+foreach (BinaryData item in client.GetAllTillageData(123.45, 123.45, 123.45, 123.45, new string[] { "<sources>" }, new string[] { "<associatedBoundaryIds>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 123.45, 123.45, new string[] { "<tillageDataIds>" }, new string[] { "<names>" }, new string[] { "<propertyFilters>" }, new string[] { "<statuses>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("tillageDepth").GetProperty("unit").ToString());
     Console.WriteLine(result.GetProperty("tillageDepth").GetProperty("value").ToString());
     Console.WriteLine(result.GetProperty("tillagePressure").GetProperty("unit").ToString());
@@ -790,16 +864,16 @@ foreach (var data in client.GetAllTillageData(1234, 1234, 1234, 1234, new String
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetAllTillageDataAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetAllTillageDataAsync (double? minTillageDepth = default, double? maxTillageDepth = default, double? minTillagePressure = default, double? maxTillagePressure = default, System.Collections.Generic.IEnumerable&lt;string&gt; sources = default, System.Collections.Generic.IEnumerable&lt;string&gt; associatedBoundaryIds = default, DateTimeOffset? minOperationStartDateTime = default, DateTimeOffset? maxOperationStartDateTime = default, DateTimeOffset? minOperationEndDateTime = default, DateTimeOffset? maxOperationEndDateTime = default, DateTimeOffset? minOperationModifiedDateTime = default, DateTimeOffset? maxOperationModifiedDateTime = default, double? minArea = default, double? maxArea = default, System.Collections.Generic.IEnumerable&lt;string&gt; tillageDataIds = default, System.Collections.Generic.IEnumerable&lt;string&gt; names = default, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters = default, System.Collections.Generic.IEnumerable&lt;string&gt; statuses = default, DateTimeOffset? minCreatedDateTime = default, DateTimeOffset? maxCreatedDateTime = default, DateTimeOffset? minLastModifiedDateTime = default, DateTimeOffset? maxLastModifiedDateTime = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetAllTillageDataAsync (double? minTillageDepth, double? maxTillageDepth, double? minTillagePressure, double? maxTillagePressure, System.Collections.Generic.IEnumerable&lt;string&gt; sources, System.Collections.Generic.IEnumerable&lt;string&gt; associatedBoundaryIds, DateTimeOffset? minOperationStartDateTime, DateTimeOffset? maxOperationStartDateTime, DateTimeOffset? minOperationEndDateTime, DateTimeOffset? maxOperationEndDateTime, DateTimeOffset? minOperationModifiedDateTime, DateTimeOffset? maxOperationModifiedDateTime, double? minArea, double? maxArea, System.Collections.Generic.IEnumerable&lt;string&gt; tillageDataIds, System.Collections.Generic.IEnumerable&lt;string&gt; names, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters, System.Collections.Generic.IEnumerable&lt;string&gt; statuses, DateTimeOffset? minCreatedDateTime, DateTimeOffset? maxCreatedDateTime, DateTimeOffset? minLastModifiedDateTime, DateTimeOffset? maxLastModifiedDateTime, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetAllTillageDataAsync(valuetype System.Nullable`1&lt;float64&gt; minTillageDepth, valuetype System.Nullable`1&lt;float64&gt; maxTillageDepth, valuetype System.Nullable`1&lt;float64&gt; minTillagePressure, valuetype System.Nullable`1&lt;float64&gt; maxTillagePressure, class System.Collections.Generic.IEnumerable`1&lt;string&gt; sources, class System.Collections.Generic.IEnumerable`1&lt;string&gt; associatedBoundaryIds, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minOperationStartDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxOperationStartDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minOperationEndDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxOperationEndDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minOperationModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxOperationModifiedDateTime, valuetype System.Nullable`1&lt;float64&gt; minArea, valuetype System.Nullable`1&lt;float64&gt; maxArea, class System.Collections.Generic.IEnumerable`1&lt;string&gt; tillageDataIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; names, class System.Collections.Generic.IEnumerable`1&lt;string&gt; propertyFilters, class System.Collections.Generic.IEnumerable`1&lt;string&gt; statuses, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minLastModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxLastModifiedDateTime, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.TillageData.GetAllTillageDataAsync(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Double},System.Nullable{System.Double},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllTillageDataAsync (Optional minTillageDepth As Nullable(Of Double) = Nothing, Optional maxTillageDepth As Nullable(Of Double) = Nothing, Optional minTillagePressure As Nullable(Of Double) = Nothing, Optional maxTillagePressure As Nullable(Of Double) = Nothing, Optional sources As IEnumerable(Of String) = Nothing, Optional associatedBoundaryIds As IEnumerable(Of String) = Nothing, Optional minOperationStartDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxOperationStartDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minOperationEndDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxOperationEndDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minOperationModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxOperationModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minArea As Nullable(Of Double) = Nothing, Optional maxArea As Nullable(Of Double) = Nothing, Optional tillageDataIds As IEnumerable(Of String) = Nothing, Optional names As IEnumerable(Of String) = Nothing, Optional propertyFilters As IEnumerable(Of String) = Nothing, Optional statuses As IEnumerable(Of String) = Nothing, Optional minCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllTillageDataAsync (minTillageDepth As Nullable(Of Double), maxTillageDepth As Nullable(Of Double), minTillagePressure As Nullable(Of Double), maxTillagePressure As Nullable(Of Double), sources As IEnumerable(Of String), associatedBoundaryIds As IEnumerable(Of String), minOperationStartDateTime As Nullable(Of DateTimeOffset), maxOperationStartDateTime As Nullable(Of DateTimeOffset), minOperationEndDateTime As Nullable(Of DateTimeOffset), maxOperationEndDateTime As Nullable(Of DateTimeOffset), minOperationModifiedDateTime As Nullable(Of DateTimeOffset), maxOperationModifiedDateTime As Nullable(Of DateTimeOffset), minArea As Nullable(Of Double), maxArea As Nullable(Of Double), tillageDataIds As IEnumerable(Of String), names As IEnumerable(Of String), propertyFilters As IEnumerable(Of String), statuses As IEnumerable(Of String), minCreatedDateTime As Nullable(Of DateTimeOffset), maxCreatedDateTime As Nullable(Of DateTimeOffset), minLastModifiedDateTime As Nullable(Of DateTimeOffset), maxLastModifiedDateTime As Nullable(Of DateTimeOffset), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As AsyncPageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetAllTillageDataAsync : Nullable&lt;double&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetAllTillageDataAsync : Nullable&lt;double&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="tillageData.GetAllTillageDataAsync (minTillageDepth, maxTillageDepth, minTillagePressure, maxTillagePressure, sources, associatedBoundaryIds, minOperationStartDateTime, maxOperationStartDateTime, minOperationEndDateTime, maxOperationEndDateTime, minOperationModifiedDateTime, maxOperationModifiedDateTime, minArea, maxArea, tillageDataIds, names, propertyFilters, statuses, minCreatedDateTime, maxCreatedDateTime, minLastModifiedDateTime, maxLastModifiedDateTime, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -868,7 +942,11 @@ foreach (var data in client.GetAllTillageData(1234, 1234, 1234, 1234, new String
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of tillage data resources across all parties. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of tillage data resources across all parties.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -911,23 +989,25 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
         <example>
 This sample shows how to call GetAllTillageDataAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-await foreach (var data in client.GetAllTillageDataAsync())
+await foreach (BinaryData item in client.GetAllTillageDataAsync(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetAllTillageDataAsync with all parameters, and how to parse the result.
+This sample shows how to call GetAllTillageDataAsync with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-await foreach (var data in client.GetAllTillageDataAsync(1234, 1234, 1234, 1234, new String[]{"<sources>"}, new String[]{"<associatedBoundaryIds>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, 1234, new String[]{"<tillageDataIds>"}, new String[]{"<names>"}, new String[]{"<propertyFilters>"}, new String[]{"<statuses>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, "<skipToken>"))
+await foreach (BinaryData item in client.GetAllTillageDataAsync(123.45, 123.45, 123.45, 123.45, new string[] { "<sources>" }, new string[] { "<associatedBoundaryIds>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 123.45, 123.45, new string[] { "<tillageDataIds>" }, new string[] { "<names>" }, new string[] { "<propertyFilters>" }, new string[] { "<statuses>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("tillageDepth").GetProperty("unit").ToString());
     Console.WriteLine(result.GetProperty("tillageDepth").GetProperty("value").ToString());
     Console.WriteLine(result.GetProperty("tillagePressure").GetProperty("unit").ToString());
@@ -950,16 +1030,16 @@ await foreach (var data in client.GetAllTillageDataAsync(1234, 1234, 1234, 1234,
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetAllTillageDataByPartyId">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetAllTillageDataByPartyId (string partyId, double? minTillageDepth = default, double? maxTillageDepth = default, double? minTillagePressure = default, double? maxTillagePressure = default, System.Collections.Generic.IEnumerable&lt;string&gt; sources = default, System.Collections.Generic.IEnumerable&lt;string&gt; associatedBoundaryIds = default, DateTimeOffset? minOperationStartDateTime = default, DateTimeOffset? maxOperationStartDateTime = default, DateTimeOffset? minOperationEndDateTime = default, DateTimeOffset? maxOperationEndDateTime = default, DateTimeOffset? minOperationModifiedDateTime = default, DateTimeOffset? maxOperationModifiedDateTime = default, double? minArea = default, double? maxArea = default, System.Collections.Generic.IEnumerable&lt;string&gt; ids = default, System.Collections.Generic.IEnumerable&lt;string&gt; names = default, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters = default, System.Collections.Generic.IEnumerable&lt;string&gt; statuses = default, DateTimeOffset? minCreatedDateTime = default, DateTimeOffset? maxCreatedDateTime = default, DateTimeOffset? minLastModifiedDateTime = default, DateTimeOffset? maxLastModifiedDateTime = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetAllTillageDataByPartyId (string partyId, double? minTillageDepth, double? maxTillageDepth, double? minTillagePressure, double? maxTillagePressure, System.Collections.Generic.IEnumerable&lt;string&gt; sources, System.Collections.Generic.IEnumerable&lt;string&gt; associatedBoundaryIds, DateTimeOffset? minOperationStartDateTime, DateTimeOffset? maxOperationStartDateTime, DateTimeOffset? minOperationEndDateTime, DateTimeOffset? maxOperationEndDateTime, DateTimeOffset? minOperationModifiedDateTime, DateTimeOffset? maxOperationModifiedDateTime, double? minArea, double? maxArea, System.Collections.Generic.IEnumerable&lt;string&gt; ids, System.Collections.Generic.IEnumerable&lt;string&gt; names, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters, System.Collections.Generic.IEnumerable&lt;string&gt; statuses, DateTimeOffset? minCreatedDateTime, DateTimeOffset? maxCreatedDateTime, DateTimeOffset? minLastModifiedDateTime, DateTimeOffset? maxLastModifiedDateTime, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetAllTillageDataByPartyId(string partyId, valuetype System.Nullable`1&lt;float64&gt; minTillageDepth, valuetype System.Nullable`1&lt;float64&gt; maxTillageDepth, valuetype System.Nullable`1&lt;float64&gt; minTillagePressure, valuetype System.Nullable`1&lt;float64&gt; maxTillagePressure, class System.Collections.Generic.IEnumerable`1&lt;string&gt; sources, class System.Collections.Generic.IEnumerable`1&lt;string&gt; associatedBoundaryIds, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minOperationStartDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxOperationStartDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minOperationEndDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxOperationEndDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minOperationModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxOperationModifiedDateTime, valuetype System.Nullable`1&lt;float64&gt; minArea, valuetype System.Nullable`1&lt;float64&gt; maxArea, class System.Collections.Generic.IEnumerable`1&lt;string&gt; ids, class System.Collections.Generic.IEnumerable`1&lt;string&gt; names, class System.Collections.Generic.IEnumerable`1&lt;string&gt; propertyFilters, class System.Collections.Generic.IEnumerable`1&lt;string&gt; statuses, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minLastModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxLastModifiedDateTime, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.TillageData.GetAllTillageDataByPartyId(System.String,System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Double},System.Nullable{System.Double},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllTillageDataByPartyId (partyId As String, Optional minTillageDepth As Nullable(Of Double) = Nothing, Optional maxTillageDepth As Nullable(Of Double) = Nothing, Optional minTillagePressure As Nullable(Of Double) = Nothing, Optional maxTillagePressure As Nullable(Of Double) = Nothing, Optional sources As IEnumerable(Of String) = Nothing, Optional associatedBoundaryIds As IEnumerable(Of String) = Nothing, Optional minOperationStartDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxOperationStartDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minOperationEndDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxOperationEndDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minOperationModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxOperationModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minArea As Nullable(Of Double) = Nothing, Optional maxArea As Nullable(Of Double) = Nothing, Optional ids As IEnumerable(Of String) = Nothing, Optional names As IEnumerable(Of String) = Nothing, Optional propertyFilters As IEnumerable(Of String) = Nothing, Optional statuses As IEnumerable(Of String) = Nothing, Optional minCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllTillageDataByPartyId (partyId As String, minTillageDepth As Nullable(Of Double), maxTillageDepth As Nullable(Of Double), minTillagePressure As Nullable(Of Double), maxTillagePressure As Nullable(Of Double), sources As IEnumerable(Of String), associatedBoundaryIds As IEnumerable(Of String), minOperationStartDateTime As Nullable(Of DateTimeOffset), maxOperationStartDateTime As Nullable(Of DateTimeOffset), minOperationEndDateTime As Nullable(Of DateTimeOffset), maxOperationEndDateTime As Nullable(Of DateTimeOffset), minOperationModifiedDateTime As Nullable(Of DateTimeOffset), maxOperationModifiedDateTime As Nullable(Of DateTimeOffset), minArea As Nullable(Of Double), maxArea As Nullable(Of Double), ids As IEnumerable(Of String), names As IEnumerable(Of String), propertyFilters As IEnumerable(Of String), statuses As IEnumerable(Of String), minCreatedDateTime As Nullable(Of DateTimeOffset), maxCreatedDateTime As Nullable(Of DateTimeOffset), minLastModifiedDateTime As Nullable(Of DateTimeOffset), maxLastModifiedDateTime As Nullable(Of DateTimeOffset), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As Pageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetAllTillageDataByPartyId : string * Nullable&lt;double&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetAllTillageDataByPartyId : string * Nullable&lt;double&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="tillageData.GetAllTillageDataByPartyId (partyId, minTillageDepth, maxTillageDepth, minTillagePressure, maxTillagePressure, sources, associatedBoundaryIds, minOperationStartDateTime, maxOperationStartDateTime, minOperationEndDateTime, maxOperationEndDateTime, minOperationModifiedDateTime, maxOperationModifiedDateTime, minArea, maxArea, ids, names, propertyFilters, statuses, minCreatedDateTime, maxCreatedDateTime, minLastModifiedDateTime, maxLastModifiedDateTime, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1030,7 +1110,11 @@ await foreach (var data in client.GetAllTillageDataAsync(1234, 1234, 1234, 1234,
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of tillage data resources under a particular farm. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of tillage data resources under a particular farm.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -1075,25 +1159,27 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetAllTillageDataByPartyId with required parameters and parse the result.
+This sample shows how to call GetAllTillageDataByPartyId and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-foreach (var data in client.GetAllTillageDataByPartyId("<partyId>"))
+foreach (BinaryData item in client.GetAllTillageDataByPartyId("<partyId>", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetAllTillageDataByPartyId with all parameters, and how to parse the result.
+This sample shows how to call GetAllTillageDataByPartyId with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-foreach (var data in client.GetAllTillageDataByPartyId("<partyId>", 1234, 1234, 1234, 1234, new String[]{"<sources>"}, new String[]{"<associatedBoundaryIds>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, 1234, new String[]{"<ids>"}, new String[]{"<names>"}, new String[]{"<propertyFilters>"}, new String[]{"<statuses>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, "<skipToken>"))
+foreach (BinaryData item in client.GetAllTillageDataByPartyId("<partyId>", 123.45, 123.45, 123.45, 123.45, new string[] { "<sources>" }, new string[] { "<associatedBoundaryIds>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 123.45, 123.45, new string[] { "<ids>" }, new string[] { "<names>" }, new string[] { "<propertyFilters>" }, new string[] { "<statuses>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("tillageDepth").GetProperty("unit").ToString());
     Console.WriteLine(result.GetProperty("tillageDepth").GetProperty("value").ToString());
     Console.WriteLine(result.GetProperty("tillagePressure").GetProperty("unit").ToString());
@@ -1116,16 +1202,16 @@ foreach (var data in client.GetAllTillageDataByPartyId("<partyId>", 1234, 1234, 
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetAllTillageDataByPartyIdAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetAllTillageDataByPartyIdAsync (string partyId, double? minTillageDepth = default, double? maxTillageDepth = default, double? minTillagePressure = default, double? maxTillagePressure = default, System.Collections.Generic.IEnumerable&lt;string&gt; sources = default, System.Collections.Generic.IEnumerable&lt;string&gt; associatedBoundaryIds = default, DateTimeOffset? minOperationStartDateTime = default, DateTimeOffset? maxOperationStartDateTime = default, DateTimeOffset? minOperationEndDateTime = default, DateTimeOffset? maxOperationEndDateTime = default, DateTimeOffset? minOperationModifiedDateTime = default, DateTimeOffset? maxOperationModifiedDateTime = default, double? minArea = default, double? maxArea = default, System.Collections.Generic.IEnumerable&lt;string&gt; ids = default, System.Collections.Generic.IEnumerable&lt;string&gt; names = default, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters = default, System.Collections.Generic.IEnumerable&lt;string&gt; statuses = default, DateTimeOffset? minCreatedDateTime = default, DateTimeOffset? maxCreatedDateTime = default, DateTimeOffset? minLastModifiedDateTime = default, DateTimeOffset? maxLastModifiedDateTime = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetAllTillageDataByPartyIdAsync (string partyId, double? minTillageDepth, double? maxTillageDepth, double? minTillagePressure, double? maxTillagePressure, System.Collections.Generic.IEnumerable&lt;string&gt; sources, System.Collections.Generic.IEnumerable&lt;string&gt; associatedBoundaryIds, DateTimeOffset? minOperationStartDateTime, DateTimeOffset? maxOperationStartDateTime, DateTimeOffset? minOperationEndDateTime, DateTimeOffset? maxOperationEndDateTime, DateTimeOffset? minOperationModifiedDateTime, DateTimeOffset? maxOperationModifiedDateTime, double? minArea, double? maxArea, System.Collections.Generic.IEnumerable&lt;string&gt; ids, System.Collections.Generic.IEnumerable&lt;string&gt; names, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters, System.Collections.Generic.IEnumerable&lt;string&gt; statuses, DateTimeOffset? minCreatedDateTime, DateTimeOffset? maxCreatedDateTime, DateTimeOffset? minLastModifiedDateTime, DateTimeOffset? maxLastModifiedDateTime, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetAllTillageDataByPartyIdAsync(string partyId, valuetype System.Nullable`1&lt;float64&gt; minTillageDepth, valuetype System.Nullable`1&lt;float64&gt; maxTillageDepth, valuetype System.Nullable`1&lt;float64&gt; minTillagePressure, valuetype System.Nullable`1&lt;float64&gt; maxTillagePressure, class System.Collections.Generic.IEnumerable`1&lt;string&gt; sources, class System.Collections.Generic.IEnumerable`1&lt;string&gt; associatedBoundaryIds, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minOperationStartDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxOperationStartDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minOperationEndDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxOperationEndDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minOperationModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxOperationModifiedDateTime, valuetype System.Nullable`1&lt;float64&gt; minArea, valuetype System.Nullable`1&lt;float64&gt; maxArea, class System.Collections.Generic.IEnumerable`1&lt;string&gt; ids, class System.Collections.Generic.IEnumerable`1&lt;string&gt; names, class System.Collections.Generic.IEnumerable`1&lt;string&gt; propertyFilters, class System.Collections.Generic.IEnumerable`1&lt;string&gt; statuses, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minLastModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxLastModifiedDateTime, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.TillageData.GetAllTillageDataByPartyIdAsync(System.String,System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Double},System.Nullable{System.Double},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllTillageDataByPartyIdAsync (partyId As String, Optional minTillageDepth As Nullable(Of Double) = Nothing, Optional maxTillageDepth As Nullable(Of Double) = Nothing, Optional minTillagePressure As Nullable(Of Double) = Nothing, Optional maxTillagePressure As Nullable(Of Double) = Nothing, Optional sources As IEnumerable(Of String) = Nothing, Optional associatedBoundaryIds As IEnumerable(Of String) = Nothing, Optional minOperationStartDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxOperationStartDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minOperationEndDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxOperationEndDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minOperationModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxOperationModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minArea As Nullable(Of Double) = Nothing, Optional maxArea As Nullable(Of Double) = Nothing, Optional ids As IEnumerable(Of String) = Nothing, Optional names As IEnumerable(Of String) = Nothing, Optional propertyFilters As IEnumerable(Of String) = Nothing, Optional statuses As IEnumerable(Of String) = Nothing, Optional minCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllTillageDataByPartyIdAsync (partyId As String, minTillageDepth As Nullable(Of Double), maxTillageDepth As Nullable(Of Double), minTillagePressure As Nullable(Of Double), maxTillagePressure As Nullable(Of Double), sources As IEnumerable(Of String), associatedBoundaryIds As IEnumerable(Of String), minOperationStartDateTime As Nullable(Of DateTimeOffset), maxOperationStartDateTime As Nullable(Of DateTimeOffset), minOperationEndDateTime As Nullable(Of DateTimeOffset), maxOperationEndDateTime As Nullable(Of DateTimeOffset), minOperationModifiedDateTime As Nullable(Of DateTimeOffset), maxOperationModifiedDateTime As Nullable(Of DateTimeOffset), minArea As Nullable(Of Double), maxArea As Nullable(Of Double), ids As IEnumerable(Of String), names As IEnumerable(Of String), propertyFilters As IEnumerable(Of String), statuses As IEnumerable(Of String), minCreatedDateTime As Nullable(Of DateTimeOffset), maxCreatedDateTime As Nullable(Of DateTimeOffset), minLastModifiedDateTime As Nullable(Of DateTimeOffset), maxLastModifiedDateTime As Nullable(Of DateTimeOffset), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As AsyncPageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetAllTillageDataByPartyIdAsync : string * Nullable&lt;double&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetAllTillageDataByPartyIdAsync : string * Nullable&lt;double&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="tillageData.GetAllTillageDataByPartyIdAsync (partyId, minTillageDepth, maxTillageDepth, minTillagePressure, maxTillagePressure, sources, associatedBoundaryIds, minOperationStartDateTime, maxOperationStartDateTime, minOperationEndDateTime, maxOperationEndDateTime, minOperationModifiedDateTime, maxOperationModifiedDateTime, minArea, maxArea, ids, names, propertyFilters, statuses, minCreatedDateTime, maxCreatedDateTime, minLastModifiedDateTime, maxLastModifiedDateTime, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1196,7 +1282,11 @@ foreach (var data in client.GetAllTillageDataByPartyId("<partyId>", 1234, 1234, 
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of tillage data resources under a particular farm. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of tillage data resources under a particular farm.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -1241,25 +1331,27 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetAllTillageDataByPartyIdAsync with required parameters and parse the result.
+This sample shows how to call GetAllTillageDataByPartyIdAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-await foreach (var data in client.GetAllTillageDataByPartyIdAsync("<partyId>"))
+await foreach (BinaryData item in client.GetAllTillageDataByPartyIdAsync("<partyId>", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetAllTillageDataByPartyIdAsync with all parameters, and how to parse the result.
+This sample shows how to call GetAllTillageDataByPartyIdAsync with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-await foreach (var data in client.GetAllTillageDataByPartyIdAsync("<partyId>", 1234, 1234, 1234, 1234, new String[]{"<sources>"}, new String[]{"<associatedBoundaryIds>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, 1234, new String[]{"<ids>"}, new String[]{"<names>"}, new String[]{"<propertyFilters>"}, new String[]{"<statuses>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, "<skipToken>"))
+await foreach (BinaryData item in client.GetAllTillageDataByPartyIdAsync("<partyId>", 123.45, 123.45, 123.45, 123.45, new string[] { "<sources>" }, new string[] { "<associatedBoundaryIds>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 123.45, 123.45, new string[] { "<ids>" }, new string[] { "<names>" }, new string[] { "<propertyFilters>" }, new string[] { "<statuses>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("tillageDepth").GetProperty("unit").ToString());
     Console.WriteLine(result.GetProperty("tillageDepth").GetProperty("value").ToString());
     Console.WriteLine(result.GetProperty("tillagePressure").GetProperty("unit").ToString());
@@ -1282,16 +1374,16 @@ await foreach (var data in client.GetAllTillageDataByPartyIdAsync("<partyId>", 1
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetCascadeDeleteJobDetails">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetCascadeDeleteJobDetails (string jobId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetCascadeDeleteJobDetails (string jobId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetCascadeDeleteJobDetails(string jobId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.TillageData.GetCascadeDeleteJobDetails(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCascadeDeleteJobDetails (jobId As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCascadeDeleteJobDetails (jobId As String, context As RequestContext) As Response" />
       <MemberSignature Language="F#" Value="abstract member GetCascadeDeleteJobDetails : string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetCascadeDeleteJobDetails : string * Azure.RequestContext -&gt; Azure.Response" Usage="tillageData.GetCascadeDeleteJobDetails (jobId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1308,8 +1400,12 @@ await foreach (var data in client.GetAllTillageDataByPartyIdAsync("<partyId>", 1
       <Docs>
         <param name="jobId"> Id of the job. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Get cascade delete job for tillage data resource. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Get cascade delete job for tillage data resource.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -1338,12 +1434,26 @@ Possible values: 'Waiting', 'Running', 'Succeeded', 'Failed', 'Cancelled'.
           <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetCascadeDeleteJobDetails with required parameters and parse the result.
+This sample shows how to call GetCascadeDeleteJobDetails and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-Response response = client.GetCascadeDeleteJobDetails("<jobId>");
+Response response = client.GetCascadeDeleteJobDetails("<jobId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("partyId").ToString());
+Console.WriteLine(result.GetProperty("resourceId").ToString());
+Console.WriteLine(result.GetProperty("resourceType").ToString());
+]]></code>
+This sample shows how to call GetCascadeDeleteJobDetails with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
+
+Response response = client.GetCascadeDeleteJobDetails("<jobId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
@@ -1362,10 +1472,10 @@ Console.WriteLine(result.GetProperty("endTime").ToString());
       </Docs>
     </Member>
     <Member MemberName="GetCascadeDeleteJobDetailsAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetCascadeDeleteJobDetailsAsync (string jobId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetCascadeDeleteJobDetailsAsync (string jobId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetCascadeDeleteJobDetailsAsync(string jobId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.TillageData.GetCascadeDeleteJobDetailsAsync(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCascadeDeleteJobDetailsAsync (jobId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCascadeDeleteJobDetailsAsync (jobId As String, context As RequestContext) As Task(Of Response)" />
       <MemberSignature Language="F#" Value="abstract member GetCascadeDeleteJobDetailsAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetCascadeDeleteJobDetailsAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="tillageData.GetCascadeDeleteJobDetailsAsync (jobId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1382,8 +1492,12 @@ Console.WriteLine(result.GetProperty("endTime").ToString());
       <Docs>
         <param name="jobId"> Id of the job. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Get cascade delete job for tillage data resource. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Get cascade delete job for tillage data resource.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -1412,12 +1526,26 @@ Possible values: 'Waiting', 'Running', 'Succeeded', 'Failed', 'Cancelled'.
           <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetCascadeDeleteJobDetailsAsync with required parameters and parse the result.
+This sample shows how to call GetCascadeDeleteJobDetailsAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-Response response = await client.GetCascadeDeleteJobDetailsAsync("<jobId>");
+Response response = await client.GetCascadeDeleteJobDetailsAsync("<jobId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("partyId").ToString());
+Console.WriteLine(result.GetProperty("resourceId").ToString());
+Console.WriteLine(result.GetProperty("resourceType").ToString());
+]]></code>
+This sample shows how to call GetCascadeDeleteJobDetailsAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
+
+Response response = await client.GetCascadeDeleteJobDetailsAsync("<jobId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
@@ -1436,10 +1564,10 @@ Console.WriteLine(result.GetProperty("endTime").ToString());
       </Docs>
     </Member>
     <Member MemberName="GetTillageData">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetTillageData (string partyId, string tillageDataId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetTillageData (string partyId, string tillageDataId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetTillageData(string partyId, string tillageDataId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.TillageData.GetTillageData(System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTillageData (partyId As String, tillageDataId As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTillageData (partyId As String, tillageDataId As String, context As RequestContext) As Response" />
       <MemberSignature Language="F#" Value="abstract member GetTillageData : string * string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetTillageData : string * string * Azure.RequestContext -&gt; Azure.Response" Usage="tillageData.GetTillageData (partyId, tillageDataId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1458,8 +1586,12 @@ Console.WriteLine(result.GetProperty("endTime").ToString());
         <param name="partyId"> ID of the associated party resource. </param>
         <param name="tillageDataId"> ID of the tillage data resource. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Get a specified tillage data resource under a particular party. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Get a specified tillage data resource under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -1503,12 +1635,24 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> or <paramref name="tillageDataId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetTillageData with required parameters and parse the result.
+This sample shows how to call GetTillageData and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-Response response = client.GetTillageData("<partyId>", "<tillageDataId>");
+Response response = client.GetTillageData("<partyId>", "<tillageDataId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetTillageData with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
+
+Response response = client.GetTillageData("<partyId>", "<tillageDataId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("tillageDepth").GetProperty("unit").ToString());
@@ -1533,15 +1677,15 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetTillageDataAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetTillageDataAsync (string partyId, string tillageDataId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetTillageDataAsync (string partyId, string tillageDataId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetTillageDataAsync(string partyId, string tillageDataId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.TillageData.GetTillageDataAsync(System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTillageDataAsync (partyId As String, tillageDataId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTillageDataAsync (partyId As String, tillageDataId As String, context As RequestContext) As Task(Of Response)" />
       <MemberSignature Language="F#" Value="abstract member GetTillageDataAsync : string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetTillageDataAsync : string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="tillageData.GetTillageDataAsync (partyId, tillageDataId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1560,8 +1704,12 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
         <param name="partyId"> ID of the associated party resource. </param>
         <param name="tillageDataId"> ID of the tillage data resource. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Get a specified tillage data resource under a particular party. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Get a specified tillage data resource under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -1605,12 +1753,24 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> or <paramref name="tillageDataId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetTillageDataAsync with required parameters and parse the result.
+This sample shows how to call GetTillageDataAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetTillageDataClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
 
-Response response = await client.GetTillageDataAsync("<partyId>", "<tillageDataId>");
+Response response = await client.GetTillageDataAsync("<partyId>", "<tillageDataId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetTillageDataAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+TillageData client = new FarmBeatsClient(endpoint, credential).GetTillageDataClient();
+
+Response response = await client.GetTillageDataAsync("<partyId>", "<tillageDataId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("tillageDepth").GetProperty("unit").ToString());
@@ -1635,7 +1795,7 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>

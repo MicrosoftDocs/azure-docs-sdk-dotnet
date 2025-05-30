@@ -34,10 +34,34 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public RoleDefinitionsClient (Uri endpoint, Azure.Core.TokenCredential credential, Azure.Analytics.Synapse.AccessControl.AccessControlClientOptions options = default);" />
+      <MemberSignature Language="C#" Value="public RoleDefinitionsClient (Uri endpoint, Azure.Core.TokenCredential credential);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Uri endpoint, class Azure.Core.TokenCredential credential) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient.#ctor(System.Uri,Azure.Core.TokenCredential)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (endpoint As Uri, credential As TokenCredential)" />
+      <MemberSignature Language="F#" Value="new Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient : Uri * Azure.Core.TokenCredential -&gt; Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient" Usage="new Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient (endpoint, credential)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="endpoint" Type="System.Uri" />
+        <Parameter Name="credential" Type="Azure.Core.TokenCredential" />
+      </Parameters>
+      <Docs>
+        <param name="endpoint"> The workspace development endpoint, for example https://myworkspace.dev.azuresynapse.net. </param>
+        <param name="credential"> A credential used to authenticate to an Azure Service. </param>
+        <summary> Initializes a new instance of RoleDefinitionsClient. </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="endpoint" /> or <paramref name="credential" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public RoleDefinitionsClient (Uri endpoint, Azure.Core.TokenCredential credential, Azure.Analytics.Synapse.AccessControl.AccessControlClientOptions options);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Uri endpoint, class Azure.Core.TokenCredential credential, class Azure.Analytics.Synapse.AccessControl.AccessControlClientOptions options) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient.#ctor(System.Uri,Azure.Core.TokenCredential,Azure.Analytics.Synapse.AccessControl.AccessControlClientOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (endpoint As Uri, credential As TokenCredential, Optional options As AccessControlClientOptions = Nothing)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (endpoint As Uri, credential As TokenCredential, options As AccessControlClientOptions)" />
       <MemberSignature Language="F#" Value="new Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient : Uri * Azure.Core.TokenCredential * Azure.Analytics.Synapse.AccessControl.AccessControlClientOptions -&gt; Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient" Usage="new Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient (endpoint, credential, options)" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -55,161 +79,395 @@
         <param name="options"> The options for configuring the client. </param>
         <summary> Initializes a new instance of RoleDefinitionsClient. </summary>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="endpoint" /> or <paramref name="credential" /> is null. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetRoleDefinitionById">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt; GetRoleDefinitionById (string roleDefinitionId, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt; GetRoleDefinitionById(string roleDefinitionId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient.GetRoleDefinitionById(System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetRoleDefinitionById (roleDefinitionId As String, Optional cancellationToken As CancellationToken = Nothing) As Response(Of SynapseRoleDefinition)" />
-      <MemberSignature Language="F#" Value="abstract member GetRoleDefinitionById : string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;&#xA;override this.GetRoleDefinitionById : string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;" Usage="roleDefinitionsClient.GetRoleDefinitionById (roleDefinitionId, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetRoleDefinitionById (string roleDefinitionId, Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetRoleDefinitionById(string roleDefinitionId, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient.GetRoleDefinitionById(System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetRoleDefinitionById (roleDefinitionId As String, context As RequestContext) As Response" />
+      <MemberSignature Language="F#" Value="abstract member GetRoleDefinitionById : string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetRoleDefinitionById : string * Azure.RequestContext -&gt; Azure.Response" Usage="roleDefinitionsClient.GetRoleDefinitionById (roleDefinitionId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;</ReturnType>
+        <ReturnType>Azure.Response</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="roleDefinitionId" Type="System.String" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="roleDefinitionId"> Synapse Built-In Role Definition Id. </param>
-        <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Get role definition by role definition Id. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Get role definition by role definition Id.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="roleDefinitionId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="roleDefinitionId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetRoleDefinitionById and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleDefinitionsClient client = new RoleDefinitionsClient(endpoint, credential);
+
+Response response = client.GetRoleDefinitionById("<roleDefinitionId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetRoleDefinitionById with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleDefinitionsClient client = new RoleDefinitionsClient(endpoint, credential);
+
+Response response = client.GetRoleDefinitionById("<roleDefinitionId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("isBuiltIn").ToString());
+Console.WriteLine(result.GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("permissions")[0].GetProperty("actions")[0].ToString());
+Console.WriteLine(result.GetProperty("permissions")[0].GetProperty("notActions")[0].ToString());
+Console.WriteLine(result.GetProperty("permissions")[0].GetProperty("dataActions")[0].ToString());
+Console.WriteLine(result.GetProperty("permissions")[0].GetProperty("notDataActions")[0].ToString());
+Console.WriteLine(result.GetProperty("scopes")[0].ToString());
+Console.WriteLine(result.GetProperty("availabilityStatus").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetRoleDefinitionByIdAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;&gt; GetRoleDefinitionByIdAsync (string roleDefinitionId, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;&gt; GetRoleDefinitionByIdAsync(string roleDefinitionId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient.GetRoleDefinitionByIdAsync(System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetRoleDefinitionByIdAsync (roleDefinitionId As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of SynapseRoleDefinition))" />
-      <MemberSignature Language="F#" Value="abstract member GetRoleDefinitionByIdAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;&gt;&#xA;override this.GetRoleDefinitionByIdAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;&gt;" Usage="roleDefinitionsClient.GetRoleDefinitionByIdAsync (roleDefinitionId, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetRoleDefinitionByIdAsync (string roleDefinitionId, Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetRoleDefinitionByIdAsync(string roleDefinitionId, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient.GetRoleDefinitionByIdAsync(System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetRoleDefinitionByIdAsync (roleDefinitionId As String, context As RequestContext) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member GetRoleDefinitionByIdAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetRoleDefinitionByIdAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="roleDefinitionsClient.GetRoleDefinitionByIdAsync (roleDefinitionId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;&gt;</ReturnType>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="roleDefinitionId" Type="System.String" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="roleDefinitionId"> Synapse Built-In Role Definition Id. </param>
-        <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Get role definition by role definition Id. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Get role definition by role definition Id.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="roleDefinitionId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="roleDefinitionId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetRoleDefinitionByIdAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleDefinitionsClient client = new RoleDefinitionsClient(endpoint, credential);
+
+Response response = await client.GetRoleDefinitionByIdAsync("<roleDefinitionId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetRoleDefinitionByIdAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleDefinitionsClient client = new RoleDefinitionsClient(endpoint, credential);
+
+Response response = await client.GetRoleDefinitionByIdAsync("<roleDefinitionId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("isBuiltIn").ToString());
+Console.WriteLine(result.GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("permissions")[0].GetProperty("actions")[0].ToString());
+Console.WriteLine(result.GetProperty("permissions")[0].GetProperty("notActions")[0].ToString());
+Console.WriteLine(result.GetProperty("permissions")[0].GetProperty("dataActions")[0].ToString());
+Console.WriteLine(result.GetProperty("permissions")[0].GetProperty("notDataActions")[0].ToString());
+Console.WriteLine(result.GetProperty("scopes")[0].ToString());
+Console.WriteLine(result.GetProperty("availabilityStatus").ToString());
+]]></code></example>
       </Docs>
     </Member>
-    <Member MemberName="ListRoleDefinitions">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;&gt; ListRoleDefinitions (bool? isBuiltIn = default, string scope = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class System.Collections.Generic.IReadOnlyList`1&lt;class Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;&gt; ListRoleDefinitions(valuetype System.Nullable`1&lt;bool&gt; isBuiltIn, string scope, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient.ListRoleDefinitions(System.Nullable{System.Boolean},System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function ListRoleDefinitions (Optional isBuiltIn As Nullable(Of Boolean) = Nothing, Optional scope As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Response(Of IReadOnlyList(Of SynapseRoleDefinition))" />
-      <MemberSignature Language="F#" Value="abstract member ListRoleDefinitions : Nullable&lt;bool&gt; * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;&gt;&#xA;override this.ListRoleDefinitions : Nullable&lt;bool&gt; * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;&gt;" Usage="roleDefinitionsClient.ListRoleDefinitions (isBuiltIn, scope, cancellationToken)" />
+    <Member MemberName="GetRoleDefinitions">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetRoleDefinitions (bool? isBuiltIn, string scope, Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetRoleDefinitions(valuetype System.Nullable`1&lt;bool&gt; isBuiltIn, string scope, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient.GetRoleDefinitions(System.Nullable{System.Boolean},System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetRoleDefinitions (isBuiltIn As Nullable(Of Boolean), scope As String, context As RequestContext) As Response" />
+      <MemberSignature Language="F#" Value="abstract member GetRoleDefinitions : Nullable&lt;bool&gt; * string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetRoleDefinitions : Nullable&lt;bool&gt; * string * Azure.RequestContext -&gt; Azure.Response" Usage="roleDefinitionsClient.GetRoleDefinitions (isBuiltIn, scope, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;&gt;</ReturnType>
+        <ReturnType>Azure.Response</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="isBuiltIn" Type="System.Nullable&lt;System.Boolean&gt;" />
         <Parameter Name="scope" Type="System.String" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="isBuiltIn"> Is a Synapse Built-In Role or not. </param>
         <param name="scope"> Scope of the Synapse Built-in Role. </param>
-        <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> List role definitions. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] List role definitions.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetRoleDefinitions and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleDefinitionsClient client = new RoleDefinitionsClient(endpoint, credential);
+
+Response response = client.GetRoleDefinitions(null, null, null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result[0].ToString());
+]]></code>
+This sample shows how to call GetRoleDefinitions with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleDefinitionsClient client = new RoleDefinitionsClient(endpoint, credential);
+
+Response response = client.GetRoleDefinitions(true, "<scope>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result[0].GetProperty("id").ToString());
+Console.WriteLine(result[0].GetProperty("name").ToString());
+Console.WriteLine(result[0].GetProperty("isBuiltIn").ToString());
+Console.WriteLine(result[0].GetProperty("description").ToString());
+Console.WriteLine(result[0].GetProperty("permissions")[0].GetProperty("actions")[0].ToString());
+Console.WriteLine(result[0].GetProperty("permissions")[0].GetProperty("notActions")[0].ToString());
+Console.WriteLine(result[0].GetProperty("permissions")[0].GetProperty("dataActions")[0].ToString());
+Console.WriteLine(result[0].GetProperty("permissions")[0].GetProperty("notDataActions")[0].ToString());
+Console.WriteLine(result[0].GetProperty("scopes")[0].ToString());
+Console.WriteLine(result[0].GetProperty("availabilityStatus").ToString());
+]]></code></example>
       </Docs>
     </Member>
-    <Member MemberName="ListRoleDefinitionsAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;&gt;&gt; ListRoleDefinitionsAsync (bool? isBuiltIn = default, string scope = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class System.Collections.Generic.IReadOnlyList`1&lt;class Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;&gt;&gt; ListRoleDefinitionsAsync(valuetype System.Nullable`1&lt;bool&gt; isBuiltIn, string scope, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient.ListRoleDefinitionsAsync(System.Nullable{System.Boolean},System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function ListRoleDefinitionsAsync (Optional isBuiltIn As Nullable(Of Boolean) = Nothing, Optional scope As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of IReadOnlyList(Of SynapseRoleDefinition)))" />
-      <MemberSignature Language="F#" Value="abstract member ListRoleDefinitionsAsync : Nullable&lt;bool&gt; * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;&gt;&gt;&#xA;override this.ListRoleDefinitionsAsync : Nullable&lt;bool&gt; * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;&gt;&gt;" Usage="roleDefinitionsClient.ListRoleDefinitionsAsync (isBuiltIn, scope, cancellationToken)" />
+    <Member MemberName="GetRoleDefinitionsAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetRoleDefinitionsAsync (bool? isBuiltIn, string scope, Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetRoleDefinitionsAsync(valuetype System.Nullable`1&lt;bool&gt; isBuiltIn, string scope, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient.GetRoleDefinitionsAsync(System.Nullable{System.Boolean},System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetRoleDefinitionsAsync (isBuiltIn As Nullable(Of Boolean), scope As String, context As RequestContext) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member GetRoleDefinitionsAsync : Nullable&lt;bool&gt; * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetRoleDefinitionsAsync : Nullable&lt;bool&gt; * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="roleDefinitionsClient.GetRoleDefinitionsAsync (isBuiltIn, scope, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;Azure.Analytics.Synapse.AccessControl.Models.SynapseRoleDefinition&gt;&gt;&gt;</ReturnType>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="isBuiltIn" Type="System.Nullable&lt;System.Boolean&gt;" />
         <Parameter Name="scope" Type="System.String" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="isBuiltIn"> Is a Synapse Built-In Role or not. </param>
         <param name="scope"> Scope of the Synapse Built-in Role. </param>
-        <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> List role definitions. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] List role definitions.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetRoleDefinitionsAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleDefinitionsClient client = new RoleDefinitionsClient(endpoint, credential);
+
+Response response = await client.GetRoleDefinitionsAsync(null, null, null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result[0].ToString());
+]]></code>
+This sample shows how to call GetRoleDefinitionsAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleDefinitionsClient client = new RoleDefinitionsClient(endpoint, credential);
+
+Response response = await client.GetRoleDefinitionsAsync(true, "<scope>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result[0].GetProperty("id").ToString());
+Console.WriteLine(result[0].GetProperty("name").ToString());
+Console.WriteLine(result[0].GetProperty("isBuiltIn").ToString());
+Console.WriteLine(result[0].GetProperty("description").ToString());
+Console.WriteLine(result[0].GetProperty("permissions")[0].GetProperty("actions")[0].ToString());
+Console.WriteLine(result[0].GetProperty("permissions")[0].GetProperty("notActions")[0].ToString());
+Console.WriteLine(result[0].GetProperty("permissions")[0].GetProperty("dataActions")[0].ToString());
+Console.WriteLine(result[0].GetProperty("permissions")[0].GetProperty("notDataActions")[0].ToString());
+Console.WriteLine(result[0].GetProperty("scopes")[0].ToString());
+Console.WriteLine(result[0].GetProperty("availabilityStatus").ToString());
+]]></code></example>
       </Docs>
     </Member>
-    <Member MemberName="ListScopes">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;string&gt;&gt; ListScopes (System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class System.Collections.Generic.IReadOnlyList`1&lt;string&gt;&gt; ListScopes(valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient.ListScopes(System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function ListScopes (Optional cancellationToken As CancellationToken = Nothing) As Response(Of IReadOnlyList(Of String))" />
-      <MemberSignature Language="F#" Value="abstract member ListScopes : System.Threading.CancellationToken -&gt; Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;string&gt;&gt;&#xA;override this.ListScopes : System.Threading.CancellationToken -&gt; Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;string&gt;&gt;" Usage="roleDefinitionsClient.ListScopes cancellationToken" />
+    <Member MemberName="GetScopes">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetScopes (Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetScopes(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient.GetScopes(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetScopes (context As RequestContext) As Response" />
+      <MemberSignature Language="F#" Value="abstract member GetScopes : Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetScopes : Azure.RequestContext -&gt; Azure.Response" Usage="roleDefinitionsClient.GetScopes context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;System.String&gt;&gt;</ReturnType>
+        <ReturnType>Azure.Response</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> List rbac scopes. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] List rbac scopes.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetScopes and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleDefinitionsClient client = new RoleDefinitionsClient(endpoint, credential);
+
+Response response = client.GetScopes(null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result[0].ToString());
+]]></code>
+This sample shows how to call GetScopes with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleDefinitionsClient client = new RoleDefinitionsClient(endpoint, credential);
+
+Response response = client.GetScopes(null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result[0].ToString());
+]]></code></example>
       </Docs>
     </Member>
-    <Member MemberName="ListScopesAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;string&gt;&gt;&gt; ListScopesAsync (System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class System.Collections.Generic.IReadOnlyList`1&lt;string&gt;&gt;&gt; ListScopesAsync(valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient.ListScopesAsync(System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function ListScopesAsync (Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of IReadOnlyList(Of String)))" />
-      <MemberSignature Language="F#" Value="abstract member ListScopesAsync : System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;string&gt;&gt;&gt;&#xA;override this.ListScopesAsync : System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;string&gt;&gt;&gt;" Usage="roleDefinitionsClient.ListScopesAsync cancellationToken" />
+    <Member MemberName="GetScopesAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetScopesAsync (Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetScopesAsync(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient.GetScopesAsync(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetScopesAsync (context As RequestContext) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member GetScopesAsync : Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetScopesAsync : Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="roleDefinitionsClient.GetScopesAsync context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;System.String&gt;&gt;&gt;</ReturnType>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> List rbac scopes. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] List rbac scopes.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetScopesAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleDefinitionsClient client = new RoleDefinitionsClient(endpoint, credential);
+
+Response response = await client.GetScopesAsync(null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result[0].ToString());
+]]></code>
+This sample shows how to call GetScopesAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleDefinitionsClient client = new RoleDefinitionsClient(endpoint, credential);
+
+Response response = await client.GetScopesAsync(null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result[0].ToString());
+]]></code></example>
+      </Docs>
+    </Member>
+    <Member MemberName="Pipeline">
+      <MemberSignature Language="C#" Value="public virtual Azure.Core.Pipeline.HttpPipeline Pipeline { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Core.Pipeline.HttpPipeline Pipeline" />
+      <MemberSignature Language="DocId" Value="P:Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient.Pipeline" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable ReadOnly Property Pipeline As HttpPipeline" />
+      <MemberSignature Language="F#" Value="member this.Pipeline : Azure.Core.Pipeline.HttpPipeline" Usage="Azure.Analytics.Synapse.AccessControl.RoleDefinitionsClient.Pipeline" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Core.Pipeline.HttpPipeline</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The HTTP pipeline for sending and receiving REST requests and responses. </summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -197,7 +197,11 @@
         <param name="totalElements"> The total number of items available in the full result set. </param>
         <param name="mark"> The cursor mark to be used on the next request.  Not set if using paging. </param>
         <param name="nextLink"> The link to access the next page of results.  Not set if at the end of the result set. </param>
-        <param name="value"> The items in the current page of results. </param>
+        <param name="value">
+            The items in the current page of results.
+            Please note <see cref="T:Azure.Analytics.Defender.Easm.AssetResource" /> is the base class. According to the scenario, a derived class of the base class might need to be assigned here, or this property needs to be casted to one of the possible derived classes.
+            The available derived classes include <see cref="T:Azure.Analytics.Defender.Easm.AsAssetResource" />, <see cref="T:Azure.Analytics.Defender.Easm.ContactAssetResource" />, <see cref="T:Azure.Analytics.Defender.Easm.DomainAssetResource" />, <see cref="T:Azure.Analytics.Defender.Easm.HostAssetResource" />, <see cref="T:Azure.Analytics.Defender.Easm.IpAddressAssetResource" />, <see cref="T:Azure.Analytics.Defender.Easm.IpBlockAssetResource" />, <see cref="T:Azure.Analytics.Defender.Easm.PageAssetResource" /> and <see cref="T:Azure.Analytics.Defender.Easm.SslCertAssetResource" />.
+            </param>
         <summary> Initializes a new instance of <see cref="T:Azure.Analytics.Defender.Easm.AssetPageResult" />. </summary>
         <returns> A new <see cref="T:Azure.Analytics.Defender.Easm.AssetPageResult" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
@@ -234,7 +238,7 @@
         <Parameter Name="reason" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="kind"> Discriminator. </param>
+        <param name="kind"> Discriminator property for AssetResource. </param>
         <param name="id"> The system generated unique id for the resource. </param>
         <param name="name"> The caller provided unique name for the resource. </param>
         <param name="displayName"> The name that can be used for display purposes. </param>
@@ -802,7 +806,7 @@
         <Parameter Name="inactiveMessage" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="kind"> Discriminator. </param>
+        <param name="kind"> Discriminator property for DataConnection. </param>
         <param name="id"> The system generated unique id for the resource. </param>
         <param name="name"> The caller provided unique name for the resource. </param>
         <param name="displayName"> The name that can be used for display purposes. </param>
