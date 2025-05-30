@@ -1,17 +1,17 @@
 ---
 title: Azure Maps Routing client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Maps.Routing, maps
-ms.date: 12/10/2024
+ms.date: 05/30/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: maps
 ---
-# Azure Maps Routing client library for .NET - version 1.0.0-beta.4 
+# Azure Maps Routing client library for .NET - version 1.0.0-alpha.20250529.1 
 
 
 Azure Maps Routing is a library that can find route to a location or points of interest.
 
-[Source code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Routing_1.0.0-beta.4/sdk/maps/Azure.Maps.Routing/src) | [API reference documentation](/rest/api/maps/) | [REST API reference documentation](/rest/api/maps/route) | [Product documentation](/azure/azure-maps/)
+[Source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Routing/src) | [API reference documentation](https://learn.microsoft.com/rest/api/maps/) | [REST API reference documentation](https://learn.microsoft.com/rest/api/maps/route) | [Product documentation](https://learn.microsoft.com/azure/azure-maps/)
 
 ## Getting started
 
@@ -25,7 +25,7 @@ dotnet add package Azure.Maps.Routing --prerelease
 
 ### Prerequisites
 
-> You must have an [Azure subscription](https://azure.microsoft.com/free/dotnet/) and [Azure Maps account](/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account).
+> You must have an [Azure subscription](https://azure.microsoft.com/free/dotnet/) and [Azure Maps account](https://learn.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account).
 
 To create a new Azure Maps account, you can use the Azure Portal, Azure PowerShell, or the Azure CLI. Here's an example using the Azure CLI:
 
@@ -50,13 +50,13 @@ MapsRoutingClient client = new MapsRoutingClient(credential);
 
 #### Azure AD authentication
 
-In order to interact with the Azure Maps service, you'll need to create an instance of the `MapsRoutingClient` class. The [Azure Identity library](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Routing_1.0.0-beta.4/sdk/identity/Azure.Identity/README.md) makes it easy to add Azure Active Directory support for authenticating Azure SDK clients with their corresponding Azure services.
+In order to interact with the Azure Maps service, you'll need to create an instance of the `MapsRoutingClient` class. The [Azure Identity library](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/README.md) makes it easy to add Azure Active Directory support for authenticating Azure SDK clients with their corresponding Azure services.
 
-To use AAD authentication, set the environment variables as described in the [Azure Identity README](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Routing_1.0.0-beta.4/sdk/identity/Azure.Identity/README.md) and create a `DefaultAzureCredential` instance to use with the `MapsRoutingClient`.
+To use AAD authentication, set the environment variables as described in the [Azure Identity README](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/README.md) and create a `DefaultAzureCredential` instance to use with the `MapsRoutingClient`.
 
 We also need an **Azure Maps Client ID** which can be found on the Azure Maps page > Authentication tab > "Client ID" in Azure Active Directory Authentication section.
 
-![AzureMapsPortal](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Maps.Routing_1.0.0-beta.4/sdk/maps/Azure.Maps.Routing/images/azure-maps-portal.png?raw=true)
+![AzureMapsPortal](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Routing/images/azure-maps-portal.png?raw=true)
 
 ```C# Snippet:InstantiateRouteClientViaAAD
 // Create a MapsRoutingClient that will authenticate through Active Directory
@@ -133,7 +133,7 @@ MapsRoutingClient client = new MapsRoutingClient(sasCredential);
 * Communicate with Azure Maps endpoint to calculate a set of locations that can be reached from the origin point based on fuel, energy, time or distance budget that is specified
 * Communicate with Azure Maps endpoint to calculate a matrix of route summaries for a set of routes defined by origin and destination locations
 
-Learn more by viewing our examples in [samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Routing_1.0.0-beta.4/sdk/maps/Azure.Maps.Routing/samples)
+Learn more by viewing our examples in [samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Routing/samples)
 
 ### Thread safety
 
@@ -141,18 +141,18 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Maps.Routing_1.0.0-beta.4/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Maps.Routing_1.0.0-beta.4/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Maps.Routing_1.0.0-beta.4/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Maps.Routing_1.0.0-beta.4/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Maps.Routing_1.0.0-beta.4/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
 
 ## Examples
 
-You can familiarize yourself with different APIs using our [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Routing_1.0.0-beta.4/sdk/maps/Azure.Maps.Routing/samples).
+You can familiarize yourself with different APIs using our [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Routing/samples).
 
 Before calling route APIs, instantiate a `MapsRoutingClient` first. This example uses AAD to create the client instance:
 
@@ -235,7 +235,7 @@ foreach (RouteLeg leg in result.Value.Routes[0].Legs)
 }
 ```
 
-For more detailed examples, please see the [route direction samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Maps.Routing_1.0.0-beta.4/sdk/maps/Azure.Maps.Routing/samples/RouteDirectionsSamples.md) page.
+For more detailed examples, please see the [route direction samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Routing/samples/RouteDirectionsSamples.md) page.
 
 ### Route Matrix
 
@@ -283,7 +283,7 @@ RouteMatrixOptions routeMatrixOptions = new RouteMatrixOptions(routeMatrixQuery)
 GetRouteMatrixOperation result = client.GetRouteMatrix(WaitUntil.Completed, routeMatrixOptions);
 ```
 
-For more detailed examples, please see the [route matrix samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Maps.Routing_1.0.0-beta.4/sdk/maps/Azure.Maps.Routing/samples/RouteMatrixSamples.md) page.
+For more detailed examples, please see the [route matrix samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Routing/samples/RouteMatrixSamples.md) page.
 
 ### Route Range
 
@@ -298,7 +298,7 @@ RouteRangeOptions options = new RouteRangeOptions(123.75, 46)
 Response<RouteRangeResult> result = client.GetRouteRange(options);
 ```
 
-For more detailed examples, please see the [route range samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Maps.Routing_1.0.0-beta.4/sdk/maps/Azure.Maps.Routing/samples/RouteMatrixSamples.md) page.
+For more detailed examples, please see the [route range samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Routing/samples/RouteMatrixSamples.md) page.
 
 ## Troubleshooting
 
@@ -326,17 +326,15 @@ catch (RequestFailedException e)
 
 ## Next steps
 
-* For more context and additional scenarios, please see: [detailed samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Routing_1.0.0-beta.4/sdk/maps/Azure.Maps.Routing/samples)
+* For more context and additional scenarios, please see: [detailed samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Routing/samples)
 
 ## Contributing
 
-See the [CONTRIBUTING.md](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Maps.Routing_1.0.0-beta.4/CONTRIBUTING.md) for details on building, testing, and contributing to this library.
+See the [CONTRIBUTING.md](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md) for details on building, testing, and contributing to this library.
 
 This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit <cla.microsoft.com>.
 
 When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA.
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact <opencode@microsoft.com> with any additional questions or comments.
-
-
 
