@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, System.ClientModel, core
-ms.date: 04/28/2025
+ms.date: 05/30/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: core
@@ -39,7 +39,7 @@ Types used to author service clients appear in the `System.ClientModel.Primitive
 - Client pipeline used to send and receive HTTP messages (`ClientPipeline`).
 - Interfaces used to read and write input and output models exposed in client convenience APIs (`IPersistableModel<T>` and `IJsonModel<T>`).
 
-Service methods that end-users of clients call to invoke service operations fall into two categories: [convenience](https://devblogs.microsoft.com/dotnet/the-convenience-of-dotnet/) methods and lower-level protocol methods.  Types used in clients' [convenience methods](https://github.com/Azure/azure-sdk-for-net/blob/System.ClientModel_1.4.0-beta.6/sdk/core/System.ClientModel/samples/ServiceMethods.md#convenience-methods) appear in the root `System.ClientModel` namespace.  Types used in [protocol methods](https://github.com/Azure/azure-sdk-for-net/blob/System.ClientModel_1.4.0-beta.6/sdk/core/System.ClientModel/samples/ServiceMethods.md#protocol-methods) and other lower-level scenarios appear in the `System.ClientModel.Primitives` namespace.  Key concepts involving these types include:
+Service methods that end-users of clients call to invoke service operations fall into two categories: [convenience](https://devblogs.microsoft.com/dotnet/the-convenience-of-dotnet/) methods and lower-level protocol methods.  Types used in clients' [convenience methods](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/System.ClientModel/samples/ServiceMethods.md#convenience-methods) appear in the root `System.ClientModel` namespace.  Types used in [protocol methods](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/System.ClientModel/samples/ServiceMethods.md#protocol-methods) and other lower-level scenarios appear in the `System.ClientModel.Primitives` namespace.  Key concepts involving these types include:
 
 - Results that provide access to the service response and the HTTP response details (`ClientResult<T>`, `ClientResult`).
 - Exceptions that result from failed requests (`ClientResultException`).
@@ -128,11 +128,11 @@ public class SampleClient
 }
 ```
 
-For more information on authoring clients, see [Client implementation samples](https://github.com/Azure/azure-sdk-for-net/blob/System.ClientModel_1.4.0-beta.6/sdk/core/System.ClientModel/samples/ClientImplementation.md).
+For more information on authoring clients, see [Client implementation samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/System.ClientModel/samples/ClientImplementation.md).
 
 ### Reading and writing model content to HTTP messages
 
-Service clients provide **model types** representing service resources as input parameters and return values from service clients' [convenience methods](https://github.com/Azure/azure-sdk-for-net/blob/System.ClientModel_1.4.0-beta.6/sdk/core/System.ClientModel/samples/ServiceMethods.md#convenience-methods).  Client authors can implement the `IPersistableModel<T>` and `IJsonModel<T>` interfaces their in model implementations to make it easy for clients to write input model content to request message bodies, and to read response content and create instances of output models from it.  An example of how clients' service methods might use such models is shown in [Send a message using the ClientPipeline](#send-a-message-using-clientpipeline).  The following sample shows a minimal example of what a persistable model implementation might look like.
+Service clients provide **model types** representing service resources as input parameters and return values from service clients' [convenience methods](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/System.ClientModel/samples/ServiceMethods.md#convenience-methods).  Client authors can implement the `IPersistableModel<T>` and `IJsonModel<T>` interfaces their in model implementations to make it easy for clients to write input model content to request message bodies, and to read response content and create instances of output models from it.  An example of how clients' service methods might use such models is shown in [Send a message using the ClientPipeline](#send-a-message-using-clientpipeline).  The following sample shows a minimal example of what a persistable model implementation might look like.
 
 ```C# Snippet:ReadmeSampleModel
 public class SampleResource : IJsonModel<SampleResource>
@@ -180,11 +180,11 @@ public class SampleResource : IJsonModel<SampleResource>
 }
 ```
 
-For more information on reading and writing persistable models, see [Model reader writer samples](https://github.com/Azure/azure-sdk-for-net/blob/System.ClientModel_1.4.0-beta.6/sdk/core/System.ClientModel/samples/ModelReaderWriter.md).
+For more information on reading and writing persistable models, see [Model reader writer samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/System.ClientModel/samples/ModelReaderWriter.md).
 
 ### Accessing the service response
 
-Service clients have methods that are used to call cloud services to invoke service operations.  These methods on a client are called **service methods**, and they send a request to the service and return a representation of its response to the caller.  Service clients expose two types of service methods: [convenience methods](https://github.com/Azure/azure-sdk-for-net/blob/System.ClientModel_1.4.0-beta.6/sdk/core/System.ClientModel/samples/ServiceMethods.md#convenience-methods) and [protocol methods](https://github.com/Azure/azure-sdk-for-net/blob/System.ClientModel_1.4.0-beta.6/sdk/core/System.ClientModel/samples/ServiceMethods.md#protocol-methods).
+Service clients have methods that are used to call cloud services to invoke service operations.  These methods on a client are called **service methods**, and they send a request to the service and return a representation of its response to the caller.  Service clients expose two types of service methods: [convenience methods](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/System.ClientModel/samples/ServiceMethods.md#convenience-methods) and [protocol methods](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/System.ClientModel/samples/ServiceMethods.md#protocol-methods).
 
 **Convenience methods** provide a [convenient](https://devblogs.microsoft.com/dotnet/the-convenience-of-dotnet/) way to invoke a service operation.  They are methods that take a strongly-typed model as input and return a `ClientResult<T>` that holds a strongly-typed representation of the service response.  Details from the HTTP response may also be obtained from the return value.
 
@@ -218,7 +218,7 @@ foreach (KeyValuePair<string, string> header in response.Headers)
 }
 ```
 
-For more information on client service methods, see [Client service method samples](https://github.com/Azure/azure-sdk-for-net/blob/System.ClientModel_1.4.0-beta.6/sdk/core/System.ClientModel/samples/ServiceMethods.md).
+For more information on client service methods, see [Client service method samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/System.ClientModel/samples/ServiceMethods.md).
 
 ### Handling exceptions that result from failed requests
 
@@ -238,7 +238,7 @@ catch (ClientResultException e) when (e.Status == 404)
 }
 ```
 
-Whether or not a response is considered an error by the client is determined by the `PipelineMessageClassifier` held by a message when it is sent through the client pipeline.  For more information on how client authors can customize error classification, see [Configuring error response classification samples](https://github.com/Azure/azure-sdk-for-net/blob/System.ClientModel_1.4.0-beta.6/sdk/core/System.ClientModel/samples/ClientImplementation.md#configuring-error-response-classification).
+Whether or not a response is considered an error by the client is determined by the `PipelineMessageClassifier` held by a message when it is sent through the client pipeline.  For more information on how client authors can customize error classification, see [Configuring error response classification samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/System.ClientModel/samples/ClientImplementation.md#configuring-error-response-classification).
 
 ### Configuring service clients
 
@@ -256,11 +256,11 @@ ApiKeyCredential credential = new(key!);
 MapsClient client = new(new Uri("https://atlas.microsoft.com"), credential, options);
 ```
 
-For more information on client configuration, see [Client configuration samples](https://github.com/Azure/azure-sdk-for-net/blob/System.ClientModel_1.4.0-beta.6/sdk/core/System.ClientModel/samples/Configuration.md).
+For more information on client configuration, see [Client configuration samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/System.ClientModel/samples/Configuration.md).
 
 ### Customizing HTTP requests
 
-Service clients expose low-level [protocol methods](https://github.com/Azure/azure-sdk-for-net/blob/System.ClientModel_1.4.0-beta.6/sdk/core/System.ClientModel/samples/ServiceMethods.md#protocol-methods) that allow callers to customize HTTP requests by passing an optional `RequestOptions` parameter.  `RequestOptions` can be used to modify various aspects of the request sent by the service method, such as adding a request header, or adding a policy to the client pipeline that can modify the request directly before sending it to the service. `RequestOptions` also allows a client user to pass a `CancellationToken` to the method.
+Service clients expose low-level [protocol methods](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/System.ClientModel/samples/ServiceMethods.md#protocol-methods) that allow callers to customize HTTP requests by passing an optional `RequestOptions` parameter.  `RequestOptions` can be used to modify various aspects of the request sent by the service method, such as adding a request header, or adding a policy to the client pipeline that can modify the request directly before sending it to the service. `RequestOptions` also allows a client user to pass a `CancellationToken` to the method.
 
 ```C# Snippet:RequestOptionsReadme
 // Create RequestOptions instance.
@@ -282,11 +282,11 @@ BinaryContent content = BinaryContent.Create(region);
 ClientResult result = await client.AddCountryCodeAsync(content, options);
 ```
 
-For more information on customizing requests, see [Protocol method samples](https://github.com/Azure/azure-sdk-for-net/blob/System.ClientModel_1.4.0-beta.6/sdk/core/System.ClientModel/samples/ServiceMethods.md#protocol-methods).
+For more information on customizing requests, see [Protocol method samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/System.ClientModel/samples/ServiceMethods.md#protocol-methods).
 
 ### Provide request content
 
-In service clients' [protocol methods](https://github.com/Azure/azure-sdk-for-net/blob/System.ClientModel_1.4.0-beta.6/sdk/core/System.ClientModel/samples/ServiceMethods.md#protocol-methods), users pass the request content as a `BinaryContent` parameter.  There are a variety of ways to create a `BinaryContent` instance:
+In service clients' [protocol methods](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/System.ClientModel/samples/ServiceMethods.md#protocol-methods), users pass the request content as a `BinaryContent` parameter.  There are a variety of ways to create a `BinaryContent` instance:
 
 1. From `BinaryData`, which can be created from a string, a stream, an object, or from a byte array containing the serialized UTF-8 bytes
 1. From a model type that implements the `IPersistableModel<T>` or `IJsonModel<T>` interfaces.
@@ -384,7 +384,7 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 
 This project has adopted the [Microsoft Open Source Code of Conduct][code_of_conduct]. For more information see the [Code of Conduct FAQ][code_of_conduct_faq] or contact opencode@microsoft.com with any additional questions or comments.
 
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.4.0-beta.6/sdk/core/System.ClientModel/src
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core/System.ClientModel/src
 [package]: https://www.nuget.org/packages/System.ClientModel
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
