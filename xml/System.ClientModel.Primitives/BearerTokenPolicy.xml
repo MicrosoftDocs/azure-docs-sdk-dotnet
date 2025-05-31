@@ -1,15 +1,15 @@
-<Type Name="OAuth2BearerTokenAuthenticationPolicy" FullName="System.ClientModel.Primitives.OAuth2BearerTokenAuthenticationPolicy">
-  <TypeSignature Language="C#" Value="public class OAuth2BearerTokenAuthenticationPolicy : System.ClientModel.Primitives.PipelinePolicy" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit OAuth2BearerTokenAuthenticationPolicy extends System.ClientModel.Primitives.PipelinePolicy" />
-  <TypeSignature Language="DocId" Value="T:System.ClientModel.Primitives.OAuth2BearerTokenAuthenticationPolicy" />
-  <TypeSignature Language="VB.NET" Value="Public Class OAuth2BearerTokenAuthenticationPolicy&#xA;Inherits PipelinePolicy" />
-  <TypeSignature Language="F#" Value="type OAuth2BearerTokenAuthenticationPolicy = class&#xA;    inherit PipelinePolicy" />
+<Type Name="BearerTokenPolicy" FullName="System.ClientModel.Primitives.BearerTokenPolicy">
+  <TypeSignature Language="C#" Value="public class BearerTokenPolicy : System.ClientModel.Primitives.AuthenticationPolicy" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit BearerTokenPolicy extends System.ClientModel.Primitives.AuthenticationPolicy" />
+  <TypeSignature Language="DocId" Value="T:System.ClientModel.Primitives.BearerTokenPolicy" />
+  <TypeSignature Language="VB.NET" Value="Public Class BearerTokenPolicy&#xA;Inherits AuthenticationPolicy" />
+  <TypeSignature Language="F#" Value="type BearerTokenPolicy = class&#xA;    inherit AuthenticationPolicy" />
   <AssemblyInfo>
-    <AssemblyName>Azure.Core.Experimental</AssemblyName>
-    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <AssemblyName>System.ClientModel</AssemblyName>
+    <AssemblyVersion>1.5.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>System.ClientModel.Primitives.PipelinePolicy</BaseTypeName>
+    <BaseTypeName>System.ClientModel.Primitives.AuthenticationPolicy</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -20,37 +20,63 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public OAuth2BearerTokenAuthenticationPolicy (System.ClientModel.AuthenticationTokenProvider tokenProvider, System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IReadOnlyDictionary&lt;string,object&gt;&gt; contexts);" />
+      <MemberSignature Language="C#" Value="public BearerTokenPolicy (System.ClientModel.AuthenticationTokenProvider tokenProvider, System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IReadOnlyDictionary&lt;string,object&gt;&gt; contexts);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.ClientModel.AuthenticationTokenProvider tokenProvider, class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IReadOnlyDictionary`2&lt;string, object&gt;&gt; contexts) cil managed" />
-      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.OAuth2BearerTokenAuthenticationPolicy.#ctor(System.ClientModel.AuthenticationTokenProvider,System.Collections.Generic.IEnumerable{System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}})" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.BearerTokenPolicy.#ctor(System.ClientModel.AuthenticationTokenProvider,System.Collections.Generic.IEnumerable{System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}})" />
       <MemberSignature Language="VB.NET" Value="Public Sub New (tokenProvider As AuthenticationTokenProvider, contexts As IEnumerable(Of IReadOnlyDictionary(Of String, Object)))" />
-      <MemberSignature Language="F#" Value="new System.ClientModel.Primitives.OAuth2BearerTokenAuthenticationPolicy : System.ClientModel.AuthenticationTokenProvider * seq&lt;System.Collections.Generic.IReadOnlyDictionary&lt;string, obj&gt;&gt; -&gt; System.ClientModel.Primitives.OAuth2BearerTokenAuthenticationPolicy" Usage="new System.ClientModel.Primitives.OAuth2BearerTokenAuthenticationPolicy (tokenProvider, contexts)" />
+      <MemberSignature Language="F#" Value="new System.ClientModel.Primitives.BearerTokenPolicy : System.ClientModel.AuthenticationTokenProvider * seq&lt;System.Collections.Generic.IReadOnlyDictionary&lt;string, obj&gt;&gt; -&gt; System.ClientModel.Primitives.BearerTokenPolicy" Usage="new System.ClientModel.Primitives.BearerTokenPolicy (tokenProvider, contexts)" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
-        <AssemblyName>Azure.Core.Experimental</AssemblyName>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="tokenProvider" Type="System.ClientModel.AuthenticationTokenProvider" />
         <Parameter Name="contexts" Type="System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IReadOnlyDictionary&lt;System.String,System.Object&gt;&gt;" />
       </Parameters>
       <Docs>
-        <param name="tokenProvider" />
-        <param name="contexts" />
-        <summary>To be added.</summary>
+        <param name="tokenProvider">The <see cref="T:System.ClientModel.AuthenticationTokenProvider" />.</param>
+        <param name="contexts">The authentication flow contexts supported by the client. This would typically be provided by generated code.</param>
+        <summary>
+            Creates a new instance of <see cref="T:System.ClientModel.Primitives.BearerTokenPolicy" />.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BearerTokenPolicy (System.ClientModel.AuthenticationTokenProvider tokenProvider, string scope);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.ClientModel.AuthenticationTokenProvider tokenProvider, string scope) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.BearerTokenPolicy.#ctor(System.ClientModel.AuthenticationTokenProvider,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (tokenProvider As AuthenticationTokenProvider, scope As String)" />
+      <MemberSignature Language="F#" Value="new System.ClientModel.Primitives.BearerTokenPolicy : System.ClientModel.AuthenticationTokenProvider * string -&gt; System.ClientModel.Primitives.BearerTokenPolicy" Usage="new System.ClientModel.Primitives.BearerTokenPolicy (tokenProvider, scope)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="tokenProvider" Type="System.ClientModel.AuthenticationTokenProvider" />
+        <Parameter Name="scope" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="tokenProvider">The <see cref="T:System.ClientModel.AuthenticationTokenProvider" />.</param>
+        <param name="scope">The scope to be used for authentication requests made by the <paramref name="tokenProvider" />.</param>
+        <summary>
+            Creates a new instance of <see cref="T:System.ClientModel.Primitives.BearerTokenPolicy" />.
+            </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Process">
       <MemberSignature Language="C#" Value="public override void Process (System.ClientModel.Primitives.PipelineMessage message, System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt; pipeline, int currentIndex);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void Process(class System.ClientModel.Primitives.PipelineMessage message, class System.Collections.Generic.IReadOnlyList`1&lt;class System.ClientModel.Primitives.PipelinePolicy&gt; pipeline, int32 currentIndex) cil managed" />
-      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.OAuth2BearerTokenAuthenticationPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.BearerTokenPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
       <MemberSignature Language="VB.NET" Value="Public Overrides Sub Process (message As PipelineMessage, pipeline As IReadOnlyList(Of PipelinePolicy), currentIndex As Integer)" />
-      <MemberSignature Language="F#" Value="override this.Process : System.ClientModel.Primitives.PipelineMessage * System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt; * int -&gt; unit" Usage="oAuth2BearerTokenAuthenticationPolicy.Process (message, pipeline, currentIndex)" />
+      <MemberSignature Language="F#" Value="override this.Process : System.ClientModel.Primitives.PipelineMessage * System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt; * int -&gt; unit" Usage="bearerTokenPolicy.Process (message, pipeline, currentIndex)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
-        <AssemblyName>Azure.Core.Experimental</AssemblyName>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
@@ -83,13 +109,13 @@
     <Member MemberName="ProcessAsync">
       <MemberSignature Language="C#" Value="public override System.Threading.Tasks.ValueTask ProcessAsync (System.ClientModel.Primitives.PipelineMessage message, System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt; pipeline, int currentIndex);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance valuetype System.Threading.Tasks.ValueTask ProcessAsync(class System.ClientModel.Primitives.PipelineMessage message, class System.Collections.Generic.IReadOnlyList`1&lt;class System.ClientModel.Primitives.PipelinePolicy&gt; pipeline, int32 currentIndex) cil managed" />
-      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.OAuth2BearerTokenAuthenticationPolicy.ProcessAsync(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.BearerTokenPolicy.ProcessAsync(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
       <MemberSignature Language="VB.NET" Value="Public Overrides Function ProcessAsync (message As PipelineMessage, pipeline As IReadOnlyList(Of PipelinePolicy), currentIndex As Integer) As ValueTask" />
-      <MemberSignature Language="F#" Value="override this.ProcessAsync : System.ClientModel.Primitives.PipelineMessage * System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt; * int -&gt; System.Threading.Tasks.ValueTask" Usage="oAuth2BearerTokenAuthenticationPolicy.ProcessAsync (message, pipeline, currentIndex)" />
+      <MemberSignature Language="F#" Value="override this.ProcessAsync : System.ClientModel.Primitives.PipelineMessage * System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt; * int -&gt; System.Threading.Tasks.ValueTask" Usage="bearerTokenPolicy.ProcessAsync (message, pipeline, currentIndex)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
-        <AssemblyName>Azure.Core.Experimental</AssemblyName>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.ValueTask</ReturnType>

@@ -1,0 +1,161 @@
+<Type Name="WebPubSubHub" FullName="Microsoft.Azure.WebPubSub.AspNetCore.WebPubSubHub">
+  <TypeSignature Language="C#" Value="public abstract class WebPubSubHub" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit WebPubSubHub extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Azure.WebPubSub.AspNetCore.WebPubSubHub" />
+  <TypeSignature Language="VB.NET" Value="Public MustInherit Class WebPubSubHub" />
+  <TypeSignature Language="F#" Value="type WebPubSubHub = class" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Azure.WebPubSub.AspNetCore</AssemblyName>
+    <AssemblyVersion>1.5.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Web PubSub hub methods.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected WebPubSubHub ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Azure.WebPubSub.AspNetCore.WebPubSubHub.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Azure.WebPubSub.AspNetCore</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnConnectAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.ValueTask&lt;Microsoft.Azure.WebPubSub.Common.ConnectEventResponse&gt; OnConnectAsync (Microsoft.Azure.WebPubSub.Common.ConnectEventRequest request, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype System.Threading.Tasks.ValueTask`1&lt;class Microsoft.Azure.WebPubSub.Common.ConnectEventResponse&gt; OnConnectAsync(class Microsoft.Azure.WebPubSub.Common.ConnectEventRequest request, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Azure.WebPubSub.AspNetCore.WebPubSubHub.OnConnectAsync(Microsoft.Azure.WebPubSub.Common.ConnectEventRequest,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnConnectAsync (request As ConnectEventRequest, cancellationToken As CancellationToken) As ValueTask(Of ConnectEventResponse)" />
+      <MemberSignature Language="F#" Value="abstract member OnConnectAsync : Microsoft.Azure.WebPubSub.Common.ConnectEventRequest * System.Threading.CancellationToken -&gt; System.Threading.Tasks.ValueTask&lt;Microsoft.Azure.WebPubSub.Common.ConnectEventResponse&gt;&#xA;override this.OnConnectAsync : Microsoft.Azure.WebPubSub.Common.ConnectEventRequest * System.Threading.CancellationToken -&gt; System.Threading.Tasks.ValueTask&lt;Microsoft.Azure.WebPubSub.Common.ConnectEventResponse&gt;" Usage="webPubSubHub.OnConnectAsync (request, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Azure.WebPubSub.AspNetCore</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.ValueTask&lt;Microsoft.Azure.WebPubSub.Common.ConnectEventResponse&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="request" Type="Microsoft.Azure.WebPubSub.Common.ConnectEventRequest" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="request">
+          <see cref="T:Microsoft.Azure.WebPubSub.Common.ConnectEventRequest" /> to get client connect request information.
+                <para>For MQTT clients, you can get MQTT specified information like MQTT protocol version, username, password, and user property fields in the MQTT CONNECT packet by casting the "<paramref name="request" />" parameter to <see cref="T:Microsoft.Azure.WebPubSub.Common.MqttConnectEventRequest" /> type.</para></param>
+        <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> used to cancel the request.</param>
+        <summary>
+            Connect event method.
+            </summary>
+        <returns>
+          <para>Build a valid <see cref="T:Microsoft.Azure.WebPubSub.Common.ConnectEventResponse" /> with ConnectEventRequest.CreateResponse().</para>
+          <para>Throw <see cref="T:System.UnauthorizedAccessException" /> or <see cref="T:System.Security.Authentication.AuthenticationException" /> will result 401 <see cref="F:Microsoft.AspNetCore.Http.StatusCodes.Status401Unauthorized" /> status with user assigned error messages.</para>
+          <para>Throw <see cref="T:Microsoft.Azure.WebPubSub.AspNetCore.MqttConnectionException" /> to control the MQTT return code/reason code to the client, and user properties.</para>
+          <para>Throw other exceptions will result 500 <see cref="F:Microsoft.AspNetCore.Http.StatusCodes.Status500InternalServerError" /> with user assigned error messages.</para>
+        </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnConnectedAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task OnConnectedAsync (Microsoft.Azure.WebPubSub.Common.ConnectedEventRequest request);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task OnConnectedAsync(class Microsoft.Azure.WebPubSub.Common.ConnectedEventRequest request) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Azure.WebPubSub.AspNetCore.WebPubSubHub.OnConnectedAsync(Microsoft.Azure.WebPubSub.Common.ConnectedEventRequest)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnConnectedAsync (request As ConnectedEventRequest) As Task" />
+      <MemberSignature Language="F#" Value="abstract member OnConnectedAsync : Microsoft.Azure.WebPubSub.Common.ConnectedEventRequest -&gt; System.Threading.Tasks.Task&#xA;override this.OnConnectedAsync : Microsoft.Azure.WebPubSub.Common.ConnectedEventRequest -&gt; System.Threading.Tasks.Task" Usage="webPubSubHub.OnConnectedAsync request" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Azure.WebPubSub.AspNetCore</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="request" Type="Microsoft.Azure.WebPubSub.Common.ConnectedEventRequest" />
+      </Parameters>
+      <Docs>
+        <param name="request">
+          <see cref="T:Microsoft.Azure.WebPubSub.Common.ConnectedEventRequest" /> to get client connected request information.</param>
+        <summary>
+            Connected event method.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDisconnectedAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task OnDisconnectedAsync (Microsoft.Azure.WebPubSub.Common.DisconnectedEventRequest request);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task OnDisconnectedAsync(class Microsoft.Azure.WebPubSub.Common.DisconnectedEventRequest request) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Azure.WebPubSub.AspNetCore.WebPubSubHub.OnDisconnectedAsync(Microsoft.Azure.WebPubSub.Common.DisconnectedEventRequest)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnDisconnectedAsync (request As DisconnectedEventRequest) As Task" />
+      <MemberSignature Language="F#" Value="abstract member OnDisconnectedAsync : Microsoft.Azure.WebPubSub.Common.DisconnectedEventRequest -&gt; System.Threading.Tasks.Task&#xA;override this.OnDisconnectedAsync : Microsoft.Azure.WebPubSub.Common.DisconnectedEventRequest -&gt; System.Threading.Tasks.Task" Usage="webPubSubHub.OnDisconnectedAsync request" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Azure.WebPubSub.AspNetCore</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="request" Type="Microsoft.Azure.WebPubSub.Common.DisconnectedEventRequest" />
+      </Parameters>
+      <Docs>
+        <param name="request">
+          <see cref="T:Microsoft.Azure.WebPubSub.Common.DisconnectedEventRequest" /> to get client disconnected request information.</param>
+        <summary>
+            Disconnected event method.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnMessageReceivedAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.ValueTask&lt;Microsoft.Azure.WebPubSub.Common.UserEventResponse&gt; OnMessageReceivedAsync (Microsoft.Azure.WebPubSub.Common.UserEventRequest request, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype System.Threading.Tasks.ValueTask`1&lt;class Microsoft.Azure.WebPubSub.Common.UserEventResponse&gt; OnMessageReceivedAsync(class Microsoft.Azure.WebPubSub.Common.UserEventRequest request, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Azure.WebPubSub.AspNetCore.WebPubSubHub.OnMessageReceivedAsync(Microsoft.Azure.WebPubSub.Common.UserEventRequest,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnMessageReceivedAsync (request As UserEventRequest, cancellationToken As CancellationToken) As ValueTask(Of UserEventResponse)" />
+      <MemberSignature Language="F#" Value="abstract member OnMessageReceivedAsync : Microsoft.Azure.WebPubSub.Common.UserEventRequest * System.Threading.CancellationToken -&gt; System.Threading.Tasks.ValueTask&lt;Microsoft.Azure.WebPubSub.Common.UserEventResponse&gt;&#xA;override this.OnMessageReceivedAsync : Microsoft.Azure.WebPubSub.Common.UserEventRequest * System.Threading.CancellationToken -&gt; System.Threading.Tasks.ValueTask&lt;Microsoft.Azure.WebPubSub.Common.UserEventResponse&gt;" Usage="webPubSubHub.OnMessageReceivedAsync (request, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Azure.WebPubSub.AspNetCore</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.ValueTask&lt;Microsoft.Azure.WebPubSub.Common.UserEventResponse&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="request" Type="Microsoft.Azure.WebPubSub.Common.UserEventRequest" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="request">
+          <see cref="T:Microsoft.Azure.WebPubSub.Common.UserEventRequest" /> to get client message request information.</param>
+        <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> used to cancel the request.</param>
+        <summary>
+            User event method.
+            </summary>
+        <returns>
+            Build a valid <see cref="T:Microsoft.Azure.WebPubSub.Common.UserEventResponse" /> with UserEventRequest.CreateResponse().
+            Throw <see cref="T:System.UnauthorizedAccessException" /> or <see cref="T:System.Security.Authentication.AuthenticationException" /> will result 401 <see cref="F:Microsoft.AspNetCore.Http.StatusCodes.Status401Unauthorized" /> status with user assigned error messages.
+            Throw other exceptions will result 500 <see cref="F:Microsoft.AspNetCore.Http.StatusCodes.Status500InternalServerError" /> with user assigned error messages.
+            </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
