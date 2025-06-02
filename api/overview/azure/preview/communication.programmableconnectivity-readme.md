@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: communication
 ---
-# Azure ProgrammableConnectivity client library for .NET - version 1.0.0-alpha.20250602.4 
+# Azure ProgrammableConnectivity client library for .NET - version 1.0.0-alpha.20250602.6 
 
 
 This client library allows .NET applications to interact with Azure Programmable Connectivity Gateway, instead of using `curl` requests. For information on APC, see [docs](https://learn.microsoft.com/azure/programmable-connectivity/).

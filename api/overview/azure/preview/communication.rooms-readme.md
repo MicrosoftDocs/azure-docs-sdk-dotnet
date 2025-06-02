@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: communication
 ---
-# Azure Communication Rooms client library for .NET - version 1.3.0-alpha.20250602.4 
+# Azure Communication Rooms client library for .NET - version 1.3.0-alpha.20250602.6 
 
 
 This package contains a C# SDK for the Rooms Service of Azure Communication Services.
