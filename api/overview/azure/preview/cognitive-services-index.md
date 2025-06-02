@@ -13,6 +13,7 @@
 |[OpenAI Assistants](ai.openai.assistants-readme.md)|[Azure.AI.OpenAI.Assistants](https://www.nuget.org/packages/Azure.AI.OpenAI.Assistants)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI.Assistants)|
 |[Personalizer](ai.personalizer-readme.md)|[Azure.AI.Personalizer](https://www.nuget.org/packages/Azure.AI.Personalizer)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/personalizer/Azure.AI.Personalizer)|
 |[AI Foundry](ai.projects-readme.md)|[Azure.AI.Projects](https://www.nuget.org/packages/Azure.AI.Projects)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/ai/Azure.AI.Projects)|
+|[Text Analytics](ai.textanalytics-readme.md)|[Azure.AI.TextAnalytics](https://www.nuget.org/packages/Azure.AI.TextAnalytics)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics)|
 |[Document Translation](ai.translation.document-readme.md)|[Azure.AI.Translation.Document](https://www.nuget.org/packages/Azure.AI.Translation.Document)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/translation/Azure.AI.Translation.Document)|
 |[Text Translation](ai.translation.text-readme.md)|[Azure.AI.Translation.Text](https://www.nuget.org/packages/Azure.AI.Translation.Text)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/translation/Azure.AI.Translation.Text)|
 |Vision Common|[Azure.AI.Vision.Common](https://www.nuget.org/packages/Azure.AI.Vision.Common)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/)|

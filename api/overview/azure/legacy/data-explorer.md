@@ -1,7 +1,7 @@
 ---
 title: Azure Data Explorer SDK for .NET
 description: Reference for Azure Data Explorer SDK for .NET
-ms.date: 05/30/2025
+ms.date: 06/02/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: dataexplorer
