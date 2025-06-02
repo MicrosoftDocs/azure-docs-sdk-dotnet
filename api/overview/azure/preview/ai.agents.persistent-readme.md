@@ -1,12 +1,12 @@
 ---
 title: Azure AI Persistent Agents client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Agents.Persistent, ai
-ms.date: 05/21/2025
+ms.date: 06/02/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: ai
 ---
-# Azure AI Persistent Agents client library for .NET - version 1.1.0-beta.1 
+# Azure AI Persistent Agents client library for .NET - version 1.1.0-alpha.20250602.1 
 
 
 Use the AI Agents client library to:
@@ -80,6 +80,8 @@ To interact with Azure AI Agents, you will need to create an instance of `Persis
 var projectEndpoint = Environment.GetEnvironmentVariable("PROJECT_ENDPOINT");
 PersistentAgentsClient projectClient = new(projectEndpoint, new DefaultAzureCredential());
 ```
+
+**Note:** Support for project connection string and hub-based projects has been discontinued. We recommend creating a new Azure AI Foundry resource utilizing project endpoint. If this is not possible, please pin the version of `Azure.AI.Agents.Persistent` to version `1.0.0-beta.2` or earlier.
 
 ## Examples
 
@@ -906,7 +908,7 @@ To further diagnose and troubleshoot issues, you can enable logging following th
 
 ## Next steps
 
-Beyond the introductory scenarios discussed, the AI Agents client library offers support for additional scenarios to help take advantage of the full feature set of the AI services.  In order to help explore some of these scenarios, the AI Agents client library offers a set of samples to serve as an illustration for common scenarios.  Please see the [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.1.0-beta.1/sdk/ai/Azure.AI.Agents.Persistent/samples) for details.
+Beyond the introductory scenarios discussed, the AI Agents client library offers support for additional scenarios to help take advantage of the full feature set of the AI services.  In order to help explore some of these scenarios, the AI Agents client library offers a set of samples to serve as an illustration for common scenarios.  Please see the [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Agents.Persistent/samples) for details.
 
 ## Contributing
 
@@ -920,14 +922,14 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 
 <!-- LINKS -->
 [RequestFailedException]: https://learn.microsoft.com/dotnet/api/azure.requestfailedexception?view=azure-dotnet
-[samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.1.0-beta.1/sdk/ai/Azure.AI.Agents.Persistent/tests/Samples
+[samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Agents.Persistent/tests/Samples
 [api_ref_docs]: https://learn.microsoft.com/dotnet/api/overview/azure/ai.agents.persistent-readme
 [nuget]: https://www.nuget.org/packages/Azure.AI.Agents.Persistent/
-[source_code]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.1.0-beta.1/sdk/ai/Azure.AI.Agents.Persistent
+[source_code]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Agents.Persistent
 [product_doc]: https://learn.microsoft.com/azure/ai-studio/
 [azure_identity]: https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet
 [azure_identity_dac]: https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
-[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Agents.Persistent_1.1.0-beta.1/CONTRIBUTING.md
+[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
