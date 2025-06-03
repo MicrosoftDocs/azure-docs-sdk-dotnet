@@ -1,12 +1,12 @@
 ---
 title: Azure Storage Queues client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Storage.Queues, storage
-ms.date: 05/06/2025
+ms.date: 06/03/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: storage
 ---
-# Azure Storage Queues client library for .NET - version 12.23.0-beta.1 
+# Azure Storage Queues client library for .NET - version 12.24.0-alpha.20250603.2 
 
 
 > Server Version: 2021-02-12, 2020-12-06, 2020-10-02, 2020-08-04, 2020-06-12, 2020-04-08, 2020-02-10, 2019-12-12, 2019-07-07, and 2019-02-02
@@ -66,11 +66,11 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.23.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.23.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.23.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.23.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.23.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
@@ -194,8 +194,8 @@ catch (RequestFailedException ex)
 
 Get started with our [Queue samples][samples]:
 
-1. [Hello World](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.23.0-beta.1/sdk/storage/Azure.Storage.Queues/samples/Sample01a_HelloWorld.cs): Enqueue, Dequeue, Peek, and Update queue messages (or [asynchronously](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.23.0-beta.1/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs))
-2. [Auth](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.23.0-beta.1/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs): Authenticate with connection strings, shared keys, shared access signatures, and Azure Active Directory.
+1. [Hello World](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Queues/samples/Sample01a_HelloWorld.cs): Enqueue, Dequeue, Peek, and Update queue messages (or [asynchronously](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs))
+2. [Auth](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs): Authenticate with connection strings, shared keys, shared access signatures, and Azure Active Directory.
 
 ## Contributing
 
@@ -213,7 +213,7 @@ or contact [opencode@microsoft.com][coc_contact] with any
 additional questions or comments.
 
 <!-- LINKS -->
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.23.0-beta.1/sdk/storage/Azure.Storage.Queues/src
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Queues/src
 [package]: https://www.nuget.org/packages/Azure.Storage.Queues/
 [docs]: https://learn.microsoft.com/dotnet/api/azure.storage.queues
 [rest_docs]: https://learn.microsoft.com/rest/api/storageservices/queue-service-rest-api
@@ -225,13 +225,13 @@ additional questions or comments.
 [storage_account_create_portal]: https://learn.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal
 [azure_cli]: https://learn.microsoft.com/cli/azure
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
-[identity]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.23.0-beta.1/sdk/identity/Azure.Identity/README.md
+[identity]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/README.md
 [storage_ad]: https://learn.microsoft.com/azure/storage/common/storage-auth-aad
 [storage_ad_sample]: samples/Sample02c_Auth_ActiveDirectory.cs
-[RequestFailedException]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.23.0-beta.1/sdk/core/Azure.Core/src/RequestFailedException.cs
+[RequestFailedException]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core/Azure.Core/src/RequestFailedException.cs
 [error_codes]: https://learn.microsoft.com/rest/api/storageservices/queue-service-error-codes
-[samples]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.23.0-beta.1/sdk/storage/Azure.Storage.Queues/samples/
-[storage_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.23.0-beta.1/sdk/storage/CONTRIBUTING.md
+[samples]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Queues/samples/
+[storage_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
