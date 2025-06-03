@@ -1,28 +1,32 @@
 ---
-title: Azure Purview Account client library for .NET
-keywords: Azure, dotnet, SDK, API, Azure.Analytics.Purview.Account, purview
+title: Azure Purview Catalog client library for .NET
+keywords: Azure, dotnet, SDK, API, Azure.Analytics.Purview.Catalog, purview
 ms.date: 06/03/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: purview
 ---
-# Azure Purview Account client library for .NET - version 1.0.0-alpha.20250603.1 
+# Azure Purview Catalog client library for .NET - version 1.0.0-alpha.20250603.1 
 
 
-Azure Purview Account is a fully managed cloud service.
+Azure Purview Catalog is a fully managed cloud service whose users can discover the data sources they need and understand the data sources they find. At the same time, Data Catalog helps organizations get more value from their existing investments.
 
-**Please rely heavily on the [service's documentation][account_product_documentation] and our [protocol client docs][protocol_client_quickstart] to use this library**
+- Search for data using technical or business terms
+- Browse associated technical, business, semantic, and operational metadata
+- Identify the sensitivity level of data.
 
-[Source code][source_code] | [Package (NuGet)][client_nuget_package] | [Product documentation][account_product_documentation]
+**Please rely heavily on the [service's documentation][catalog_service_documentation] and our [protocol client docs][protocol_client_quickstart] to use this library**
+
+[Source code][source_code] | [Package (NuGet)][client_nuget_package] | [Product documentation][catalog_product_documentation]
 
 ## Getting started
 
 ### Install the package
 
-Install the Azure Purview Account client library for .NET with [NuGet][client_nuget_package]:
+Install the Azure Purview Catalog client library for .NET with [NuGet][client_nuget_package]:
 
 ```dotnetcli
-dotnet add package Azure.Analysis.Purview.Account --prerelease
+dotnet add package Azure.Analytics.Purview.Catalog --prerelease
 ```
 
 ### Prerequisites
@@ -35,18 +39,18 @@ dotnet add package Azure.Analysis.Purview.Account --prerelease
 
 This document demonstrates using [DefaultAzureCredential][default_cred_ref] to authenticate via Azure Active Directory. However, any of the credentials offered by the [Azure.Identity][azure_identity] will be accepted.  See the [Azure.Identity][azure_identity] documentation for more information about other credentials.
 
-Once you have chosen and configured your credential, you can create instances of the `AccountClient`.
+Once you have chosen and configured your credential, you can create instances of the `PurviewCatalogClient`.
 
 ```C#
 var credential = new DefaultAzureCredential();
-var client = new PurviewAccountClient(new Uri("https://<my-account-name>.purview.azure.com"), credential);
+var client = new PurviewCatalogClient(new Uri("https://<my-account-name>.purview.azure.com"), credential);
 ```
 
 ## Key concepts
 
 ### Protocol Methods
 
-Operations exposed by the Purview Account SDK for .NET use *protocol methods* to expose the underlying REST operations. You can learn more about how to use SDK Clients which use protocol methods in our [documentation][protocol_client_quickstart].
+Operations exposed by the Purview Catalog SDK for .NET use *protocol methods* to expose the underlying REST operations. You can learn more about how to use SDK Clients which use protocol methods in our [documentation][protocol_client_quickstart].
 
 ### Thread safety
 
@@ -71,11 +75,11 @@ The following section shows you how to initialize and authenticate your client, 
 
 ```C#
 var credential = new DefaultAzureCredential();
-var client = new PurviewAccountClient(new Uri("https://<my-account-name>.purview.azure.com"), credential);
+var client = new PurviewCatalogClient(new Uri("https://<my-account-name>.purview.azure.com"), credential);
 
-var Response response = await client.GetAccountPropertiesAsync();
+var response = await client.Types.GetAllTypeDefinitionsAsync();
 using var responseDocument = JsonDocument.Parse(response.Content);
-Console.WriteLine(responseDocument.RootElement.GetProperty("name"));
+Console.WriteLine(responseDocument.RootElement.GetProperty("entityDefs"));
 ```
 
 ## Troubleshooting
@@ -106,17 +110,19 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 This project has adopted the [Microsoft Open Source Code of Conduct][code_of_conduct]. For more information see the [Code of Conduct FAQ][coc_faq] or contact [opencode@microsoft.com][coc_contact] with any additional questions or comments.
 
 <!-- LINKS -->
-[source_code]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/purview/Azure.Analytics.Purview.Account/src
-[client_nuget_package]: https://www.nuget.org/packages?q=Azure.Analytics.Purview.Account
-[account_product_documentation]: https://azure.microsoft.com/services/purview/
+[source_code]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/purview/Azure.Analytics.Purview.Catalog/src
+[client_nuget_package]: https://www.nuget.org/packages?q=Azure.Analytics.Purview.Catalog
+[catalog_service_documentation]: https://azure.microsoft.com/services/purview/
+[catalog_product_documentation]: https://learn.microsoft.com/azure/purview/
 [azure_identity]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity
 [protocol_client_quickstart]: https://aka.ms/azsdk/net/protocol/quickstart
 [default_cred_ref]: https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
 [azure_subscription]: https://azure.microsoft.com/free/dotnet/
-[purview_resource]: https://learn.microsoft.com/azure/purview
+[purview_resource]: https://learn.microsoft.com/azure/purview/create-catalog-portal
 [azure_core_diagnostics]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 [coc_contact]: mailto:opencode@microsoft.com
+[contributing]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 
