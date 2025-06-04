@@ -1,12 +1,12 @@
 ---
 title: Azure FarmBeats client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Verticals.AgriFood.Farming, agrifood
-ms.date: 02/23/2023
+ms.date: 06/04/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: agrifood
 ---
-# Azure FarmBeats client library for .NET - version 1.0.0-beta.2 
+# Azure FarmBeats client library for .NET - version 1.0.0-alpha.20250603.1 
 
 
 FarmBeats is a B2B PaaS offering from Microsoft that makes it easy for AgriFood companies to build intelligent digital agriculture solutions on Azure. FarmBeats allows users to acquire, aggregate, and process agricultural data from various sources (farm equipment, weather, satellite) without the need to invest in deep data engineering resources.  Customers can build SaaS solutions on top of FarmBeats and leverage first class support for model building to generate insights at scale.
@@ -29,7 +29,7 @@ dotnet add package Azure.Verticals.AgriFood.Farming --prerelease
 
 To use this package, you must have:
 
-- An [Azure subscription][azure_subscription] 
+- An [Azure subscription][azure_subscription]
 - An [AgriFood (FarmBeats) resource][install_farmbeats]
 
 ### Authenticate the client
@@ -56,13 +56,13 @@ Farm hierarchy is a collection of below entities.
 - Field - is a multi-polygon area. This is expected to be stable across seasons.
 - Seasonal field - is a multi-polygon area. To define a seasonal boundary we need the details of area (boundary), time (season) and crop. New seasonal fields are expected to be created for every growing season.
 - Boundary - is the actual multi-polygon area expressed as a geometry (in geojson). It is normally associated with a field or a seasonal field. Satellite, weather and farm operations data is linked to a boundary.
-- Cascade delete - Agronomic data is stored hierarchically with farmer as the root. The hierarchy includes Farmer -> Farms -> Fields -> Seasonal Fields -> Boundaries -> Associated data (satellite, weather, farm operations). Cascade delete refers to the process of deleting any node and its subtree. 
+- Cascade delete - Agronomic data is stored hierarchically with farmer as the root. The hierarchy includes Farmer -> Farms -> Fields -> Seasonal Fields -> Boundaries -> Associated data (satellite, weather, farm operations). Cascade delete refers to the process of deleting any node and its subtree.
 
 ### [Scenes][scenes]
 Scenes refers to images normally ingested using satellite APIs. This includes raw bands and derived bands (Ex: NDVI). Scenes may also include spatial outputs of an inference or AI/ML model (Ex: LAI).
 
 ### [Farm Operations][farm_operations_docs]
-Fam operations includes details pertaining to tilling, planting, application of pesticides & nutrients, and harvesting. This can either be manually pushed into FarmBeats using APIs or the same information can be pulled from farm equipment service providers like John Deere. 
+Fam operations includes details pertaining to tilling, planting, application of pesticides & nutrients, and harvesting. This can either be manually pushed into FarmBeats using APIs or the same information can be pulled from farm equipment service providers like John Deere.
 
 ### Protocol Methods
 
@@ -74,12 +74,12 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Verticals.AgriFood.Farming_1.0.0-beta.2/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Verticals.AgriFood.Farming_1.0.0-beta.2/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Verticals.AgriFood.Farming_1.0.0-beta.2/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Verticals.AgriFood.Farming_1.0.0-beta.2/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Verticals.AgriFood.Farming_1.0.0-beta.2/sdk/core/Azure.Core/samples/Diagnostics.md) |
-[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Verticals.AgriFood.Farming_1.0.0-beta.2/sdk/core/Azure.Core/README.md#mocking) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
 
@@ -115,7 +115,7 @@ To learn more about other logging mechanisms see [here][azure_core_diagnostics].
 
 ### Additional documentation
 
-For more extensive documentation on the FarmBeats, see the [FarmBeats documentation][product_docs] on docs.microsoft.com.
+For more extensive documentation on the FarmBeats, see the [FarmBeats documentation][product_docs] on learn.microsoft.com.
 
 This client SDK exposes operations using *protocol methods*, you can learn more about how to use SDK Clients which use protocol methods in our [documentation][protocol_client_quickstart].
 
@@ -130,14 +130,14 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 This project has adopted the [Microsoft Open Source Code of Conduct][code_of_conduct]. For more information see the [Code of Conduct FAQ][coc_faq] or contact [opencode@microsoft.com][coc_contact] with any additional questions or comments.
 
 <!-- LINKS -->
-[source_code]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Verticals.AgriFood.Farming_1.0.0-beta.2/sdk/agrifood/Azure.Verticals.AgriFood.Farming
+[source_code]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agrifood/Azure.Verticals.AgriFood.Farming
 [client_nuget_package]: https://www.nuget.org/packages?q=Azure.Verticals.AgriFood.Farming
 [product_documentation]: https://aka.ms/FarmBeatsProductDocumentationPaaS
-[azure_identity]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Verticals.AgriFood.Farming_1.0.0-beta.2/sdk/identity/Azure.Identity
+[azure_identity]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity
 [protocol_client_quickstart]: https://aka.ms/azsdk/net/protocol/quickstart
-[default_cred_ref]: /dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
+[default_cred_ref]: https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
 [azure_subscription]: https://azure.microsoft.com/free/dotnet/
-[azure_core_diagnostics]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Verticals.AgriFood.Farming_1.0.0-beta.2/sdk/core/Azure.Core/samples/Diagnostics.md
+[azure_core_diagnostics]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md
 [scenes]: https://aka.ms/FarmBeatsSatellitePaaSDocumentation
 [farm_operations_docs]: https://aka.ms/FarmBeatsFarmOperationsDocumentation
 [farm_hierarchy]: https://aka.ms/FarmBeatsFarmHierarchyDocs
@@ -146,6 +146,4 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 [coc_contact]: mailto:opencode@microsoft.com
-
-
 
