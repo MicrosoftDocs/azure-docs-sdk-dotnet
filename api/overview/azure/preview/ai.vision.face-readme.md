@@ -1,12 +1,12 @@
 ---
 title: Azure AI Face client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Vision.Face, azure-ai-face
-ms.date: 10/23/2024
+ms.date: 06/04/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: azure-ai-face
 ---
-# Azure AI Face client library for .NET - version 1.0.0-beta.2 
+# Azure AI Face client library for .NET - version 1.0.0-alpha.20250604.1 
 
 
 The Azure AI Face service provides AI algorithms that detect, recognize, and analyze human faces in images. It includes the following main features:
@@ -162,12 +162,12 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Vision.Face_1.0.0-beta.2/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Vision.Face_1.0.0-beta.2/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Vision.Face_1.0.0-beta.2/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Vision.Face_1.0.0-beta.2/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Vision.Face_1.0.0-beta.2/sdk/core/Azure.Core/samples/Diagnostics.md) |
-[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Vision.Face_1.0.0-beta.2/sdk/core/Azure.Core/README.md#mocking) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
 
@@ -370,11 +370,11 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 This project has adopted the [Microsoft Open Source Code of Conduct][code_of_conduct]. For more information see the [Code of Conduct FAQ][coc_faq] or contact [opencode@microsoft.com][coc_contact] with any additional questions or comments.
 
 <!-- LINKS -->
-[source_code]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Vision.Face_1.0.0-beta.2/sdk/face/Azure.AI.Vision.Face/src
+[source_code]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/face/Azure.AI.Vision.Face/src
 [face_nuget]: https://aka.ms/azsdk-csharp-face-pkg
 [face_ref_docs]: https://aka.ms/azsdk-csharp-face-ref
 [face_product_docs]: https://learn.microsoft.com/azure/ai-services/computer-vision/overview-identity
-[face_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Vision.Face_1.0.0-beta.2/sdk/face/Azure.AI.Vision.Face/samples
+[face_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/face/Azure.AI.Vision.Face/samples
 
 [nuget]: https://www.nuget.org/
 [steps_assign_an_azure_role]: https://learn.microsoft.com/azure/role-based-access-control/role-assignments-steps
@@ -392,16 +392,16 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 [get_endpoint_via_azure_cli]: https://learn.microsoft.com/azure/ai-services/multi-service-resource?tabs=windows&pivots=azcli#get-the-keys-for-your-resource
 [azure_sdk_net_azure_key_credential]: https://learn.microsoft.com/dotnet/api/azure.azurekeycredential?view=azure-dotnet
 [azure_sdk_net_identity]: https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet
-[custom_subdomain]: /azure/cognitive-services/authentication#create-a-resource-with-a-custom-subdomain
+[custom_subdomain]: https://learn.microsoft.com/azure/cognitive-services/authentication#create-a-resource-with-a-custom-subdomain
 [azure_sdk_net_default_azure_credential]: https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
-[register_aad_app]: /azure/cognitive-services/authentication#assign-a-role-to-a-service-principal
+[register_aad_app]: https://learn.microsoft.com/azure/cognitive-services/authentication#assign-a-role-to-a-service-principal
 
-[face_sample_detection]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Vision.Face_1.0.0-beta.2/sdk/face/Azure.AI.Vision.Face/samples/Sample1_FaceDetection.md
+[face_sample_detection]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/face/Azure.AI.Vision.Face/samples/Sample1_FaceDetection.md
 [liveness_tutorial]: https://learn.microsoft.com/azure/ai-services/computer-vision/tutorials/liveness
-[face_sample_liveness_session]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Vision.Face_1.0.0-beta.2/sdk/face/Azure.AI.Vision.Face/samples/Sample2_DetectLivenessWithSession.md
-[face_sample_liveness_with_verify_session]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Vision.Face_1.0.0-beta.2/sdk/face/Azure.AI.Vision.Face/samples/Sample3_DetectLivenessWithVerifyWithSession.md
+[face_sample_liveness_session]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/face/Azure.AI.Vision.Face/samples/Sample2_DetectLivenessWithSession.md
+[face_sample_liveness_with_verify_session]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/face/Azure.AI.Vision.Face/samples/Sample3_DetectLivenessWithVerifyWithSession.md
 
-[logging]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Vision.Face_1.0.0-beta.2/sdk/core/Azure.Core/samples/Diagnostics.md
+[logging]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core/Azure.Core/samples/Diagnostics.md
 
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
