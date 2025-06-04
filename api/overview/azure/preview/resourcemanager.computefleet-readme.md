@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.ComputeFleet, computefleet
-ms.date: 08/30/2024
+ms.date: 06/04/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: computefleet
@@ -25,7 +25,7 @@ This library follows the [new Azure SDK guidelines](https://azure.github.io/azur
 Install the Microsoft Azure Compute Fleet management library for .NET with [NuGet](https://www.nuget.org/):
 
 ```dotnetcli
-dotnet add package Azure.ResourceManager.ComputeFleet --prerelease
+dotnet add package Azure.ResourceManager.ComputeFleet
 ```
 
 ### Prerequisites
@@ -34,7 +34,7 @@ dotnet add package Azure.ResourceManager.ComputeFleet --prerelease
 
 ### Authenticate the Client
 
-To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.ComputeFleet_1.0.0-beta.1/doc/dev/mgmt_quickstart.md).
+To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
 
 ## Key concepts
 
@@ -44,9 +44,9 @@ Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://azu
 
 Documentation is available to help you learn how to use this package:
 
-- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.ComputeFleet_1.0.0-beta.1/doc/dev/mgmt_quickstart.md).
-- [API References](/dotnet/api/?view=azure-dotnet).
-- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.ComputeFleet_1.0.0-beta.1/sdk/identity/Azure.Identity/README.md).
+- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
+- [API References](https://learn.microsoft.com/dotnet/api/?view=azure-dotnet).
+- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
 
 ## Examples
 
@@ -83,6 +83,6 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.ComputeFleet_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
