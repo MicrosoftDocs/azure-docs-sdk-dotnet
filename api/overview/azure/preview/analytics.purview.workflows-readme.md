@@ -1,12 +1,12 @@
 ---
 title: Azure Purview Workflow client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Analytics.Purview.Workflows, purview
-ms.date: 11/16/2023
+ms.date: 06/04/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: purview
 ---
-# Azure Purview Workflow client library for .NET - version 1.0.0-beta.2 
+# Azure Purview Workflow client library for .NET - version 1.0.0-alpha.20250604.1 
 
 
 Workflows are automated, repeatable business processes that users can create within Microsoft Purview to validate and orchestrate CUD (create, update, delete) operations on their data entities. Enabling these processes allow organizations to track changes, enforce policy compliance, and ensure quality data across their data landscape.
@@ -33,17 +33,13 @@ You must have an [Azure subscription][azure_subscription] and a [Purview resourc
 
 ### Authenticate the client
 
-Since the Workflow service uses an Azure Active Directory (AAD) bearer token for authentication and identification, an email address should be encoded into the token to allow for notification when using Workflow. It is recommended that the [Azure Identity][azure_identity] library be used  with a the [UsernamePasswordCredential][username_password_credential]. Before using the [Azure Identity][azure_identity] library with Workflow, [an application][app_registration] should be registered and used for the clientId passed to the [UsernamePasswordCredential][username_password_credential].
+Since the Workflow service uses an Azure Active Directory (AAD) bearer token for authentication and identification, an email address should be encoded into the token to allow for notification when using Workflow. It is recommended that the [Azure Identity][azure_identity] library be used  with a the [DefaultAzureCredential][default_azure_credential]. Before using the [Azure Identity][azure_identity] library with Workflow, [an application][app_registration] should be registered and set the information obtained from the application, such as AZURE_CLIENT_ID, AZURE_TENANT_ID, and AZURE_CLIENT_SECRET, as environment variables. Then use [DefaultAzureCredential][default_azure_credential] for authentication. For more authentication details, refer to [MFA][multifactor_authentication].
 
 ```C# Snippet:Azure_Analytics_Purview_Workflows_CreateClient
 Uri endpoint = new Uri(Environment.GetEnvironmentVariable("WORKFLOW_ENDPOINT"));
-string clientId = Environment.GetEnvironmentVariable("ClientId");
-string tenantId = Environment.GetEnvironmentVariable("TenantId");
-string username = Environment.GetEnvironmentVariable("Username");
-string password = Environment.GetEnvironmentVariable("Password");
+TokenCredential credential = new DefaultAzureCredential();
 
-TokenCredential usernamePasswordCredential = new UsernamePasswordCredential(clientId,tenantId, username,password, null);
-var client = new WorkflowsClient(endpoint, usernamePasswordCredential);
+var client = new WorkflowsClient(endpoint, credential);
 ```
 
 ## Examples
@@ -114,14 +110,15 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 <!-- LINKS -->
 [product_documentation]: https://learn.microsoft.com/azure/purview/concept-workflow
 [azure_subscription]: https://azure.microsoft.com/free/dotnet/
-[purview_resource]: /azure/purview/create-catalog-portal
-[azure_identity]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Purview.Workflows_1.0.0-beta.2/sdk/identity/Azure.Identity/README.md
+[purview_resource]: https://learn.microsoft.com/azure/purview/create-catalog-portal
+[azure_identity]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/README.md
 [app_registration]: https://learn.microsoft.com/azure/active-directory/develop/quickstart-register-app
-[username_password_credential]: https://learn.microsoft.com/dotnet/api/azure.identity.usernamepasswordcredential?view=azure-dotnet
+[default_azure_credential]: https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
+[multifactor_authentication]:https://learn.microsoft.com/entra/identity/authentication/concept-mandatory-multifactor-authentication?tabs=dotnet#client-libraries
 [protocol_client_quickstart]: https://aka.ms/azsdk/net/protocol/quickstart
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 [coc_contact]: mailto:opencode@microsoft.com
-[contributing]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Purview.Workflows_1.0.0-beta.2/CONTRIBUTING.md
+[contributing]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 
