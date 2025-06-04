@@ -1,14 +1,14 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Microsoft.Extensions.Azure, extensions
-ms.date: 05/11/2021
+ms.date: 06/04/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: extensions
 ---
-# Azure client library integration for ASP.NET Core (Preview)
+# Azure client library integration for ASP.NET Core
 
-Microsoft.Extensions.Azure.Core provides shared primitives to integrate Azure clients with ASP.NET Core [dependency injection][dependency_injection] and [configuration][configuration] systems.
+Microsoft.Extensions.Azure provides shared primitives to integrate Azure clients with ASP.NET Core [dependency injection][dependency_injection] and [configuration][configuration] systems.
 
 [Source code][source_root] | [Package (NuGet)][package]
 
@@ -18,7 +18,7 @@ Microsoft.Extensions.Azure.Core provides shared primitives to integrate Azure cl
 
 Install the ASP.NET Core integration library using [NuGet][nuget]:
 
-```
+```dotnetcli
 dotnet add package Microsoft.Extensions.Azure
 ```
 
@@ -56,7 +56,7 @@ public void ConfigureServices(IServiceCollection services)
         builder.ConfigureDefaults(options => options.Retry.Mode = RetryMode.Exponential);
 
         // Advanced configure global defaults
-        builder.ConfigureDefaults((options, provider) =>  options.AddPolicy(provider.GetService<DependencyInjectionEnabledPolicy>(), HttpPipelinePosition.PerCall));
+        builder.ConfigureDefaults((options, provider) => options.AddPolicy(provider.GetService<DependencyInjectionEnabledPolicy>(), HttpPipelinePosition.PerCall));
 
         // Register blob service client and initialize it using the Storage section of configuration
         builder.AddBlobServiceClient(Configuration.GetSection("Storage"))
@@ -133,7 +133,7 @@ public void ConfigureServices(IServiceCollection services)
     services.AddAzureClients(builder =>
     {
         // Register a client using MyApplicationOptions to get constructor parameters
-        builder.AddClient<SecretClient, SecretClientOptions>((provider, credential, options) =>
+        builder.AddClient<SecretClient, SecretClientOptions>((options, credential, provider) =>
         {
             var appOptions = provider.GetService<IOptions<MyApplicationOptions>>();
             return new SecretClient(appOptions.Value.KeyVaultEndpoint, credential, options);
@@ -151,11 +151,11 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 
 
 <!-- LINKS -->
-[source_root]: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.1.0-beta.3/sdk/extensions/Microsoft.Extensions.Azure/src
+[source_root]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/extensions/Microsoft.Extensions.Azure/src
 [nuget]: https://www.nuget.org/
 [package]: https://www.nuget.org/packages/Microsoft.Extensions.Azure/
-[configuration]: https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.0
-[dependency_injection]: https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.0
+[configuration]: https://learn.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.0
+[dependency_injection]: https://learn.microsoft.com/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.0
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
