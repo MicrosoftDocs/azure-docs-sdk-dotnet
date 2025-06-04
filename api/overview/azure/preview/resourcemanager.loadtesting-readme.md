@@ -1,10 +1,10 @@
 ---
 title: 
-keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.LoadTesting, loadtestservice
-ms.date: 05/31/2023
+keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.LoadTesting, load-testing
+ms.date: 06/04/2025
 ms.topic: reference
 ms.devlang: dotnet
-ms.service: loadtestservice
+ms.service: load-testing
 ---
 # Microsoft Azure Load Testing management client library for .NET
 
@@ -36,7 +36,7 @@ dotnet add package Azure.ResourceManager.LoadTesting
 
 ### Authenticate the Client
 
-To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.LoadTesting_1.1.0-beta.1/doc/dev/mgmt_quickstart.md).
+To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
 
 ## Key concepts
 
@@ -46,9 +46,9 @@ Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://azu
 
 Documentation is available to help you learn how to use this package:
 
-- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.LoadTesting_1.1.0-beta.1/doc/dev/mgmt_quickstart.md).
-- [API References](/dotnet/api/?view=azure-dotnet).
-- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.LoadTesting_1.1.0-beta.1/sdk/identity/Azure.Identity/README.md).
+- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
+- [API References](https://learn.microsoft.com/dotnet/api/?view=azure-dotnet).
+- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
 
 ## Examples
 
@@ -208,7 +208,7 @@ LoadTestingQuotaCollection QuotaCollection = _subscription.GetAllLoadTestingQuot
 Response<LoadTestingQuotaResource> quotaResponse = await QuotaCollection.GetAsync("maxConcurrentTestRuns");
 LoadTestingQuotaResource quotaResource = quotaResponse.Value;
 
-LoadTestingQuotaBucketDimensions dimensions = new LoadTestingQuotaBucketDimensions("<subscription-id>", AzureLocation.WestUS2);
+LoadTestingQuotaBucketDimensions dimensions = new LoadTestingQuotaBucketDimensions("<subscription-id>", AzureLocation.WestUS2, null);
 LoadTestingQuotaBucketContent quotaAvailabilityPayload = new LoadTestingQuotaBucketContent(
     quotaResponse.Value.Data.Id,
     quotaResource.Data.Name,
@@ -217,7 +217,7 @@ LoadTestingQuotaBucketContent quotaAvailabilityPayload = new LoadTestingQuotaBuc
     quotaResource.Data.Usage,
     quotaResource.Data.Limit,
     50, // new quota value
-    dimensions);
+    dimensions, null);
 
 Response<LoadTestingQuotaAvailabilityResult> checkAvailabilityResult = await quotaResponse.Value.CheckLoadTestingQuotaAvailabilityAsync(quotaAvailabilityPayload);
 // IsAvailable property indicates whether the requested quota is available.
@@ -257,7 +257,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.LoadTesting_1.1.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
