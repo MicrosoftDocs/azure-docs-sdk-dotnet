@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: core
 ---
-# Azure Core Expressions DataFactory shared client library for .NET - version 1.1.0-alpha.20250603.13 
+# Azure Core Expressions DataFactory shared client library for .NET - version 1.1.0-alpha.20250604.1 
 
 
 Azure.Core.Expressions.DataFactory provides classes that represent [Expressions](https://learn.microsoft.com/azure/data-factory/control-flow-expression-language-functions#expressions).
