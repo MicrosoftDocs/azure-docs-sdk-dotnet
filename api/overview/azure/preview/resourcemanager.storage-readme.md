@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.Storage, storage
-ms.date: 08/14/2023
+ms.date: 06/04/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: storage
@@ -32,7 +32,7 @@ dotnet add package Azure.ResourceManager.Storage
 
 ### Prerequisites
 
-First, to install the [Microsoft Azure Identity](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet) package:
+First, to install the [Microsoft Azure Identity](https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet) package:
 
 ```dotnetcli
 dotnet add package Azure.Identity
@@ -41,11 +41,11 @@ dotnet add package Azure.Identity
 Set up a way to authenticate to Microsoft Azure with Azure Identity.
 
 Some options are:
-- Through the [Azure CLI Sign in](/cli/azure/authenticate-azure-cli).
-- Via [Visual Studio](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet#authenticating-via-visual-studio).
-- Setting [Environment Variables](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.2.0-beta.2/sdk/resourcemanager/Azure.ResourceManager/docs/AuthUsingEnvironmentVariables.md).
+- Through the [Azure CLI Sign in](https://learn.microsoft.com/cli/azure/authenticate-azure-cli).
+- Via [Visual Studio](https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet#authenticating-via-visual-studio).
+- Setting [Environment Variables](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/AuthUsingEnvironmentVariables.md).
 
-More information and different authentication approaches using Microsoft Azure Identity can be found in [this document](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet).
+More information and different authentication approaches using Microsoft Azure Identity can be found in [this document](https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet).
 
 ### Authenticate the Client
 
@@ -61,25 +61,25 @@ using Azure.ResourceManager;
 ArmClient armClient = new ArmClient(new DefaultAzureCredential());
 ```
 
-More documentation for the `Azure.Identity.DefaultAzureCredential` class can be found in [this document](/dotnet/api/azure.identity.defaultazurecredential).
+More documentation for the `Azure.Identity.DefaultAzureCredential` class can be found in [this document](https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential).
 
 ## Key concepts
 
-Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.2.0-beta.2/sdk/resourcemanager/Azure.ResourceManager/README.md#key-concepts)
+Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/README.md#key-concepts)
 
 ## Examples
 
-- [Managing Storage Accounts](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.2.0-beta.2/sdk/storage/Azure.ResourceManager.Storage/samples/Sample1_ManagingStorageAccounts.md).
+- [Managing Storage Accounts](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.ResourceManager.Storage/samples/Sample1_ManagingStorageAccounts.md).
 
-- [Managing Blob Containers](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.2.0-beta.2/sdk/storage/Azure.ResourceManager.Storage/samples/Sample2_ManagingBlobContainers.md).
-- [Managing File Shares](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.2.0-beta.2/sdk/storage/Azure.ResourceManager.Storage/samples/Sample3_ManagingFileShares.md).
+- [Managing Blob Containers](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.ResourceManager.Storage/samples/Sample2_ManagingBlobContainers.md).
+- [Managing File Shares](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.ResourceManager.Storage/samples/Sample3_ManagingFileShares.md).
 
 ## Troubleshooting
 
 -   If you find a bug or have a suggestion, file an issue via [GitHub issues](https://github.com/Azure/azure-sdk-for-net/issues), and make sure you add the "Preview" label to the issue.
 -   If you need help, check [previous questions](https://stackoverflow.com/questions/tagged/azure+.net)
     or ask new ones on StackOverflow using Azure and .NET tags.
--   If having trouble with authentication, go to [DefaultAzureCredential documentation](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
+-   If having trouble with authentication, go to [DefaultAzureCredential documentation](https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
 
 
 ## Next steps
@@ -107,7 +107,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.2.0-beta.2/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
