@@ -1,12 +1,12 @@
 ---
 title: Azure firmware analysis client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.IotFirmwareDefense, iot
-ms.date: 06/04/2025
+ms.date: 06/05/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: iot
 ---
-# Azure firmware analysis client library for .NET - version 1.1.0-beta.1 
+# Azure firmware analysis client library for .NET - version 1.1.0-alpha.20250605.1 
 
 
 Firmware analysis is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images. The analysis results include SBOM (Software Bill of Materials), CVE (Common Vulnerabilities and Exposures), binary hardening, password hashes, and weak or expired certificates.
@@ -35,7 +35,7 @@ dotnet add package Azure.ResourceManager.IotFirmwareDefense
 
 ### Authenticate the Client
 
-To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.IotFirmwareDefense_1.1.0-beta.1/doc/dev/mgmt_quickstart.md).
+To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
 
 ## Key concepts
 
@@ -45,9 +45,9 @@ Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://azu
 
 Documentation is available to help you learn how to use this package:
 
-- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.IotFirmwareDefense_1.1.0-beta.1/doc/dev/mgmt_quickstart.md).
+- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
 - [API References](https://learn.microsoft.com/dotnet/api/?view=azure-dotnet).
-- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.IotFirmwareDefense_1.1.0-beta.1/sdk/identity/Azure.Identity/README.md).
+- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
 
 ## Examples
 
@@ -84,7 +84,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.IotFirmwareDefense_1.1.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
