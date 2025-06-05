@@ -1,12 +1,12 @@
 ---
 title: Azure Authoring client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Language.Conversations.Authoring, cognitivelanguage
-ms.date: 03/06/2025
+ms.date: 06/05/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: cognitivelanguage
 ---
-# Azure Authoring client library for .NET - version 1.0.0-beta.1 
+# Azure Authoring client library for .NET - version 1.0.0-alpha.20250605.1 
 
 
 Azure Conversations Authoring is part of the Azure Cognitive Service for Language, a cloud-based service that provides tools for creating, managing, and deploying conversational AI solutions. This client library offers the following features:
@@ -137,47 +137,47 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
 
 ## Examples
 
-You can familiarize yourself with different APIs using [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples).
+You can familiarize yourself with different APIs using [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples).
 
-* [Create a New Project (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample1_ConversationsAuthoring_CreateProject.md)
-* [Create a New Project (Async)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample1_ConversationsAuthoring_CreateProjectAsync.md)
-* [Import a Project (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample2_ConversationsAuthoring_Import.md)
-* [Import a Project (Async)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample2_ConversationsAuthoring_ImportAsync.md)
-* [Export a Project (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample3_ConversationsAuthoring_Export.md)
-* [Export a Project (Async)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample3_ConversationsAuthoring_ExportAsync.md)
-* [Get Project Details (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample4_ConversationsAuthoring_GetProject.md)
-* [Get Project Details (Async)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample4_ConversationsAuthoring_GetProjectAsync.md)
-* [Delete a Project (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample5_ConversationsAuthoring_DeleteProject.md)
-* [Delete a Project (Async)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample5_ConversationsAuthoring_DeleteProjectAsync.md)
-* [Train a Model (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample6_ConversationsAuthoring_Train.md)
-* [Train a Model (Async)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample6_ConversationsAuthoring_TrainAsync.md)
-* [Cancel Training Job (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample7_ConversationsAuthoring_CancelTrainingJob.md)
-* [Cancel Training Job (Async)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample7_ConversationsAuthoring_CancelTrainingJobAsync.md)
-* [Get Model Evaluation Summary (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample8_ConversationsAuthoring_GetModelEvaluationSummary.md)
-* [Get Model Evaluation Summary (Async)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample8_ConversationsAuthoring_GetModelEvaluationSummaryAsync.md)
-* [Get Model Evaluation Results (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample9_ConversationsAuthoring_GetModelEvaluationResults.md)
-* [Get Model Evaluation Results (Async)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample9_ConversationsAuthoring_GetModelEvaluationResultsAsync.md)
-* [Load Snapshot (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample10_ConversationsAuthoring_LoadSnapshot.md)
-* [Load Snapshot (Async)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample10_ConversationsAuthoring_LoadSnapshotAsync.md)
-* [Delete a Trained Model (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample11_ConversationsAuthoring_DeleteTrainedModel.md)
-* [Delete a Trained Model (Async)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample11_ConversationsAuthoring_DeleteTrainedModelAsync.md)
-* [Swap Deployments (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample12_ConversationsAuthoring_SwapDeployments.md)
-* [Swap Deployments (Async)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample12_ConversationsAuthoring_SwapDeploymentsAsync.md)
-* [Delete a Deployment (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample13_ConversationsAuthoring_DeleteDeployment.md)
-* [Delete a Deployment (Async)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample13_ConversationsAuthoring_DeleteDeploymentAsync.md)
-* [Deploy a Project (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample14_ConversationsAuthoring_DeployProject.md)
-* [Delete a Project (Async)](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample14_ConversationsAuthoring_DeployProjectAsync.md)
+* [Create a New Project (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample1_ConversationsAuthoring_CreateProject.md)
+* [Create a New Project (Async)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample1_ConversationsAuthoring_CreateProjectAsync.md)
+* [Import a Project (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample2_ConversationsAuthoring_Import.md)
+* [Import a Project (Async)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample2_ConversationsAuthoring_ImportAsync.md)
+* [Export a Project (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample3_ConversationsAuthoring_Export.md)
+* [Export a Project (Async)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample3_ConversationsAuthoring_ExportAsync.md)
+* [Get Project Details (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample4_ConversationsAuthoring_GetProject.md)
+* [Get Project Details (Async)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample4_ConversationsAuthoring_GetProjectAsync.md)
+* [Delete a Project (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample5_ConversationsAuthoring_DeleteProject.md)
+* [Delete a Project (Async)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample5_ConversationsAuthoring_DeleteProjectAsync.md)
+* [Train a Model (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample6_ConversationsAuthoring_Train.md)
+* [Train a Model (Async)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample6_ConversationsAuthoring_TrainAsync.md)
+* [Cancel Training Job (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample7_ConversationsAuthoring_CancelTrainingJob.md)
+* [Cancel Training Job (Async)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample7_ConversationsAuthoring_CancelTrainingJobAsync.md)
+* [Get Model Evaluation Summary (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample8_ConversationsAuthoring_GetModelEvaluationSummary.md)
+* [Get Model Evaluation Summary (Async)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample8_ConversationsAuthoring_GetModelEvaluationSummaryAsync.md)
+* [Get Model Evaluation Results (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample9_ConversationsAuthoring_GetModelEvaluationResults.md)
+* [Get Model Evaluation Results (Async)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample9_ConversationsAuthoring_GetModelEvaluationResultsAsync.md)
+* [Load Snapshot (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample10_ConversationsAuthoring_LoadSnapshot.md)
+* [Load Snapshot (Async)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample10_ConversationsAuthoring_LoadSnapshotAsync.md)
+* [Delete a Trained Model (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample11_ConversationsAuthoring_DeleteTrainedModel.md)
+* [Delete a Trained Model (Async)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample11_ConversationsAuthoring_DeleteTrainedModelAsync.md)
+* [Swap Deployments (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample12_ConversationsAuthoring_SwapDeployments.md)
+* [Swap Deployments (Async)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample12_ConversationsAuthoring_SwapDeploymentsAsync.md)
+* [Delete a Deployment (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample13_ConversationsAuthoring_DeleteDeployment.md)
+* [Delete a Deployment (Async)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample13_ConversationsAuthoring_DeleteDeploymentAsync.md)
+* [Deploy a Project (Sync)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample14_ConversationsAuthoring_DeployProject.md)
+* [Delete a Project (Async)](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples/Sample14_ConversationsAuthoring_DeployProjectAsync.md)
 
 ## Troubleshooting
 
@@ -262,29 +262,29 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 This project has adopted the [Microsoft Open Source Code of Conduct][code_of_conduct]. For more information see the [Code of Conduct FAQ][coc_faq] or contact [opencode@microsoft.com][coc_contact] with any additional questions or comments.
 
 <!-- LINKS -->
-[contributing]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/CONTRIBUTING.md
+[contributing]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 [coc_contact]: mailto:opencode@microsoft.com
-[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/identity/Azure.Identity/README.md#defaultazurecredential
-[azure_identity]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/identity/Azure.Identity/README.md
-[azure_identity_install]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/identity/Azure.Identity/README.md#install-the-package
+[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md#defaultazurecredential
+[azure_identity]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md
+[azure_identity_install]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md#install-the-package
 [custom_domain]: /azure/cognitive-services/authentication#create-a-resource-with-a-custom-subdomain
-[source_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples
-[source_migration]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/MigrationGuide.md
-[source_root]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/src
+[source_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/samples
+[source_migration]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/MigrationGuide.md
+[source_root]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/src
 [package]: https://www.nuget.org/packages/
 [text_refdocs]: https://learn.microsoft.com/dotnet/
 [text_docs]: https://learn.microsoft.com/azure/ai-services/language-service/conversational-language-understanding/overview
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
-[ConversationAnalysisAuthoringClient_class]: https://github.com/azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/src/Generated/ConversationAnalysisAuthoringClient.cs
-[ConversationAuthoringProject_class]: https://github.com/azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/src/Generated/ConversationAuthoringProject.cs
-[ConversationAuthoringDeployment_class]: https://github.com/azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/src/Generated/ConversationAuthoringDeployment.cs
-[ConversationAuthoringExportedModel_class]: https://github.com/azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/src/Generated/ConversationAuthoringExportedModel.cs
-[ConversationAuthoringTrainedModel_class]: https://github.com/azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/src/Generated/ConversationAuthoringTrainedModel.cs
+[ConversationAnalysisAuthoringClient_class]: https://github.com/azure/azure-sdk-for-net/blob/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/src/Generated/ConversationAnalysisAuthoringClient.cs
+[ConversationAuthoringProject_class]: https://github.com/azure/azure-sdk-for-net/blob/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/src/Generated/ConversationAuthoringProject.cs
+[ConversationAuthoringDeployment_class]: https://github.com/azure/azure-sdk-for-net/blob/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/src/Generated/ConversationAuthoringDeployment.cs
+[ConversationAuthoringExportedModel_class]: https://github.com/azure/azure-sdk-for-net/blob/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/src/Generated/ConversationAuthoringExportedModel.cs
+[ConversationAuthoringTrainedModel_class]: https://github.com/azure/azure-sdk-for-net/blob/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/src/Generated/ConversationAuthoringTrainedModel.cs
 [cognitive_auth]: /azure/cognitive-services/authentication/
 [azure_cli]: /cli/azure
 [azure_portal]: https://portal.azure.com
-[logging]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md
+[logging]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md
 
