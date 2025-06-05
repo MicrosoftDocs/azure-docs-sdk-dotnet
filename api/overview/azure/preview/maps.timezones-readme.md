@@ -1,17 +1,17 @@
 ---
 title: Azure Maps TimeZone client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Maps.TimeZones, maps
-ms.date: 12/10/2024
+ms.date: 06/05/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: maps
 ---
-# Azure Maps TimeZone client library for .NET - version 1.0.0-beta.1 
+# Azure Maps TimeZone client library for .NET - version 1.0.0-alpha.20250604.1 
 
 
 Azure Maps TimeZone is a library which contains Azure Maps TimeZone APIs.
 
-[Source code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.TimeZones_1.0.0-beta.1/sdk/maps/Azure.Maps.TimeZones/src) | [API reference documentation](/rest/api/maps/) | [REST API reference documentation](/rest/api/maps/timezone) | [Product documentation](/azure/azure-maps/)
+[Source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.TimeZones/src) | [API reference documentation](https://learn.microsoft.com/rest/api/maps/) | [REST API reference documentation](https://learn.microsoft.com/rest/api/maps/timezone) | [Product documentation](https://learn.microsoft.com/azure/azure-maps/)
 
 ## Getting started
 
@@ -25,7 +25,7 @@ dotnet add package Azure.Maps.TimeZones --prerelease
 
 ### Prerequisites
 
-> You must have an [Azure subscription](https://azure.microsoft.com/free/dotnet/) and [Azure Maps account](/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account).
+> You must have an [Azure subscription](https://azure.microsoft.com/free/dotnet/) and [Azure Maps account](https://learn.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account).
 
 To create a new Azure Maps account, you can use the Azure Portal, Azure PowerShell, or the Azure CLI. Here's an example using the Azure CLI:
 
@@ -50,9 +50,9 @@ MapsTimeZoneClient client = new MapsTimeZoneClient(credential);
 
 #### Microsoft Entra authentication
 
-In order to interact with the Azure Maps service, you'll need to create an instance of the `MapsTimeZoneClient` class. The [Azure Identity library](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.TimeZones_1.0.0-beta.1/sdk/identity/Azure.Identity/README.md) makes it easy to add Microsoft Entra support for authenticating Azure SDK clients with their corresponding Azure services.
+In order to interact with the Azure Maps service, you'll need to create an instance of the `MapsTimeZoneClient` class. The [Azure Identity library](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/README.md) makes it easy to add Microsoft Entra support for authenticating Azure SDK clients with their corresponding Azure services.
 
-To use Microsoft Entra authentication, the environment variables as described in the [Azure Identity README](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.TimeZones_1.0.0-beta.1/sdk/identity/Azure.Identity/README.md) and create a `DefaultAzureCredential` instance to use with the `MapsTimeZoneClient`.
+To use Microsoft Entra authentication, the environment variables as described in the [Azure Identity README](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/README.md) and create a `DefaultAzureCredential` instance to use with the `MapsTimeZoneClient`.
 
 We also need an **Azure Maps Client ID** which can be found on the Azure Maps page > Authentication tab > "Client ID" in Microsoft Entra Authentication section.
 
@@ -116,18 +116,18 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Maps.TimeZones_1.0.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Maps.TimeZones_1.0.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Maps.TimeZones_1.0.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Maps.TimeZones_1.0.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Maps.TimeZones_1.0.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
 
 ## Examples
 
-You can familiarize yourself with different APIs using our [samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.TimeZones_1.0.0-beta.1/sdk/maps/Azure.Maps.TimeZones/samples).
+You can familiarize yourself with different APIs using our [samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.TimeZones/samples).
 
 ### Get TimeZone By ID
 
@@ -202,23 +202,21 @@ Console.WriteLine("IANA Id: " + response.Value.IanaIds[0].Id);
 
 ### General
 
-When you interact with the Azure Maps services, errors returned by the service correspond to the same HTTP status codes returned for [REST API requests](/rest/api/maps/timezone).
+When you interact with the Azure Maps services, errors returned by the service correspond to the same HTTP status codes returned for [REST API requests](https://learn.microsoft.com/rest/api/maps/timezone).
 
 For example, if you search with an invalid coordinate, a error is returned, indicating "Bad Request".
 
 ## Next steps
 
-* For more context and additional scenarios, please see: [detailed samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.TimeZones_1.0.0-beta.1/sdk/maps/Azure.Maps.TimeZones/samples)
+* For more context and additional scenarios, please see: [detailed samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.TimeZones/samples)
 
 ## Contributing
 
-See the [CONTRIBUTING.md](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Maps.TimeZones_1.0.0-beta.1/CONTRIBUTING.md) for details on building, testing, and contributing to this library.
+See the [CONTRIBUTING.md](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md) for details on building, testing, and contributing to this library.
 
 This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit <cla.microsoft.com>.
 
 When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA.
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact <opencode@microsoft.com> with any additional questions or comments.
-
-
 
