@@ -1,17 +1,17 @@
 ---
 title: Azure ProgrammableConnectivity client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Communication.ProgrammableConnectivity, communication
-ms.date: 05/13/2024
+ms.date: 06/05/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: communication
 ---
-# Azure ProgrammableConnectivity client library for .NET - version 1.0.0-beta.1 
+# Azure ProgrammableConnectivity client library for .NET - version 1.0.0-alpha.20250605.1 
 
 
 This client library allows .NET applications to interact with Azure Programmable Connectivity Gateway, instead of using `curl` requests. For information on APC, see [docs](https://learn.microsoft.com/azure/programmable-connectivity/).
 
-  [Source code](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.ProgrammableConnectivity_1.0.0-beta.1/sdk/communication/Azure.Communication.ProgrammableConnectivity/src) | Package (NuGet): `https://www.nuget.org/packages/Azure.Communication.ProgrammableConnectivity` | [API reference documentation](https://azure.github.io/azure-sdk-for-net) | [Product documentation](/azure)
+  [Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.ProgrammableConnectivity/src) | Package (NuGet): `https://www.nuget.org/packages/Azure.Communication.ProgrammableConnectivity` | [API reference documentation](https://azure.github.io/azure-sdk-for-net) | [Product documentation](https://learn.microsoft.com/azure)
 
 ## Getting started
 
@@ -35,7 +35,7 @@ The client library uses [`Azure.Identity`](https://learn.microsoft.com/dotnet/ap
 
 ## Examples
 
-You can familiarize yourself with different APIs using [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.ProgrammableConnectivity_1.0.0-beta.1/sdk/communication/Azure.Communication.ProgrammableConnectivity/samples).
+You can familiarize yourself with different APIs using [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication/Azure.Communication.ProgrammableConnectivity/samples).
 
 ### Key concepts
 
@@ -97,6 +97,4 @@ For more information about Microsoft Azure SDK, see [this website](https://azure
 ## Contributing
 
 APC is currently not accepting/expecting contributions for this codebase. Suggestions/issues are welcome.
-
-
 
