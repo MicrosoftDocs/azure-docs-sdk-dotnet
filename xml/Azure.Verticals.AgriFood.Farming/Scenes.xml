@@ -57,10 +57,14 @@
         <param name="waitUntil">
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="jobId"> JobId provided by user. </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Create a satellite data ingestion job. </summary>
-        <returns> The <see cref="T:Azure.Operation`1" /> from the service that will contain a <see cref="T:System.BinaryData" /> object once the asynchronous operation on the service has completed. Details of the body schema for the operation's final value are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Create a satellite data ingestion job.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The <see cref="T:Azure.Operation" /> representing an asynchronous operation on the service. </returns>
         <remarks>
 Below is the JSON schema for the request and response payloads.
 
@@ -143,63 +147,70 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateSatelliteDataIngestionJob with required parameters and request content, and how to parse the result.
+This sample shows how to call CreateSatelliteDataIngestionJob and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-var data = new {
+using RequestContent content = RequestContent.Create(new
+{
     partyId = "<partyId>",
     boundaryId = "<boundaryId>",
     startDateTime = "2022-05-10T18:57:31.2311892Z",
     endDateTime = "2022-05-10T18:57:31.2311892Z",
     source = "Sentinel_2_L2A",
-};
+});
+Operation<BinaryData> operation = client.CreateSatelliteDataIngestionJob(WaitUntil.Completed, "<jobId>", content);
+BinaryData responseData = operation.Value;
 
-var operation = client.CreateSatelliteDataIngestionJob(WaitUntil.Completed, "<jobId>", RequestContent.Create(data));
-
-BinaryData data = operation.Value;
-JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
 Console.WriteLine(result.GetProperty("boundaryId").ToString());
 Console.WriteLine(result.GetProperty("startDateTime").ToString());
 Console.WriteLine(result.GetProperty("endDateTime").ToString());
 Console.WriteLine(result.GetProperty("source").ToString());
 ]]></code>
-This sample shows how to call CreateSatelliteDataIngestionJob with all parameters and request content, and how to parse the result.
+This sample shows how to call CreateSatelliteDataIngestionJob with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-var data = new {
+using RequestContent content = RequestContent.Create(new
+{
     partyId = "<partyId>",
     boundaryId = "<boundaryId>",
     startDateTime = "2022-05-10T18:57:31.2311892Z",
     endDateTime = "2022-05-10T18:57:31.2311892Z",
     provider = "Microsoft",
     source = "Sentinel_2_L2A",
-    data = new {
-        imageNames = new[] {
-            "<String>"
+    data = new
+    {
+        imageNames = new object[]
+        {
+            "<imageNames>"
         },
-        imageFormats = new[] {
-            "<String>"
+        imageFormats = new object[]
+        {
+            "<imageFormats>"
         },
-        imageResolutions = new[] {
-            123.45d
+        imageResolutions = new object[]
+        {
+            123.45
         },
     },
     name = "<name>",
     description = "<description>",
-    properties = new {
-        key = new {},
+    properties = new
+    {
+        key = new object(),
     },
-};
+});
+Operation<BinaryData> operation = client.CreateSatelliteDataIngestionJob(WaitUntil.Completed, "<jobId>", content);
+BinaryData responseData = operation.Value;
 
-var operation = client.CreateSatelliteDataIngestionJob(WaitUntil.Completed, "<jobId>", RequestContent.Create(data));
-
-BinaryData data = operation.Value;
-JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
 Console.WriteLine(result.GetProperty("boundaryId").ToString());
 Console.WriteLine(result.GetProperty("startDateTime").ToString());
@@ -222,7 +233,7 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
@@ -250,10 +261,14 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
         <param name="waitUntil">
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="jobId"> JobId provided by user. </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Create a satellite data ingestion job. </summary>
-        <returns> The <see cref="T:Azure.Operation`1" /> from the service that will contain a <see cref="T:System.BinaryData" /> object once the asynchronous operation on the service has completed. Details of the body schema for the operation's final value are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Create a satellite data ingestion job.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The <see cref="T:Azure.Operation" /> representing an asynchronous operation on the service. </returns>
         <remarks>
 Below is the JSON schema for the request and response payloads.
 
@@ -336,63 +351,70 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateSatelliteDataIngestionJobAsync with required parameters and request content, and how to parse the result.
+This sample shows how to call CreateSatelliteDataIngestionJobAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-var data = new {
+using RequestContent content = RequestContent.Create(new
+{
     partyId = "<partyId>",
     boundaryId = "<boundaryId>",
     startDateTime = "2022-05-10T18:57:31.2311892Z",
     endDateTime = "2022-05-10T18:57:31.2311892Z",
     source = "Sentinel_2_L2A",
-};
+});
+Operation<BinaryData> operation = await client.CreateSatelliteDataIngestionJobAsync(WaitUntil.Completed, "<jobId>", content);
+BinaryData responseData = operation.Value;
 
-var operation = await client.CreateSatelliteDataIngestionJobAsync(WaitUntil.Completed, "<jobId>", RequestContent.Create(data));
-
-BinaryData data = operation.Value;
-JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
 Console.WriteLine(result.GetProperty("boundaryId").ToString());
 Console.WriteLine(result.GetProperty("startDateTime").ToString());
 Console.WriteLine(result.GetProperty("endDateTime").ToString());
 Console.WriteLine(result.GetProperty("source").ToString());
 ]]></code>
-This sample shows how to call CreateSatelliteDataIngestionJobAsync with all parameters and request content, and how to parse the result.
+This sample shows how to call CreateSatelliteDataIngestionJobAsync with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-var data = new {
+using RequestContent content = RequestContent.Create(new
+{
     partyId = "<partyId>",
     boundaryId = "<boundaryId>",
     startDateTime = "2022-05-10T18:57:31.2311892Z",
     endDateTime = "2022-05-10T18:57:31.2311892Z",
     provider = "Microsoft",
     source = "Sentinel_2_L2A",
-    data = new {
-        imageNames = new[] {
-            "<String>"
+    data = new
+    {
+        imageNames = new object[]
+        {
+            "<imageNames>"
         },
-        imageFormats = new[] {
-            "<String>"
+        imageFormats = new object[]
+        {
+            "<imageFormats>"
         },
-        imageResolutions = new[] {
-            123.45d
+        imageResolutions = new object[]
+        {
+            123.45
         },
     },
     name = "<name>",
     description = "<description>",
-    properties = new {
-        key = new {},
+    properties = new
+    {
+        key = new object(),
     },
-};
+});
+Operation<BinaryData> operation = await client.CreateSatelliteDataIngestionJobAsync(WaitUntil.Completed, "<jobId>", content);
+BinaryData responseData = operation.Value;
 
-var operation = await client.CreateSatelliteDataIngestionJobAsync(WaitUntil.Completed, "<jobId>", RequestContent.Create(data));
-
-BinaryData data = operation.Value;
-JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
 Console.WriteLine(result.GetProperty("boundaryId").ToString());
 Console.WriteLine(result.GetProperty("startDateTime").ToString());
@@ -415,15 +437,15 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="Download">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response Download (string filePath, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response Download (string filePath, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response Download(string filePath, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Scenes.Download(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function Download (filePath As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Download (filePath As String, context As RequestContext) As Response" />
       <MemberSignature Language="F#" Value="abstract member Download : string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.Download : string * Azure.RequestContext -&gt; Azure.Response" Usage="scenes.Download (filePath, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -440,34 +462,52 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
       <Docs>
         <param name="filePath"> cloud storage path of scene file. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Downloads and returns file Stream as response for the given input filePath. </summary>
+        <summary>
+            [Protocol Method] Downloads and returns file Stream as response for the given input filePath.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="filePath" /> is null. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call Download with required parameters and parse the result.
+This sample shows how to call Download and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-Response response = client.Download("<filePath>");
+Response response = client.Download("<filePath>", null);
+
 if (response.ContentStream != null)
 {
-    using(Stream outFileStream = File.OpenWrite("<filePath>")
-    {
-        response.ContentStream.CopyTo(outFileStream);
-    }
+    using Stream outFileStream = File.OpenWrite("<filepath>");
+    response.ContentStream.CopyTo(outFileStream);
+}
+]]></code>
+This sample shows how to call Download with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
+
+Response response = client.Download("<filePath>", null);
+
+if (response.ContentStream != null)
+{
+    using Stream outFileStream = File.OpenWrite("<filepath>");
+    response.ContentStream.CopyTo(outFileStream);
 }
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="DownloadAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; DownloadAsync (string filePath, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; DownloadAsync (string filePath, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; DownloadAsync(string filePath, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Scenes.DownloadAsync(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function DownloadAsync (filePath As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function DownloadAsync (filePath As String, context As RequestContext) As Task(Of Response)" />
       <MemberSignature Language="F#" Value="abstract member DownloadAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.DownloadAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="scenes.DownloadAsync (filePath, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -484,34 +524,52 @@ if (response.ContentStream != null)
       <Docs>
         <param name="filePath"> cloud storage path of scene file. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Downloads and returns file Stream as response for the given input filePath. </summary>
+        <summary>
+            [Protocol Method] Downloads and returns file Stream as response for the given input filePath.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="filePath" /> is null. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call DownloadAsync with required parameters and parse the result.
+This sample shows how to call DownloadAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-Response response = await client.DownloadAsync("<filePath>");
+Response response = await client.DownloadAsync("<filePath>", null);
+
 if (response.ContentStream != null)
 {
-    using(Stream outFileStream = File.OpenWrite("<filePath>")
-    {
-        response.ContentStream.CopyTo(outFileStream);
-    }
+    using Stream outFileStream = File.OpenWrite("<filepath>");
+    response.ContentStream.CopyTo(outFileStream);
+}
+]]></code>
+This sample shows how to call DownloadAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
+
+Response response = await client.DownloadAsync("<filePath>", null);
+
+if (response.ContentStream != null)
+{
+    using Stream outFileStream = File.OpenWrite("<filepath>");
+    response.ContentStream.CopyTo(outFileStream);
 }
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetSatelliteDataIngestionJobDetails">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetSatelliteDataIngestionJobDetails (string jobId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetSatelliteDataIngestionJobDetails (string jobId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetSatelliteDataIngestionJobDetails(string jobId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Scenes.GetSatelliteDataIngestionJobDetails(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetSatelliteDataIngestionJobDetails (jobId As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetSatelliteDataIngestionJobDetails (jobId As String, context As RequestContext) As Response" />
       <MemberSignature Language="F#" Value="abstract member GetSatelliteDataIngestionJobDetails : string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetSatelliteDataIngestionJobDetails : string * Azure.RequestContext -&gt; Azure.Response" Usage="scenes.GetSatelliteDataIngestionJobDetails (jobId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -528,8 +586,12 @@ if (response.ContentStream != null)
       <Docs>
         <param name="jobId"> Id of the job. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Get a satellite data ingestion job. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Get a satellite data ingestion job.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -575,12 +637,28 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetSatelliteDataIngestionJobDetails with required parameters and parse the result.
+This sample shows how to call GetSatelliteDataIngestionJobDetails and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-Response response = client.GetSatelliteDataIngestionJobDetails("<jobId>");
+Response response = client.GetSatelliteDataIngestionJobDetails("<jobId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("partyId").ToString());
+Console.WriteLine(result.GetProperty("boundaryId").ToString());
+Console.WriteLine(result.GetProperty("startDateTime").ToString());
+Console.WriteLine(result.GetProperty("endDateTime").ToString());
+Console.WriteLine(result.GetProperty("source").ToString());
+]]></code>
+This sample shows how to call GetSatelliteDataIngestionJobDetails with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
+
+Response response = client.GetSatelliteDataIngestionJobDetails("<jobId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
@@ -605,15 +683,15 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetSatelliteDataIngestionJobDetailsAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetSatelliteDataIngestionJobDetailsAsync (string jobId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetSatelliteDataIngestionJobDetailsAsync (string jobId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetSatelliteDataIngestionJobDetailsAsync(string jobId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Scenes.GetSatelliteDataIngestionJobDetailsAsync(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetSatelliteDataIngestionJobDetailsAsync (jobId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetSatelliteDataIngestionJobDetailsAsync (jobId As String, context As RequestContext) As Task(Of Response)" />
       <MemberSignature Language="F#" Value="abstract member GetSatelliteDataIngestionJobDetailsAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetSatelliteDataIngestionJobDetailsAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="scenes.GetSatelliteDataIngestionJobDetailsAsync (jobId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -630,8 +708,12 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
       <Docs>
         <param name="jobId"> Id of the job. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Get a satellite data ingestion job. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Get a satellite data ingestion job.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -677,12 +759,28 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetSatelliteDataIngestionJobDetailsAsync with required parameters and parse the result.
+This sample shows how to call GetSatelliteDataIngestionJobDetailsAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-Response response = await client.GetSatelliteDataIngestionJobDetailsAsync("<jobId>");
+Response response = await client.GetSatelliteDataIngestionJobDetailsAsync("<jobId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("partyId").ToString());
+Console.WriteLine(result.GetProperty("boundaryId").ToString());
+Console.WriteLine(result.GetProperty("startDateTime").ToString());
+Console.WriteLine(result.GetProperty("endDateTime").ToString());
+Console.WriteLine(result.GetProperty("source").ToString());
+]]></code>
+This sample shows how to call GetSatelliteDataIngestionJobDetailsAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
+
+Response response = await client.GetSatelliteDataIngestionJobDetailsAsync("<jobId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
@@ -707,15 +805,15 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetScenes">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetScenes (string provider, string partyId, string boundaryId, string source, DateTimeOffset? startDateTime = default, DateTimeOffset? endDateTime = default, double? maxCloudCoveragePercentage = default, double? maxDarkPixelCoveragePercentage = default, System.Collections.Generic.IEnumerable&lt;string&gt; imageNames = default, System.Collections.Generic.IEnumerable&lt;double&gt; imageResolutions = default, System.Collections.Generic.IEnumerable&lt;string&gt; imageFormats = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetScenes (string provider, string partyId, string boundaryId, string source, DateTimeOffset? startDateTime, DateTimeOffset? endDateTime, double? maxCloudCoveragePercentage, double? maxDarkPixelCoveragePercentage, System.Collections.Generic.IEnumerable&lt;string&gt; imageNames, System.Collections.Generic.IEnumerable&lt;double&gt; imageResolutions, System.Collections.Generic.IEnumerable&lt;string&gt; imageFormats, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetScenes(string provider, string partyId, string boundaryId, string source, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; startDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; endDateTime, valuetype System.Nullable`1&lt;float64&gt; maxCloudCoveragePercentage, valuetype System.Nullable`1&lt;float64&gt; maxDarkPixelCoveragePercentage, class System.Collections.Generic.IEnumerable`1&lt;string&gt; imageNames, class System.Collections.Generic.IEnumerable`1&lt;float64&gt; imageResolutions, class System.Collections.Generic.IEnumerable`1&lt;string&gt; imageFormats, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Scenes.GetScenes(System.String,System.String,System.String,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Double},System.Nullable{System.Double},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetScenes (provider As String, partyId As String, boundaryId As String, source As String, Optional startDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional endDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCloudCoveragePercentage As Nullable(Of Double) = Nothing, Optional maxDarkPixelCoveragePercentage As Nullable(Of Double) = Nothing, Optional imageNames As IEnumerable(Of String) = Nothing, Optional imageResolutions As IEnumerable(Of Double) = Nothing, Optional imageFormats As IEnumerable(Of String) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetScenes (provider As String, partyId As String, boundaryId As String, source As String, startDateTime As Nullable(Of DateTimeOffset), endDateTime As Nullable(Of DateTimeOffset), maxCloudCoveragePercentage As Nullable(Of Double), maxDarkPixelCoveragePercentage As Nullable(Of Double), imageNames As IEnumerable(Of String), imageResolutions As IEnumerable(Of Double), imageFormats As IEnumerable(Of String), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As Pageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetScenes : string * string * string * string * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;double&gt; * seq&lt;string&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetScenes : string * string * string * string * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;double&gt; * seq&lt;string&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="scenes.GetScenes (provider, partyId, boundaryId, source, startDateTime, endDateTime, maxCloudCoveragePercentage, maxDarkPixelCoveragePercentage, imageNames, imageResolutions, imageFormats, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -759,7 +857,11 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of scene resources. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of scene resources.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -793,25 +895,27 @@ Schema for <c>SceneListResponseValue</c>:
           <paramref name="provider" />, <paramref name="partyId" />, <paramref name="boundaryId" /> or <paramref name="source" /> is null. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetScenes with required parameters and parse the result.
+This sample shows how to call GetScenes and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-foreach (var data in client.GetScenes("<provider>", "<partyId>", "<boundaryId>", "<source>"))
+foreach (BinaryData item in client.GetScenes("<provider>", "<partyId>", "<boundaryId>", "<source>", null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetScenes with all parameters, and how to parse the result.
+This sample shows how to call GetScenes with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-foreach (var data in client.GetScenes("<provider>", "<partyId>", "<boundaryId>", "<source>", DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, 1234, new String[]{"<imageNames>"}, new Double[]{1234}, new String[]{"<imageFormats>"}, 1234, "<skipToken>"))
+foreach (BinaryData item in client.GetScenes("<provider>", "<partyId>", "<boundaryId>", "<source>", DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 123.45, 123.45, new string[] { "<imageNames>" }, new double[] { 123.45 }, new string[] { "<imageFormats>" }, 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("sceneDateTime").ToString());
     Console.WriteLine(result.GetProperty("provider").ToString());
     Console.WriteLine(result.GetProperty("source").ToString());
@@ -832,10 +936,10 @@ foreach (var data in client.GetScenes("<provider>", "<partyId>", "<boundaryId>",
       </Docs>
     </Member>
     <Member MemberName="GetScenesAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetScenesAsync (string provider, string partyId, string boundaryId, string source, DateTimeOffset? startDateTime = default, DateTimeOffset? endDateTime = default, double? maxCloudCoveragePercentage = default, double? maxDarkPixelCoveragePercentage = default, System.Collections.Generic.IEnumerable&lt;string&gt; imageNames = default, System.Collections.Generic.IEnumerable&lt;double&gt; imageResolutions = default, System.Collections.Generic.IEnumerable&lt;string&gt; imageFormats = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetScenesAsync (string provider, string partyId, string boundaryId, string source, DateTimeOffset? startDateTime, DateTimeOffset? endDateTime, double? maxCloudCoveragePercentage, double? maxDarkPixelCoveragePercentage, System.Collections.Generic.IEnumerable&lt;string&gt; imageNames, System.Collections.Generic.IEnumerable&lt;double&gt; imageResolutions, System.Collections.Generic.IEnumerable&lt;string&gt; imageFormats, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetScenesAsync(string provider, string partyId, string boundaryId, string source, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; startDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; endDateTime, valuetype System.Nullable`1&lt;float64&gt; maxCloudCoveragePercentage, valuetype System.Nullable`1&lt;float64&gt; maxDarkPixelCoveragePercentage, class System.Collections.Generic.IEnumerable`1&lt;string&gt; imageNames, class System.Collections.Generic.IEnumerable`1&lt;float64&gt; imageResolutions, class System.Collections.Generic.IEnumerable`1&lt;string&gt; imageFormats, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Scenes.GetScenesAsync(System.String,System.String,System.String,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Double},System.Nullable{System.Double},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetScenesAsync (provider As String, partyId As String, boundaryId As String, source As String, Optional startDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional endDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCloudCoveragePercentage As Nullable(Of Double) = Nothing, Optional maxDarkPixelCoveragePercentage As Nullable(Of Double) = Nothing, Optional imageNames As IEnumerable(Of String) = Nothing, Optional imageResolutions As IEnumerable(Of Double) = Nothing, Optional imageFormats As IEnumerable(Of String) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetScenesAsync (provider As String, partyId As String, boundaryId As String, source As String, startDateTime As Nullable(Of DateTimeOffset), endDateTime As Nullable(Of DateTimeOffset), maxCloudCoveragePercentage As Nullable(Of Double), maxDarkPixelCoveragePercentage As Nullable(Of Double), imageNames As IEnumerable(Of String), imageResolutions As IEnumerable(Of Double), imageFormats As IEnumerable(Of String), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As AsyncPageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetScenesAsync : string * string * string * string * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;double&gt; * seq&lt;string&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetScenesAsync : string * string * string * string * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;double&gt; * seq&lt;string&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="scenes.GetScenesAsync (provider, partyId, boundaryId, source, startDateTime, endDateTime, maxCloudCoveragePercentage, maxDarkPixelCoveragePercentage, imageNames, imageResolutions, imageFormats, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -879,7 +983,11 @@ foreach (var data in client.GetScenes("<provider>", "<partyId>", "<boundaryId>",
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of scene resources. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of scene resources.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -913,25 +1021,27 @@ Schema for <c>SceneListResponseValue</c>:
           <paramref name="provider" />, <paramref name="partyId" />, <paramref name="boundaryId" /> or <paramref name="source" /> is null. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetScenesAsync with required parameters and parse the result.
+This sample shows how to call GetScenesAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-await foreach (var data in client.GetScenesAsync("<provider>", "<partyId>", "<boundaryId>", "<source>"))
+await foreach (BinaryData item in client.GetScenesAsync("<provider>", "<partyId>", "<boundaryId>", "<source>", null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetScenesAsync with all parameters, and how to parse the result.
+This sample shows how to call GetScenesAsync with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-await foreach (var data in client.GetScenesAsync("<provider>", "<partyId>", "<boundaryId>", "<source>", DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, 1234, new String[]{"<imageNames>"}, new Double[]{1234}, new String[]{"<imageFormats>"}, 1234, "<skipToken>"))
+await foreach (BinaryData item in client.GetScenesAsync("<provider>", "<partyId>", "<boundaryId>", "<source>", DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 123.45, 123.45, new string[] { "<imageNames>" }, new double[] { 123.45 }, new string[] { "<imageFormats>" }, 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("sceneDateTime").ToString());
     Console.WriteLine(result.GetProperty("provider").ToString());
     Console.WriteLine(result.GetProperty("source").ToString());
@@ -952,10 +1062,10 @@ await foreach (var data in client.GetScenesAsync("<provider>", "<partyId>", "<bo
       </Docs>
     </Member>
     <Member MemberName="GetStacFeature">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetStacFeature (string collectionId, string featureId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetStacFeature (string collectionId, string featureId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetStacFeature(string collectionId, string featureId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Scenes.GetStacFeature(System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetStacFeature (collectionId As String, featureId As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetStacFeature (collectionId As String, featureId As String, context As RequestContext) As Response" />
       <MemberSignature Language="F#" Value="abstract member GetStacFeature : string * string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetStacFeature : string * string * Azure.RequestContext -&gt; Azure.Response" Usage="scenes.GetStacFeature (collectionId, featureId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -974,8 +1084,12 @@ await foreach (var data in client.GetScenesAsync("<provider>", "<partyId>", "<bo
         <param name="collectionId"> Collection Id to be fetched. Allowed values: "Sentinel_2_L2A" | "Sentinel_2_L1C". </param>
         <param name="featureId"> Feature Id to be fetched. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Get a feature(SpatioTemporal Asset Catalog (STAC) Item) for given collection and feature id. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Get a feature(SpatioTemporal Asset Catalog (STAC) Item) for given collection and feature id.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -1009,12 +1123,30 @@ Its a GeoJSON geometry.
           <paramref name="collectionId" /> or <paramref name="featureId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetStacFeature with required parameters and parse the result.
+This sample shows how to call GetStacFeature and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-Response response = client.GetStacFeature("<collectionId>", "<featureId>");
+Response response = client.GetStacFeature("Sentinel_2_L2A", "<featureId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("stacVersion").ToString());
+Console.WriteLine(result.GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("properties").ToString());
+Console.WriteLine(result.GetProperty("links")[0].GetProperty("href").ToString());
+Console.WriteLine(result.GetProperty("links")[0].GetProperty("rel").ToString());
+Console.WriteLine(result.GetProperty("assets").GetProperty("<key>").GetProperty("href").ToString());
+]]></code>
+This sample shows how to call GetStacFeature with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
+
+Response response = client.GetStacFeature("Sentinel_2_L2A", "<featureId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("stacVersion").ToString());
@@ -1028,20 +1160,20 @@ Console.WriteLine(result.GetProperty("links")[0].GetProperty("href").ToString())
 Console.WriteLine(result.GetProperty("links")[0].GetProperty("rel").ToString());
 Console.WriteLine(result.GetProperty("links")[0].GetProperty("type").ToString());
 Console.WriteLine(result.GetProperty("links")[0].GetProperty("title").ToString());
-Console.WriteLine(result.GetProperty("assets").GetProperty("<test>").GetProperty("href").ToString());
-Console.WriteLine(result.GetProperty("assets").GetProperty("<test>").GetProperty("title").ToString());
-Console.WriteLine(result.GetProperty("assets").GetProperty("<test>").GetProperty("description").ToString());
-Console.WriteLine(result.GetProperty("assets").GetProperty("<test>").GetProperty("type").ToString());
-Console.WriteLine(result.GetProperty("assets").GetProperty("<test>").GetProperty("roles")[0].ToString());
+Console.WriteLine(result.GetProperty("assets").GetProperty("<key>").GetProperty("href").ToString());
+Console.WriteLine(result.GetProperty("assets").GetProperty("<key>").GetProperty("title").ToString());
+Console.WriteLine(result.GetProperty("assets").GetProperty("<key>").GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("assets").GetProperty("<key>").GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("assets").GetProperty("<key>").GetProperty("roles")[0].ToString());
 Console.WriteLine(result.GetProperty("collection").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetStacFeatureAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetStacFeatureAsync (string collectionId, string featureId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetStacFeatureAsync (string collectionId, string featureId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetStacFeatureAsync(string collectionId, string featureId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Scenes.GetStacFeatureAsync(System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetStacFeatureAsync (collectionId As String, featureId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetStacFeatureAsync (collectionId As String, featureId As String, context As RequestContext) As Task(Of Response)" />
       <MemberSignature Language="F#" Value="abstract member GetStacFeatureAsync : string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetStacFeatureAsync : string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="scenes.GetStacFeatureAsync (collectionId, featureId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1060,8 +1192,12 @@ Console.WriteLine(result.GetProperty("collection").ToString());
         <param name="collectionId"> Collection Id to be fetched. Allowed values: "Sentinel_2_L2A" | "Sentinel_2_L1C". </param>
         <param name="featureId"> Feature Id to be fetched. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Get a feature(SpatioTemporal Asset Catalog (STAC) Item) for given collection and feature id. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Get a feature(SpatioTemporal Asset Catalog (STAC) Item) for given collection and feature id.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -1095,12 +1231,30 @@ Its a GeoJSON geometry.
           <paramref name="collectionId" /> or <paramref name="featureId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetStacFeatureAsync with required parameters and parse the result.
+This sample shows how to call GetStacFeatureAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-Response response = await client.GetStacFeatureAsync("<collectionId>", "<featureId>");
+Response response = await client.GetStacFeatureAsync("Sentinel_2_L2A", "<featureId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("stacVersion").ToString());
+Console.WriteLine(result.GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("properties").ToString());
+Console.WriteLine(result.GetProperty("links")[0].GetProperty("href").ToString());
+Console.WriteLine(result.GetProperty("links")[0].GetProperty("rel").ToString());
+Console.WriteLine(result.GetProperty("assets").GetProperty("<key>").GetProperty("href").ToString());
+]]></code>
+This sample shows how to call GetStacFeatureAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
+
+Response response = await client.GetStacFeatureAsync("Sentinel_2_L2A", "<featureId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("stacVersion").ToString());
@@ -1114,11 +1268,11 @@ Console.WriteLine(result.GetProperty("links")[0].GetProperty("href").ToString())
 Console.WriteLine(result.GetProperty("links")[0].GetProperty("rel").ToString());
 Console.WriteLine(result.GetProperty("links")[0].GetProperty("type").ToString());
 Console.WriteLine(result.GetProperty("links")[0].GetProperty("title").ToString());
-Console.WriteLine(result.GetProperty("assets").GetProperty("<test>").GetProperty("href").ToString());
-Console.WriteLine(result.GetProperty("assets").GetProperty("<test>").GetProperty("title").ToString());
-Console.WriteLine(result.GetProperty("assets").GetProperty("<test>").GetProperty("description").ToString());
-Console.WriteLine(result.GetProperty("assets").GetProperty("<test>").GetProperty("type").ToString());
-Console.WriteLine(result.GetProperty("assets").GetProperty("<test>").GetProperty("roles")[0].ToString());
+Console.WriteLine(result.GetProperty("assets").GetProperty("<key>").GetProperty("href").ToString());
+Console.WriteLine(result.GetProperty("assets").GetProperty("<key>").GetProperty("title").ToString());
+Console.WriteLine(result.GetProperty("assets").GetProperty("<key>").GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("assets").GetProperty("<key>").GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("assets").GetProperty("<key>").GetProperty("roles")[0].ToString());
 Console.WriteLine(result.GetProperty("collection").ToString());
 ]]></code></example>
       </Docs>
@@ -1166,12 +1320,16 @@ Console.WriteLine(result.GetProperty("collection").ToString());
       </Parameters>
       <Docs>
         <param name="collectionId"> Collection Id to be searched. Allowed values: "Sentinel_2_L2A" | "Sentinel_2_L1C". </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="maxpagesize"> Maximum number of features needed (inclusive). Minimum = 1, Maximum = 100, Default value = 10. </param>
         <param name="skip"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Search for STAC features by collection id, bbox, intersecting geometry, start and end datetime. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Search for STAC features by collection id, bbox, intersecting geometry, start and end datetime.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the request and response payloads.
 
@@ -1226,17 +1384,18 @@ to get next set of features.
           <paramref name="collectionId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call SearchFeatures with required parameters and request content, and how to parse the result.
+This sample shows how to call SearchFeatures and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-var data = new {
+using RequestContent content = RequestContent.Create(new
+{
     startDateTime = "2022-05-10T18:57:31.2311892Z",
     endDateTime = "2022-05-10T18:57:31.2311892Z",
-};
-
-Response response = client.SearchFeatures("<collectionId>", RequestContent.Create(data));
+});
+Response response = client.SearchFeatures("Sentinel_2_L2A", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("stacVersion").ToString());
@@ -1245,37 +1404,45 @@ Console.WriteLine(result.GetProperty("features")[0].GetProperty("type").ToString
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("properties").ToString());
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("links")[0].GetProperty("href").ToString());
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("links")[0].GetProperty("rel").ToString());
-Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<test>").GetProperty("href").ToString());
+Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<key>").GetProperty("href").ToString());
 ]]></code>
-This sample shows how to call SearchFeatures with all parameters and request content, and how to parse the result.
+This sample shows how to call SearchFeatures with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-var data = new {
+using RequestContent content = RequestContent.Create(new
+{
     startDateTime = "2022-05-10T18:57:31.2311892Z",
     endDateTime = "2022-05-10T18:57:31.2311892Z",
-    intersects = new {
-        coordinates = new[] {
-            new[] {
-                new[] {
-                    new[] {
-                        123.45d
+    intersects = new
+    {
+        coordinates = new object[]
+        {
+            new object[]
+            {
+                new object[]
+                {
+                    new object[]
+                    {
+                        123.45
                     }
                 }
             }
         },
         type = "MultiPolygon",
     },
-    bbox = new[] {
-        123.45d
+    bbox = new object[]
+    {
+        123.45
     },
-    featureIds = new[] {
-        "<String>"
+    featureIds = new object[]
+    {
+        "<featureIds>"
     },
-};
-
-Response response = client.SearchFeatures("<collectionId>", RequestContent.Create(data), 1234, 1234);
+});
+Response response = client.SearchFeatures("Sentinel_2_L2A", content, maxpagesize: 1234, skip: 1234);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("stacVersion").ToString());
@@ -1289,11 +1456,11 @@ Console.WriteLine(result.GetProperty("features")[0].GetProperty("links")[0].GetP
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("links")[0].GetProperty("rel").ToString());
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("links")[0].GetProperty("type").ToString());
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("links")[0].GetProperty("title").ToString());
-Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<test>").GetProperty("href").ToString());
-Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<test>").GetProperty("title").ToString());
-Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<test>").GetProperty("description").ToString());
-Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<test>").GetProperty("type").ToString());
-Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<test>").GetProperty("roles")[0].ToString());
+Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<key>").GetProperty("href").ToString());
+Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<key>").GetProperty("title").ToString());
+Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<key>").GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<key>").GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<key>").GetProperty("roles")[0].ToString());
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("collection").ToString());
 Console.WriteLine(result.GetProperty("nextLink").ToString());
 ]]></code></example>
@@ -1322,12 +1489,16 @@ Console.WriteLine(result.GetProperty("nextLink").ToString());
       </Parameters>
       <Docs>
         <param name="collectionId"> Collection Id to be searched. Allowed values: "Sentinel_2_L2A" | "Sentinel_2_L1C". </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="maxpagesize"> Maximum number of features needed (inclusive). Minimum = 1, Maximum = 100, Default value = 10. </param>
         <param name="skip"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Search for STAC features by collection id, bbox, intersecting geometry, start and end datetime. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Search for STAC features by collection id, bbox, intersecting geometry, start and end datetime.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the request and response payloads.
 
@@ -1382,17 +1553,18 @@ to get next set of features.
           <paramref name="collectionId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call SearchFeaturesAsync with required parameters and request content, and how to parse the result.
+This sample shows how to call SearchFeaturesAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-var data = new {
+using RequestContent content = RequestContent.Create(new
+{
     startDateTime = "2022-05-10T18:57:31.2311892Z",
     endDateTime = "2022-05-10T18:57:31.2311892Z",
-};
-
-Response response = await client.SearchFeaturesAsync("<collectionId>", RequestContent.Create(data));
+});
+Response response = await client.SearchFeaturesAsync("Sentinel_2_L2A", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("stacVersion").ToString());
@@ -1401,37 +1573,45 @@ Console.WriteLine(result.GetProperty("features")[0].GetProperty("type").ToString
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("properties").ToString());
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("links")[0].GetProperty("href").ToString());
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("links")[0].GetProperty("rel").ToString());
-Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<test>").GetProperty("href").ToString());
+Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<key>").GetProperty("href").ToString());
 ]]></code>
-This sample shows how to call SearchFeaturesAsync with all parameters and request content, and how to parse the result.
+This sample shows how to call SearchFeaturesAsync with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetScenesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Scenes client = new FarmBeatsClient(endpoint, credential).GetScenesClient();
 
-var data = new {
+using RequestContent content = RequestContent.Create(new
+{
     startDateTime = "2022-05-10T18:57:31.2311892Z",
     endDateTime = "2022-05-10T18:57:31.2311892Z",
-    intersects = new {
-        coordinates = new[] {
-            new[] {
-                new[] {
-                    new[] {
-                        123.45d
+    intersects = new
+    {
+        coordinates = new object[]
+        {
+            new object[]
+            {
+                new object[]
+                {
+                    new object[]
+                    {
+                        123.45
                     }
                 }
             }
         },
         type = "MultiPolygon",
     },
-    bbox = new[] {
-        123.45d
+    bbox = new object[]
+    {
+        123.45
     },
-    featureIds = new[] {
-        "<String>"
+    featureIds = new object[]
+    {
+        "<featureIds>"
     },
-};
-
-Response response = await client.SearchFeaturesAsync("<collectionId>", RequestContent.Create(data), 1234, 1234);
+});
+Response response = await client.SearchFeaturesAsync("Sentinel_2_L2A", content, maxpagesize: 1234, skip: 1234);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("stacVersion").ToString());
@@ -1445,11 +1625,11 @@ Console.WriteLine(result.GetProperty("features")[0].GetProperty("links")[0].GetP
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("links")[0].GetProperty("rel").ToString());
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("links")[0].GetProperty("type").ToString());
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("links")[0].GetProperty("title").ToString());
-Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<test>").GetProperty("href").ToString());
-Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<test>").GetProperty("title").ToString());
-Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<test>").GetProperty("description").ToString());
-Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<test>").GetProperty("type").ToString());
-Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<test>").GetProperty("roles")[0].ToString());
+Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<key>").GetProperty("href").ToString());
+Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<key>").GetProperty("title").ToString());
+Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<key>").GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<key>").GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("features")[0].GetProperty("assets").GetProperty("<key>").GetProperty("roles")[0].ToString());
 Console.WriteLine(result.GetProperty("features")[0].GetProperty("collection").ToString());
 Console.WriteLine(result.GetProperty("nextLink").ToString());
 ]]></code></example>
