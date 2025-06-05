@@ -1,12 +1,12 @@
 ---
 title: Azure AI Persistent Agents client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Agents.Persistent, ai
-ms.date: 05/21/2025
+ms.date: 06/05/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: ai
 ---
-# Azure AI Persistent Agents client library for .NET - version 1.1.0-beta.1 
+# Azure AI Persistent Agents client library for .NET - version 1.1.0-alpha.20250605.2 
 
 
 Use the AI Agents client library to:
@@ -80,6 +80,8 @@ To interact with Azure AI Agents, you will need to create an instance of `Persis
 var projectEndpoint = Environment.GetEnvironmentVariable("PROJECT_ENDPOINT");
 PersistentAgentsClient projectClient = new(projectEndpoint, new DefaultAzureCredential());
 ```
+
+**Note:** Support for project connection string and hub-based projects has been discontinued. We recommend creating a new Azure AI Foundry resource utilizing project endpoint. If this is not possible, please pin the version of `Azure.AI.Agents.Persistent` to version `1.0.0-beta.2` or earlier.
 
 ## Examples
 
@@ -748,7 +750,6 @@ namespace FunctionProj
 
     public class Arguments
     {
-        public required string OutputQueueUri { get; set; }
         public required string CorrelationId { get; set; }
     }
 
@@ -762,16 +763,11 @@ namespace FunctionProj
         }
 
         [Function("Foo")]
-        public void Run([QueueTrigger("azure-function-foo-input")] Arguments input, FunctionContext executionContext)
+        [QueueOutput("azure-function-tool-output", Connection = "AzureWebJobsStorage")]
+        public string Run([QueueTrigger("azure-function-foo-input")] Arguments input, FunctionContext executionContext)
         {
             var logger = executionContext.GetLogger("Foo");
             logger.LogInformation("C# Queue function processed a request.");
-
-            // We have to provide the Managed identity for function resource
-            // and allow this identity a Queue Data Contributor role on the storage account.
-            var cred = new DefaultAzureCredential();
-            var queueClient = new QueueClient(new Uri(input.OutputQueueUri), cred,
-                    new QueueClientOptions { MessageEncoding = QueueMessageEncoding.Base64 });
 
             var response = new Response
             {
@@ -780,14 +776,13 @@ namespace FunctionProj
                 CorrelationId = input.CorrelationId
             };
 
-            var jsonResponse = JsonSerializer.Serialize(response);
-            queueClient.SendMessage(jsonResponse);
+            return JsonSerializer.Serialize(response);
         }
     }
 }
 ```
 
-In this code we define function input and output class: `Arguments` and `Response` respectively. These two data classes will be serialized in JSON. It is important that these both contain field `CorrelationId`, which is the same between input and output.
+In this code we define function input and output classes: `Arguments` and `Response` respectively. These two data classes will be serialized in JSON. It is important that the both contain field `CorrelationId`, which is the same between input and output. `Connection` contains the name of environment variable `AzureWebJobsStorage` on function app resource. This variable contains connection string to the storage account, with input and output queue. It can be found in the Settings>Environment variables section of the function app resource in Azure portal.
 
 In our example the function will be stored in the storage account, created with the AI hub. For that we need to allow key access to that storage. In Azure portal go to Storage account > Settings > Configuration and set "Allow storage account key access" to Enabled. If it is not done, the error will be displayed "The remote server returned an error: (403) Forbidden." To create the function resource that will host our function, install [azure-cli](https://pypi.org/project/azure-cli/) python package and run the next command:
 
@@ -797,14 +792,11 @@ az login
 az functionapp create --resource-group your-resource-group --consumption-plan-location region --runtime dotnet-isolated --functions-version 4 --name function_name --storage-account storage_account_already_present_in_resource_group --app-insights existing_or_new_application_insights_name
 ```
 
-This function writes data to the output queue and hence needs to be authenticated to Azure, so we will need to assign the function system identity and provide it `Storage Queue Data Contributor`. To do that in Azure portal select the function, located in `your-resource-group` resource group and in Settings>Identity, switch it on and click Save. After that assign the `Storage Queue Data Contributor` permission on storage account used by our function (`storage_account_already_present_in_resource_group` in the script above) for just assigned System Managed identity.
-
 Now we will create the function itself. Install [.NET](https://dotnet.microsoft.com/download) and [Core Tools](https://go.microsoft.com/fwlink/?linkid=2174087) and create the function project using next commands. 
 ```
 func init FunctionProj --worker-runtime dotnet-isolated --target-framework net8.0
 cd FunctionProj
 func new --name foo --template "HTTP trigger" --authlevel "anonymous"
-dotnet add package Azure.Identity
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues --prerelease
 ```
 
@@ -906,7 +898,7 @@ To further diagnose and troubleshoot issues, you can enable logging following th
 
 ## Next steps
 
-Beyond the introductory scenarios discussed, the AI Agents client library offers support for additional scenarios to help take advantage of the full feature set of the AI services.  In order to help explore some of these scenarios, the AI Agents client library offers a set of samples to serve as an illustration for common scenarios.  Please see the [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.1.0-beta.1/sdk/ai/Azure.AI.Agents.Persistent/samples) for details.
+Beyond the introductory scenarios discussed, the AI Agents client library offers support for additional scenarios to help take advantage of the full feature set of the AI services.  In order to help explore some of these scenarios, the AI Agents client library offers a set of samples to serve as an illustration for common scenarios.  Please see the [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Agents.Persistent/samples) for details.
 
 ## Contributing
 
@@ -920,14 +912,14 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 
 <!-- LINKS -->
 [RequestFailedException]: https://learn.microsoft.com/dotnet/api/azure.requestfailedexception?view=azure-dotnet
-[samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.1.0-beta.1/sdk/ai/Azure.AI.Agents.Persistent/tests/Samples
+[samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Agents.Persistent/tests/Samples
 [api_ref_docs]: https://learn.microsoft.com/dotnet/api/overview/azure/ai.agents.persistent-readme
 [nuget]: https://www.nuget.org/packages/Azure.AI.Agents.Persistent/
-[source_code]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.1.0-beta.1/sdk/ai/Azure.AI.Agents.Persistent
+[source_code]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Agents.Persistent
 [product_doc]: https://learn.microsoft.com/azure/ai-studio/
 [azure_identity]: https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet
 [azure_identity_dac]: https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
-[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Agents.Persistent_1.1.0-beta.1/CONTRIBUTING.md
+[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
