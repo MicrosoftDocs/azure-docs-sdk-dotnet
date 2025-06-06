@@ -1,12 +1,12 @@
 ---
 title: Azure Storage Blobs client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Storage.Blobs, storage
-ms.date: 05/06/2025
+ms.date: 06/06/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: storage
 ---
-# Azure Storage Blobs client library for .NET - version 12.25.0-beta.1 
+# Azure Storage Blobs client library for .NET - version 12.26.0-alpha.20250606.1 
 
 
 > Server Version: 2021-02-12, 2020-12-06, 2020-10-02, 2020-08-04, 2020-06-12, 2020-04-08, 2020-02-10, 2019-12-12, 2019-07-07, and 2019-02-02
@@ -70,18 +70,18 @@ Blob storage offers three types of resources:
 - A _container_ in the storage account used via `BlobContainerClient`
 - A _blob_ in a container used via `BlobClient`
 
-Learn more about options for authentication _(including Connection Strings, Shared Key, Shared Key Signatures, Active Directory, and anonymous public access)_ [in our samples.](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.25.0-beta.1/sdk/storage/Azure.Storage.Blobs/samples/Sample02_Auth.cs)
+Learn more about options for authentication _(including Connection Strings, Shared Key, Shared Key Signatures, Active Directory, and anonymous public access)_ [in our samples.](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/samples/Sample02_Auth.cs)
 
 ### Thread safety
 We guarantee that all client instance methods are thread-safe and independent of each other ([guideline](https://azure.github.io/azure-sdk/dotnet_introduction.html#dotnet-service-methods-thread-safety)). This ensures that the recommendation of reusing client instances is always safe, even across threads.
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.25.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.25.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.25.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.25.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.25.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
@@ -196,12 +196,12 @@ catch (RequestFailedException ex)
 
 Get started with our [Blob samples][samples]:
 
-1. [Hello World](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.25.0-beta.1/sdk/storage/Azure.Storage.Blobs/samples/Sample01a_HelloWorld.cs): Upload, download, and list blobs (or [asynchronously](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.25.0-beta.1/sdk/storage/Azure.Storage.Blobs/samples/Sample01b_HelloWorldAsync.cs))
-2. [Auth](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.25.0-beta.1/sdk/storage/Azure.Storage.Blobs/samples/Sample02_Auth.cs): Authenticate with connection strings, public access, shared keys, shared access signatures, and Azure Active Directory.
+1. [Hello World](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/samples/Sample01a_HelloWorld.cs): Upload, download, and list blobs (or [asynchronously](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/samples/Sample01b_HelloWorldAsync.cs))
+2. [Auth](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/samples/Sample02_Auth.cs): Authenticate with connection strings, public access, shared keys, shared access signatures, and Azure Active Directory.
 
 ## Advanced Scenarios using Azure.DataMovement.Blobs
 
-For more advanced scenarios like transferring blob virtual directories, we recommend looking into our [Azure.Storage.DataMovement](https://www.nuget.org/packages/Azure.Storage.DataMovement) and [Azure.Storage.DataMovement.Blob](https://www.nuget.org/packages/Azure.Storage.DataMovement.Blobs) packages. Get started with our [DataMovement Blob Samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.25.0-beta.1/sdk/storage/Azure.Storage.DataMovement.Blobs/samples/Sample01b_HelloWorldAsync.cs).
+For more advanced scenarios like transferring blob virtual directories, we recommend looking into our [Azure.Storage.DataMovement](https://www.nuget.org/packages/Azure.Storage.DataMovement) and [Azure.Storage.DataMovement.Blob](https://www.nuget.org/packages/Azure.Storage.DataMovement.Blobs) packages. Get started with our [DataMovement Blob Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.DataMovement.Blobs/samples/Sample01b_HelloWorldAsync.cs).
 
 Upload a local directory to the root of the `BlobContainerClient`.
 ```C# Snippet:ExtensionMethodSimpleUploadToRoot
@@ -285,7 +285,7 @@ or contact [opencode@microsoft.com][coc_contact] with any
 additional questions or comments.
 
 <!-- LINKS -->
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.25.0-beta.1/sdk/storage/Azure.Storage.Blobs/src
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Blobs/src
 [package]: https://www.nuget.org/packages/Azure.Storage.Blobs/
 [docs]: https://learn.microsoft.com/dotnet/api/azure.storage.blobs
 [rest_docs]: https://learn.microsoft.com/rest/api/storageservices/blob-service-rest-api
@@ -297,13 +297,13 @@ additional questions or comments.
 [storage_account_create_portal]: https://learn.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal
 [azure_cli]: https://learn.microsoft.com/cli/azure
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
-[identity]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.25.0-beta.1/sdk/identity/Azure.Identity/README.md
+[identity]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/README.md
 [storage_ad]: https://learn.microsoft.com/azure/storage/common/storage-auth-aad
 [storage_ad_sample]: samples/Sample02c_Auth_ActiveDirectory.cs
-[RequestFailedException]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.25.0-beta.1/sdk/core/Azure.Core/src/RequestFailedException.cs
+[RequestFailedException]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core/Azure.Core/src/RequestFailedException.cs
 [error_codes]: https://learn.microsoft.com/rest/api/storageservices/blob-service-error-codes
-[samples]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.25.0-beta.1/sdk/storage/Azure.Storage.Blobs/samples/
-[storage_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.25.0-beta.1/sdk/storage/CONTRIBUTING.md
+[samples]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/samples/
+[storage_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
