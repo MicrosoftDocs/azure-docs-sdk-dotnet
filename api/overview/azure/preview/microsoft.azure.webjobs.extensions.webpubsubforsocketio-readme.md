@@ -1,21 +1,21 @@
 ---
 title: Azure WebJobs Web PubSub for Socket.IO client library for .NET
 keywords: Azure, dotnet, SDK, API, Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO, webpubsub
-ms.date: 09/30/2024
+ms.date: 06/06/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: webpubsub
 ---
-# Azure WebJobs Web PubSub for Socket.IO client library for .NET - version 1.0.0-beta.4 
+# Azure WebJobs Web PubSub for Socket.IO client library for .NET - version 1.0.0-alpha.20250606.1 
 
 
 This extension provides functionality for receiving Web PubSub for Socket.IO webhook calls in Azure Functions, allowing you to easily write functions that respond to any event published to Web PubSub for Socket.IO in serverless mode.
 
-[Source code](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO_1.0.0-beta.4/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO) |
+[Source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO/src) |
 [Package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO) |
 [API reference documentation](https://learn.microsoft.com/dotnet/api/microsoft.azure.webjobs.extensions.webpubsubforsocketio) |
 [Product documentation](https://learn.microsoft.com/azure/azure-web-pubsub/socketio-overview) |
-[Samples](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO_1.0.0-beta.4/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO/samples)
+[Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO/samples)
 
 ## Getting started
 
@@ -24,7 +24,7 @@ This extension provides functionality for receiving Web PubSub for Socket.IO web
 Install the Web PubSub for Socket.IO extension with [NuGet][nuget]:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO --prerelease
+dotnet add package Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO
 ```
 
 ### Prerequisites
@@ -33,11 +33,11 @@ You must have an [Azure subscription](https://azure.microsoft.com/free/dotnet/) 
 
 ### Authenticate the client
 
-In order to let the extension work with Web PubSub for Socket.IO, you will need to provide either access keys or identity based configuration to authenticate with the service. 
+In order to let the extension work with Web PubSub for Socket.IO, you will need to provide either access keys or identity based configuration to authenticate with the service.
 
 #### Access key based configuration
 
-The `AzureWebJobsStorage` connection string is used to preserve the processing checkpoint information as required refer to [Storage considerations](/azure/azure-functions/storage-considerations#storage-account-requirements)
+The `AzureWebJobsStorage` connection string is used to preserve the processing checkpoint information as required refer to [Storage considerations](https://learn.microsoft.com/azure/azure-functions/storage-considerations#storage-account-requirements)
 
 You can find the **Keys** for you Azure Web PubSub service in the [Azure Portal](https://portal.azure.com/).
 
@@ -52,7 +52,7 @@ For the local development, use the `local.settings.json` file to store the conne
 }
 ```
 
-When deployed use the [application settings](/azure/azure-functions/functions-how-to-use-azure-function-app-settings) to set the connection string.
+When deployed use the [application settings](https://learn.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) to set the connection string.
 
 #### Identity based configuration
 
@@ -186,11 +186,11 @@ public static class SocketIOTriggerReturnValueFunction
 
 ## Troubleshooting
 
-Please refer to [Monitor Azure Functions](/azure/azure-functions/functions-monitoring) for troubleshooting guidance.
+Please refer to [Monitor Azure Functions](https://learn.microsoft.com/azure/azure-functions/functions-monitoring) for troubleshooting guidance.
 
 ## Next steps
 
-Read the [introduction to Azure Function](/azure/azure-functions/functions-overview) or [creating an Azure Function guide](/azure/azure-functions/functions-create-first-azure-function).
+Read the [introduction to Azure Function](https://learn.microsoft.com/azure/azure-functions/functions-overview) or [creating an Azure Function guide](https://learn.microsoft.com/azure/azure-functions/functions-create-first-azure-function).
 
 ## Contributing
 
@@ -207,15 +207,13 @@ For more information see the [Code of Conduct FAQ][coc_faq]
 or contact [opencode@microsoft.com][coc_contact] with any
 additional questions or comments.
 
-
-
 <!-- LINKS -->
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO_1.0.0-beta.4/sdk/search/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO/src
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/search/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO/src
 [package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO/
-[docs]: /dotnet/api/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO
+[docs]: https://learn.microsoft.com/dotnet/api/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO
 [nuget]: https://www.nuget.org/
 
-[contrib]: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO_1.0.0-beta.4/CONTRIBUTING.md
+[contrib]: https://github.com/Azure/azure-sdk-for-net/tree/main/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
