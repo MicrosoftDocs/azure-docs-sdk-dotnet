@@ -1,12 +1,12 @@
 ---
 title: Azure Monitor Exporter client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Monitor.OpenTelemetry.Exporter, monitor
-ms.date: 04/02/2025
+ms.date: 06/06/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: monitor
 ---
-# Azure Monitor Exporter client library for .NET - version 1.4.0-beta.3 
+# Azure Monitor Exporter client library for .NET - version 1.5.0-alpha.20250606.1 
 
 
 The [OpenTelemetry .NET](https://github.com/open-telemetry/opentelemetry-dotnet) exporters which send [telemetry data](https://learn.microsoft.com/azure/azure-monitor/app/data-model) to [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview) following the [OpenTelemetry Specification](https://github.com/open-telemetry/opentelemetry-specification).
@@ -37,7 +37,7 @@ dotnet add package Azure.Monitor.OpenTelemetry.Exporter
 
 #### Nightly builds
 
-Nightly builds are available from this repo's [dev feed](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.4.0-beta.3/CONTRIBUTING.md#nuget-package-dev-feed).
+Nightly builds are available from this repo's [dev feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
 These are provided without support and are not intended for production workloads.
 
 ### Add the Exporter (per signal)
@@ -53,7 +53,7 @@ It's important to keep the `TracerProvider`, `MeterProvider`, and `LoggerFactory
         .Build();
     ```
 
-  For a complete example see [TraceDemo.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.4.0-beta.3/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/Traces/TraceDemo.cs).
+  For a complete example see [TraceDemo.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/Traces/TraceDemo.cs).
 
 - Metrics
     ```csharp
@@ -62,7 +62,7 @@ It's important to keep the `TracerProvider`, `MeterProvider`, and `LoggerFactory
         .Build();
     ```
 
-  For a complete example see [MetricDemo.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.4.0-beta.3/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/Metrics/MetricDemo.cs).
+  For a complete example see [MetricDemo.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/Metrics/MetricDemo.cs).
 
 - Logs
     ```csharp
@@ -75,7 +75,7 @@ It's important to keep the `TracerProvider`, `MeterProvider`, and `LoggerFactory
     });
     ```
 
-  For a complete example see [LogDemo.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.4.0-beta.3/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/Logs/LogDemo.cs).
+  For a complete example see [LogDemo.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/Logs/LogDemo.cs).
 
 ### Add the Exporter for all signals
 
@@ -100,7 +100,7 @@ appBuilder.Services.AddOpenTelemetry()
 ### Authenticate the client
 
 Azure Active Directory (AAD) authentication is an optional feature that can be used with the Azure Monitor Exporter.
-This is made easy with the [Azure Identity library](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.4.0-beta.3/sdk/identity/Azure.Identity/README.md), which provides support for authenticating Azure SDK clients with their corresponding Azure services.
+This is made easy with the [Azure Identity library](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/README.md), which provides support for authenticating Azure SDK clients with their corresponding Azure services.
 
 There are two options to enable AAD authentication. Note that if both have been set AzureMonitorExporterOptions will take precedence.
 
@@ -170,7 +170,7 @@ For more information on the OpenTelemetry project, please review the [OpenTeleme
 
 ## Examples
 
-Refer to [`Program.cs`](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.4.0-beta.3/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/Program.cs) for a complete demo.
+Refer to [`Program.cs`](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/Program.cs) for a complete demo.
 
 ### Log Scopes
 
@@ -252,14 +252,14 @@ This example generates a CustomEvent structured like this:
         }
     }
 }
-``
+```
 
 ## Troubleshooting
 
 The Azure Monitor exporter uses EventSource for its own internal logging. The exporter logs are available to any EventListener by opting into the source named "OpenTelemetry-AzureMonitor-Exporter".
 
 OpenTelemetry also provides it's own [self-diagnostics feature](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry/README.md#troubleshooting) to collect internal logs.
-An example of this is available in our demo project [here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.4.0-beta.3/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/OTEL_DIAGNOSTICS.json).
+An example of this is available in our demo project [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/OTEL_DIAGNOSTICS.json).
 
 ## Next steps
 
@@ -267,5 +267,29 @@ For more information on Azure SDK, please refer to [this website](https://azure.
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.4.0-beta.3/CONTRIBUTING.md) for details on contribution process.
+See [CONTRIBUTING.md](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md) for details on contribution process.
+
+## AOT (Ahead-of-Time) Support
+
+This library supports usage in .NET applications compiled with [AOT (Ahead-of-Time) compilation](https://learn.microsoft.com/dotnet/core/deploying/native-aot/).
+All core features of the Azure Monitor Exporter are compatible with AOT, including telemetry export for traces, metrics, and logs.
+
+**Important:**  
+While AOT is supported, automatic configuration binding from `appsettings.json` or other `IConfiguration` sources is **not** supported in AOT-compiled applications.
+This is due to .NET limitations on reflection-based binding APIs (such as `ConfigurationBinder.Bind` and `Get<T>()`) in AOT scenarios.  
+  
+**Workaround:**  
+In AOT scenarios, you can configure the Azure Monitor Exporter using one of the following approaches:
+
+- **Environment Variable:** Set the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable to configure the connection string.
+
+- **Programmatic Configuration:** Set the `AzureMonitorExporterOptions` directly in your application code:
+    ```csharp
+    builder.Services.AddOpenTelemetry()
+        .UseAzureMonitorExporter(options =>
+        {
+            options.ConnectionString = "<your-connection-string>";
+            // Set other options as needed
+        });
+    ```
 
