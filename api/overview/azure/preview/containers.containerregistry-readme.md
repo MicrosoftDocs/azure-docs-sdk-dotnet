@@ -1,12 +1,12 @@
 ---
 title: Azure Container Registry client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Containers.ContainerRegistry, containerregistry
-ms.date: 07/12/2023
+ms.date: 06/06/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: containerregistry
 ---
-# Azure Container Registry client library for .NET - version 1.2.0-beta.1 
+# Azure Container Registry client library for .NET - version 1.3.0-alpha.20250606.1 
 
 
 Azure Container Registry allows you to store and manage container images and artifacts in a private registry for all types of container deployments.
@@ -48,7 +48,7 @@ az acr create --name myregistry --resource-group myresourcegroup --location west
 
 For your application to connect to your registry, you'll need to create a `ContainerRegistryClient` that can authenticate with it.  The [Azure Identity library][identity] makes it easy to add Azure Active Directory support for authenticating Azure SDK clients with their corresponding Azure services.
 
-When you're developing and debugging your application locally, you can use your own user to authenticate with your registry.  One way to accomplish this is to [authenticate your user with the Azure CLI](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.2.0-beta.1/sdk/identity/Azure.Identity#authenticating-via-the-azure-cli) and run your application from this environment.  If your application is using a client that has been constructed to authenticate with `DefaultAzureCredential`, it will correctly authenticate with the registry at the specified endpoint.
+When you're developing and debugging your application locally, you can use your own user to authenticate with your registry.  One way to accomplish this is to [authenticate your user with the Azure CLI](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#authenticating-via-the-azure-cli) and run your application from this environment.  If your application is using a client that has been constructed to authenticate with `DefaultAzureCredential`, it will correctly authenticate with the registry at the specified endpoint.
 
 ```C#
 // Create a ContainerRegistryClient that will authenticate to your registry through Azure Active Directory
@@ -62,13 +62,13 @@ ContainerRegistryClient client = new ContainerRegistryClient(endpoint, new Defau
 
 Please see the [Azure Identity README][identity] for more approaches to authenticating with `DefaultAzureCredential`, both locally and in deployment environments.  To connect to registries in non-public Azure Clouds, see the samples below.
 
-For more information on using AAD with Azure Container Registry, please see the service's [Authentication Overview](/azure/container-registry/container-registry-authentication).
+For more information on using AAD with Azure Container Registry, please see the service's [Authentication Overview](https://learn.microsoft.com/azure/container-registry/container-registry-authentication).
 
 ## Key concepts
 
 A **registry** stores Docker images and [OCI Artifacts](https://opencontainers.org/).  An image or artifact consists of a **manifest** and **layers**.  An image's manifest describes the layers that make up the image, and is uniquely identified by its **digest**.  An image can also be "tagged" to give it a human-readable alias.  An image or artifact can have zero or more **tags** associated with it, and each tag uniquely identifies the image.  A collection of images that share the same name but have different tags, is referred to as a **repository**.
 
-For more information please see [Container Registry Concepts](/azure/container-registry/container-registry-concepts).
+For more information please see [Container Registry Concepts](https://learn.microsoft.com/azure/container-registry/container-registry-concepts).
 
 ### Thread safety
 
@@ -76,12 +76,12 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Containers.ContainerRegistry_1.2.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Containers.ContainerRegistry_1.2.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Containers.ContainerRegistry_1.2.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Containers.ContainerRegistry_1.2.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Containers.ContainerRegistry_1.2.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
-[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Containers.ContainerRegistry_1.2.0-beta.1/sdk/core/Azure.Core/README.md#mocking) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
 
@@ -117,7 +117,7 @@ Please note that each sample assumes there is a `REGISTRY_ENDPOINT` environment 
 
 ### Registry operations
 
-This secion contains `ContainerRegistryClient` samples.
+This section contains `ContainerRegistryClient` samples.
 
 #### List repositories
 
@@ -431,7 +431,7 @@ foreach (OciDescriptor layerInfo in manifest.Layers)
 
 #### Authenticate in a National Cloud
 
-To authenticate with a registry in a [National Cloud](/azure/active-directory/develop/authentication-national-cloud), you will need to make the following additions to your client configuration:
+To authenticate with a registry in a [National Cloud](https://learn.microsoft.com/azure/active-directory/develop/authentication-national-cloud), you will need to make the following additions to your client configuration:
 
 - Set the `AuthorityHost` in the credential options or via the `AZURE_AUTHORITY_HOST` environment variable
 - Set the `Audience` in `ContainerRegistryClientOptions`
@@ -454,13 +454,13 @@ ContainerRegistryClient client = new ContainerRegistryClient(endpoint,
 
 ## Troubleshooting
 
-See our [troubleshooting guide](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.2.0-beta.1/sdk/containerregistry/Azure.Containers.ContainerRegistry/TROUBLESHOOTING.md) for details on how to diagnose various failure scenarios.
+See our [troubleshooting guide](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry/Azure.Containers.ContainerRegistry/TROUBLESHOOTING.md) for details on how to diagnose various failure scenarios.
 
 ## Next steps
 
 - Go further with Azure.Containers.ContainerRegistry and our [samples][samples].
 - Watch a [demo or deep dive video](https://azure.microsoft.com/resources/videos/index/?service=container-registry).
-- Read more about the [Azure Container Registry service](/azure/container-registry/container-registry-intro).
+- Read more about the [Azure Container Registry service](https://learn.microsoft.com/azure/container-registry/container-registry-intro).
 
 ## Contributing
 
@@ -474,25 +474,23 @@ For more information see the [Code of Conduct FAQ][coc_faq]
 or contact [opencode@microsoft.com][coc_contact] with any
 additional questions or comments.
 
-
-
 <!-- LINKS -->
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.2.0-beta.1/sdk/containerregistry/Azure.Containers.ContainerRegistry/src
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry/Azure.Containers.ContainerRegistry/src
 [package]: https://www.nuget.org/packages/Azure.Containers.ContainerRegistry/
-[docs]: /dotnet/api/azure.containers.containerregistry
-[rest_docs]: /rest/api/containerregistry/
-[product_docs]:  /azure/container-registry
+[docs]: https://learn.microsoft.com/dotnet/api/azure.containers.containerregistry
+[rest_docs]: https://learn.microsoft.com/rest/api/containerregistry/
+[product_docs]:  https://learn.microsoft.com/azure/container-registry
 [nuget]: https://www.nuget.org/
-[container_registry_docs]: /azure/container-registry/container-registry-intro
-[container_registry_create_ps]: /azure/container-registry/container-registry-get-started-powershell
-[container_registry_create_cli]: /azure/container-registry/container-registry-get-started-azure-cli
-[container_registry_create_portal]: /azure/container-registry/container-registry-get-started-portal
-[container_registry_concepts]: /azure/container-registry/container-registry-concepts
-[azure_cli]: /cli/azure
+[container_registry_docs]: https://learn.microsoft.com/azure/container-registry/container-registry-intro
+[container_registry_create_ps]: https://learn.microsoft.com/azure/container-registry/container-registry-get-started-powershell
+[container_registry_create_cli]: https://learn.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
+[container_registry_create_portal]: https://learn.microsoft.com/azure/container-registry/container-registry-get-started-portal
+[container_registry_concepts]: https://learn.microsoft.com/azure/container-registry/container-registry-concepts
+[azure_cli]: https://learn.microsoft.com/cli/azure
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
-[identity]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.2.0-beta.1/sdk/identity/Azure.Identity/README.md
-[RequestFailedException]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.2.0-beta.1/sdk/core/Azure.Core/src/RequestFailedException.cs
-[samples]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Containers.ContainerRegistry_1.2.0-beta.1/sdk/containerregistry/Azure.Containers.ContainerRegistry/samples/
+[identity]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/README.md
+[RequestFailedException]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core/Azure.Core/src/RequestFailedException.cs
+[samples]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/containerregistry/Azure.Containers.ContainerRegistry/samples/
 [cla]: https://cla.microsoft.com
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
