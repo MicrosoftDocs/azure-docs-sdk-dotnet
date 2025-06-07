@@ -34,10 +34,38 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public PurviewMetadataPolicyClient (Uri endpoint, string collectionName, Azure.Core.TokenCredential credential, Azure.Analytics.Purview.Administration.PurviewMetadataClientOptions options = default);" />
+      <MemberSignature Language="C#" Value="public PurviewMetadataPolicyClient (Uri endpoint, string collectionName, Azure.Core.TokenCredential credential);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Uri endpoint, string collectionName, class Azure.Core.TokenCredential credential) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient.#ctor(System.Uri,System.String,Azure.Core.TokenCredential)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (endpoint As Uri, collectionName As String, credential As TokenCredential)" />
+      <MemberSignature Language="F#" Value="new Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient : Uri * string * Azure.Core.TokenCredential -&gt; Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient" Usage="new Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient (endpoint, collectionName, credential)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Analytics.Purview.Administration</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="endpoint" Type="System.Uri" />
+        <Parameter Name="collectionName" Type="System.String" />
+        <Parameter Name="credential" Type="Azure.Core.TokenCredential" />
+      </Parameters>
+      <Docs>
+        <param name="endpoint"> The endpoint of your Purview account. Example: https://{accountName}.purview.azure.com. </param>
+        <param name="collectionName"> The String to use. </param>
+        <param name="credential"> A credential used to authenticate to an Azure Service. </param>
+        <summary> Initializes a new instance of PurviewMetadataPolicyClient. </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="endpoint" />, <paramref name="collectionName" /> or <paramref name="credential" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="collectionName" /> is an empty string, and was expected to be non-empty. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PurviewMetadataPolicyClient (Uri endpoint, string collectionName, Azure.Core.TokenCredential credential, Azure.Analytics.Purview.Administration.PurviewMetadataClientOptions options);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Uri endpoint, string collectionName, class Azure.Core.TokenCredential credential, class Azure.Analytics.Purview.Administration.PurviewMetadataClientOptions options) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient.#ctor(System.Uri,System.String,Azure.Core.TokenCredential,Azure.Analytics.Purview.Administration.PurviewMetadataClientOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (endpoint As Uri, collectionName As String, credential As TokenCredential, Optional options As PurviewMetadataClientOptions = Nothing)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (endpoint As Uri, collectionName As String, credential As TokenCredential, options As PurviewMetadataClientOptions)" />
       <MemberSignature Language="F#" Value="new Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient : Uri * string * Azure.Core.TokenCredential * Azure.Analytics.Purview.Administration.PurviewMetadataClientOptions -&gt; Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient" Usage="new Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient (endpoint, collectionName, credential, options)" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -62,11 +90,11 @@
       </Docs>
     </Member>
     <Member MemberName="GetMetadataPolicies">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetMetadataPolicies (Azure.RequestOptions options);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetMetadataPolicies(class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient.GetMetadataPolicies(Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetMetadataPolicies (options As RequestOptions) As Pageable(Of BinaryData)" />
-      <MemberSignature Language="F#" Value="abstract member GetMetadataPolicies : Azure.RequestOptions -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetMetadataPolicies : Azure.RequestOptions -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="purviewMetadataPolicyClient.GetMetadataPolicies options" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetMetadataPolicies (Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetMetadataPolicies(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient.GetMetadataPolicies(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetMetadataPolicies (context As RequestContext) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="F#" Value="abstract member GetMetadataPolicies : Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetMetadataPolicies : Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="purviewMetadataPolicyClient.GetMetadataPolicies context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Administration</AssemblyName>
@@ -76,66 +104,72 @@
         <ReturnType>Azure.Pageable&lt;System.BinaryData&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="options"> The request options. </param>
-        <summary> List or Get metadata policies. </summary>
-        <returns>To be added.</returns>
-        <remarks>
-            Schema for <c>Response Body</c>:
-            <code>{
-              values: [
-                {
-                  name: string,
-                  id: string,
-                  version: number,
-                  properties: {
-                    description: string,
-                    decisionRules: [
-                      {
-                        kind: "decisionrule" | "attributerule",
-                        effect: "Deny" | "Permit",
-                        dnfCondition: [AttributeMatcher[]]
-                      }
-                    ],
-                    attributeRules: [
-                      {
-                        kind: "decisionrule" | "attributerule",
-                        id: string,
-                        name: string,
-                        dnfCondition: [AttributeMatcher[]]
-                      }
-                    ],
-                    collection: {
-                      type: string,
-                      referenceName: string
-                    },
-                    parentCollectionName: string
-                  }
-                }
-              ],
-              nextLink: string
-            }
-            </code>
-            Schema for <c>Response Error</c>:
-            <code>{
-              error: {
-                code: string,
-                message: string,
-                target: string,
-                details: [ErrorModelAutoGenerated]
-              }
-            }
-            </code></remarks>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] List or Get metadata policies
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetMetadataPolicies and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewMetadataPolicyClient client = new PurviewMetadataPolicyClient(endpoint, "<CollectionName>", credential);
+
+foreach (BinaryData item in client.GetMetadataPolicies(null))
+{
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
+    Console.WriteLine(result.ToString());
+}
+]]></code>
+This sample shows how to call GetMetadataPolicies with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewMetadataPolicyClient client = new PurviewMetadataPolicyClient(endpoint, "<CollectionName>", credential);
+
+foreach (BinaryData item in client.GetMetadataPolicies(null))
+{
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
+    Console.WriteLine(result.GetProperty("name").ToString());
+    Console.WriteLine(result.GetProperty("id").ToString());
+    Console.WriteLine(result.GetProperty("version").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("description").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("kind").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("effect").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeName").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludes").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludedIn")[0].ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludes").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludedIn")[0].ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("kind").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("id").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("name").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeName").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludes").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludedIn")[0].ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludes").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludedIn")[0].ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("collection").GetProperty("type").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("collection").GetProperty("referenceName").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("parentCollectionName").ToString());
+}
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetMetadataPoliciesAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetMetadataPoliciesAsync (Azure.RequestOptions options);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetMetadataPoliciesAsync(class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient.GetMetadataPoliciesAsync(Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetMetadataPoliciesAsync (options As RequestOptions) As AsyncPageable(Of BinaryData)" />
-      <MemberSignature Language="F#" Value="abstract member GetMetadataPoliciesAsync : Azure.RequestOptions -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetMetadataPoliciesAsync : Azure.RequestOptions -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="purviewMetadataPolicyClient.GetMetadataPoliciesAsync options" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetMetadataPoliciesAsync (Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetMetadataPoliciesAsync(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient.GetMetadataPoliciesAsync(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetMetadataPoliciesAsync (context As RequestContext) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="F#" Value="abstract member GetMetadataPoliciesAsync : Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetMetadataPoliciesAsync : Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="purviewMetadataPolicyClient.GetMetadataPoliciesAsync context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Administration</AssemblyName>
@@ -145,66 +179,72 @@
         <ReturnType>Azure.AsyncPageable&lt;System.BinaryData&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="options"> The request options. </param>
-        <summary> List or Get metadata policies. </summary>
-        <returns>To be added.</returns>
-        <remarks>
-            Schema for <c>Response Body</c>:
-            <code>{
-              values: [
-                {
-                  name: string,
-                  id: string,
-                  version: number,
-                  properties: {
-                    description: string,
-                    decisionRules: [
-                      {
-                        kind: "decisionrule" | "attributerule",
-                        effect: "Deny" | "Permit",
-                        dnfCondition: [AttributeMatcher[]]
-                      }
-                    ],
-                    attributeRules: [
-                      {
-                        kind: "decisionrule" | "attributerule",
-                        id: string,
-                        name: string,
-                        dnfCondition: [AttributeMatcher[]]
-                      }
-                    ],
-                    collection: {
-                      type: string,
-                      referenceName: string
-                    },
-                    parentCollectionName: string
-                  }
-                }
-              ],
-              nextLink: string
-            }
-            </code>
-            Schema for <c>Response Error</c>:
-            <code>{
-              error: {
-                code: string,
-                message: string,
-                target: string,
-                details: [ErrorModelAutoGenerated]
-              }
-            }
-            </code></remarks>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] List or Get metadata policies
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetMetadataPoliciesAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewMetadataPolicyClient client = new PurviewMetadataPolicyClient(endpoint, "<CollectionName>", credential);
+
+await foreach (BinaryData item in client.GetMetadataPoliciesAsync(null))
+{
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
+    Console.WriteLine(result.ToString());
+}
+]]></code>
+This sample shows how to call GetMetadataPoliciesAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewMetadataPolicyClient client = new PurviewMetadataPolicyClient(endpoint, "<CollectionName>", credential);
+
+await foreach (BinaryData item in client.GetMetadataPoliciesAsync(null))
+{
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
+    Console.WriteLine(result.GetProperty("name").ToString());
+    Console.WriteLine(result.GetProperty("id").ToString());
+    Console.WriteLine(result.GetProperty("version").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("description").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("kind").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("effect").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeName").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludes").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludedIn")[0].ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludes").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludedIn")[0].ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("kind").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("id").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("name").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeName").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludes").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludedIn")[0].ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludes").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludedIn")[0].ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("collection").GetProperty("type").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("collection").GetProperty("referenceName").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("parentCollectionName").ToString());
+}
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetMetadataPolicy">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetMetadataPolicy (string policyId, Azure.RequestOptions options);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetMetadataPolicy(string policyId, class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient.GetMetadataPolicy(System.String,Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetMetadataPolicy (policyId As String, options As RequestOptions) As Response" />
-      <MemberSignature Language="F#" Value="abstract member GetMetadataPolicy : string * Azure.RequestOptions -&gt; Azure.Response&#xA;override this.GetMetadataPolicy : string * Azure.RequestOptions -&gt; Azure.Response" Usage="purviewMetadataPolicyClient.GetMetadataPolicy (policyId, options)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetMetadataPolicy (string policyId, Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetMetadataPolicy(string policyId, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient.GetMetadataPolicy(System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetMetadataPolicy (policyId As String, context As RequestContext) As Response" />
+      <MemberSignature Language="F#" Value="abstract member GetMetadataPolicy : string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetMetadataPolicy : string * Azure.RequestContext -&gt; Azure.Response" Usage="purviewMetadataPolicyClient.GetMetadataPolicy (policyId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Administration</AssemblyName>
@@ -215,64 +255,75 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="policyId" Type="System.String" />
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="policyId"> Id of an existing policy that needs to be fetched. </param>
-        <param name="options"> The request options. </param>
-        <summary> Gets a metadata policy. </summary>
-        <returns>To be added.</returns>
-        <remarks>
-            Schema for <c>Response Body</c>:
-            <code>{
-              name: string,
-              id: string,
-              version: number,
-              properties: {
-                description: string,
-                decisionRules: [
-                  {
-                    kind: "decisionrule" | "attributerule",
-                    effect: "Deny" | "Permit",
-                    dnfCondition: [AttributeMatcher[]]
-                  }
-                ],
-                attributeRules: [
-                  {
-                    kind: "decisionrule" | "attributerule",
-                    id: string,
-                    name: string,
-                    dnfCondition: [AttributeMatcher[]]
-                  }
-                ],
-                collection: {
-                  type: string,
-                  referenceName: string
-                },
-                parentCollectionName: string
-              }
-            }
-            </code>
-            Schema for <c>Response Error</c>:
-            <code>{
-              error: {
-                code: string,
-                message: string,
-                target: string,
-                details: [ErrorModelAutoGenerated]
-              }
-            }
-            </code></remarks>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Gets a metadata policy
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="policyId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="policyId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetMetadataPolicy and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewMetadataPolicyClient client = new PurviewMetadataPolicyClient(endpoint, (string)null, credential);
+
+Response response = client.GetMetadataPolicy("<policyId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetMetadataPolicy with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewMetadataPolicyClient client = new PurviewMetadataPolicyClient(endpoint, (string)null, credential);
+
+Response response = client.GetMetadataPolicy("<policyId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("version").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("kind").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("effect").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeName").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludes").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludedIn")[0].ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludes").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludedIn")[0].ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("kind").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeName").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludes").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludedIn")[0].ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludes").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludedIn")[0].ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("collection").GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("collection").GetProperty("referenceName").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("parentCollectionName").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetMetadataPolicyAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetMetadataPolicyAsync (string policyId, Azure.RequestOptions options);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetMetadataPolicyAsync(string policyId, class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient.GetMetadataPolicyAsync(System.String,Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetMetadataPolicyAsync (policyId As String, options As RequestOptions) As Task(Of Response)" />
-      <MemberSignature Language="F#" Value="abstract member GetMetadataPolicyAsync : string * Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetMetadataPolicyAsync : string * Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewMetadataPolicyClient.GetMetadataPolicyAsync (policyId, options)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetMetadataPolicyAsync (string policyId, Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetMetadataPolicyAsync(string policyId, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient.GetMetadataPolicyAsync(System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetMetadataPolicyAsync (policyId As String, context As RequestContext) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member GetMetadataPolicyAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetMetadataPolicyAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewMetadataPolicyClient.GetMetadataPolicyAsync (policyId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Administration</AssemblyName>
@@ -283,56 +334,67 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="policyId" Type="System.String" />
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="policyId"> Id of an existing policy that needs to be fetched. </param>
-        <param name="options"> The request options. </param>
-        <summary> Gets a metadata policy. </summary>
-        <returns>To be added.</returns>
-        <remarks>
-            Schema for <c>Response Body</c>:
-            <code>{
-              name: string,
-              id: string,
-              version: number,
-              properties: {
-                description: string,
-                decisionRules: [
-                  {
-                    kind: "decisionrule" | "attributerule",
-                    effect: "Deny" | "Permit",
-                    dnfCondition: [AttributeMatcher[]]
-                  }
-                ],
-                attributeRules: [
-                  {
-                    kind: "decisionrule" | "attributerule",
-                    id: string,
-                    name: string,
-                    dnfCondition: [AttributeMatcher[]]
-                  }
-                ],
-                collection: {
-                  type: string,
-                  referenceName: string
-                },
-                parentCollectionName: string
-              }
-            }
-            </code>
-            Schema for <c>Response Error</c>:
-            <code>{
-              error: {
-                code: string,
-                message: string,
-                target: string,
-                details: [ErrorModelAutoGenerated]
-              }
-            }
-            </code></remarks>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Gets a metadata policy
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="policyId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="policyId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetMetadataPolicyAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewMetadataPolicyClient client = new PurviewMetadataPolicyClient(endpoint, (string)null, credential);
+
+Response response = await client.GetMetadataPolicyAsync("<policyId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetMetadataPolicyAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewMetadataPolicyClient client = new PurviewMetadataPolicyClient(endpoint, (string)null, credential);
+
+Response response = await client.GetMetadataPolicyAsync("<policyId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("version").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("kind").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("effect").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeName").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludes").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludedIn")[0].ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludes").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludedIn")[0].ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("kind").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeName").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludes").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludedIn")[0].ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludes").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludedIn")[0].ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("collection").GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("collection").GetProperty("referenceName").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("parentCollectionName").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="Pipeline">
@@ -356,11 +418,11 @@
       </Docs>
     </Member>
     <Member MemberName="UpdateMetadataPolicy">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response UpdateMetadataPolicy (string policyId, Azure.Core.RequestContent content, Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response UpdateMetadataPolicy(string policyId, class Azure.Core.RequestContent content, class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient.UpdateMetadataPolicy(System.String,Azure.Core.RequestContent,Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function UpdateMetadataPolicy (policyId As String, content As RequestContent, Optional options As RequestOptions = Nothing) As Response" />
-      <MemberSignature Language="F#" Value="abstract member UpdateMetadataPolicy : string * Azure.Core.RequestContent * Azure.RequestOptions -&gt; Azure.Response&#xA;override this.UpdateMetadataPolicy : string * Azure.Core.RequestContent * Azure.RequestOptions -&gt; Azure.Response" Usage="purviewMetadataPolicyClient.UpdateMetadataPolicy (policyId, content, options)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response UpdateMetadataPolicy (string policyId, Azure.Core.RequestContent content, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response UpdateMetadataPolicy(string policyId, class Azure.Core.RequestContent content, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient.UpdateMetadataPolicy(System.String,Azure.Core.RequestContent,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function UpdateMetadataPolicy (policyId As String, content As RequestContent, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="F#" Value="abstract member UpdateMetadataPolicy : string * Azure.Core.RequestContent * Azure.RequestContext -&gt; Azure.Response&#xA;override this.UpdateMetadataPolicy : string * Azure.Core.RequestContent * Azure.RequestContext -&gt; Azure.Response" Usage="purviewMetadataPolicyClient.UpdateMetadataPolicy (policyId, content, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Administration</AssemblyName>
@@ -372,95 +434,135 @@
       <Parameters>
         <Parameter Name="policyId" Type="System.String" />
         <Parameter Name="content" Type="Azure.Core.RequestContent" />
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="policyId"> Unique policy id. </param>
         <param name="content"> The content to send as the body of the request. </param>
-        <param name="options"> The request options. </param>
-        <summary> Updates a metadata policy. </summary>
-        <returns>To be added.</returns>
-        <remarks>
-            Schema for <c>Request Body</c>:
-            <code>{
-              name: string,
-              id: string,
-              version: number,
-              properties: {
-                description: string,
-                decisionRules: [
-                  {
-                    kind: "decisionrule" | "attributerule",
-                    effect: "Deny" | "Permit",
-                    dnfCondition: [AttributeMatcher[]]
-                  }
-                ],
-                attributeRules: [
-                  {
-                    kind: "decisionrule" | "attributerule",
-                    id: string,
-                    name: string,
-                    dnfCondition: [AttributeMatcher[]]
-                  }
-                ],
-                collection: {
-                  type: string,
-                  referenceName: string
-                },
-                parentCollectionName: string
-              }
-            }
-            </code>
-            Schema for <c>Response Body</c>:
-            <code>{
-              name: string,
-              id: string,
-              version: number,
-              properties: {
-                description: string,
-                decisionRules: [
-                  {
-                    kind: "decisionrule" | "attributerule",
-                    effect: "Deny" | "Permit",
-                    dnfCondition: [AttributeMatcher[]]
-                  }
-                ],
-                attributeRules: [
-                  {
-                    kind: "decisionrule" | "attributerule",
-                    id: string,
-                    name: string,
-                    dnfCondition: [AttributeMatcher[]]
-                  }
-                ],
-                collection: {
-                  type: string,
-                  referenceName: string
-                },
-                parentCollectionName: string
-              }
-            }
-            </code>
-            Schema for <c>Response Error</c>:
-            <code>{
-              error: {
-                code: string,
-                message: string,
-                target: string,
-                details: [ErrorModelAutoGenerated]
-              }
-            }
-            </code></remarks>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Updates a metadata policy
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="policyId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="policyId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call UpdateMetadataPolicy and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewMetadataPolicyClient client = new PurviewMetadataPolicyClient(endpoint, (string)null, credential);
+
+using RequestContent content = null;
+Response response = client.UpdateMetadataPolicy("<policyId>", content);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call UpdateMetadataPolicy with all parameters and request content and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewMetadataPolicyClient client = new PurviewMetadataPolicyClient(endpoint, (string)null, credential);
+
+using RequestContent content = RequestContent.Create(new
+{
+    name = "<name>",
+    id = "<id>",
+    version = 1234,
+    properties = new
+    {
+        description = "<description>",
+        decisionRules = new object[]
+        {
+            new
+            {
+                effect = "Deny",
+                dnfCondition = new object[]
+                {
+                    new object[]
+                    {
+                        new
+                        {
+                            attributeName = "<attributeName>",
+                            attributeValueIncludes = "<attributeValueIncludes>",
+                            attributeValueIncludedIn = new object[]
+                            {
+                                "<attributeValueIncludedIn>"
+                            },
+                            attributeValueExcludes = "<attributeValueExcludes>",
+                            attributeValueExcludedIn = new object[]
+                            {
+                                "<attributeValueExcludedIn>"
+                            },
+                        }
+                    }
+                },
+            }
+        },
+        attributeRules = new object[]
+        {
+            new
+            {
+                id = "<id>",
+                name = "<name>",
+                dnfCondition = new object[]
+                {
+                    new object[]
+                    {
+                        null
+                    }
+                },
+            }
+        },
+        collection = new
+        {
+            type = "<type>",
+            referenceName = "<referenceName>",
+        },
+        parentCollectionName = "<parentCollectionName>",
+    },
+});
+Response response = client.UpdateMetadataPolicy("<policyId>", content);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("version").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("kind").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("effect").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeName").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludes").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludedIn")[0].ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludes").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludedIn")[0].ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("kind").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeName").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludes").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludedIn")[0].ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludes").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludedIn")[0].ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("collection").GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("collection").GetProperty("referenceName").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("parentCollectionName").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="UpdateMetadataPolicyAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; UpdateMetadataPolicyAsync (string policyId, Azure.Core.RequestContent content, Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; UpdateMetadataPolicyAsync(string policyId, class Azure.Core.RequestContent content, class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient.UpdateMetadataPolicyAsync(System.String,Azure.Core.RequestContent,Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function UpdateMetadataPolicyAsync (policyId As String, content As RequestContent, Optional options As RequestOptions = Nothing) As Task(Of Response)" />
-      <MemberSignature Language="F#" Value="abstract member UpdateMetadataPolicyAsync : string * Azure.Core.RequestContent * Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.UpdateMetadataPolicyAsync : string * Azure.Core.RequestContent * Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewMetadataPolicyClient.UpdateMetadataPolicyAsync (policyId, content, options)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; UpdateMetadataPolicyAsync (string policyId, Azure.Core.RequestContent content, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; UpdateMetadataPolicyAsync(string policyId, class Azure.Core.RequestContent content, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataPolicyClient.UpdateMetadataPolicyAsync(System.String,Azure.Core.RequestContent,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function UpdateMetadataPolicyAsync (policyId As String, content As RequestContent, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member UpdateMetadataPolicyAsync : string * Azure.Core.RequestContent * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.UpdateMetadataPolicyAsync : string * Azure.Core.RequestContent * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewMetadataPolicyClient.UpdateMetadataPolicyAsync (policyId, content, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Administration</AssemblyName>
@@ -472,87 +574,127 @@
       <Parameters>
         <Parameter Name="policyId" Type="System.String" />
         <Parameter Name="content" Type="Azure.Core.RequestContent" />
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="policyId"> Unique policy id. </param>
         <param name="content"> The content to send as the body of the request. </param>
-        <param name="options"> The request options. </param>
-        <summary> Updates a metadata policy. </summary>
-        <returns>To be added.</returns>
-        <remarks>
-            Schema for <c>Request Body</c>:
-            <code>{
-              name: string,
-              id: string,
-              version: number,
-              properties: {
-                description: string,
-                decisionRules: [
-                  {
-                    kind: "decisionrule" | "attributerule",
-                    effect: "Deny" | "Permit",
-                    dnfCondition: [AttributeMatcher[]]
-                  }
-                ],
-                attributeRules: [
-                  {
-                    kind: "decisionrule" | "attributerule",
-                    id: string,
-                    name: string,
-                    dnfCondition: [AttributeMatcher[]]
-                  }
-                ],
-                collection: {
-                  type: string,
-                  referenceName: string
-                },
-                parentCollectionName: string
-              }
-            }
-            </code>
-            Schema for <c>Response Body</c>:
-            <code>{
-              name: string,
-              id: string,
-              version: number,
-              properties: {
-                description: string,
-                decisionRules: [
-                  {
-                    kind: "decisionrule" | "attributerule",
-                    effect: "Deny" | "Permit",
-                    dnfCondition: [AttributeMatcher[]]
-                  }
-                ],
-                attributeRules: [
-                  {
-                    kind: "decisionrule" | "attributerule",
-                    id: string,
-                    name: string,
-                    dnfCondition: [AttributeMatcher[]]
-                  }
-                ],
-                collection: {
-                  type: string,
-                  referenceName: string
-                },
-                parentCollectionName: string
-              }
-            }
-            </code>
-            Schema for <c>Response Error</c>:
-            <code>{
-              error: {
-                code: string,
-                message: string,
-                target: string,
-                details: [ErrorModelAutoGenerated]
-              }
-            }
-            </code></remarks>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Updates a metadata policy
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="policyId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="policyId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call UpdateMetadataPolicyAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewMetadataPolicyClient client = new PurviewMetadataPolicyClient(endpoint, (string)null, credential);
+
+using RequestContent content = null;
+Response response = await client.UpdateMetadataPolicyAsync("<policyId>", content);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call UpdateMetadataPolicyAsync with all parameters and request content and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewMetadataPolicyClient client = new PurviewMetadataPolicyClient(endpoint, (string)null, credential);
+
+using RequestContent content = RequestContent.Create(new
+{
+    name = "<name>",
+    id = "<id>",
+    version = 1234,
+    properties = new
+    {
+        description = "<description>",
+        decisionRules = new object[]
+        {
+            new
+            {
+                effect = "Deny",
+                dnfCondition = new object[]
+                {
+                    new object[]
+                    {
+                        new
+                        {
+                            attributeName = "<attributeName>",
+                            attributeValueIncludes = "<attributeValueIncludes>",
+                            attributeValueIncludedIn = new object[]
+                            {
+                                "<attributeValueIncludedIn>"
+                            },
+                            attributeValueExcludes = "<attributeValueExcludes>",
+                            attributeValueExcludedIn = new object[]
+                            {
+                                "<attributeValueExcludedIn>"
+                            },
+                        }
+                    }
+                },
+            }
+        },
+        attributeRules = new object[]
+        {
+            new
+            {
+                id = "<id>",
+                name = "<name>",
+                dnfCondition = new object[]
+                {
+                    new object[]
+                    {
+                        null
+                    }
+                },
+            }
+        },
+        collection = new
+        {
+            type = "<type>",
+            referenceName = "<referenceName>",
+        },
+        parentCollectionName = "<parentCollectionName>",
+    },
+});
+Response response = await client.UpdateMetadataPolicyAsync("<policyId>", content);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("version").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("kind").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("effect").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeName").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludes").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludedIn")[0].ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludes").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("decisionRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludedIn")[0].ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("kind").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeName").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludes").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludedIn")[0].ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludes").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("attributeRules")[0].GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludedIn")[0].ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("collection").GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("collection").GetProperty("referenceName").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("parentCollectionName").ToString());
+]]></code></example>
       </Docs>
     </Member>
   </Members>
