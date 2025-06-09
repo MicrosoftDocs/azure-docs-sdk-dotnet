@@ -1,12 +1,12 @@
 ---
 title: Azure Cognitive Services Anomaly Detector client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.AnomalyDetector, anomalydetector
-ms.date: 05/09/2023
+ms.date: 06/09/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: anomalydetector
 ---
-# Azure Cognitive Services Anomaly Detector client library for .NET - version 3.0.0-preview.7 
+# Azure Cognitive Services Anomaly Detector client library for .NET - version 3.0.0-alpha.20250609.1 
 
 
 [Anomaly Detector](https://learn.microsoft.com/azure/cognitive-services/Anomaly-Detector/overview) is an AI service with a set of APIs, which enables you to monitor and detect anomalies in your time series data with little machine learning (ML) knowledge, either batch validation or real-time inference.
@@ -109,12 +109,12 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/core/Azure.Core/samples/Diagnostics.md) |
-[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/core/Azure.Core/README.md#mocking) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
 
@@ -135,12 +135,13 @@ Console.WriteLine("Detecting anomalies in the entire time series.");
 
 try
 {
-    UnivariateEntireDetectionResult result = client.DetectUnivariateEntireSeries(request);
+    Response response = client.GetUnivariateClient().DetectUnivariateEntireSeries(request.ToRequestContent());
+    JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 
     bool hasAnomaly = false;
     for (int i = 0; i < request.Series.Count; ++i)
     {
-        if (result.IsAnomaly[i])
+        if (result.GetProperty("isAnomaly")[i].GetBoolean())
         {
             Console.WriteLine($"An anomaly was detected at index: {i}.");
             hasAnomaly = true;
@@ -171,7 +172,7 @@ Console.WriteLine("Detecting the anomaly status of the latest point in the serie
 
 try
 {
-    UnivariateLastDetectionResult result = client.DetectUnivariateLastPoint(request);
+    UnivariateLastDetectionResult result = client.GetUnivariateClient().DetectUnivariateLastPoint(request);
 
     if (result.IsAnomaly)
     {
@@ -200,7 +201,7 @@ catch (Exception ex)
 //detect
 Console.WriteLine("Detecting the change point in the series.");
 
-UnivariateChangePointDetectionResult result = client.DetectUnivariateChangePoint(request);
+UnivariateChangePointDetectionResult result = client.GetUnivariateClient().DetectUnivariateChangePoint(request);
 
 if (result.IsChangePoint.Contains(true))
 {
@@ -223,7 +224,7 @@ else
 
 ### Multivariate Anomaly Detection Sample
 
-To see how to use Anomaly Detector library to conduct Multivariate Anomaly Detection, see this [sample](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/Sample4_MultivariateDetect.cs).
+To see how to use Anomaly Detector library to conduct Multivariate Anomaly Detection, see this [sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/Sample4_MultivariateDetect.cs).
 
 ## Troubleshooting
 
@@ -241,19 +242,19 @@ To learn more about other logging mechanisms see [Diagnostics Samples][logging].
 
 ## Next steps
 
-These code samples show common scenario operations with the Azure Anomaly Detector library. More samples can be found under the [samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/) directory.
+These code samples show common scenario operations with the Azure Anomaly Detector library. More samples can be found under the [samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/) directory.
 
-- Univariate Anomaly Detection - Batch Detection: [Sample1_DetectEntireSeriesAnomaly.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/Sample1_DetectEntireSeriesAnomaly.cs)
+- Univariate Anomaly Detection - Batch Detection: [Sample1_DetectEntireSeriesAnomaly.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/Sample1_DetectEntireSeriesAnomaly.cs)
 
-- Univariate Anomaly Detection - Streaming Detection: [Sample2_DetectLastPointAnomaly.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/Sample2_DetectLastPointAnomaly.cs)
+- Univariate Anomaly Detection - Streaming Detection: [Sample2_DetectLastPointAnomaly.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/Sample2_DetectLastPointAnomaly.cs)
 
-- Univariate Anomaly Detection - Change Point Detection: [Sample3_DetectChangePoint.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/Sample3_DetectChangePoint.cs)
+- Univariate Anomaly Detection - Change Point Detection: [Sample3_DetectChangePoint.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/Sample3_DetectChangePoint.cs)
 
-- Multivariate Anomaly Detection: [Sample4_MultivariateDetect.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/Sample4_MultivariateDetect.cs)
+- Multivariate Anomaly Detection: [Sample4_MultivariateDetect.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/Sample4_MultivariateDetect.cs)
 
 ### Additional documentation
 
-For more extensive documentation on Azure Anomaly Detector, see the [Anomaly Detector documentation](https://learn.microsoft.com/azure/cognitive-services/anomaly-detector/overview) on docs.microsoft.com.
+For more extensive documentation on Azure Anomaly Detector, see the [Anomaly Detector documentation](https://learn.microsoft.com/azure/cognitive-services/anomaly-detector/overview) on learn.microsoft.com.
 
 ## Contributing
 
@@ -264,19 +265,19 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 This project has adopted the [Microsoft Open Source Code of Conduct][code_of_conduct]. For more information see the [Code of Conduct FAQ][coc_faq] or contact [opencode@microsoft.com][coc_contact] with any additional questions or comments.
 
 <!-- LINKS -->
-[anomalydetector_client_src]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/anomalydetector/Azure.AI.AnomalyDetector/src
-[anomalydetector_docs]: /azure/cognitive-services/anomaly-detector/
+[anomalydetector_client_src]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector/Azure.AI.AnomalyDetector/src
+[anomalydetector_docs]: https://learn.microsoft.com/azure/cognitive-services/anomaly-detector/
 [anomalydetector_refdocs]: https://azure.github.io/azure-sdk-for-net/cognitiveservices.html
 [anomalydetector_nuget_package]: https://www.nuget.org/packages/Azure.AI.AnomalyDetector
-[anomaly_detector_client_class]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/anomalydetector/Azure.AI.AnomalyDetector/src/Generated/AnomalyDetectorClient.cs
-[azure_identity]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/identity/Azure.Identity
-[register_aad_app]: /azure/cognitive-services/authentication#assign-a-role-to-a-service-principal
-[aad_grant_access]: /azure/cognitive-services/authentication#assign-a-role-to-a-service-principal
-[custom_subdomain]: /azure/cognitive-services/authentication#create-a-resource-with-a-custom-subdomain
-[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/identity/Azure.Identity/README.md
-[cognitive_resource_cli]: /azure/cognitive-services/cognitive-services-apis-create-account-cli
-[logging]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/core/Azure.Core/samples/Diagnostics.md
-[azure_cli]: /cli/azure
+[anomaly_detector_client_class]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector/Azure.AI.AnomalyDetector/src/Generated/AnomalyDetectorClient.cs
+[azure_identity]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity
+[register_aad_app]: https://learn.microsoft.com/azure/cognitive-services/authentication#assign-a-role-to-a-service-principal
+[aad_grant_access]: https://learn.microsoft.com/azure/cognitive-services/authentication#assign-a-role-to-a-service-principal
+[custom_subdomain]: https://learn.microsoft.com/azure/cognitive-services/authentication#create-a-resource-with-a-custom-subdomain
+[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/README.md
+[cognitive_resource_cli]: https://learn.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli
+[logging]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core/Azure.Core/samples/Diagnostics.md
+[azure_cli]: https://learn.microsoft.com/cli/azure
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
 [nuget]: https://www.nuget.org/
 [azure_portal]: https://portal.azure.com
