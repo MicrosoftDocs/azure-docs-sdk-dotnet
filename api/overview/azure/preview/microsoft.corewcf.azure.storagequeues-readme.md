@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Microsoft.CoreWCF.Azure.StorageQueues, extension-wcf
-ms.date: 07/18/2024
+ms.date: 06/09/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: extension-wcf
@@ -149,12 +149,12 @@ For more information see the [Code of Conduct FAQ][coc_faq] or contact [opencode
 [storage_account_create_portal]: https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal
 [azure_cli]: https://learn.microsoft.com/cli/azure/
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
-[identity]: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.CoreWCF.Azure.StorageQueues_1.0.0-beta.1/sdk/identity/Azure.Identity/README.md
+[identity]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/README.md
 [storage_ad]: https://learn.microsoft.com/azure/storage/blobs/authorize-access-azure-active-directory
-[storage_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.CoreWCF.Azure.StorageQueues_1.0.0-beta.1/sdk/storage/CONTRIBUTING.md
+[storage_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/CONTRIBUTING.md
 [cla]: https://opensource.microsoft.com/cla/
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 [coc_contact]: mailto:opencode@microsoft.com
 [corewcf_repo]: https://github.com/CoreWCF/samples/
-[wcf_docs]: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.CoreWCF.Azure.StorageQueues_1.0.0-beta.1/sdk/extension-wcf/Microsoft.WCF.Azure.StorageQueues
+[wcf_docs]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/extension-wcf/Microsoft.WCF.Azure.StorageQueues
