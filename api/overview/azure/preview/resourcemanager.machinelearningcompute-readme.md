@@ -1,12 +1,12 @@
 ---
 title: Azure Machine Learning Compute management client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.MachineLearningCompute, machinelearningcompute
-ms.date: 03/17/2025
+ms.date: 06/10/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: machinelearningcompute
 ---
-# Azure Machine Learning Compute management client library for .NET - version 1.0.0-beta.5 
+# Azure Machine Learning Compute management client library for .NET - version 1.0.0-alpha.20250609.1 
 
 
 Microsoft Azure Machine Learning Compute is a managed-compute infrastructure that allows the user to easily create a single or multi-node compute.
@@ -37,7 +37,7 @@ dotnet add package Azure.ResourceManager.MachineLearningCompute --prerelease
 
 ### Authenticate the Client
 
-To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.MachineLearningCompute_1.0.0-beta.5/doc/dev/mgmt_quickstart.md).
+To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
 
 ## Key concepts
 
@@ -47,9 +47,9 @@ Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://azu
 
 Documentation is available to help you learn how to use this package:
 
-- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.MachineLearningCompute_1.0.0-beta.5/doc/dev/mgmt_quickstart.md).
+- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
 - [API References](https://learn.microsoft.com/dotnet/api/?view=azure-dotnet).
-- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.MachineLearningCompute_1.0.0-beta.5/sdk/identity/Azure.Identity/README.md).
+- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
 
 ## Examples
 
@@ -86,7 +86,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.MachineLearningCompute_1.0.0-beta.5/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
