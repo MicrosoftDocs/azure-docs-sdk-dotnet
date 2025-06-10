@@ -1,0 +1,105 @@
+<Type Name="NumericVariable" FullName="Azure.IoT.TimeSeriesInsights.NumericVariable">
+  <TypeSignature Language="C#" Value="public class NumericVariable : Azure.IoT.TimeSeriesInsights.TimeSeriesVariable" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit NumericVariable extends Azure.IoT.TimeSeriesInsights.TimeSeriesVariable" />
+  <TypeSignature Language="DocId" Value="T:Azure.IoT.TimeSeriesInsights.NumericVariable" />
+  <TypeSignature Language="VB.NET" Value="Public Class NumericVariable&#xA;Inherits TimeSeriesVariable" />
+  <TypeSignature Language="F#" Value="type NumericVariable = class&#xA;    inherit TimeSeriesVariable" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.IoT.TimeSeriesInsights</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Azure.IoT.TimeSeriesInsights.TimeSeriesVariable</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary> Numeric variable represents a single continuous numeric signal that can be reconstructed using interpolation. </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public NumericVariable (Azure.IoT.TimeSeriesInsights.TimeSeriesExpression value, Azure.IoT.TimeSeriesInsights.TimeSeriesExpression aggregation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.IoT.TimeSeriesInsights.TimeSeriesExpression value, class Azure.IoT.TimeSeriesInsights.TimeSeriesExpression aggregation) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.IoT.TimeSeriesInsights.NumericVariable.#ctor(Azure.IoT.TimeSeriesInsights.TimeSeriesExpression,Azure.IoT.TimeSeriesInsights.TimeSeriesExpression)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (value As TimeSeriesExpression, aggregation As TimeSeriesExpression)" />
+      <MemberSignature Language="F#" Value="new Azure.IoT.TimeSeriesInsights.NumericVariable : Azure.IoT.TimeSeriesInsights.TimeSeriesExpression * Azure.IoT.TimeSeriesInsights.TimeSeriesExpression -&gt; Azure.IoT.TimeSeriesInsights.NumericVariable" Usage="new Azure.IoT.TimeSeriesInsights.NumericVariable (value, aggregation)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.IoT.TimeSeriesInsights</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="value" Type="Azure.IoT.TimeSeriesInsights.TimeSeriesExpression" />
+        <Parameter Name="aggregation" Type="Azure.IoT.TimeSeriesInsights.TimeSeriesExpression" />
+      </Parameters>
+      <Docs>
+        <param name="value"> Value time series expression is used to represent the value of the signal that is going to be aggregated or interpolated. For example, temperature values from the event is represented like this: "$event.Temperature.Double". </param>
+        <param name="aggregation"> Aggregation time series expression when kind is "numeric" is used to represent the aggregation that needs to be performed on the $value expression. This requires $value to be specified and can only use $value inside the aggregate functions. For example, aggregation for calculating minimum of the $value is written as: "min($value)". </param>
+        <summary> Initializes a new instance of <see cref="T:Azure.IoT.TimeSeriesInsights.NumericVariable" />. </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="value" /> or <paramref name="aggregation" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Aggregation">
+      <MemberSignature Language="C#" Value="public Azure.IoT.TimeSeriesInsights.TimeSeriesExpression Aggregation { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.IoT.TimeSeriesInsights.TimeSeriesExpression Aggregation" />
+      <MemberSignature Language="DocId" Value="P:Azure.IoT.TimeSeriesInsights.NumericVariable.Aggregation" />
+      <MemberSignature Language="VB.NET" Value="Public Property Aggregation As TimeSeriesExpression" />
+      <MemberSignature Language="F#" Value="member this.Aggregation : Azure.IoT.TimeSeriesInsights.TimeSeriesExpression with get, set" Usage="Azure.IoT.TimeSeriesInsights.NumericVariable.Aggregation" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.IoT.TimeSeriesInsights</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.IoT.TimeSeriesInsights.TimeSeriesExpression</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Aggregation time series expression when kind is "numeric" is used to represent the aggregation that needs to be performed on the $value expression. This requires $value to be specified and can only use $value inside the aggregate functions. For example, aggregation for calculating minimum of the $value is written as: "min($value)". </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Interpolation">
+      <MemberSignature Language="C#" Value="public Azure.IoT.TimeSeriesInsights.TimeSeriesInterpolation Interpolation { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.IoT.TimeSeriesInsights.TimeSeriesInterpolation Interpolation" />
+      <MemberSignature Language="DocId" Value="P:Azure.IoT.TimeSeriesInsights.NumericVariable.Interpolation" />
+      <MemberSignature Language="VB.NET" Value="Public Property Interpolation As TimeSeriesInterpolation" />
+      <MemberSignature Language="F#" Value="member this.Interpolation : Azure.IoT.TimeSeriesInsights.TimeSeriesInterpolation with get, set" Usage="Azure.IoT.TimeSeriesInsights.NumericVariable.Interpolation" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.IoT.TimeSeriesInsights</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.IoT.TimeSeriesInsights.TimeSeriesInterpolation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The interpolation operation to be performed on the raw data points. Currently, only sampling of interpolated time series is allowed. Allowed aggregate function - eg: left($value). Can be null if no interpolation needs to be applied. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Value">
+      <MemberSignature Language="C#" Value="public Azure.IoT.TimeSeriesInsights.TimeSeriesExpression Value { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.IoT.TimeSeriesInsights.TimeSeriesExpression Value" />
+      <MemberSignature Language="DocId" Value="P:Azure.IoT.TimeSeriesInsights.NumericVariable.Value" />
+      <MemberSignature Language="VB.NET" Value="Public Property Value As TimeSeriesExpression" />
+      <MemberSignature Language="F#" Value="member this.Value : Azure.IoT.TimeSeriesInsights.TimeSeriesExpression with get, set" Usage="Azure.IoT.TimeSeriesInsights.NumericVariable.Value" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.IoT.TimeSeriesInsights</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.IoT.TimeSeriesInsights.TimeSeriesExpression</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Value time series expression is used to represent the value of the signal that is going to be aggregated or interpolated. For example, temperature values from the event is represented like this: "$event.Temperature.Double". </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
