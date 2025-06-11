@@ -1,12 +1,12 @@
 ---
 title: Azure Cognitive Language Services Text client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Language.Text, cognitivelanguage
-ms.date: 01/08/2025
+ms.date: 06/11/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: cognitivelanguage
 ---
-# Azure Cognitive Language Services Text client library for .NET - version 1.0.0-beta.2 
+# Azure Cognitive Language Services Text client library for .NET - version 1.0.0-alpha.20250611.2 
 
 
 Text Analytics is part of the Azure Cognitive Service for Language, a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. This client library offers the following features:
@@ -140,32 +140,32 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Text_1.0.0-beta.2/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Text_1.0.0-beta.2/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Text_1.0.0-beta.2/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Text_1.0.0-beta.2/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Text_1.0.0-beta.2/sdk/core/Azure.Core/samples/Diagnostics.md) |
-[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Text_1.0.0-beta.2/sdk/core/Azure.Core/README.md#mocking) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
 
 ## Examples
 
-You can familiarize yourself with different APIs using [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/samples).
+You can familiarize yourself with different APIs using [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Text/samples).
 
-* [Detect Language](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample1_AnalyzeText_LanguageDetection.md)
-* [Analyze Sentiment](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample2_AnalyzeText_Sentiment.md)
-* [Extract Key Phrases](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample3_AnalyzeText_ExtractKeyPhrases.md)
-* [Recognize Named Entities](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample4_AnalyzeText_RecognizeEntities.md)
-* [Recognize PII Entities](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample5_AnalyzeText_RecognizePiiEntities.md)
-* [Recognize Linked Entities](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample6_AnalyzeText_RecognizeLinkedEntities.md)
-* [Analyze Healthcare Entities](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample7_AnalyzeTextOperation_HealthcareOperationAction.md)
-* [Custom Named Entity Recognition](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample8_AnalyzeTextOperation_CustomEntitiesOperationAction.md)
-* [Custom Single Label Classification](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample9_AnalyzeTextOperation_CustomSingleLabelClassificationOperationAction.md)
-* [Custom Multi Label Classification](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample10_AnalyzeTextOperation_CustomMultiLabelClassificationOperationAction.md)
-* [Extractive Summarization](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample11_AnalyzeTextOperation_ExtractiveSummarizationOperationAction.md)
-* [Abstractive Summarization](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample12_AnalyzeTextOperation_AbstractiveSummarizationOperationAction.md)
-* [Perform multiple text analysis actions](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample13_AnalyzeTextOperation_MultipleActions.md)
+* [Detect Language](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample1_AnalyzeText_LanguageDetection.md)
+* [Analyze Sentiment](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample2_AnalyzeText_Sentiment.md)
+* [Extract Key Phrases](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample3_AnalyzeText_ExtractKeyPhrases.md)
+* [Recognize Named Entities](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample4_AnalyzeText_RecognizeEntities.md)
+* [Recognize PII Entities](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample5_AnalyzeText_RecognizePiiEntities.md)
+* [Recognize Linked Entities](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample6_AnalyzeText_RecognizeLinkedEntities.md)
+* [Analyze Healthcare Entities](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample7_AnalyzeTextOperation_HealthcareOperationAction.md)
+* [Custom Named Entity Recognition](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample8_AnalyzeTextOperation_CustomEntitiesOperationAction.md)
+* [Custom Single Label Classification](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample9_AnalyzeTextOperation_CustomSingleLabelClassificationOperationAction.md)
+* [Custom Multi Label Classification](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample10_AnalyzeTextOperation_CustomMultiLabelClassificationOperationAction.md)
+* [Extractive Summarization](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample11_AnalyzeTextOperation_ExtractiveSummarizationOperationAction.md)
+* [Abstractive Summarization](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample12_AnalyzeTextOperation_AbstractiveSummarizationOperationAction.md)
+* [Perform multiple text analysis actions](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Text/samples/Sample13_AnalyzeTextOperation_MultipleActions.md)
 
 ## Troubleshooting
 
@@ -263,26 +263,25 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 
 
 <!-- LINKS -->
-[contributing]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Text_1.0.0-beta.2/CONTRIBUTING.md
+[contributing]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 [coc_contact]: mailto:opencode@microsoft.com
-[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Text_1.0.0-beta.2/sdk/identity/Azure.Identity/README.md#defaultazurecredential
-[azure_identity]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Text_1.0.0-beta.2/sdk/identity/Azure.Identity/README.md
-[azure_identity_install]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Text_1.0.0-beta.2/sdk/identity/Azure.Identity/README.md#install-the-package
+[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md#defaultazurecredential
+[azure_identity]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md
+[azure_identity_install]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md#install-the-package
 [custom_domain]: https://learn.microsoft.com/azure/cognitive-services/authentication#create-a-resource-with-a-custom-subdomain
-[source_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/samples
-[source_migration]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/MigrationGuide.md
-[source_root]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/src
+[source_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Text/samples
+[source_migration]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/cognitivelanguage/Azure.AI.Language.Text/MigrationGuide.md
+[source_root]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/cognitivelanguage/Azure.AI.Language.Text/src
 [package]: https://www.nuget.org/packages/
 [text_refdocs]: https://learn.microsoft.com/dotnet/
 [text_docs]: https://learn.microsoft.com/azure/cognitive-services/text-analytics/
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
-[textanalysisclient_class]: https://github.com/azure/azure-sdk-for-net/blob/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/src/TextAnalysisClient.cs
+[textanalysisclient_class]: https://github.com/azure/azure-sdk-for-net/blob/main/sdk/cognitivelanguage/Azure.AI.Language.Text/src/TextAnalysisClient.cs
 [cognitive_auth]: https://learn.microsoft.com/azure/cognitive-services/authentication/
 [azure_cli]: https://learn.microsoft.com/cli/azure
 [azure_portal]: https://portal.azure.com
-[logging]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.Text_1.0.0-beta.2/sdk/core/Azure.Core/samples/Diagnostics.md
-
+[logging]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md
 
