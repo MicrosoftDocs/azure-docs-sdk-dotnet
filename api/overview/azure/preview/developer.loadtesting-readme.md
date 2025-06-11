@@ -1,12 +1,12 @@
 ---
 title: Azure Load Testing client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Developer.LoadTesting, load-testing
-ms.date: 05/27/2025
+ms.date: 06/11/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: load-testing
 ---
-# Azure Load Testing client library for .NET - version 1.2.0-beta.1 
+# Azure Load Testing client library for .NET - version 1.2.0-alpha.20250610.1 
 
 
 Azure Load Testing provides client library in .NET to the user by which they can interact natively with Azure Load Testing service. Azure Load Testing is a fully managed load-testing service that enables you to generate high-scale load. The service simulates traffic for your applications, regardless of where they're hosted. Developers, testers, and quality assurance (QA) engineers can use it to optimize application performance, scalability, or capacity.
@@ -105,11 +105,11 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Developer.LoadTesting_1.2.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Developer.LoadTesting_1.2.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Developer.LoadTesting_1.2.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Developer.LoadTesting_1.2.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Developer.LoadTesting_1.2.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
@@ -117,7 +117,7 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ## Examples
 
-You can familiarize yourself with different APIs using [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.LoadTesting_1.2.0-beta.1/sdk/loadtestservice/Azure.Developer.LoadTesting/samples).
+You can familiarize yourself with different APIs using [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/loadtestservice/Azure.Developer.LoadTesting/samples).
 
 ## Troubleshooting
 
@@ -136,11 +136,11 @@ To learn more about other logging mechanisms see [here][azure_core_diagnostics].
 
 For more extensive documentation on Azure Load Testing, see the [Azure Load Testing documentation][product_documentation].
 
-Get started with our [samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.LoadTesting_1.2.0-beta.1/sdk/loadtestservice/Azure.Developer.LoadTesting/samples) that cover common scenarios.
+Get started with our [samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/loadtestservice/Azure.Developer.LoadTesting/samples) that cover common scenarios.
 
 ## Contributing
 
-See the [CONTRIBUTING.md](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Developer.LoadTesting_1.2.0-beta.1/CONTRIBUTING.md) file for information about how to onboard and contribute to the overall Azure SDK ecosystem.
+See the [CONTRIBUTING.md](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md) file for information about how to onboard and contribute to the overall Azure SDK ecosystem.
 
 This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit [cla.microsoft.com][cla].
 
@@ -150,7 +150,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 
 
 <!-- LINKS -->
-[source_code]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Developer.LoadTesting_1.2.0-beta.1/sdk/loadtestservice/Azure.Developer.LoadTesting/src
+[source_code]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/loadtestservice/Azure.Developer.LoadTesting/src
 [nuget_package]: https://www.nuget.org/packages/Azure.Developer.LoadTesting
 [sdk_api_reference]: https://azure.github.io/azure-sdk-for-net/loadtesting.html
 [style-guide-msft]: https://learn.microsoft.com/style-guide/capitalization
@@ -160,7 +160,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 [email_opencode]: mailto:opencode@microsoft.com
 [authenticate_with_token]: https://learn.microsoft.com/aspnet/core/security/authentication/identity
-[azure_identity_credentials]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.LoadTesting_1.2.0-beta.1/sdk/identity/Azure.Identity#credentials
+[azure_identity_credentials]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#credentials
 [azure_identity_nuget]: https://www.nuget.org/packages/Azure.Identity/1.7.0
 [client_secret_credential]: https://learn.microsoft.com/dotnet/api/azure.identity.clientsecretcredential
 [nuget]: https://www.nuget.org/
@@ -168,5 +168,5 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 [api_reference_doc]: https://learn.microsoft.com/rest/api/loadtesting/
 [product_documentation]: https://azure.microsoft.com/services/load-testing/
 [obtaining_data_plane_uri]: https://learn.microsoft.com/rest/api/loadtesting/data-plane-uri
-[azure_core_diagnostics]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Developer.LoadTesting_1.2.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md
+[azure_core_diagnostics]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md
 
