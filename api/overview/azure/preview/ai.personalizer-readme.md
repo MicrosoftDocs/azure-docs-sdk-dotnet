@@ -1,15 +1,15 @@
 ---
 title: Azure Personalizer client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Personalizer, personalizer
-ms.date: 03/23/2022
+ms.date: 06/11/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: personalizer
 ---
-# Azure Personalizer client library for .NET - version 2.0.0-beta.2 
+# Azure Personalizer client library for .NET - version 2.0.0-alpha.20250611.1 
 
 
-[Azure Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
+[Azure Personalizer](https://learn.microsoft.com/azure/cognitive-services/personalizer/)
 is a cloud-based service that helps your applications choose the best content item to show your users. You can use the Personalizer service to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. After the content is shown to the user, your application monitors the user's reaction and reports a reward score back to the Personalizer service. This ensures continuous improvement of the machine learning model, and Personalizer's ability to select the best content item based on the contextual information it receives.
 
 ## Getting started
@@ -25,9 +25,9 @@ dotnet add package Azure.AI.Personalizer --prerelease
 ## Key concepts
 Functionality is exposed through several client libraries:
 
-- [Azure.AI.Personalizer](https://www.nuget.org/packages/Azure.AI.Personalizer) is built on top of [Azure.Core](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Personalizer_2.0.0-beta.2/sdk/core/Azure.Core/README.md) and the [Azure SDK Design Guidelines for .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html).
+- [Azure.AI.Personalizer](https://www.nuget.org/packages/Azure.AI.Personalizer) is built on top of [Azure.Core](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/README.md) and the [Azure SDK Design Guidelines for .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html).
 
-- [Microsoft.Azure.Personalizer](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Personalizer_2.0.0-beta.2/sdk/cognitiveservices/Personalizer) is the previous .NET client library for Personalizer.
+- [Microsoft.Azure.Personalizer](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitiveservices/Personalizer) is the previous .NET client library for Personalizer.
 
 ## Contributing
 
@@ -44,11 +44,9 @@ For more information see the [Code of Conduct FAQ][coc_faq]
 or contact [opencode@microsoft.com][coc_contact] with any
 additional questions or comments.
 
-
-
 <!-- LINKS -->
 [nuget]: https://www.nuget.org/
-[search_contrib]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Personalizer_2.0.0-beta.2/sdk/search/CONTRIBUTING.md
+[search_contrib]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/search/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
