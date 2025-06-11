@@ -1,10 +1,10 @@
 ---
 title: Azure Search SDK for .NET
 description: Reference for Azure Search SDK for .NET
-ms.date: 06/10/2025
+ms.date: 06/11/2025
 ms.topic: reference
 ms.devlang: dotnet
-ms.service: search
+ms.service: cognitive-search
 ---
 # Azure Search SDK for .NET - legacy
 ## Packages - legacy
