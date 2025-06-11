@@ -66,7 +66,7 @@ Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 Evaluations client = new AIProjectClient(endpoint, credential).GetEvaluationsClient(apiVersion: "2025-05-15-preview");
 
-Evaluation evaluation = new Evaluation(null, new Dictionary<string, EvaluatorConfiguration>
+Evaluation evaluation = new Evaluation(default, new Dictionary<string, EvaluatorConfiguration>
 {
     ["key2735"] = new EvaluatorConfiguration("gujwtvhptykq")
     {
@@ -97,7 +97,7 @@ Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 Evaluations client = new AIProjectClient(endpoint, credential).GetEvaluationsClient(apiVersion: "2025-05-15-preview");
 
-Evaluation evaluation = new Evaluation(null, new Dictionary<string, EvaluatorConfiguration>());
+Evaluation evaluation = new Evaluation(default, new Dictionary<string, EvaluatorConfiguration>());
 Response<Evaluation> response = client.Create(evaluation);
 ]]></code></example>
       </Docs>
@@ -144,6 +144,10 @@ Evaluations client = new AIProjectClient(endpoint, credential).GetEvaluationsCli
 
 using RequestContent content = RequestContent.Create(new
 {
+    data = new
+    {
+        type = "InputData",
+    },
     displayName = "ymjxkodggqrhjnmusta",
     description = "cuviaxytqckkybxwc",
     tags = new
@@ -182,6 +186,10 @@ Evaluations client = new AIProjectClient(endpoint, credential).GetEvaluationsCli
 
 using RequestContent content = RequestContent.Create(new
 {
+    data = new
+    {
+        type = "InputData",
+    },
     evaluators = new object(),
 });
 Response response = client.Create(content);
@@ -544,7 +552,7 @@ Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 Evaluations client = new AIProjectClient(endpoint, credential).GetEvaluationsClient(apiVersion: "2025-05-15-preview");
 
-Evaluation evaluation = new Evaluation(null, new Dictionary<string, EvaluatorConfiguration>
+Evaluation evaluation = new Evaluation(default, new Dictionary<string, EvaluatorConfiguration>
 {
     ["key2735"] = new EvaluatorConfiguration("gujwtvhptykq")
     {
@@ -575,7 +583,7 @@ Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 Evaluations client = new AIProjectClient(endpoint, credential).GetEvaluationsClient(apiVersion: "2025-05-15-preview");
 
-Evaluation evaluation = new Evaluation(null, new Dictionary<string, EvaluatorConfiguration>());
+Evaluation evaluation = new Evaluation(default, new Dictionary<string, EvaluatorConfiguration>());
 Response<Evaluation> response = await client.CreateAsync(evaluation);
 ]]></code></example>
       </Docs>
@@ -622,6 +630,10 @@ Evaluations client = new AIProjectClient(endpoint, credential).GetEvaluationsCli
 
 using RequestContent content = RequestContent.Create(new
 {
+    data = new
+    {
+        type = "InputData",
+    },
     displayName = "ymjxkodggqrhjnmusta",
     description = "cuviaxytqckkybxwc",
     tags = new
@@ -660,6 +672,10 @@ Evaluations client = new AIProjectClient(endpoint, credential).GetEvaluationsCli
 
 using RequestContent content = RequestContent.Create(new
 {
+    data = new
+    {
+        type = "InputData",
+    },
     evaluators = new object(),
 });
 Response response = await client.CreateAsync(content);

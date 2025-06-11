@@ -1,0 +1,422 @@
+<Type Name="TimeSeriesInsightsQueries" FullName="Azure.IoT.TimeSeriesInsights.TimeSeriesInsightsQueries">
+  <TypeSignature Language="C#" Value="public class TimeSeriesInsightsQueries" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit TimeSeriesInsightsQueries extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Azure.IoT.TimeSeriesInsights.TimeSeriesInsightsQueries" />
+  <TypeSignature Language="VB.NET" Value="Public Class TimeSeriesInsightsQueries" />
+  <TypeSignature Language="F#" Value="type TimeSeriesInsightsQueries = class" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.IoT.TimeSeriesInsights</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            A client that can be used to query for events, series and aggregate series on Time Series Insights.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected TimeSeriesInsightsQueries ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.IoT.TimeSeriesInsights.TimeSeriesInsightsQueries.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.IoT.TimeSeriesInsights</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>
+            Initializes a new instance of TimeSeriesInsightsQueries. This constructor should only be used for mocking purposes.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateAggregateSeriesQuery">
+      <MemberSignature Language="C#" Value="public virtual Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer CreateAggregateSeriesQuery (Azure.IoT.TimeSeriesInsights.TimeSeriesId timeSeriesId, DateTimeOffset startTime, DateTimeOffset endTime, TimeSpan interval, Azure.IoT.TimeSeriesInsights.QueryAggregateSeriesRequestOptions options = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer CreateAggregateSeriesQuery(valuetype Azure.IoT.TimeSeriesInsights.TimeSeriesId timeSeriesId, valuetype System.DateTimeOffset startTime, valuetype System.DateTimeOffset endTime, valuetype System.TimeSpan interval, class Azure.IoT.TimeSeriesInsights.QueryAggregateSeriesRequestOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.IoT.TimeSeriesInsights.TimeSeriesInsightsQueries.CreateAggregateSeriesQuery(Azure.IoT.TimeSeriesInsights.TimeSeriesId,System.DateTimeOffset,System.DateTimeOffset,System.TimeSpan,Azure.IoT.TimeSeriesInsights.QueryAggregateSeriesRequestOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateAggregateSeriesQuery (timeSeriesId As TimeSeriesId, startTime As DateTimeOffset, endTime As DateTimeOffset, interval As TimeSpan, Optional options As QueryAggregateSeriesRequestOptions = Nothing, Optional cancellationToken As CancellationToken = Nothing) As TimeSeriesQueryAnalyzer" />
+      <MemberSignature Language="F#" Value="abstract member CreateAggregateSeriesQuery : Azure.IoT.TimeSeriesInsights.TimeSeriesId * DateTimeOffset * DateTimeOffset * TimeSpan * Azure.IoT.TimeSeriesInsights.QueryAggregateSeriesRequestOptions * System.Threading.CancellationToken -&gt; Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer&#xA;override this.CreateAggregateSeriesQuery : Azure.IoT.TimeSeriesInsights.TimeSeriesId * DateTimeOffset * DateTimeOffset * TimeSpan * Azure.IoT.TimeSeriesInsights.QueryAggregateSeriesRequestOptions * System.Threading.CancellationToken -&gt; Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer" Usage="timeSeriesInsightsQueries.CreateAggregateSeriesQuery (timeSeriesId, startTime, endTime, interval, options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.IoT.TimeSeriesInsights</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="timeSeriesId" Type="Azure.IoT.TimeSeriesInsights.TimeSeriesId" />
+        <Parameter Name="startTime" Type="System.DateTimeOffset" />
+        <Parameter Name="endTime" Type="System.DateTimeOffset" />
+        <Parameter Name="interval" Type="System.TimeSpan" />
+        <Parameter Name="options" Type="Azure.IoT.TimeSeriesInsights.QueryAggregateSeriesRequestOptions" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="timeSeriesId">The Time Series Id to retrieve series events for.</param>
+        <param name="startTime">Start timestamp of the time range. Events that have this timestamp are included.</param>
+        <param name="endTime">End timestamp of the time range. Events that match this timestamp are excluded.</param>
+        <param name="interval">Interval size used to group events by.</param>
+        <param name="options">Optional parameters to use when querying for aggregated series events.</param>
+        <param name="cancellationToken">The cancellation token.</param>
+        <summary>
+             Retrieve aggregated time series from events for a given Time Series Id asynchronously.
+             </summary>
+        <returns>The <see cref="T:Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer" /> object that can be used to retrieve the pageable list <see cref="T:Azure.AsyncPageable`1" />.</returns>
+        <remarks>To be added.</remarks>
+        <example>
+          <code snippet="Snippet:TimeSeriesInsightsSampleQueryAggregateSeriesWithAggregateVariable" language="csharp">
+             Console.WriteLine("\n\nCount the number of temperature events over the past 3 minutes, in 1-minute time slots.\n");
+            
+             // Get the count of events in 60-second time slots over the past 3 minutes
+             DateTimeOffset endTime = DateTime.UtcNow;
+             DateTimeOffset startTime = endTime.AddMinutes(-3);
+            
+             var aggregateVariable = new AggregateVariable(
+                 new TimeSeriesExpression("count()"));
+            
+             var countVariableName = "Count";
+            
+             var aggregateSeriesRequestOptions = new QueryAggregateSeriesRequestOptions();
+             aggregateSeriesRequestOptions.InlineVariables[countVariableName] = aggregateVariable;
+             aggregateSeriesRequestOptions.ProjectedVariableNames.Add(countVariableName);
+            
+             TimeSeriesQueryAnalyzer query = queriesClient.CreateAggregateSeriesQuery(
+                 tsId,
+                 startTime,
+                 endTime,
+                 TimeSpan.FromSeconds(60),
+                 aggregateSeriesRequestOptions);
+            
+             await foreach (TimeSeriesPoint point in query.GetResultsAsync())
+             {
+                 long? temperatureCount = (long?)point.GetValue(countVariableName);
+                 Console.WriteLine($"{point.Timestamp} - Temperature count: {temperatureCount}");
+             }
+             </code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateAggregateSeriesQuery">
+      <MemberSignature Language="C#" Value="public virtual Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer CreateAggregateSeriesQuery (Azure.IoT.TimeSeriesInsights.TimeSeriesId timeSeriesId, TimeSpan interval, TimeSpan timeSpan, DateTimeOffset? endTime = default, Azure.IoT.TimeSeriesInsights.QueryAggregateSeriesRequestOptions options = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer CreateAggregateSeriesQuery(valuetype Azure.IoT.TimeSeriesInsights.TimeSeriesId timeSeriesId, valuetype System.TimeSpan interval, valuetype System.TimeSpan timeSpan, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; endTime, class Azure.IoT.TimeSeriesInsights.QueryAggregateSeriesRequestOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.IoT.TimeSeriesInsights.TimeSeriesInsightsQueries.CreateAggregateSeriesQuery(Azure.IoT.TimeSeriesInsights.TimeSeriesId,System.TimeSpan,System.TimeSpan,System.Nullable{System.DateTimeOffset},Azure.IoT.TimeSeriesInsights.QueryAggregateSeriesRequestOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateAggregateSeriesQuery (timeSeriesId As TimeSeriesId, interval As TimeSpan, timeSpan As TimeSpan, Optional endTime As Nullable(Of DateTimeOffset) = Nothing, Optional options As QueryAggregateSeriesRequestOptions = Nothing, Optional cancellationToken As CancellationToken = Nothing) As TimeSeriesQueryAnalyzer" />
+      <MemberSignature Language="F#" Value="abstract member CreateAggregateSeriesQuery : Azure.IoT.TimeSeriesInsights.TimeSeriesId * TimeSpan * TimeSpan * Nullable&lt;DateTimeOffset&gt; * Azure.IoT.TimeSeriesInsights.QueryAggregateSeriesRequestOptions * System.Threading.CancellationToken -&gt; Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer&#xA;override this.CreateAggregateSeriesQuery : Azure.IoT.TimeSeriesInsights.TimeSeriesId * TimeSpan * TimeSpan * Nullable&lt;DateTimeOffset&gt; * Azure.IoT.TimeSeriesInsights.QueryAggregateSeriesRequestOptions * System.Threading.CancellationToken -&gt; Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer" Usage="timeSeriesInsightsQueries.CreateAggregateSeriesQuery (timeSeriesId, interval, timeSpan, endTime, options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.IoT.TimeSeriesInsights</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="timeSeriesId" Type="Azure.IoT.TimeSeriesInsights.TimeSeriesId" />
+        <Parameter Name="interval" Type="System.TimeSpan" />
+        <Parameter Name="timeSpan" Type="System.TimeSpan" />
+        <Parameter Name="endTime" Type="System.Nullable&lt;System.DateTimeOffset&gt;" />
+        <Parameter Name="options" Type="Azure.IoT.TimeSeriesInsights.QueryAggregateSeriesRequestOptions" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="timeSeriesId">The Time Series Id to retrieve series events for.</param>
+        <param name="interval">Interval size used to group events by.</param>
+        <param name="timeSpan">The time interval over which to query data.</param>
+        <param name="endTime">End timestamp of the time range. Events that match this timestamp are excluded. If null is provided, <c>DateTimeOffset.UtcNow</c> is used.</param>
+        <param name="options">Optional parameters to use when querying for aggregated series events.</param>
+        <param name="cancellationToken">The cancellation token.</param>
+        <summary>
+             Retrieve aggregated time series from events for a given Time Series Id over a specified time interval asynchronously.
+             </summary>
+        <returns>The <see cref="T:Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer" /> object that can be used to retrieve the pageable list <see cref="T:Azure.AsyncPageable`1" />.</returns>
+        <remarks>To be added.</remarks>
+        <example>
+          <code snippet="Snippet:TimeSeriesInsightsSampleQueryAggregateSeriesWithNumericVariable" language="csharp">
+             Console.WriteLine("\n\nQuery for the average temperature over the past 30 seconds, in 2-second time slots.\n");
+            
+             var numericVariable = new NumericVariable(
+                 new TimeSeriesExpression("$event.Temperature"),
+                 new TimeSeriesExpression("avg($value)"));
+            
+             var requestOptions = new QueryAggregateSeriesRequestOptions();
+             requestOptions.InlineVariables["Temperature"] = numericVariable;
+             requestOptions.ProjectedVariableNames.Add("Temperature");
+            
+             TimeSeriesQueryAnalyzer aggregateSeriesQuery = queriesClient.CreateAggregateSeriesQuery(
+                 tsId,
+                 TimeSpan.FromSeconds(2),
+                 TimeSpan.FromSeconds(30),
+                 null,
+                 requestOptions);
+            
+             await foreach (TimeSeriesPoint point in aggregateSeriesQuery.GetResultsAsync())
+             {
+                 double? averageTemperature = point.GetNullableDouble("Temperature");
+                 if (averageTemperature != null)
+                 {
+                     Console.WriteLine($"{point.Timestamp} - Average temperature: {averageTemperature}.");
+                 }
+             }
+             </code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateEventsQuery">
+      <MemberSignature Language="C#" Value="public virtual Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer CreateEventsQuery (Azure.IoT.TimeSeriesInsights.TimeSeriesId timeSeriesId, DateTimeOffset startTime, DateTimeOffset endTime, Azure.IoT.TimeSeriesInsights.QueryEventsRequestOptions options = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer CreateEventsQuery(valuetype Azure.IoT.TimeSeriesInsights.TimeSeriesId timeSeriesId, valuetype System.DateTimeOffset startTime, valuetype System.DateTimeOffset endTime, class Azure.IoT.TimeSeriesInsights.QueryEventsRequestOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.IoT.TimeSeriesInsights.TimeSeriesInsightsQueries.CreateEventsQuery(Azure.IoT.TimeSeriesInsights.TimeSeriesId,System.DateTimeOffset,System.DateTimeOffset,Azure.IoT.TimeSeriesInsights.QueryEventsRequestOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateEventsQuery (timeSeriesId As TimeSeriesId, startTime As DateTimeOffset, endTime As DateTimeOffset, Optional options As QueryEventsRequestOptions = Nothing, Optional cancellationToken As CancellationToken = Nothing) As TimeSeriesQueryAnalyzer" />
+      <MemberSignature Language="F#" Value="abstract member CreateEventsQuery : Azure.IoT.TimeSeriesInsights.TimeSeriesId * DateTimeOffset * DateTimeOffset * Azure.IoT.TimeSeriesInsights.QueryEventsRequestOptions * System.Threading.CancellationToken -&gt; Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer&#xA;override this.CreateEventsQuery : Azure.IoT.TimeSeriesInsights.TimeSeriesId * DateTimeOffset * DateTimeOffset * Azure.IoT.TimeSeriesInsights.QueryEventsRequestOptions * System.Threading.CancellationToken -&gt; Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer" Usage="timeSeriesInsightsQueries.CreateEventsQuery (timeSeriesId, startTime, endTime, options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.IoT.TimeSeriesInsights</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="timeSeriesId" Type="Azure.IoT.TimeSeriesInsights.TimeSeriesId" />
+        <Parameter Name="startTime" Type="System.DateTimeOffset" />
+        <Parameter Name="endTime" Type="System.DateTimeOffset" />
+        <Parameter Name="options" Type="Azure.IoT.TimeSeriesInsights.QueryEventsRequestOptions" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="timeSeriesId">The Time Series Id to retrieve raw events for.</param>
+        <param name="startTime">Start timestamp of the time range. Events that have this timestamp are included.</param>
+        <param name="endTime">End timestamp of the time range. Events that match this timestamp are excluded.</param>
+        <param name="options">Optional parameters to use when querying for events.</param>
+        <param name="cancellationToken">The cancellation token.</param>
+        <summary>
+             Retrieve raw events for a given Time Series Id asynchronously.
+             </summary>
+        <returns>The <see cref="T:Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer" /> object that can be used to retrieve the pageable list <see cref="T:Azure.AsyncPageable`1" />.</returns>
+        <remarks>To be added.</remarks>
+        <example>
+          <code snippet="Snippet:TimeSeriesInsightsSampleQueryEvents" language="csharp">
+             Console.WriteLine("\n\nQuery for raw temperature events over the past 10 minutes.\n");
+            
+             // Get events from last 10 minute
+             DateTimeOffset endTime = DateTime.UtcNow;
+             DateTimeOffset startTime = endTime.AddMinutes(-10);
+            
+             TimeSeriesQueryAnalyzer temperatureEventsQuery = queriesClient.CreateEventsQuery(tsId, startTime, endTime);
+             await foreach (TimeSeriesPoint point in temperatureEventsQuery.GetResultsAsync())
+             {
+                 TimeSeriesValue temperatureValue = point.GetValue("Temperature");
+            
+                 // Figure out what is the underlying type for the time series value. Since you know your Time Series Insights
+                 // environment best, you probably do not need this logic and you can skip to directly casting to the proper
+                 // type. This logic demonstrates how you can figure out what type to cast to in the case where you are not
+                 // too familiar with the property type.
+                 if (temperatureValue.Type == typeof(double?))
+                 {
+                     Console.WriteLine($"{point.Timestamp} - Temperature: {point.GetNullableDouble("Temperature")}");
+                 }
+                 else if (temperatureValue.Type == typeof(int?))
+                 {
+                     Console.WriteLine($"{point.Timestamp} - Temperature: {point.GetNullableInt("Temperature")}");
+                 }
+                 else
+                 {
+                     Console.WriteLine("The type of the Time Series value for Temperature is not numeric.");
+                 }
+             }
+             </code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateEventsQuery">
+      <MemberSignature Language="C#" Value="public virtual Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer CreateEventsQuery (Azure.IoT.TimeSeriesInsights.TimeSeriesId timeSeriesId, TimeSpan timeSpan, DateTimeOffset? endTime = default, Azure.IoT.TimeSeriesInsights.QueryEventsRequestOptions options = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer CreateEventsQuery(valuetype Azure.IoT.TimeSeriesInsights.TimeSeriesId timeSeriesId, valuetype System.TimeSpan timeSpan, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; endTime, class Azure.IoT.TimeSeriesInsights.QueryEventsRequestOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.IoT.TimeSeriesInsights.TimeSeriesInsightsQueries.CreateEventsQuery(Azure.IoT.TimeSeriesInsights.TimeSeriesId,System.TimeSpan,System.Nullable{System.DateTimeOffset},Azure.IoT.TimeSeriesInsights.QueryEventsRequestOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateEventsQuery (timeSeriesId As TimeSeriesId, timeSpan As TimeSpan, Optional endTime As Nullable(Of DateTimeOffset) = Nothing, Optional options As QueryEventsRequestOptions = Nothing, Optional cancellationToken As CancellationToken = Nothing) As TimeSeriesQueryAnalyzer" />
+      <MemberSignature Language="F#" Value="abstract member CreateEventsQuery : Azure.IoT.TimeSeriesInsights.TimeSeriesId * TimeSpan * Nullable&lt;DateTimeOffset&gt; * Azure.IoT.TimeSeriesInsights.QueryEventsRequestOptions * System.Threading.CancellationToken -&gt; Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer&#xA;override this.CreateEventsQuery : Azure.IoT.TimeSeriesInsights.TimeSeriesId * TimeSpan * Nullable&lt;DateTimeOffset&gt; * Azure.IoT.TimeSeriesInsights.QueryEventsRequestOptions * System.Threading.CancellationToken -&gt; Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer" Usage="timeSeriesInsightsQueries.CreateEventsQuery (timeSeriesId, timeSpan, endTime, options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.IoT.TimeSeriesInsights</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="timeSeriesId" Type="Azure.IoT.TimeSeriesInsights.TimeSeriesId" />
+        <Parameter Name="timeSpan" Type="System.TimeSpan" />
+        <Parameter Name="endTime" Type="System.Nullable&lt;System.DateTimeOffset&gt;" />
+        <Parameter Name="options" Type="Azure.IoT.TimeSeriesInsights.QueryEventsRequestOptions" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="timeSeriesId">The Time Series Id to retrieve raw events for.</param>
+        <param name="timeSpan">The time interval over which to query data.</param>
+        <param name="endTime">End timestamp of the time range. Events that match this timestamp are excluded. If null is provided, <c>DateTimeOffset.UtcNow</c> is used.</param>
+        <param name="options">Optional parameters to use when querying for events.</param>
+        <param name="cancellationToken">The cancellation token.</param>
+        <summary>
+             Retrieve raw events for a given Time Series Id over a specified time interval asynchronously.
+             </summary>
+        <returns>The <see cref="T:Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer" /> object that can be used to retrieve the pageable list <see cref="T:Azure.AsyncPageable`1" />.</returns>
+        <remarks>To be added.</remarks>
+        <example>
+          <code snippet="Snippet:TimeSeriesInsightsSampleQueryEventsUsingTimeSpan" language="csharp">
+             Console.WriteLine("\n\nQuery for raw humidity events over the past 30 seconds.\n");
+            
+             TimeSeriesQueryAnalyzer humidityEventsQuery = queriesClient.CreateEventsQuery(tsId, TimeSpan.FromSeconds(30));
+             await foreach (TimeSeriesPoint point in humidityEventsQuery.GetResultsAsync())
+             {
+                 TimeSeriesValue humidityValue = point.GetValue("Humidity");
+            
+                 // Figure out what is the underlying type for the time series value. Since you know your Time Series Insights
+                 // environment best, you probably do not need this logic and you can skip to directly casting to the proper
+                 // type. This logic demonstrates how you can figure out what type to cast to in the case where you are not
+                 // too familiar with the property type.
+                 if (humidityValue.Type == typeof(double?))
+                 {
+                     Console.WriteLine($"{point.Timestamp} - Humidity: {point.GetNullableDouble("Humidity")}");
+                 }
+                 else if (humidityValue.Type == typeof(int?))
+                 {
+                     Console.WriteLine($"{point.Timestamp} - Humidity: {point.GetNullableInt("Humidity")}");
+                 }
+                 else
+                 {
+                     Console.WriteLine("The type of the Time Series value for Humidity is not numeric.");
+                 }
+             }
+             </code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateSeriesQuery">
+      <MemberSignature Language="C#" Value="public virtual Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer CreateSeriesQuery (Azure.IoT.TimeSeriesInsights.TimeSeriesId timeSeriesId, DateTimeOffset startTime, DateTimeOffset endTime, Azure.IoT.TimeSeriesInsights.QuerySeriesRequestOptions options = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer CreateSeriesQuery(valuetype Azure.IoT.TimeSeriesInsights.TimeSeriesId timeSeriesId, valuetype System.DateTimeOffset startTime, valuetype System.DateTimeOffset endTime, class Azure.IoT.TimeSeriesInsights.QuerySeriesRequestOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.IoT.TimeSeriesInsights.TimeSeriesInsightsQueries.CreateSeriesQuery(Azure.IoT.TimeSeriesInsights.TimeSeriesId,System.DateTimeOffset,System.DateTimeOffset,Azure.IoT.TimeSeriesInsights.QuerySeriesRequestOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateSeriesQuery (timeSeriesId As TimeSeriesId, startTime As DateTimeOffset, endTime As DateTimeOffset, Optional options As QuerySeriesRequestOptions = Nothing, Optional cancellationToken As CancellationToken = Nothing) As TimeSeriesQueryAnalyzer" />
+      <MemberSignature Language="F#" Value="abstract member CreateSeriesQuery : Azure.IoT.TimeSeriesInsights.TimeSeriesId * DateTimeOffset * DateTimeOffset * Azure.IoT.TimeSeriesInsights.QuerySeriesRequestOptions * System.Threading.CancellationToken -&gt; Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer&#xA;override this.CreateSeriesQuery : Azure.IoT.TimeSeriesInsights.TimeSeriesId * DateTimeOffset * DateTimeOffset * Azure.IoT.TimeSeriesInsights.QuerySeriesRequestOptions * System.Threading.CancellationToken -&gt; Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer" Usage="timeSeriesInsightsQueries.CreateSeriesQuery (timeSeriesId, startTime, endTime, options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.IoT.TimeSeriesInsights</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="timeSeriesId" Type="Azure.IoT.TimeSeriesInsights.TimeSeriesId" />
+        <Parameter Name="startTime" Type="System.DateTimeOffset" />
+        <Parameter Name="endTime" Type="System.DateTimeOffset" />
+        <Parameter Name="options" Type="Azure.IoT.TimeSeriesInsights.QuerySeriesRequestOptions" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="timeSeriesId">The Time Series Id to retrieve series events for.</param>
+        <param name="startTime">Start timestamp of the time range. Events that have this timestamp are included.</param>
+        <param name="endTime">End timestamp of the time range. Events that match this timestamp are excluded.</param>
+        <param name="options">Optional parameters to use when querying for series events.</param>
+        <param name="cancellationToken">The cancellation token.</param>
+        <summary>
+             Retrieve series events for a given Time Series Id asynchronously.
+             </summary>
+        <returns>The <see cref="T:Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer" /> object that can be used to retrieve the pageable list <see cref="T:Azure.AsyncPageable`1" />.</returns>
+        <remarks>To be added.</remarks>
+        <example>
+          <code snippet="Snippet:TimeSeriesInsightsSampleQuerySeries" language="csharp">
+             Console.WriteLine($"\n\nQuery for temperature series in Celsius and Fahrenheit over the past 10 minutes. " +
+                 $"The Time Series instance belongs to a type that has predefined numeric variable that represents the temperature " +
+                 $"in Celsuis, and a predefined numeric variable that represents the temperature in Fahrenheit.\n");
+            
+             DateTimeOffset endTime = DateTime.UtcNow;
+             DateTimeOffset startTime = endTime.AddMinutes(-10);
+             TimeSeriesQueryAnalyzer seriesQuery = queriesClient.CreateSeriesQuery(
+                 tsId,
+                 startTime,
+                 endTime);
+            
+             await foreach (TimeSeriesPoint point in seriesQuery.GetResultsAsync())
+             {
+                 double? tempInCelsius = point.GetNullableDouble(celsiusVariableName);
+                 double? tempInFahrenheit = point.GetNullableDouble(fahrenheitVariableName);
+            
+                 Console.WriteLine($"{point.Timestamp} - Average temperature in Celsius: {tempInCelsius}. " +
+                     $"Average temperature in Fahrenheit: {tempInFahrenheit}.");
+             }
+             </code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateSeriesQuery">
+      <MemberSignature Language="C#" Value="public virtual Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer CreateSeriesQuery (Azure.IoT.TimeSeriesInsights.TimeSeriesId timeSeriesId, TimeSpan timeSpan, DateTimeOffset? endTime = default, Azure.IoT.TimeSeriesInsights.QuerySeriesRequestOptions options = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer CreateSeriesQuery(valuetype Azure.IoT.TimeSeriesInsights.TimeSeriesId timeSeriesId, valuetype System.TimeSpan timeSpan, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; endTime, class Azure.IoT.TimeSeriesInsights.QuerySeriesRequestOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.IoT.TimeSeriesInsights.TimeSeriesInsightsQueries.CreateSeriesQuery(Azure.IoT.TimeSeriesInsights.TimeSeriesId,System.TimeSpan,System.Nullable{System.DateTimeOffset},Azure.IoT.TimeSeriesInsights.QuerySeriesRequestOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateSeriesQuery (timeSeriesId As TimeSeriesId, timeSpan As TimeSpan, Optional endTime As Nullable(Of DateTimeOffset) = Nothing, Optional options As QuerySeriesRequestOptions = Nothing, Optional cancellationToken As CancellationToken = Nothing) As TimeSeriesQueryAnalyzer" />
+      <MemberSignature Language="F#" Value="abstract member CreateSeriesQuery : Azure.IoT.TimeSeriesInsights.TimeSeriesId * TimeSpan * Nullable&lt;DateTimeOffset&gt; * Azure.IoT.TimeSeriesInsights.QuerySeriesRequestOptions * System.Threading.CancellationToken -&gt; Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer&#xA;override this.CreateSeriesQuery : Azure.IoT.TimeSeriesInsights.TimeSeriesId * TimeSpan * Nullable&lt;DateTimeOffset&gt; * Azure.IoT.TimeSeriesInsights.QuerySeriesRequestOptions * System.Threading.CancellationToken -&gt; Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer" Usage="timeSeriesInsightsQueries.CreateSeriesQuery (timeSeriesId, timeSpan, endTime, options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.IoT.TimeSeriesInsights</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="timeSeriesId" Type="Azure.IoT.TimeSeriesInsights.TimeSeriesId" />
+        <Parameter Name="timeSpan" Type="System.TimeSpan" />
+        <Parameter Name="endTime" Type="System.Nullable&lt;System.DateTimeOffset&gt;" />
+        <Parameter Name="options" Type="Azure.IoT.TimeSeriesInsights.QuerySeriesRequestOptions" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="timeSeriesId">The Time Series Id to retrieve series events for.</param>
+        <param name="timeSpan">The time interval over which to query data.</param>
+        <param name="endTime">End timestamp of the time range. Events that match this timestamp are excluded. If null is provided, <c>DateTimeOffset.UtcNow</c> is used.</param>
+        <param name="options">Optional parameters to use when querying for series events.</param>
+        <param name="cancellationToken">The cancellation token.</param>
+        <summary>
+             Retrieve series events for a given Time Series Id over a specified time interval asynchronously.
+             </summary>
+        <returns>The <see cref="T:Azure.IoT.TimeSeriesInsights.TimeSeriesQueryAnalyzer" /> object that can be used to retrieve the pageable list <see cref="T:Azure.AsyncPageable`1" />.</returns>
+        <remarks>To be added.</remarks>
+        <example>
+          <code snippet="Snippet:TimeSeriesInsightsSampleQuerySeriesWithInlineVariables" language="csharp">
+             Console.WriteLine("\n\nQuery for temperature series in Celsius and Fahrenheit over the past 10 minutes.\n");
+            
+             var celsiusVariable = new NumericVariable(
+                 new TimeSeriesExpression("$event.Temperature"),
+                 new TimeSeriesExpression("avg($value)"));
+             var fahrenheitVariable = new NumericVariable(
+                 new TimeSeriesExpression("$event.Temperature * 1.8 + 32"),
+                 new TimeSeriesExpression("avg($value)"));
+            
+             var querySeriesRequestOptions = new QuerySeriesRequestOptions();
+             querySeriesRequestOptions.InlineVariables["TemperatureInCelsius"] = celsiusVariable;
+             querySeriesRequestOptions.InlineVariables["TemperatureInFahrenheit"] = fahrenheitVariable;
+            
+             TimeSeriesQueryAnalyzer seriesQuery = queriesClient.CreateSeriesQuery(
+                 tsId,
+                 TimeSpan.FromMinutes(10),
+                 null,
+                 querySeriesRequestOptions);
+            
+             await foreach (TimeSeriesPoint point in seriesQuery.GetResultsAsync())
+             {
+                 double? tempInCelsius = (double?)point.GetValue("TemperatureInCelsius");
+                 double? tempInFahrenheit = (double?)point.GetValue("TemperatureInFahrenheit");
+            
+                 Console.WriteLine($"{point.Timestamp} - Average temperature in Celsius: {tempInCelsius}. Average temperature in Fahrenheit: {tempInFahrenheit}.");
+             }
+             </code>
+        </example>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
