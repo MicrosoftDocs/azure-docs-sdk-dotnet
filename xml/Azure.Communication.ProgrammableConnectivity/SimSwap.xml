@@ -54,11 +54,11 @@
       </Docs>
     </Member>
     <Member MemberName="Retrieve">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalResult&gt; Retrieve (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent simSwapRetrievalContent, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalResult&gt; Retrieve(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent simSwapRetrievalContent, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalResult&gt; Retrieve (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent body, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalResult&gt; Retrieve(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent body, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Communication.ProgrammableConnectivity.SimSwap.Retrieve(System.String,Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function Retrieve (apcGatewayId As String, simSwapRetrievalContent As SimSwapRetrievalContent, Optional cancellationToken As CancellationToken = Nothing) As Response(Of SimSwapRetrievalResult)" />
-      <MemberSignature Language="F#" Value="abstract member Retrieve : string * Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalResult&gt;&#xA;override this.Retrieve : string * Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalResult&gt;" Usage="simSwap.Retrieve (apcGatewayId, simSwapRetrievalContent, cancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Retrieve (apcGatewayId As String, body As SimSwapRetrievalContent, Optional cancellationToken As CancellationToken = Nothing) As Response(Of SimSwapRetrievalResult)" />
+      <MemberSignature Language="F#" Value="abstract member Retrieve : string * Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalResult&gt;&#xA;override this.Retrieve : string * Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalResult&gt;" Usage="simSwap.Retrieve (apcGatewayId, body, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Communication.ProgrammableConnectivity</AssemblyName>
@@ -69,39 +69,30 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="apcGatewayId" Type="System.String" />
-        <Parameter Name="simSwapRetrievalContent" Type="Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent" />
+        <Parameter Name="body" Type="Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="apcGatewayId"> The identifier of the APC Gateway resource which should handle this request. </param>
-        <param name="simSwapRetrievalContent"> Request to retrieve SimSwap date. </param>
+        <param name="body"> Body parameter. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary> Provides timestamp of latest SIM swap. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="apcGatewayId" /> or <paramref name="simSwapRetrievalContent" /> is null. </exception>
+          <paramref name="apcGatewayId" /> or <paramref name="body" /> is null. </exception>
         <example>
 This sample shows how to call Retrieve.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 SimSwap client = new ProgrammableConnectivityClient(endpoint, credential).GetSimSwapClient(apiVersion: "2024-02-09-preview");
 
-SimSwapRetrievalContent simSwapRetrievalContent = new SimSwapRetrievalContent(new NetworkIdentifier("<identifierType>", "<identifier>"));
-Response<SimSwapRetrievalResult> response = client.Retrieve("<apcGatewayId>", simSwapRetrievalContent);
-]]></code>
-This sample shows how to call Retrieve with all parameters.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-SimSwap client = new ProgrammableConnectivityClient(endpoint, credential).GetSimSwapClient(apiVersion: "2024-02-09-preview");
-
-SimSwapRetrievalContent simSwapRetrievalContent = new SimSwapRetrievalContent(new NetworkIdentifier("<identifierType>", "<identifier>"))
+SimSwapRetrievalContent body = new SimSwapRetrievalContent(new NetworkIdentifier("IPv6", "2001:0db8:85a3:0000:0000:8a2e:0370:7334"))
 {
-    PhoneNumber = "<phoneNumber>",
+    PhoneNumber = "+61215310263792",
 };
-Response<SimSwapRetrievalResult> response = client.Retrieve("<apcGatewayId>", simSwapRetrievalContent);
+Response<SimSwapRetrievalResult> response = client.Retrieve("zdgrzzaxlodrvewbksn", body);
 ]]></code></example>
       </Docs>
     </Member>
@@ -143,51 +134,32 @@ Response<SimSwapRetrievalResult> response = client.Retrieve("<apcGatewayId>", si
         <example>
 This sample shows how to call Retrieve and parse the result.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 SimSwap client = new ProgrammableConnectivityClient(endpoint, credential).GetSimSwapClient(apiVersion: "2024-02-09-preview");
 
 using RequestContent content = RequestContent.Create(new
 {
+    phoneNumber = "+61215310263792",
     networkIdentifier = new
     {
-        identifierType = "<identifierType>",
-        identifier = "<identifier>",
+        identifierType = "IPv6",
+        identifier = "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
     },
 });
-Response response = client.Retrieve("<apcGatewayId>", content);
+Response response = client.Retrieve("zdgrzzaxlodrvewbksn", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.ToString());
-]]></code>
-This sample shows how to call Retrieve with all parameters and request content and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-SimSwap client = new ProgrammableConnectivityClient(endpoint, credential).GetSimSwapClient(apiVersion: "2024-02-09-preview");
-
-using RequestContent content = RequestContent.Create(new
-{
-    phoneNumber = "<phoneNumber>",
-    networkIdentifier = new
-    {
-        identifierType = "<identifierType>",
-        identifier = "<identifier>",
-    },
-});
-Response response = client.Retrieve("<apcGatewayId>", content);
-
-JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-Console.WriteLine(result.GetProperty("date").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="RetrieveAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalResult&gt;&gt; RetrieveAsync (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent simSwapRetrievalContent, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalResult&gt;&gt; RetrieveAsync(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent simSwapRetrievalContent, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalResult&gt;&gt; RetrieveAsync (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent body, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalResult&gt;&gt; RetrieveAsync(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent body, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Communication.ProgrammableConnectivity.SimSwap.RetrieveAsync(System.String,Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function RetrieveAsync (apcGatewayId As String, simSwapRetrievalContent As SimSwapRetrievalContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of SimSwapRetrievalResult))" />
-      <MemberSignature Language="F#" Value="abstract member RetrieveAsync : string * Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalResult&gt;&gt;&#xA;override this.RetrieveAsync : string * Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalResult&gt;&gt;" Usage="simSwap.RetrieveAsync (apcGatewayId, simSwapRetrievalContent, cancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function RetrieveAsync (apcGatewayId As String, body As SimSwapRetrievalContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of SimSwapRetrievalResult))" />
+      <MemberSignature Language="F#" Value="abstract member RetrieveAsync : string * Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalResult&gt;&gt;&#xA;override this.RetrieveAsync : string * Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalResult&gt;&gt;" Usage="simSwap.RetrieveAsync (apcGatewayId, body, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Communication.ProgrammableConnectivity</AssemblyName>
@@ -198,39 +170,30 @@ Console.WriteLine(result.GetProperty("date").ToString());
       </ReturnValue>
       <Parameters>
         <Parameter Name="apcGatewayId" Type="System.String" />
-        <Parameter Name="simSwapRetrievalContent" Type="Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent" />
+        <Parameter Name="body" Type="Azure.Communication.ProgrammableConnectivity.SimSwapRetrievalContent" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="apcGatewayId"> The identifier of the APC Gateway resource which should handle this request. </param>
-        <param name="simSwapRetrievalContent"> Request to retrieve SimSwap date. </param>
+        <param name="body"> Body parameter. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary> Provides timestamp of latest SIM swap. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="apcGatewayId" /> or <paramref name="simSwapRetrievalContent" /> is null. </exception>
+          <paramref name="apcGatewayId" /> or <paramref name="body" /> is null. </exception>
         <example>
 This sample shows how to call RetrieveAsync.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 SimSwap client = new ProgrammableConnectivityClient(endpoint, credential).GetSimSwapClient(apiVersion: "2024-02-09-preview");
 
-SimSwapRetrievalContent simSwapRetrievalContent = new SimSwapRetrievalContent(new NetworkIdentifier("<identifierType>", "<identifier>"));
-Response<SimSwapRetrievalResult> response = await client.RetrieveAsync("<apcGatewayId>", simSwapRetrievalContent);
-]]></code>
-This sample shows how to call RetrieveAsync with all parameters.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-SimSwap client = new ProgrammableConnectivityClient(endpoint, credential).GetSimSwapClient(apiVersion: "2024-02-09-preview");
-
-SimSwapRetrievalContent simSwapRetrievalContent = new SimSwapRetrievalContent(new NetworkIdentifier("<identifierType>", "<identifier>"))
+SimSwapRetrievalContent body = new SimSwapRetrievalContent(new NetworkIdentifier("IPv6", "2001:0db8:85a3:0000:0000:8a2e:0370:7334"))
 {
-    PhoneNumber = "<phoneNumber>",
+    PhoneNumber = "+61215310263792",
 };
-Response<SimSwapRetrievalResult> response = await client.RetrieveAsync("<apcGatewayId>", simSwapRetrievalContent);
+Response<SimSwapRetrievalResult> response = await client.RetrieveAsync("zdgrzzaxlodrvewbksn", body);
 ]]></code></example>
       </Docs>
     </Member>
@@ -272,51 +235,32 @@ Response<SimSwapRetrievalResult> response = await client.RetrieveAsync("<apcGate
         <example>
 This sample shows how to call RetrieveAsync and parse the result.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 SimSwap client = new ProgrammableConnectivityClient(endpoint, credential).GetSimSwapClient(apiVersion: "2024-02-09-preview");
 
 using RequestContent content = RequestContent.Create(new
 {
+    phoneNumber = "+61215310263792",
     networkIdentifier = new
     {
-        identifierType = "<identifierType>",
-        identifier = "<identifier>",
+        identifierType = "IPv6",
+        identifier = "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
     },
 });
-Response response = await client.RetrieveAsync("<apcGatewayId>", content);
+Response response = await client.RetrieveAsync("zdgrzzaxlodrvewbksn", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.ToString());
-]]></code>
-This sample shows how to call RetrieveAsync with all parameters and request content and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-SimSwap client = new ProgrammableConnectivityClient(endpoint, credential).GetSimSwapClient(apiVersion: "2024-02-09-preview");
-
-using RequestContent content = RequestContent.Create(new
-{
-    phoneNumber = "<phoneNumber>",
-    networkIdentifier = new
-    {
-        identifierType = "<identifierType>",
-        identifier = "<identifier>",
-    },
-});
-Response response = await client.RetrieveAsync("<apcGatewayId>", content);
-
-JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-Console.WriteLine(result.GetProperty("date").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="Verify">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapVerificationResult&gt; Verify (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent simSwapVerificationContent, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.SimSwapVerificationResult&gt; Verify(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent simSwapVerificationContent, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapVerificationResult&gt; Verify (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent body, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.SimSwapVerificationResult&gt; Verify(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent body, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Communication.ProgrammableConnectivity.SimSwap.Verify(System.String,Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function Verify (apcGatewayId As String, simSwapVerificationContent As SimSwapVerificationContent, Optional cancellationToken As CancellationToken = Nothing) As Response(Of SimSwapVerificationResult)" />
-      <MemberSignature Language="F#" Value="abstract member Verify : string * Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapVerificationResult&gt;&#xA;override this.Verify : string * Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapVerificationResult&gt;" Usage="simSwap.Verify (apcGatewayId, simSwapVerificationContent, cancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Verify (apcGatewayId As String, body As SimSwapVerificationContent, Optional cancellationToken As CancellationToken = Nothing) As Response(Of SimSwapVerificationResult)" />
+      <MemberSignature Language="F#" Value="abstract member Verify : string * Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapVerificationResult&gt;&#xA;override this.Verify : string * Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapVerificationResult&gt;" Usage="simSwap.Verify (apcGatewayId, body, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Communication.ProgrammableConnectivity</AssemblyName>
@@ -327,40 +271,30 @@ Console.WriteLine(result.GetProperty("date").ToString());
       </ReturnValue>
       <Parameters>
         <Parameter Name="apcGatewayId" Type="System.String" />
-        <Parameter Name="simSwapVerificationContent" Type="Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent" />
+        <Parameter Name="body" Type="Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="apcGatewayId"> The identifier of the APC Gateway resource which should handle this request. </param>
-        <param name="simSwapVerificationContent"> Request to verify SimSwap in period. </param>
+        <param name="body"> Body parameter. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary> Verifies if a SIM swap has been performed during a past period (defined in the request with 'maxAgeHours' attribute). Returns 'True' if a SIM swap has occured. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="apcGatewayId" /> or <paramref name="simSwapVerificationContent" /> is null. </exception>
+          <paramref name="apcGatewayId" /> or <paramref name="body" /> is null. </exception>
         <example>
 This sample shows how to call Verify.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 SimSwap client = new ProgrammableConnectivityClient(endpoint, credential).GetSimSwapClient(apiVersion: "2024-02-09-preview");
 
-SimSwapVerificationContent simSwapVerificationContent = new SimSwapVerificationContent(new NetworkIdentifier("<identifierType>", "<identifier>"));
-Response<SimSwapVerificationResult> response = client.Verify("<apcGatewayId>", simSwapVerificationContent);
-]]></code>
-This sample shows how to call Verify with all parameters.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-SimSwap client = new ProgrammableConnectivityClient(endpoint, credential).GetSimSwapClient(apiVersion: "2024-02-09-preview");
-
-SimSwapVerificationContent simSwapVerificationContent = new SimSwapVerificationContent(new NetworkIdentifier("<identifierType>", "<identifier>"))
+SimSwapVerificationContent body = new SimSwapVerificationContent(new NetworkIdentifier("ipv4", "12.12.12.12"))
 {
-    PhoneNumber = "<phoneNumber>",
-    MaxAgeHours = 1234,
+    MaxAgeHours = 941,
 };
-Response<SimSwapVerificationResult> response = client.Verify("<apcGatewayId>", simSwapVerificationContent);
+Response<SimSwapVerificationResult> response = client.Verify("zdgrzzaxlodrvewbksn", body);
 ]]></code></example>
       </Docs>
     </Member>
@@ -402,40 +336,20 @@ Response<SimSwapVerificationResult> response = client.Verify("<apcGatewayId>", s
         <example>
 This sample shows how to call Verify and parse the result.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 SimSwap client = new ProgrammableConnectivityClient(endpoint, credential).GetSimSwapClient(apiVersion: "2024-02-09-preview");
 
 using RequestContent content = RequestContent.Create(new
 {
+    maxAgeHours = 941,
     networkIdentifier = new
     {
-        identifierType = "<identifierType>",
-        identifier = "<identifier>",
+        identifierType = "ipv4",
+        identifier = "12.12.12.12",
     },
 });
-Response response = client.Verify("<apcGatewayId>", content);
-
-JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-Console.WriteLine(result.GetProperty("verificationResult").ToString());
-]]></code>
-This sample shows how to call Verify with all parameters and request content and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-SimSwap client = new ProgrammableConnectivityClient(endpoint, credential).GetSimSwapClient(apiVersion: "2024-02-09-preview");
-
-using RequestContent content = RequestContent.Create(new
-{
-    phoneNumber = "<phoneNumber>",
-    maxAgeHours = 1234,
-    networkIdentifier = new
-    {
-        identifierType = "<identifierType>",
-        identifier = "<identifier>",
-    },
-});
-Response response = client.Verify("<apcGatewayId>", content);
+Response response = client.Verify("zdgrzzaxlodrvewbksn", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("verificationResult").ToString());
@@ -443,11 +357,11 @@ Console.WriteLine(result.GetProperty("verificationResult").ToString());
       </Docs>
     </Member>
     <Member MemberName="VerifyAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapVerificationResult&gt;&gt; VerifyAsync (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent simSwapVerificationContent, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.SimSwapVerificationResult&gt;&gt; VerifyAsync(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent simSwapVerificationContent, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapVerificationResult&gt;&gt; VerifyAsync (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent body, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.SimSwapVerificationResult&gt;&gt; VerifyAsync(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent body, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Communication.ProgrammableConnectivity.SimSwap.VerifyAsync(System.String,Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function VerifyAsync (apcGatewayId As String, simSwapVerificationContent As SimSwapVerificationContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of SimSwapVerificationResult))" />
-      <MemberSignature Language="F#" Value="abstract member VerifyAsync : string * Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapVerificationResult&gt;&gt;&#xA;override this.VerifyAsync : string * Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapVerificationResult&gt;&gt;" Usage="simSwap.VerifyAsync (apcGatewayId, simSwapVerificationContent, cancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function VerifyAsync (apcGatewayId As String, body As SimSwapVerificationContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of SimSwapVerificationResult))" />
+      <MemberSignature Language="F#" Value="abstract member VerifyAsync : string * Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapVerificationResult&gt;&gt;&#xA;override this.VerifyAsync : string * Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.SimSwapVerificationResult&gt;&gt;" Usage="simSwap.VerifyAsync (apcGatewayId, body, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Communication.ProgrammableConnectivity</AssemblyName>
@@ -458,40 +372,30 @@ Console.WriteLine(result.GetProperty("verificationResult").ToString());
       </ReturnValue>
       <Parameters>
         <Parameter Name="apcGatewayId" Type="System.String" />
-        <Parameter Name="simSwapVerificationContent" Type="Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent" />
+        <Parameter Name="body" Type="Azure.Communication.ProgrammableConnectivity.SimSwapVerificationContent" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="apcGatewayId"> The identifier of the APC Gateway resource which should handle this request. </param>
-        <param name="simSwapVerificationContent"> Request to verify SimSwap in period. </param>
+        <param name="body"> Body parameter. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary> Verifies if a SIM swap has been performed during a past period (defined in the request with 'maxAgeHours' attribute). Returns 'True' if a SIM swap has occured. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="apcGatewayId" /> or <paramref name="simSwapVerificationContent" /> is null. </exception>
+          <paramref name="apcGatewayId" /> or <paramref name="body" /> is null. </exception>
         <example>
 This sample shows how to call VerifyAsync.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 SimSwap client = new ProgrammableConnectivityClient(endpoint, credential).GetSimSwapClient(apiVersion: "2024-02-09-preview");
 
-SimSwapVerificationContent simSwapVerificationContent = new SimSwapVerificationContent(new NetworkIdentifier("<identifierType>", "<identifier>"));
-Response<SimSwapVerificationResult> response = await client.VerifyAsync("<apcGatewayId>", simSwapVerificationContent);
-]]></code>
-This sample shows how to call VerifyAsync with all parameters.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-SimSwap client = new ProgrammableConnectivityClient(endpoint, credential).GetSimSwapClient(apiVersion: "2024-02-09-preview");
-
-SimSwapVerificationContent simSwapVerificationContent = new SimSwapVerificationContent(new NetworkIdentifier("<identifierType>", "<identifier>"))
+SimSwapVerificationContent body = new SimSwapVerificationContent(new NetworkIdentifier("ipv4", "12.12.12.12"))
 {
-    PhoneNumber = "<phoneNumber>",
-    MaxAgeHours = 1234,
+    MaxAgeHours = 941,
 };
-Response<SimSwapVerificationResult> response = await client.VerifyAsync("<apcGatewayId>", simSwapVerificationContent);
+Response<SimSwapVerificationResult> response = await client.VerifyAsync("zdgrzzaxlodrvewbksn", body);
 ]]></code></example>
       </Docs>
     </Member>
@@ -533,40 +437,20 @@ Response<SimSwapVerificationResult> response = await client.VerifyAsync("<apcGat
         <example>
 This sample shows how to call VerifyAsync and parse the result.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 SimSwap client = new ProgrammableConnectivityClient(endpoint, credential).GetSimSwapClient(apiVersion: "2024-02-09-preview");
 
 using RequestContent content = RequestContent.Create(new
 {
+    maxAgeHours = 941,
     networkIdentifier = new
     {
-        identifierType = "<identifierType>",
-        identifier = "<identifier>",
+        identifierType = "ipv4",
+        identifier = "12.12.12.12",
     },
 });
-Response response = await client.VerifyAsync("<apcGatewayId>", content);
-
-JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-Console.WriteLine(result.GetProperty("verificationResult").ToString());
-]]></code>
-This sample shows how to call VerifyAsync with all parameters and request content and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-SimSwap client = new ProgrammableConnectivityClient(endpoint, credential).GetSimSwapClient(apiVersion: "2024-02-09-preview");
-
-using RequestContent content = RequestContent.Create(new
-{
-    phoneNumber = "<phoneNumber>",
-    maxAgeHours = 1234,
-    networkIdentifier = new
-    {
-        identifierType = "<identifierType>",
-        identifier = "<identifier>",
-    },
-});
-Response response = await client.VerifyAsync("<apcGatewayId>", content);
+Response response = await client.VerifyAsync("zdgrzzaxlodrvewbksn", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("verificationResult").ToString());

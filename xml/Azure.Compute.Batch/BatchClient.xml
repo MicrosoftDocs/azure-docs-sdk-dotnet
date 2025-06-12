@@ -8484,22 +8484,23 @@ Response response = client.GetCertificate("sha1", "0123456789abcdef0123456789abc
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("thumbprint").ToString());
 Console.WriteLine(result.GetProperty("thumbprintAlgorithm").ToString());
+Console.WriteLine(result.GetProperty("data").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetCertificate">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Compute.Batch.GetCertificateResponse&gt; GetCertificate (string thumbprintAlgorithm, string thumbprint, int? timeOutInSeconds = default, DateTimeOffset? ocpdate = default, System.Collections.Generic.IEnumerable&lt;string&gt; select = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Compute.Batch.GetCertificateResponse&gt; GetCertificate(string thumbprintAlgorithm, string thumbprint, valuetype System.Nullable`1&lt;int32&gt; timeOutInSeconds, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; ocpdate, class System.Collections.Generic.IEnumerable`1&lt;string&gt; select, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Compute.Batch.BatchCertificate&gt; GetCertificate (string thumbprintAlgorithm, string thumbprint, int? timeOutInSeconds = default, DateTimeOffset? ocpdate = default, System.Collections.Generic.IEnumerable&lt;string&gt; select = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Compute.Batch.BatchCertificate&gt; GetCertificate(string thumbprintAlgorithm, string thumbprint, valuetype System.Nullable`1&lt;int32&gt; timeOutInSeconds, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; ocpdate, class System.Collections.Generic.IEnumerable`1&lt;string&gt; select, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.BatchClient.GetCertificate(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.DateTimeOffset},System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCertificate (thumbprintAlgorithm As String, thumbprint As String, Optional timeOutInSeconds As Nullable(Of Integer) = Nothing, Optional ocpdate As Nullable(Of DateTimeOffset) = Nothing, Optional select As IEnumerable(Of String) = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Response(Of GetCertificateResponse)" />
-      <MemberSignature Language="F#" Value="abstract member GetCertificate : string * string * Nullable&lt;int&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;string&gt; * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Compute.Batch.GetCertificateResponse&gt;&#xA;override this.GetCertificate : string * string * Nullable&lt;int&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;string&gt; * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Compute.Batch.GetCertificateResponse&gt;" Usage="batchClient.GetCertificate (thumbprintAlgorithm, thumbprint, timeOutInSeconds, ocpdate, select, cancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCertificate (thumbprintAlgorithm As String, thumbprint As String, Optional timeOutInSeconds As Nullable(Of Integer) = Nothing, Optional ocpdate As Nullable(Of DateTimeOffset) = Nothing, Optional select As IEnumerable(Of String) = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Response(Of BatchCertificate)" />
+      <MemberSignature Language="F#" Value="abstract member GetCertificate : string * string * Nullable&lt;int&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;string&gt; * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Compute.Batch.BatchCertificate&gt;&#xA;override this.GetCertificate : string * string * Nullable&lt;int&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;string&gt; * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Compute.Batch.BatchCertificate&gt;" Usage="batchClient.GetCertificate (thumbprintAlgorithm, thumbprint, timeOutInSeconds, ocpdate, select, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.Response&lt;Azure.Compute.Batch.GetCertificateResponse&gt;</ReturnType>
+        <ReturnType>Azure.Response&lt;Azure.Compute.Batch.BatchCertificate&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="thumbprintAlgorithm" Type="System.String" />
@@ -8534,7 +8535,7 @@ Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 BatchClient client = new BatchClient(endpoint, credential);
 
-Response<GetCertificateResponse> response = client.GetCertificate("sha1", "0123456789abcdef0123456789abcdef01234567");
+Response<BatchCertificate> response = client.GetCertificate("sha1", "0123456789abcdef0123456789abcdef01234567");
 ]]></code></example>
       </Docs>
     </Member>
@@ -8597,22 +8598,23 @@ Response response = await client.GetCertificateAsync("sha1", "0123456789abcdef01
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("thumbprint").ToString());
 Console.WriteLine(result.GetProperty("thumbprintAlgorithm").ToString());
+Console.WriteLine(result.GetProperty("data").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetCertificateAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Compute.Batch.GetCertificateResponse&gt;&gt; GetCertificateAsync (string thumbprintAlgorithm, string thumbprint, int? timeOutInSeconds = default, DateTimeOffset? ocpdate = default, System.Collections.Generic.IEnumerable&lt;string&gt; select = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Compute.Batch.GetCertificateResponse&gt;&gt; GetCertificateAsync(string thumbprintAlgorithm, string thumbprint, valuetype System.Nullable`1&lt;int32&gt; timeOutInSeconds, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; ocpdate, class System.Collections.Generic.IEnumerable`1&lt;string&gt; select, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Compute.Batch.BatchCertificate&gt;&gt; GetCertificateAsync (string thumbprintAlgorithm, string thumbprint, int? timeOutInSeconds = default, DateTimeOffset? ocpdate = default, System.Collections.Generic.IEnumerable&lt;string&gt; select = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Compute.Batch.BatchCertificate&gt;&gt; GetCertificateAsync(string thumbprintAlgorithm, string thumbprint, valuetype System.Nullable`1&lt;int32&gt; timeOutInSeconds, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; ocpdate, class System.Collections.Generic.IEnumerable`1&lt;string&gt; select, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.BatchClient.GetCertificateAsync(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.DateTimeOffset},System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCertificateAsync (thumbprintAlgorithm As String, thumbprint As String, Optional timeOutInSeconds As Nullable(Of Integer) = Nothing, Optional ocpdate As Nullable(Of DateTimeOffset) = Nothing, Optional select As IEnumerable(Of String) = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of GetCertificateResponse))" />
-      <MemberSignature Language="F#" Value="abstract member GetCertificateAsync : string * string * Nullable&lt;int&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;string&gt; * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Compute.Batch.GetCertificateResponse&gt;&gt;&#xA;override this.GetCertificateAsync : string * string * Nullable&lt;int&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;string&gt; * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Compute.Batch.GetCertificateResponse&gt;&gt;" Usage="batchClient.GetCertificateAsync (thumbprintAlgorithm, thumbprint, timeOutInSeconds, ocpdate, select, cancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCertificateAsync (thumbprintAlgorithm As String, thumbprint As String, Optional timeOutInSeconds As Nullable(Of Integer) = Nothing, Optional ocpdate As Nullable(Of DateTimeOffset) = Nothing, Optional select As IEnumerable(Of String) = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of BatchCertificate))" />
+      <MemberSignature Language="F#" Value="abstract member GetCertificateAsync : string * string * Nullable&lt;int&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;string&gt; * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Compute.Batch.BatchCertificate&gt;&gt;&#xA;override this.GetCertificateAsync : string * string * Nullable&lt;int&gt; * Nullable&lt;DateTimeOffset&gt; * seq&lt;string&gt; * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Compute.Batch.BatchCertificate&gt;&gt;" Usage="batchClient.GetCertificateAsync (thumbprintAlgorithm, thumbprint, timeOutInSeconds, ocpdate, select, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Compute.Batch.GetCertificateResponse&gt;&gt;</ReturnType>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Compute.Batch.BatchCertificate&gt;&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="thumbprintAlgorithm" Type="System.String" />
@@ -8647,7 +8649,7 @@ Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 BatchClient client = new BatchClient(endpoint, credential);
 
-Response<GetCertificateResponse> response = await client.GetCertificateAsync("sha1", "0123456789abcdef0123456789abcdef01234567");
+Response<BatchCertificate> response = await client.GetCertificateAsync("sha1", "0123456789abcdef0123456789abcdef01234567");
 ]]></code></example>
       </Docs>
     </Member>
