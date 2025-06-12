@@ -6,6 +6,6 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: managednetworkfabric
 ---
-# Azure Managed Network Fabric SDK for .NET - latest
-## Packages - latest
+# Azure Managed Network Fabric SDK for .NET - preview
+## Packages - preview
 [!INCLUDE [packages](managed-network-fabric-index.md)]
