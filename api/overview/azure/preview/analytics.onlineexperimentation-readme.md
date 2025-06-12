@@ -1,17 +1,17 @@
 ---
 title: Azure Online Experimentation client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Analytics.OnlineExperimentation, onlineexperimentation
-ms.date: 06/11/2025
+ms.date: 06/12/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: onlineexperimentation
 ---
-# Azure Online Experimentation client library for .NET - version 1.0.0-beta.1 
+# Azure Online Experimentation client library for .NET - version 1.0.0-alpha.20250612.1 
 
 
 Azure Online Experimentation is a managed service that enables developers to create and manage experiment metrics for evaluating online A/B tests.
 
-[Source code](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.OnlineExperimentation_1.0.0-beta.1/sdk/onlineexperimentation/Azure.Analytics.OnlineExperimentation/src) | [API reference documentation](https://azure.github.io/azure-sdk-for-net) | [Product documentation](/azure) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.OnlineExperimentation_1.0.0-beta.1/sdk/onlineexperimentation/Azure.Analytics.OnlineExperimentation/samples)
+[Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/onlineexperimentation/Azure.Analytics.OnlineExperimentation/src) | [API reference documentation](https://azure.github.io/azure-sdk-for-net) | [Product documentation](/azure) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/onlineexperimentation/Azure.Analytics.OnlineExperimentation/samples)
 
 ## Getting started
 
@@ -64,17 +64,17 @@ All client instances are thread-safe. It's recommended to reuse client instances
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.OnlineExperimentation_1.0.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.OnlineExperimentation_1.0.0-beta.1/sdk/core/Azure.Core/README.md#accessing-response-details) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.OnlineExperimentation_1.0.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.OnlineExperimentation_1.0.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md)
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-response-details) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md)
 
 ## Examples
 
-Explore common scenarios using the [samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.OnlineExperimentation_1.0.0-beta.1/sdk/onlineexperimentation/Azure.Analytics.OnlineExperimentation/samples):
+Explore common scenarios using the [samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/onlineexperimentation/Azure.Analytics.OnlineExperimentation/samples):
 
-- [Creating Experiment Metrics](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.OnlineExperimentation_1.0.0-beta.1/sdk/onlineexperimentation/Azure.Analytics.OnlineExperimentation/samples/Sample2_CreateExperimentMetrics.md)
-- [Updating Experiment Metrics](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.OnlineExperimentation_1.0.0-beta.1/sdk/onlineexperimentation/Azure.Analytics.OnlineExperimentation/samples/Sample5_UpdateExperimentMetrics.md)
+- [Creating Experiment Metrics](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/onlineexperimentation/Azure.Analytics.OnlineExperimentation/samples/Sample2_CreateExperimentMetrics.md)
+- [Updating Experiment Metrics](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/onlineexperimentation/Azure.Analytics.OnlineExperimentation/samples/Sample5_UpdateExperimentMetrics.md)
 
 ## Troubleshooting
 
@@ -98,12 +98,12 @@ var client = new OnlineExperimentationClient(endpoint, new DefaultAzureCredentia
 
 ## Next steps
 
-- Explore additional [samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.OnlineExperimentation_1.0.0-beta.1/sdk/onlineexperimentation/Azure.Analytics.OnlineExperimentation/samples) to learn more.
+- Explore additional [samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/onlineexperimentation/Azure.Analytics.OnlineExperimentation/samples) to learn more.
 - Visit the [Azure SDK for .NET](https://github.com/Azure/azure-sdk-for-net) repository for more libraries.
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.OnlineExperimentation_1.0.0-beta.1/CONTRIBUTING.md) for details on contributing to this library.
+See [CONTRIBUTING.md](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md) for details on contributing to this library.
 
 ![Impressions](https://azure-sdk-impressions.azurewebsites.net/api/impressions/azure-sdk-for-net/sdk/onlineexperimentation/Azure.Analytics.OnlineExperimentation/README.png)
 
