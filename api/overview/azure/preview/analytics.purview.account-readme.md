@@ -1,12 +1,12 @@
 ---
 title: Azure Purview Account client library for .NET
-keywords: Azure, dotnet, SDK, API, Azure.Analytics.Purview.Account,
-ms.date: 08/25/2021
+keywords: Azure, dotnet, SDK, API, Azure.Analytics.Purview.Account, purview
+ms.date: 06/12/2025
 ms.topic: reference
 ms.devlang: dotnet
-ms.service: 
+ms.service: purview
 ---
-# Azure Purview Account client library for .NET - version 1.0.0-beta.1 
+# Azure Purview Account client library for .NET - version 1.0.0-alpha.20250612.1 
 
 
 Azure Purview Account is a fully managed cloud service.
@@ -21,8 +21,8 @@ Azure Purview Account is a fully managed cloud service.
 
 Install the Azure Purview Account client library for .NET with [NuGet][client_nuget_package]:
 
-```
-dotnet add package Azure.Analysis.Purview.Account
+```dotnetcli
+dotnet add package Azure.Analysis.Purview.Account --prerelease
 ```
 
 ### Prerequisites
@@ -39,7 +39,7 @@ Once you have chosen and configured your credential, you can create instances of
 
 ```C#
 var credential = new DefaultAzureCredential();
-var client = new PurviewAccountClient(new Url("https://<my-account-name>.purview.azure.com"), credential);
+var client = new PurviewAccountClient(new Uri("https://<my-account-name>.purview.azure.com"), credential);
 ```
 
 ## Key concepts
@@ -53,15 +53,15 @@ Operations exposed by the Purview Account SDK for .NET use *protocol methods* to
 We guarantee that all client instance methods are thread-safe and independent of each other ([guideline](https://azure.github.io/azure-sdk/dotnet_introduction.html#dotnet-service-methods-thread-safety)). This ensures that the recommendation of reusing client instances is always safe, even across threads.
 
 ### Additional concepts
-
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Purview.Account_1.0.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Purview.Account_1.0.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Purview.Account_1.0.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Purview.Account_1.0.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Purview.Account_1.0.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
-[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Purview.Account_1.0.0-beta.1/sdk/core/Azure.Core/README.md#mocking) |
+<!-- CLIENT COMMON BAR -->
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
-
+<!-- CLIENT COMMON BAR -->
 
 ## Examples
 
@@ -74,7 +74,7 @@ var credential = new DefaultAzureCredential();
 var client = new PurviewAccountClient(new Uri("https://<my-account-name>.purview.azure.com"), credential);
 
 var Response response = await client.GetAccountPropertiesAsync();
-var responseDocument = JsonDocument.Parse(response.Content);
+using var responseDocument = JsonDocument.Parse(response.Content);
 Console.WriteLine(responseDocument.RootElement.GetProperty("name"));
 ```
 
@@ -105,16 +105,16 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 
 This project has adopted the [Microsoft Open Source Code of Conduct][code_of_conduct]. For more information see the [Code of Conduct FAQ][coc_faq] or contact [opencode@microsoft.com][coc_contact] with any additional questions or comments.
 
-
-[source_code]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Purview.Account_1.0.0-beta.1/sdk/purview/Azure.Analytics.Purview.Account/src
+<!-- LINKS -->
+[source_code]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/purview/Azure.Analytics.Purview.Account/src
 [client_nuget_package]: https://www.nuget.org/packages?q=Azure.Analytics.Purview.Account
 [account_product_documentation]: https://azure.microsoft.com/services/purview/
-[azure_identity]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Purview.Account_1.0.0-beta.1/sdk/identity/Azure.Identity
+[azure_identity]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity
 [protocol_client_quickstart]: https://aka.ms/azsdk/net/protocol/quickstart
-[default_cred_ref]: https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
+[default_cred_ref]: https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
 [azure_subscription]: https://azure.microsoft.com/free/dotnet/
-[purview_resource]: https://docs.microsoft.com/azure/purview
-[azure_core_diagnostics]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Purview.Account_1.0.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md
+[purview_resource]: https://learn.microsoft.com/azure/purview
+[azure_core_diagnostics]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
