@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: webpubsub
 ---
-# Azure Web PubSub extension of isolated-process Azure Functions client library for .NET - version 1.8.0-alpha.20250612.1 
+# Azure Web PubSub extension of isolated-process Azure Functions client library for .NET - version 1.8.0-alpha.20250613.1 
 
 
 This extension defines the binding types and triggers in the .NET isolated worker process for Azure Functions, allowing you to write functions that respond to any event published to Web PubSub.

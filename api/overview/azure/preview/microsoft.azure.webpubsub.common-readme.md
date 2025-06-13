@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: webpubsub
 ---
-# Azure Web PubSub Event Handler events data model client library for .NET - version 1.5.0-alpha.20250612.1 
+# Azure Web PubSub Event Handler events data model client library for .NET - version 1.5.0-alpha.20250613.1 
 
 
 This library defines the class to process with Azure Web PubSub service upstream requests.

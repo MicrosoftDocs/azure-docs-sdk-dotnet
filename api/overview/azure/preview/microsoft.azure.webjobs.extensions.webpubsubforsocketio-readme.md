@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: webpubsub
 ---
-# Azure WebJobs Web PubSub for Socket.IO client library for .NET - version 1.0.0-alpha.20250612.1 
+# Azure WebJobs Web PubSub for Socket.IO client library for .NET - version 1.0.0-alpha.20250613.1 
 
 
 This extension provides functionality for receiving Web PubSub for Socket.IO webhook calls in Azure Functions, allowing you to easily write functions that respond to any event published to Web PubSub for Socket.IO in serverless mode.
