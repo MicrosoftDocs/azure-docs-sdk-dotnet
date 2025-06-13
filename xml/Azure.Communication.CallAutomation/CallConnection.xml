@@ -356,6 +356,27 @@
         <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
       </Docs>
     </Member>
+    <Member MemberName="GetCallDialog">
+      <MemberSignature Language="C#" Value="public virtual Azure.Communication.CallAutomation.CallDialog GetCallDialog ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Communication.CallAutomation.CallDialog GetCallDialog() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Communication.CallAutomation.CallConnection.GetCallDialog" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCallDialog () As CallDialog" />
+      <MemberSignature Language="F#" Value="abstract member GetCallDialog : unit -&gt; Azure.Communication.CallAutomation.CallDialog&#xA;override this.GetCallDialog : unit -&gt; Azure.Communication.CallAutomation.CallDialog" Usage="callConnection.GetCallDialog " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Communication.CallAutomation</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Communication.CallAutomation.CallDialog</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary> Initializes a new instance of CallDialog. <see cref="T:Azure.Communication.CallAutomation.CallDialog" /></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetCallMedia">
       <MemberSignature Language="C#" Value="public virtual Azure.Communication.CallAutomation.CallMedia GetCallMedia ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Communication.CallAutomation.CallMedia GetCallMedia() cil managed" />
@@ -544,6 +565,122 @@
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="MoveParticipants">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Communication.CallAutomation.MoveParticipantsResult&gt; MoveParticipants (Azure.Communication.CallAutomation.MoveParticipantsOptions options, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Communication.CallAutomation.MoveParticipantsResult&gt; MoveParticipants(class Azure.Communication.CallAutomation.MoveParticipantsOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Communication.CallAutomation.CallConnection.MoveParticipants(Azure.Communication.CallAutomation.MoveParticipantsOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function MoveParticipants (options As MoveParticipantsOptions, Optional cancellationToken As CancellationToken = Nothing) As Response(Of MoveParticipantsResult)" />
+      <MemberSignature Language="F#" Value="abstract member MoveParticipants : Azure.Communication.CallAutomation.MoveParticipantsOptions * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.CallAutomation.MoveParticipantsResult&gt;&#xA;override this.MoveParticipants : Azure.Communication.CallAutomation.MoveParticipantsOptions * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.CallAutomation.MoveParticipantsResult&gt;" Usage="callConnection.MoveParticipants (options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Communication.CallAutomation</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.Communication.CallAutomation.MoveParticipantsResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="Azure.Communication.CallAutomation.MoveParticipantsOptions" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="options">Options for the MoveParticipants operation.</param>
+        <param name="cancellationToken">The cancellation token.</param>
+        <summary>
+            Move multiple participants from another call to this call using the provided options.
+            </summary>
+        <returns>A <see cref="T:Azure.Communication.CallAutomation.MoveParticipantsResult" /> containing the result of the operation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MoveParticipants">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Communication.CallAutomation.MoveParticipantsResult&gt; MoveParticipants (string fromCall, System.Collections.Generic.IEnumerable&lt;Azure.Communication.CommunicationIdentifier&gt; targetParticipants, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Communication.CallAutomation.MoveParticipantsResult&gt; MoveParticipants(string fromCall, class System.Collections.Generic.IEnumerable`1&lt;class Azure.Communication.CommunicationIdentifier&gt; targetParticipants, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Communication.CallAutomation.CallConnection.MoveParticipants(System.String,System.Collections.Generic.IEnumerable{Azure.Communication.CommunicationIdentifier},System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function MoveParticipants (fromCall As String, targetParticipants As IEnumerable(Of CommunicationIdentifier), Optional cancellationToken As CancellationToken = Nothing) As Response(Of MoveParticipantsResult)" />
+      <MemberSignature Language="F#" Value="abstract member MoveParticipants : string * seq&lt;Azure.Communication.CommunicationIdentifier&gt; * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.CallAutomation.MoveParticipantsResult&gt;&#xA;override this.MoveParticipants : string * seq&lt;Azure.Communication.CommunicationIdentifier&gt; * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.CallAutomation.MoveParticipantsResult&gt;" Usage="callConnection.MoveParticipants (fromCall, targetParticipants, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Communication.CallAutomation</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.Communication.CallAutomation.MoveParticipantsResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fromCall" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="targetParticipants" Type="System.Collections.Generic.IEnumerable&lt;Azure.Communication.CommunicationIdentifier&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="fromCall">The call to move the participants from.</param>
+        <param name="targetParticipants">The participants to move.</param>
+        <param name="cancellationToken">The cancellation token.</param>
+        <summary>
+            Move multiple participants from another call to this call.
+            </summary>
+        <returns>A <see cref="T:Azure.Communication.CallAutomation.MoveParticipantsResult" /> containing the result of the operation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MoveParticipantsAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.CallAutomation.MoveParticipantsResult&gt;&gt; MoveParticipantsAsync (Azure.Communication.CallAutomation.MoveParticipantsOptions options, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Communication.CallAutomation.MoveParticipantsResult&gt;&gt; MoveParticipantsAsync(class Azure.Communication.CallAutomation.MoveParticipantsOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Communication.CallAutomation.CallConnection.MoveParticipantsAsync(Azure.Communication.CallAutomation.MoveParticipantsOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function MoveParticipantsAsync (options As MoveParticipantsOptions, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of MoveParticipantsResult))" />
+      <MemberSignature Language="F#" Value="abstract member MoveParticipantsAsync : Azure.Communication.CallAutomation.MoveParticipantsOptions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.CallAutomation.MoveParticipantsResult&gt;&gt;&#xA;override this.MoveParticipantsAsync : Azure.Communication.CallAutomation.MoveParticipantsOptions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.CallAutomation.MoveParticipantsResult&gt;&gt;" Usage="callConnection.MoveParticipantsAsync (options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Communication.CallAutomation</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.CallAutomation.MoveParticipantsResult&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="Azure.Communication.CallAutomation.MoveParticipantsOptions" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="options">Options for the MoveParticipants operation.</param>
+        <param name="cancellationToken">The cancellation token.</param>
+        <summary>
+            Move multiple participants from another call to this call using the provided options.
+            </summary>
+        <returns>A <see cref="T:Azure.Communication.CallAutomation.MoveParticipantsResult" /> containing the result of the operation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MoveParticipantsAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.CallAutomation.MoveParticipantsResult&gt;&gt; MoveParticipantsAsync (string fromCall, System.Collections.Generic.IEnumerable&lt;Azure.Communication.CommunicationIdentifier&gt; targetParticipants, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Communication.CallAutomation.MoveParticipantsResult&gt;&gt; MoveParticipantsAsync(string fromCall, class System.Collections.Generic.IEnumerable`1&lt;class Azure.Communication.CommunicationIdentifier&gt; targetParticipants, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Communication.CallAutomation.CallConnection.MoveParticipantsAsync(System.String,System.Collections.Generic.IEnumerable{Azure.Communication.CommunicationIdentifier},System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function MoveParticipantsAsync (fromCall As String, targetParticipants As IEnumerable(Of CommunicationIdentifier), Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of MoveParticipantsResult))" />
+      <MemberSignature Language="F#" Value="abstract member MoveParticipantsAsync : string * seq&lt;Azure.Communication.CommunicationIdentifier&gt; * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.CallAutomation.MoveParticipantsResult&gt;&gt;&#xA;override this.MoveParticipantsAsync : string * seq&lt;Azure.Communication.CommunicationIdentifier&gt; * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.CallAutomation.MoveParticipantsResult&gt;&gt;" Usage="callConnection.MoveParticipantsAsync (fromCall, targetParticipants, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Communication.CallAutomation</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.CallAutomation.MoveParticipantsResult&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fromCall" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="targetParticipants" Type="System.Collections.Generic.IEnumerable&lt;Azure.Communication.CommunicationIdentifier&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="fromCall">The call to move the participants from.</param>
+        <param name="targetParticipants">The participants to move.</param>
+        <param name="cancellationToken">The cancellation token.</param>
+        <summary>
+            Move multiple participants from another call to this call.
+            </summary>
+        <returns>A <see cref="T:Azure.Communication.CallAutomation.MoveParticipantsResult" /> containing the result of the operation.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="MuteParticipant">
@@ -923,6 +1060,136 @@
         <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="targetParticipant" /> is null.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="UnmuteParticipant">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Communication.CallAutomation.UnmuteParticipantResult&gt; UnmuteParticipant (Azure.Communication.CallAutomation.UnmuteParticipantOptions options, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Communication.CallAutomation.UnmuteParticipantResult&gt; UnmuteParticipant(class Azure.Communication.CallAutomation.UnmuteParticipantOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Communication.CallAutomation.CallConnection.UnmuteParticipant(Azure.Communication.CallAutomation.UnmuteParticipantOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function UnmuteParticipant (options As UnmuteParticipantOptions, Optional cancellationToken As CancellationToken = Nothing) As Response(Of UnmuteParticipantResult)" />
+      <MemberSignature Language="F#" Value="abstract member UnmuteParticipant : Azure.Communication.CallAutomation.UnmuteParticipantOptions * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.CallAutomation.UnmuteParticipantResult&gt;&#xA;override this.UnmuteParticipant : Azure.Communication.CallAutomation.UnmuteParticipantOptions * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.CallAutomation.UnmuteParticipantResult&gt;" Usage="callConnection.UnmuteParticipant (options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Communication.CallAutomation</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.Communication.CallAutomation.UnmuteParticipantResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="Azure.Communication.CallAutomation.UnmuteParticipantOptions" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="options">Options for the UnmuteParticipant operation.</param>
+        <param name="cancellationToken">The cancellation token.</param>
+        <summary>
+            Unmute participants from the call.
+            Only Acs Users are currently supported.
+            </summary>
+        <returns />
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="options" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="options" /> OperationContext is too long. </exception>
+        <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="UnmuteParticipant">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Communication.CallAutomation.UnmuteParticipantResult&gt; UnmuteParticipant (Azure.Communication.CommunicationIdentifier targetParticipant, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Communication.CallAutomation.UnmuteParticipantResult&gt; UnmuteParticipant(class Azure.Communication.CommunicationIdentifier targetParticipant, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Communication.CallAutomation.CallConnection.UnmuteParticipant(Azure.Communication.CommunicationIdentifier,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function UnmuteParticipant (targetParticipant As CommunicationIdentifier, Optional cancellationToken As CancellationToken = Nothing) As Response(Of UnmuteParticipantResult)" />
+      <MemberSignature Language="F#" Value="abstract member UnmuteParticipant : Azure.Communication.CommunicationIdentifier * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.CallAutomation.UnmuteParticipantResult&gt;&#xA;override this.UnmuteParticipant : Azure.Communication.CommunicationIdentifier * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.CallAutomation.UnmuteParticipantResult&gt;" Usage="callConnection.UnmuteParticipant (targetParticipant, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Communication.CallAutomation</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.Communication.CallAutomation.UnmuteParticipantResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="targetParticipant" Type="Azure.Communication.CommunicationIdentifier" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="targetParticipant">Participant to unmute.</param>
+        <param name="cancellationToken">The cancellation token.</param>
+        <summary>
+            Unmute participant from the call.
+            Only Acs Users are currently supported.
+            </summary>
+        <returns />
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="targetParticipant" /> is null. </exception>
+        <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="UnmuteParticipantAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.CallAutomation.UnmuteParticipantResult&gt;&gt; UnmuteParticipantAsync (Azure.Communication.CallAutomation.UnmuteParticipantOptions options, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Communication.CallAutomation.UnmuteParticipantResult&gt;&gt; UnmuteParticipantAsync(class Azure.Communication.CallAutomation.UnmuteParticipantOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Communication.CallAutomation.CallConnection.UnmuteParticipantAsync(Azure.Communication.CallAutomation.UnmuteParticipantOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function UnmuteParticipantAsync (options As UnmuteParticipantOptions, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of UnmuteParticipantResult))" />
+      <MemberSignature Language="F#" Value="abstract member UnmuteParticipantAsync : Azure.Communication.CallAutomation.UnmuteParticipantOptions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.CallAutomation.UnmuteParticipantResult&gt;&gt;&#xA;override this.UnmuteParticipantAsync : Azure.Communication.CallAutomation.UnmuteParticipantOptions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.CallAutomation.UnmuteParticipantResult&gt;&gt;" Usage="callConnection.UnmuteParticipantAsync (options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Communication.CallAutomation</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.CallAutomation.UnmuteParticipantResult&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="Azure.Communication.CallAutomation.UnmuteParticipantOptions" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="options">Options for the UnmuteParticipant operation.</param>
+        <param name="cancellationToken">The cancellation token.</param>
+        <summary>
+            Unmute participants from the call.
+            Only Acs Users are currently supported.
+            </summary>
+        <returns />
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="options" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="options" /> OperationContext is too long. </exception>
+        <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="UnmuteParticipantAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.CallAutomation.UnmuteParticipantResult&gt;&gt; UnmuteParticipantAsync (Azure.Communication.CommunicationIdentifier targetParticipant, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Communication.CallAutomation.UnmuteParticipantResult&gt;&gt; UnmuteParticipantAsync(class Azure.Communication.CommunicationIdentifier targetParticipant, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Communication.CallAutomation.CallConnection.UnmuteParticipantAsync(Azure.Communication.CommunicationIdentifier,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function UnmuteParticipantAsync (targetParticipant As CommunicationIdentifier, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of UnmuteParticipantResult))" />
+      <MemberSignature Language="F#" Value="abstract member UnmuteParticipantAsync : Azure.Communication.CommunicationIdentifier * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.CallAutomation.UnmuteParticipantResult&gt;&gt;&#xA;override this.UnmuteParticipantAsync : Azure.Communication.CommunicationIdentifier * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.CallAutomation.UnmuteParticipantResult&gt;&gt;" Usage="callConnection.UnmuteParticipantAsync (targetParticipant, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Communication.CallAutomation</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.CallAutomation.UnmuteParticipantResult&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="targetParticipant" Type="Azure.Communication.CommunicationIdentifier" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="targetParticipant">Participant to unmute.</param>
+        <param name="cancellationToken">The cancellation token.</param>
+        <summary>
+            Unmute participants on the call.
+            Only Acs Users are currently supported.
+            </summary>
+        <returns />
+        <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
       </Docs>
     </Member>
   </Members>

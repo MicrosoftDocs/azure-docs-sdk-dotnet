@@ -8,6 +8,10 @@
     <AssemblyName>Azure.Core.Experimental</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
   </AssemblyInfo>
+  <AssemblyInfo>
+    <AssemblyName>System.ClientModel</AssemblyName>
+    <AssemblyVersion>1.5.0.0</AssemblyVersion>
+  </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
   </Base>
@@ -29,6 +33,10 @@
         <AssemblyName>Azure.Core.Experimental</AssemblyName>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
       <Parameters />
       <Docs>
         <summary>To be added.</summary>
@@ -46,6 +54,10 @@
         <AssemblyName>Azure.Core.Experimental</AssemblyName>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.ClientModel.Primitives.GetTokenOptions</ReturnType>
       </ReturnValue>
@@ -57,30 +69,34 @@
         <summary>
             Creates a new instance of <see cref="T:System.ClientModel.Primitives.GetTokenOptions" /> using the provided <paramref name="properties" />.
             </summary>
-        <returns />
+        <returns>An instance of <see cref="T:System.ClientModel.Primitives.GetTokenOptions" /> or <c>null</c> if the provided options are not valid.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetToken">
-      <MemberSignature Language="C#" Value="public abstract System.ClientModel.Primitives.AccessToken GetToken (System.ClientModel.Primitives.GetTokenOptions properties, System.Threading.CancellationToken cancellationToken);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.ClientModel.Primitives.AccessToken GetToken(class System.ClientModel.Primitives.GetTokenOptions properties, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="C#" Value="public abstract System.ClientModel.Primitives.AuthenticationToken GetToken (System.ClientModel.Primitives.GetTokenOptions options, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.ClientModel.Primitives.AuthenticationToken GetToken(class System.ClientModel.Primitives.GetTokenOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:System.ClientModel.AuthenticationTokenProvider.GetToken(System.ClientModel.Primitives.GetTokenOptions,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public MustOverride Function GetToken (properties As GetTokenOptions, cancellationToken As CancellationToken) As AccessToken" />
-      <MemberSignature Language="F#" Value="abstract member GetToken : System.ClientModel.Primitives.GetTokenOptions * System.Threading.CancellationToken -&gt; System.ClientModel.Primitives.AccessToken" Usage="authenticationTokenProvider.GetToken (properties, cancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public MustOverride Function GetToken (options As GetTokenOptions, cancellationToken As CancellationToken) As AuthenticationToken" />
+      <MemberSignature Language="F#" Value="abstract member GetToken : System.ClientModel.Primitives.GetTokenOptions * System.Threading.CancellationToken -&gt; System.ClientModel.Primitives.AuthenticationToken" Usage="authenticationTokenProvider.GetToken (options, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Core.Experimental</AssemblyName>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.ClientModel.Primitives.AccessToken</ReturnType>
+        <ReturnType>System.ClientModel.Primitives.AuthenticationToken</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="properties" Type="System.ClientModel.Primitives.GetTokenOptions" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.GetTokenOptions" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="properties">The options used by the <see cref="T:System.ClientModel.AuthenticationTokenProvider" /> to make a token request.</param>
+        <param name="options">The options used by the <see cref="T:System.ClientModel.AuthenticationTokenProvider" /> to make a token request.</param>
         <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> controlling the request lifetime.</param>
         <summary>
             Gets a token from the auth provider.
@@ -90,25 +106,29 @@
       </Docs>
     </Member>
     <Member MemberName="GetTokenAsync">
-      <MemberSignature Language="C#" Value="public abstract System.Threading.Tasks.ValueTask&lt;System.ClientModel.Primitives.AccessToken&gt; GetTokenAsync (System.ClientModel.Primitives.GetTokenOptions properties, System.Threading.CancellationToken cancellationToken);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype System.Threading.Tasks.ValueTask`1&lt;class System.ClientModel.Primitives.AccessToken&gt; GetTokenAsync(class System.ClientModel.Primitives.GetTokenOptions properties, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="C#" Value="public abstract System.Threading.Tasks.ValueTask&lt;System.ClientModel.Primitives.AuthenticationToken&gt; GetTokenAsync (System.ClientModel.Primitives.GetTokenOptions options, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype System.Threading.Tasks.ValueTask`1&lt;class System.ClientModel.Primitives.AuthenticationToken&gt; GetTokenAsync(class System.ClientModel.Primitives.GetTokenOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:System.ClientModel.AuthenticationTokenProvider.GetTokenAsync(System.ClientModel.Primitives.GetTokenOptions,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public MustOverride Function GetTokenAsync (properties As GetTokenOptions, cancellationToken As CancellationToken) As ValueTask(Of AccessToken)" />
-      <MemberSignature Language="F#" Value="abstract member GetTokenAsync : System.ClientModel.Primitives.GetTokenOptions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.ValueTask&lt;System.ClientModel.Primitives.AccessToken&gt;" Usage="authenticationTokenProvider.GetTokenAsync (properties, cancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public MustOverride Function GetTokenAsync (options As GetTokenOptions, cancellationToken As CancellationToken) As ValueTask(Of AuthenticationToken)" />
+      <MemberSignature Language="F#" Value="abstract member GetTokenAsync : System.ClientModel.Primitives.GetTokenOptions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.ValueTask&lt;System.ClientModel.Primitives.AuthenticationToken&gt;" Usage="authenticationTokenProvider.GetTokenAsync (options, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Core.Experimental</AssemblyName>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Threading.Tasks.ValueTask&lt;System.ClientModel.Primitives.AccessToken&gt;</ReturnType>
+        <ReturnType>System.Threading.Tasks.ValueTask&lt;System.ClientModel.Primitives.AuthenticationToken&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="properties" Type="System.ClientModel.Primitives.GetTokenOptions" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.GetTokenOptions" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="properties">The options used by the <see cref="T:System.ClientModel.AuthenticationTokenProvider" /> to make a token request.</param>
+        <param name="options">The options used by the <see cref="T:System.ClientModel.AuthenticationTokenProvider" /> to make a token request.</param>
         <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> controlling the request lifetime.</param>
         <summary>
             Gets the token.
