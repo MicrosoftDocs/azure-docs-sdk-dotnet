@@ -54,11 +54,11 @@
       </Docs>
     </Member>
     <Member MemberName="Retrieve">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NetworkRetrievalResult&gt; Retrieve (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.NetworkIdentifier networkIdentifier, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.NetworkRetrievalResult&gt; Retrieve(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.NetworkIdentifier networkIdentifier, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NetworkRetrievalResult&gt; Retrieve (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.NetworkIdentifier body, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.NetworkRetrievalResult&gt; Retrieve(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.NetworkIdentifier body, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Communication.ProgrammableConnectivity.DeviceNetwork.Retrieve(System.String,Azure.Communication.ProgrammableConnectivity.NetworkIdentifier,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function Retrieve (apcGatewayId As String, networkIdentifier As NetworkIdentifier, Optional cancellationToken As CancellationToken = Nothing) As Response(Of NetworkRetrievalResult)" />
-      <MemberSignature Language="F#" Value="abstract member Retrieve : string * Azure.Communication.ProgrammableConnectivity.NetworkIdentifier * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NetworkRetrievalResult&gt;&#xA;override this.Retrieve : string * Azure.Communication.ProgrammableConnectivity.NetworkIdentifier * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NetworkRetrievalResult&gt;" Usage="deviceNetwork.Retrieve (apcGatewayId, networkIdentifier, cancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Retrieve (apcGatewayId As String, body As NetworkIdentifier, Optional cancellationToken As CancellationToken = Nothing) As Response(Of NetworkRetrievalResult)" />
+      <MemberSignature Language="F#" Value="abstract member Retrieve : string * Azure.Communication.ProgrammableConnectivity.NetworkIdentifier * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NetworkRetrievalResult&gt;&#xA;override this.Retrieve : string * Azure.Communication.ProgrammableConnectivity.NetworkIdentifier * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NetworkRetrievalResult&gt;" Usage="deviceNetwork.Retrieve (apcGatewayId, body, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Communication.ProgrammableConnectivity</AssemblyName>
@@ -69,36 +69,27 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="apcGatewayId" Type="System.String" />
-        <Parameter Name="networkIdentifier" Type="Azure.Communication.ProgrammableConnectivity.NetworkIdentifier" />
+        <Parameter Name="body" Type="Azure.Communication.ProgrammableConnectivity.NetworkIdentifier" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="apcGatewayId"> The identifier of the APC Gateway resource which should handle this request. </param>
-        <param name="networkIdentifier"> Identifier for the network to be queried. </param>
+        <param name="body"> Body parameter. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary> Retrieves the network a given device is on. Returns network in a networkCode format that can be used for other APIs. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="apcGatewayId" /> or <paramref name="networkIdentifier" /> is null. </exception>
+          <paramref name="apcGatewayId" /> or <paramref name="body" /> is null. </exception>
         <example>
 This sample shows how to call Retrieve.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 DeviceNetwork client = new ProgrammableConnectivityClient(endpoint, credential).GetDeviceNetworkClient(apiVersion: "2024-02-09-preview");
 
-NetworkIdentifier networkIdentifier = new NetworkIdentifier("<identifierType>", "<identifier>");
-Response<NetworkRetrievalResult> response = client.Retrieve("<apcGatewayId>", networkIdentifier);
-]]></code>
-This sample shows how to call Retrieve with all parameters.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DeviceNetwork client = new ProgrammableConnectivityClient(endpoint, credential).GetDeviceNetworkClient(apiVersion: "2024-02-09-preview");
-
-NetworkIdentifier networkIdentifier = new NetworkIdentifier("<identifierType>", "<identifier>");
-Response<NetworkRetrievalResult> response = client.Retrieve("<apcGatewayId>", networkIdentifier);
+NetworkIdentifier body = new NetworkIdentifier("ipv6", "3001:0da8:75a3:0000:0000:8a2e:0370:7334");
+Response<NetworkRetrievalResult> response = client.Retrieve("zdgrzzaxlodrvewbksn", body);
 ]]></code></example>
       </Docs>
     </Member>
@@ -140,32 +131,16 @@ Response<NetworkRetrievalResult> response = client.Retrieve("<apcGatewayId>", ne
         <example>
 This sample shows how to call Retrieve and parse the result.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 DeviceNetwork client = new ProgrammableConnectivityClient(endpoint, credential).GetDeviceNetworkClient(apiVersion: "2024-02-09-preview");
 
 using RequestContent content = RequestContent.Create(new
 {
-    identifierType = "<identifierType>",
-    identifier = "<identifier>",
+    identifierType = "ipv6",
+    identifier = "3001:0da8:75a3:0000:0000:8a2e:0370:7334",
 });
-Response response = client.Retrieve("<apcGatewayId>", content);
-
-JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-Console.WriteLine(result.GetProperty("networkCode").ToString());
-]]></code>
-This sample shows how to call Retrieve with all parameters and request content and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DeviceNetwork client = new ProgrammableConnectivityClient(endpoint, credential).GetDeviceNetworkClient(apiVersion: "2024-02-09-preview");
-
-using RequestContent content = RequestContent.Create(new
-{
-    identifierType = "<identifierType>",
-    identifier = "<identifier>",
-});
-Response response = client.Retrieve("<apcGatewayId>", content);
+Response response = client.Retrieve("zdgrzzaxlodrvewbksn", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("networkCode").ToString());
@@ -173,11 +148,11 @@ Console.WriteLine(result.GetProperty("networkCode").ToString());
       </Docs>
     </Member>
     <Member MemberName="RetrieveAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NetworkRetrievalResult&gt;&gt; RetrieveAsync (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.NetworkIdentifier networkIdentifier, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.NetworkRetrievalResult&gt;&gt; RetrieveAsync(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.NetworkIdentifier networkIdentifier, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NetworkRetrievalResult&gt;&gt; RetrieveAsync (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.NetworkIdentifier body, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.NetworkRetrievalResult&gt;&gt; RetrieveAsync(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.NetworkIdentifier body, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Communication.ProgrammableConnectivity.DeviceNetwork.RetrieveAsync(System.String,Azure.Communication.ProgrammableConnectivity.NetworkIdentifier,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function RetrieveAsync (apcGatewayId As String, networkIdentifier As NetworkIdentifier, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of NetworkRetrievalResult))" />
-      <MemberSignature Language="F#" Value="abstract member RetrieveAsync : string * Azure.Communication.ProgrammableConnectivity.NetworkIdentifier * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NetworkRetrievalResult&gt;&gt;&#xA;override this.RetrieveAsync : string * Azure.Communication.ProgrammableConnectivity.NetworkIdentifier * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NetworkRetrievalResult&gt;&gt;" Usage="deviceNetwork.RetrieveAsync (apcGatewayId, networkIdentifier, cancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function RetrieveAsync (apcGatewayId As String, body As NetworkIdentifier, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of NetworkRetrievalResult))" />
+      <MemberSignature Language="F#" Value="abstract member RetrieveAsync : string * Azure.Communication.ProgrammableConnectivity.NetworkIdentifier * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NetworkRetrievalResult&gt;&gt;&#xA;override this.RetrieveAsync : string * Azure.Communication.ProgrammableConnectivity.NetworkIdentifier * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.NetworkRetrievalResult&gt;&gt;" Usage="deviceNetwork.RetrieveAsync (apcGatewayId, body, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Communication.ProgrammableConnectivity</AssemblyName>
@@ -188,36 +163,27 @@ Console.WriteLine(result.GetProperty("networkCode").ToString());
       </ReturnValue>
       <Parameters>
         <Parameter Name="apcGatewayId" Type="System.String" />
-        <Parameter Name="networkIdentifier" Type="Azure.Communication.ProgrammableConnectivity.NetworkIdentifier" />
+        <Parameter Name="body" Type="Azure.Communication.ProgrammableConnectivity.NetworkIdentifier" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="apcGatewayId"> The identifier of the APC Gateway resource which should handle this request. </param>
-        <param name="networkIdentifier"> Identifier for the network to be queried. </param>
+        <param name="body"> Body parameter. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary> Retrieves the network a given device is on. Returns network in a networkCode format that can be used for other APIs. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="apcGatewayId" /> or <paramref name="networkIdentifier" /> is null. </exception>
+          <paramref name="apcGatewayId" /> or <paramref name="body" /> is null. </exception>
         <example>
 This sample shows how to call RetrieveAsync.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 DeviceNetwork client = new ProgrammableConnectivityClient(endpoint, credential).GetDeviceNetworkClient(apiVersion: "2024-02-09-preview");
 
-NetworkIdentifier networkIdentifier = new NetworkIdentifier("<identifierType>", "<identifier>");
-Response<NetworkRetrievalResult> response = await client.RetrieveAsync("<apcGatewayId>", networkIdentifier);
-]]></code>
-This sample shows how to call RetrieveAsync with all parameters.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DeviceNetwork client = new ProgrammableConnectivityClient(endpoint, credential).GetDeviceNetworkClient(apiVersion: "2024-02-09-preview");
-
-NetworkIdentifier networkIdentifier = new NetworkIdentifier("<identifierType>", "<identifier>");
-Response<NetworkRetrievalResult> response = await client.RetrieveAsync("<apcGatewayId>", networkIdentifier);
+NetworkIdentifier body = new NetworkIdentifier("ipv6", "3001:0da8:75a3:0000:0000:8a2e:0370:7334");
+Response<NetworkRetrievalResult> response = await client.RetrieveAsync("zdgrzzaxlodrvewbksn", body);
 ]]></code></example>
       </Docs>
     </Member>
@@ -259,32 +225,16 @@ Response<NetworkRetrievalResult> response = await client.RetrieveAsync("<apcGate
         <example>
 This sample shows how to call RetrieveAsync and parse the result.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 DeviceNetwork client = new ProgrammableConnectivityClient(endpoint, credential).GetDeviceNetworkClient(apiVersion: "2024-02-09-preview");
 
 using RequestContent content = RequestContent.Create(new
 {
-    identifierType = "<identifierType>",
-    identifier = "<identifier>",
+    identifierType = "ipv6",
+    identifier = "3001:0da8:75a3:0000:0000:8a2e:0370:7334",
 });
-Response response = await client.RetrieveAsync("<apcGatewayId>", content);
-
-JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-Console.WriteLine(result.GetProperty("networkCode").ToString());
-]]></code>
-This sample shows how to call RetrieveAsync with all parameters and request content and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DeviceNetwork client = new ProgrammableConnectivityClient(endpoint, credential).GetDeviceNetworkClient(apiVersion: "2024-02-09-preview");
-
-using RequestContent content = RequestContent.Create(new
-{
-    identifierType = "<identifierType>",
-    identifier = "<identifier>",
-});
-Response response = await client.RetrieveAsync("<apcGatewayId>", content);
+Response response = await client.RetrieveAsync("zdgrzzaxlodrvewbksn", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("networkCode").ToString());

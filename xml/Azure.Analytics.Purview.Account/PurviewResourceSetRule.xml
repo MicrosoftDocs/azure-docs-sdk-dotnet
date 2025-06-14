@@ -13,7 +13,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary> The PurviewResourceSetRule service client. </summary>
+    <summary> The PurviewResourceSetRule sub-client. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -34,11 +34,11 @@
       </Docs>
     </Member>
     <Member MemberName="CreateOrUpdateResourceSetRule">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response CreateOrUpdateResourceSetRule (Azure.Core.RequestContent content, Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response CreateOrUpdateResourceSetRule(class Azure.Core.RequestContent content, class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewResourceSetRule.CreateOrUpdateResourceSetRule(Azure.Core.RequestContent,Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateResourceSetRule (content As RequestContent, Optional options As RequestOptions = Nothing) As Response" />
-      <MemberSignature Language="F#" Value="abstract member CreateOrUpdateResourceSetRule : Azure.Core.RequestContent * Azure.RequestOptions -&gt; Azure.Response&#xA;override this.CreateOrUpdateResourceSetRule : Azure.Core.RequestContent * Azure.RequestOptions -&gt; Azure.Response" Usage="purviewResourceSetRule.CreateOrUpdateResourceSetRule (content, options)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response CreateOrUpdateResourceSetRule (Azure.Core.RequestContent content, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response CreateOrUpdateResourceSetRule(class Azure.Core.RequestContent content, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewResourceSetRule.CreateOrUpdateResourceSetRule(Azure.Core.RequestContent,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateResourceSetRule (content As RequestContent, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="F#" Value="abstract member CreateOrUpdateResourceSetRule : Azure.Core.RequestContent * Azure.RequestContext -&gt; Azure.Response&#xA;override this.CreateOrUpdateResourceSetRule : Azure.Core.RequestContent * Azure.RequestContext -&gt; Azure.Response" Usage="purviewResourceSetRule.CreateOrUpdateResourceSetRule (content, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
@@ -49,42 +49,248 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="content" Type="Azure.Core.RequestContent" />
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="content"> The content to send as the body of the request. </param>
-        <param name="options"> The request options. </param>
-        <summary> Creates or updates an resource set config. </summary>
-        <returns>To be added.</returns>
-        <remarks>
-            Schema for <c>Request Body</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>advancedResourceSet</term><term>AdvancedResourceSet</term><term /><term>Gets or sets the advanced resource set property of the account.</term></item><item><term>name</term><term>string</term><term /><term>The name of the rule</term></item><item><term>pathPatternConfig</term><term>PathPatternExtractorConfig</term><term /><term>The configuration rules for path pattern extraction.</term></item></list>
-            Schema for <c>AdvancedResourceSet</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>modifiedAt</term><term>string (ISO 8601 Format)</term><term /><term>Date at which ResourceSetProcessing property of the account is updated.</term></item><item><term>resourceSetProcessing</term><term>"Default" | "Advanced"</term><term /><term>The advanced resource property of the account.</term></item></list>
-            Schema for <c>PathPatternExtractorConfig</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>acceptedPatterns</term><term>Filter[]</term><term /><term /></item><item><term>complexReplacers</term><term>ComplexReplacerConfig[]</term><term /><term /></item><item><term>createdBy</term><term>string</term><term>Yes</term><term /></item><item><term>enableDefaultPatterns</term><term>boolean</term><term>Yes</term><term /></item><item><term>lastUpdatedTimestamp</term><term>number</term><term /><term /></item><item><term>modifiedBy</term><term>string</term><term /><term /></item><item><term>normalizationRules</term><term>NormalizationRule[]</term><term /><term /></item><item><term>regexReplacers</term><term>RegexReplacer[]</term><term /><term /></item><item><term>rejectedPatterns</term><term>Filter[]</term><term /><term /></item><item><term>scopedRules</term><term>ScopedRule[]</term><term /><term /></item><item><term>version</term><term>number</term><term /><term /></item></list>
-            Schema for <c>Filter</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>createdBy</term><term>string</term><term /><term /></item><item><term>filterType</term><term>"Pattern" | "Regex"</term><term /><term /></item><item><term>lastUpdatedTimestamp</term><term>number</term><term /><term /></item><item><term>modifiedBy</term><term>string</term><term /><term /></item><item><term>name</term><term>string</term><term>Yes</term><term /></item><item><term>path</term><term>string</term><term>Yes</term><term /></item></list>
-            Schema for <c>ComplexReplacerConfig</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>createdBy</term><term>string</term><term /><term /></item><item><term>description</term><term>string</term><term /><term /></item><item><term>disabled</term><term>boolean</term><term /><term /></item><item><term>disableRecursiveReplacerApplication</term><term>boolean</term><term /><term /></item><item><term>lastUpdatedTimestamp</term><term>number</term><term /><term /></item><item><term>modifiedBy</term><term>string</term><term /><term /></item><item><term>name</term><term>string</term><term /><term /></item><item><term>typeName</term><term>string</term><term /><term /></item></list>
-            Schema for <c>NormalizationRule</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>description</term><term>string</term><term /><term /></item><item><term>disabled</term><term>boolean</term><term /><term /></item><item><term>dynamicReplacement</term><term>boolean</term><term /><term /></item><item><term>entityTypes</term><term>string[]</term><term /><term /></item><item><term>lastUpdatedTimestamp</term><term>number</term><term /><term /></item><item><term>name</term><term>string</term><term /><term /></item><item><term>regex</term><term>FastRegex</term><term /><term /></item><item><term>replaceWith</term><term>string</term><term /><term /></item><item><term>version</term><term>number</term><term /><term /></item></list>
-            Schema for <c>RegexReplacer</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>condition</term><term>string</term><term /><term /></item><item><term>createdBy</term><term>string</term><term /><term /></item><item><term>description</term><term>string</term><term /><term /></item><item><term>disabled</term><term>boolean</term><term>Yes</term><term /></item><item><term>disableRecursiveReplacerApplication</term><term>boolean</term><term /><term /></item><item><term>doNotReplaceRegex</term><term>FastRegex</term><term /><term /></item><item><term>lastUpdatedTimestamp</term><term>number</term><term /><term /></item><item><term>modifiedBy</term><term>string</term><term /><term /></item><item><term>name</term><term>string</term><term>Yes</term><term /></item><item><term>regex</term><term>FastRegex</term><term /><term /></item><item><term>replaceWith</term><term>string</term><term /><term /></item></list>
-            Schema for <c>ScopedRule</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>bindingUrl</term><term>string</term><term>Yes</term><term /></item><item><term>rules</term><term>Rule[]</term><term /><term /></item><item><term>storeType</term><term>string</term><term>Yes</term><term /></item></list>
-            Schema for <c>FastRegex</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>maxDigits</term><term>number</term><term /><term /></item><item><term>maxLetters</term><term>number</term><term /><term /></item><item><term>minDashes</term><term>number</term><term /><term /></item><item><term>minDigits</term><term>number</term><term /><term /></item><item><term>minDigitsOrLetters</term><term>number</term><term /><term /></item><item><term>minDots</term><term>number</term><term /><term /></item><item><term>minHex</term><term>number</term><term /><term /></item><item><term>minLetters</term><term>number</term><term /><term /></item><item><term>minUnderscores</term><term>number</term><term /><term /></item><item><term>options</term><term>number</term><term /><term /></item><item><term>regexStr</term><term>string</term><term /><term /></item></list>
-            Schema for <c>Rule</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>displayName</term><term>string</term><term /><term /></item><item><term>isResourceSet</term><term>boolean</term><term /><term /></item><item><term>lastUpdatedTimestamp</term><term>number</term><term /><term /></item><item><term>name</term><term>string</term><term /><term /></item><item><term>qualifiedName</term><term>string</term><term>Yes</term><term /></item></list></remarks>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Creates or updates an resource set config.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="content" /> is null. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call CreateOrUpdateResourceSetRule and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewResourceSetRule client = new PurviewAccountClient(endpoint, credential).GetPurviewResourceSetRuleClient();
+
+using RequestContent content = RequestContent.Create(new object());
+Response response = client.CreateOrUpdateResourceSetRule(content);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call CreateOrUpdateResourceSetRule with all request content and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewResourceSetRule client = new PurviewAccountClient(endpoint, credential).GetPurviewResourceSetRuleClient();
+
+using RequestContent content = RequestContent.Create(new
+{
+    advancedResourceSet = new
+    {
+        modifiedAt = "2022-05-10T18:57:31.2311892Z",
+        resourceSetProcessing = "Default",
+    },
+    pathPatternConfig = new
+    {
+        acceptedPatterns = new object[]
+        {
+            new
+            {
+                createdBy = "<createdBy>",
+                filterType = "Pattern",
+                lastUpdatedTimestamp = 1234L,
+                modifiedBy = "<modifiedBy>",
+                name = "<name>",
+                path = "<path>",
+            }
+        },
+        complexReplacers = new object[]
+        {
+            new
+            {
+                createdBy = "<createdBy>",
+                description = "<description>",
+                disabled = true,
+                disableRecursiveReplacerApplication = true,
+                lastUpdatedTimestamp = 1234L,
+                modifiedBy = "<modifiedBy>",
+                name = "<name>",
+                typeName = "<typeName>",
+            }
+        },
+        createdBy = "<createdBy>",
+        enableDefaultPatterns = true,
+        lastUpdatedTimestamp = 1234L,
+        modifiedBy = "<modifiedBy>",
+        normalizationRules = new object[]
+        {
+            new
+            {
+                description = "<description>",
+                disabled = true,
+                dynamicReplacement = true,
+                entityTypes = new object[]
+                {
+                    "<entityTypes>"
+                },
+                lastUpdatedTimestamp = 1234L,
+                name = "<name>",
+                regex = new
+                {
+                    maxDigits = 1234,
+                    maxLetters = 1234,
+                    minDashes = 1234,
+                    minDigits = 1234,
+                    minDigitsOrLetters = 1234,
+                    minDots = 1234,
+                    minHex = 1234,
+                    minLetters = 1234,
+                    minUnderscores = 1234,
+                    options = 1234,
+                    regexStr = "<regexStr>",
+                },
+                replaceWith = "<replaceWith>",
+                version = 123.45,
+            }
+        },
+        regexReplacers = new object[]
+        {
+            new
+            {
+                condition = "<condition>",
+                createdBy = "<createdBy>",
+                description = "<description>",
+                disabled = true,
+                disableRecursiveReplacerApplication = true,
+                lastUpdatedTimestamp = 1234L,
+                modifiedBy = "<modifiedBy>",
+                name = "<name>",
+                replaceWith = "<replaceWith>",
+            }
+        },
+        rejectedPatterns = new object[]
+        {
+            null
+        },
+        scopedRules = new object[]
+        {
+            new
+            {
+                bindingUrl = "<bindingUrl>",
+                rules = new object[]
+                {
+                    new
+                    {
+                        displayName = "<displayName>",
+                        isResourceSet = true,
+                        lastUpdatedTimestamp = 1234L,
+                        name = "<name>",
+                        qualifiedName = "<qualifiedName>",
+                    }
+                },
+                storeType = "<storeType>",
+            }
+        },
+        version = 1234,
+    },
+});
+Response response = client.CreateOrUpdateResourceSetRule(content);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("advancedResourceSet").GetProperty("modifiedAt").ToString());
+Console.WriteLine(result.GetProperty("advancedResourceSet").GetProperty("resourceSetProcessing").ToString());
+Console.WriteLine(result.GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("filterType").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("path").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("disabled").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("disableRecursiveReplacerApplication").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("typeName").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("enableDefaultPatterns").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("disabled").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("dynamicReplacement").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("entityTypes")[0].ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("maxDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("maxLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minDashes").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minDigitsOrLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minDots").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minHex").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minUnderscores").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("options").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("regexStr").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("replaceWith").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("version").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("condition").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("disabled").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("disableRecursiveReplacerApplication").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("maxDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("maxLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minDashes").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minDigitsOrLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minDots").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minHex").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minUnderscores").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("options").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("regexStr").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("maxDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("maxLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minDashes").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minDigitsOrLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minDots").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minHex").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minUnderscores").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("options").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("regexStr").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("replaceWith").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("filterType").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("path").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("bindingUrl").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("displayName").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("isResourceSet").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("qualifiedName").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("storeType").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("version").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="CreateOrUpdateResourceSetRuleAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; CreateOrUpdateResourceSetRuleAsync (Azure.Core.RequestContent content, Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; CreateOrUpdateResourceSetRuleAsync(class Azure.Core.RequestContent content, class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewResourceSetRule.CreateOrUpdateResourceSetRuleAsync(Azure.Core.RequestContent,Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateResourceSetRuleAsync (content As RequestContent, Optional options As RequestOptions = Nothing) As Task(Of Response)" />
-      <MemberSignature Language="F#" Value="abstract member CreateOrUpdateResourceSetRuleAsync : Azure.Core.RequestContent * Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.CreateOrUpdateResourceSetRuleAsync : Azure.Core.RequestContent * Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewResourceSetRule.CreateOrUpdateResourceSetRuleAsync (content, options)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; CreateOrUpdateResourceSetRuleAsync (Azure.Core.RequestContent content, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; CreateOrUpdateResourceSetRuleAsync(class Azure.Core.RequestContent content, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewResourceSetRule.CreateOrUpdateResourceSetRuleAsync(Azure.Core.RequestContent,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateResourceSetRuleAsync (content As RequestContent, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member CreateOrUpdateResourceSetRuleAsync : Azure.Core.RequestContent * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.CreateOrUpdateResourceSetRuleAsync : Azure.Core.RequestContent * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewResourceSetRule.CreateOrUpdateResourceSetRuleAsync (content, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
@@ -95,42 +301,248 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="content" Type="Azure.Core.RequestContent" />
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="content"> The content to send as the body of the request. </param>
-        <param name="options"> The request options. </param>
-        <summary> Creates or updates an resource set config. </summary>
-        <returns>To be added.</returns>
-        <remarks>
-            Schema for <c>Request Body</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>advancedResourceSet</term><term>AdvancedResourceSet</term><term /><term>Gets or sets the advanced resource set property of the account.</term></item><item><term>name</term><term>string</term><term /><term>The name of the rule</term></item><item><term>pathPatternConfig</term><term>PathPatternExtractorConfig</term><term /><term>The configuration rules for path pattern extraction.</term></item></list>
-            Schema for <c>AdvancedResourceSet</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>modifiedAt</term><term>string (ISO 8601 Format)</term><term /><term>Date at which ResourceSetProcessing property of the account is updated.</term></item><item><term>resourceSetProcessing</term><term>"Default" | "Advanced"</term><term /><term>The advanced resource property of the account.</term></item></list>
-            Schema for <c>PathPatternExtractorConfig</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>acceptedPatterns</term><term>Filter[]</term><term /><term /></item><item><term>complexReplacers</term><term>ComplexReplacerConfig[]</term><term /><term /></item><item><term>createdBy</term><term>string</term><term>Yes</term><term /></item><item><term>enableDefaultPatterns</term><term>boolean</term><term>Yes</term><term /></item><item><term>lastUpdatedTimestamp</term><term>number</term><term /><term /></item><item><term>modifiedBy</term><term>string</term><term /><term /></item><item><term>normalizationRules</term><term>NormalizationRule[]</term><term /><term /></item><item><term>regexReplacers</term><term>RegexReplacer[]</term><term /><term /></item><item><term>rejectedPatterns</term><term>Filter[]</term><term /><term /></item><item><term>scopedRules</term><term>ScopedRule[]</term><term /><term /></item><item><term>version</term><term>number</term><term /><term /></item></list>
-            Schema for <c>Filter</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>createdBy</term><term>string</term><term /><term /></item><item><term>filterType</term><term>"Pattern" | "Regex"</term><term /><term /></item><item><term>lastUpdatedTimestamp</term><term>number</term><term /><term /></item><item><term>modifiedBy</term><term>string</term><term /><term /></item><item><term>name</term><term>string</term><term>Yes</term><term /></item><item><term>path</term><term>string</term><term>Yes</term><term /></item></list>
-            Schema for <c>ComplexReplacerConfig</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>createdBy</term><term>string</term><term /><term /></item><item><term>description</term><term>string</term><term /><term /></item><item><term>disabled</term><term>boolean</term><term /><term /></item><item><term>disableRecursiveReplacerApplication</term><term>boolean</term><term /><term /></item><item><term>lastUpdatedTimestamp</term><term>number</term><term /><term /></item><item><term>modifiedBy</term><term>string</term><term /><term /></item><item><term>name</term><term>string</term><term /><term /></item><item><term>typeName</term><term>string</term><term /><term /></item></list>
-            Schema for <c>NormalizationRule</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>description</term><term>string</term><term /><term /></item><item><term>disabled</term><term>boolean</term><term /><term /></item><item><term>dynamicReplacement</term><term>boolean</term><term /><term /></item><item><term>entityTypes</term><term>string[]</term><term /><term /></item><item><term>lastUpdatedTimestamp</term><term>number</term><term /><term /></item><item><term>name</term><term>string</term><term /><term /></item><item><term>regex</term><term>FastRegex</term><term /><term /></item><item><term>replaceWith</term><term>string</term><term /><term /></item><item><term>version</term><term>number</term><term /><term /></item></list>
-            Schema for <c>RegexReplacer</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>condition</term><term>string</term><term /><term /></item><item><term>createdBy</term><term>string</term><term /><term /></item><item><term>description</term><term>string</term><term /><term /></item><item><term>disabled</term><term>boolean</term><term>Yes</term><term /></item><item><term>disableRecursiveReplacerApplication</term><term>boolean</term><term /><term /></item><item><term>doNotReplaceRegex</term><term>FastRegex</term><term /><term /></item><item><term>lastUpdatedTimestamp</term><term>number</term><term /><term /></item><item><term>modifiedBy</term><term>string</term><term /><term /></item><item><term>name</term><term>string</term><term>Yes</term><term /></item><item><term>regex</term><term>FastRegex</term><term /><term /></item><item><term>replaceWith</term><term>string</term><term /><term /></item></list>
-            Schema for <c>ScopedRule</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>bindingUrl</term><term>string</term><term>Yes</term><term /></item><item><term>rules</term><term>Rule[]</term><term /><term /></item><item><term>storeType</term><term>string</term><term>Yes</term><term /></item></list>
-            Schema for <c>FastRegex</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>maxDigits</term><term>number</term><term /><term /></item><item><term>maxLetters</term><term>number</term><term /><term /></item><item><term>minDashes</term><term>number</term><term /><term /></item><item><term>minDigits</term><term>number</term><term /><term /></item><item><term>minDigitsOrLetters</term><term>number</term><term /><term /></item><item><term>minDots</term><term>number</term><term /><term /></item><item><term>minHex</term><term>number</term><term /><term /></item><item><term>minLetters</term><term>number</term><term /><term /></item><item><term>minUnderscores</term><term>number</term><term /><term /></item><item><term>options</term><term>number</term><term /><term /></item><item><term>regexStr</term><term>string</term><term /><term /></item></list>
-            Schema for <c>Rule</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>displayName</term><term>string</term><term /><term /></item><item><term>isResourceSet</term><term>boolean</term><term /><term /></item><item><term>lastUpdatedTimestamp</term><term>number</term><term /><term /></item><item><term>name</term><term>string</term><term /><term /></item><item><term>qualifiedName</term><term>string</term><term>Yes</term><term /></item></list></remarks>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Creates or updates an resource set config.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="content" /> is null. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call CreateOrUpdateResourceSetRuleAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewResourceSetRule client = new PurviewAccountClient(endpoint, credential).GetPurviewResourceSetRuleClient();
+
+using RequestContent content = RequestContent.Create(new object());
+Response response = await client.CreateOrUpdateResourceSetRuleAsync(content);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call CreateOrUpdateResourceSetRuleAsync with all request content and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewResourceSetRule client = new PurviewAccountClient(endpoint, credential).GetPurviewResourceSetRuleClient();
+
+using RequestContent content = RequestContent.Create(new
+{
+    advancedResourceSet = new
+    {
+        modifiedAt = "2022-05-10T18:57:31.2311892Z",
+        resourceSetProcessing = "Default",
+    },
+    pathPatternConfig = new
+    {
+        acceptedPatterns = new object[]
+        {
+            new
+            {
+                createdBy = "<createdBy>",
+                filterType = "Pattern",
+                lastUpdatedTimestamp = 1234L,
+                modifiedBy = "<modifiedBy>",
+                name = "<name>",
+                path = "<path>",
+            }
+        },
+        complexReplacers = new object[]
+        {
+            new
+            {
+                createdBy = "<createdBy>",
+                description = "<description>",
+                disabled = true,
+                disableRecursiveReplacerApplication = true,
+                lastUpdatedTimestamp = 1234L,
+                modifiedBy = "<modifiedBy>",
+                name = "<name>",
+                typeName = "<typeName>",
+            }
+        },
+        createdBy = "<createdBy>",
+        enableDefaultPatterns = true,
+        lastUpdatedTimestamp = 1234L,
+        modifiedBy = "<modifiedBy>",
+        normalizationRules = new object[]
+        {
+            new
+            {
+                description = "<description>",
+                disabled = true,
+                dynamicReplacement = true,
+                entityTypes = new object[]
+                {
+                    "<entityTypes>"
+                },
+                lastUpdatedTimestamp = 1234L,
+                name = "<name>",
+                regex = new
+                {
+                    maxDigits = 1234,
+                    maxLetters = 1234,
+                    minDashes = 1234,
+                    minDigits = 1234,
+                    minDigitsOrLetters = 1234,
+                    minDots = 1234,
+                    minHex = 1234,
+                    minLetters = 1234,
+                    minUnderscores = 1234,
+                    options = 1234,
+                    regexStr = "<regexStr>",
+                },
+                replaceWith = "<replaceWith>",
+                version = 123.45,
+            }
+        },
+        regexReplacers = new object[]
+        {
+            new
+            {
+                condition = "<condition>",
+                createdBy = "<createdBy>",
+                description = "<description>",
+                disabled = true,
+                disableRecursiveReplacerApplication = true,
+                lastUpdatedTimestamp = 1234L,
+                modifiedBy = "<modifiedBy>",
+                name = "<name>",
+                replaceWith = "<replaceWith>",
+            }
+        },
+        rejectedPatterns = new object[]
+        {
+            null
+        },
+        scopedRules = new object[]
+        {
+            new
+            {
+                bindingUrl = "<bindingUrl>",
+                rules = new object[]
+                {
+                    new
+                    {
+                        displayName = "<displayName>",
+                        isResourceSet = true,
+                        lastUpdatedTimestamp = 1234L,
+                        name = "<name>",
+                        qualifiedName = "<qualifiedName>",
+                    }
+                },
+                storeType = "<storeType>",
+            }
+        },
+        version = 1234,
+    },
+});
+Response response = await client.CreateOrUpdateResourceSetRuleAsync(content);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("advancedResourceSet").GetProperty("modifiedAt").ToString());
+Console.WriteLine(result.GetProperty("advancedResourceSet").GetProperty("resourceSetProcessing").ToString());
+Console.WriteLine(result.GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("filterType").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("path").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("disabled").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("disableRecursiveReplacerApplication").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("typeName").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("enableDefaultPatterns").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("disabled").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("dynamicReplacement").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("entityTypes")[0].ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("maxDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("maxLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minDashes").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minDigitsOrLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minDots").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minHex").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minUnderscores").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("options").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("regexStr").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("replaceWith").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("version").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("condition").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("disabled").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("disableRecursiveReplacerApplication").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("maxDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("maxLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minDashes").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minDigitsOrLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minDots").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minHex").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minUnderscores").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("options").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("regexStr").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("maxDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("maxLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minDashes").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minDigitsOrLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minDots").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minHex").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minUnderscores").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("options").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("regexStr").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("replaceWith").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("filterType").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("path").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("bindingUrl").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("displayName").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("isResourceSet").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("qualifiedName").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("storeType").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("version").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="DeleteResourceSetRule">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response DeleteResourceSetRule (Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response DeleteResourceSetRule(class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewResourceSetRule.DeleteResourceSetRule(Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteResourceSetRule (Optional options As RequestOptions = Nothing) As Response" />
-      <MemberSignature Language="F#" Value="abstract member DeleteResourceSetRule : Azure.RequestOptions -&gt; Azure.Response&#xA;override this.DeleteResourceSetRule : Azure.RequestOptions -&gt; Azure.Response" Usage="purviewResourceSetRule.DeleteResourceSetRule options" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response DeleteResourceSetRule (Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response DeleteResourceSetRule(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewResourceSetRule.DeleteResourceSetRule(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteResourceSetRule (Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="F#" Value="abstract member DeleteResourceSetRule : Azure.RequestContext -&gt; Azure.Response&#xA;override this.DeleteResourceSetRule : Azure.RequestContext -&gt; Azure.Response" Usage="purviewResourceSetRule.DeleteResourceSetRule context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
@@ -140,21 +552,47 @@
         <ReturnType>Azure.Response</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="options"> The request options. </param>
-        <summary> Deletes a ResourceSetRuleConfig resource. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Deletes a ResourceSetRuleConfig resource.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call DeleteResourceSetRule.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewResourceSetRule client = new PurviewAccountClient(endpoint, credential).GetPurviewResourceSetRuleClient();
+
+Response response = client.DeleteResourceSetRule();
+
+Console.WriteLine(response.Status);
+]]></code>
+This sample shows how to call DeleteResourceSetRule with all request content.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewResourceSetRule client = new PurviewAccountClient(endpoint, credential).GetPurviewResourceSetRuleClient();
+
+Response response = client.DeleteResourceSetRule();
+
+Console.WriteLine(response.Status);
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="DeleteResourceSetRuleAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; DeleteResourceSetRuleAsync (Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; DeleteResourceSetRuleAsync(class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewResourceSetRule.DeleteResourceSetRuleAsync(Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteResourceSetRuleAsync (Optional options As RequestOptions = Nothing) As Task(Of Response)" />
-      <MemberSignature Language="F#" Value="abstract member DeleteResourceSetRuleAsync : Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.DeleteResourceSetRuleAsync : Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewResourceSetRule.DeleteResourceSetRuleAsync options" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; DeleteResourceSetRuleAsync (Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; DeleteResourceSetRuleAsync(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewResourceSetRule.DeleteResourceSetRuleAsync(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteResourceSetRuleAsync (Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member DeleteResourceSetRuleAsync : Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.DeleteResourceSetRuleAsync : Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewResourceSetRule.DeleteResourceSetRuleAsync context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
@@ -164,21 +602,47 @@
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="options"> The request options. </param>
-        <summary> Deletes a ResourceSetRuleConfig resource. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Deletes a ResourceSetRuleConfig resource.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call DeleteResourceSetRuleAsync.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewResourceSetRule client = new PurviewAccountClient(endpoint, credential).GetPurviewResourceSetRuleClient();
+
+Response response = await client.DeleteResourceSetRuleAsync();
+
+Console.WriteLine(response.Status);
+]]></code>
+This sample shows how to call DeleteResourceSetRuleAsync with all request content.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewResourceSetRule client = new PurviewAccountClient(endpoint, credential).GetPurviewResourceSetRuleClient();
+
+Response response = await client.DeleteResourceSetRuleAsync();
+
+Console.WriteLine(response.Status);
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetResourceSetRule">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetResourceSetRule (Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetResourceSetRule(class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewResourceSetRule.GetResourceSetRule(Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetResourceSetRule (Optional options As RequestOptions = Nothing) As Response" />
-      <MemberSignature Language="F#" Value="abstract member GetResourceSetRule : Azure.RequestOptions -&gt; Azure.Response&#xA;override this.GetResourceSetRule : Azure.RequestOptions -&gt; Azure.Response" Usage="purviewResourceSetRule.GetResourceSetRule options" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetResourceSetRule (Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetResourceSetRule(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewResourceSetRule.GetResourceSetRule(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetResourceSetRule (context As RequestContext) As Response" />
+      <MemberSignature Language="F#" Value="abstract member GetResourceSetRule : Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetResourceSetRule : Azure.RequestContext -&gt; Azure.Response" Usage="purviewResourceSetRule.GetResourceSetRule context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
@@ -188,21 +652,133 @@
         <ReturnType>Azure.Response</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="options"> The request options. </param>
-        <summary> Get a resource set config service model. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Get a resource set config service model.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetResourceSetRule and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewResourceSetRule client = new PurviewAccountClient(endpoint, credential).GetPurviewResourceSetRuleClient();
+
+Response response = client.GetResourceSetRule(null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetResourceSetRule with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewResourceSetRule client = new PurviewAccountClient(endpoint, credential).GetPurviewResourceSetRuleClient();
+
+Response response = client.GetResourceSetRule(null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("advancedResourceSet").GetProperty("modifiedAt").ToString());
+Console.WriteLine(result.GetProperty("advancedResourceSet").GetProperty("resourceSetProcessing").ToString());
+Console.WriteLine(result.GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("filterType").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("path").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("disabled").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("disableRecursiveReplacerApplication").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("typeName").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("enableDefaultPatterns").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("disabled").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("dynamicReplacement").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("entityTypes")[0].ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("maxDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("maxLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minDashes").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minDigitsOrLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minDots").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minHex").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minUnderscores").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("options").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("regexStr").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("replaceWith").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("version").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("condition").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("disabled").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("disableRecursiveReplacerApplication").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("maxDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("maxLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minDashes").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minDigitsOrLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minDots").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minHex").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minUnderscores").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("options").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("regexStr").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("maxDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("maxLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minDashes").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minDigitsOrLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minDots").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minHex").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minUnderscores").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("options").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("regexStr").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("replaceWith").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("filterType").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("path").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("bindingUrl").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("displayName").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("isResourceSet").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("qualifiedName").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("storeType").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("version").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetResourceSetRuleAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetResourceSetRuleAsync (Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetResourceSetRuleAsync(class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewResourceSetRule.GetResourceSetRuleAsync(Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetResourceSetRuleAsync (Optional options As RequestOptions = Nothing) As Task(Of Response)" />
-      <MemberSignature Language="F#" Value="abstract member GetResourceSetRuleAsync : Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetResourceSetRuleAsync : Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewResourceSetRule.GetResourceSetRuleAsync options" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetResourceSetRuleAsync (Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetResourceSetRuleAsync(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewResourceSetRule.GetResourceSetRuleAsync(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetResourceSetRuleAsync (context As RequestContext) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member GetResourceSetRuleAsync : Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetResourceSetRuleAsync : Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewResourceSetRule.GetResourceSetRuleAsync context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
@@ -212,13 +788,125 @@
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="options"> The request options. </param>
-        <summary> Get a resource set config service model. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Get a resource set config service model.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetResourceSetRuleAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewResourceSetRule client = new PurviewAccountClient(endpoint, credential).GetPurviewResourceSetRuleClient();
+
+Response response = await client.GetResourceSetRuleAsync(null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetResourceSetRuleAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewResourceSetRule client = new PurviewAccountClient(endpoint, credential).GetPurviewResourceSetRuleClient();
+
+Response response = await client.GetResourceSetRuleAsync(null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("advancedResourceSet").GetProperty("modifiedAt").ToString());
+Console.WriteLine(result.GetProperty("advancedResourceSet").GetProperty("resourceSetProcessing").ToString());
+Console.WriteLine(result.GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("filterType").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("acceptedPatterns")[0].GetProperty("path").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("disabled").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("disableRecursiveReplacerApplication").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("complexReplacers")[0].GetProperty("typeName").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("enableDefaultPatterns").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("disabled").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("dynamicReplacement").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("entityTypes")[0].ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("maxDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("maxLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minDashes").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minDigitsOrLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minDots").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minHex").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("minUnderscores").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("options").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("regex").GetProperty("regexStr").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("replaceWith").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("normalizationRules")[0].GetProperty("version").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("condition").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("disabled").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("disableRecursiveReplacerApplication").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("maxDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("maxLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minDashes").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minDigitsOrLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minDots").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minHex").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("minUnderscores").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("options").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("doNotReplaceRegex").GetProperty("regexStr").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("maxDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("maxLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minDashes").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minDigits").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minDigitsOrLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minDots").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minHex").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minLetters").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("minUnderscores").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("options").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("regex").GetProperty("regexStr").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("regexReplacers")[0].GetProperty("replaceWith").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("filterType").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("modifiedBy").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("rejectedPatterns")[0].GetProperty("path").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("bindingUrl").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("displayName").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("isResourceSet").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("lastUpdatedTimestamp").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("rules")[0].GetProperty("qualifiedName").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("scopedRules")[0].GetProperty("storeType").ToString());
+Console.WriteLine(result.GetProperty("pathPatternConfig").GetProperty("version").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="Pipeline">

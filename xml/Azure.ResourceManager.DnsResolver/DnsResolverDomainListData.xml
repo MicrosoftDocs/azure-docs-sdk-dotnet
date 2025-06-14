@@ -31,11 +31,11 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public DnsResolverDomainListData (Azure.Core.AzureLocation location, System.Collections.Generic.IEnumerable&lt;string&gt; domains);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Azure.Core.AzureLocation location, class System.Collections.Generic.IEnumerable`1&lt;string&gt; domains) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.DnsResolver.DnsResolverDomainListData.#ctor(Azure.Core.AzureLocation,System.Collections.Generic.IEnumerable{System.String})" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (location As AzureLocation, domains As IEnumerable(Of String))" />
-      <MemberSignature Language="F#" Value="new Azure.ResourceManager.DnsResolver.DnsResolverDomainListData : Azure.Core.AzureLocation * seq&lt;string&gt; -&gt; Azure.ResourceManager.DnsResolver.DnsResolverDomainListData" Usage="new Azure.ResourceManager.DnsResolver.DnsResolverDomainListData (location, domains)" />
+      <MemberSignature Language="C#" Value="public DnsResolverDomainListData (Azure.Core.AzureLocation location);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Azure.Core.AzureLocation location) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.DnsResolver.DnsResolverDomainListData.#ctor(Azure.Core.AzureLocation)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (location As AzureLocation)" />
+      <MemberSignature Language="F#" Value="new Azure.ResourceManager.DnsResolver.DnsResolverDomainListData : Azure.Core.AzureLocation -&gt; Azure.ResourceManager.DnsResolver.DnsResolverDomainListData" Usage="new Azure.ResourceManager.DnsResolver.DnsResolverDomainListData location" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.DnsResolver</AssemblyName>
@@ -43,15 +43,11 @@
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="location" Type="Azure.Core.AzureLocation" />
-        <Parameter Name="domains" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" />
       </Parameters>
       <Docs>
         <param name="location"> The location. </param>
-        <param name="domains"> The domains in the domain list. </param>
         <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.DnsResolver.DnsResolverDomainListData" />. </summary>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="domains" /> is null. </exception>
       </Docs>
     </Member>
     <Member MemberName="Domains">
@@ -69,7 +65,27 @@
         <ReturnType>System.Collections.Generic.IList&lt;System.String&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The domains in the domain list. </summary>
+        <summary> The domains in the domain list. Will be null if user is using large domain list. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DomainsUri">
+      <MemberSignature Language="C#" Value="public Uri DomainsUri { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Uri DomainsUri" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.DnsResolver.DnsResolverDomainListData.DomainsUri" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property DomainsUri As Uri" />
+      <MemberSignature Language="F#" Value="member this.DomainsUri : Uri" Usage="Azure.ResourceManager.DnsResolver.DnsResolverDomainListData.DomainsUri" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.DnsResolver</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Uri</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The URL for bulk upload or download for domain lists containing larger set of domains. This will be populated if domains is empty or null. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -279,7 +295,7 @@
         <summary>
             Gets the data interchange format (JSON, Xml, etc) that the model uses when communicating with the service.
             </summary>
-        <returns>The format that the model uses when communicating with the serivce.</returns>
+        <returns>The format that the model uses when communicating with the service.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
