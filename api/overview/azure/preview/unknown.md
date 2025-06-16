@@ -1,7 +1,7 @@
 ---
 title: Azure unknown SDK for .NET
 description: Reference for Azure unknown SDK for .NET
-ms.date: 06/13/2025
+ms.date: 06/16/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: unknown
