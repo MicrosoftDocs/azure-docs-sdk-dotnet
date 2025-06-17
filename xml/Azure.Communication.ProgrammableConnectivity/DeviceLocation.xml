@@ -54,11 +54,11 @@
       </Docs>
     </Member>
     <Member MemberName="Verify">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationResult&gt; Verify (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent deviceLocationVerificationContent, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationResult&gt; Verify(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent deviceLocationVerificationContent, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationResult&gt; Verify (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent body, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationResult&gt; Verify(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent body, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Communication.ProgrammableConnectivity.DeviceLocation.Verify(System.String,Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function Verify (apcGatewayId As String, deviceLocationVerificationContent As DeviceLocationVerificationContent, Optional cancellationToken As CancellationToken = Nothing) As Response(Of DeviceLocationVerificationResult)" />
-      <MemberSignature Language="F#" Value="abstract member Verify : string * Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationResult&gt;&#xA;override this.Verify : string * Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationResult&gt;" Usage="deviceLocation.Verify (apcGatewayId, deviceLocationVerificationContent, cancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Verify (apcGatewayId As String, body As DeviceLocationVerificationContent, Optional cancellationToken As CancellationToken = Nothing) As Response(Of DeviceLocationVerificationResult)" />
+      <MemberSignature Language="F#" Value="abstract member Verify : string * Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationResult&gt;&#xA;override this.Verify : string * Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationResult&gt;" Usage="deviceLocation.Verify (apcGatewayId, body, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Communication.ProgrammableConnectivity</AssemblyName>
@@ -69,42 +69,33 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="apcGatewayId" Type="System.String" />
-        <Parameter Name="deviceLocationVerificationContent" Type="Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent" />
+        <Parameter Name="body" Type="Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="apcGatewayId"> The identifier of the APC Gateway resource which should handle this request. </param>
-        <param name="deviceLocationVerificationContent"> Request to verify Location. </param>
+        <param name="body"> Body parameter. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary> Verifies whether a device is within a specified location area, defined as an accuracy (radius) around a point, specified by longitude and latitude. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="apcGatewayId" /> or <paramref name="deviceLocationVerificationContent" /> is null. </exception>
+          <paramref name="apcGatewayId" /> or <paramref name="body" /> is null. </exception>
         <example>
 This sample shows how to call Verify.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 DeviceLocation client = new ProgrammableConnectivityClient(endpoint, credential).GetDeviceLocationClient(apiVersion: "2024-02-09-preview");
 
-DeviceLocationVerificationContent deviceLocationVerificationContent = new DeviceLocationVerificationContent(new NetworkIdentifier("<identifierType>", "<identifier>"), 123.45, 123.45, 1234, new LocationDevice());
-Response<DeviceLocationVerificationResult> response = client.Verify("<apcGatewayId>", deviceLocationVerificationContent);
-]]></code>
-This sample shows how to call Verify with all parameters.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DeviceLocation client = new ProgrammableConnectivityClient(endpoint, credential).GetDeviceLocationClient(apiVersion: "2024-02-09-preview");
-
-DeviceLocationVerificationContent deviceLocationVerificationContent = new DeviceLocationVerificationContent(new NetworkIdentifier("<identifierType>", "<identifier>"), 123.45, 123.45, 1234, new LocationDevice
+DeviceLocationVerificationContent body = new DeviceLocationVerificationContent(new NetworkIdentifier("ipv4", "12.12.12.12"), 70, -161, 91, new LocationDevice
 {
-    NetworkAccessIdentifier = "<networkAccessIdentifier>",
-    PhoneNumber = "<phoneNumber>",
-    Ipv4Address = new Ipv4Address("<ipv4>", 1234),
-    Ipv6Address = new Ipv6Address("<ipv6>", 1234),
+    NetworkAccessIdentifier = "122345@domain.com",
+    PhoneNumber = "+447000000000",
+    Ipv4Address = new Ipv4Address("12.12.12.12", 2442),
+    Ipv6Address = new Ipv6Address("3001:0da8:75a3:0000:0000:8a2e:0370:7334", 1643),
 });
-Response<DeviceLocationVerificationResult> response = client.Verify("<apcGatewayId>", deviceLocationVerificationContent);
+Response<DeviceLocationVerificationResult> response = client.Verify("zdgrzzaxlodrvewbksn", body);
 ]]></code></example>
       </Docs>
     </Member>
@@ -146,7 +137,7 @@ Response<DeviceLocationVerificationResult> response = client.Verify("<apcGateway
         <example>
 This sample shows how to call Verify and parse the result.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 DeviceLocation client = new ProgrammableConnectivityClient(endpoint, credential).GetDeviceLocationClient(apiVersion: "2024-02-09-preview");
 
@@ -154,52 +145,29 @@ using RequestContent content = RequestContent.Create(new
 {
     networkIdentifier = new
     {
-        identifierType = "<identifierType>",
-        identifier = "<identifier>",
+        identifierType = "ipv4",
+        identifier = "12.12.12.12",
     },
-    latitude = 123.45,
-    longitude = 123.45,
-    accuracy = 1234,
-    device = new object(),
-});
-Response response = client.Verify("<apcGatewayId>", content);
-
-JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-Console.WriteLine(result.GetProperty("verificationResult").ToString());
-]]></code>
-This sample shows how to call Verify with all parameters and request content and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DeviceLocation client = new ProgrammableConnectivityClient(endpoint, credential).GetDeviceLocationClient(apiVersion: "2024-02-09-preview");
-
-using RequestContent content = RequestContent.Create(new
-{
-    networkIdentifier = new
-    {
-        identifierType = "<identifierType>",
-        identifier = "<identifier>",
-    },
-    latitude = 123.45,
-    longitude = 123.45,
-    accuracy = 1234,
+    latitude = 70,
+    longitude = -161,
+    accuracy = 91,
     device = new
     {
-        networkAccessIdentifier = "<networkAccessIdentifier>",
-        phoneNumber = "<phoneNumber>",
+        networkAccessIdentifier = "122345@domain.com",
+        phoneNumber = "+447000000000",
         ipv4Address = new
         {
-            ipv4 = "<ipv4>",
-            port = 1234,
+            ipv4 = "12.12.12.12",
+            port = 2442,
         },
         ipv6Address = new
         {
-            ipv6 = "<ipv6>",
-            port = 1234,
+            ipv6 = "3001:0da8:75a3:0000:0000:8a2e:0370:7334",
+            port = 1643,
         },
     },
 });
-Response response = client.Verify("<apcGatewayId>", content);
+Response response = client.Verify("zdgrzzaxlodrvewbksn", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("verificationResult").ToString());
@@ -207,11 +175,11 @@ Console.WriteLine(result.GetProperty("verificationResult").ToString());
       </Docs>
     </Member>
     <Member MemberName="VerifyAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationResult&gt;&gt; VerifyAsync (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent deviceLocationVerificationContent, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationResult&gt;&gt; VerifyAsync(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent deviceLocationVerificationContent, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationResult&gt;&gt; VerifyAsync (string apcGatewayId, Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent body, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationResult&gt;&gt; VerifyAsync(string apcGatewayId, class Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent body, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Communication.ProgrammableConnectivity.DeviceLocation.VerifyAsync(System.String,Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function VerifyAsync (apcGatewayId As String, deviceLocationVerificationContent As DeviceLocationVerificationContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of DeviceLocationVerificationResult))" />
-      <MemberSignature Language="F#" Value="abstract member VerifyAsync : string * Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationResult&gt;&gt;&#xA;override this.VerifyAsync : string * Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationResult&gt;&gt;" Usage="deviceLocation.VerifyAsync (apcGatewayId, deviceLocationVerificationContent, cancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function VerifyAsync (apcGatewayId As String, body As DeviceLocationVerificationContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of DeviceLocationVerificationResult))" />
+      <MemberSignature Language="F#" Value="abstract member VerifyAsync : string * Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationResult&gt;&gt;&#xA;override this.VerifyAsync : string * Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationResult&gt;&gt;" Usage="deviceLocation.VerifyAsync (apcGatewayId, body, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Communication.ProgrammableConnectivity</AssemblyName>
@@ -222,42 +190,33 @@ Console.WriteLine(result.GetProperty("verificationResult").ToString());
       </ReturnValue>
       <Parameters>
         <Parameter Name="apcGatewayId" Type="System.String" />
-        <Parameter Name="deviceLocationVerificationContent" Type="Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent" />
+        <Parameter Name="body" Type="Azure.Communication.ProgrammableConnectivity.DeviceLocationVerificationContent" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="apcGatewayId"> The identifier of the APC Gateway resource which should handle this request. </param>
-        <param name="deviceLocationVerificationContent"> Request to verify Location. </param>
+        <param name="body"> Body parameter. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary> Verifies whether a device is within a specified location area, defined as an accuracy (radius) around a point, specified by longitude and latitude. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="apcGatewayId" /> or <paramref name="deviceLocationVerificationContent" /> is null. </exception>
+          <paramref name="apcGatewayId" /> or <paramref name="body" /> is null. </exception>
         <example>
 This sample shows how to call VerifyAsync.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 DeviceLocation client = new ProgrammableConnectivityClient(endpoint, credential).GetDeviceLocationClient(apiVersion: "2024-02-09-preview");
 
-DeviceLocationVerificationContent deviceLocationVerificationContent = new DeviceLocationVerificationContent(new NetworkIdentifier("<identifierType>", "<identifier>"), 123.45, 123.45, 1234, new LocationDevice());
-Response<DeviceLocationVerificationResult> response = await client.VerifyAsync("<apcGatewayId>", deviceLocationVerificationContent);
-]]></code>
-This sample shows how to call VerifyAsync with all parameters.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DeviceLocation client = new ProgrammableConnectivityClient(endpoint, credential).GetDeviceLocationClient(apiVersion: "2024-02-09-preview");
-
-DeviceLocationVerificationContent deviceLocationVerificationContent = new DeviceLocationVerificationContent(new NetworkIdentifier("<identifierType>", "<identifier>"), 123.45, 123.45, 1234, new LocationDevice
+DeviceLocationVerificationContent body = new DeviceLocationVerificationContent(new NetworkIdentifier("ipv4", "12.12.12.12"), 70, -161, 91, new LocationDevice
 {
-    NetworkAccessIdentifier = "<networkAccessIdentifier>",
-    PhoneNumber = "<phoneNumber>",
-    Ipv4Address = new Ipv4Address("<ipv4>", 1234),
-    Ipv6Address = new Ipv6Address("<ipv6>", 1234),
+    NetworkAccessIdentifier = "122345@domain.com",
+    PhoneNumber = "+447000000000",
+    Ipv4Address = new Ipv4Address("12.12.12.12", 2442),
+    Ipv6Address = new Ipv6Address("3001:0da8:75a3:0000:0000:8a2e:0370:7334", 1643),
 });
-Response<DeviceLocationVerificationResult> response = await client.VerifyAsync("<apcGatewayId>", deviceLocationVerificationContent);
+Response<DeviceLocationVerificationResult> response = await client.VerifyAsync("zdgrzzaxlodrvewbksn", body);
 ]]></code></example>
       </Docs>
     </Member>
@@ -299,7 +258,7 @@ Response<DeviceLocationVerificationResult> response = await client.VerifyAsync("
         <example>
 This sample shows how to call VerifyAsync and parse the result.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 DeviceLocation client = new ProgrammableConnectivityClient(endpoint, credential).GetDeviceLocationClient(apiVersion: "2024-02-09-preview");
 
@@ -307,52 +266,29 @@ using RequestContent content = RequestContent.Create(new
 {
     networkIdentifier = new
     {
-        identifierType = "<identifierType>",
-        identifier = "<identifier>",
+        identifierType = "ipv4",
+        identifier = "12.12.12.12",
     },
-    latitude = 123.45,
-    longitude = 123.45,
-    accuracy = 1234,
-    device = new object(),
-});
-Response response = await client.VerifyAsync("<apcGatewayId>", content);
-
-JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-Console.WriteLine(result.GetProperty("verificationResult").ToString());
-]]></code>
-This sample shows how to call VerifyAsync with all parameters and request content and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DeviceLocation client = new ProgrammableConnectivityClient(endpoint, credential).GetDeviceLocationClient(apiVersion: "2024-02-09-preview");
-
-using RequestContent content = RequestContent.Create(new
-{
-    networkIdentifier = new
-    {
-        identifierType = "<identifierType>",
-        identifier = "<identifier>",
-    },
-    latitude = 123.45,
-    longitude = 123.45,
-    accuracy = 1234,
+    latitude = 70,
+    longitude = -161,
+    accuracy = 91,
     device = new
     {
-        networkAccessIdentifier = "<networkAccessIdentifier>",
-        phoneNumber = "<phoneNumber>",
+        networkAccessIdentifier = "122345@domain.com",
+        phoneNumber = "+447000000000",
         ipv4Address = new
         {
-            ipv4 = "<ipv4>",
-            port = 1234,
+            ipv4 = "12.12.12.12",
+            port = 2442,
         },
         ipv6Address = new
         {
-            ipv6 = "<ipv6>",
-            port = 1234,
+            ipv6 = "3001:0da8:75a3:0000:0000:8a2e:0370:7334",
+            port = 1643,
         },
     },
 });
-Response response = await client.VerifyAsync("<apcGatewayId>", content);
+Response response = await client.VerifyAsync("zdgrzzaxlodrvewbksn", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("verificationResult").ToString());

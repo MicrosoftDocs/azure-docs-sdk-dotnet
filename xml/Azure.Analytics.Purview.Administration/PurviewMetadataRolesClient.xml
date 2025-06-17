@@ -34,10 +34,34 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public PurviewMetadataRolesClient (Uri endpoint, Azure.Core.TokenCredential credential, Azure.Analytics.Purview.Administration.PurviewMetadataClientOptions options = default);" />
+      <MemberSignature Language="C#" Value="public PurviewMetadataRolesClient (Uri endpoint, Azure.Core.TokenCredential credential);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Uri endpoint, class Azure.Core.TokenCredential credential) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataRolesClient.#ctor(System.Uri,Azure.Core.TokenCredential)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (endpoint As Uri, credential As TokenCredential)" />
+      <MemberSignature Language="F#" Value="new Azure.Analytics.Purview.Administration.PurviewMetadataRolesClient : Uri * Azure.Core.TokenCredential -&gt; Azure.Analytics.Purview.Administration.PurviewMetadataRolesClient" Usage="new Azure.Analytics.Purview.Administration.PurviewMetadataRolesClient (endpoint, credential)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Analytics.Purview.Administration</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="endpoint" Type="System.Uri" />
+        <Parameter Name="credential" Type="Azure.Core.TokenCredential" />
+      </Parameters>
+      <Docs>
+        <param name="endpoint"> The endpoint of your Purview account. Example: https://{accountName}.purview.azure.com. </param>
+        <param name="credential"> A credential used to authenticate to an Azure Service. </param>
+        <summary> Initializes a new instance of PurviewMetadataRolesClient. </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="endpoint" /> or <paramref name="credential" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PurviewMetadataRolesClient (Uri endpoint, Azure.Core.TokenCredential credential, Azure.Analytics.Purview.Administration.PurviewMetadataClientOptions options);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Uri endpoint, class Azure.Core.TokenCredential credential, class Azure.Analytics.Purview.Administration.PurviewMetadataClientOptions options) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataRolesClient.#ctor(System.Uri,Azure.Core.TokenCredential,Azure.Analytics.Purview.Administration.PurviewMetadataClientOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (endpoint As Uri, credential As TokenCredential, Optional options As PurviewMetadataClientOptions = Nothing)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (endpoint As Uri, credential As TokenCredential, options As PurviewMetadataClientOptions)" />
       <MemberSignature Language="F#" Value="new Azure.Analytics.Purview.Administration.PurviewMetadataRolesClient : Uri * Azure.Core.TokenCredential * Azure.Analytics.Purview.Administration.PurviewMetadataClientOptions -&gt; Azure.Analytics.Purview.Administration.PurviewMetadataRolesClient" Usage="new Azure.Analytics.Purview.Administration.PurviewMetadataRolesClient (endpoint, credential, options)" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -60,11 +84,11 @@
       </Docs>
     </Member>
     <Member MemberName="GetMetadataRoles">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetMetadataRoles (Azure.RequestOptions options);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetMetadataRoles(class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataRolesClient.GetMetadataRoles(Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetMetadataRoles (options As RequestOptions) As Pageable(Of BinaryData)" />
-      <MemberSignature Language="F#" Value="abstract member GetMetadataRoles : Azure.RequestOptions -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetMetadataRoles : Azure.RequestOptions -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="purviewMetadataRolesClient.GetMetadataRoles options" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetMetadataRoles (Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetMetadataRoles(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataRolesClient.GetMetadataRoles(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetMetadataRoles (context As RequestContext) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="F#" Value="abstract member GetMetadataRoles : Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetMetadataRoles : Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="purviewMetadataRolesClient.GetMetadataRoles context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Administration</AssemblyName>
@@ -74,52 +98,68 @@
         <ReturnType>Azure.Pageable&lt;System.BinaryData&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="options"> The request options. </param>
-        <summary> Lists roles for Purview Account. </summary>
-        <returns>To be added.</returns>
-        <remarks>
-            Schema for <c>Response Body</c>:
-            <code>{
-              values: [
-                {
-                  id: string,
-                  name: string,
-                  type: string,
-                  properties: {
-                    provisioningState: string,
-                    roleType: string,
-                    friendlyName: string,
-                    description: string,
-                    cnfCondition: [AttributeMatcher[]],
-                    dnfCondition: [AttributeMatcher[]],
-                    version: number
-                  }
-                }
-              ],
-              nextLink: string
-            }
-            </code>
-            Schema for <c>Response Error</c>:
-            <code>{
-              error: {
-                code: string,
-                message: string,
-                target: string,
-                details: [ErrorModelAutoGenerated]
-              }
-            }
-            </code></remarks>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Lists roles for Purview Account
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetMetadataRoles and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewMetadataRolesClient client = new PurviewMetadataRolesClient(endpoint, credential);
+
+foreach (BinaryData item in client.GetMetadataRoles(null))
+{
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
+    Console.WriteLine(result.ToString());
+}
+]]></code>
+This sample shows how to call GetMetadataRoles with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewMetadataRolesClient client = new PurviewMetadataRolesClient(endpoint, credential);
+
+foreach (BinaryData item in client.GetMetadataRoles(null))
+{
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
+    Console.WriteLine(result.GetProperty("id").ToString());
+    Console.WriteLine(result.GetProperty("name").ToString());
+    Console.WriteLine(result.GetProperty("type").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("provisioningState").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("roleType").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("friendlyName").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("description").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("cnfCondition")[0][0].GetProperty("attributeName").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("cnfCondition")[0][0].GetProperty("attributeValueIncludes").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("cnfCondition")[0][0].GetProperty("attributeValueIncludedIn")[0].ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("cnfCondition")[0][0].GetProperty("attributeValueExcludes").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("cnfCondition")[0][0].GetProperty("attributeValueExcludedIn")[0].ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("dnfCondition")[0][0].GetProperty("attributeName").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludes").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludedIn")[0].ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludes").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludedIn")[0].ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("version").ToString());
+}
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetMetadataRolesAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetMetadataRolesAsync (Azure.RequestOptions options);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetMetadataRolesAsync(class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataRolesClient.GetMetadataRolesAsync(Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetMetadataRolesAsync (options As RequestOptions) As AsyncPageable(Of BinaryData)" />
-      <MemberSignature Language="F#" Value="abstract member GetMetadataRolesAsync : Azure.RequestOptions -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetMetadataRolesAsync : Azure.RequestOptions -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="purviewMetadataRolesClient.GetMetadataRolesAsync options" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetMetadataRolesAsync (Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetMetadataRolesAsync(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Administration.PurviewMetadataRolesClient.GetMetadataRolesAsync(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetMetadataRolesAsync (context As RequestContext) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="F#" Value="abstract member GetMetadataRolesAsync : Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetMetadataRolesAsync : Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="purviewMetadataRolesClient.GetMetadataRolesAsync context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Administration</AssemblyName>
@@ -129,44 +169,60 @@
         <ReturnType>Azure.AsyncPageable&lt;System.BinaryData&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="options"> The request options. </param>
-        <summary> Lists roles for Purview Account. </summary>
-        <returns>To be added.</returns>
-        <remarks>
-            Schema for <c>Response Body</c>:
-            <code>{
-              values: [
-                {
-                  id: string,
-                  name: string,
-                  type: string,
-                  properties: {
-                    provisioningState: string,
-                    roleType: string,
-                    friendlyName: string,
-                    description: string,
-                    cnfCondition: [AttributeMatcher[]],
-                    dnfCondition: [AttributeMatcher[]],
-                    version: number
-                  }
-                }
-              ],
-              nextLink: string
-            }
-            </code>
-            Schema for <c>Response Error</c>:
-            <code>{
-              error: {
-                code: string,
-                message: string,
-                target: string,
-                details: [ErrorModelAutoGenerated]
-              }
-            }
-            </code></remarks>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Lists roles for Purview Account
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetMetadataRolesAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewMetadataRolesClient client = new PurviewMetadataRolesClient(endpoint, credential);
+
+await foreach (BinaryData item in client.GetMetadataRolesAsync(null))
+{
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
+    Console.WriteLine(result.ToString());
+}
+]]></code>
+This sample shows how to call GetMetadataRolesAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewMetadataRolesClient client = new PurviewMetadataRolesClient(endpoint, credential);
+
+await foreach (BinaryData item in client.GetMetadataRolesAsync(null))
+{
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
+    Console.WriteLine(result.GetProperty("id").ToString());
+    Console.WriteLine(result.GetProperty("name").ToString());
+    Console.WriteLine(result.GetProperty("type").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("provisioningState").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("roleType").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("friendlyName").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("description").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("cnfCondition")[0][0].GetProperty("attributeName").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("cnfCondition")[0][0].GetProperty("attributeValueIncludes").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("cnfCondition")[0][0].GetProperty("attributeValueIncludedIn")[0].ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("cnfCondition")[0][0].GetProperty("attributeValueExcludes").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("cnfCondition")[0][0].GetProperty("attributeValueExcludedIn")[0].ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("dnfCondition")[0][0].GetProperty("attributeName").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludes").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("dnfCondition")[0][0].GetProperty("attributeValueIncludedIn")[0].ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludes").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("dnfCondition")[0][0].GetProperty("attributeValueExcludedIn")[0].ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("version").ToString());
+}
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="Pipeline">
