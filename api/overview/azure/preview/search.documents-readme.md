@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: cognitive-search
 ---
-# Azure AI Search client library for .NET - version 11.7.0-alpha.20250616.5 
+# Azure AI Search client library for .NET - version 11.7.0-alpha.20250617.5 
 
 
 [Azure AI Search](https://learn.microsoft.com/azure/search/) (formerly known as "Azure Cognitive Search") is an AI-powered information retrieval platform that helps developers build rich search experiences and generative AI apps that combine large language models with enterprise data.
