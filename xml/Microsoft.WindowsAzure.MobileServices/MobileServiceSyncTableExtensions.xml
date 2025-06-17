@@ -48,11 +48,12 @@
       <Docs>
         <param name="table">The instance of table to execute pull on.</param>
         <param name="queryId">
-            A string that uniquely identifies this query and is used to keep track of its sync state. Supplying this parameter enables incremental sync whenever the same key is used again. Must be 25 characters or less and contain only alphanumeric characters, dash, and underscore.
+            A string that uniquely identifies this query and is used to keep track of its sync state. Supplying this
+            parameter enables incremental sync whenever the same key is used again. Must be 255 characters or less and
+            contain only alphanumeric characters, dash, and underscore.
             </param>
         <param name="query">
-            An OData query that determines which items to 
-            pull from the remote table.
+            An OData query that determines which items to pull from the remote table.
             </param>
         <summary>
             Pulls all items that match the given query from the associated remote table. Supports incremental sync.
@@ -62,7 +63,7 @@
             </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
-            Thrown when <paramref name="queryId" /> does not match the regular expression <value>[a-zA-Z][a-zA-Z0-9_-]{0,24}</value>.
+            Thrown when <paramref name="queryId" />does not match the regular expression <value>[a-zA-Z][a-zA-Z0-9_-]{1,255}</value>.
             </exception>
       </Docs>
     </Member>
@@ -81,10 +82,10 @@
         <ReturnType>System.Threading.Tasks.Task</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="table" Type="Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
-        <Parameter Name="queryId" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="query" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="pullOptions" Type="Microsoft.WindowsAzure.MobileServices.Sync.PullOptions" Index="3" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="table" Type="Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable" RefType="this" />
+        <Parameter Name="queryId" Type="System.String" />
+        <Parameter Name="query" Type="System.String" />
+        <Parameter Name="pullOptions" Type="Microsoft.WindowsAzure.MobileServices.Sync.PullOptions" />
       </Parameters>
       <Docs>
         <param name="table">The instance of table to execute pull on.</param>
@@ -139,18 +140,18 @@
       <Docs>
         <param name="table">The instance of table to execute pull on.</param>
         <param name="queryId">
-            A string that uniquely identifies this query and is used to keep track of its sync state. Supplying this parameter enables incremental sync whenever the same key is used again. Must be 25 characters or less and contain only alphanumeric characters, dash, and underscore.
+            A string that uniquely identifies this query and is used to keep track of its sync state. Supplying this
+            parameter enables incremental sync whenever the same key is used again. Must be 255 characters or less and
+            contain only alphanumeric characters, dash, and underscore.
             </param>
         <param name="query">
-            An OData query that determines which items to 
-            pull from the remote table.
+            An OData query that determines which items to pull from the remote table.
             </param>
         <param name="parameters">
-            A dictionary of user-defined parameters and values to include in 
+            A dictionary of user-defined parameters and values to include in
             the request URI query string.
             </param>
-        <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> token to observe
-            </param>
+        <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" />token to observe</param>
         <summary>
             Pulls all items that match the given query from the associated remote table. Supports incremental sync.
             </summary>
@@ -159,7 +160,7 @@
             </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
-            Thrown when <paramref name="queryId" /> does not match the regular expression <value>[a-zA-Z][a-zA-Z0-9_-]{0,24}</value>.
+            Thrown when <paramref name="queryId" /> does not match the regular expression <value>[a-zA-Z][a-zA-Z0-9_-]{1,255}</value>.
             </exception>
       </Docs>
     </Member>
@@ -178,12 +179,12 @@
         <ReturnType>System.Threading.Tasks.Task</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="table" Type="Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
-        <Parameter Name="queryId" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="query" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="parameters" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" Index="3" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="pushOtherTables" Type="System.Boolean" Index="4" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="5" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="table" Type="Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable" RefType="this" />
+        <Parameter Name="queryId" Type="System.String" />
+        <Parameter Name="query" Type="System.String" />
+        <Parameter Name="parameters" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" />
+        <Parameter Name="pushOtherTables" Type="System.Boolean" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="table">The table to pull from.</param>
@@ -231,12 +232,12 @@
         <ReturnType>System.Threading.Tasks.Task</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="table" Type="Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
-        <Parameter Name="queryId" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="query" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="parameters" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" Index="3" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="4" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="pullOptions" Type="Microsoft.WindowsAzure.MobileServices.Sync.PullOptions" Index="5" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="table" Type="Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable" RefType="this" />
+        <Parameter Name="queryId" Type="System.String" />
+        <Parameter Name="query" Type="System.String" />
+        <Parameter Name="parameters" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="pullOptions" Type="Microsoft.WindowsAzure.MobileServices.Sync.PullOptions" />
       </Parameters>
       <Docs>
         <param name="table">The instance of table to execute pull on.</param>
@@ -299,10 +300,12 @@
         <typeparam name="U">To be added.</typeparam>
         <param name="table">The instance of table to execute pull on.</param>
         <param name="queryId">
-            A string that uniquely identifies this query and is used to keep track of its sync state. Supplying this parameter enables incremental sync whenever the same key is used again. Must be 25 characters or less and contain only alphanumeric characters, dash, and underscore.
+            A string that uniquely identifies this query and is used to keep track of its sync state. Supplying this parameter
+            enables incremental sync whenever the same key is used again. Must be 255 characters or less and contain only
+            alphanumeric characters, dash, and underscore
             </param>
         <param name="query">
-            An OData query that determines which items to 
+            An OData query that determines which items to
             pull from the remote table.
             </param>
         <summary>
@@ -314,7 +317,7 @@
             </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
-            Thrown when <paramref name="queryId" /> does not match the regular expression <value>[a-zA-Z][a-zA-Z0-9_-]{0,24}</value>.
+            Thrown when <paramref name="queryId" /> does not match the regular expression <value>[a-zA-Z][a-zA-Z0-9_-]{1,255}</value>.
             </exception>
       </Docs>
     </Member>
@@ -337,10 +340,10 @@
         <TypeParameter Name="U" />
       </TypeParameters>
       <Parameters>
-        <Parameter Name="table" Type="Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable&lt;T&gt;" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
-        <Parameter Name="queryId" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="query" Type="Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery&lt;U&gt;" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="pullOptions" Type="Microsoft.WindowsAzure.MobileServices.Sync.PullOptions" Index="3" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="table" Type="Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable&lt;T&gt;" RefType="this" />
+        <Parameter Name="queryId" Type="System.String" />
+        <Parameter Name="query" Type="Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery&lt;U&gt;" />
+        <Parameter Name="pullOptions" Type="Microsoft.WindowsAzure.MobileServices.Sync.PullOptions" />
       </Parameters>
       <Docs>
         <typeparam name="T">To be added.</typeparam>
@@ -404,10 +407,12 @@
         <typeparam name="U">To be added.</typeparam>
         <param name="table">The instance of table to execute pull on.</param>
         <param name="queryId">
-            A string that uniquely identifies this query and is used to keep track of its sync state. Supplying this parameter enables incremental sync whenever the same key is used again. Must be 25 characters or less and contain only alphanumeric characters, dash, and underscore.
+            A string that uniquely identifies this query and is used to keep track of its sync state. Supplying this parameter
+            enables incremental sync whenever the same key is used again. Must be 255 characters or less and contain only
+            alphanumeric characters, dash, and underscore
             </param>
         <param name="query">
-            An OData query that determines which items to 
+            An OData query that determines which items to
             pull from the remote table.
             </param>
         <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> token to observe
@@ -420,7 +425,7 @@
             </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
-            Thrown when <paramref name="queryId" /> does not match the regular expression <value>[a-zA-Z][a-zA-Z0-9_-]{0,24}</value>.
+            Thrown when <paramref name="queryId" /> does not match the regular expression <value>[a-zA-Z][a-zA-Z0-9_-]{1,255}</value>.
             </exception>
       </Docs>
     </Member>
@@ -443,11 +448,11 @@
         <TypeParameter Name="U" />
       </TypeParameters>
       <Parameters>
-        <Parameter Name="table" Type="Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable&lt;T&gt;" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
-        <Parameter Name="queryId" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="query" Type="Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery&lt;U&gt;" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="pushOtherTables" Type="System.Boolean" Index="3" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="4" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="table" Type="Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable&lt;T&gt;" RefType="this" />
+        <Parameter Name="queryId" Type="System.String" />
+        <Parameter Name="query" Type="Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery&lt;U&gt;" />
+        <Parameter Name="pushOtherTables" Type="System.Boolean" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <typeparam name="T">To be added.</typeparam>
@@ -490,11 +495,11 @@
         <TypeParameter Name="U" />
       </TypeParameters>
       <Parameters>
-        <Parameter Name="table" Type="Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable&lt;T&gt;" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
-        <Parameter Name="queryId" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="query" Type="Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery&lt;U&gt;" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="3" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="pullOptions" Type="Microsoft.WindowsAzure.MobileServices.Sync.PullOptions" Index="4" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="table" Type="Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable&lt;T&gt;" RefType="this" />
+        <Parameter Name="queryId" Type="System.String" />
+        <Parameter Name="query" Type="Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery&lt;U&gt;" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="pullOptions" Type="Microsoft.WindowsAzure.MobileServices.Sync.PullOptions" />
       </Parameters>
       <Docs>
         <typeparam name="T">To be added.</typeparam>

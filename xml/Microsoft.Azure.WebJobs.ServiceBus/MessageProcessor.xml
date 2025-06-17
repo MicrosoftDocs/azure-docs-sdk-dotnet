@@ -63,67 +63,13 @@
         <AssemblyVersion>5.16.6.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="processor" Type="Azure.Messaging.ServiceBus.ServiceBusProcessor" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="processor" Type="Azure.Messaging.ServiceBus.ServiceBusProcessor" />
       </Parameters>
       <Docs>
         <param name="processor">The <see cref="T:Azure.Messaging.ServiceBus.ServiceBusProcessor" /> to use for processing messages from Service Bus.</param>
         <summary>
             Initializes a new instance of <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor" />.
             </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public MessageProcessor (Microsoft.Azure.ServiceBus.Core.MessageReceiver messageReceiver, Microsoft.Azure.ServiceBus.MessageHandlerOptions messageOptions);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Microsoft.Azure.ServiceBus.Core.MessageReceiver messageReceiver, class Microsoft.Azure.ServiceBus.MessageHandlerOptions messageOptions) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor.#ctor(Microsoft.Azure.ServiceBus.Core.MessageReceiver,Microsoft.Azure.ServiceBus.MessageHandlerOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (messageReceiver As MessageReceiver, messageOptions As MessageHandlerOptions)" />
-      <MemberSignature Language="F#" Value="new Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor : Microsoft.Azure.ServiceBus.Core.MessageReceiver * Microsoft.Azure.ServiceBus.MessageHandlerOptions -&gt; Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor" Usage="new Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor (messageReceiver, messageOptions)" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Microsoft.Azure.WebJobs.ServiceBus</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Parameters>
-        <Parameter Name="messageReceiver" Type="Microsoft.Azure.ServiceBus.Core.MessageReceiver" Index="0" FrameworkAlternate="azure-dotnet-preview;azure-dotnet-legacy" />
-        <Parameter Name="messageOptions" Type="Microsoft.Azure.ServiceBus.MessageHandlerOptions" Index="1" FrameworkAlternate="azure-dotnet-preview;azure-dotnet-legacy" />
-      </Parameters>
-      <Docs>
-        <param name="messageReceiver">To be added.</param>
-        <param name="messageOptions">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="BeginProcessingMessageAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;bool&gt; BeginProcessingMessageAsync (Microsoft.Azure.ServiceBus.Message message, System.Threading.CancellationToken cancellationToken);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;bool&gt; BeginProcessingMessageAsync(class Microsoft.Azure.ServiceBus.Message message, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor.BeginProcessingMessageAsync(Microsoft.Azure.ServiceBus.Message,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function BeginProcessingMessageAsync (message As Message, cancellationToken As CancellationToken) As Task(Of Boolean)" />
-      <MemberSignature Language="F#" Value="abstract member BeginProcessingMessageAsync : Microsoft.Azure.ServiceBus.Message * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;bool&gt;&#xA;override this.BeginProcessingMessageAsync : Microsoft.Azure.ServiceBus.Message * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;bool&gt;" Usage="messageProcessor.BeginProcessingMessageAsync (message, cancellationToken)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Microsoft.Azure.WebJobs.ServiceBus</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute FrameworkAlternate="azure-dotnet-legacy">
-          <AttributeName Language="C#">[System.Diagnostics.DebuggerStepThrough]</AttributeName>
-          <AttributeName Language="F#">[&lt;System.Diagnostics.DebuggerStepThrough&gt;]</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;System.Boolean&gt;</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="message" Type="Microsoft.Azure.ServiceBus.Message" Index="0" FrameworkAlternate="azure-dotnet-preview;azure-dotnet-legacy" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview;azure-dotnet-legacy" />
-      </Parameters>
-      <Docs>
-        <param name="message">To be added.</param>
-        <param name="cancellationToken">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -142,9 +88,9 @@
         <ReturnType>System.Threading.Tasks.Task&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="actions" Type="Microsoft.Azure.WebJobs.ServiceBus.ServiceBusMessageActions" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="message" Type="Azure.Messaging.ServiceBus.ServiceBusReceivedMessage" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="actions" Type="Microsoft.Azure.WebJobs.ServiceBus.ServiceBusMessageActions" />
+        <Parameter Name="message" Type="Azure.Messaging.ServiceBus.ServiceBusReceivedMessage" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="actions">The set of actions that can be performed on a <see cref="T:Azure.Messaging.ServiceBus.ServiceBusReceivedMessage" />.</param>
@@ -155,34 +101,6 @@
             This allows any preprocessing to take place on the message before processing begins.
             </summary>
         <returns>A <see cref="T:System.Threading.Tasks.Task" /> that returns true if the message processing should continue, false otherwise.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CompleteProcessingMessageAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task CompleteProcessingMessageAsync (Microsoft.Azure.ServiceBus.Message message, Microsoft.Azure.WebJobs.Host.Executors.FunctionResult result, System.Threading.CancellationToken cancellationToken);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task CompleteProcessingMessageAsync(class Microsoft.Azure.ServiceBus.Message message, class Microsoft.Azure.WebJobs.Host.Executors.FunctionResult result, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor.CompleteProcessingMessageAsync(Microsoft.Azure.ServiceBus.Message,Microsoft.Azure.WebJobs.Host.Executors.FunctionResult,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CompleteProcessingMessageAsync (message As Message, result As FunctionResult, cancellationToken As CancellationToken) As Task" />
-      <MemberSignature Language="F#" Value="abstract member CompleteProcessingMessageAsync : Microsoft.Azure.ServiceBus.Message * Microsoft.Azure.WebJobs.Host.Executors.FunctionResult * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&#xA;override this.CompleteProcessingMessageAsync : Microsoft.Azure.ServiceBus.Message * Microsoft.Azure.WebJobs.Host.Executors.FunctionResult * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task" Usage="messageProcessor.CompleteProcessingMessageAsync (message, result, cancellationToken)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Microsoft.Azure.WebJobs.ServiceBus</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="message" Type="Microsoft.Azure.ServiceBus.Message" Index="0" FrameworkAlternate="azure-dotnet-preview;azure-dotnet-legacy" />
-        <Parameter Name="result" Type="Microsoft.Azure.WebJobs.Host.Executors.FunctionResult" Index="1" FrameworkAlternate="azure-dotnet-preview;azure-dotnet-legacy" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="2" FrameworkAlternate="azure-dotnet-preview;azure-dotnet-legacy" />
-      </Parameters>
-      <Docs>
-        <param name="message">To be added.</param>
-        <param name="result">To be added.</param>
-        <param name="cancellationToken">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -201,10 +119,10 @@
         <ReturnType>System.Threading.Tasks.Task</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="actions" Type="Microsoft.Azure.WebJobs.ServiceBus.ServiceBusMessageActions" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="message" Type="Azure.Messaging.ServiceBus.ServiceBusReceivedMessage" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="result" Type="Microsoft.Azure.WebJobs.Host.Executors.FunctionResult" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="3" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="actions" Type="Microsoft.Azure.WebJobs.ServiceBus.ServiceBusMessageActions" />
+        <Parameter Name="message" Type="Azure.Messaging.ServiceBus.ServiceBusReceivedMessage" />
+        <Parameter Name="result" Type="Microsoft.Azure.WebJobs.Host.Executors.FunctionResult" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="actions">The set of actions that can be performed on a <see cref="T:Azure.Messaging.ServiceBus.ServiceBusReceivedMessage" />.</param>
@@ -220,46 +138,6 @@
             is configured. E.g. if <see cref="P:Azure.Messaging.ServiceBus.ServiceBusProcessorOptions.AutoCompleteMessages" /> is false, it is up to the job function to complete
             the message.
             </remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="MessageOptions">
-      <MemberSignature Language="C#" Value="public Microsoft.Azure.ServiceBus.MessageHandlerOptions MessageOptions { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Azure.ServiceBus.MessageHandlerOptions MessageOptions" />
-      <MemberSignature Language="DocId" Value="P:Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor.MessageOptions" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property MessageOptions As MessageHandlerOptions" />
-      <MemberSignature Language="F#" Value="member this.MessageOptions : Microsoft.Azure.ServiceBus.MessageHandlerOptions" Usage="Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor.MessageOptions" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Microsoft.Azure.WebJobs.ServiceBus</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Microsoft.Azure.ServiceBus.MessageHandlerOptions</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="MessageReceiver">
-      <MemberSignature Language="C#" Value="protected Microsoft.Azure.ServiceBus.Core.MessageReceiver MessageReceiver { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Azure.ServiceBus.Core.MessageReceiver MessageReceiver" />
-      <MemberSignature Language="DocId" Value="P:Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor.MessageReceiver" />
-      <MemberSignature Language="VB.NET" Value="Protected Property MessageReceiver As MessageReceiver" />
-      <MemberSignature Language="F#" Value="member this.MessageReceiver : Microsoft.Azure.ServiceBus.Core.MessageReceiver with get, set" Usage="Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor.MessageReceiver" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Microsoft.Azure.WebJobs.ServiceBus</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Microsoft.Azure.ServiceBus.Core.MessageReceiver</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Processor">
