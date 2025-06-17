@@ -1,7 +1,7 @@
 ---
 title: Azure SQL Server on Virtual Machines SDK for .NET
 description: Reference for Azure SQL Server on Virtual Machines SDK for .NET
-ms.date: 06/16/2025
+ms.date: 06/17/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: sqlserveronvirtualmachines
