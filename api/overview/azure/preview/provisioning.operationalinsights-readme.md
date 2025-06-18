@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.OperationalInsights, provisioning
-ms.date: 10/05/2024
+ms.date: 06/18/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: provisioning
@@ -17,7 +17,7 @@ Azure.Provisioning.OperationalInsights simplifies declarative resource provision
 Install the client library for .NET with [NuGet](https://www.nuget.org/ ):
 
 ```dotnetcli
-dotnet add package Azure.Provisioning.OperationalInsights --prerelease
+dotnet add package Azure.Provisioning.OperationalInsights
 ```
 
 ### Prerequisites
@@ -58,7 +58,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.OperationalInsights_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
