@@ -1,15 +1,15 @@
 ---
 title: Azure Cognitive Services Health Insights Clinical Matching client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Health.Insights.ClinicalMatching, healthinsights
-ms.date: 04/04/2023
+ms.date: 06/18/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: healthinsights
 ---
-# Azure Cognitive Services Health Insights Clinical Matching client library for .NET - version 1.0.0-beta.1 
+# Azure Cognitive Services Health Insights Clinical Matching client library for .NET - version 1.0.0-alpha.20250618.1 
 
 
-[Health Insights](https://review.learn.microsoft.com/azure/cognitive-services/health-decision-support/overview?branch=main) is an Azure Applied AI Service built with the Azure Cognitive Services Framework, that leverages multiple Cognitive Services, Healthcare API services and other Azure resources.
+[Health Insights][health_insights] is an Azure Applied AI Service built with the Azure Cognitive Services Framework, that leverages multiple Cognitive Services, Healthcare API services and other Azure resources.
 
 The [Clinical Matching model][clinical_matching_docs] receives patients data and clinical trials protocols, and provides relevant clinical trials based on eligibility criteria.
 
@@ -79,12 +79,12 @@ Trial Matcher provides the user of the services two main modes of operation: pat
 ### Match Trials
 
 ```C# Snippet:HealthInsightsClinicalMatchingMatchTrialsAsync
-TrialMatcherResult trialMatcherResult = default;
+TrialMatcherResults matcherResults = default;
 try
 {
     // Using ClinicalMatchingClient + MatchTrialsAsync
-    Operation<TrialMatcherResult> operation = await clinicalMatchingClient.MatchTrialsAsync(WaitUntil.Completed, trialMatcherData);
-    trialMatcherResult = operation.Value;
+    Operation<TrialMatcherResults> operation = await clinicalMatchingClient.MatchTrialsAsync(WaitUntil.Completed, trialMatcherData);
+    matcherResults = operation.Value;
 }
 catch (Exception ex)
 {
@@ -93,10 +93,7 @@ catch (Exception ex)
 }
 ```
 ```C# Snippet:HealthInsightsTrialMatcherMatchTrialsAsyncViewResults
-// View the match trials (eligible/ineligible)
-if (trialMatcherResult.Status == JobStatus.Succeeded)
-{
-    TrialMatcherResults matcherResults = trialMatcherResult.Results;
+    // View the match trials (eligible/ineligible)
     foreach (TrialMatcherPatientResult patientResult in matcherResults.Patients)
     {
         Console.WriteLine($"Inferences of Patient {patientResult.Id}");
@@ -106,14 +103,6 @@ if (trialMatcherResult.Status == JobStatus.Succeeded)
             Console.WriteLine($"Type: {tmInferences.Type.ToString()}  Value: {tmInferences.Value}");
             Console.WriteLine($"Description {tmInferences.Description}");
         }
-    }
-}
-else
-{
-    IReadOnlyList<ResponseError> matcherErrors = trialMatcherResult.Errors;
-    foreach (ResponseError error in matcherErrors)
-    {
-        Console.WriteLine($"{error.Code} : {error.Message}");
     }
 }
 ```
@@ -136,7 +125,7 @@ To learn more about other logging mechanisms see [Diagnostics Samples][logging].
 
 ## Additional documentation
 
-For more extensive documentation on Azure Health Insights Clinical Matching, see the [Clinical Matching documentation][clinical_matching_docs] on docs.microsoft.com.
+For more extensive documentation on Azure Health Insights Clinical Matching, see the [Clinical Matching documentation][clinical_matching_docs] on learn.microsoft.com.
 
 ## Contributing
 
@@ -147,11 +136,11 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 This project has adopted the [Microsoft Open Source Code of Conduct][code_of_conduct]. For more information see the [Code of Conduct FAQ][coc_faq] or contact [opencode@microsoft.com][coc_contact] with any additional questions or comments.
 
 <!-- LINKS -->
-[clinical_matching_client_class]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Health.Insights.ClinicalMatching_1.0.0-beta.1/sdk/healthinsights/Azure.Health.Insights.ClinicalMatching/src/Generated/ClinicalMatchingClient.cs
-[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Health.Insights.ClinicalMatching_1.0.0-beta.1/sdk/identity/Azure.Identity/README.md
-[cognitive_resource_cli]: /azure/cognitive-services/cognitive-services-apis-create-account-cli
-[logging]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Health.Insights.ClinicalMatching_1.0.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md
-[azure_cli]: /cli/azure
+[clinical_matching_client_class]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthinsights/Azure.Health.Insights.ClinicalMatching/src/Generated/ClinicalMatchingClient.cs
+[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/README.md
+[cognitive_resource_cli]: https://learn.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli
+[logging]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core/Azure.Core/samples/Diagnostics.md
+[azure_cli]: https://learn.microsoft.com/cli/azure
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
 [nuget]: https://www.nuget.org/
 [azure_portal]: https://portal.azure.com
@@ -159,10 +148,11 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 [coc_contact]: mailto:opencode@microsoft.com
-[clinical_matching_docs]: https://review.learn.microsoft.com/azure/cognitive-services/health-decision-support/trial-matcher/overview?branch=main
-[clinical_matching_client_src]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Health.Insights.ClinicalMatching_1.0.0-beta.1/sdk/healthinsights/Azure.Health.Insights.ClinicalMatching/src/
-[clinical_matching_client_nuget_package]: https://www.nuget.org/packages/
-[clinical_matching_api_documentation]: https://review.learn.microsoft.com/rest/api/cognitiveservices/healthinsights/trial-matcher?branch=healthin202303
-[product_docs]:https://review.learn.microsoft.com/azure/cognitive-services/health-decision-support/trial-matcher/?branch=main
-[samples_location]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Health.Insights.ClinicalMatching_1.0.0-beta.1/sdk/healthinsights/Azure.Health.Insights.ClinicalMatching/samples
+[health_insights]: https://learn.microsoft.com/azure/azure-health-insights/overview?branch=main
+[clinical_matching_docs]: https://learn.microsoft.com/azure/azure-health-insights/trial-matcher/overview
+[clinical_matching_client_src]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthinsights/Azure.Health.Insights.ClinicalMatching/src/
+[clinical_matching_client_nuget_package]: https://www.nuget.org/packages/Azure.Health.Insights.ClinicalMatching/
+[clinical_matching_api_documentation]: https://learn.microsoft.com/rest/api/cognitiveservices/healthinsights/trial-matcher
+[product_docs]: https://learn.microsoft.com/azure/azure-health-insights/trial-matcher/
+[samples_location]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthinsights/Azure.Health.Insights.ClinicalMatching/samples
 
