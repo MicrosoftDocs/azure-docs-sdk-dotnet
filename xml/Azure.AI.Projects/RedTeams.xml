@@ -66,7 +66,7 @@ Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 RedTeams client = new AIProjectClient(endpoint, credential).GetRedTeamsClient(apiVersion: "2025-05-15-preview");
 
-RedTeam redTeam = new RedTeam(null)
+RedTeam redTeam = new RedTeam(default)
 {
     NumTurns = 10,
     AttackStrategies = { AttackStrategy.Easy },
@@ -90,7 +90,7 @@ Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 RedTeams client = new AIProjectClient(endpoint, credential).GetRedTeamsClient(apiVersion: "2025-05-15-preview");
 
-RedTeam redTeam = new RedTeam(null)
+RedTeam redTeam = new RedTeam(default)
 {
     NumTurns = 10,
     AttackStrategies = { AttackStrategy.Easy },
@@ -162,6 +162,10 @@ using RequestContent content = RequestContent.Create(new
     {
         key9280 = "fwzjtipl",
     },
+    target = new
+    {
+        type = "TargetConfig",
+    },
 });
 Response response = client.Create(content);
 
@@ -186,6 +190,10 @@ using RequestContent content = RequestContent.Create(new
     riskCategories = new object[]
     {
         "HateUnfairness"
+    },
+    target = new
+    {
+        type = "TargetConfig",
     },
 });
 Response response = client.Create(content);
@@ -229,7 +237,7 @@ Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 RedTeams client = new AIProjectClient(endpoint, credential).GetRedTeamsClient(apiVersion: "2025-05-15-preview");
 
-RedTeam redTeam = new RedTeam(null)
+RedTeam redTeam = new RedTeam(default)
 {
     NumTurns = 10,
     AttackStrategies = { AttackStrategy.Easy },
@@ -253,7 +261,7 @@ Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 RedTeams client = new AIProjectClient(endpoint, credential).GetRedTeamsClient(apiVersion: "2025-05-15-preview");
 
-RedTeam redTeam = new RedTeam(null)
+RedTeam redTeam = new RedTeam(default)
 {
     NumTurns = 10,
     AttackStrategies = { AttackStrategy.Easy },
@@ -325,6 +333,10 @@ using RequestContent content = RequestContent.Create(new
     {
         key9280 = "fwzjtipl",
     },
+    target = new
+    {
+        type = "TargetConfig",
+    },
 });
 Response response = await client.CreateAsync(content);
 
@@ -349,6 +361,10 @@ using RequestContent content = RequestContent.Create(new
     riskCategories = new object[]
     {
         "HateUnfairness"
+    },
+    target = new
+    {
+        type = "TargetConfig",
     },
 });
 Response response = await client.CreateAsync(content);

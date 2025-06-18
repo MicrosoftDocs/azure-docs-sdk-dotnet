@@ -1,21 +1,17 @@
 <Type Name="ProvisioningVariable" FullName="Azure.Provisioning.ProvisioningVariable">
-  <TypeSignature Language="C#" Value="public class ProvisioningVariable : Azure.Provisioning.Primitives.NamedProvisionableConstruct" FrameworkAlternate="azure-dotnet" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ProvisioningVariable extends Azure.Provisioning.Primitives.NamedProvisionableConstruct" FrameworkAlternate="azure-dotnet" />
+  <TypeSignature Language="C#" Value="public class ProvisioningVariable : Azure.Provisioning.Primitives.NamedProvisionableConstruct" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ProvisioningVariable extends Azure.Provisioning.Primitives.NamedProvisionableConstruct" />
   <TypeSignature Language="DocId" Value="T:Azure.Provisioning.ProvisioningVariable" />
-  <TypeSignature Language="VB.NET" Value="Public Class ProvisioningVariable&#xA;Inherits NamedProvisionableConstruct" FrameworkAlternate="azure-dotnet" />
-  <TypeSignature Language="F#" Value="type ProvisioningVariable = class&#xA;    inherit NamedProvisionableConstruct" FrameworkAlternate="azure-dotnet" />
-  <TypeSignature Language="C#" Value="public class ProvisioningVariable : Azure.Provisioning.Primitives.NamedProvisioningConstruct" FrameworkAlternate="azure-dotnet-preview" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ProvisioningVariable extends Azure.Provisioning.Primitives.NamedProvisioningConstruct" FrameworkAlternate="azure-dotnet-preview" />
-  <TypeSignature Language="VB.NET" Value="Public Class ProvisioningVariable&#xA;Inherits NamedProvisioningConstruct" FrameworkAlternate="azure-dotnet-preview" />
-  <TypeSignature Language="F#" Value="type ProvisioningVariable = class&#xA;    inherit NamedProvisioningConstruct" FrameworkAlternate="azure-dotnet-preview" />
+  <TypeSignature Language="VB.NET" Value="Public Class ProvisioningVariable&#xA;Inherits NamedProvisionableConstruct" />
+  <TypeSignature Language="F#" Value="type ProvisioningVariable = class&#xA;    inherit NamedProvisionableConstruct" />
   <AssemblyInfo>
     <AssemblyName>Azure.Provisioning</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>Azure.Provisioning.Primitives.NamedProvisionableConstruct</BaseTypeName>
-    <BaseTypeName FrameworkAlternate="azure-dotnet-preview">Azure.Provisioning.Primitives.NamedProvisioningConstruct</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -26,6 +22,34 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ProvisioningVariable (string bicepIdentifier, Type type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string bicepIdentifier, class System.Type type) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Provisioning.ProvisioningVariable.#ctor(System.String,System.Type)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (bicepIdentifier As String, type As Type)" />
+      <MemberSignature Language="F#" Value="new Azure.Provisioning.ProvisioningVariable : string * Type -&gt; Azure.Provisioning.ProvisioningVariable" Usage="new Azure.Provisioning.ProvisioningVariable (bicepIdentifier, type)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Provisioning</AssemblyName>
+        <AssemblyVersion>1.0.1.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="bicepIdentifier" Type="System.String" />
+        <Parameter Name="type" Type="System.Type" />
+      </Parameters>
+      <Docs>
+        <param name="bicepIdentifier">
+            Bicep identifier of the variable.  This value can contain letters,
+            numbers, and underscores.
+            </param>
+        <param name="type">Type of the variable.</param>
+        <summary>
+            Creates a new ProvisioningVariable.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="protected ProvisioningVariable (string bicepIdentifier, Azure.Provisioning.Expressions.BicepExpression type, Azure.Provisioning.BicepValue&lt;object&gt;? value);" />
       <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(string bicepIdentifier, class Azure.Provisioning.Expressions.BicepExpression type, class Azure.Provisioning.BicepValue`1&lt;object&gt; value) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Provisioning.ProvisioningVariable.#ctor(System.String,Azure.Provisioning.Expressions.BicepExpression,Azure.Provisioning.BicepValue{System.Object})" />
@@ -35,11 +59,12 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning</AssemblyName>
         <AssemblyVersion>1.0.1.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="bicepIdentifier" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="type" Type="Azure.Provisioning.Expressions.BicepExpression" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="value" Type="Azure.Provisioning.BicepValue&lt;System.Object&gt;" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="bicepIdentifier" Type="System.String" />
+        <Parameter Name="type" Type="Azure.Provisioning.Expressions.BicepExpression" />
+        <Parameter Name="value" Type="Azure.Provisioning.BicepValue&lt;System.Object&gt;" />
       </Parameters>
       <Docs>
         <param name="bicepIdentifier">
@@ -48,72 +73,6 @@
             </param>
         <param name="type">Type of the variable.</param>
         <param name="value">Default value of the variable.</param>
-        <summary>
-            Creates a new ProvisioningVariable.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="protected ProvisioningVariable (string name, Azure.Provisioning.Expressions.Expression type, Azure.Provisioning.BicepValue&lt;object&gt;? value);" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(string name, class Azure.Provisioning.Expressions.Expression type, class Azure.Provisioning.BicepValue`1&lt;object&gt; value) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Provisioning.ProvisioningVariable.#ctor(System.String,Azure.Provisioning.Expressions.Expression,Azure.Provisioning.BicepValue{System.Object})" />
-      <MemberSignature Language="VB.NET" Value="Protected Sub New (name As String, type As Expression, value As BicepValue(Of Object))" />
-      <MemberSignature Language="F#" Value="new Azure.Provisioning.ProvisioningVariable : string * Azure.Provisioning.Expressions.Expression * Azure.Provisioning.BicepValue&lt;obj&gt; -&gt; Azure.Provisioning.ProvisioningVariable" Usage="new Azure.Provisioning.ProvisioningVariable (name, type, value)" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Provisioning</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Parameters>
-        <Parameter Name="name" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="type" Type="Azure.Provisioning.Expressions.Expression" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="value" Type="Azure.Provisioning.BicepValue&lt;System.Object&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="name">
-            Name of the variable.  This value can contain letters, numbers, and
-            underscores.
-            </param>
-        <param name="type">Type of the variable.</param>
-        <param name="value">Default value of the variable.</param>
-        <summary>
-            Creates a new ProvisioningVariable.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public ProvisioningVariable (string bicepIdentifier, Type type);" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string bicepIdentifier, class System.Type type) cil managed" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="DocId" Value="M:Azure.Provisioning.ProvisioningVariable.#ctor(System.String,System.Type)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (bicepIdentifier As String, type As Type)" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="F#" Value="new Azure.Provisioning.ProvisioningVariable : string * Type -&gt; Azure.Provisioning.ProvisioningVariable" Usage="new Azure.Provisioning.ProvisioningVariable (bicepIdentifier, type)" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="C#" Value="public ProvisioningVariable (string name, Type type);" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string name, class System.Type type) cil managed" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (name As String, type As Type)" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="F#" Value="new Azure.Provisioning.ProvisioningVariable : string * Type -&gt; Azure.Provisioning.ProvisioningVariable" Usage="new Azure.Provisioning.ProvisioningVariable (name, type)" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Provisioning</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-        <AssemblyVersion>1.0.1.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Parameters>
-        <Parameter Name="bicepIdentifier" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="name" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="type" Type="System.Type" Index="1" />
-      </Parameters>
-      <Docs>
-        <param name="bicepIdentifier">
-            Bicep identifier of the variable.  This value can contain letters,
-            numbers, and underscores.
-            </param>
-        <param name="name">
-            Name of the variable.  This value can contain letters, numbers, and
-            underscores.
-            </param>
-        <param name="type">Type of the variable.</param>
         <summary>
             Creates a new ProvisioningVariable.
             </summary>
@@ -121,20 +80,16 @@
       </Docs>
     </Member>
     <Member MemberName="BicepType">
-      <MemberSignature Language="C#" Value="public Azure.Provisioning.Expressions.BicepExpression BicepType { get; }" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Provisioning.Expressions.BicepExpression BicepType" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public Azure.Provisioning.Expressions.BicepExpression BicepType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Provisioning.Expressions.BicepExpression BicepType" />
       <MemberSignature Language="DocId" Value="P:Azure.Provisioning.ProvisioningVariable.BicepType" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property BicepType As BicepExpression" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="F#" Value="member this.BicepType : Azure.Provisioning.Expressions.BicepExpression" Usage="Azure.Provisioning.ProvisioningVariable.BicepType" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="C#" Value="public Azure.Provisioning.Expressions.Expression BicepType { get; }" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Provisioning.Expressions.Expression BicepType" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property BicepType As Expression" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="F#" Value="member this.BicepType : Azure.Provisioning.Expressions.Expression" Usage="Azure.Provisioning.ProvisioningVariable.BicepType" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property BicepType As BicepExpression" />
+      <MemberSignature Language="F#" Value="member this.BicepType : Azure.Provisioning.Expressions.BicepExpression" Usage="Azure.Provisioning.ProvisioningVariable.BicepType" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
         <AssemblyVersion>1.0.1.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -143,8 +98,7 @@
         </Attribute>
       </Attributes>
       <ReturnValue>
-        <ReturnType FrameworkAlternate="azure-dotnet">Azure.Provisioning.Expressions.BicepExpression</ReturnType>
-        <ReturnType FrameworkAlternate="azure-dotnet-preview">Azure.Provisioning.Expressions.Expression</ReturnType>
+        <ReturnType>Azure.Provisioning.Expressions.BicepExpression</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -155,20 +109,16 @@
       </Docs>
     </Member>
     <Member MemberName="Compile">
-      <MemberSignature Language="C#" Value="protected internal override System.Collections.Generic.IEnumerable&lt;Azure.Provisioning.Expressions.BicepStatement&gt; Compile ();" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="ILAsm" Value=".method familyorassemblyhidebysig virtual instance class System.Collections.Generic.IEnumerable`1&lt;class Azure.Provisioning.Expressions.BicepStatement&gt; Compile() cil managed" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="protected internal override System.Collections.Generic.IEnumerable&lt;Azure.Provisioning.Expressions.BicepStatement&gt; Compile ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyorassemblyhidebysig virtual instance class System.Collections.Generic.IEnumerable`1&lt;class Azure.Provisioning.Expressions.BicepStatement&gt; Compile() cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Provisioning.ProvisioningVariable.Compile" />
-      <MemberSignature Language="VB.NET" Value="Protected Friend Iterator Overrides Function Compile () As IEnumerable(Of BicepStatement)" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="F#" Value="override this.Compile : unit -&gt; seq&lt;Azure.Provisioning.Expressions.BicepStatement&gt;" Usage="provisioningVariable.Compile " FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="C#" Value="protected internal override System.Collections.Generic.IEnumerable&lt;Azure.Provisioning.Expressions.Statement&gt; Compile ();" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="ILAsm" Value=".method familyorassemblyhidebysig virtual instance class System.Collections.Generic.IEnumerable`1&lt;class Azure.Provisioning.Expressions.Statement&gt; Compile() cil managed" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="VB.NET" Value="Protected Friend Iterator Overrides Function Compile () As IEnumerable(Of Statement)" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="F#" Value="override this.Compile : unit -&gt; seq&lt;Azure.Provisioning.Expressions.Statement&gt;" Usage="provisioningVariable.Compile " FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Protected Friend Iterator Overrides Function Compile () As IEnumerable(Of BicepStatement)" />
+      <MemberSignature Language="F#" Value="override this.Compile : unit -&gt; seq&lt;Azure.Provisioning.Expressions.BicepStatement&gt;" Usage="provisioningVariable.Compile " />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
         <AssemblyVersion>1.0.1.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -177,8 +127,7 @@
         </Attribute>
       </Attributes>
       <ReturnValue>
-        <ReturnType FrameworkAlternate="azure-dotnet">System.Collections.Generic.IEnumerable&lt;Azure.Provisioning.Expressions.BicepStatement&gt;</ReturnType>
-        <ReturnType FrameworkAlternate="azure-dotnet-preview">System.Collections.Generic.IEnumerable&lt;Azure.Provisioning.Expressions.Statement&gt;</ReturnType>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;Azure.Provisioning.Expressions.BicepStatement&gt;</ReturnType>
       </ReturnValue>
       <Parameters />
       <Docs>
@@ -198,8 +147,8 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
         <AssemblyVersion>1.0.1.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
@@ -221,8 +170,8 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
         <AssemblyVersion>1.0.1.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Object&gt;</ReturnType>

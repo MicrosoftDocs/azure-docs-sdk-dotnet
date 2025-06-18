@@ -34,10 +34,10 @@
       </Docs>
     </Member>
     <Member MemberName="CreateCascadeDeleteJob">
-      <MemberSignature Language="C#" Value="public virtual Azure.Operation&lt;BinaryData&gt; CreateCascadeDeleteJob (Azure.WaitUntil waitUntil, string jobId, string partyId, string boundaryId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Operation&lt;BinaryData&gt; CreateCascadeDeleteJob (Azure.WaitUntil waitUntil, string jobId, string partyId, string boundaryId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Operation`1&lt;class System.BinaryData&gt; CreateCascadeDeleteJob(valuetype Azure.WaitUntil waitUntil, string jobId, string partyId, string boundaryId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Boundaries.CreateCascadeDeleteJob(Azure.WaitUntil,System.String,System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateCascadeDeleteJob (waitUntil As WaitUntil, jobId As String, partyId As String, boundaryId As String, Optional context As RequestContext = Nothing) As Operation(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateCascadeDeleteJob (waitUntil As WaitUntil, jobId As String, partyId As String, boundaryId As String, context As RequestContext) As Operation(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member CreateCascadeDeleteJob : Azure.WaitUntil * string * string * string * Azure.RequestContext -&gt; Azure.Operation&lt;BinaryData&gt;&#xA;override this.CreateCascadeDeleteJob : Azure.WaitUntil * string * string * string * Azure.RequestContext -&gt; Azure.Operation&lt;BinaryData&gt;" Usage="boundaries.CreateCascadeDeleteJob (waitUntil, jobId, partyId, boundaryId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -61,8 +61,12 @@
         <param name="partyId"> ID of the associated party. </param>
         <param name="boundaryId"> ID of the boundary to be deleted. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Create a cascade delete job for specified boundary. </summary>
-        <returns> The <see cref="T:Azure.Operation`1" /> from the service that will contain a <see cref="T:System.BinaryData" /> object once the asynchronous operation on the service has completed. Details of the body schema for the operation's final value are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Create a cascade delete job for specified boundary.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The <see cref="T:Azure.Operation" /> representing an asynchronous operation on the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -91,15 +95,30 @@ Possible values: 'Waiting', 'Running', 'Succeeded', 'Failed', 'Cancelled'.
           <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateCascadeDeleteJob with required parameters and parse the result.
+This sample shows how to call CreateCascadeDeleteJob and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-var operation = client.CreateCascadeDeleteJob(WaitUntil.Completed, "<jobId>", "<partyId>", "<boundaryId>");
+Operation<BinaryData> operation = client.CreateCascadeDeleteJob(WaitUntil.Completed, "<jobId>", "<partyId>", "<boundaryId>", null);
+BinaryData responseData = operation.Value;
 
-BinaryData data = operation.Value;
-JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
+Console.WriteLine(result.GetProperty("partyId").ToString());
+Console.WriteLine(result.GetProperty("resourceId").ToString());
+Console.WriteLine(result.GetProperty("resourceType").ToString());
+]]></code>
+This sample shows how to call CreateCascadeDeleteJob with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
+
+Operation<BinaryData> operation = client.CreateCascadeDeleteJob(WaitUntil.Completed, "<jobId>", "<partyId>", "<boundaryId>", null);
+BinaryData responseData = operation.Value;
+
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
 Console.WriteLine(result.GetProperty("resourceId").ToString());
 Console.WriteLine(result.GetProperty("resourceType").ToString());
@@ -116,10 +135,10 @@ Console.WriteLine(result.GetProperty("endTime").ToString());
       </Docs>
     </Member>
     <Member MemberName="CreateCascadeDeleteJobAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt; CreateCascadeDeleteJobAsync (Azure.WaitUntil waitUntil, string jobId, string partyId, string boundaryId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt; CreateCascadeDeleteJobAsync (Azure.WaitUntil waitUntil, string jobId, string partyId, string boundaryId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Operation`1&lt;class System.BinaryData&gt;&gt; CreateCascadeDeleteJobAsync(valuetype Azure.WaitUntil waitUntil, string jobId, string partyId, string boundaryId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Boundaries.CreateCascadeDeleteJobAsync(Azure.WaitUntil,System.String,System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateCascadeDeleteJobAsync (waitUntil As WaitUntil, jobId As String, partyId As String, boundaryId As String, Optional context As RequestContext = Nothing) As Task(Of Operation(Of BinaryData))" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateCascadeDeleteJobAsync (waitUntil As WaitUntil, jobId As String, partyId As String, boundaryId As String, context As RequestContext) As Task(Of Operation(Of BinaryData))" />
       <MemberSignature Language="F#" Value="abstract member CreateCascadeDeleteJobAsync : Azure.WaitUntil * string * string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt;&#xA;override this.CreateCascadeDeleteJobAsync : Azure.WaitUntil * string * string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt;" Usage="boundaries.CreateCascadeDeleteJobAsync (waitUntil, jobId, partyId, boundaryId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -143,8 +162,12 @@ Console.WriteLine(result.GetProperty("endTime").ToString());
         <param name="partyId"> ID of the associated party. </param>
         <param name="boundaryId"> ID of the boundary to be deleted. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Create a cascade delete job for specified boundary. </summary>
-        <returns> The <see cref="T:Azure.Operation`1" /> from the service that will contain a <see cref="T:System.BinaryData" /> object once the asynchronous operation on the service has completed. Details of the body schema for the operation's final value are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Create a cascade delete job for specified boundary.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The <see cref="T:Azure.Operation" /> representing an asynchronous operation on the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -173,15 +196,30 @@ Possible values: 'Waiting', 'Running', 'Succeeded', 'Failed', 'Cancelled'.
           <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateCascadeDeleteJobAsync with required parameters and parse the result.
+This sample shows how to call CreateCascadeDeleteJobAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-var operation = await client.CreateCascadeDeleteJobAsync(WaitUntil.Completed, "<jobId>", "<partyId>", "<boundaryId>");
+Operation<BinaryData> operation = await client.CreateCascadeDeleteJobAsync(WaitUntil.Completed, "<jobId>", "<partyId>", "<boundaryId>", null);
+BinaryData responseData = operation.Value;
 
-BinaryData data = operation.Value;
-JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
+Console.WriteLine(result.GetProperty("partyId").ToString());
+Console.WriteLine(result.GetProperty("resourceId").ToString());
+Console.WriteLine(result.GetProperty("resourceType").ToString());
+]]></code>
+This sample shows how to call CreateCascadeDeleteJobAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
+
+Operation<BinaryData> operation = await client.CreateCascadeDeleteJobAsync(WaitUntil.Completed, "<jobId>", "<partyId>", "<boundaryId>", null);
+BinaryData responseData = operation.Value;
+
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
 Console.WriteLine(result.GetProperty("resourceId").ToString());
 Console.WriteLine(result.GetProperty("resourceType").ToString());
@@ -220,10 +258,14 @@ Console.WriteLine(result.GetProperty("endTime").ToString());
       <Docs>
         <param name="partyId"> Id of the party resource. </param>
         <param name="boundaryId"> Id of the boundary resource. </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Creates or updates a boundary resource. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Creates or updates a boundary resource.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the request and response payloads.
 
@@ -306,30 +348,37 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> or <paramref name="boundaryId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateOrUpdate with required parameters and parse the result.
+This sample shows how to call CreateOrUpdate and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-var data = new {};
-
-Response response = client.CreateOrUpdate("<partyId>", "<boundaryId>", RequestContent.Create(data));
+using RequestContent content = RequestContent.Create(new object());
+Response response = client.CreateOrUpdate("<partyId>", "<boundaryId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.ToString());
 ]]></code>
-This sample shows how to call CreateOrUpdate with all parameters and request content, and how to parse the result.
+This sample shows how to call CreateOrUpdate with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-var data = new {
-    geometry = new {
-        coordinates = new[] {
-            new[] {
-                new[] {
-                    new[] {
-                        123.45d
+using RequestContent content = RequestContent.Create(new
+{
+    geometry = new
+    {
+        coordinates = new object[]
+        {
+            new object[]
+            {
+                new object[]
+                {
+                    new object[]
+                    {
+                        123.45
                     }
                 }
             }
@@ -337,46 +386,23 @@ var data = new {
         type = "MultiPolygon",
     },
     type = "<type>",
-    centroid = new {
-        coordinates = new[] {
-            new[] {
-                new[] {
-                    new[] {
-                        123.45d
-                    }
-                }
-            }
-        },
-        type = "MultiPolygon",
-    },
-    bbox = new {
-        coordinates = new[] {
-            new[] {
-                new[] {
-                    new[] {
-                        123.45d
-                    }
-                }
-            }
-        },
-        type = "MultiPolygon",
-    },
     parentId = "<parentId>",
-    area = new {
+    area = new
+    {
         unit = "<unit>",
-        value = 123.45d,
+        value = 123.45,
     },
     parentType = "Field",
     status = "<status>",
     source = "<source>",
     name = "<name>",
     description = "<description>",
-    properties = new {
-        key = new {},
+    properties = new
+    {
+        key = new object(),
     },
-};
-
-Response response = client.CreateOrUpdate("<partyId>", "<boundaryId>", RequestContent.Create(data));
+});
+Response response = client.CreateOrUpdate("<partyId>", "<boundaryId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("geometry").GetProperty("type").ToString());
@@ -399,7 +425,7 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
@@ -426,10 +452,14 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
       <Docs>
         <param name="partyId"> Id of the party resource. </param>
         <param name="boundaryId"> Id of the boundary resource. </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Creates or updates a boundary resource. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Creates or updates a boundary resource.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the request and response payloads.
 
@@ -512,30 +542,37 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> or <paramref name="boundaryId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateOrUpdateAsync with required parameters and parse the result.
+This sample shows how to call CreateOrUpdateAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-var data = new {};
-
-Response response = await client.CreateOrUpdateAsync("<partyId>", "<boundaryId>", RequestContent.Create(data));
+using RequestContent content = RequestContent.Create(new object());
+Response response = await client.CreateOrUpdateAsync("<partyId>", "<boundaryId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.ToString());
 ]]></code>
-This sample shows how to call CreateOrUpdateAsync with all parameters and request content, and how to parse the result.
+This sample shows how to call CreateOrUpdateAsync with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-var data = new {
-    geometry = new {
-        coordinates = new[] {
-            new[] {
-                new[] {
-                    new[] {
-                        123.45d
+using RequestContent content = RequestContent.Create(new
+{
+    geometry = new
+    {
+        coordinates = new object[]
+        {
+            new object[]
+            {
+                new object[]
+                {
+                    new object[]
+                    {
+                        123.45
                     }
                 }
             }
@@ -543,46 +580,23 @@ var data = new {
         type = "MultiPolygon",
     },
     type = "<type>",
-    centroid = new {
-        coordinates = new[] {
-            new[] {
-                new[] {
-                    new[] {
-                        123.45d
-                    }
-                }
-            }
-        },
-        type = "MultiPolygon",
-    },
-    bbox = new {
-        coordinates = new[] {
-            new[] {
-                new[] {
-                    new[] {
-                        123.45d
-                    }
-                }
-            }
-        },
-        type = "MultiPolygon",
-    },
     parentId = "<parentId>",
-    area = new {
+    area = new
+    {
         unit = "<unit>",
-        value = 123.45d,
+        value = 123.45,
     },
     parentType = "Field",
     status = "<status>",
     source = "<source>",
     name = "<name>",
     description = "<description>",
-    properties = new {
-        key = new {},
+    properties = new
+    {
+        key = new object(),
     },
-};
-
-Response response = await client.CreateOrUpdateAsync("<partyId>", "<boundaryId>", RequestContent.Create(data));
+});
+Response response = await client.CreateOrUpdateAsync("<partyId>", "<boundaryId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("geometry").GetProperty("type").ToString());
@@ -605,7 +619,7 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
@@ -632,7 +646,11 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
         <param name="partyId"> Id of the party. </param>
         <param name="boundaryId"> Id of the boundary. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Deletes a specified boundary resource under a particular party. </summary>
+        <summary>
+            [Protocol Method] Deletes a specified boundary resource under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -641,12 +659,24 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
           <paramref name="partyId" /> or <paramref name="boundaryId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call Delete with required parameters.
+This sample shows how to call Delete.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
 Response response = client.Delete("<partyId>", "<boundaryId>");
+
+Console.WriteLine(response.Status);
+]]></code>
+This sample shows how to call Delete with all parameters.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
+
+Response response = client.Delete("<partyId>", "<boundaryId>");
+
 Console.WriteLine(response.Status);
 ]]></code></example>
       </Docs>
@@ -674,7 +704,11 @@ Console.WriteLine(response.Status);
         <param name="partyId"> Id of the party. </param>
         <param name="boundaryId"> Id of the boundary. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Deletes a specified boundary resource under a particular party. </summary>
+        <summary>
+            [Protocol Method] Deletes a specified boundary resource under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -683,21 +717,33 @@ Console.WriteLine(response.Status);
           <paramref name="partyId" /> or <paramref name="boundaryId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call DeleteAsync with required parameters.
+This sample shows how to call DeleteAsync.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
 Response response = await client.DeleteAsync("<partyId>", "<boundaryId>");
+
+Console.WriteLine(response.Status);
+]]></code>
+This sample shows how to call DeleteAsync with all parameters.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
+
+Response response = await client.DeleteAsync("<partyId>", "<boundaryId>");
+
 Console.WriteLine(response.Status);
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetBoundaries">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetBoundaries (string parentType = default, string type = default, System.Collections.Generic.IEnumerable&lt;string&gt; parentIds = default, double? minArea = default, double? maxArea = default, System.Collections.Generic.IEnumerable&lt;string&gt; boundaryIds = default, System.Collections.Generic.IEnumerable&lt;string&gt; names = default, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters = default, System.Collections.Generic.IEnumerable&lt;string&gt; statuses = default, DateTimeOffset? minCreatedDateTime = default, DateTimeOffset? maxCreatedDateTime = default, DateTimeOffset? minLastModifiedDateTime = default, DateTimeOffset? maxLastModifiedDateTime = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetBoundaries (string parentType, string type, System.Collections.Generic.IEnumerable&lt;string&gt; parentIds, double? minArea, double? maxArea, System.Collections.Generic.IEnumerable&lt;string&gt; boundaryIds, System.Collections.Generic.IEnumerable&lt;string&gt; names, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters, System.Collections.Generic.IEnumerable&lt;string&gt; statuses, DateTimeOffset? minCreatedDateTime, DateTimeOffset? maxCreatedDateTime, DateTimeOffset? minLastModifiedDateTime, DateTimeOffset? maxLastModifiedDateTime, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetBoundaries(string parentType, string type, class System.Collections.Generic.IEnumerable`1&lt;string&gt; parentIds, valuetype System.Nullable`1&lt;float64&gt; minArea, valuetype System.Nullable`1&lt;float64&gt; maxArea, class System.Collections.Generic.IEnumerable`1&lt;string&gt; boundaryIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; names, class System.Collections.Generic.IEnumerable`1&lt;string&gt; propertyFilters, class System.Collections.Generic.IEnumerable`1&lt;string&gt; statuses, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minLastModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxLastModifiedDateTime, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Boundaries.GetBoundaries(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Double},System.Nullable{System.Double},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetBoundaries (Optional parentType As String = Nothing, Optional type As String = Nothing, Optional parentIds As IEnumerable(Of String) = Nothing, Optional minArea As Nullable(Of Double) = Nothing, Optional maxArea As Nullable(Of Double) = Nothing, Optional boundaryIds As IEnumerable(Of String) = Nothing, Optional names As IEnumerable(Of String) = Nothing, Optional propertyFilters As IEnumerable(Of String) = Nothing, Optional statuses As IEnumerable(Of String) = Nothing, Optional minCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetBoundaries (parentType As String, type As String, parentIds As IEnumerable(Of String), minArea As Nullable(Of Double), maxArea As Nullable(Of Double), boundaryIds As IEnumerable(Of String), names As IEnumerable(Of String), propertyFilters As IEnumerable(Of String), statuses As IEnumerable(Of String), minCreatedDateTime As Nullable(Of DateTimeOffset), maxCreatedDateTime As Nullable(Of DateTimeOffset), minLastModifiedDateTime As Nullable(Of DateTimeOffset), maxLastModifiedDateTime As Nullable(Of DateTimeOffset), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As Pageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetBoundaries : string * string * seq&lt;string&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetBoundaries : string * string * seq&lt;string&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="boundaries.GetBoundaries (parentType, type, parentIds, minArea, maxArea, boundaryIds, names, propertyFilters, statuses, minCreatedDateTime, maxCreatedDateTime, minLastModifiedDateTime, maxLastModifiedDateTime, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -748,7 +794,11 @@ Console.WriteLine(response.Status);
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of boundary resources across all parties. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of boundary resources across all parties.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -786,23 +836,25 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
         <example>
 This sample shows how to call GetBoundaries and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-foreach (var data in client.GetBoundaries())
+foreach (BinaryData item in client.GetBoundaries(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetBoundaries with all parameters, and how to parse the result.
+This sample shows how to call GetBoundaries with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-foreach (var data in client.GetBoundaries("<parentType>", "<type>", new String[]{"<parentIds>"}, 1234, 1234, new String[]{"<boundaryIds>"}, new String[]{"<names>"}, new String[]{"<propertyFilters>"}, new String[]{"<statuses>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, "<skipToken>"))
+foreach (BinaryData item in client.GetBoundaries("<parentType>", "<type>", new string[] { "<parentIds>" }, 123.45, 123.45, new string[] { "<boundaryIds>" }, new string[] { "<names>" }, new string[] { "<propertyFilters>" }, new string[] { "<statuses>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("partyId").ToString());
     Console.WriteLine(result.GetProperty("parentId").ToString());
     Console.WriteLine(result.GetProperty("area").GetProperty("unit").ToString());
@@ -819,16 +871,16 @@ foreach (var data in client.GetBoundaries("<parentType>", "<type>", new String[]
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetBoundariesAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetBoundariesAsync (string parentType = default, string type = default, System.Collections.Generic.IEnumerable&lt;string&gt; parentIds = default, double? minArea = default, double? maxArea = default, System.Collections.Generic.IEnumerable&lt;string&gt; boundaryIds = default, System.Collections.Generic.IEnumerable&lt;string&gt; names = default, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters = default, System.Collections.Generic.IEnumerable&lt;string&gt; statuses = default, DateTimeOffset? minCreatedDateTime = default, DateTimeOffset? maxCreatedDateTime = default, DateTimeOffset? minLastModifiedDateTime = default, DateTimeOffset? maxLastModifiedDateTime = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetBoundariesAsync (string parentType, string type, System.Collections.Generic.IEnumerable&lt;string&gt; parentIds, double? minArea, double? maxArea, System.Collections.Generic.IEnumerable&lt;string&gt; boundaryIds, System.Collections.Generic.IEnumerable&lt;string&gt; names, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters, System.Collections.Generic.IEnumerable&lt;string&gt; statuses, DateTimeOffset? minCreatedDateTime, DateTimeOffset? maxCreatedDateTime, DateTimeOffset? minLastModifiedDateTime, DateTimeOffset? maxLastModifiedDateTime, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetBoundariesAsync(string parentType, string type, class System.Collections.Generic.IEnumerable`1&lt;string&gt; parentIds, valuetype System.Nullable`1&lt;float64&gt; minArea, valuetype System.Nullable`1&lt;float64&gt; maxArea, class System.Collections.Generic.IEnumerable`1&lt;string&gt; boundaryIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; names, class System.Collections.Generic.IEnumerable`1&lt;string&gt; propertyFilters, class System.Collections.Generic.IEnumerable`1&lt;string&gt; statuses, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minLastModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxLastModifiedDateTime, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Boundaries.GetBoundariesAsync(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Double},System.Nullable{System.Double},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetBoundariesAsync (Optional parentType As String = Nothing, Optional type As String = Nothing, Optional parentIds As IEnumerable(Of String) = Nothing, Optional minArea As Nullable(Of Double) = Nothing, Optional maxArea As Nullable(Of Double) = Nothing, Optional boundaryIds As IEnumerable(Of String) = Nothing, Optional names As IEnumerable(Of String) = Nothing, Optional propertyFilters As IEnumerable(Of String) = Nothing, Optional statuses As IEnumerable(Of String) = Nothing, Optional minCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetBoundariesAsync (parentType As String, type As String, parentIds As IEnumerable(Of String), minArea As Nullable(Of Double), maxArea As Nullable(Of Double), boundaryIds As IEnumerable(Of String), names As IEnumerable(Of String), propertyFilters As IEnumerable(Of String), statuses As IEnumerable(Of String), minCreatedDateTime As Nullable(Of DateTimeOffset), maxCreatedDateTime As Nullable(Of DateTimeOffset), minLastModifiedDateTime As Nullable(Of DateTimeOffset), maxLastModifiedDateTime As Nullable(Of DateTimeOffset), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As AsyncPageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetBoundariesAsync : string * string * seq&lt;string&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetBoundariesAsync : string * string * seq&lt;string&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="boundaries.GetBoundariesAsync (parentType, type, parentIds, minArea, maxArea, boundaryIds, names, propertyFilters, statuses, minCreatedDateTime, maxCreatedDateTime, minLastModifiedDateTime, maxLastModifiedDateTime, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -879,7 +931,11 @@ foreach (var data in client.GetBoundaries("<parentType>", "<type>", new String[]
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of boundary resources across all parties. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of boundary resources across all parties.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -917,23 +973,25 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
         <example>
 This sample shows how to call GetBoundariesAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-await foreach (var data in client.GetBoundariesAsync())
+await foreach (BinaryData item in client.GetBoundariesAsync(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetBoundariesAsync with all parameters, and how to parse the result.
+This sample shows how to call GetBoundariesAsync with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-await foreach (var data in client.GetBoundariesAsync("<parentType>", "<type>", new String[]{"<parentIds>"}, 1234, 1234, new String[]{"<boundaryIds>"}, new String[]{"<names>"}, new String[]{"<propertyFilters>"}, new String[]{"<statuses>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, "<skipToken>"))
+await foreach (BinaryData item in client.GetBoundariesAsync("<parentType>", "<type>", new string[] { "<parentIds>" }, 123.45, 123.45, new string[] { "<boundaryIds>" }, new string[] { "<names>" }, new string[] { "<propertyFilters>" }, new string[] { "<statuses>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("partyId").ToString());
     Console.WriteLine(result.GetProperty("parentId").ToString());
     Console.WriteLine(result.GetProperty("area").GetProperty("unit").ToString());
@@ -950,16 +1008,16 @@ await foreach (var data in client.GetBoundariesAsync("<parentType>", "<type>", n
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetBoundariesByPartyId">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetBoundariesByPartyId (string partyId, string parentType = default, string type = default, System.Collections.Generic.IEnumerable&lt;string&gt; parentIds = default, double? minArea = default, double? maxArea = default, System.Collections.Generic.IEnumerable&lt;string&gt; ids = default, System.Collections.Generic.IEnumerable&lt;string&gt; names = default, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters = default, System.Collections.Generic.IEnumerable&lt;string&gt; statuses = default, DateTimeOffset? minCreatedDateTime = default, DateTimeOffset? maxCreatedDateTime = default, DateTimeOffset? minLastModifiedDateTime = default, DateTimeOffset? maxLastModifiedDateTime = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetBoundariesByPartyId (string partyId, string parentType, string type, System.Collections.Generic.IEnumerable&lt;string&gt; parentIds, double? minArea, double? maxArea, System.Collections.Generic.IEnumerable&lt;string&gt; ids, System.Collections.Generic.IEnumerable&lt;string&gt; names, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters, System.Collections.Generic.IEnumerable&lt;string&gt; statuses, DateTimeOffset? minCreatedDateTime, DateTimeOffset? maxCreatedDateTime, DateTimeOffset? minLastModifiedDateTime, DateTimeOffset? maxLastModifiedDateTime, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetBoundariesByPartyId(string partyId, string parentType, string type, class System.Collections.Generic.IEnumerable`1&lt;string&gt; parentIds, valuetype System.Nullable`1&lt;float64&gt; minArea, valuetype System.Nullable`1&lt;float64&gt; maxArea, class System.Collections.Generic.IEnumerable`1&lt;string&gt; ids, class System.Collections.Generic.IEnumerable`1&lt;string&gt; names, class System.Collections.Generic.IEnumerable`1&lt;string&gt; propertyFilters, class System.Collections.Generic.IEnumerable`1&lt;string&gt; statuses, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minLastModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxLastModifiedDateTime, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Boundaries.GetBoundariesByPartyId(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Double},System.Nullable{System.Double},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetBoundariesByPartyId (partyId As String, Optional parentType As String = Nothing, Optional type As String = Nothing, Optional parentIds As IEnumerable(Of String) = Nothing, Optional minArea As Nullable(Of Double) = Nothing, Optional maxArea As Nullable(Of Double) = Nothing, Optional ids As IEnumerable(Of String) = Nothing, Optional names As IEnumerable(Of String) = Nothing, Optional propertyFilters As IEnumerable(Of String) = Nothing, Optional statuses As IEnumerable(Of String) = Nothing, Optional minCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetBoundariesByPartyId (partyId As String, parentType As String, type As String, parentIds As IEnumerable(Of String), minArea As Nullable(Of Double), maxArea As Nullable(Of Double), ids As IEnumerable(Of String), names As IEnumerable(Of String), propertyFilters As IEnumerable(Of String), statuses As IEnumerable(Of String), minCreatedDateTime As Nullable(Of DateTimeOffset), maxCreatedDateTime As Nullable(Of DateTimeOffset), minLastModifiedDateTime As Nullable(Of DateTimeOffset), maxLastModifiedDateTime As Nullable(Of DateTimeOffset), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As Pageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetBoundariesByPartyId : string * string * string * seq&lt;string&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetBoundariesByPartyId : string * string * string * seq&lt;string&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="boundaries.GetBoundariesByPartyId (partyId, parentType, type, parentIds, minArea, maxArea, ids, names, propertyFilters, statuses, minCreatedDateTime, maxCreatedDateTime, minLastModifiedDateTime, maxLastModifiedDateTime, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1012,7 +1070,11 @@ await foreach (var data in client.GetBoundariesAsync("<parentType>", "<type>", n
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of boundary resources under a particular party. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of boundary resources under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -1052,25 +1114,27 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetBoundariesByPartyId with required parameters and parse the result.
+This sample shows how to call GetBoundariesByPartyId and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-foreach (var data in client.GetBoundariesByPartyId("<partyId>"))
+foreach (BinaryData item in client.GetBoundariesByPartyId("<partyId>", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetBoundariesByPartyId with all parameters, and how to parse the result.
+This sample shows how to call GetBoundariesByPartyId with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-foreach (var data in client.GetBoundariesByPartyId("<partyId>", "<parentType>", "<type>", new String[]{"<parentIds>"}, 1234, 1234, new String[]{"<ids>"}, new String[]{"<names>"}, new String[]{"<propertyFilters>"}, new String[]{"<statuses>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, "<skipToken>"))
+foreach (BinaryData item in client.GetBoundariesByPartyId("<partyId>", "<parentType>", "<type>", new string[] { "<parentIds>" }, 123.45, 123.45, new string[] { "<ids>" }, new string[] { "<names>" }, new string[] { "<propertyFilters>" }, new string[] { "<statuses>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("partyId").ToString());
     Console.WriteLine(result.GetProperty("parentId").ToString());
     Console.WriteLine(result.GetProperty("area").GetProperty("unit").ToString());
@@ -1087,16 +1151,16 @@ foreach (var data in client.GetBoundariesByPartyId("<partyId>", "<parentType>", 
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetBoundariesByPartyIdAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetBoundariesByPartyIdAsync (string partyId, string parentType = default, string type = default, System.Collections.Generic.IEnumerable&lt;string&gt; parentIds = default, double? minArea = default, double? maxArea = default, System.Collections.Generic.IEnumerable&lt;string&gt; ids = default, System.Collections.Generic.IEnumerable&lt;string&gt; names = default, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters = default, System.Collections.Generic.IEnumerable&lt;string&gt; statuses = default, DateTimeOffset? minCreatedDateTime = default, DateTimeOffset? maxCreatedDateTime = default, DateTimeOffset? minLastModifiedDateTime = default, DateTimeOffset? maxLastModifiedDateTime = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetBoundariesByPartyIdAsync (string partyId, string parentType, string type, System.Collections.Generic.IEnumerable&lt;string&gt; parentIds, double? minArea, double? maxArea, System.Collections.Generic.IEnumerable&lt;string&gt; ids, System.Collections.Generic.IEnumerable&lt;string&gt; names, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters, System.Collections.Generic.IEnumerable&lt;string&gt; statuses, DateTimeOffset? minCreatedDateTime, DateTimeOffset? maxCreatedDateTime, DateTimeOffset? minLastModifiedDateTime, DateTimeOffset? maxLastModifiedDateTime, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetBoundariesByPartyIdAsync(string partyId, string parentType, string type, class System.Collections.Generic.IEnumerable`1&lt;string&gt; parentIds, valuetype System.Nullable`1&lt;float64&gt; minArea, valuetype System.Nullable`1&lt;float64&gt; maxArea, class System.Collections.Generic.IEnumerable`1&lt;string&gt; ids, class System.Collections.Generic.IEnumerable`1&lt;string&gt; names, class System.Collections.Generic.IEnumerable`1&lt;string&gt; propertyFilters, class System.Collections.Generic.IEnumerable`1&lt;string&gt; statuses, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minLastModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxLastModifiedDateTime, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Boundaries.GetBoundariesByPartyIdAsync(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Double},System.Nullable{System.Double},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetBoundariesByPartyIdAsync (partyId As String, Optional parentType As String = Nothing, Optional type As String = Nothing, Optional parentIds As IEnumerable(Of String) = Nothing, Optional minArea As Nullable(Of Double) = Nothing, Optional maxArea As Nullable(Of Double) = Nothing, Optional ids As IEnumerable(Of String) = Nothing, Optional names As IEnumerable(Of String) = Nothing, Optional propertyFilters As IEnumerable(Of String) = Nothing, Optional statuses As IEnumerable(Of String) = Nothing, Optional minCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetBoundariesByPartyIdAsync (partyId As String, parentType As String, type As String, parentIds As IEnumerable(Of String), minArea As Nullable(Of Double), maxArea As Nullable(Of Double), ids As IEnumerable(Of String), names As IEnumerable(Of String), propertyFilters As IEnumerable(Of String), statuses As IEnumerable(Of String), minCreatedDateTime As Nullable(Of DateTimeOffset), maxCreatedDateTime As Nullable(Of DateTimeOffset), minLastModifiedDateTime As Nullable(Of DateTimeOffset), maxLastModifiedDateTime As Nullable(Of DateTimeOffset), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As AsyncPageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetBoundariesByPartyIdAsync : string * string * string * seq&lt;string&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetBoundariesByPartyIdAsync : string * string * string * seq&lt;string&gt; * Nullable&lt;double&gt; * Nullable&lt;double&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="boundaries.GetBoundariesByPartyIdAsync (partyId, parentType, type, parentIds, minArea, maxArea, ids, names, propertyFilters, statuses, minCreatedDateTime, maxCreatedDateTime, minLastModifiedDateTime, maxLastModifiedDateTime, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1149,7 +1213,11 @@ foreach (var data in client.GetBoundariesByPartyId("<partyId>", "<parentType>", 
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of boundary resources under a particular party. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of boundary resources under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -1189,25 +1257,27 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetBoundariesByPartyIdAsync with required parameters and parse the result.
+This sample shows how to call GetBoundariesByPartyIdAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-await foreach (var data in client.GetBoundariesByPartyIdAsync("<partyId>"))
+await foreach (BinaryData item in client.GetBoundariesByPartyIdAsync("<partyId>", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetBoundariesByPartyIdAsync with all parameters, and how to parse the result.
+This sample shows how to call GetBoundariesByPartyIdAsync with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-await foreach (var data in client.GetBoundariesByPartyIdAsync("<partyId>", "<parentType>", "<type>", new String[]{"<parentIds>"}, 1234, 1234, new String[]{"<ids>"}, new String[]{"<names>"}, new String[]{"<propertyFilters>"}, new String[]{"<statuses>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, "<skipToken>"))
+await foreach (BinaryData item in client.GetBoundariesByPartyIdAsync("<partyId>", "<parentType>", "<type>", new string[] { "<parentIds>" }, 123.45, 123.45, new string[] { "<ids>" }, new string[] { "<names>" }, new string[] { "<propertyFilters>" }, new string[] { "<statuses>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("partyId").ToString());
     Console.WriteLine(result.GetProperty("parentId").ToString());
     Console.WriteLine(result.GetProperty("area").GetProperty("unit").ToString());
@@ -1224,16 +1294,16 @@ await foreach (var data in client.GetBoundariesByPartyIdAsync("<partyId>", "<par
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetBoundary">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetBoundary (string partyId, string boundaryId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetBoundary (string partyId, string boundaryId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetBoundary(string partyId, string boundaryId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Boundaries.GetBoundary(System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetBoundary (partyId As String, boundaryId As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetBoundary (partyId As String, boundaryId As String, context As RequestContext) As Response" />
       <MemberSignature Language="F#" Value="abstract member GetBoundary : string * string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetBoundary : string * string * Azure.RequestContext -&gt; Azure.Response" Usage="boundaries.GetBoundary (partyId, boundaryId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1252,8 +1322,12 @@ await foreach (var data in client.GetBoundariesByPartyIdAsync("<partyId>", "<par
         <param name="partyId"> Id of the associated party. </param>
         <param name="boundaryId"> Id of the boundary. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Gets a specified boundary resource under a particular party. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Gets a specified boundary resource under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -1299,12 +1373,24 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> or <paramref name="boundaryId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetBoundary with required parameters and parse the result.
+This sample shows how to call GetBoundary and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-Response response = client.GetBoundary("<partyId>", "<boundaryId>");
+Response response = client.GetBoundary("<partyId>", "<boundaryId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetBoundary with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
+
+Response response = client.GetBoundary("<partyId>", "<boundaryId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("geometry").GetProperty("type").ToString());
@@ -1327,15 +1413,15 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetBoundaryAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetBoundaryAsync (string partyId, string boundaryId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetBoundaryAsync (string partyId, string boundaryId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetBoundaryAsync(string partyId, string boundaryId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Boundaries.GetBoundaryAsync(System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetBoundaryAsync (partyId As String, boundaryId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetBoundaryAsync (partyId As String, boundaryId As String, context As RequestContext) As Task(Of Response)" />
       <MemberSignature Language="F#" Value="abstract member GetBoundaryAsync : string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetBoundaryAsync : string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="boundaries.GetBoundaryAsync (partyId, boundaryId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1354,8 +1440,12 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
         <param name="partyId"> Id of the associated party. </param>
         <param name="boundaryId"> Id of the boundary. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Gets a specified boundary resource under a particular party. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Gets a specified boundary resource under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -1401,12 +1491,24 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> or <paramref name="boundaryId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetBoundaryAsync with required parameters and parse the result.
+This sample shows how to call GetBoundaryAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-Response response = await client.GetBoundaryAsync("<partyId>", "<boundaryId>");
+Response response = await client.GetBoundaryAsync("<partyId>", "<boundaryId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetBoundaryAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
+
+Response response = await client.GetBoundaryAsync("<partyId>", "<boundaryId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("geometry").GetProperty("type").ToString());
@@ -1429,15 +1531,15 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetCascadeDeleteJobDetails">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetCascadeDeleteJobDetails (string jobId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetCascadeDeleteJobDetails (string jobId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetCascadeDeleteJobDetails(string jobId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Boundaries.GetCascadeDeleteJobDetails(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCascadeDeleteJobDetails (jobId As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCascadeDeleteJobDetails (jobId As String, context As RequestContext) As Response" />
       <MemberSignature Language="F#" Value="abstract member GetCascadeDeleteJobDetails : string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetCascadeDeleteJobDetails : string * Azure.RequestContext -&gt; Azure.Response" Usage="boundaries.GetCascadeDeleteJobDetails (jobId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1454,8 +1556,12 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
       <Docs>
         <param name="jobId"> Id of the job. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Get cascade delete job for specified boundary. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Get cascade delete job for specified boundary.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -1484,12 +1590,26 @@ Possible values: 'Waiting', 'Running', 'Succeeded', 'Failed', 'Cancelled'.
           <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetCascadeDeleteJobDetails with required parameters and parse the result.
+This sample shows how to call GetCascadeDeleteJobDetails and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-Response response = client.GetCascadeDeleteJobDetails("<jobId>");
+Response response = client.GetCascadeDeleteJobDetails("<jobId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("partyId").ToString());
+Console.WriteLine(result.GetProperty("resourceId").ToString());
+Console.WriteLine(result.GetProperty("resourceType").ToString());
+]]></code>
+This sample shows how to call GetCascadeDeleteJobDetails with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
+
+Response response = client.GetCascadeDeleteJobDetails("<jobId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
@@ -1508,10 +1628,10 @@ Console.WriteLine(result.GetProperty("endTime").ToString());
       </Docs>
     </Member>
     <Member MemberName="GetCascadeDeleteJobDetailsAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetCascadeDeleteJobDetailsAsync (string jobId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetCascadeDeleteJobDetailsAsync (string jobId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetCascadeDeleteJobDetailsAsync(string jobId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Boundaries.GetCascadeDeleteJobDetailsAsync(System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCascadeDeleteJobDetailsAsync (jobId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCascadeDeleteJobDetailsAsync (jobId As String, context As RequestContext) As Task(Of Response)" />
       <MemberSignature Language="F#" Value="abstract member GetCascadeDeleteJobDetailsAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetCascadeDeleteJobDetailsAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="boundaries.GetCascadeDeleteJobDetailsAsync (jobId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1528,8 +1648,12 @@ Console.WriteLine(result.GetProperty("endTime").ToString());
       <Docs>
         <param name="jobId"> Id of the job. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Get cascade delete job for specified boundary. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Get cascade delete job for specified boundary.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -1558,12 +1682,26 @@ Possible values: 'Waiting', 'Running', 'Succeeded', 'Failed', 'Cancelled'.
           <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetCascadeDeleteJobDetailsAsync with required parameters and parse the result.
+This sample shows how to call GetCascadeDeleteJobDetailsAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-Response response = await client.GetCascadeDeleteJobDetailsAsync("<jobId>");
+Response response = await client.GetCascadeDeleteJobDetailsAsync("<jobId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("partyId").ToString());
+Console.WriteLine(result.GetProperty("resourceId").ToString());
+Console.WriteLine(result.GetProperty("resourceType").ToString());
+]]></code>
+This sample shows how to call GetCascadeDeleteJobDetailsAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
+
+Response response = await client.GetCascadeDeleteJobDetailsAsync("<jobId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
@@ -1582,10 +1720,10 @@ Console.WriteLine(result.GetProperty("endTime").ToString());
       </Docs>
     </Member>
     <Member MemberName="GetOverlap">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetOverlap (string partyId, string boundaryId, string otherPartyId, string otherBoundaryId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetOverlap (string partyId, string boundaryId, string otherPartyId, string otherBoundaryId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetOverlap(string partyId, string boundaryId, string otherPartyId, string otherBoundaryId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Boundaries.GetOverlap(System.String,System.String,System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetOverlap (partyId As String, boundaryId As String, otherPartyId As String, otherBoundaryId As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetOverlap (partyId As String, boundaryId As String, otherPartyId As String, otherBoundaryId As String, context As RequestContext) As Response" />
       <MemberSignature Language="F#" Value="abstract member GetOverlap : string * string * string * string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetOverlap : string * string * string * string * Azure.RequestContext -&gt; Azure.Response" Usage="boundaries.GetOverlap (partyId, boundaryId, otherPartyId, otherBoundaryId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1608,8 +1746,12 @@ Console.WriteLine(result.GetProperty("endTime").ToString());
         <param name="otherPartyId"> PartyId of the other field. </param>
         <param name="otherBoundaryId"> Id of the other boundary. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns overlapping area between two boundary Ids. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Returns overlapping area between two boundary Ids.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -1628,12 +1770,24 @@ Schema for <c>BoundaryOverlapResponse</c>:
           <paramref name="partyId" /> or <paramref name="boundaryId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetOverlap with required parameters and parse the result.
+This sample shows how to call GetOverlap and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-Response response = client.GetOverlap("<partyId>", "<boundaryId>", "<otherPartyId>", "<otherBoundaryId>");
+Response response = client.GetOverlap("<partyId>", "<boundaryId>", "<otherPartyId>", "<otherBoundaryId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetOverlap with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
+
+Response response = client.GetOverlap("<partyId>", "<boundaryId>", "<otherPartyId>", "<otherBoundaryId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("boundaryArea").ToString());
@@ -1643,10 +1797,10 @@ Console.WriteLine(result.GetProperty("intersectingArea").ToString());
       </Docs>
     </Member>
     <Member MemberName="GetOverlapAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetOverlapAsync (string partyId, string boundaryId, string otherPartyId, string otherBoundaryId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetOverlapAsync (string partyId, string boundaryId, string otherPartyId, string otherBoundaryId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetOverlapAsync(string partyId, string boundaryId, string otherPartyId, string otherBoundaryId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Boundaries.GetOverlapAsync(System.String,System.String,System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetOverlapAsync (partyId As String, boundaryId As String, otherPartyId As String, otherBoundaryId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetOverlapAsync (partyId As String, boundaryId As String, otherPartyId As String, otherBoundaryId As String, context As RequestContext) As Task(Of Response)" />
       <MemberSignature Language="F#" Value="abstract member GetOverlapAsync : string * string * string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetOverlapAsync : string * string * string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="boundaries.GetOverlapAsync (partyId, boundaryId, otherPartyId, otherBoundaryId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1669,8 +1823,12 @@ Console.WriteLine(result.GetProperty("intersectingArea").ToString());
         <param name="otherPartyId"> PartyId of the other field. </param>
         <param name="otherBoundaryId"> Id of the other boundary. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns overlapping area between two boundary Ids. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Returns overlapping area between two boundary Ids.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -1689,12 +1847,24 @@ Schema for <c>BoundaryOverlapResponse</c>:
           <paramref name="partyId" /> or <paramref name="boundaryId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetOverlapAsync with required parameters and parse the result.
+This sample shows how to call GetOverlapAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-Response response = await client.GetOverlapAsync("<partyId>", "<boundaryId>", "<otherPartyId>", "<otherBoundaryId>");
+Response response = await client.GetOverlapAsync("<partyId>", "<boundaryId>", "<otherPartyId>", "<otherBoundaryId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetOverlapAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
+
+Response response = await client.GetOverlapAsync("<partyId>", "<boundaryId>", "<otherPartyId>", "<otherBoundaryId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("boundaryArea").ToString());
@@ -1742,9 +1912,13 @@ Console.WriteLine(result.GetProperty("intersectingArea").ToString());
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Search for boundaries across all parties by fields and intersecting geometry. </summary>
+        <summary>
+            [Protocol Method] Search for boundaries across all parties by fields and intersecting geometry.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for the request payload and one item in the pageable response.
@@ -1811,34 +1985,40 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
         <example>
 This sample shows how to call Search and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-var data = new {};
-
-foreach (var data in client.Search(RequestContent.Create(data)))
+using RequestContent content = RequestContent.Create(new object());
+foreach (BinaryData item in client.Search(content))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call Search with all request content, and how to parse the result.
+This sample shows how to call Search with all request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-var data = new {
-    ids = new[] {
-        "<String>"
+using RequestContent content = RequestContent.Create(new
+{
+    ids = new object[]
+    {
+        "<ids>"
     },
-    names = new[] {
-        "<String>"
+    names = new object[]
+    {
+        "<names>"
     },
-    propertyFilters = new[] {
-        "<String>"
+    propertyFilters = new object[]
+    {
+        "<propertyFilters>"
     },
-    statuses = new[] {
-        "<String>"
+    statuses = new object[]
+    {
+        "<statuses>"
     },
     minCreatedDateTime = "2022-05-10T18:57:31.2311892Z",
     maxCreatedDateTime = "2022-05-10T18:57:31.2311892Z",
@@ -1848,28 +2028,33 @@ var data = new {
     skipToken = "<skipToken>",
     parentType = "Field",
     type = "<type>",
-    parentIds = new[] {
-        "<String>"
+    parentIds = new object[]
+    {
+        "<parentIds>"
     },
-    minArea = 123.45d,
-    maxArea = 123.45d,
-    intersectsWithGeometry = new {
-        coordinates = new[] {
-            new[] {
-                new[] {
-                    new[] {
-                        123.45d
+    minArea = 123.45,
+    maxArea = 123.45,
+    intersectsWithGeometry = new
+    {
+        coordinates = new object[]
+        {
+            new object[]
+            {
+                new object[]
+                {
+                    new object[]
+                    {
+                        123.45
                     }
                 }
             }
         },
         type = "MultiPolygon",
     },
-};
-
-foreach (var data in client.Search(RequestContent.Create(data)))
+});
+foreach (BinaryData item in client.Search(content))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("partyId").ToString());
     Console.WriteLine(result.GetProperty("parentId").ToString());
     Console.WriteLine(result.GetProperty("area").GetProperty("unit").ToString());
@@ -1886,7 +2071,7 @@ foreach (var data in client.Search(RequestContent.Create(data)))
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
@@ -1910,9 +2095,13 @@ foreach (var data in client.Search(RequestContent.Create(data)))
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Search for boundaries across all parties by fields and intersecting geometry. </summary>
+        <summary>
+            [Protocol Method] Search for boundaries across all parties by fields and intersecting geometry.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for the request payload and one item in the pageable response.
@@ -1979,34 +2168,40 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
         <example>
 This sample shows how to call SearchAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-var data = new {};
-
-await foreach (var data in client.SearchAsync(RequestContent.Create(data)))
+using RequestContent content = RequestContent.Create(new object());
+await foreach (BinaryData item in client.SearchAsync(content))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call SearchAsync with all request content, and how to parse the result.
+This sample shows how to call SearchAsync with all request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-var data = new {
-    ids = new[] {
-        "<String>"
+using RequestContent content = RequestContent.Create(new
+{
+    ids = new object[]
+    {
+        "<ids>"
     },
-    names = new[] {
-        "<String>"
+    names = new object[]
+    {
+        "<names>"
     },
-    propertyFilters = new[] {
-        "<String>"
+    propertyFilters = new object[]
+    {
+        "<propertyFilters>"
     },
-    statuses = new[] {
-        "<String>"
+    statuses = new object[]
+    {
+        "<statuses>"
     },
     minCreatedDateTime = "2022-05-10T18:57:31.2311892Z",
     maxCreatedDateTime = "2022-05-10T18:57:31.2311892Z",
@@ -2016,28 +2211,33 @@ var data = new {
     skipToken = "<skipToken>",
     parentType = "Field",
     type = "<type>",
-    parentIds = new[] {
-        "<String>"
+    parentIds = new object[]
+    {
+        "<parentIds>"
     },
-    minArea = 123.45d,
-    maxArea = 123.45d,
-    intersectsWithGeometry = new {
-        coordinates = new[] {
-            new[] {
-                new[] {
-                    new[] {
-                        123.45d
+    minArea = 123.45,
+    maxArea = 123.45,
+    intersectsWithGeometry = new
+    {
+        coordinates = new object[]
+        {
+            new object[]
+            {
+                new object[]
+                {
+                    new object[]
+                    {
+                        123.45
                     }
                 }
             }
         },
         type = "MultiPolygon",
     },
-};
-
-await foreach (var data in client.SearchAsync(RequestContent.Create(data)))
+});
+await foreach (BinaryData item in client.SearchAsync(content))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("partyId").ToString());
     Console.WriteLine(result.GetProperty("parentId").ToString());
     Console.WriteLine(result.GetProperty("area").GetProperty("unit").ToString());
@@ -2054,7 +2254,7 @@ await foreach (var data in client.SearchAsync(RequestContent.Create(data)))
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
@@ -2080,9 +2280,13 @@ await foreach (var data in client.SearchAsync(RequestContent.Create(data)))
       </Parameters>
       <Docs>
         <param name="partyId"> Id of the party. </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Search for boundaries by fields and intersecting geometry. </summary>
+        <summary>
+            [Protocol Method] Search for boundaries by fields and intersecting geometry.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for the request payload and one item in the pageable response.
@@ -2149,36 +2353,42 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call SearchByPartyId with required parameters and parse the result.
+This sample shows how to call SearchByPartyId and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-var data = new {};
-
-foreach (var data in client.SearchByPartyId("<partyId>", RequestContent.Create(data)))
+using RequestContent content = RequestContent.Create(new object());
+foreach (BinaryData item in client.SearchByPartyId("<partyId>", content))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call SearchByPartyId with all parameters and request content, and how to parse the result.
+This sample shows how to call SearchByPartyId with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-var data = new {
-    ids = new[] {
-        "<String>"
+using RequestContent content = RequestContent.Create(new
+{
+    ids = new object[]
+    {
+        "<ids>"
     },
-    names = new[] {
-        "<String>"
+    names = new object[]
+    {
+        "<names>"
     },
-    propertyFilters = new[] {
-        "<String>"
+    propertyFilters = new object[]
+    {
+        "<propertyFilters>"
     },
-    statuses = new[] {
-        "<String>"
+    statuses = new object[]
+    {
+        "<statuses>"
     },
     minCreatedDateTime = "2022-05-10T18:57:31.2311892Z",
     maxCreatedDateTime = "2022-05-10T18:57:31.2311892Z",
@@ -2188,28 +2398,33 @@ var data = new {
     skipToken = "<skipToken>",
     parentType = "Field",
     type = "<type>",
-    parentIds = new[] {
-        "<String>"
+    parentIds = new object[]
+    {
+        "<parentIds>"
     },
-    minArea = 123.45d,
-    maxArea = 123.45d,
-    intersectsWithGeometry = new {
-        coordinates = new[] {
-            new[] {
-                new[] {
-                    new[] {
-                        123.45d
+    minArea = 123.45,
+    maxArea = 123.45,
+    intersectsWithGeometry = new
+    {
+        coordinates = new object[]
+        {
+            new object[]
+            {
+                new object[]
+                {
+                    new object[]
+                    {
+                        123.45
                     }
                 }
             }
         },
         type = "MultiPolygon",
     },
-};
-
-foreach (var data in client.SearchByPartyId("<partyId>", RequestContent.Create(data)))
+});
+foreach (BinaryData item in client.SearchByPartyId("<partyId>", content))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("partyId").ToString());
     Console.WriteLine(result.GetProperty("parentId").ToString());
     Console.WriteLine(result.GetProperty("area").GetProperty("unit").ToString());
@@ -2226,7 +2441,7 @@ foreach (var data in client.SearchByPartyId("<partyId>", RequestContent.Create(d
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
@@ -2252,9 +2467,13 @@ foreach (var data in client.SearchByPartyId("<partyId>", RequestContent.Create(d
       </Parameters>
       <Docs>
         <param name="partyId"> Id of the party. </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Search for boundaries by fields and intersecting geometry. </summary>
+        <summary>
+            [Protocol Method] Search for boundaries by fields and intersecting geometry.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for the request payload and one item in the pageable response.
@@ -2321,36 +2540,42 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call SearchByPartyIdAsync with required parameters and parse the result.
+This sample shows how to call SearchByPartyIdAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-var data = new {};
-
-await foreach (var data in client.SearchByPartyIdAsync("<partyId>", RequestContent.Create(data)))
+using RequestContent content = RequestContent.Create(new object());
+await foreach (BinaryData item in client.SearchByPartyIdAsync("<partyId>", content))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call SearchByPartyIdAsync with all parameters and request content, and how to parse the result.
+This sample shows how to call SearchByPartyIdAsync with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetBoundariesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Boundaries client = new FarmBeatsClient(endpoint, credential).GetBoundariesClient();
 
-var data = new {
-    ids = new[] {
-        "<String>"
+using RequestContent content = RequestContent.Create(new
+{
+    ids = new object[]
+    {
+        "<ids>"
     },
-    names = new[] {
-        "<String>"
+    names = new object[]
+    {
+        "<names>"
     },
-    propertyFilters = new[] {
-        "<String>"
+    propertyFilters = new object[]
+    {
+        "<propertyFilters>"
     },
-    statuses = new[] {
-        "<String>"
+    statuses = new object[]
+    {
+        "<statuses>"
     },
     minCreatedDateTime = "2022-05-10T18:57:31.2311892Z",
     maxCreatedDateTime = "2022-05-10T18:57:31.2311892Z",
@@ -2360,28 +2585,33 @@ var data = new {
     skipToken = "<skipToken>",
     parentType = "Field",
     type = "<type>",
-    parentIds = new[] {
-        "<String>"
+    parentIds = new object[]
+    {
+        "<parentIds>"
     },
-    minArea = 123.45d,
-    maxArea = 123.45d,
-    intersectsWithGeometry = new {
-        coordinates = new[] {
-            new[] {
-                new[] {
-                    new[] {
-                        123.45d
+    minArea = 123.45,
+    maxArea = 123.45,
+    intersectsWithGeometry = new
+    {
+        coordinates = new object[]
+        {
+            new object[]
+            {
+                new object[]
+                {
+                    new object[]
+                    {
+                        123.45
                     }
                 }
             }
         },
         type = "MultiPolygon",
     },
-};
-
-await foreach (var data in client.SearchByPartyIdAsync("<partyId>", RequestContent.Create(data)))
+});
+await foreach (BinaryData item in client.SearchByPartyIdAsync("<partyId>", content))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("partyId").ToString());
     Console.WriteLine(result.GetProperty("parentId").ToString());
     Console.WriteLine(result.GetProperty("area").GetProperty("unit").ToString());
@@ -2398,7 +2628,7 @@ await foreach (var data in client.SearchByPartyIdAsync("<partyId>", RequestConte
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>

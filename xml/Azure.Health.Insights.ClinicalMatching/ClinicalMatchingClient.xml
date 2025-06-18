@@ -84,11 +84,11 @@
       </Docs>
     </Member>
     <Member MemberName="MatchTrials">
-      <MemberSignature Language="C#" Value="public virtual Azure.Operation&lt;BinaryData&gt; MatchTrials (Azure.WaitUntil waitUntil, Azure.Core.RequestContent content, string repeatabilityRequestId = default, DateTimeOffset? repeatabilityFirstSent = default, Azure.RequestContext context = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Operation`1&lt;class System.BinaryData&gt; MatchTrials(valuetype Azure.WaitUntil waitUntil, class Azure.Core.RequestContent content, string repeatabilityRequestId, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; repeatabilityFirstSent, class Azure.RequestContext context) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Health.Insights.ClinicalMatching.ClinicalMatchingClient.MatchTrials(Azure.WaitUntil,Azure.Core.RequestContent,System.String,System.Nullable{System.DateTimeOffset},Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function MatchTrials (waitUntil As WaitUntil, content As RequestContent, Optional repeatabilityRequestId As String = Nothing, Optional repeatabilityFirstSent As Nullable(Of DateTimeOffset) = Nothing, Optional context As RequestContext = Nothing) As Operation(Of BinaryData)" />
-      <MemberSignature Language="F#" Value="abstract member MatchTrials : Azure.WaitUntil * Azure.Core.RequestContent * string * Nullable&lt;DateTimeOffset&gt; * Azure.RequestContext -&gt; Azure.Operation&lt;BinaryData&gt;&#xA;override this.MatchTrials : Azure.WaitUntil * Azure.Core.RequestContent * string * Nullable&lt;DateTimeOffset&gt; * Azure.RequestContext -&gt; Azure.Operation&lt;BinaryData&gt;" Usage="clinicalMatchingClient.MatchTrials (waitUntil, content, repeatabilityRequestId, repeatabilityFirstSent, context)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Operation&lt;BinaryData&gt; MatchTrials (Azure.WaitUntil waitUntil, Azure.Core.RequestContent content, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Operation`1&lt;class System.BinaryData&gt; MatchTrials(valuetype Azure.WaitUntil waitUntil, class Azure.Core.RequestContent content, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Health.Insights.ClinicalMatching.ClinicalMatchingClient.MatchTrials(Azure.WaitUntil,Azure.Core.RequestContent,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function MatchTrials (waitUntil As WaitUntil, content As RequestContent, Optional context As RequestContext = Nothing) As Operation(Of BinaryData)" />
+      <MemberSignature Language="F#" Value="abstract member MatchTrials : Azure.WaitUntil * Azure.Core.RequestContent * Azure.RequestContext -&gt; Azure.Operation&lt;BinaryData&gt;&#xA;override this.MatchTrials : Azure.WaitUntil * Azure.Core.RequestContent * Azure.RequestContext -&gt; Azure.Operation&lt;BinaryData&gt;" Usage="clinicalMatchingClient.MatchTrials (waitUntil, content, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Health.Insights.ClinicalMatching</AssemblyName>
@@ -100,125 +100,72 @@
       <Parameters>
         <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
         <Parameter Name="content" Type="Azure.Core.RequestContent" />
-        <Parameter Name="repeatabilityRequestId" Type="System.String" />
-        <Parameter Name="repeatabilityFirstSent" Type="System.Nullable&lt;System.DateTimeOffset&gt;" />
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="waitUntil">
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
-        <param name="repeatabilityRequestId"> An opaque, globally-unique, client-generated string identifier for the request. </param>
-        <param name="repeatabilityFirstSent"> Specifies the date and time at which the request was first created. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Create Trial Matcher job. </summary>
-        <returns> The <see cref="T:Azure.Operation`1" /> from the service that will contain a <see cref="T:System.BinaryData" /> object once the asynchronous operation on the service has completed. Details of the body schema for the operation's final value are in the Remarks section below. </returns>
-        <remarks>
-Creates a Trial Matcher job with the given request body.
-
-Below is the JSON schema for the request and response payloads.
-
-Request Body:
-
-Schema for <c>TrialMatcherData</c>:
-<code>{
-  patients: [
-    {
-      id: string, # Required. A given identifier for the patient. Has to be unique across all patients in a single request.
-      info: {
-        sex: "female" | "male" | "unspecified", # Optional. The patient's sex.
-        birthDate: string (date), # Optional. The patient's date of birth.
-        clinicalInfo: [ClinicalCodedElement], # Optional. Known clinical information for the patient, structured.
-      }, # Optional. Patient structured information, including demographics and known structured clinical information.
-      data: [PatientDocument], # Optional. Patient unstructured clinical data, given as documents.
-    }
-  ], # Required. The list of patients, including their clinical information and data.
-  configuration: {
-    verbose: boolean, # Optional. An indication whether the model should produce verbose output.
-    includeEvidence: boolean, # Optional. An indication whether the model's output should include evidence for the inferences.
-    clinicalTrials: {
-      customTrials: [ClinicalTrialDetails], # Optional. A list of clinical trials.
-      registryFilters: [ClinicalTrialRegistryFilter], # Optional. A list of filters, each one creating a selection of trials from a given
-clinical trial registry.
-    }, # Required. The clinical trials that the patient(s) should be matched to. &amp;lt;br /&amp;gt;The trial
-selection can be given as a list of custom clinical trials and/or a list of
-filters to known clinical trial registries. In case both are given, the
-resulting trial set is a union of the two sets.
-  }, # Optional. Configuration affecting the Trial Matcher model's inference.
-}
-</code>
-
-Response Body:
-
-Schema for <c>TrialMatcherResult</c>:
-<code>{
-  jobId: string, # Required. A processing job identifier.
-  createdDateTime: string (date &amp; time), # Required. The date and time when the processing job was created.
-  expirationDateTime: string (date &amp; time), # Required. The date and time when the processing job is set to expire.
-  lastUpdateDateTime: string (date &amp; time), # Required. The date and time when the processing job was last updated.
-  status: "notStarted" | "running" | "succeeded" | "failed" | "partiallyCompleted", # Required. The status of the processing job.
-  errors: [
-    {
-      code: string, # Required. One of a server-defined set of error codes.
-      message: string, # Required. A human-readable representation of the error.
-      target: string, # Optional. The target of the error.
-      details: [Error], # Required. An array of details about specific errors that led to this reported error.
-      innererror: {
-        code: string, # Required. One of a server-defined set of error codes.
-        innererror: InnerError, # Optional. Inner error.
-      }, # Optional. An object containing more specific information than the current object about the error.
-    }
-  ], # Optional. An array of errors, if any errors occurred during the processing job.
-  results: {
-    patients: [TrialMatcherPatientResult], # Required. Results for the patients given in the request.
-    modelVersion: string, # Required. The version of the model used for inference, expressed as the model date.
-    knowledgeGraphLastUpdateDate: string (date), # Optional. The date when the clinical trials knowledge graph was last updated.
-  }, # Optional. The inference results for the Trial Matcher request.
-}
-</code></remarks>
+        <summary>
+            [Protocol Method] Create Trial Matcher job
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item><item><description>
+            Please try the simpler <see cref="M:Azure.Health.Insights.ClinicalMatching.ClinicalMatchingClient.MatchTrials(Azure.WaitUntil,Azure.Health.Insights.ClinicalMatching.TrialMatcherData,System.Threading.CancellationToken)" /> convenience overload with strongly typed models first.
+            </description></item></list></summary>
+        <returns> The <see cref="T:Azure.Operation" /> representing an asynchronous operation on the service. </returns>
+        <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="content" /> is null. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call MatchTrials with required parameters and request content, and how to parse the result.
+This sample shows how to call MatchTrials and parse the result.
 <code><![CDATA[
-var credential = new AzureKeyCredential("<key>");
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ClinicalMatchingClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+AzureKeyCredential credential = new AzureKeyCredential("<key>");
+ClinicalMatchingClient client = new ClinicalMatchingClient(endpoint, credential);
 
-var data = new {
-    patients = new[] {
-        new {
+using RequestContent content = RequestContent.Create(new
+{
+    patients = new object[]
+    {
+        new
+        {
             id = "<id>",
         }
     },
-};
+});
+Operation<BinaryData> operation = client.MatchTrials(WaitUntil.Completed, content);
+BinaryData responseData = operation.Value;
 
-var operation = client.MatchTrials(WaitUntil.Completed, RequestContent.Create(data));
-
-BinaryData data = operation.Value;
-JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
-Console.WriteLine(result.GetProperty("jobId").ToString());
-Console.WriteLine(result.GetProperty("createdDateTime").ToString());
-Console.WriteLine(result.GetProperty("expirationDateTime").ToString());
-Console.WriteLine(result.GetProperty("lastUpdateDateTime").ToString());
-Console.WriteLine(result.GetProperty("status").ToString());
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("value").ToString());
+Console.WriteLine(result.GetProperty("modelVersion").ToString());
 ]]></code>
-This sample shows how to call MatchTrials with all parameters and request content, and how to parse the result.
+This sample shows how to call MatchTrials with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new AzureKeyCredential("<key>");
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ClinicalMatchingClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+AzureKeyCredential credential = new AzureKeyCredential("<key>");
+ClinicalMatchingClient client = new ClinicalMatchingClient(endpoint, credential);
 
-var data = new {
-    patients = new[] {
-        new {
+using RequestContent content = RequestContent.Create(new
+{
+    patients = new object[]
+    {
+        new
+        {
             id = "<id>",
-            info = new {
+            info = new
+            {
                 sex = "female",
                 birthDate = "2022-05-10",
-                clinicalInfo = new[] {
-                    new {
+                clinicalInfo = new object[]
+                {
+                    new
+                    {
                         system = "<system>",
                         code = "<code>",
                         name = "<name>",
@@ -226,14 +173,17 @@ var data = new {
                     }
                 },
             },
-            data = new[] {
-                new {
+            data = new object[]
+            {
+                new
+                {
                     type = "note",
                     clinicalType = "consultation",
                     id = "<id>",
                     language = "<language>",
-                    createdDateTime = "2022-05-10T14:57:31.2311892-04:00",
-                    content = new {
+                    createdDateTime = "2022-05-10T18:57:31.2311892Z",
+                    content = new
+                    {
                         sourceType = "inline",
                         value = "<value>",
                     },
@@ -241,48 +191,59 @@ var data = new {
             },
         }
     },
-    configuration = new {
+    configuration = new
+    {
         verbose = true,
         includeEvidence = true,
-        clinicalTrials = new {
-            customTrials = new[] {
-                new {
+        clinicalTrials = new
+        {
+            customTrials = new object[]
+            {
+                new
+                {
                     id = "<id>",
                     eligibilityCriteriaText = "<eligibilityCriteriaText>",
-                    demographics = new {
+                    demographics = new
+                    {
                         acceptedSex = "all",
-                        acceptedAgeRange = new {
-                            minimumAge = new {
+                        acceptedAgeRange = new
+                        {
+                            minimumAge = new
+                            {
                                 unit = "years",
-                                value = 123.45f,
-                            },
-                            maximumAge = new {
-                                unit = "years",
-                                value = 123.45f,
+                                value = 123.45F,
                             },
                         },
                     },
-                    metadata = new {
-                        phases = new[] {
+                    metadata = new
+                    {
+                        phases = new object[]
+                        {
                             "notApplicable"
                         },
                         studyType = "interventional",
                         recruitmentStatus = "unknownStatus",
-                        conditions = new[] {
-                            "<String>"
+                        conditions = new object[]
+                        {
+                            "<conditions>"
                         },
-                        sponsors = new[] {
-                            "<String>"
+                        sponsors = new object[]
+                        {
+                            "<sponsors>"
                         },
-                        contacts = new[] {
-                            new {
+                        contacts = new object[]
+                        {
+                            new
+                            {
                                 name = "<name>",
                                 email = "<email>",
                                 phone = "<phone>",
                             }
                         },
-                        facilities = new[] {
-                            new {
+                        facilities = new object[]
+                        {
+                            new
+                            {
                                 name = "<name>",
                                 city = "<city>",
                                 state = "<state>",
@@ -292,54 +253,72 @@ var data = new {
                     },
                 }
             },
-            registryFilters = new[] {
-                new {
-                    conditions = new[] {
-                        "<String>"
+            registryFilters = new object[]
+            {
+                new
+                {
+                    conditions = new object[]
+                    {
+                        "<conditions>"
                     },
-                    studyTypes = new[] {
+                    studyTypes = new object[]
+                    {
                         "interventional"
                     },
-                    recruitmentStatuses = new[] {
+                    recruitmentStatuses = new object[]
+                    {
                         "unknownStatus"
                     },
-                    sponsors = new[] {
-                        "<String>"
+                    sponsors = new object[]
+                    {
+                        "<sponsors>"
                     },
-                    phases = new[] {
+                    phases = new object[]
+                    {
                         "notApplicable"
                     },
-                    purposes = new[] {
+                    purposes = new object[]
+                    {
                         "notApplicable"
                     },
-                    ids = new[] {
-                        "<String>"
+                    ids = new object[]
+                    {
+                        "<ids>"
                     },
-                    sources = new[] {
+                    sources = new object[]
+                    {
                         "custom"
                     },
-                    facilityNames = new[] {
-                        "<String>"
+                    facilityNames = new object[]
+                    {
+                        "<facilityNames>"
                     },
-                    facilityLocations = new[] {
-                        new {
+                    facilityLocations = new object[]
+                    {
+                        new
+                        {
                             city = "<city>",
                             state = "<state>",
                             countryOrRegion = "<countryOrRegion>",
                         }
                     },
-                    facilityAreas = new[] {
-                        new {
+                    facilityAreas = new object[]
+                    {
+                        new
+                        {
                             type = "Feature",
-                            geometry = new {
+                            geometry = new
+                            {
                                 type = "Point",
-                                coordinates = new[] {
-                                    123.45f
+                                coordinates = new object[]
+                                {
+                                    123.45F
                                 },
                             },
-                            properties = new {
+                            properties = new
+                            {
                                 subType = "Circle",
-                                radius = 123.45d,
+                                radius = 123.45,
                             },
                         }
                     },
@@ -347,102 +326,190 @@ var data = new {
             },
         },
     },
-};
+});
+Operation<BinaryData> operation = client.MatchTrials(WaitUntil.Completed, content);
+BinaryData responseData = operation.Value;
 
-var operation = client.MatchTrials(WaitUntil.Completed, RequestContent.Create(data), "<repeatabilityRequestId>", DateTimeOffset.UtcNow);
-
-BinaryData data = operation.Value;
-JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
-Console.WriteLine(result.GetProperty("jobId").ToString());
-Console.WriteLine(result.GetProperty("createdDateTime").ToString());
-Console.WriteLine(result.GetProperty("expirationDateTime").ToString());
-Console.WriteLine(result.GetProperty("lastUpdateDateTime").ToString());
-Console.WriteLine(result.GetProperty("status").ToString());
-Console.WriteLine(result.GetProperty("errors")[0].GetProperty("code").ToString());
-Console.WriteLine(result.GetProperty("errors")[0].GetProperty("message").ToString());
-Console.WriteLine(result.GetProperty("errors")[0].GetProperty("target").ToString());
-Console.WriteLine(result.GetProperty("errors")[0].GetProperty("innererror").GetProperty("code").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("id").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("type").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("value").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("description").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("confidenceScore").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("eligibilityCriteriaEvidence").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientDataEvidence").GetProperty("id").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientDataEvidence").GetProperty("text").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientDataEvidence").GetProperty("offset").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientDataEvidence").GetProperty("length").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientInfoEvidence").GetProperty("system").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientInfoEvidence").GetProperty("code").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientInfoEvidence").GetProperty("name").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientInfoEvidence").GetProperty("value").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("importance").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("id").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("source").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("phases")[0].ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("studyType").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("recruitmentStatus").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("conditions")[0].ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("sponsors")[0].ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("contacts")[0].GetProperty("name").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("contacts")[0].GetProperty("email").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("contacts")[0].GetProperty("phone").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("facilities")[0].GetProperty("name").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("facilities")[0].GetProperty("city").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("facilities")[0].GetProperty("state").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("facilities")[0].GetProperty("countryOrRegion").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("system").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("code").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("name").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("value").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("semanticType").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("category").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("modelVersion").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("knowledgeGraphLastUpdateDate").ToString());
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("value").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("confidenceScore").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("eligibilityCriteriaEvidence").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientDataEvidence").GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientDataEvidence").GetProperty("text").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientDataEvidence").GetProperty("offset").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientDataEvidence").GetProperty("length").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientInfoEvidence").GetProperty("system").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientInfoEvidence").GetProperty("code").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientInfoEvidence").GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientInfoEvidence").GetProperty("value").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("importance").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("source").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("phases")[0].ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("studyType").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("recruitmentStatus").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("conditions")[0].ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("sponsors")[0].ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("contacts")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("contacts")[0].GetProperty("email").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("contacts")[0].GetProperty("phone").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("facilities")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("facilities")[0].GetProperty("city").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("facilities")[0].GetProperty("state").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("facilities")[0].GetProperty("countryOrRegion").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("system").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("code").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("value").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("semanticType").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("category").ToString());
+Console.WriteLine(result.GetProperty("modelVersion").ToString());
+Console.WriteLine(result.GetProperty("knowledgeGraphLastUpdateDate").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="MatchTrials">
-      <MemberSignature Language="C#" Value="public virtual Azure.Operation&lt;Azure.Health.Insights.ClinicalMatching.TrialMatcherResult&gt; MatchTrials (Azure.WaitUntil waitUntil, Azure.Health.Insights.ClinicalMatching.TrialMatcherData trialMatcherData, string repeatabilityRequestId = default, DateTimeOffset? repeatabilityFirstSent = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Operation`1&lt;class Azure.Health.Insights.ClinicalMatching.TrialMatcherResult&gt; MatchTrials(valuetype Azure.WaitUntil waitUntil, class Azure.Health.Insights.ClinicalMatching.TrialMatcherData trialMatcherData, string repeatabilityRequestId, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; repeatabilityFirstSent, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Health.Insights.ClinicalMatching.ClinicalMatchingClient.MatchTrials(Azure.WaitUntil,Azure.Health.Insights.ClinicalMatching.TrialMatcherData,System.String,System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function MatchTrials (waitUntil As WaitUntil, trialMatcherData As TrialMatcherData, Optional repeatabilityRequestId As String = Nothing, Optional repeatabilityFirstSent As Nullable(Of DateTimeOffset) = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Operation(Of TrialMatcherResult)" />
-      <MemberSignature Language="F#" Value="abstract member MatchTrials : Azure.WaitUntil * Azure.Health.Insights.ClinicalMatching.TrialMatcherData * string * Nullable&lt;DateTimeOffset&gt; * System.Threading.CancellationToken -&gt; Azure.Operation&lt;Azure.Health.Insights.ClinicalMatching.TrialMatcherResult&gt;&#xA;override this.MatchTrials : Azure.WaitUntil * Azure.Health.Insights.ClinicalMatching.TrialMatcherData * string * Nullable&lt;DateTimeOffset&gt; * System.Threading.CancellationToken -&gt; Azure.Operation&lt;Azure.Health.Insights.ClinicalMatching.TrialMatcherResult&gt;" Usage="clinicalMatchingClient.MatchTrials (waitUntil, trialMatcherData, repeatabilityRequestId, repeatabilityFirstSent, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Operation&lt;Azure.Health.Insights.ClinicalMatching.TrialMatcherResults&gt; MatchTrials (Azure.WaitUntil waitUntil, Azure.Health.Insights.ClinicalMatching.TrialMatcherData body, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Operation`1&lt;class Azure.Health.Insights.ClinicalMatching.TrialMatcherResults&gt; MatchTrials(valuetype Azure.WaitUntil waitUntil, class Azure.Health.Insights.ClinicalMatching.TrialMatcherData body, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Health.Insights.ClinicalMatching.ClinicalMatchingClient.MatchTrials(Azure.WaitUntil,Azure.Health.Insights.ClinicalMatching.TrialMatcherData,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function MatchTrials (waitUntil As WaitUntil, body As TrialMatcherData, Optional cancellationToken As CancellationToken = Nothing) As Operation(Of TrialMatcherResults)" />
+      <MemberSignature Language="F#" Value="abstract member MatchTrials : Azure.WaitUntil * Azure.Health.Insights.ClinicalMatching.TrialMatcherData * System.Threading.CancellationToken -&gt; Azure.Operation&lt;Azure.Health.Insights.ClinicalMatching.TrialMatcherResults&gt;&#xA;override this.MatchTrials : Azure.WaitUntil * Azure.Health.Insights.ClinicalMatching.TrialMatcherData * System.Threading.CancellationToken -&gt; Azure.Operation&lt;Azure.Health.Insights.ClinicalMatching.TrialMatcherResults&gt;" Usage="clinicalMatchingClient.MatchTrials (waitUntil, body, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Health.Insights.ClinicalMatching</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.Operation&lt;Azure.Health.Insights.ClinicalMatching.TrialMatcherResult&gt;</ReturnType>
+        <ReturnType>Azure.Operation&lt;Azure.Health.Insights.ClinicalMatching.TrialMatcherResults&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
-        <Parameter Name="trialMatcherData" Type="Azure.Health.Insights.ClinicalMatching.TrialMatcherData" />
-        <Parameter Name="repeatabilityRequestId" Type="System.String" />
-        <Parameter Name="repeatabilityFirstSent" Type="System.Nullable&lt;System.DateTimeOffset&gt;" />
+        <Parameter Name="body" Type="Azure.Health.Insights.ClinicalMatching.TrialMatcherData" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="waitUntil">
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
-        <param name="trialMatcherData"> The body of the Trial Matcher request. </param>
-        <param name="repeatabilityRequestId"> An opaque, globally-unique, client-generated string identifier for the request. </param>
-        <param name="repeatabilityFirstSent"> Specifies the date and time at which the request was first created. </param>
+        <param name="body"> Body parameter. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary> Create Trial Matcher job. </summary>
         <returns>To be added.</returns>
         <remarks> Creates a Trial Matcher job with the given request body. </remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="trialMatcherData" /> is null. </exception>
+          <paramref name="body" /> is null. </exception>
+        <example>
+This sample shows how to call MatchTrials.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+AzureKeyCredential credential = new AzureKeyCredential("<key>");
+ClinicalMatchingClient client = new ClinicalMatchingClient(endpoint, credential);
+
+TrialMatcherData body = new TrialMatcherData(new PatientRecord[]
+{
+    new PatientRecord("<id>")
+});
+Operation<TrialMatcherResults> operation = client.MatchTrials(WaitUntil.Completed, body);
+TrialMatcherResults responseData = operation.Value;
+]]></code>
+This sample shows how to call MatchTrials with all parameters.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+AzureKeyCredential credential = new AzureKeyCredential("<key>");
+ClinicalMatchingClient client = new ClinicalMatchingClient(endpoint, credential);
+
+TrialMatcherData body = new TrialMatcherData(new PatientRecord[]
+{
+    new PatientRecord("<id>")
+    {
+        Info = new PatientInfo
+        {
+            Sex = PatientInfoSex.Female,
+            BirthDate = DateTimeOffset.Parse("2022-05-10"),
+            ClinicalInfo = {new ClinicalCodedElement("<system>", "<code>")
+            {
+                Name = "<name>",
+                Value = "<value>",
+            }},
+        },
+        Data = {new PatientDocument(DocumentType.Note, "<id>", new DocumentContent(DocumentContentSourceType.Inline, "<value>"))
+        {
+            ClinicalType = ClinicalDocumentType.Consultation,
+            Language = "<language>",
+            CreatedDateTime = DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"),
+        }},
+    }
+})
+{
+    Configuration = new TrialMatcherModelConfiguration(new ClinicalTrials
+    {
+        CustomTrials = {new ClinicalTrialDetails("<id>", new ClinicalTrialMetadata(new string[]{"<conditions>"})
+        {
+            Phases = {ClinicalTrialPhase.NotApplicable},
+            StudyType = ClinicalTrialStudyType.Interventional,
+            RecruitmentStatus = ClinicalTrialRecruitmentStatus.UnknownStatus,
+            Sponsors = {"<sponsors>"},
+            Contacts = {new ContactDetails
+            {
+                Name = "<name>",
+                Email = "<email>",
+                Phone = "<phone>",
+            }},
+            Facilities = {new ClinicalTrialResearchFacility("<name>", "<countryOrRegion>")
+            {
+                City = "<city>",
+                State = "<state>",
+            }},
+        })
+        {
+            EligibilityCriteriaText = "<eligibilityCriteriaText>",
+            Demographics = new ClinicalTrialDemographics
+            {
+                AcceptedSex = ClinicalTrialAcceptedSex.All,
+                AcceptedAgeRange = new AcceptedAgeRange
+                {
+                    MinimumAge = new AcceptedAge(AgeUnit.Years, 123.45F),
+                    MaximumAge = default,
+                },
+            },
+        }},
+        RegistryFilters = {new ClinicalTrialRegistryFilter
+        {
+            Conditions = {"<conditions>"},
+            StudyTypes = {ClinicalTrialStudyType.Interventional},
+            RecruitmentStatuses = {ClinicalTrialRecruitmentStatus.UnknownStatus},
+            Sponsors = {"<sponsors>"},
+            Phases = {ClinicalTrialPhase.NotApplicable},
+            Purposes = {ClinicalTrialPurpose.NotApplicable},
+            Ids = {"<ids>"},
+            Sources = {ClinicalTrialSource.Custom},
+            FacilityNames = {"<facilityNames>"},
+            FacilityLocations = {new GeographicLocation("<countryOrRegion>")
+            {
+                City = "<city>",
+                State = "<state>",
+            }},
+            FacilityAreas = {new GeographicArea(GeoJsonType.Feature, new AreaGeometry(GeoJsonGeometryType.Point, new float[]{123.45F}), new AreaProperties(GeoJsonPropertiesSubType.Circle, 123.45))},
+        }},
+    })
+    {
+        Verbose = true,
+        IncludeEvidence = true,
+    },
+};
+Operation<TrialMatcherResults> operation = client.MatchTrials(WaitUntil.Completed, body);
+TrialMatcherResults responseData = operation.Value;
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="MatchTrialsAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt; MatchTrialsAsync (Azure.WaitUntil waitUntil, Azure.Core.RequestContent content, string repeatabilityRequestId = default, DateTimeOffset? repeatabilityFirstSent = default, Azure.RequestContext context = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Operation`1&lt;class System.BinaryData&gt;&gt; MatchTrialsAsync(valuetype Azure.WaitUntil waitUntil, class Azure.Core.RequestContent content, string repeatabilityRequestId, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; repeatabilityFirstSent, class Azure.RequestContext context) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Health.Insights.ClinicalMatching.ClinicalMatchingClient.MatchTrialsAsync(Azure.WaitUntil,Azure.Core.RequestContent,System.String,System.Nullable{System.DateTimeOffset},Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function MatchTrialsAsync (waitUntil As WaitUntil, content As RequestContent, Optional repeatabilityRequestId As String = Nothing, Optional repeatabilityFirstSent As Nullable(Of DateTimeOffset) = Nothing, Optional context As RequestContext = Nothing) As Task(Of Operation(Of BinaryData))" />
-      <MemberSignature Language="F#" Value="abstract member MatchTrialsAsync : Azure.WaitUntil * Azure.Core.RequestContent * string * Nullable&lt;DateTimeOffset&gt; * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt;&#xA;override this.MatchTrialsAsync : Azure.WaitUntil * Azure.Core.RequestContent * string * Nullable&lt;DateTimeOffset&gt; * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt;" Usage="clinicalMatchingClient.MatchTrialsAsync (waitUntil, content, repeatabilityRequestId, repeatabilityFirstSent, context)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt; MatchTrialsAsync (Azure.WaitUntil waitUntil, Azure.Core.RequestContent content, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Operation`1&lt;class System.BinaryData&gt;&gt; MatchTrialsAsync(valuetype Azure.WaitUntil waitUntil, class Azure.Core.RequestContent content, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Health.Insights.ClinicalMatching.ClinicalMatchingClient.MatchTrialsAsync(Azure.WaitUntil,Azure.Core.RequestContent,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function MatchTrialsAsync (waitUntil As WaitUntil, content As RequestContent, Optional context As RequestContext = Nothing) As Task(Of Operation(Of BinaryData))" />
+      <MemberSignature Language="F#" Value="abstract member MatchTrialsAsync : Azure.WaitUntil * Azure.Core.RequestContent * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt;&#xA;override this.MatchTrialsAsync : Azure.WaitUntil * Azure.Core.RequestContent * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Operation&lt;BinaryData&gt;&gt;" Usage="clinicalMatchingClient.MatchTrialsAsync (waitUntil, content, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Health.Insights.ClinicalMatching</AssemblyName>
@@ -454,125 +521,72 @@ Console.WriteLine(result.GetProperty("results").GetProperty("knowledgeGraphLastU
       <Parameters>
         <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
         <Parameter Name="content" Type="Azure.Core.RequestContent" />
-        <Parameter Name="repeatabilityRequestId" Type="System.String" />
-        <Parameter Name="repeatabilityFirstSent" Type="System.Nullable&lt;System.DateTimeOffset&gt;" />
         <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="waitUntil">
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
-        <param name="repeatabilityRequestId"> An opaque, globally-unique, client-generated string identifier for the request. </param>
-        <param name="repeatabilityFirstSent"> Specifies the date and time at which the request was first created. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Create Trial Matcher job. </summary>
-        <returns> The <see cref="T:Azure.Operation`1" /> from the service that will contain a <see cref="T:System.BinaryData" /> object once the asynchronous operation on the service has completed. Details of the body schema for the operation's final value are in the Remarks section below. </returns>
-        <remarks>
-Creates a Trial Matcher job with the given request body.
-
-Below is the JSON schema for the request and response payloads.
-
-Request Body:
-
-Schema for <c>TrialMatcherData</c>:
-<code>{
-  patients: [
-    {
-      id: string, # Required. A given identifier for the patient. Has to be unique across all patients in a single request.
-      info: {
-        sex: "female" | "male" | "unspecified", # Optional. The patient's sex.
-        birthDate: string (date), # Optional. The patient's date of birth.
-        clinicalInfo: [ClinicalCodedElement], # Optional. Known clinical information for the patient, structured.
-      }, # Optional. Patient structured information, including demographics and known structured clinical information.
-      data: [PatientDocument], # Optional. Patient unstructured clinical data, given as documents.
-    }
-  ], # Required. The list of patients, including their clinical information and data.
-  configuration: {
-    verbose: boolean, # Optional. An indication whether the model should produce verbose output.
-    includeEvidence: boolean, # Optional. An indication whether the model's output should include evidence for the inferences.
-    clinicalTrials: {
-      customTrials: [ClinicalTrialDetails], # Optional. A list of clinical trials.
-      registryFilters: [ClinicalTrialRegistryFilter], # Optional. A list of filters, each one creating a selection of trials from a given
-clinical trial registry.
-    }, # Required. The clinical trials that the patient(s) should be matched to. &amp;lt;br /&amp;gt;The trial
-selection can be given as a list of custom clinical trials and/or a list of
-filters to known clinical trial registries. In case both are given, the
-resulting trial set is a union of the two sets.
-  }, # Optional. Configuration affecting the Trial Matcher model's inference.
-}
-</code>
-
-Response Body:
-
-Schema for <c>TrialMatcherResult</c>:
-<code>{
-  jobId: string, # Required. A processing job identifier.
-  createdDateTime: string (date &amp; time), # Required. The date and time when the processing job was created.
-  expirationDateTime: string (date &amp; time), # Required. The date and time when the processing job is set to expire.
-  lastUpdateDateTime: string (date &amp; time), # Required. The date and time when the processing job was last updated.
-  status: "notStarted" | "running" | "succeeded" | "failed" | "partiallyCompleted", # Required. The status of the processing job.
-  errors: [
-    {
-      code: string, # Required. One of a server-defined set of error codes.
-      message: string, # Required. A human-readable representation of the error.
-      target: string, # Optional. The target of the error.
-      details: [Error], # Required. An array of details about specific errors that led to this reported error.
-      innererror: {
-        code: string, # Required. One of a server-defined set of error codes.
-        innererror: InnerError, # Optional. Inner error.
-      }, # Optional. An object containing more specific information than the current object about the error.
-    }
-  ], # Optional. An array of errors, if any errors occurred during the processing job.
-  results: {
-    patients: [TrialMatcherPatientResult], # Required. Results for the patients given in the request.
-    modelVersion: string, # Required. The version of the model used for inference, expressed as the model date.
-    knowledgeGraphLastUpdateDate: string (date), # Optional. The date when the clinical trials knowledge graph was last updated.
-  }, # Optional. The inference results for the Trial Matcher request.
-}
-</code></remarks>
+        <summary>
+            [Protocol Method] Create Trial Matcher job
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item><item><description>
+            Please try the simpler <see cref="M:Azure.Health.Insights.ClinicalMatching.ClinicalMatchingClient.MatchTrialsAsync(Azure.WaitUntil,Azure.Health.Insights.ClinicalMatching.TrialMatcherData,System.Threading.CancellationToken)" /> convenience overload with strongly typed models first.
+            </description></item></list></summary>
+        <returns> The <see cref="T:Azure.Operation" /> representing an asynchronous operation on the service. </returns>
+        <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="content" /> is null. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call MatchTrialsAsync with required parameters and request content, and how to parse the result.
+This sample shows how to call MatchTrialsAsync and parse the result.
 <code><![CDATA[
-var credential = new AzureKeyCredential("<key>");
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ClinicalMatchingClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+AzureKeyCredential credential = new AzureKeyCredential("<key>");
+ClinicalMatchingClient client = new ClinicalMatchingClient(endpoint, credential);
 
-var data = new {
-    patients = new[] {
-        new {
+using RequestContent content = RequestContent.Create(new
+{
+    patients = new object[]
+    {
+        new
+        {
             id = "<id>",
         }
     },
-};
+});
+Operation<BinaryData> operation = await client.MatchTrialsAsync(WaitUntil.Completed, content);
+BinaryData responseData = operation.Value;
 
-var operation = await client.MatchTrialsAsync(WaitUntil.Completed, RequestContent.Create(data));
-
-BinaryData data = operation.Value;
-JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
-Console.WriteLine(result.GetProperty("jobId").ToString());
-Console.WriteLine(result.GetProperty("createdDateTime").ToString());
-Console.WriteLine(result.GetProperty("expirationDateTime").ToString());
-Console.WriteLine(result.GetProperty("lastUpdateDateTime").ToString());
-Console.WriteLine(result.GetProperty("status").ToString());
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("value").ToString());
+Console.WriteLine(result.GetProperty("modelVersion").ToString());
 ]]></code>
-This sample shows how to call MatchTrialsAsync with all parameters and request content, and how to parse the result.
+This sample shows how to call MatchTrialsAsync with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new AzureKeyCredential("<key>");
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ClinicalMatchingClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+AzureKeyCredential credential = new AzureKeyCredential("<key>");
+ClinicalMatchingClient client = new ClinicalMatchingClient(endpoint, credential);
 
-var data = new {
-    patients = new[] {
-        new {
+using RequestContent content = RequestContent.Create(new
+{
+    patients = new object[]
+    {
+        new
+        {
             id = "<id>",
-            info = new {
+            info = new
+            {
                 sex = "female",
                 birthDate = "2022-05-10",
-                clinicalInfo = new[] {
-                    new {
+                clinicalInfo = new object[]
+                {
+                    new
+                    {
                         system = "<system>",
                         code = "<code>",
                         name = "<name>",
@@ -580,14 +594,17 @@ var data = new {
                     }
                 },
             },
-            data = new[] {
-                new {
+            data = new object[]
+            {
+                new
+                {
                     type = "note",
                     clinicalType = "consultation",
                     id = "<id>",
                     language = "<language>",
-                    createdDateTime = "2022-05-10T14:57:31.2311892-04:00",
-                    content = new {
+                    createdDateTime = "2022-05-10T18:57:31.2311892Z",
+                    content = new
+                    {
                         sourceType = "inline",
                         value = "<value>",
                     },
@@ -595,48 +612,59 @@ var data = new {
             },
         }
     },
-    configuration = new {
+    configuration = new
+    {
         verbose = true,
         includeEvidence = true,
-        clinicalTrials = new {
-            customTrials = new[] {
-                new {
+        clinicalTrials = new
+        {
+            customTrials = new object[]
+            {
+                new
+                {
                     id = "<id>",
                     eligibilityCriteriaText = "<eligibilityCriteriaText>",
-                    demographics = new {
+                    demographics = new
+                    {
                         acceptedSex = "all",
-                        acceptedAgeRange = new {
-                            minimumAge = new {
+                        acceptedAgeRange = new
+                        {
+                            minimumAge = new
+                            {
                                 unit = "years",
-                                value = 123.45f,
-                            },
-                            maximumAge = new {
-                                unit = "years",
-                                value = 123.45f,
+                                value = 123.45F,
                             },
                         },
                     },
-                    metadata = new {
-                        phases = new[] {
+                    metadata = new
+                    {
+                        phases = new object[]
+                        {
                             "notApplicable"
                         },
                         studyType = "interventional",
                         recruitmentStatus = "unknownStatus",
-                        conditions = new[] {
-                            "<String>"
+                        conditions = new object[]
+                        {
+                            "<conditions>"
                         },
-                        sponsors = new[] {
-                            "<String>"
+                        sponsors = new object[]
+                        {
+                            "<sponsors>"
                         },
-                        contacts = new[] {
-                            new {
+                        contacts = new object[]
+                        {
+                            new
+                            {
                                 name = "<name>",
                                 email = "<email>",
                                 phone = "<phone>",
                             }
                         },
-                        facilities = new[] {
-                            new {
+                        facilities = new object[]
+                        {
+                            new
+                            {
                                 name = "<name>",
                                 city = "<city>",
                                 state = "<state>",
@@ -646,54 +674,72 @@ var data = new {
                     },
                 }
             },
-            registryFilters = new[] {
-                new {
-                    conditions = new[] {
-                        "<String>"
+            registryFilters = new object[]
+            {
+                new
+                {
+                    conditions = new object[]
+                    {
+                        "<conditions>"
                     },
-                    studyTypes = new[] {
+                    studyTypes = new object[]
+                    {
                         "interventional"
                     },
-                    recruitmentStatuses = new[] {
+                    recruitmentStatuses = new object[]
+                    {
                         "unknownStatus"
                     },
-                    sponsors = new[] {
-                        "<String>"
+                    sponsors = new object[]
+                    {
+                        "<sponsors>"
                     },
-                    phases = new[] {
+                    phases = new object[]
+                    {
                         "notApplicable"
                     },
-                    purposes = new[] {
+                    purposes = new object[]
+                    {
                         "notApplicable"
                     },
-                    ids = new[] {
-                        "<String>"
+                    ids = new object[]
+                    {
+                        "<ids>"
                     },
-                    sources = new[] {
+                    sources = new object[]
+                    {
                         "custom"
                     },
-                    facilityNames = new[] {
-                        "<String>"
+                    facilityNames = new object[]
+                    {
+                        "<facilityNames>"
                     },
-                    facilityLocations = new[] {
-                        new {
+                    facilityLocations = new object[]
+                    {
+                        new
+                        {
                             city = "<city>",
                             state = "<state>",
                             countryOrRegion = "<countryOrRegion>",
                         }
                     },
-                    facilityAreas = new[] {
-                        new {
+                    facilityAreas = new object[]
+                    {
+                        new
+                        {
                             type = "Feature",
-                            geometry = new {
+                            geometry = new
+                            {
                                 type = "Point",
-                                coordinates = new[] {
-                                    123.45f
+                                coordinates = new object[]
+                                {
+                                    123.45F
                                 },
                             },
-                            properties = new {
+                            properties = new
+                            {
                                 subType = "Circle",
-                                radius = 123.45d,
+                                radius = 123.45,
                             },
                         }
                     },
@@ -701,94 +747,182 @@ var data = new {
             },
         },
     },
-};
+});
+Operation<BinaryData> operation = await client.MatchTrialsAsync(WaitUntil.Completed, content);
+BinaryData responseData = operation.Value;
 
-var operation = await client.MatchTrialsAsync(WaitUntil.Completed, RequestContent.Create(data), "<repeatabilityRequestId>", DateTimeOffset.UtcNow);
-
-BinaryData data = operation.Value;
-JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
-Console.WriteLine(result.GetProperty("jobId").ToString());
-Console.WriteLine(result.GetProperty("createdDateTime").ToString());
-Console.WriteLine(result.GetProperty("expirationDateTime").ToString());
-Console.WriteLine(result.GetProperty("lastUpdateDateTime").ToString());
-Console.WriteLine(result.GetProperty("status").ToString());
-Console.WriteLine(result.GetProperty("errors")[0].GetProperty("code").ToString());
-Console.WriteLine(result.GetProperty("errors")[0].GetProperty("message").ToString());
-Console.WriteLine(result.GetProperty("errors")[0].GetProperty("target").ToString());
-Console.WriteLine(result.GetProperty("errors")[0].GetProperty("innererror").GetProperty("code").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("id").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("type").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("value").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("description").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("confidenceScore").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("eligibilityCriteriaEvidence").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientDataEvidence").GetProperty("id").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientDataEvidence").GetProperty("text").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientDataEvidence").GetProperty("offset").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientDataEvidence").GetProperty("length").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientInfoEvidence").GetProperty("system").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientInfoEvidence").GetProperty("code").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientInfoEvidence").GetProperty("name").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientInfoEvidence").GetProperty("value").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("importance").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("id").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("source").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("phases")[0].ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("studyType").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("recruitmentStatus").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("conditions")[0].ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("sponsors")[0].ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("contacts")[0].GetProperty("name").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("contacts")[0].GetProperty("email").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("contacts")[0].GetProperty("phone").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("facilities")[0].GetProperty("name").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("facilities")[0].GetProperty("city").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("facilities")[0].GetProperty("state").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("facilities")[0].GetProperty("countryOrRegion").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("system").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("code").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("name").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("value").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("semanticType").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("category").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("modelVersion").ToString());
-Console.WriteLine(result.GetProperty("results").GetProperty("knowledgeGraphLastUpdateDate").ToString());
+JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("value").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("confidenceScore").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("eligibilityCriteriaEvidence").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientDataEvidence").GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientDataEvidence").GetProperty("text").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientDataEvidence").GetProperty("offset").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientDataEvidence").GetProperty("length").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientInfoEvidence").GetProperty("system").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientInfoEvidence").GetProperty("code").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientInfoEvidence").GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("patientInfoEvidence").GetProperty("value").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("evidence")[0].GetProperty("importance").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("source").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("phases")[0].ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("studyType").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("recruitmentStatus").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("conditions")[0].ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("sponsors")[0].ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("contacts")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("contacts")[0].GetProperty("email").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("contacts")[0].GetProperty("phone").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("facilities")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("facilities")[0].GetProperty("city").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("facilities")[0].GetProperty("state").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("inferences")[0].GetProperty("metadata").GetProperty("facilities")[0].GetProperty("countryOrRegion").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("system").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("code").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("value").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("semanticType").ToString());
+Console.WriteLine(result.GetProperty("patients")[0].GetProperty("neededClinicalInfo")[0].GetProperty("category").ToString());
+Console.WriteLine(result.GetProperty("modelVersion").ToString());
+Console.WriteLine(result.GetProperty("knowledgeGraphLastUpdateDate").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="MatchTrialsAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Operation&lt;Azure.Health.Insights.ClinicalMatching.TrialMatcherResult&gt;&gt; MatchTrialsAsync (Azure.WaitUntil waitUntil, Azure.Health.Insights.ClinicalMatching.TrialMatcherData trialMatcherData, string repeatabilityRequestId = default, DateTimeOffset? repeatabilityFirstSent = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Operation`1&lt;class Azure.Health.Insights.ClinicalMatching.TrialMatcherResult&gt;&gt; MatchTrialsAsync(valuetype Azure.WaitUntil waitUntil, class Azure.Health.Insights.ClinicalMatching.TrialMatcherData trialMatcherData, string repeatabilityRequestId, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; repeatabilityFirstSent, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Health.Insights.ClinicalMatching.ClinicalMatchingClient.MatchTrialsAsync(Azure.WaitUntil,Azure.Health.Insights.ClinicalMatching.TrialMatcherData,System.String,System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function MatchTrialsAsync (waitUntil As WaitUntil, trialMatcherData As TrialMatcherData, Optional repeatabilityRequestId As String = Nothing, Optional repeatabilityFirstSent As Nullable(Of DateTimeOffset) = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Operation(Of TrialMatcherResult))" />
-      <MemberSignature Language="F#" Value="abstract member MatchTrialsAsync : Azure.WaitUntil * Azure.Health.Insights.ClinicalMatching.TrialMatcherData * string * Nullable&lt;DateTimeOffset&gt; * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Operation&lt;Azure.Health.Insights.ClinicalMatching.TrialMatcherResult&gt;&gt;&#xA;override this.MatchTrialsAsync : Azure.WaitUntil * Azure.Health.Insights.ClinicalMatching.TrialMatcherData * string * Nullable&lt;DateTimeOffset&gt; * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Operation&lt;Azure.Health.Insights.ClinicalMatching.TrialMatcherResult&gt;&gt;" Usage="clinicalMatchingClient.MatchTrialsAsync (waitUntil, trialMatcherData, repeatabilityRequestId, repeatabilityFirstSent, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Operation&lt;Azure.Health.Insights.ClinicalMatching.TrialMatcherResults&gt;&gt; MatchTrialsAsync (Azure.WaitUntil waitUntil, Azure.Health.Insights.ClinicalMatching.TrialMatcherData body, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Operation`1&lt;class Azure.Health.Insights.ClinicalMatching.TrialMatcherResults&gt;&gt; MatchTrialsAsync(valuetype Azure.WaitUntil waitUntil, class Azure.Health.Insights.ClinicalMatching.TrialMatcherData body, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Health.Insights.ClinicalMatching.ClinicalMatchingClient.MatchTrialsAsync(Azure.WaitUntil,Azure.Health.Insights.ClinicalMatching.TrialMatcherData,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function MatchTrialsAsync (waitUntil As WaitUntil, body As TrialMatcherData, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Operation(Of TrialMatcherResults))" />
+      <MemberSignature Language="F#" Value="abstract member MatchTrialsAsync : Azure.WaitUntil * Azure.Health.Insights.ClinicalMatching.TrialMatcherData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Operation&lt;Azure.Health.Insights.ClinicalMatching.TrialMatcherResults&gt;&gt;&#xA;override this.MatchTrialsAsync : Azure.WaitUntil * Azure.Health.Insights.ClinicalMatching.TrialMatcherData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Operation&lt;Azure.Health.Insights.ClinicalMatching.TrialMatcherResults&gt;&gt;" Usage="clinicalMatchingClient.MatchTrialsAsync (waitUntil, body, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Health.Insights.ClinicalMatching</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Operation&lt;Azure.Health.Insights.ClinicalMatching.TrialMatcherResult&gt;&gt;</ReturnType>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Operation&lt;Azure.Health.Insights.ClinicalMatching.TrialMatcherResults&gt;&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
-        <Parameter Name="trialMatcherData" Type="Azure.Health.Insights.ClinicalMatching.TrialMatcherData" />
-        <Parameter Name="repeatabilityRequestId" Type="System.String" />
-        <Parameter Name="repeatabilityFirstSent" Type="System.Nullable&lt;System.DateTimeOffset&gt;" />
+        <Parameter Name="body" Type="Azure.Health.Insights.ClinicalMatching.TrialMatcherData" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="waitUntil">
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
-        <param name="trialMatcherData"> The body of the Trial Matcher request. </param>
-        <param name="repeatabilityRequestId"> An opaque, globally-unique, client-generated string identifier for the request. </param>
-        <param name="repeatabilityFirstSent"> Specifies the date and time at which the request was first created. </param>
+        <param name="body"> Body parameter. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary> Create Trial Matcher job. </summary>
         <returns>To be added.</returns>
         <remarks> Creates a Trial Matcher job with the given request body. </remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="trialMatcherData" /> is null. </exception>
+          <paramref name="body" /> is null. </exception>
+        <example>
+This sample shows how to call MatchTrialsAsync.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+AzureKeyCredential credential = new AzureKeyCredential("<key>");
+ClinicalMatchingClient client = new ClinicalMatchingClient(endpoint, credential);
+
+TrialMatcherData body = new TrialMatcherData(new PatientRecord[]
+{
+    new PatientRecord("<id>")
+});
+Operation<TrialMatcherResults> operation = await client.MatchTrialsAsync(WaitUntil.Completed, body);
+TrialMatcherResults responseData = operation.Value;
+]]></code>
+This sample shows how to call MatchTrialsAsync with all parameters.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+AzureKeyCredential credential = new AzureKeyCredential("<key>");
+ClinicalMatchingClient client = new ClinicalMatchingClient(endpoint, credential);
+
+TrialMatcherData body = new TrialMatcherData(new PatientRecord[]
+{
+    new PatientRecord("<id>")
+    {
+        Info = new PatientInfo
+        {
+            Sex = PatientInfoSex.Female,
+            BirthDate = DateTimeOffset.Parse("2022-05-10"),
+            ClinicalInfo = {new ClinicalCodedElement("<system>", "<code>")
+            {
+                Name = "<name>",
+                Value = "<value>",
+            }},
+        },
+        Data = {new PatientDocument(DocumentType.Note, "<id>", new DocumentContent(DocumentContentSourceType.Inline, "<value>"))
+        {
+            ClinicalType = ClinicalDocumentType.Consultation,
+            Language = "<language>",
+            CreatedDateTime = DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"),
+        }},
+    }
+})
+{
+    Configuration = new TrialMatcherModelConfiguration(new ClinicalTrials
+    {
+        CustomTrials = {new ClinicalTrialDetails("<id>", new ClinicalTrialMetadata(new string[]{"<conditions>"})
+        {
+            Phases = {ClinicalTrialPhase.NotApplicable},
+            StudyType = ClinicalTrialStudyType.Interventional,
+            RecruitmentStatus = ClinicalTrialRecruitmentStatus.UnknownStatus,
+            Sponsors = {"<sponsors>"},
+            Contacts = {new ContactDetails
+            {
+                Name = "<name>",
+                Email = "<email>",
+                Phone = "<phone>",
+            }},
+            Facilities = {new ClinicalTrialResearchFacility("<name>", "<countryOrRegion>")
+            {
+                City = "<city>",
+                State = "<state>",
+            }},
+        })
+        {
+            EligibilityCriteriaText = "<eligibilityCriteriaText>",
+            Demographics = new ClinicalTrialDemographics
+            {
+                AcceptedSex = ClinicalTrialAcceptedSex.All,
+                AcceptedAgeRange = new AcceptedAgeRange
+                {
+                    MinimumAge = new AcceptedAge(AgeUnit.Years, 123.45F),
+                    MaximumAge = default,
+                },
+            },
+        }},
+        RegistryFilters = {new ClinicalTrialRegistryFilter
+        {
+            Conditions = {"<conditions>"},
+            StudyTypes = {ClinicalTrialStudyType.Interventional},
+            RecruitmentStatuses = {ClinicalTrialRecruitmentStatus.UnknownStatus},
+            Sponsors = {"<sponsors>"},
+            Phases = {ClinicalTrialPhase.NotApplicable},
+            Purposes = {ClinicalTrialPurpose.NotApplicable},
+            Ids = {"<ids>"},
+            Sources = {ClinicalTrialSource.Custom},
+            FacilityNames = {"<facilityNames>"},
+            FacilityLocations = {new GeographicLocation("<countryOrRegion>")
+            {
+                City = "<city>",
+                State = "<state>",
+            }},
+            FacilityAreas = {new GeographicArea(GeoJsonType.Feature, new AreaGeometry(GeoJsonGeometryType.Point, new float[]{123.45F}), new AreaProperties(GeoJsonPropertiesSubType.Circle, 123.45))},
+        }},
+    })
+    {
+        Verbose = true,
+        IncludeEvidence = true,
+    },
+};
+Operation<TrialMatcherResults> operation = await client.MatchTrialsAsync(WaitUntil.Completed, body);
+TrialMatcherResults responseData = operation.Value;
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="Pipeline">
