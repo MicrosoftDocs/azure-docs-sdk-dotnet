@@ -34,10 +34,34 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public RoleAssignmentsClient (Uri endpoint, Azure.Core.TokenCredential credential, Azure.Analytics.Synapse.AccessControl.AccessControlClientOptions options = default);" />
+      <MemberSignature Language="C#" Value="public RoleAssignmentsClient (Uri endpoint, Azure.Core.TokenCredential credential);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Uri endpoint, class Azure.Core.TokenCredential credential) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.#ctor(System.Uri,Azure.Core.TokenCredential)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (endpoint As Uri, credential As TokenCredential)" />
+      <MemberSignature Language="F#" Value="new Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient : Uri * Azure.Core.TokenCredential -&gt; Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient" Usage="new Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient (endpoint, credential)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="endpoint" Type="System.Uri" />
+        <Parameter Name="credential" Type="Azure.Core.TokenCredential" />
+      </Parameters>
+      <Docs>
+        <param name="endpoint"> The workspace development endpoint, for example https://myworkspace.dev.azuresynapse.net. </param>
+        <param name="credential"> A credential used to authenticate to an Azure Service. </param>
+        <summary> Initializes a new instance of RoleAssignmentsClient. </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="endpoint" /> or <paramref name="credential" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public RoleAssignmentsClient (Uri endpoint, Azure.Core.TokenCredential credential, Azure.Analytics.Synapse.AccessControl.AccessControlClientOptions options);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Uri endpoint, class Azure.Core.TokenCredential credential, class Azure.Analytics.Synapse.AccessControl.AccessControlClientOptions options) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.#ctor(System.Uri,Azure.Core.TokenCredential,Azure.Analytics.Synapse.AccessControl.AccessControlClientOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (endpoint As Uri, credential As TokenCredential, Optional options As AccessControlClientOptions = Nothing)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (endpoint As Uri, credential As TokenCredential, options As AccessControlClientOptions)" />
       <MemberSignature Language="F#" Value="new Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient : Uri * Azure.Core.TokenCredential * Azure.Analytics.Synapse.AccessControl.AccessControlClientOptions -&gt; Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient" Usage="new Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient (endpoint, credential, options)" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -55,142 +79,374 @@
         <param name="options"> The options for configuring the client. </param>
         <summary> Initializes a new instance of RoleAssignmentsClient. </summary>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="endpoint" /> or <paramref name="credential" /> is null. </exception>
       </Docs>
     </Member>
     <Member MemberName="CheckPrincipalAccess">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.CheckPrincipalAccessResponse&gt; CheckPrincipalAccess (Azure.Analytics.Synapse.AccessControl.Models.SubjectInfo subject, System.Collections.Generic.IEnumerable&lt;Azure.Analytics.Synapse.AccessControl.Models.RequiredAction&gt; actions, string scope, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Analytics.Synapse.AccessControl.Models.CheckPrincipalAccessResponse&gt; CheckPrincipalAccess(class Azure.Analytics.Synapse.AccessControl.Models.SubjectInfo subject, class System.Collections.Generic.IEnumerable`1&lt;class Azure.Analytics.Synapse.AccessControl.Models.RequiredAction&gt; actions, string scope, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.CheckPrincipalAccess(Azure.Analytics.Synapse.AccessControl.Models.SubjectInfo,System.Collections.Generic.IEnumerable{Azure.Analytics.Synapse.AccessControl.Models.RequiredAction},System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CheckPrincipalAccess (subject As SubjectInfo, actions As IEnumerable(Of RequiredAction), scope As String, Optional cancellationToken As CancellationToken = Nothing) As Response(Of CheckPrincipalAccessResponse)" />
-      <MemberSignature Language="F#" Value="abstract member CheckPrincipalAccess : Azure.Analytics.Synapse.AccessControl.Models.SubjectInfo * seq&lt;Azure.Analytics.Synapse.AccessControl.Models.RequiredAction&gt; * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.CheckPrincipalAccessResponse&gt;&#xA;override this.CheckPrincipalAccess : Azure.Analytics.Synapse.AccessControl.Models.SubjectInfo * seq&lt;Azure.Analytics.Synapse.AccessControl.Models.RequiredAction&gt; * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.CheckPrincipalAccessResponse&gt;" Usage="roleAssignmentsClient.CheckPrincipalAccess (subject, actions, scope, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response CheckPrincipalAccess (Azure.Core.RequestContent content, Azure.Core.ContentType contentType, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response CheckPrincipalAccess(class Azure.Core.RequestContent content, valuetype Azure.Core.ContentType contentType, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.CheckPrincipalAccess(Azure.Core.RequestContent,Azure.Core.ContentType,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CheckPrincipalAccess (content As RequestContent, contentType As ContentType, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="F#" Value="abstract member CheckPrincipalAccess : Azure.Core.RequestContent * Azure.Core.ContentType * Azure.RequestContext -&gt; Azure.Response&#xA;override this.CheckPrincipalAccess : Azure.Core.RequestContent * Azure.Core.ContentType * Azure.RequestContext -&gt; Azure.Response" Usage="roleAssignmentsClient.CheckPrincipalAccess (content, contentType, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.CheckPrincipalAccessResponse&gt;</ReturnType>
+        <ReturnType>Azure.Response</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="subject" Type="Azure.Analytics.Synapse.AccessControl.Models.SubjectInfo" />
-        <Parameter Name="actions" Type="System.Collections.Generic.IEnumerable&lt;Azure.Analytics.Synapse.AccessControl.Models.RequiredAction&gt;" />
-        <Parameter Name="scope" Type="System.String" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="content" Type="Azure.Core.RequestContent" />
+        <Parameter Name="contentType" Type="Azure.Core.ContentType" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="subject"> Subject details. </param>
-        <param name="actions"> List of actions. </param>
-        <param name="scope"> Scope at which the check access is done. </param>
-        <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Check if the given principalId has access to perform list of actions at a given scope. </summary>
-        <returns>To be added.</returns>
+        <param name="content"> The content to send as the body of the request. </param>
+        <param name="contentType"> Body Parameter content-type. Allowed values: "application/json" | "text/json". </param>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Check if the given principalId has access to perform list of actions at a given scope.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="content" /> is null. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call CheckPrincipalAccess and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+using RequestContent content = RequestContent.Create(new
+{
+    subject = new
+    {
+        principalId = "73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a",
+    },
+    actions = new object[]
+    {
+        new
+        {
+            id = "<id>",
+            isDataAction = true,
+        }
+    },
+    scope = "<scope>",
+});
+Response response = client.CheckPrincipalAccess(content, new ContentType("application/json"));
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call CheckPrincipalAccess with all parameters and request content and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+using RequestContent content = RequestContent.Create(new
+{
+    subject = new
+    {
+        principalId = "73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a",
+        groupIds = new object[]
+        {
+            "73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a"
+        },
+    },
+    actions = new object[]
+    {
+        new
+        {
+            id = "<id>",
+            isDataAction = true,
+        }
+    },
+    scope = "<scope>",
+});
+Response response = client.CheckPrincipalAccess(content, new ContentType("application/json"));
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("accessDecisions")[0].GetProperty("accessDecision").ToString());
+Console.WriteLine(result.GetProperty("accessDecisions")[0].GetProperty("actionId").ToString());
+Console.WriteLine(result.GetProperty("accessDecisions")[0].GetProperty("roleAssignment").GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("accessDecisions")[0].GetProperty("roleAssignment").GetProperty("roleDefinitionId").ToString());
+Console.WriteLine(result.GetProperty("accessDecisions")[0].GetProperty("roleAssignment").GetProperty("principalId").ToString());
+Console.WriteLine(result.GetProperty("accessDecisions")[0].GetProperty("roleAssignment").GetProperty("scope").ToString());
+Console.WriteLine(result.GetProperty("accessDecisions")[0].GetProperty("roleAssignment").GetProperty("principalType").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="CheckPrincipalAccessAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.CheckPrincipalAccessResponse&gt;&gt; CheckPrincipalAccessAsync (Azure.Analytics.Synapse.AccessControl.Models.SubjectInfo subject, System.Collections.Generic.IEnumerable&lt;Azure.Analytics.Synapse.AccessControl.Models.RequiredAction&gt; actions, string scope, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Analytics.Synapse.AccessControl.Models.CheckPrincipalAccessResponse&gt;&gt; CheckPrincipalAccessAsync(class Azure.Analytics.Synapse.AccessControl.Models.SubjectInfo subject, class System.Collections.Generic.IEnumerable`1&lt;class Azure.Analytics.Synapse.AccessControl.Models.RequiredAction&gt; actions, string scope, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.CheckPrincipalAccessAsync(Azure.Analytics.Synapse.AccessControl.Models.SubjectInfo,System.Collections.Generic.IEnumerable{Azure.Analytics.Synapse.AccessControl.Models.RequiredAction},System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CheckPrincipalAccessAsync (subject As SubjectInfo, actions As IEnumerable(Of RequiredAction), scope As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of CheckPrincipalAccessResponse))" />
-      <MemberSignature Language="F#" Value="abstract member CheckPrincipalAccessAsync : Azure.Analytics.Synapse.AccessControl.Models.SubjectInfo * seq&lt;Azure.Analytics.Synapse.AccessControl.Models.RequiredAction&gt; * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.CheckPrincipalAccessResponse&gt;&gt;&#xA;override this.CheckPrincipalAccessAsync : Azure.Analytics.Synapse.AccessControl.Models.SubjectInfo * seq&lt;Azure.Analytics.Synapse.AccessControl.Models.RequiredAction&gt; * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.CheckPrincipalAccessResponse&gt;&gt;" Usage="roleAssignmentsClient.CheckPrincipalAccessAsync (subject, actions, scope, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; CheckPrincipalAccessAsync (Azure.Core.RequestContent content, Azure.Core.ContentType contentType, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; CheckPrincipalAccessAsync(class Azure.Core.RequestContent content, valuetype Azure.Core.ContentType contentType, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.CheckPrincipalAccessAsync(Azure.Core.RequestContent,Azure.Core.ContentType,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CheckPrincipalAccessAsync (content As RequestContent, contentType As ContentType, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member CheckPrincipalAccessAsync : Azure.Core.RequestContent * Azure.Core.ContentType * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.CheckPrincipalAccessAsync : Azure.Core.RequestContent * Azure.Core.ContentType * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="roleAssignmentsClient.CheckPrincipalAccessAsync (content, contentType, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.CheckPrincipalAccessResponse&gt;&gt;</ReturnType>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="subject" Type="Azure.Analytics.Synapse.AccessControl.Models.SubjectInfo" />
-        <Parameter Name="actions" Type="System.Collections.Generic.IEnumerable&lt;Azure.Analytics.Synapse.AccessControl.Models.RequiredAction&gt;" />
-        <Parameter Name="scope" Type="System.String" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="content" Type="Azure.Core.RequestContent" />
+        <Parameter Name="contentType" Type="Azure.Core.ContentType" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="subject"> Subject details. </param>
-        <param name="actions"> List of actions. </param>
-        <param name="scope"> Scope at which the check access is done. </param>
-        <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Check if the given principalId has access to perform list of actions at a given scope. </summary>
-        <returns>To be added.</returns>
+        <param name="content"> The content to send as the body of the request. </param>
+        <param name="contentType"> Body Parameter content-type. Allowed values: "application/json" | "text/json". </param>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Check if the given principalId has access to perform list of actions at a given scope.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="content" /> is null. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call CheckPrincipalAccessAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+using RequestContent content = RequestContent.Create(new
+{
+    subject = new
+    {
+        principalId = "73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a",
+    },
+    actions = new object[]
+    {
+        new
+        {
+            id = "<id>",
+            isDataAction = true,
+        }
+    },
+    scope = "<scope>",
+});
+Response response = await client.CheckPrincipalAccessAsync(content, new ContentType("application/json"));
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call CheckPrincipalAccessAsync with all parameters and request content and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+using RequestContent content = RequestContent.Create(new
+{
+    subject = new
+    {
+        principalId = "73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a",
+        groupIds = new object[]
+        {
+            "73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a"
+        },
+    },
+    actions = new object[]
+    {
+        new
+        {
+            id = "<id>",
+            isDataAction = true,
+        }
+    },
+    scope = "<scope>",
+});
+Response response = await client.CheckPrincipalAccessAsync(content, new ContentType("application/json"));
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("accessDecisions")[0].GetProperty("accessDecision").ToString());
+Console.WriteLine(result.GetProperty("accessDecisions")[0].GetProperty("actionId").ToString());
+Console.WriteLine(result.GetProperty("accessDecisions")[0].GetProperty("roleAssignment").GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("accessDecisions")[0].GetProperty("roleAssignment").GetProperty("roleDefinitionId").ToString());
+Console.WriteLine(result.GetProperty("accessDecisions")[0].GetProperty("roleAssignment").GetProperty("principalId").ToString());
+Console.WriteLine(result.GetProperty("accessDecisions")[0].GetProperty("roleAssignment").GetProperty("scope").ToString());
+Console.WriteLine(result.GetProperty("accessDecisions")[0].GetProperty("roleAssignment").GetProperty("principalType").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="CreateRoleAssignment">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt; CreateRoleAssignment (string roleAssignmentId, Guid roleId, Guid principalId, string scope, string principalType = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt; CreateRoleAssignment(string roleAssignmentId, valuetype System.Guid roleId, valuetype System.Guid principalId, string scope, string principalType, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.CreateRoleAssignment(System.String,System.Guid,System.Guid,System.String,System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateRoleAssignment (roleAssignmentId As String, roleId As Guid, principalId As Guid, scope As String, Optional principalType As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Response(Of RoleAssignmentDetails)" />
-      <MemberSignature Language="F#" Value="abstract member CreateRoleAssignment : string * Guid * Guid * string * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt;&#xA;override this.CreateRoleAssignment : string * Guid * Guid * string * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt;" Usage="roleAssignmentsClient.CreateRoleAssignment (roleAssignmentId, roleId, principalId, scope, principalType, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response CreateRoleAssignment (string roleAssignmentId, Azure.Core.RequestContent content, Azure.Core.ContentType contentType, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response CreateRoleAssignment(string roleAssignmentId, class Azure.Core.RequestContent content, valuetype Azure.Core.ContentType contentType, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.CreateRoleAssignment(System.String,Azure.Core.RequestContent,Azure.Core.ContentType,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateRoleAssignment (roleAssignmentId As String, content As RequestContent, contentType As ContentType, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="F#" Value="abstract member CreateRoleAssignment : string * Azure.Core.RequestContent * Azure.Core.ContentType * Azure.RequestContext -&gt; Azure.Response&#xA;override this.CreateRoleAssignment : string * Azure.Core.RequestContent * Azure.Core.ContentType * Azure.RequestContext -&gt; Azure.Response" Usage="roleAssignmentsClient.CreateRoleAssignment (roleAssignmentId, content, contentType, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt;</ReturnType>
+        <ReturnType>Azure.Response</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="roleAssignmentId" Type="System.String" />
-        <Parameter Name="roleId" Type="System.Guid" />
-        <Parameter Name="principalId" Type="System.Guid" />
-        <Parameter Name="scope" Type="System.String" />
-        <Parameter Name="principalType" Type="System.String" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="content" Type="Azure.Core.RequestContent" />
+        <Parameter Name="contentType" Type="Azure.Core.ContentType" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="roleAssignmentId"> The ID of the role assignment. </param>
-        <param name="roleId"> Role ID of the Synapse Built-In Role. </param>
-        <param name="principalId"> Object ID of the AAD principal or security-group. </param>
-        <param name="scope"> Scope at which the role assignment is created. </param>
-        <param name="principalType"> Type of the principal Id: User, Group or ServicePrincipal. </param>
-        <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Create role assignment. </summary>
-        <returns>To be added.</returns>
+        <param name="content"> The content to send as the body of the request. </param>
+        <param name="contentType"> Body Parameter content-type. Allowed values: "application/json" | "text/json". </param>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Create role assignment.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="roleAssignmentId" /> or <paramref name="content" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="roleAssignmentId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call CreateRoleAssignment and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+using RequestContent content = RequestContent.Create(new
+{
+    roleId = "73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a",
+    principalId = "73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a",
+    scope = "<scope>",
+});
+Response response = client.CreateRoleAssignment("<roleAssignmentId>", content, new ContentType("application/json"));
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call CreateRoleAssignment with all parameters and request content and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+using RequestContent content = RequestContent.Create(new
+{
+    roleId = "73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a",
+    principalId = "73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a",
+    scope = "<scope>",
+    principalType = "<principalType>",
+});
+Response response = client.CreateRoleAssignment("<roleAssignmentId>", content, new ContentType("application/json"));
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("roleDefinitionId").ToString());
+Console.WriteLine(result.GetProperty("principalId").ToString());
+Console.WriteLine(result.GetProperty("scope").ToString());
+Console.WriteLine(result.GetProperty("principalType").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="CreateRoleAssignmentAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt;&gt; CreateRoleAssignmentAsync (string roleAssignmentId, Guid roleId, Guid principalId, string scope, string principalType = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt;&gt; CreateRoleAssignmentAsync(string roleAssignmentId, valuetype System.Guid roleId, valuetype System.Guid principalId, string scope, string principalType, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.CreateRoleAssignmentAsync(System.String,System.Guid,System.Guid,System.String,System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateRoleAssignmentAsync (roleAssignmentId As String, roleId As Guid, principalId As Guid, scope As String, Optional principalType As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of RoleAssignmentDetails))" />
-      <MemberSignature Language="F#" Value="abstract member CreateRoleAssignmentAsync : string * Guid * Guid * string * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt;&gt;&#xA;override this.CreateRoleAssignmentAsync : string * Guid * Guid * string * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt;&gt;" Usage="roleAssignmentsClient.CreateRoleAssignmentAsync (roleAssignmentId, roleId, principalId, scope, principalType, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; CreateRoleAssignmentAsync (string roleAssignmentId, Azure.Core.RequestContent content, Azure.Core.ContentType contentType, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; CreateRoleAssignmentAsync(string roleAssignmentId, class Azure.Core.RequestContent content, valuetype Azure.Core.ContentType contentType, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.CreateRoleAssignmentAsync(System.String,Azure.Core.RequestContent,Azure.Core.ContentType,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateRoleAssignmentAsync (roleAssignmentId As String, content As RequestContent, contentType As ContentType, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member CreateRoleAssignmentAsync : string * Azure.Core.RequestContent * Azure.Core.ContentType * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.CreateRoleAssignmentAsync : string * Azure.Core.RequestContent * Azure.Core.ContentType * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="roleAssignmentsClient.CreateRoleAssignmentAsync (roleAssignmentId, content, contentType, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt;&gt;</ReturnType>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="roleAssignmentId" Type="System.String" />
-        <Parameter Name="roleId" Type="System.Guid" />
-        <Parameter Name="principalId" Type="System.Guid" />
-        <Parameter Name="scope" Type="System.String" />
-        <Parameter Name="principalType" Type="System.String" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="content" Type="Azure.Core.RequestContent" />
+        <Parameter Name="contentType" Type="Azure.Core.ContentType" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="roleAssignmentId"> The ID of the role assignment. </param>
-        <param name="roleId"> Role ID of the Synapse Built-In Role. </param>
-        <param name="principalId"> Object ID of the AAD principal or security-group. </param>
-        <param name="scope"> Scope at which the role assignment is created. </param>
-        <param name="principalType"> Type of the principal Id: User, Group or ServicePrincipal. </param>
-        <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Create role assignment. </summary>
-        <returns>To be added.</returns>
+        <param name="content"> The content to send as the body of the request. </param>
+        <param name="contentType"> Body Parameter content-type. Allowed values: "application/json" | "text/json". </param>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Create role assignment.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="roleAssignmentId" /> or <paramref name="content" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="roleAssignmentId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call CreateRoleAssignmentAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+using RequestContent content = RequestContent.Create(new
+{
+    roleId = "73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a",
+    principalId = "73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a",
+    scope = "<scope>",
+});
+Response response = await client.CreateRoleAssignmentAsync("<roleAssignmentId>", content, new ContentType("application/json"));
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call CreateRoleAssignmentAsync with all parameters and request content and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+using RequestContent content = RequestContent.Create(new
+{
+    roleId = "73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a",
+    principalId = "73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a",
+    scope = "<scope>",
+    principalType = "<principalType>",
+});
+Response response = await client.CreateRoleAssignmentAsync("<roleAssignmentId>", content, new ContentType("application/json"));
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("roleDefinitionId").ToString());
+Console.WriteLine(result.GetProperty("principalId").ToString());
+Console.WriteLine(result.GetProperty("scope").ToString());
+Console.WriteLine(result.GetProperty("principalType").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="DeleteRoleAssignmentById">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response DeleteRoleAssignmentById (string roleAssignmentId, string scope = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response DeleteRoleAssignmentById(string roleAssignmentId, string scope, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.DeleteRoleAssignmentById(System.String,System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteRoleAssignmentById (roleAssignmentId As String, Optional scope As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Response" />
-      <MemberSignature Language="F#" Value="abstract member DeleteRoleAssignmentById : string * string * System.Threading.CancellationToken -&gt; Azure.Response&#xA;override this.DeleteRoleAssignmentById : string * string * System.Threading.CancellationToken -&gt; Azure.Response" Usage="roleAssignmentsClient.DeleteRoleAssignmentById (roleAssignmentId, scope, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response DeleteRoleAssignmentById (string roleAssignmentId, string scope = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response DeleteRoleAssignmentById(string roleAssignmentId, string scope, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.DeleteRoleAssignmentById(System.String,System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteRoleAssignmentById (roleAssignmentId As String, Optional scope As String = Nothing, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="F#" Value="abstract member DeleteRoleAssignmentById : string * string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.DeleteRoleAssignmentById : string * string * Azure.RequestContext -&gt; Azure.Response" Usage="roleAssignmentsClient.DeleteRoleAssignmentById (roleAssignmentId, scope, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
@@ -202,23 +458,53 @@
       <Parameters>
         <Parameter Name="roleAssignmentId" Type="System.String" />
         <Parameter Name="scope" Type="System.String" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="roleAssignmentId"> The ID of the role assignment. </param>
         <param name="scope"> Scope of the Synapse Built-in Role. </param>
-        <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Delete role assignment by role assignment Id. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Delete role assignment by role assignment Id.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="roleAssignmentId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="roleAssignmentId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call DeleteRoleAssignmentById.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+Response response = client.DeleteRoleAssignmentById("<roleAssignmentId>");
+
+Console.WriteLine(response.Status);
+]]></code>
+This sample shows how to call DeleteRoleAssignmentById with all parameters.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+Response response = client.DeleteRoleAssignmentById("<roleAssignmentId>", scope: "<scope>");
+
+Console.WriteLine(response.Status);
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="DeleteRoleAssignmentByIdAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; DeleteRoleAssignmentByIdAsync (string roleAssignmentId, string scope = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; DeleteRoleAssignmentByIdAsync(string roleAssignmentId, string scope, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.DeleteRoleAssignmentByIdAsync(System.String,System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteRoleAssignmentByIdAsync (roleAssignmentId As String, Optional scope As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response)" />
-      <MemberSignature Language="F#" Value="abstract member DeleteRoleAssignmentByIdAsync : string * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.DeleteRoleAssignmentByIdAsync : string * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="roleAssignmentsClient.DeleteRoleAssignmentByIdAsync (roleAssignmentId, scope, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; DeleteRoleAssignmentByIdAsync (string roleAssignmentId, string scope = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; DeleteRoleAssignmentByIdAsync(string roleAssignmentId, string scope, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.DeleteRoleAssignmentByIdAsync(System.String,System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteRoleAssignmentByIdAsync (roleAssignmentId As String, Optional scope As String = Nothing, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member DeleteRoleAssignmentByIdAsync : string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.DeleteRoleAssignmentByIdAsync : string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="roleAssignmentsClient.DeleteRoleAssignmentByIdAsync (roleAssignmentId, scope, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
@@ -230,130 +516,318 @@
       <Parameters>
         <Parameter Name="roleAssignmentId" Type="System.String" />
         <Parameter Name="scope" Type="System.String" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="roleAssignmentId"> The ID of the role assignment. </param>
         <param name="scope"> Scope of the Synapse Built-in Role. </param>
-        <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Delete role assignment by role assignment Id. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Delete role assignment by role assignment Id.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="roleAssignmentId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="roleAssignmentId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call DeleteRoleAssignmentByIdAsync.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+Response response = await client.DeleteRoleAssignmentByIdAsync("<roleAssignmentId>");
+
+Console.WriteLine(response.Status);
+]]></code>
+This sample shows how to call DeleteRoleAssignmentByIdAsync with all parameters.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+Response response = await client.DeleteRoleAssignmentByIdAsync("<roleAssignmentId>", scope: "<scope>");
+
+Console.WriteLine(response.Status);
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetRoleAssignmentById">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt; GetRoleAssignmentById (string roleAssignmentId, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt; GetRoleAssignmentById(string roleAssignmentId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.GetRoleAssignmentById(System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetRoleAssignmentById (roleAssignmentId As String, Optional cancellationToken As CancellationToken = Nothing) As Response(Of RoleAssignmentDetails)" />
-      <MemberSignature Language="F#" Value="abstract member GetRoleAssignmentById : string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt;&#xA;override this.GetRoleAssignmentById : string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt;" Usage="roleAssignmentsClient.GetRoleAssignmentById (roleAssignmentId, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetRoleAssignmentById (string roleAssignmentId, Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetRoleAssignmentById(string roleAssignmentId, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.GetRoleAssignmentById(System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetRoleAssignmentById (roleAssignmentId As String, context As RequestContext) As Response" />
+      <MemberSignature Language="F#" Value="abstract member GetRoleAssignmentById : string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetRoleAssignmentById : string * Azure.RequestContext -&gt; Azure.Response" Usage="roleAssignmentsClient.GetRoleAssignmentById (roleAssignmentId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt;</ReturnType>
+        <ReturnType>Azure.Response</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="roleAssignmentId" Type="System.String" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="roleAssignmentId"> The ID of the role assignment. </param>
-        <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Get role assignment by role assignment Id. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Get role assignment by role assignment Id.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="roleAssignmentId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="roleAssignmentId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetRoleAssignmentById and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+Response response = client.GetRoleAssignmentById("<roleAssignmentId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetRoleAssignmentById with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+Response response = client.GetRoleAssignmentById("<roleAssignmentId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("roleDefinitionId").ToString());
+Console.WriteLine(result.GetProperty("principalId").ToString());
+Console.WriteLine(result.GetProperty("scope").ToString());
+Console.WriteLine(result.GetProperty("principalType").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetRoleAssignmentByIdAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt;&gt; GetRoleAssignmentByIdAsync (string roleAssignmentId, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt;&gt; GetRoleAssignmentByIdAsync(string roleAssignmentId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.GetRoleAssignmentByIdAsync(System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetRoleAssignmentByIdAsync (roleAssignmentId As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of RoleAssignmentDetails))" />
-      <MemberSignature Language="F#" Value="abstract member GetRoleAssignmentByIdAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt;&gt;&#xA;override this.GetRoleAssignmentByIdAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt;&gt;" Usage="roleAssignmentsClient.GetRoleAssignmentByIdAsync (roleAssignmentId, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetRoleAssignmentByIdAsync (string roleAssignmentId, Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetRoleAssignmentByIdAsync(string roleAssignmentId, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.GetRoleAssignmentByIdAsync(System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetRoleAssignmentByIdAsync (roleAssignmentId As String, context As RequestContext) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member GetRoleAssignmentByIdAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetRoleAssignmentByIdAsync : string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="roleAssignmentsClient.GetRoleAssignmentByIdAsync (roleAssignmentId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetails&gt;&gt;</ReturnType>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="roleAssignmentId" Type="System.String" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="roleAssignmentId"> The ID of the role assignment. </param>
-        <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Get role assignment by role assignment Id. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Get role assignment by role assignment Id.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="roleAssignmentId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="roleAssignmentId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetRoleAssignmentByIdAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+Response response = await client.GetRoleAssignmentByIdAsync("<roleAssignmentId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetRoleAssignmentByIdAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+Response response = await client.GetRoleAssignmentByIdAsync("<roleAssignmentId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("roleDefinitionId").ToString());
+Console.WriteLine(result.GetProperty("principalId").ToString());
+Console.WriteLine(result.GetProperty("scope").ToString());
+Console.WriteLine(result.GetProperty("principalType").ToString());
+]]></code></example>
       </Docs>
     </Member>
-    <Member MemberName="ListRoleAssignments">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetailsList&gt; ListRoleAssignments (string roleId = default, string principalId = default, string scope = default, string continuationToken = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetailsList&gt; ListRoleAssignments(string roleId, string principalId, string scope, string continuationToken, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.ListRoleAssignments(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function ListRoleAssignments (Optional roleId As String = Nothing, Optional principalId As String = Nothing, Optional scope As String = Nothing, Optional continuationToken As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Response(Of RoleAssignmentDetailsList)" />
-      <MemberSignature Language="F#" Value="abstract member ListRoleAssignments : string * string * string * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetailsList&gt;&#xA;override this.ListRoleAssignments : string * string * string * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetailsList&gt;" Usage="roleAssignmentsClient.ListRoleAssignments (roleId, principalId, scope, continuationToken, cancellationToken)" />
+    <Member MemberName="GetRoleAssignments">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetRoleAssignments (string roleId, string principalId, string scope, string continuationToken, Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetRoleAssignments(string roleId, string principalId, string scope, string continuationToken, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.GetRoleAssignments(System.String,System.String,System.String,System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetRoleAssignments (roleId As String, principalId As String, scope As String, continuationToken As String, context As RequestContext) As Response" />
+      <MemberSignature Language="F#" Value="abstract member GetRoleAssignments : string * string * string * string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetRoleAssignments : string * string * string * string * Azure.RequestContext -&gt; Azure.Response" Usage="roleAssignmentsClient.GetRoleAssignments (roleId, principalId, scope, continuationToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetailsList&gt;</ReturnType>
+        <ReturnType>Azure.Response</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="roleId" Type="System.String" />
         <Parameter Name="principalId" Type="System.String" />
         <Parameter Name="scope" Type="System.String" />
         <Parameter Name="continuationToken" Type="System.String" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="roleId"> Synapse Built-In Role Id. </param>
         <param name="principalId"> Object ID of the AAD principal or security-group. </param>
         <param name="scope"> Scope of the Synapse Built-in Role. </param>
         <param name="continuationToken"> Continuation token. </param>
-        <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> List role assignments. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] List role assignments.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetRoleAssignments and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+Response response = client.GetRoleAssignments(null, null, null, null, null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetRoleAssignments with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+Response response = client.GetRoleAssignments("<roleId>", "<principalId>", "<scope>", "<continuationToken>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("count").ToString());
+Console.WriteLine(result.GetProperty("value")[0].GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("value")[0].GetProperty("roleDefinitionId").ToString());
+Console.WriteLine(result.GetProperty("value")[0].GetProperty("principalId").ToString());
+Console.WriteLine(result.GetProperty("value")[0].GetProperty("scope").ToString());
+Console.WriteLine(result.GetProperty("value")[0].GetProperty("principalType").ToString());
+]]></code></example>
       </Docs>
     </Member>
-    <Member MemberName="ListRoleAssignmentsAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetailsList&gt;&gt; ListRoleAssignmentsAsync (string roleId = default, string principalId = default, string scope = default, string continuationToken = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetailsList&gt;&gt; ListRoleAssignmentsAsync(string roleId, string principalId, string scope, string continuationToken, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.ListRoleAssignmentsAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function ListRoleAssignmentsAsync (Optional roleId As String = Nothing, Optional principalId As String = Nothing, Optional scope As String = Nothing, Optional continuationToken As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of RoleAssignmentDetailsList))" />
-      <MemberSignature Language="F#" Value="abstract member ListRoleAssignmentsAsync : string * string * string * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetailsList&gt;&gt;&#xA;override this.ListRoleAssignmentsAsync : string * string * string * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetailsList&gt;&gt;" Usage="roleAssignmentsClient.ListRoleAssignmentsAsync (roleId, principalId, scope, continuationToken, cancellationToken)" />
+    <Member MemberName="GetRoleAssignmentsAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetRoleAssignmentsAsync (string roleId, string principalId, string scope, string continuationToken, Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetRoleAssignmentsAsync(string roleId, string principalId, string scope, string continuationToken, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.GetRoleAssignmentsAsync(System.String,System.String,System.String,System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetRoleAssignmentsAsync (roleId As String, principalId As String, scope As String, continuationToken As String, context As RequestContext) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member GetRoleAssignmentsAsync : string * string * string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetRoleAssignmentsAsync : string * string * string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="roleAssignmentsClient.GetRoleAssignmentsAsync (roleId, principalId, scope, continuationToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Analytics.Synapse.AccessControl.Models.RoleAssignmentDetailsList&gt;&gt;</ReturnType>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="roleId" Type="System.String" />
         <Parameter Name="principalId" Type="System.String" />
         <Parameter Name="scope" Type="System.String" />
         <Parameter Name="continuationToken" Type="System.String" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="roleId"> Synapse Built-In Role Id. </param>
         <param name="principalId"> Object ID of the AAD principal or security-group. </param>
         <param name="scope"> Scope of the Synapse Built-in Role. </param>
         <param name="continuationToken"> Continuation token. </param>
-        <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> List role assignments. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] List role assignments.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetRoleAssignmentsAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+Response response = await client.GetRoleAssignmentsAsync(null, null, null, null, null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetRoleAssignmentsAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+RoleAssignmentsClient client = new RoleAssignmentsClient(endpoint, credential);
+
+Response response = await client.GetRoleAssignmentsAsync("<roleId>", "<principalId>", "<scope>", "<continuationToken>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("count").ToString());
+Console.WriteLine(result.GetProperty("value")[0].GetProperty("id").ToString());
+Console.WriteLine(result.GetProperty("value")[0].GetProperty("roleDefinitionId").ToString());
+Console.WriteLine(result.GetProperty("value")[0].GetProperty("principalId").ToString());
+Console.WriteLine(result.GetProperty("value")[0].GetProperty("scope").ToString());
+Console.WriteLine(result.GetProperty("value")[0].GetProperty("principalType").ToString());
+]]></code></example>
+      </Docs>
+    </Member>
+    <Member MemberName="Pipeline">
+      <MemberSignature Language="C#" Value="public virtual Azure.Core.Pipeline.HttpPipeline Pipeline { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Core.Pipeline.HttpPipeline Pipeline" />
+      <MemberSignature Language="DocId" Value="P:Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.Pipeline" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable ReadOnly Property Pipeline As HttpPipeline" />
+      <MemberSignature Language="F#" Value="member this.Pipeline : Azure.Core.Pipeline.HttpPipeline" Usage="Azure.Analytics.Synapse.AccessControl.RoleAssignmentsClient.Pipeline" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Analytics.Synapse.AccessControl</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Core.Pipeline.HttpPipeline</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The HTTP pipeline for sending and receiving REST requests and responses. </summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

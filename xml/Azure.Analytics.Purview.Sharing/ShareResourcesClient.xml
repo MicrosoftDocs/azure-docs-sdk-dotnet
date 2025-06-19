@@ -84,10 +84,10 @@
       </Docs>
     </Member>
     <Member MemberName="GetAllShareResources">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetAllShareResources (string filter = default, string orderby = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetAllShareResources (string filter, string orderby, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetAllShareResources(string filter, string orderby, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ShareResourcesClient.GetAllShareResources(System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllShareResources (Optional filter As String = Nothing, Optional orderby As String = Nothing, Optional context As RequestContext = Nothing) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllShareResources (filter As String, orderby As String, context As RequestContext) As Pageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetAllShareResources : string * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetAllShareResources : string * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="shareResourcesClient.GetAllShareResources (filter, orderby, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -117,23 +117,23 @@
         <example>
 This sample shows how to call GetAllShareResources and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ShareResourcesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ShareResourcesClient client = new ShareResourcesClient(endpoint, credential);
 
-foreach (var item in client.GetAllShareResources())
+foreach (BinaryData item in client.GetAllShareResources(null, null, null))
 {
     JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetAllShareResources with all parameters, and how to parse the result.
+This sample shows how to call GetAllShareResources with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ShareResourcesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ShareResourcesClient client = new ShareResourcesClient(endpoint, credential);
 
-foreach (var item in client.GetAllShareResources("<filter>", "<orderby>"))
+foreach (BinaryData item in client.GetAllShareResources("<filter>", "<orderby>", null))
 {
     JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("receivedSharesCount").ToString());
@@ -148,10 +148,10 @@ foreach (var item in client.GetAllShareResources("<filter>", "<orderby>"))
       </Docs>
     </Member>
     <Member MemberName="GetAllShareResourcesAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetAllShareResourcesAsync (string filter = default, string orderby = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetAllShareResourcesAsync (string filter, string orderby, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetAllShareResourcesAsync(string filter, string orderby, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Sharing.ShareResourcesClient.GetAllShareResourcesAsync(System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllShareResourcesAsync (Optional filter As String = Nothing, Optional orderby As String = Nothing, Optional context As RequestContext = Nothing) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllShareResourcesAsync (filter As String, orderby As String, context As RequestContext) As AsyncPageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetAllShareResourcesAsync : string * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetAllShareResourcesAsync : string * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="shareResourcesClient.GetAllShareResourcesAsync (filter, orderby, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -181,23 +181,23 @@ foreach (var item in client.GetAllShareResources("<filter>", "<orderby>"))
         <example>
 This sample shows how to call GetAllShareResourcesAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ShareResourcesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ShareResourcesClient client = new ShareResourcesClient(endpoint, credential);
 
-await foreach (var item in client.GetAllShareResourcesAsync())
+await foreach (BinaryData item in client.GetAllShareResourcesAsync(null, null, null))
 {
     JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetAllShareResourcesAsync with all parameters, and how to parse the result.
+This sample shows how to call GetAllShareResourcesAsync with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var endpoint = new Uri("<https://my-service.azure.com>");
-var client = new ShareResourcesClient(endpoint, credential);
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+ShareResourcesClient client = new ShareResourcesClient(endpoint, credential);
 
-await foreach (var item in client.GetAllShareResourcesAsync("<filter>", "<orderby>"))
+await foreach (BinaryData item in client.GetAllShareResourcesAsync("<filter>", "<orderby>", null))
 {
     JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("receivedSharesCount").ToString());

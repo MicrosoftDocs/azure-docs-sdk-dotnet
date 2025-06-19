@@ -8,6 +8,7 @@
     <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
     <AssemblyVersion>12.0.0.0</AssemblyVersion>
     <AssemblyVersion>12.1.0.0</AssemblyVersion>
+    <AssemblyVersion>12.2.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>Azure.Storage.DataMovement.StorageResourceProvider</BaseTypeName>
@@ -28,8 +29,8 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
@@ -56,8 +57,8 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="credential" Type="Azure.AzureSasCredential" />
@@ -93,8 +94,8 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="credential" Type="Azure.Core.TokenCredential" />
@@ -120,113 +121,6 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public ShareFilesStorageResourceProvider (Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.GetAzureSasCredential getAzureSasCredentialAsync);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider/GetAzureSasCredential getAzureSasCredentialAsync) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.#ctor(Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.GetAzureSasCredential)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (getAzureSasCredentialAsync As ShareFilesStorageResourceProvider.GetAzureSasCredential)" />
-      <MemberSignature Language="F#" Value="new Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider : Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.GetAzureSasCredential -&gt; Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider" Usage="new Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider getAzureSasCredentialAsync" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Parameters>
-        <Parameter Name="getAzureSasCredentialAsync" Type="Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider+GetAzureSasCredential" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="getAzureSasCredentialAsync">
-            Delegate for acquiring a credential.
-            </param>
-        <summary>
-          <para>
-            Constructs this provider to use the given delegate for acquiring a credential when making a new File Share
-            <see cref="T:Azure.Storage.DataMovement.StorageResource" />.
-            </para>
-          <para>
-            This instance will use the given <see cref="T:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.GetAzureSasCredential" /> to fetch a credential
-            when constructing the underlying Azure.Storage.Files.Shares client, e.g.
-            <see cref="M:Azure.Storage.Files.Shares.ShareFileClient.#ctor(System.Uri,Azure.AzureSasCredential,Azure.Storage.Files.Shares.ShareClientOptions)" />.
-            The delegate will only be used when the provider needs to construct a client in the first place. It will
-            not be used when creating a <see cref="T:Azure.Storage.DataMovement.StorageResource" /> from a pre-existing client, e.g.
-            <see cref="M:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.FromClient(Azure.Storage.Files.Shares.ShareFileClient,Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions)" />.
-            Additionally, if the given target share resource already has a SAS token in the URI, that token will be
-            preferred over this delegate.
-            </para>
-        </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public ShareFilesStorageResourceProvider (Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.GetStorageSharedKeyCredential getStorageSharedKeyCredentialAsync);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider/GetStorageSharedKeyCredential getStorageSharedKeyCredentialAsync) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.#ctor(Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.GetStorageSharedKeyCredential)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (getStorageSharedKeyCredentialAsync As ShareFilesStorageResourceProvider.GetStorageSharedKeyCredential)" />
-      <MemberSignature Language="F#" Value="new Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider : Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.GetStorageSharedKeyCredential -&gt; Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider" Usage="new Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider getStorageSharedKeyCredentialAsync" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Parameters>
-        <Parameter Name="getStorageSharedKeyCredentialAsync" Type="Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider+GetStorageSharedKeyCredential" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="getStorageSharedKeyCredentialAsync">
-            Delegate for acquiring a credential.
-            </param>
-        <summary>
-          <para>
-            Constructs this provider to use the given delegate for acquiring a credential when making a new File Share
-            see cref="StorageResource"/&gt;.
-            </para>
-          <para>
-            This instance will use the given <see cref="T:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.GetStorageSharedKeyCredential" /> to fetch a credential
-            when constructing the underlying Azure.Storage.Files.Shares client, e.g.
-            <see cref="M:Azure.Storage.Files.Shares.ShareFileClient.#ctor(System.Uri,Azure.Storage.StorageSharedKeyCredential,Azure.Storage.Files.Shares.ShareClientOptions)" />.
-            The delegate will only be used when the provider needs to construct a client in the first place. It will
-            not be used when creating a <see cref="T:Azure.Storage.DataMovement.StorageResource" /> from a pre-existing client, e.g.
-            <see cref="M:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.FromClient(Azure.Storage.Files.Shares.ShareFileClient,Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions)" />.
-            </para>
-        </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public ShareFilesStorageResourceProvider (Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.GetTokenCredential getTokenCredentialAsync);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider/GetTokenCredential getTokenCredentialAsync) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.#ctor(Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.GetTokenCredential)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (getTokenCredentialAsync As ShareFilesStorageResourceProvider.GetTokenCredential)" />
-      <MemberSignature Language="F#" Value="new Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider : Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.GetTokenCredential -&gt; Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider" Usage="new Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider getTokenCredentialAsync" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Parameters>
-        <Parameter Name="getTokenCredentialAsync" Type="Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider+GetTokenCredential" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="getTokenCredentialAsync">
-            Delegate for acquiring a credential.
-            </param>
-        <summary>
-          <para>
-            Constructs this provider to use the given delegate for acquiring a credential when making a new File Share
-            <see cref="T:Azure.Storage.DataMovement.StorageResource" />.
-            </para>
-          <para>
-            This instance will use the given <see cref="T:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.GetTokenCredential" /> to fetch a credential
-            when constructing the underlying Azure.Storage.Files.Shares client, e.g.
-            <see cref="M:Azure.Storage.Files.Shares.ShareFileClient.#ctor(System.Uri,Azure.Core.TokenCredential,Azure.Storage.Files.Shares.ShareClientOptions)" />.
-            The delegate will only be used when the provider needs to construct a client in the first place. It will
-            not be used when creating a <see cref="T:Azure.Storage.DataMovement.StorageResource" /> from a pre-existing client, e.g.
-            <see cref="M:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.FromClient(Azure.Storage.Files.Shares.ShareFileClient,Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions)" />.
-            </para>
-        </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public ShareFilesStorageResourceProvider (Azure.Storage.StorageSharedKeyCredential credential);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Storage.StorageSharedKeyCredential credential) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.#ctor(Azure.Storage.StorageSharedKeyCredential)" />
@@ -235,8 +129,8 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="credential" Type="Azure.Storage.StorageSharedKeyCredential" />
@@ -271,9 +165,10 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="getAzureSasCredentialAsync" Type="System.Func&lt;System.Uri,System.Threading.CancellationToken,System.Threading.Tasks.ValueTask&lt;Azure.AzureSasCredential&gt;&gt;" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="getAzureSasCredentialAsync" Type="System.Func&lt;System.Uri,System.Threading.CancellationToken,System.Threading.Tasks.ValueTask&lt;Azure.AzureSasCredential&gt;&gt;" />
       </Parameters>
       <Docs>
         <param name="getAzureSasCredentialAsync">
@@ -308,9 +203,10 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="getStorageSharedKeyCredentialAsync" Type="System.Func&lt;System.Uri,System.Threading.CancellationToken,System.Threading.Tasks.ValueTask&lt;Azure.Storage.StorageSharedKeyCredential&gt;&gt;" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="getStorageSharedKeyCredentialAsync" Type="System.Func&lt;System.Uri,System.Threading.CancellationToken,System.Threading.Tasks.ValueTask&lt;Azure.Storage.StorageSharedKeyCredential&gt;&gt;" />
       </Parameters>
       <Docs>
         <param name="getStorageSharedKeyCredentialAsync">
@@ -334,20 +230,16 @@
       </Docs>
     </Member>
     <Member MemberName="FromClient">
-      <MemberSignature Language="C#" Value="public static Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Files.Shares.ShareDirectoryClient client, Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions options = default);" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Files.Shares.ShareDirectoryClient client, class Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions options) cil managed" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public static Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Files.Shares.ShareDirectoryClient client, Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions options = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Files.Shares.ShareDirectoryClient client, class Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions options) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.FromClient(Azure.Storage.Files.Shares.ShareDirectoryClient,Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function FromClient (client As ShareDirectoryClient, Optional options As ShareFileStorageResourceOptions = Nothing) As StorageResource" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="F#" Value="static member FromClient : Azure.Storage.Files.Shares.ShareDirectoryClient * Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.FromClient (client, options)" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="C#" Value="public Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Files.Shares.ShareDirectoryClient client, Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions options = default);" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Files.Shares.ShareDirectoryClient client, class Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions options) cil managed" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="VB.NET" Value="Public Function FromClient (client As ShareDirectoryClient, Optional options As ShareFileStorageResourceOptions = Nothing) As StorageResource" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="F#" Value="member this.FromClient : Azure.Storage.Files.Shares.ShareDirectoryClient * Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="shareFilesStorageResourceProvider.FromClient (client, options)" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function FromClient (client As ShareDirectoryClient, Optional options As ShareFileStorageResourceOptions = Nothing) As StorageResource" />
+      <MemberSignature Language="F#" Value="static member FromClient : Azure.Storage.Files.Shares.ShareDirectoryClient * Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.FromClient (client, options)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Storage.DataMovement.StorageResource</ReturnType>
@@ -375,20 +267,16 @@
       </Docs>
     </Member>
     <Member MemberName="FromClient">
-      <MemberSignature Language="C#" Value="public static Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Files.Shares.ShareFileClient client, Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions options = default);" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Files.Shares.ShareFileClient client, class Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions options) cil managed" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public static Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Files.Shares.ShareFileClient client, Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions options = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Files.Shares.ShareFileClient client, class Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions options) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.FromClient(Azure.Storage.Files.Shares.ShareFileClient,Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function FromClient (client As ShareFileClient, Optional options As ShareFileStorageResourceOptions = Nothing) As StorageResource" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="F#" Value="static member FromClient : Azure.Storage.Files.Shares.ShareFileClient * Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.FromClient (client, options)" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="C#" Value="public Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Files.Shares.ShareFileClient client, Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions options = default);" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Files.Shares.ShareFileClient client, class Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions options) cil managed" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="VB.NET" Value="Public Function FromClient (client As ShareFileClient, Optional options As ShareFileStorageResourceOptions = Nothing) As StorageResource" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="F#" Value="member this.FromClient : Azure.Storage.Files.Shares.ShareFileClient * Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="shareFilesStorageResourceProvider.FromClient (client, options)" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function FromClient (client As ShareFileClient, Optional options As ShareFileStorageResourceOptions = Nothing) As StorageResource" />
+      <MemberSignature Language="F#" Value="static member FromClient : Azure.Storage.Files.Shares.ShareFileClient * Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.FromClient (client, options)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Storage.DataMovement.StorageResource</ReturnType>
@@ -416,34 +304,6 @@
       </Docs>
     </Member>
     <Member MemberName="FromDestinationAsync">
-      <MemberSignature Language="C#" Value="protected override System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.StorageResource&gt; FromDestinationAsync (Azure.Storage.DataMovement.DataTransferProperties properties, System.Threading.CancellationToken cancellationToken);" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Storage.DataMovement.StorageResource&gt; FromDestinationAsync(class Azure.Storage.DataMovement.DataTransferProperties properties, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.FromDestinationAsync(Azure.Storage.DataMovement.DataTransferProperties,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Protected Overrides Function FromDestinationAsync (properties As DataTransferProperties, cancellationToken As CancellationToken) As Task(Of StorageResource)" />
-      <MemberSignature Language="F#" Value="override this.FromDestinationAsync : Azure.Storage.DataMovement.DataTransferProperties * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.StorageResource&gt;" Usage="shareFilesStorageResourceProvider.FromDestinationAsync (properties, cancellationToken)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.StorageResource&gt;</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="properties" Type="Azure.Storage.DataMovement.DataTransferProperties" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="properties">To be added.</param>
-        <param name="cancellationToken">To be added.</param>
-        <summary>
-            Gets a source resource from the given transfer properties.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="FromDestinationAsync">
       <MemberSignature Language="C#" Value="protected override System.Threading.Tasks.ValueTask&lt;Azure.Storage.DataMovement.StorageResource&gt; FromDestinationAsync (Azure.Storage.DataMovement.TransferProperties properties, System.Threading.CancellationToken cancellationToken);" />
       <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance valuetype System.Threading.Tasks.ValueTask`1&lt;class Azure.Storage.DataMovement.StorageResource&gt; FromDestinationAsync(class Azure.Storage.DataMovement.TransferProperties properties, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.FromDestinationAsync(Azure.Storage.DataMovement.TransferProperties,System.Threading.CancellationToken)" />
@@ -453,9 +313,10 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
-        <Attribute FrameworkAlternate="azure-dotnet">
+        <Attribute>
           <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
           <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
         </Attribute>
@@ -464,8 +325,8 @@
         <ReturnType>System.Threading.Tasks.ValueTask&lt;Azure.Storage.DataMovement.StorageResource&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="properties" Type="Azure.Storage.DataMovement.TransferProperties" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="properties" Type="Azure.Storage.DataMovement.TransferProperties" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="properties">To be added.</param>
@@ -474,40 +335,6 @@
             Gets a source resource from the given transfer properties.
             </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="FromDirectory">
-      <MemberSignature Language="C#" Value="public Azure.Storage.DataMovement.StorageResource FromDirectory (Uri directoryUri, Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Azure.Storage.DataMovement.StorageResource FromDirectory(class System.Uri directoryUri, class Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.FromDirectory(System.Uri,Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Function FromDirectory (directoryUri As Uri, Optional options As ShareFileStorageResourceOptions = Nothing) As StorageResource" />
-      <MemberSignature Language="F#" Value="member this.FromDirectory : Uri * Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="shareFilesStorageResourceProvider.FromDirectory (directoryUri, options)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.Storage.DataMovement.StorageResource</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="directoryUri" Type="System.Uri" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="options" Type="Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="directoryUri">
-            Target location.
-            </param>
-        <param name="options">
-            Options for creating the storage resource.
-            </param>
-        <summary>
-            Creates a storage resource pointing towards the given container URI.
-            </summary>
-        <returns>
-            The configured storage resource.
-            </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -521,14 +348,15 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.ValueTask&lt;Azure.Storage.DataMovement.StorageResource&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="directoryUri" Type="System.Uri" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="options" Type="Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="directoryUri" Type="System.Uri" />
+        <Parameter Name="options" Type="Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="directoryUri">
@@ -540,40 +368,6 @@
         <param name="cancellationToken">
             Optional <see cref="T:System.Threading.CancellationToken" /> to propagate
             notifications that the operation should be cancelled.
-            </param>
-        <summary>
-            Creates a storage resource pointing towards the given container URI.
-            </summary>
-        <returns>
-            The configured storage resource.
-            </returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="FromFile">
-      <MemberSignature Language="C#" Value="public Azure.Storage.DataMovement.StorageResource FromFile (Uri fileUri, Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Azure.Storage.DataMovement.StorageResource FromFile(class System.Uri fileUri, class Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.FromFile(System.Uri,Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Function FromFile (fileUri As Uri, Optional options As ShareFileStorageResourceOptions = Nothing) As StorageResource" />
-      <MemberSignature Language="F#" Value="member this.FromFile : Uri * Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="shareFilesStorageResourceProvider.FromFile (fileUri, options)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.Storage.DataMovement.StorageResource</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="fileUri" Type="System.Uri" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="options" Type="Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="fileUri">
-            Target location.
-            </param>
-        <param name="options">
-            Options for creating the storage resource.
             </param>
         <summary>
             Creates a storage resource pointing towards the given container URI.
@@ -594,14 +388,15 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.ValueTask&lt;Azure.Storage.DataMovement.StorageResource&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="fileUri" Type="System.Uri" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="options" Type="Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="fileUri" Type="System.Uri" />
+        <Parameter Name="options" Type="Azure.Storage.DataMovement.Files.Shares.ShareFileStorageResourceOptions" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="fileUri">
@@ -624,34 +419,6 @@
       </Docs>
     </Member>
     <Member MemberName="FromSourceAsync">
-      <MemberSignature Language="C#" Value="protected override System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.StorageResource&gt; FromSourceAsync (Azure.Storage.DataMovement.DataTransferProperties properties, System.Threading.CancellationToken cancellationToken);" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Storage.DataMovement.StorageResource&gt; FromSourceAsync(class Azure.Storage.DataMovement.DataTransferProperties properties, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.FromSourceAsync(Azure.Storage.DataMovement.DataTransferProperties,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Protected Overrides Function FromSourceAsync (properties As DataTransferProperties, cancellationToken As CancellationToken) As Task(Of StorageResource)" />
-      <MemberSignature Language="F#" Value="override this.FromSourceAsync : Azure.Storage.DataMovement.DataTransferProperties * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.StorageResource&gt;" Usage="shareFilesStorageResourceProvider.FromSourceAsync (properties, cancellationToken)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.StorageResource&gt;</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="properties" Type="Azure.Storage.DataMovement.DataTransferProperties" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="properties">To be added.</param>
-        <param name="cancellationToken">To be added.</param>
-        <summary>
-            Gets a source resource from the given transfer properties.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="FromSourceAsync">
       <MemberSignature Language="C#" Value="protected override System.Threading.Tasks.ValueTask&lt;Azure.Storage.DataMovement.StorageResource&gt; FromSourceAsync (Azure.Storage.DataMovement.TransferProperties properties, System.Threading.CancellationToken cancellationToken);" />
       <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance valuetype System.Threading.Tasks.ValueTask`1&lt;class Azure.Storage.DataMovement.StorageResource&gt; FromSourceAsync(class Azure.Storage.DataMovement.TransferProperties properties, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Files.Shares.ShareFilesStorageResourceProvider.FromSourceAsync(Azure.Storage.DataMovement.TransferProperties,System.Threading.CancellationToken)" />
@@ -661,9 +428,10 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
-        <Attribute FrameworkAlternate="azure-dotnet">
+        <Attribute>
           <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
           <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
         </Attribute>
@@ -672,8 +440,8 @@
         <ReturnType>System.Threading.Tasks.ValueTask&lt;Azure.Storage.DataMovement.StorageResource&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="properties" Type="Azure.Storage.DataMovement.TransferProperties" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="properties" Type="Azure.Storage.DataMovement.TransferProperties" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="properties">To be added.</param>
@@ -694,8 +462,8 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>

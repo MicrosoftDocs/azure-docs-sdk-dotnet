@@ -8,6 +8,7 @@
     <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
     <AssemblyVersion>12.0.0.0</AssemblyVersion>
     <AssemblyVersion>12.1.0.0</AssemblyVersion>
+    <AssemblyVersion>12.2.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>Azure.Storage.DataMovement.StorageResourceProvider</BaseTypeName>
@@ -28,8 +29,8 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
@@ -56,8 +57,8 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="credential" Type="Azure.AzureSasCredential" />
@@ -93,8 +94,8 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="credential" Type="Azure.Core.TokenCredential" />
@@ -120,113 +121,6 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public BlobsStorageResourceProvider (Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.GetAzureSasCredential getAzureSasCredentialAsync);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider/GetAzureSasCredential getAzureSasCredentialAsync) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.#ctor(Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.GetAzureSasCredential)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (getAzureSasCredentialAsync As BlobsStorageResourceProvider.GetAzureSasCredential)" />
-      <MemberSignature Language="F#" Value="new Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider : Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.GetAzureSasCredential -&gt; Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider" Usage="new Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider getAzureSasCredentialAsync" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Parameters>
-        <Parameter Name="getAzureSasCredentialAsync" Type="Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider+GetAzureSasCredential" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="getAzureSasCredentialAsync">
-            Delegate for acquiring a credential.
-            </param>
-        <summary>
-          <para>
-            Constructs this provider to use the given delegate for acquiring a credential when making a new Blob
-            Storage <see cref="T:Azure.Storage.DataMovement.StorageResource" />.
-            </para>
-          <para>
-            This instance will use the given <see cref="T:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.GetAzureSasCredential" /> to fetch a credential
-            when constructing the underlying Azure.Storage.Blobs client, e.g.
-            <see cref="M:Azure.Storage.Blobs.Specialized.BlockBlobClient.#ctor(System.Uri,Azure.AzureSasCredential,Azure.Storage.Blobs.BlobClientOptions)" />.
-            The delegate will only be used when the provider needs to construct a client in the first place. It will
-            not be used when creating a <see cref="T:Azure.Storage.DataMovement.StorageResource" /> from a pre-existing client, e.g.
-            <see cref="M:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromClient(Azure.Storage.Blobs.Specialized.BlockBlobClient,Azure.Storage.DataMovement.Blobs.BlockBlobStorageResourceOptions)" />.
-            Additionally, if the given target blob resource already has a SAS token in the URI, that token will be
-            preferred over this delegate.
-            </para>
-        </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public BlobsStorageResourceProvider (Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.GetStorageSharedKeyCredential getStorageSharedKeyCredentialAsync);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider/GetStorageSharedKeyCredential getStorageSharedKeyCredentialAsync) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.#ctor(Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.GetStorageSharedKeyCredential)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (getStorageSharedKeyCredentialAsync As BlobsStorageResourceProvider.GetStorageSharedKeyCredential)" />
-      <MemberSignature Language="F#" Value="new Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider : Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.GetStorageSharedKeyCredential -&gt; Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider" Usage="new Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider getStorageSharedKeyCredentialAsync" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Parameters>
-        <Parameter Name="getStorageSharedKeyCredentialAsync" Type="Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider+GetStorageSharedKeyCredential" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="getStorageSharedKeyCredentialAsync">
-            Delegate for acquiring a credential.
-            </param>
-        <summary>
-          <para>
-            Constructs this provider to use the given delegate for acquiring a credential when making a new Blob
-            Storage <see cref="T:Azure.Storage.DataMovement.StorageResource" />.
-            </para>
-          <para>
-            This instance will use the given <see cref="T:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.GetStorageSharedKeyCredential" /> to fetch a credential
-            when constructing the underlying Azure.Storage.Blobs client, e.g.
-            <see cref="M:Azure.Storage.Blobs.Specialized.BlockBlobClient.#ctor(System.Uri,Azure.Storage.StorageSharedKeyCredential,Azure.Storage.Blobs.BlobClientOptions)" />.
-            The delegate will only be used when the provider needs to construct a client in the first place. It will
-            not be used when creating a <see cref="T:Azure.Storage.DataMovement.StorageResource" /> from a pre-existing client, e.g.
-            <see cref="M:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromClient(Azure.Storage.Blobs.Specialized.BlockBlobClient,Azure.Storage.DataMovement.Blobs.BlockBlobStorageResourceOptions)" />.
-            </para>
-        </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public BlobsStorageResourceProvider (Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.GetTokenCredential getTokenCredentialAsync);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider/GetTokenCredential getTokenCredentialAsync) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.#ctor(Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.GetTokenCredential)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (getTokenCredentialAsync As BlobsStorageResourceProvider.GetTokenCredential)" />
-      <MemberSignature Language="F#" Value="new Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider : Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.GetTokenCredential -&gt; Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider" Usage="new Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider getTokenCredentialAsync" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Parameters>
-        <Parameter Name="getTokenCredentialAsync" Type="Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider+GetTokenCredential" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="getTokenCredentialAsync">
-            Delegate for acquiring a credential.
-            </param>
-        <summary>
-          <para>
-            Constructs this provider to use the given delegate for acquiring a credential when making a new Blob
-            Storage <see cref="T:Azure.Storage.DataMovement.StorageResource" />.
-            </para>
-          <para>
-            This instance will use the given <see cref="T:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.GetTokenCredential" /> to fetch a credential
-            when constructing the underlying Azure.Storage.Blobs client, e.g.
-            <see cref="M:Azure.Storage.Blobs.Specialized.BlockBlobClient.#ctor(System.Uri,Azure.Core.TokenCredential,Azure.Storage.Blobs.BlobClientOptions)" />.
-            The delegate will only be used when the provider needs to construct a client in the first place. It will
-            not be used when creating a <see cref="T:Azure.Storage.DataMovement.StorageResource" /> from a pre-existing client, e.g.
-            <see cref="M:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromClient(Azure.Storage.Blobs.Specialized.BlockBlobClient,Azure.Storage.DataMovement.Blobs.BlockBlobStorageResourceOptions)" />.
-            </para>
-        </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public BlobsStorageResourceProvider (Azure.Storage.StorageSharedKeyCredential credential);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Storage.StorageSharedKeyCredential credential) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.#ctor(Azure.Storage.StorageSharedKeyCredential)" />
@@ -235,8 +129,8 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="credential" Type="Azure.Storage.StorageSharedKeyCredential" />
@@ -271,9 +165,10 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="getAzureSasCredentialAsync" Type="System.Func&lt;System.Uri,System.Threading.CancellationToken,System.Threading.Tasks.ValueTask&lt;Azure.AzureSasCredential&gt;&gt;" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="getAzureSasCredentialAsync" Type="System.Func&lt;System.Uri,System.Threading.CancellationToken,System.Threading.Tasks.ValueTask&lt;Azure.AzureSasCredential&gt;&gt;" />
       </Parameters>
       <Docs>
         <param name="getAzureSasCredentialAsync">
@@ -308,9 +203,10 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="getStorageSharedKeyCredentialAsync" Type="System.Func&lt;System.Uri,System.Threading.CancellationToken,System.Threading.Tasks.ValueTask&lt;Azure.Storage.StorageSharedKeyCredential&gt;&gt;" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="getStorageSharedKeyCredentialAsync" Type="System.Func&lt;System.Uri,System.Threading.CancellationToken,System.Threading.Tasks.ValueTask&lt;Azure.Storage.StorageSharedKeyCredential&gt;&gt;" />
       </Parameters>
       <Docs>
         <param name="getStorageSharedKeyCredentialAsync">
@@ -333,47 +229,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="FromBlob">
-      <MemberSignature Language="C#" Value="public Azure.Storage.DataMovement.StorageResource FromBlob (Uri blobUri, Azure.Storage.DataMovement.Blobs.BlobStorageResourceOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Azure.Storage.DataMovement.StorageResource FromBlob(class System.Uri blobUri, class Azure.Storage.DataMovement.Blobs.BlobStorageResourceOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromBlob(System.Uri,Azure.Storage.DataMovement.Blobs.BlobStorageResourceOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Function FromBlob (blobUri As Uri, Optional options As BlobStorageResourceOptions = Nothing) As StorageResource" />
-      <MemberSignature Language="F#" Value="member this.FromBlob : Uri * Azure.Storage.DataMovement.Blobs.BlobStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="blobsStorageResourceProvider.FromBlob (blobUri, options)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.Storage.DataMovement.StorageResource</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="blobUri" Type="System.Uri" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="options" Type="Azure.Storage.DataMovement.Blobs.BlobStorageResourceOptions" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="blobUri">
-            Target location.
-            </param>
-        <param name="options">
-            Options for creating the storage resource. You may supply a
-            <see cref="T:Azure.Storage.DataMovement.Blobs.BlobStorageResourceOptions" />, but you may also supply
-            type-specific options instead:
-            <list type="bullet"><item><see cref="T:Azure.Storage.DataMovement.Blobs.BlockBlobStorageResourceOptions" /></item><item><see cref="T:Azure.Storage.DataMovement.Blobs.PageBlobStorageResourceOptions" /></item><item><see cref="T:Azure.Storage.DataMovement.Blobs.AppendBlobStorageResourceOptions" /></item></list>
-            When making a destination storage resource, the corresponding blob
-            type of the options class will be used to determine the intended
-            blob type of the destination. If only the base options type is
-            provided, block blob will be the default used.
-            </param>
-        <summary>
-            Creates a storage resource pointing towards the given container URI.
-            </summary>
-        <returns>
-            The configured storage resource.
-            </returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="FromBlobAsync">
       <MemberSignature Language="C#" Value="public System.Threading.Tasks.ValueTask&lt;Azure.Storage.DataMovement.StorageResource&gt; FromBlobAsync (Uri blobUri, Azure.Storage.DataMovement.Blobs.BlobStorageResourceOptions options = default, System.Threading.CancellationToken cancellationToken = default);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype System.Threading.Tasks.ValueTask`1&lt;class Azure.Storage.DataMovement.StorageResource&gt; FromBlobAsync(class System.Uri blobUri, class Azure.Storage.DataMovement.Blobs.BlobStorageResourceOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
@@ -384,14 +239,15 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.ValueTask&lt;Azure.Storage.DataMovement.StorageResource&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="blobUri" Type="System.Uri" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="options" Type="Azure.Storage.DataMovement.Blobs.BlobStorageResourceOptions" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="blobUri" Type="System.Uri" />
+        <Parameter Name="options" Type="Azure.Storage.DataMovement.Blobs.BlobStorageResourceOptions" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="blobUri">
@@ -421,20 +277,16 @@
       </Docs>
     </Member>
     <Member MemberName="FromClient">
-      <MemberSignature Language="C#" Value="public static Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Blobs.BlobContainerClient client, Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions options = default);" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Blobs.BlobContainerClient client, class Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions options) cil managed" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public static Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Blobs.BlobContainerClient client, Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions options = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Blobs.BlobContainerClient client, class Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions options) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromClient(Azure.Storage.Blobs.BlobContainerClient,Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function FromClient (client As BlobContainerClient, Optional options As BlobStorageResourceContainerOptions = Nothing) As StorageResource" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="F#" Value="static member FromClient : Azure.Storage.Blobs.BlobContainerClient * Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromClient (client, options)" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="C#" Value="public Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Blobs.BlobContainerClient client, Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions options = default);" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Blobs.BlobContainerClient client, class Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions options) cil managed" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="VB.NET" Value="Public Function FromClient (client As BlobContainerClient, Optional options As BlobStorageResourceContainerOptions = Nothing) As StorageResource" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="F#" Value="member this.FromClient : Azure.Storage.Blobs.BlobContainerClient * Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="blobsStorageResourceProvider.FromClient (client, options)" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function FromClient (client As BlobContainerClient, Optional options As BlobStorageResourceContainerOptions = Nothing) As StorageResource" />
+      <MemberSignature Language="F#" Value="static member FromClient : Azure.Storage.Blobs.BlobContainerClient * Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromClient (client, options)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Storage.DataMovement.StorageResource</ReturnType>
@@ -462,20 +314,16 @@
       </Docs>
     </Member>
     <Member MemberName="FromClient">
-      <MemberSignature Language="C#" Value="public static Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Blobs.Specialized.AppendBlobClient client, Azure.Storage.DataMovement.Blobs.AppendBlobStorageResourceOptions options = default);" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Blobs.Specialized.AppendBlobClient client, class Azure.Storage.DataMovement.Blobs.AppendBlobStorageResourceOptions options) cil managed" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public static Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Blobs.Specialized.AppendBlobClient client, Azure.Storage.DataMovement.Blobs.AppendBlobStorageResourceOptions options = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Blobs.Specialized.AppendBlobClient client, class Azure.Storage.DataMovement.Blobs.AppendBlobStorageResourceOptions options) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromClient(Azure.Storage.Blobs.Specialized.AppendBlobClient,Azure.Storage.DataMovement.Blobs.AppendBlobStorageResourceOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function FromClient (client As AppendBlobClient, Optional options As AppendBlobStorageResourceOptions = Nothing) As StorageResource" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="F#" Value="static member FromClient : Azure.Storage.Blobs.Specialized.AppendBlobClient * Azure.Storage.DataMovement.Blobs.AppendBlobStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromClient (client, options)" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="C#" Value="public Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Blobs.Specialized.AppendBlobClient client, Azure.Storage.DataMovement.Blobs.AppendBlobStorageResourceOptions options = default);" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Blobs.Specialized.AppendBlobClient client, class Azure.Storage.DataMovement.Blobs.AppendBlobStorageResourceOptions options) cil managed" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="VB.NET" Value="Public Function FromClient (client As AppendBlobClient, Optional options As AppendBlobStorageResourceOptions = Nothing) As StorageResource" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="F#" Value="member this.FromClient : Azure.Storage.Blobs.Specialized.AppendBlobClient * Azure.Storage.DataMovement.Blobs.AppendBlobStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="blobsStorageResourceProvider.FromClient (client, options)" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function FromClient (client As AppendBlobClient, Optional options As AppendBlobStorageResourceOptions = Nothing) As StorageResource" />
+      <MemberSignature Language="F#" Value="static member FromClient : Azure.Storage.Blobs.Specialized.AppendBlobClient * Azure.Storage.DataMovement.Blobs.AppendBlobStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromClient (client, options)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Storage.DataMovement.StorageResource</ReturnType>
@@ -503,20 +351,16 @@
       </Docs>
     </Member>
     <Member MemberName="FromClient">
-      <MemberSignature Language="C#" Value="public static Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Blobs.Specialized.BlockBlobClient client, Azure.Storage.DataMovement.Blobs.BlockBlobStorageResourceOptions options = default);" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Blobs.Specialized.BlockBlobClient client, class Azure.Storage.DataMovement.Blobs.BlockBlobStorageResourceOptions options) cil managed" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public static Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Blobs.Specialized.BlockBlobClient client, Azure.Storage.DataMovement.Blobs.BlockBlobStorageResourceOptions options = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Blobs.Specialized.BlockBlobClient client, class Azure.Storage.DataMovement.Blobs.BlockBlobStorageResourceOptions options) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromClient(Azure.Storage.Blobs.Specialized.BlockBlobClient,Azure.Storage.DataMovement.Blobs.BlockBlobStorageResourceOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function FromClient (client As BlockBlobClient, Optional options As BlockBlobStorageResourceOptions = Nothing) As StorageResource" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="F#" Value="static member FromClient : Azure.Storage.Blobs.Specialized.BlockBlobClient * Azure.Storage.DataMovement.Blobs.BlockBlobStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromClient (client, options)" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="C#" Value="public Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Blobs.Specialized.BlockBlobClient client, Azure.Storage.DataMovement.Blobs.BlockBlobStorageResourceOptions options = default);" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Blobs.Specialized.BlockBlobClient client, class Azure.Storage.DataMovement.Blobs.BlockBlobStorageResourceOptions options) cil managed" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="VB.NET" Value="Public Function FromClient (client As BlockBlobClient, Optional options As BlockBlobStorageResourceOptions = Nothing) As StorageResource" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="F#" Value="member this.FromClient : Azure.Storage.Blobs.Specialized.BlockBlobClient * Azure.Storage.DataMovement.Blobs.BlockBlobStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="blobsStorageResourceProvider.FromClient (client, options)" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function FromClient (client As BlockBlobClient, Optional options As BlockBlobStorageResourceOptions = Nothing) As StorageResource" />
+      <MemberSignature Language="F#" Value="static member FromClient : Azure.Storage.Blobs.Specialized.BlockBlobClient * Azure.Storage.DataMovement.Blobs.BlockBlobStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromClient (client, options)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Storage.DataMovement.StorageResource</ReturnType>
@@ -544,20 +388,16 @@
       </Docs>
     </Member>
     <Member MemberName="FromClient">
-      <MemberSignature Language="C#" Value="public static Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Blobs.Specialized.PageBlobClient client, Azure.Storage.DataMovement.Blobs.PageBlobStorageResourceOptions options = default);" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Blobs.Specialized.PageBlobClient client, class Azure.Storage.DataMovement.Blobs.PageBlobStorageResourceOptions options) cil managed" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public static Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Blobs.Specialized.PageBlobClient client, Azure.Storage.DataMovement.Blobs.PageBlobStorageResourceOptions options = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Blobs.Specialized.PageBlobClient client, class Azure.Storage.DataMovement.Blobs.PageBlobStorageResourceOptions options) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromClient(Azure.Storage.Blobs.Specialized.PageBlobClient,Azure.Storage.DataMovement.Blobs.PageBlobStorageResourceOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function FromClient (client As PageBlobClient, Optional options As PageBlobStorageResourceOptions = Nothing) As StorageResource" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="F#" Value="static member FromClient : Azure.Storage.Blobs.Specialized.PageBlobClient * Azure.Storage.DataMovement.Blobs.PageBlobStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromClient (client, options)" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="C#" Value="public Azure.Storage.DataMovement.StorageResource FromClient (Azure.Storage.Blobs.Specialized.PageBlobClient client, Azure.Storage.DataMovement.Blobs.PageBlobStorageResourceOptions options = default);" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Azure.Storage.DataMovement.StorageResource FromClient(class Azure.Storage.Blobs.Specialized.PageBlobClient client, class Azure.Storage.DataMovement.Blobs.PageBlobStorageResourceOptions options) cil managed" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="VB.NET" Value="Public Function FromClient (client As PageBlobClient, Optional options As PageBlobStorageResourceOptions = Nothing) As StorageResource" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="F#" Value="member this.FromClient : Azure.Storage.Blobs.Specialized.PageBlobClient * Azure.Storage.DataMovement.Blobs.PageBlobStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="blobsStorageResourceProvider.FromClient (client, options)" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function FromClient (client As PageBlobClient, Optional options As PageBlobStorageResourceOptions = Nothing) As StorageResource" />
+      <MemberSignature Language="F#" Value="static member FromClient : Azure.Storage.Blobs.Specialized.PageBlobClient * Azure.Storage.DataMovement.Blobs.PageBlobStorageResourceOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromClient (client, options)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Storage.DataMovement.StorageResource</ReturnType>
@@ -584,40 +424,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="FromContainer">
-      <MemberSignature Language="C#" Value="public Azure.Storage.DataMovement.StorageResource FromContainer (Uri containerUri, Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Azure.Storage.DataMovement.StorageResource FromContainer(class System.Uri containerUri, class Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromContainer(System.Uri,Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Function FromContainer (containerUri As Uri, Optional options As BlobStorageResourceContainerOptions = Nothing) As StorageResource" />
-      <MemberSignature Language="F#" Value="member this.FromContainer : Uri * Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions -&gt; Azure.Storage.DataMovement.StorageResource" Usage="blobsStorageResourceProvider.FromContainer (containerUri, options)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.Storage.DataMovement.StorageResource</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="containerUri" Type="System.Uri" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="options" Type="Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="containerUri">
-            Target location.
-            </param>
-        <param name="options">
-            Options for creating the storage resource.
-            </param>
-        <summary>
-            Creates a storage resource pointing towards the given container URI.
-            </summary>
-        <returns>
-            The configured storage resource.
-            </returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="FromContainerAsync">
       <MemberSignature Language="C#" Value="public System.Threading.Tasks.ValueTask&lt;Azure.Storage.DataMovement.StorageResource&gt; FromContainerAsync (Uri containerUri, Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions options = default, System.Threading.CancellationToken cancellationToken = default);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype System.Threading.Tasks.ValueTask`1&lt;class Azure.Storage.DataMovement.StorageResource&gt; FromContainerAsync(class System.Uri containerUri, class Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
@@ -628,14 +434,15 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.ValueTask&lt;Azure.Storage.DataMovement.StorageResource&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="containerUri" Type="System.Uri" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="options" Type="Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="containerUri" Type="System.Uri" />
+        <Parameter Name="options" Type="Azure.Storage.DataMovement.Blobs.BlobStorageResourceContainerOptions" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="containerUri">
@@ -658,34 +465,6 @@
       </Docs>
     </Member>
     <Member MemberName="FromDestinationAsync">
-      <MemberSignature Language="C#" Value="protected override System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.StorageResource&gt; FromDestinationAsync (Azure.Storage.DataMovement.DataTransferProperties properties, System.Threading.CancellationToken cancellationToken);" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Storage.DataMovement.StorageResource&gt; FromDestinationAsync(class Azure.Storage.DataMovement.DataTransferProperties properties, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromDestinationAsync(Azure.Storage.DataMovement.DataTransferProperties,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Protected Overrides Function FromDestinationAsync (properties As DataTransferProperties, cancellationToken As CancellationToken) As Task(Of StorageResource)" />
-      <MemberSignature Language="F#" Value="override this.FromDestinationAsync : Azure.Storage.DataMovement.DataTransferProperties * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.StorageResource&gt;" Usage="blobsStorageResourceProvider.FromDestinationAsync (properties, cancellationToken)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.StorageResource&gt;</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="properties" Type="Azure.Storage.DataMovement.DataTransferProperties" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="properties">To be added.</param>
-        <param name="cancellationToken">To be added.</param>
-        <summary>
-            Gets a source resource from the given transfer properties.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="FromDestinationAsync">
       <MemberSignature Language="C#" Value="protected override System.Threading.Tasks.ValueTask&lt;Azure.Storage.DataMovement.StorageResource&gt; FromDestinationAsync (Azure.Storage.DataMovement.TransferProperties properties, System.Threading.CancellationToken cancellationToken);" />
       <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance valuetype System.Threading.Tasks.ValueTask`1&lt;class Azure.Storage.DataMovement.StorageResource&gt; FromDestinationAsync(class Azure.Storage.DataMovement.TransferProperties properties, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromDestinationAsync(Azure.Storage.DataMovement.TransferProperties,System.Threading.CancellationToken)" />
@@ -695,9 +474,10 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
-        <Attribute FrameworkAlternate="azure-dotnet">
+        <Attribute>
           <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
           <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
         </Attribute>
@@ -706,36 +486,8 @@
         <ReturnType>System.Threading.Tasks.ValueTask&lt;Azure.Storage.DataMovement.StorageResource&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="properties" Type="Azure.Storage.DataMovement.TransferProperties" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet" />
-      </Parameters>
-      <Docs>
-        <param name="properties">To be added.</param>
-        <param name="cancellationToken">To be added.</param>
-        <summary>
-            Gets a source resource from the given transfer properties.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="FromSourceAsync">
-      <MemberSignature Language="C#" Value="protected override System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.StorageResource&gt; FromSourceAsync (Azure.Storage.DataMovement.DataTransferProperties properties, System.Threading.CancellationToken cancellationToken);" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Storage.DataMovement.StorageResource&gt; FromSourceAsync(class Azure.Storage.DataMovement.DataTransferProperties properties, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Storage.DataMovement.Blobs.BlobsStorageResourceProvider.FromSourceAsync(Azure.Storage.DataMovement.DataTransferProperties,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Protected Overrides Function FromSourceAsync (properties As DataTransferProperties, cancellationToken As CancellationToken) As Task(Of StorageResource)" />
-      <MemberSignature Language="F#" Value="override this.FromSourceAsync : Azure.Storage.DataMovement.DataTransferProperties * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.StorageResource&gt;" Usage="blobsStorageResourceProvider.FromSourceAsync (properties, cancellationToken)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.StorageResource&gt;</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="properties" Type="Azure.Storage.DataMovement.DataTransferProperties" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="properties" Type="Azure.Storage.DataMovement.TransferProperties" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="properties">To be added.</param>
@@ -757,9 +509,10 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
-        <Attribute FrameworkAlternate="azure-dotnet">
+        <Attribute>
           <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
           <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
         </Attribute>
@@ -768,8 +521,8 @@
         <ReturnType>System.Threading.Tasks.ValueTask&lt;Azure.Storage.DataMovement.StorageResource&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="properties" Type="Azure.Storage.DataMovement.TransferProperties" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="properties" Type="Azure.Storage.DataMovement.TransferProperties" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="properties">To be added.</param>
@@ -790,8 +543,8 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Blobs</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>

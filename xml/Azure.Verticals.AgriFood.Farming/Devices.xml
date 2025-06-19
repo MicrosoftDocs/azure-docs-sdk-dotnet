@@ -56,10 +56,14 @@
       <Docs>
         <param name="sensorPartnerId"> Id of the sensor partner. </param>
         <param name="deviceId"> Id of the device resource. </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Create a device entity. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Create a device entity.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the request and response payloads.
 
@@ -132,43 +136,46 @@ only string, numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="sensorPartnerId" /> or <paramref name="deviceId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateOrUpdate with required parameters and parse the result.
+This sample shows how to call CreateOrUpdate and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetDevicesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Devices client = new FarmBeatsClient(endpoint, credential).GetDevicesClient();
 
-var data = new {};
-
-Response response = client.CreateOrUpdate("<sensorPartnerId>", "<deviceId>", RequestContent.Create(data));
+using RequestContent content = RequestContent.Create(new object());
+Response response = client.CreateOrUpdate("<sensorPartnerId>", "<deviceId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.ToString());
 ]]></code>
-This sample shows how to call CreateOrUpdate with all parameters and request content, and how to parse the result.
+This sample shows how to call CreateOrUpdate with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetDevicesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Devices client = new FarmBeatsClient(endpoint, credential).GetDevicesClient();
 
-var data = new {
+using RequestContent content = RequestContent.Create(new
+{
     deviceDataModelId = "<deviceDataModelId>",
     integrationId = "<integrationId>",
     type = "<type>",
     hardwareId = "<hardwareId>",
     reportingIntervalInSeconds = 1234,
     parentDeviceId = "<parentDeviceId>",
-    location = new {
-        latitude = 123.45d,
-        longitude = 123.45d,
+    location = new
+    {
+        latitude = 123.45,
+        longitude = 123.45,
     },
     status = "<status>",
     name = "<name>",
     description = "<description>",
-    properties = new {
-        key = new {},
+    properties = new
+    {
+        key = new object(),
     },
-};
-
-Response response = client.CreateOrUpdate("<sensorPartnerId>", "<deviceId>", RequestContent.Create(data));
+});
+Response response = client.CreateOrUpdate("<sensorPartnerId>", "<deviceId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("deviceDataModelId").ToString());
@@ -189,7 +196,7 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
@@ -216,10 +223,14 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
       <Docs>
         <param name="sensorPartnerId"> Id of the sensor partner. </param>
         <param name="deviceId"> Id of the device resource. </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Create a device entity. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Create a device entity.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the request and response payloads.
 
@@ -292,43 +303,46 @@ only string, numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="sensorPartnerId" /> or <paramref name="deviceId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateOrUpdateAsync with required parameters and parse the result.
+This sample shows how to call CreateOrUpdateAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetDevicesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Devices client = new FarmBeatsClient(endpoint, credential).GetDevicesClient();
 
-var data = new {};
-
-Response response = await client.CreateOrUpdateAsync("<sensorPartnerId>", "<deviceId>", RequestContent.Create(data));
+using RequestContent content = RequestContent.Create(new object());
+Response response = await client.CreateOrUpdateAsync("<sensorPartnerId>", "<deviceId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.ToString());
 ]]></code>
-This sample shows how to call CreateOrUpdateAsync with all parameters and request content, and how to parse the result.
+This sample shows how to call CreateOrUpdateAsync with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetDevicesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Devices client = new FarmBeatsClient(endpoint, credential).GetDevicesClient();
 
-var data = new {
+using RequestContent content = RequestContent.Create(new
+{
     deviceDataModelId = "<deviceDataModelId>",
     integrationId = "<integrationId>",
     type = "<type>",
     hardwareId = "<hardwareId>",
     reportingIntervalInSeconds = 1234,
     parentDeviceId = "<parentDeviceId>",
-    location = new {
-        latitude = 123.45d,
-        longitude = 123.45d,
+    location = new
+    {
+        latitude = 123.45,
+        longitude = 123.45,
     },
     status = "<status>",
     name = "<name>",
     description = "<description>",
-    properties = new {
-        key = new {},
+    properties = new
+    {
+        key = new object(),
     },
-};
-
-Response response = await client.CreateOrUpdateAsync("<sensorPartnerId>", "<deviceId>", RequestContent.Create(data));
+});
+Response response = await client.CreateOrUpdateAsync("<sensorPartnerId>", "<deviceId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("deviceDataModelId").ToString());
@@ -349,7 +363,7 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
@@ -376,7 +390,11 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
         <param name="sensorPartnerId"> Id of the sensor partner. </param>
         <param name="deviceId"> Id of the device resource. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Deletes a device entity. </summary>
+        <summary>
+            [Protocol Method] Deletes a device entity.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -385,12 +403,24 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
           <paramref name="sensorPartnerId" /> or <paramref name="deviceId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call Delete with required parameters.
+This sample shows how to call Delete.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetDevicesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Devices client = new FarmBeatsClient(endpoint, credential).GetDevicesClient();
 
 Response response = client.Delete("<sensorPartnerId>", "<deviceId>");
+
+Console.WriteLine(response.Status);
+]]></code>
+This sample shows how to call Delete with all parameters.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Devices client = new FarmBeatsClient(endpoint, credential).GetDevicesClient();
+
+Response response = client.Delete("<sensorPartnerId>", "<deviceId>");
+
 Console.WriteLine(response.Status);
 ]]></code></example>
       </Docs>
@@ -418,7 +448,11 @@ Console.WriteLine(response.Status);
         <param name="sensorPartnerId"> Id of the sensor partner. </param>
         <param name="deviceId"> Id of the device resource. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Deletes a device entity. </summary>
+        <summary>
+            [Protocol Method] Deletes a device entity.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -427,21 +461,33 @@ Console.WriteLine(response.Status);
           <paramref name="sensorPartnerId" /> or <paramref name="deviceId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call DeleteAsync with required parameters.
+This sample shows how to call DeleteAsync.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetDevicesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Devices client = new FarmBeatsClient(endpoint, credential).GetDevicesClient();
 
 Response response = await client.DeleteAsync("<sensorPartnerId>", "<deviceId>");
+
+Console.WriteLine(response.Status);
+]]></code>
+This sample shows how to call DeleteAsync with all parameters.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Devices client = new FarmBeatsClient(endpoint, credential).GetDevicesClient();
+
+Response response = await client.DeleteAsync("<sensorPartnerId>", "<deviceId>");
+
 Console.WriteLine(response.Status);
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetDevice">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetDevice (string sensorPartnerId, string deviceId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetDevice (string sensorPartnerId, string deviceId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetDevice(string sensorPartnerId, string deviceId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Devices.GetDevice(System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetDevice (sensorPartnerId As String, deviceId As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetDevice (sensorPartnerId As String, deviceId As String, context As RequestContext) As Response" />
       <MemberSignature Language="F#" Value="abstract member GetDevice : string * string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetDevice : string * string * Azure.RequestContext -&gt; Azure.Response" Usage="devices.GetDevice (sensorPartnerId, deviceId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -460,8 +506,12 @@ Console.WriteLine(response.Status);
         <param name="sensorPartnerId"> Id of the sensor partner. </param>
         <param name="deviceId"> Id of the device resource. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Gets a device entity. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Gets a device entity.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -502,12 +552,24 @@ only string, numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="sensorPartnerId" /> or <paramref name="deviceId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetDevice with required parameters and parse the result.
+This sample shows how to call GetDevice and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetDevicesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Devices client = new FarmBeatsClient(endpoint, credential).GetDevicesClient();
 
-Response response = client.GetDevice("<sensorPartnerId>", "<deviceId>");
+Response response = client.GetDevice("<sensorPartnerId>", "<deviceId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetDevice with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Devices client = new FarmBeatsClient(endpoint, credential).GetDevicesClient();
+
+Response response = client.GetDevice("<sensorPartnerId>", "<deviceId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("deviceDataModelId").ToString());
@@ -528,15 +590,15 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetDeviceAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetDeviceAsync (string sensorPartnerId, string deviceId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetDeviceAsync (string sensorPartnerId, string deviceId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetDeviceAsync(string sensorPartnerId, string deviceId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Devices.GetDeviceAsync(System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetDeviceAsync (sensorPartnerId As String, deviceId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetDeviceAsync (sensorPartnerId As String, deviceId As String, context As RequestContext) As Task(Of Response)" />
       <MemberSignature Language="F#" Value="abstract member GetDeviceAsync : string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetDeviceAsync : string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="devices.GetDeviceAsync (sensorPartnerId, deviceId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -555,8 +617,12 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
         <param name="sensorPartnerId"> Id of the sensor partner. </param>
         <param name="deviceId"> Id of the device resource. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Gets a device entity. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Gets a device entity.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -597,12 +663,24 @@ only string, numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="sensorPartnerId" /> or <paramref name="deviceId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetDeviceAsync with required parameters and parse the result.
+This sample shows how to call GetDeviceAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetDevicesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Devices client = new FarmBeatsClient(endpoint, credential).GetDevicesClient();
 
-Response response = await client.GetDeviceAsync("<sensorPartnerId>", "<deviceId>");
+Response response = await client.GetDeviceAsync("<sensorPartnerId>", "<deviceId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetDeviceAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Devices client = new FarmBeatsClient(endpoint, credential).GetDevicesClient();
+
+Response response = await client.GetDeviceAsync("<sensorPartnerId>", "<deviceId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("deviceDataModelId").ToString());
@@ -623,15 +701,15 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetDevices">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetDevices (string sensorPartnerId, System.Collections.Generic.IEnumerable&lt;string&gt; parentDeviceIds = default, System.Collections.Generic.IEnumerable&lt;string&gt; deviceDataModelIds = default, System.Collections.Generic.IEnumerable&lt;string&gt; ids = default, System.Collections.Generic.IEnumerable&lt;string&gt; names = default, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters = default, System.Collections.Generic.IEnumerable&lt;string&gt; statuses = default, DateTimeOffset? minCreatedDateTime = default, DateTimeOffset? maxCreatedDateTime = default, DateTimeOffset? minLastModifiedDateTime = default, DateTimeOffset? maxLastModifiedDateTime = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetDevices (string sensorPartnerId, System.Collections.Generic.IEnumerable&lt;string&gt; parentDeviceIds, System.Collections.Generic.IEnumerable&lt;string&gt; deviceDataModelIds, System.Collections.Generic.IEnumerable&lt;string&gt; ids, System.Collections.Generic.IEnumerable&lt;string&gt; names, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters, System.Collections.Generic.IEnumerable&lt;string&gt; statuses, DateTimeOffset? minCreatedDateTime, DateTimeOffset? maxCreatedDateTime, DateTimeOffset? minLastModifiedDateTime, DateTimeOffset? maxLastModifiedDateTime, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetDevices(string sensorPartnerId, class System.Collections.Generic.IEnumerable`1&lt;string&gt; parentDeviceIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; deviceDataModelIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; ids, class System.Collections.Generic.IEnumerable`1&lt;string&gt; names, class System.Collections.Generic.IEnumerable`1&lt;string&gt; propertyFilters, class System.Collections.Generic.IEnumerable`1&lt;string&gt; statuses, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minLastModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxLastModifiedDateTime, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Devices.GetDevices(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetDevices (sensorPartnerId As String, Optional parentDeviceIds As IEnumerable(Of String) = Nothing, Optional deviceDataModelIds As IEnumerable(Of String) = Nothing, Optional ids As IEnumerable(Of String) = Nothing, Optional names As IEnumerable(Of String) = Nothing, Optional propertyFilters As IEnumerable(Of String) = Nothing, Optional statuses As IEnumerable(Of String) = Nothing, Optional minCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetDevices (sensorPartnerId As String, parentDeviceIds As IEnumerable(Of String), deviceDataModelIds As IEnumerable(Of String), ids As IEnumerable(Of String), names As IEnumerable(Of String), propertyFilters As IEnumerable(Of String), statuses As IEnumerable(Of String), minCreatedDateTime As Nullable(Of DateTimeOffset), maxCreatedDateTime As Nullable(Of DateTimeOffset), minLastModifiedDateTime As Nullable(Of DateTimeOffset), maxLastModifiedDateTime As Nullable(Of DateTimeOffset), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As Pageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetDevices : string * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetDevices : string * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="devices.GetDevices (sensorPartnerId, parentDeviceIds, deviceDataModelIds, ids, names, propertyFilters, statuses, minCreatedDateTime, maxCreatedDateTime, minLastModifiedDateTime, maxLastModifiedDateTime, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -678,7 +756,11 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of device resources. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of device resources.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -720,25 +802,27 @@ only string, numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="sensorPartnerId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetDevices with required parameters and parse the result.
+This sample shows how to call GetDevices and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetDevicesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Devices client = new FarmBeatsClient(endpoint, credential).GetDevicesClient();
 
-foreach (var data in client.GetDevices("<sensorPartnerId>"))
+foreach (BinaryData item in client.GetDevices("<sensorPartnerId>", null, null, null, null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetDevices with all parameters, and how to parse the result.
+This sample shows how to call GetDevices with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetDevicesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Devices client = new FarmBeatsClient(endpoint, credential).GetDevicesClient();
 
-foreach (var data in client.GetDevices("<sensorPartnerId>", new String[]{"<parentDeviceIds>"}, new String[]{"<deviceDataModelIds>"}, new String[]{"<ids>"}, new String[]{"<names>"}, new String[]{"<propertyFilters>"}, new String[]{"<statuses>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, "<skipToken>"))
+foreach (BinaryData item in client.GetDevices("<sensorPartnerId>", new string[] { "<parentDeviceIds>" }, new string[] { "<deviceDataModelIds>" }, new string[] { "<ids>" }, new string[] { "<names>" }, new string[] { "<propertyFilters>" }, new string[] { "<statuses>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("deviceDataModelId").ToString());
     Console.WriteLine(result.GetProperty("integrationId").ToString());
     Console.WriteLine(result.GetProperty("type").ToString());
@@ -757,16 +841,16 @@ foreach (var data in client.GetDevices("<sensorPartnerId>", new String[]{"<paren
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetDevicesAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetDevicesAsync (string sensorPartnerId, System.Collections.Generic.IEnumerable&lt;string&gt; parentDeviceIds = default, System.Collections.Generic.IEnumerable&lt;string&gt; deviceDataModelIds = default, System.Collections.Generic.IEnumerable&lt;string&gt; ids = default, System.Collections.Generic.IEnumerable&lt;string&gt; names = default, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters = default, System.Collections.Generic.IEnumerable&lt;string&gt; statuses = default, DateTimeOffset? minCreatedDateTime = default, DateTimeOffset? maxCreatedDateTime = default, DateTimeOffset? minLastModifiedDateTime = default, DateTimeOffset? maxLastModifiedDateTime = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetDevicesAsync (string sensorPartnerId, System.Collections.Generic.IEnumerable&lt;string&gt; parentDeviceIds, System.Collections.Generic.IEnumerable&lt;string&gt; deviceDataModelIds, System.Collections.Generic.IEnumerable&lt;string&gt; ids, System.Collections.Generic.IEnumerable&lt;string&gt; names, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters, System.Collections.Generic.IEnumerable&lt;string&gt; statuses, DateTimeOffset? minCreatedDateTime, DateTimeOffset? maxCreatedDateTime, DateTimeOffset? minLastModifiedDateTime, DateTimeOffset? maxLastModifiedDateTime, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetDevicesAsync(string sensorPartnerId, class System.Collections.Generic.IEnumerable`1&lt;string&gt; parentDeviceIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; deviceDataModelIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; ids, class System.Collections.Generic.IEnumerable`1&lt;string&gt; names, class System.Collections.Generic.IEnumerable`1&lt;string&gt; propertyFilters, class System.Collections.Generic.IEnumerable`1&lt;string&gt; statuses, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minLastModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxLastModifiedDateTime, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.Devices.GetDevicesAsync(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetDevicesAsync (sensorPartnerId As String, Optional parentDeviceIds As IEnumerable(Of String) = Nothing, Optional deviceDataModelIds As IEnumerable(Of String) = Nothing, Optional ids As IEnumerable(Of String) = Nothing, Optional names As IEnumerable(Of String) = Nothing, Optional propertyFilters As IEnumerable(Of String) = Nothing, Optional statuses As IEnumerable(Of String) = Nothing, Optional minCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetDevicesAsync (sensorPartnerId As String, parentDeviceIds As IEnumerable(Of String), deviceDataModelIds As IEnumerable(Of String), ids As IEnumerable(Of String), names As IEnumerable(Of String), propertyFilters As IEnumerable(Of String), statuses As IEnumerable(Of String), minCreatedDateTime As Nullable(Of DateTimeOffset), maxCreatedDateTime As Nullable(Of DateTimeOffset), minLastModifiedDateTime As Nullable(Of DateTimeOffset), maxLastModifiedDateTime As Nullable(Of DateTimeOffset), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As AsyncPageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetDevicesAsync : string * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetDevicesAsync : string * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="devices.GetDevicesAsync (sensorPartnerId, parentDeviceIds, deviceDataModelIds, ids, names, propertyFilters, statuses, minCreatedDateTime, maxCreatedDateTime, minLastModifiedDateTime, maxLastModifiedDateTime, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -813,7 +897,11 @@ foreach (var data in client.GetDevices("<sensorPartnerId>", new String[]{"<paren
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of device resources. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of device resources.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -855,25 +943,27 @@ only string, numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="sensorPartnerId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetDevicesAsync with required parameters and parse the result.
+This sample shows how to call GetDevicesAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetDevicesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Devices client = new FarmBeatsClient(endpoint, credential).GetDevicesClient();
 
-await foreach (var data in client.GetDevicesAsync("<sensorPartnerId>"))
+await foreach (BinaryData item in client.GetDevicesAsync("<sensorPartnerId>", null, null, null, null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetDevicesAsync with all parameters, and how to parse the result.
+This sample shows how to call GetDevicesAsync with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetDevicesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+Devices client = new FarmBeatsClient(endpoint, credential).GetDevicesClient();
 
-await foreach (var data in client.GetDevicesAsync("<sensorPartnerId>", new String[]{"<parentDeviceIds>"}, new String[]{"<deviceDataModelIds>"}, new String[]{"<ids>"}, new String[]{"<names>"}, new String[]{"<propertyFilters>"}, new String[]{"<statuses>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, "<skipToken>"))
+await foreach (BinaryData item in client.GetDevicesAsync("<sensorPartnerId>", new string[] { "<parentDeviceIds>" }, new string[] { "<deviceDataModelIds>" }, new string[] { "<ids>" }, new string[] { "<names>" }, new string[] { "<propertyFilters>" }, new string[] { "<statuses>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("deviceDataModelId").ToString());
     Console.WriteLine(result.GetProperty("integrationId").ToString());
     Console.WriteLine(result.GetProperty("type").ToString());
@@ -892,7 +982,7 @@ await foreach (var data in client.GetDevicesAsync("<sensorPartnerId>", new Strin
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
