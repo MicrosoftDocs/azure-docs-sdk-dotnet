@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.KeyVault, keyvault
-ms.date: 05/31/2023
+ms.date: 06/19/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: keyvault
@@ -36,11 +36,11 @@ dotnet add package Azure.ResourceManager.KeyVault
 
 ### Prerequisites
 
-* You must have an [Azure subscription](https://azure.microsoft.com/free/dotnet/).
+- You must have an [Azure subscription](https://azure.microsoft.com/free/dotnet/).
 
 ### Authenticate the Client
 
-To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.KeyVault_1.2.0-beta.2/doc/dev/mgmt_quickstart.md).
+To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
 
 ## Key concepts
 
@@ -50,19 +50,20 @@ Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://azu
 
 Documentation is available to help you learn how to use this package:
 
-- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.KeyVault_1.2.0-beta.2/doc/dev/mgmt_quickstart.md).
-- [API References](/dotnet/api/?view=azure-dotnet).
-- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.KeyVault_1.2.0-beta.2/sdk/identity/Azure.Identity/README.md).
+- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
+- [API References](https://learn.microsoft.com/dotnet/api/?view=azure-dotnet).
+- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
 
 ## Examples
 
-Code samples for using the management library for .NET can be found in the following locations
+Code samples for using the management library for .NET can be found in the following locations:
+
 - [.NET Management Library Code Samples](https://learn.microsoft.com/samples/browse/?branch=master&languages=csharp&term=managing%20using%20Azure%20.NET%20SDK)
 
 ## Troubleshooting
 
--   File an issue via [GitHub Issues](https://github.com/Azure/azure-sdk-for-net/issues).
--   Check [previous questions](https://stackoverflow.com/questions/tagged/azure+.net) or ask new ones on Stack Overflow using Azure and .NET tags.
+- File an issue via [GitHub Issues](https://github.com/Azure/azure-sdk-for-net/issues).
+- Check [previous questions](https://stackoverflow.com/questions/tagged/azure+.net) or ask new ones on Stack Overflow using Azure and .NET tags.
 
 ## Next steps
 
@@ -89,7 +90,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.KeyVault_1.2.0-beta.2/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
