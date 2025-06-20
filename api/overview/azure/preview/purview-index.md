@@ -1,7 +1,8 @@
 | Reference | Package | Source |
 |---|---|---|
-|[Purview Account](analytics.purview.account-readme.md)|[Azure.Analytics.Purview.Account](https://www.nuget.org/packages/Azure.Analytics.Purview.Account)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/)|
+|[Purview Account](analytics.purview.account-readme.md)|[Azure.Analytics.Purview.Account](https://www.nuget.org/packages/Azure.Analytics.Purview.Account)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/purview/Azure.Analytics.Purview.Account)|
 |[Purview Administration](analytics.purview.administration-readme.md)|[Azure.Analytics.Purview.Administration](https://www.nuget.org/packages/Azure.Analytics.Purview.Administration)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/purview/Azure.Analytics.Purview.Administration)|
+|[Purview Catalog](analytics.purview.catalog-readme.md)|[Azure.Analytics.Purview.Catalog](https://www.nuget.org/packages/Azure.Analytics.Purview.Catalog)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/purview/Azure.Analytics.Purview.Catalog)|
 |[Purview Data Map](analytics.purview.datamap-readme.md)|[Azure.Analytics.Purview.DataMap](https://www.nuget.org/packages/Azure.Analytics.Purview.DataMap)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/purview/Azure.Analytics.Purview.DataMap)|
 |[Purview Scanning](analytics.purview.scanning-readme.md)|[Azure.Analytics.Purview.Scanning](https://www.nuget.org/packages/Azure.Analytics.Purview.Scanning)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/purview/Azure.Analytics.Purview.Scanning)|
 |[Purview Sharing](analytics.purview.sharing-readme.md)|[Azure.Analytics.Purview.Sharing](https://www.nuget.org/packages/Azure.Analytics.Purview.Sharing)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/purview/Azure.Analytics.Purview.Sharing)|
