@@ -8,6 +8,7 @@
     <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
     <AssemblyVersion>12.0.0.0</AssemblyVersion>
     <AssemblyVersion>12.1.0.0</AssemblyVersion>
+    <AssemblyVersion>12.2.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
@@ -30,16 +31,17 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.TransferOperation&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="client" Type="Azure.Storage.Files.Shares.ShareDirectoryClient" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
-        <Parameter Name="waitUntil" Type="Azure.WaitUntil" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="localDirectoryPath" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="options" Type="Azure.Storage.DataMovement.Files.Shares.ShareDirectoryClientTransferOptions" Index="3" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="4" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="client" Type="Azure.Storage.Files.Shares.ShareDirectoryClient" RefType="this" />
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
+        <Parameter Name="localDirectoryPath" Type="System.String" />
+        <Parameter Name="options" Type="Azure.Storage.DataMovement.Files.Shares.ShareDirectoryClientTransferOptions" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="client">The <see cref="T:Azure.Storage.Files.Shares.ShareDirectoryClient" /> used for service operations.</param>
@@ -66,75 +68,6 @@
             </remarks>
       </Docs>
     </Member>
-    <Member MemberName="StartDownloadToDirectoryAsync">
-      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.DataTransfer&gt; StartDownloadToDirectoryAsync (this Azure.Storage.Files.Shares.ShareDirectoryClient client, string localDirectoryPath, Azure.Storage.DataMovement.Files.Shares.ShareDirectoryClientTransferOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Azure.Storage.DataMovement.DataTransfer&gt; StartDownloadToDirectoryAsync(class Azure.Storage.Files.Shares.ShareDirectoryClient client, string localDirectoryPath, class Azure.Storage.DataMovement.Files.Shares.ShareDirectoryClientTransferOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ShareDirectoryClientExtensions.StartDownloadToDirectoryAsync(Azure.Storage.Files.Shares.ShareDirectoryClient,System.String,Azure.Storage.DataMovement.Files.Shares.ShareDirectoryClientTransferOptions)" />
-      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function StartDownloadToDirectoryAsync (client As ShareDirectoryClient, localDirectoryPath As String, Optional options As ShareDirectoryClientTransferOptions = Nothing) As Task(Of DataTransfer)" />
-      <MemberSignature Language="F#" Value="static member StartDownloadToDirectoryAsync : Azure.Storage.Files.Shares.ShareDirectoryClient * string * Azure.Storage.DataMovement.Files.Shares.ShareDirectoryClientTransferOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.DataTransfer&gt;" Usage="Azure.Storage.Files.Shares.ShareDirectoryClientExtensions.StartDownloadToDirectoryAsync (client, localDirectoryPath, options)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.DataTransfer&gt;</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="client" Type="Azure.Storage.Files.Shares.ShareDirectoryClient" RefType="this" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="localDirectoryPath" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="options" Type="Azure.Storage.DataMovement.Files.Shares.ShareDirectoryClientTransferOptions" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="client">The <see cref="T:Azure.Storage.Files.Shares.ShareDirectoryClient" /> used for service operations.</param>
-        <param name="localDirectoryPath">The full path to the local directory where files will be dowloaded.</param>
-        <param name="options">Options which control the container download.</param>
-        <summary>
-            Downloads the contents of a share directory.
-            </summary>
-        <returns />
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="StartUploadDirectoryAsync">
-      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.DataTransfer&gt; StartUploadDirectoryAsync (this Azure.Storage.Files.Shares.ShareDirectoryClient client, string localDirectoryPath, Azure.Storage.DataMovement.Files.Shares.ShareDirectoryClientTransferOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Azure.Storage.DataMovement.DataTransfer&gt; StartUploadDirectoryAsync(class Azure.Storage.Files.Shares.ShareDirectoryClient client, string localDirectoryPath, class Azure.Storage.DataMovement.Files.Shares.ShareDirectoryClientTransferOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ShareDirectoryClientExtensions.StartUploadDirectoryAsync(Azure.Storage.Files.Shares.ShareDirectoryClient,System.String,Azure.Storage.DataMovement.Files.Shares.ShareDirectoryClientTransferOptions)" />
-      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function StartUploadDirectoryAsync (client As ShareDirectoryClient, localDirectoryPath As String, Optional options As ShareDirectoryClientTransferOptions = Nothing) As Task(Of DataTransfer)" />
-      <MemberSignature Language="F#" Value="static member StartUploadDirectoryAsync : Azure.Storage.Files.Shares.ShareDirectoryClient * string * Azure.Storage.DataMovement.Files.Shares.ShareDirectoryClientTransferOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.DataTransfer&gt;" Usage="Azure.Storage.Files.Shares.ShareDirectoryClientExtensions.StartUploadDirectoryAsync (client, localDirectoryPath, options)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.DataTransfer&gt;</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="client" Type="Azure.Storage.Files.Shares.ShareDirectoryClient" RefType="this" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="localDirectoryPath" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="options" Type="Azure.Storage.DataMovement.Files.Shares.ShareDirectoryClientTransferOptions" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="client">
-            The <see cref="T:Azure.Storage.Files.Shares.ShareDirectoryClient" /> used for service operations.
-            </param>
-        <param name="localDirectoryPath">
-            The full path to the local directory to be uploaded.
-            </param>
-        <param name="options">
-            Options which control the directory upload.
-            </param>
-        <summary>
-            Uploads the entire contents of local directory to the share directory.
-            </summary>
-        <returns>
-            A <see cref="T:Azure.Storage.DataMovement.DataTransfer" /> instance which can be used track progress and wait for
-            completion with <see cref="M:Azure.Storage.DataMovement.DataTransfer.WaitForCompletionAsync(System.Threading.CancellationToken)" />.
-            </returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="UploadDirectoryAsync">
       <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.TransferOperation&gt; UploadDirectoryAsync (this Azure.Storage.Files.Shares.ShareDirectoryClient client, Azure.WaitUntil waitUntil, string localDirectoryPath, Azure.Storage.DataMovement.Files.Shares.ShareDirectoryClientTransferOptions options = default, System.Threading.CancellationToken cancellationToken = default);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Azure.Storage.DataMovement.TransferOperation&gt; UploadDirectoryAsync(class Azure.Storage.Files.Shares.ShareDirectoryClient client, valuetype Azure.WaitUntil waitUntil, string localDirectoryPath, class Azure.Storage.DataMovement.Files.Shares.ShareDirectoryClientTransferOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
@@ -145,16 +78,17 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.DataMovement.Files.Shares</AssemblyName>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
+        <AssemblyVersion>12.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Storage.DataMovement.TransferOperation&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="client" Type="Azure.Storage.Files.Shares.ShareDirectoryClient" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
-        <Parameter Name="waitUntil" Type="Azure.WaitUntil" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="localDirectoryPath" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="options" Type="Azure.Storage.DataMovement.Files.Shares.ShareDirectoryClientTransferOptions" Index="3" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="4" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="client" Type="Azure.Storage.Files.Shares.ShareDirectoryClient" RefType="this" />
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
+        <Parameter Name="localDirectoryPath" Type="System.String" />
+        <Parameter Name="options" Type="Azure.Storage.DataMovement.Files.Shares.ShareDirectoryClientTransferOptions" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="client">The <see cref="T:Azure.Storage.Files.Shares.ShareDirectoryClient" /> used for service operations.</param>

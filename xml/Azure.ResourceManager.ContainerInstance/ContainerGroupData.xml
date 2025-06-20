@@ -46,6 +46,12 @@
         <AssemblyName>Azure.ResourceManager.ContainerInstance</AssemblyName>
         <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
         <Parameter Name="location" Type="Azure.Core.AzureLocation" Index="0" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="containers" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ContainerInstance.Models.ContainerInstanceContainer&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
@@ -114,18 +120,18 @@
       </Docs>
     </Member>
     <Member MemberName="ContainerGroupOSType">
-      <MemberSignature Language="C#" Value="public Azure.ResourceManager.ContainerInstance.Models.ContainerInstanceOperatingSystemType? ContainerGroupOSType { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ContainerInstance.Models.ContainerInstanceOperatingSystemType&gt; ContainerGroupOSType" />
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.ContainerInstance.Models.ContainerInstanceOperatingSystemType ContainerGroupOSType { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Azure.ResourceManager.ContainerInstance.Models.ContainerInstanceOperatingSystemType ContainerGroupOSType" />
       <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.ContainerInstance.ContainerGroupData.ContainerGroupOSType" />
-      <MemberSignature Language="VB.NET" Value="Public Property ContainerGroupOSType As Nullable(Of ContainerInstanceOperatingSystemType)" />
-      <MemberSignature Language="F#" Value="member this.ContainerGroupOSType : Nullable&lt;Azure.ResourceManager.ContainerInstance.Models.ContainerInstanceOperatingSystemType&gt; with get, set" Usage="Azure.ResourceManager.ContainerInstance.ContainerGroupData.ContainerGroupOSType" />
+      <MemberSignature Language="VB.NET" Value="Public Property ContainerGroupOSType As ContainerInstanceOperatingSystemType" />
+      <MemberSignature Language="F#" Value="member this.ContainerGroupOSType : Azure.ResourceManager.ContainerInstance.Models.ContainerInstanceOperatingSystemType with get, set" Usage="Azure.ResourceManager.ContainerInstance.ContainerGroupData.ContainerGroupOSType" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ContainerInstance</AssemblyName>
         <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Nullable&lt;Azure.ResourceManager.ContainerInstance.Models.ContainerInstanceOperatingSystemType&gt;</ReturnType>
+        <ReturnType>Azure.ResourceManager.ContainerInstance.Models.ContainerInstanceOperatingSystemType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> The operating system type required by the containers in the container group. </summary>
@@ -133,22 +139,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="ContainerGroupProfile">
-      <MemberSignature Language="C#" Value="public Azure.ResourceManager.ContainerInstance.Models.ContainerGroupProfileReferenceDefinition ContainerGroupProfile { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.ResourceManager.ContainerInstance.Models.ContainerGroupProfileReferenceDefinition ContainerGroupProfile" />
-      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.ContainerInstance.ContainerGroupData.ContainerGroupProfile" />
-      <MemberSignature Language="VB.NET" Value="Public Property ContainerGroupProfile As ContainerGroupProfileReferenceDefinition" />
-      <MemberSignature Language="F#" Value="member this.ContainerGroupProfile : Azure.ResourceManager.ContainerInstance.Models.ContainerGroupProfileReferenceDefinition with get, set" Usage="Azure.ResourceManager.ContainerInstance.ContainerGroupData.ContainerGroupProfile" />
+    <Member MemberName="ContainerGroupProvisioningState">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.ContainerInstance.Models.ContainerGroupProvisioningState? ContainerGroupProvisioningState { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ContainerInstance.Models.ContainerGroupProvisioningState&gt; ContainerGroupProvisioningState" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.ContainerInstance.ContainerGroupData.ContainerGroupProvisioningState" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ContainerGroupProvisioningState As Nullable(Of ContainerGroupProvisioningState)" />
+      <MemberSignature Language="F#" Value="member this.ContainerGroupProvisioningState : Nullable&lt;Azure.ResourceManager.ContainerInstance.Models.ContainerGroupProvisioningState&gt;" Usage="Azure.ResourceManager.ContainerInstance.ContainerGroupData.ContainerGroupProvisioningState" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ContainerInstance</AssemblyName>
         <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.ResourceManager.ContainerInstance.Models.ContainerGroupProfileReferenceDefinition</ReturnType>
+        <ReturnType>System.Nullable&lt;Azure.ResourceManager.ContainerInstance.Models.ContainerGroupProvisioningState&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The reference container group profile properties. </summary>
+        <summary> The provisioning state of the container group. This only appears in the response. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -279,6 +285,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="IdentityAcls">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.ContainerInstance.Models.ContainerGroupIdentityAccessControlLevels IdentityAcls { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.ResourceManager.ContainerInstance.Models.ContainerGroupIdentityAccessControlLevels IdentityAcls" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.ContainerInstance.ContainerGroupData.IdentityAcls" />
+      <MemberSignature Language="VB.NET" Value="Public Property IdentityAcls As ContainerGroupIdentityAccessControlLevels" />
+      <MemberSignature Language="F#" Value="member this.IdentityAcls : Azure.ResourceManager.ContainerInstance.Models.ContainerGroupIdentityAccessControlLevels with get, set" Usage="Azure.ResourceManager.ContainerInstance.ContainerGroupData.IdentityAcls" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.ContainerInstance</AssemblyName>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ContainerInstance.Models.ContainerGroupIdentityAccessControlLevels</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The access control levels of the identities. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ImageRegistryCredentials">
       <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.ResourceManager.ContainerInstance.Models.ContainerGroupImageRegistryCredential&gt; ImageRegistryCredentials { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.ResourceManager.ContainerInstance.Models.ContainerGroupImageRegistryCredential&gt; ImageRegistryCredentials" />
@@ -359,26 +385,6 @@
       </ReturnValue>
       <Docs>
         <summary> The IP address type of the container group. </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsCreatedFromStandbyPool">
-      <MemberSignature Language="C#" Value="public bool? IsCreatedFromStandbyPool { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;bool&gt; IsCreatedFromStandbyPool" />
-      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.ContainerInstance.ContainerGroupData.IsCreatedFromStandbyPool" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property IsCreatedFromStandbyPool As Nullable(Of Boolean)" />
-      <MemberSignature Language="F#" Value="member this.IsCreatedFromStandbyPool : Nullable&lt;bool&gt;" Usage="Azure.ResourceManager.ContainerInstance.ContainerGroupData.IsCreatedFromStandbyPool" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.ResourceManager.ContainerInstance</AssemblyName>
-        <AssemblyVersion>1.3.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Nullable&lt;System.Boolean&gt;</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary> The flag indicating whether the container group is created by standby pool. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -504,6 +510,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SecretReferences">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.ResourceManager.ContainerInstance.Models.ContainerGroupSecretReference&gt; SecretReferences { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.ResourceManager.ContainerInstance.Models.ContainerGroupSecretReference&gt; SecretReferences" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.ContainerInstance.ContainerGroupData.SecretReferences" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property SecretReferences As IList(Of ContainerGroupSecretReference)" />
+      <MemberSignature Language="F#" Value="member this.SecretReferences : System.Collections.Generic.IList&lt;Azure.ResourceManager.ContainerInstance.Models.ContainerGroupSecretReference&gt;" Usage="Azure.ResourceManager.ContainerInstance.ContainerGroupData.SecretReferences" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.ContainerInstance</AssemblyName>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;Azure.ResourceManager.ContainerInstance.Models.ContainerGroupSecretReference&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The secret references that will be referenced within the container group. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Sku">
       <MemberSignature Language="C#" Value="public Azure.ResourceManager.ContainerInstance.Models.ContainerGroupSku? Sku { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ContainerInstance.Models.ContainerGroupSku&gt; Sku" />
@@ -521,26 +547,6 @@
       </ReturnValue>
       <Docs>
         <summary> The SKU for a container group. </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="StandbyPoolProfile">
-      <MemberSignature Language="C#" Value="public Azure.ResourceManager.ContainerInstance.Models.StandbyPoolProfileDefinition StandbyPoolProfile { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.ResourceManager.ContainerInstance.Models.StandbyPoolProfileDefinition StandbyPoolProfile" />
-      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.ContainerInstance.ContainerGroupData.StandbyPoolProfile" />
-      <MemberSignature Language="VB.NET" Value="Public Property StandbyPoolProfile As StandbyPoolProfileDefinition" />
-      <MemberSignature Language="F#" Value="member this.StandbyPoolProfile : Azure.ResourceManager.ContainerInstance.Models.StandbyPoolProfileDefinition with get, set" Usage="Azure.ResourceManager.ContainerInstance.ContainerGroupData.StandbyPoolProfile" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.ResourceManager.ContainerInstance</AssemblyName>
-        <AssemblyVersion>1.3.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.ResourceManager.ContainerInstance.Models.StandbyPoolProfileDefinition</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary> The reference standby pool profile properties. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -690,7 +696,7 @@
         <summary>
             Gets the data interchange format (JSON, Xml, etc) that the model uses when communicating with the service.
             </summary>
-        <returns>The format that the model uses when communicating with the serivce.</returns>
+        <returns>The format that the model uses when communicating with the service.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
