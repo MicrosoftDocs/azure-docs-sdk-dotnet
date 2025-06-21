@@ -31,18 +31,18 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public VirtualMachineConfiguration (Azure.Compute.Batch.ImageReference imageReference, string nodeAgentSkuId);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Compute.Batch.ImageReference imageReference, string nodeAgentSkuId) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.VirtualMachineConfiguration.#ctor(Azure.Compute.Batch.ImageReference,System.String)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (imageReference As ImageReference, nodeAgentSkuId As String)" />
-      <MemberSignature Language="F#" Value="new Azure.Compute.Batch.VirtualMachineConfiguration : Azure.Compute.Batch.ImageReference * string -&gt; Azure.Compute.Batch.VirtualMachineConfiguration" Usage="new Azure.Compute.Batch.VirtualMachineConfiguration (imageReference, nodeAgentSkuId)" />
+      <MemberSignature Language="C#" Value="public VirtualMachineConfiguration (Azure.Compute.Batch.BatchVmImageReference imageReference, string nodeAgentSkuId);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Compute.Batch.BatchVmImageReference imageReference, string nodeAgentSkuId) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.VirtualMachineConfiguration.#ctor(Azure.Compute.Batch.BatchVmImageReference,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (imageReference As BatchVmImageReference, nodeAgentSkuId As String)" />
+      <MemberSignature Language="F#" Value="new Azure.Compute.Batch.VirtualMachineConfiguration : Azure.Compute.Batch.BatchVmImageReference * string -&gt; Azure.Compute.Batch.VirtualMachineConfiguration" Usage="new Azure.Compute.Batch.VirtualMachineConfiguration (imageReference, nodeAgentSkuId)" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="imageReference" Type="Azure.Compute.Batch.ImageReference" />
+        <Parameter Name="imageReference" Type="Azure.Compute.Batch.BatchVmImageReference" />
         <Parameter Name="nodeAgentSkuId" Type="System.String" />
       </Parameters>
       <Docs>
@@ -55,18 +55,18 @@
       </Docs>
     </Member>
     <Member MemberName="ContainerConfiguration">
-      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.ContainerConfiguration ContainerConfiguration { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.ContainerConfiguration ContainerConfiguration" />
+      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.BatchContainerConfiguration ContainerConfiguration { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.BatchContainerConfiguration ContainerConfiguration" />
       <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.VirtualMachineConfiguration.ContainerConfiguration" />
-      <MemberSignature Language="VB.NET" Value="Public Property ContainerConfiguration As ContainerConfiguration" />
-      <MemberSignature Language="F#" Value="member this.ContainerConfiguration : Azure.Compute.Batch.ContainerConfiguration with get, set" Usage="Azure.Compute.Batch.VirtualMachineConfiguration.ContainerConfiguration" />
+      <MemberSignature Language="VB.NET" Value="Public Property ContainerConfiguration As BatchContainerConfiguration" />
+      <MemberSignature Language="F#" Value="member this.ContainerConfiguration : Azure.Compute.Batch.BatchContainerConfiguration with get, set" Usage="Azure.Compute.Batch.VirtualMachineConfiguration.ContainerConfiguration" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.Compute.Batch.ContainerConfiguration</ReturnType>
+        <ReturnType>Azure.Compute.Batch.BatchContainerConfiguration</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> The container configuration for the Pool. If specified, setup is performed on each Compute Node in the Pool to allow Tasks to run in containers. All regular Tasks and Job manager Tasks run on this Pool must specify the containerSettings property, and all other Tasks may specify it. </summary>
@@ -135,18 +135,18 @@
       </Docs>
     </Member>
     <Member MemberName="ImageReference">
-      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.ImageReference ImageReference { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.ImageReference ImageReference" />
+      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.BatchVmImageReference ImageReference { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.BatchVmImageReference ImageReference" />
       <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.VirtualMachineConfiguration.ImageReference" />
-      <MemberSignature Language="VB.NET" Value="Public Property ImageReference As ImageReference" />
-      <MemberSignature Language="F#" Value="member this.ImageReference : Azure.Compute.Batch.ImageReference with get, set" Usage="Azure.Compute.Batch.VirtualMachineConfiguration.ImageReference" />
+      <MemberSignature Language="VB.NET" Value="Public Property ImageReference As BatchVmImageReference" />
+      <MemberSignature Language="F#" Value="member this.ImageReference : Azure.Compute.Batch.BatchVmImageReference with get, set" Usage="Azure.Compute.Batch.VirtualMachineConfiguration.ImageReference" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.Compute.Batch.ImageReference</ReturnType>
+        <ReturnType>Azure.Compute.Batch.BatchVmImageReference</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> A reference to the Azure Virtual Machines Marketplace Image or the custom Virtual Machine Image to use. </summary>
@@ -250,18 +250,18 @@
       </Docs>
     </Member>
     <Member MemberName="OsDisk">
-      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.OSDisk OsDisk { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.OSDisk OsDisk" />
+      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.BatchOsDisk OsDisk { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.BatchOsDisk OsDisk" />
       <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.VirtualMachineConfiguration.OsDisk" />
-      <MemberSignature Language="VB.NET" Value="Public Property OsDisk As OSDisk" />
-      <MemberSignature Language="F#" Value="member this.OsDisk : Azure.Compute.Batch.OSDisk with get, set" Usage="Azure.Compute.Batch.VirtualMachineConfiguration.OsDisk" />
+      <MemberSignature Language="VB.NET" Value="Public Property OsDisk As BatchOsDisk" />
+      <MemberSignature Language="F#" Value="member this.OsDisk : Azure.Compute.Batch.BatchOsDisk with get, set" Usage="Azure.Compute.Batch.VirtualMachineConfiguration.OsDisk" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.Compute.Batch.OSDisk</ReturnType>
+        <ReturnType>Azure.Compute.Batch.BatchOsDisk</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> Settings for the operating system disk of the Virtual Machine. </summary>
@@ -429,7 +429,7 @@
         <summary>
             Gets the data interchange format (JSON, Xml, etc) that the model uses when communicating with the service.
             </summary>
-        <returns>The format that the model uses when communicating with the serivce.</returns>
+        <returns>The format that the model uses when communicating with the service.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

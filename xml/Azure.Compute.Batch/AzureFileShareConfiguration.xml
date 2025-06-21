@@ -28,11 +28,11 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public AzureFileShareConfiguration (string accountName, string azureFileUrl, string accountKey, string relativeMountPath);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string accountName, string azureFileUrl, string accountKey, string relativeMountPath) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.AzureFileShareConfiguration.#ctor(System.String,System.String,System.String,System.String)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (accountName As String, azureFileUrl As String, accountKey As String, relativeMountPath As String)" />
-      <MemberSignature Language="F#" Value="new Azure.Compute.Batch.AzureFileShareConfiguration : string * string * string * string -&gt; Azure.Compute.Batch.AzureFileShareConfiguration" Usage="new Azure.Compute.Batch.AzureFileShareConfiguration (accountName, azureFileUrl, accountKey, relativeMountPath)" />
+      <MemberSignature Language="C#" Value="public AzureFileShareConfiguration (string accountName, string accountKey, Uri azureFileUri, string relativeMountPath);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string accountName, string accountKey, class System.Uri azureFileUri, string relativeMountPath) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.AzureFileShareConfiguration.#ctor(System.String,System.String,System.Uri,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (accountName As String, accountKey As String, azureFileUri As Uri, relativeMountPath As String)" />
+      <MemberSignature Language="F#" Value="new Azure.Compute.Batch.AzureFileShareConfiguration : string * string * Uri * string -&gt; Azure.Compute.Batch.AzureFileShareConfiguration" Usage="new Azure.Compute.Batch.AzureFileShareConfiguration (accountName, accountKey, azureFileUri, relativeMountPath)" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
@@ -40,19 +40,19 @@
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="accountName" Type="System.String" />
-        <Parameter Name="azureFileUrl" Type="System.String" />
         <Parameter Name="accountKey" Type="System.String" />
+        <Parameter Name="azureFileUri" Type="System.Uri" />
         <Parameter Name="relativeMountPath" Type="System.String" />
       </Parameters>
       <Docs>
         <param name="accountName"> The Azure Storage account name. </param>
-        <param name="azureFileUrl"> The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'. </param>
         <param name="accountKey"> The Azure Storage account key. </param>
+        <param name="azureFileUri"> The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'. </param>
         <param name="relativeMountPath"> The relative path on the compute node where the file system will be mounted. All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable. </param>
         <summary> Initializes a new instance of <see cref="T:Azure.Compute.Batch.AzureFileShareConfiguration" />. </summary>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="accountName" />, <paramref name="azureFileUrl" />, <paramref name="accountKey" /> or <paramref name="relativeMountPath" /> is null. </exception>
+          <paramref name="accountName" />, <paramref name="accountKey" />, <paramref name="azureFileUri" /> or <paramref name="relativeMountPath" /> is null. </exception>
       </Docs>
     </Member>
     <Member MemberName="AccountKey">
@@ -95,19 +95,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="AzureFileUrl">
-      <MemberSignature Language="C#" Value="public string AzureFileUrl { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string AzureFileUrl" />
-      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.AzureFileShareConfiguration.AzureFileUrl" />
-      <MemberSignature Language="VB.NET" Value="Public Property AzureFileUrl As String" />
-      <MemberSignature Language="F#" Value="member this.AzureFileUrl : string with get, set" Usage="Azure.Compute.Batch.AzureFileShareConfiguration.AzureFileUrl" />
+    <Member MemberName="AzureFileUri">
+      <MemberSignature Language="C#" Value="public Uri AzureFileUri { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Uri AzureFileUri" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.AzureFileShareConfiguration.AzureFileUri" />
+      <MemberSignature Language="VB.NET" Value="Public Property AzureFileUri As Uri" />
+      <MemberSignature Language="F#" Value="member this.AzureFileUri : Uri with get, set" Usage="Azure.Compute.Batch.AzureFileShareConfiguration.AzureFileUri" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>System.Uri</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'. </summary>
@@ -300,7 +300,7 @@
         <summary>
             Gets the data interchange format (JSON, Xml, etc) that the model uses when communicating with the service.
             </summary>
-        <returns>The format that the model uses when communicating with the serivce.</returns>
+        <returns>The format that the model uses when communicating with the service.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -13,7 +13,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary> The PurviewCollection service client. </summary>
+    <summary> The PurviewCollection sub-client. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -34,11 +34,11 @@
       </Docs>
     </Member>
     <Member MemberName="CreateOrUpdateCollection">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response CreateOrUpdateCollection (Azure.Core.RequestContent content, Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response CreateOrUpdateCollection(class Azure.Core.RequestContent content, class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.CreateOrUpdateCollection(Azure.Core.RequestContent,Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateCollection (content As RequestContent, Optional options As RequestOptions = Nothing) As Response" />
-      <MemberSignature Language="F#" Value="abstract member CreateOrUpdateCollection : Azure.Core.RequestContent * Azure.RequestOptions -&gt; Azure.Response&#xA;override this.CreateOrUpdateCollection : Azure.Core.RequestContent * Azure.RequestOptions -&gt; Azure.Response" Usage="purviewCollection.CreateOrUpdateCollection (content, options)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response CreateOrUpdateCollection (Azure.Core.RequestContent content, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response CreateOrUpdateCollection(class Azure.Core.RequestContent content, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.CreateOrUpdateCollection(Azure.Core.RequestContent,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateCollection (content As RequestContent, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="F#" Value="abstract member CreateOrUpdateCollection : Azure.Core.RequestContent * Azure.RequestContext -&gt; Azure.Response&#xA;override this.CreateOrUpdateCollection : Azure.Core.RequestContent * Azure.RequestContext -&gt; Azure.Response" Usage="purviewCollection.CreateOrUpdateCollection (content, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
@@ -49,28 +49,73 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="content" Type="Azure.Core.RequestContent" />
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="content"> The content to send as the body of the request. </param>
-        <param name="options"> The request options. </param>
-        <summary> Creates or updates a collection entity. </summary>
-        <returns>To be added.</returns>
-        <remarks>
-            Schema for <c>Request Body</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>collectionProvisioningState</term><term>"Unknown" | "Creating" | "Moving" | "Deleting" | "Failed" | "Succeeded"</term><term /><term>Gets the state of the provisioning.</term></item><item><term>description</term><term>string</term><term /><term>Gets or sets the description.</term></item><item><term>friendlyName</term><term>string</term><term /><term>Gets or sets the friendly name of the collection.</term></item><item><term>name</term><term>string</term><term /><term>Gets the name.</term></item><item><term>parentCollection</term><term>CollectionReference</term><term /><term>Gets or sets the parent collection reference.</term></item><item><term>systemData</term><term>CollectionSystemData</term><term /><term>Gets the system data that contains information about who and when created and updated the resource.</term></item></list>
-            Schema for <c>CollectionReference</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>referenceName</term><term>string</term><term /><term>Gets or sets the reference name.</term></item><item><term>type</term><term>string</term><term /><term>Gets the reference type property.</term></item></list>
-            Schema for <c>CollectionSystemData</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>createdAt</term><term>string (ISO 8601 Format)</term><term /><term>The timestamp of resource creation (UTC).</term></item><item><term>createdBy</term><term>string</term><term /><term>The identity that created the resource.</term></item><item><term>createdByType</term><term>"User" | "Application" | "ManagedIdentity" | "Key"</term><term /><term>The type of identity that created the resource.</term></item><item><term>lastModifiedAt</term><term>string (ISO 8601 Format)</term><term /><term>The timestamp of the last modification the resource (UTC).</term></item><item><term>lastModifiedBy</term><term>string</term><term /><term>The identity that last modified the resource.</term></item><item><term>lastModifiedByType</term><term>"User" | "Application" | "ManagedIdentity" | "Key"</term><term /><term>The type of identity that last modified the resource.</term></item></list></remarks>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Creates or updates a collection entity.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="content" /> is null. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call CreateOrUpdateCollection and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+using RequestContent content = RequestContent.Create(new object());
+Response response = client.CreateOrUpdateCollection(content);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call CreateOrUpdateCollection with all request content and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+using RequestContent content = RequestContent.Create(new
+{
+    description = "<description>",
+    friendlyName = "<friendlyName>",
+    parentCollection = new
+    {
+        referenceName = "<referenceName>",
+    },
+});
+Response response = client.CreateOrUpdateCollection(content);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("collectionProvisioningState").ToString());
+Console.WriteLine(result.GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("friendlyName").ToString());
+Console.WriteLine(result.GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("parentCollection").GetProperty("referenceName").ToString());
+Console.WriteLine(result.GetProperty("parentCollection").GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("createdAt").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("createdByType").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("lastModifiedAt").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("lastModifiedBy").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("lastModifiedByType").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="CreateOrUpdateCollectionAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; CreateOrUpdateCollectionAsync (Azure.Core.RequestContent content, Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; CreateOrUpdateCollectionAsync(class Azure.Core.RequestContent content, class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.CreateOrUpdateCollectionAsync(Azure.Core.RequestContent,Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateCollectionAsync (content As RequestContent, Optional options As RequestOptions = Nothing) As Task(Of Response)" />
-      <MemberSignature Language="F#" Value="abstract member CreateOrUpdateCollectionAsync : Azure.Core.RequestContent * Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.CreateOrUpdateCollectionAsync : Azure.Core.RequestContent * Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewCollection.CreateOrUpdateCollectionAsync (content, options)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; CreateOrUpdateCollectionAsync (Azure.Core.RequestContent content, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; CreateOrUpdateCollectionAsync(class Azure.Core.RequestContent content, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.CreateOrUpdateCollectionAsync(Azure.Core.RequestContent,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateCollectionAsync (content As RequestContent, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member CreateOrUpdateCollectionAsync : Azure.Core.RequestContent * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.CreateOrUpdateCollectionAsync : Azure.Core.RequestContent * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewCollection.CreateOrUpdateCollectionAsync (content, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
@@ -81,28 +126,73 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="content" Type="Azure.Core.RequestContent" />
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="content"> The content to send as the body of the request. </param>
-        <param name="options"> The request options. </param>
-        <summary> Creates or updates a collection entity. </summary>
-        <returns>To be added.</returns>
-        <remarks>
-            Schema for <c>Request Body</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>collectionProvisioningState</term><term>"Unknown" | "Creating" | "Moving" | "Deleting" | "Failed" | "Succeeded"</term><term /><term>Gets the state of the provisioning.</term></item><item><term>description</term><term>string</term><term /><term>Gets or sets the description.</term></item><item><term>friendlyName</term><term>string</term><term /><term>Gets or sets the friendly name of the collection.</term></item><item><term>name</term><term>string</term><term /><term>Gets the name.</term></item><item><term>parentCollection</term><term>CollectionReference</term><term /><term>Gets or sets the parent collection reference.</term></item><item><term>systemData</term><term>CollectionSystemData</term><term /><term>Gets the system data that contains information about who and when created and updated the resource.</term></item></list>
-            Schema for <c>CollectionReference</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>referenceName</term><term>string</term><term /><term>Gets or sets the reference name.</term></item><item><term>type</term><term>string</term><term /><term>Gets the reference type property.</term></item></list>
-            Schema for <c>CollectionSystemData</c>:
-            <list type="table"><listheader><term>Name</term><term>Type</term><term>Required</term><term>Description</term></listheader><item><term>createdAt</term><term>string (ISO 8601 Format)</term><term /><term>The timestamp of resource creation (UTC).</term></item><item><term>createdBy</term><term>string</term><term /><term>The identity that created the resource.</term></item><item><term>createdByType</term><term>"User" | "Application" | "ManagedIdentity" | "Key"</term><term /><term>The type of identity that created the resource.</term></item><item><term>lastModifiedAt</term><term>string (ISO 8601 Format)</term><term /><term>The timestamp of the last modification the resource (UTC).</term></item><item><term>lastModifiedBy</term><term>string</term><term /><term>The identity that last modified the resource.</term></item><item><term>lastModifiedByType</term><term>"User" | "Application" | "ManagedIdentity" | "Key"</term><term /><term>The type of identity that last modified the resource.</term></item></list></remarks>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Creates or updates a collection entity.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="content" /> is null. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call CreateOrUpdateCollectionAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+using RequestContent content = RequestContent.Create(new object());
+Response response = await client.CreateOrUpdateCollectionAsync(content);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call CreateOrUpdateCollectionAsync with all request content and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+using RequestContent content = RequestContent.Create(new
+{
+    description = "<description>",
+    friendlyName = "<friendlyName>",
+    parentCollection = new
+    {
+        referenceName = "<referenceName>",
+    },
+});
+Response response = await client.CreateOrUpdateCollectionAsync(content);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("collectionProvisioningState").ToString());
+Console.WriteLine(result.GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("friendlyName").ToString());
+Console.WriteLine(result.GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("parentCollection").GetProperty("referenceName").ToString());
+Console.WriteLine(result.GetProperty("parentCollection").GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("createdAt").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("createdByType").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("lastModifiedAt").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("lastModifiedBy").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("lastModifiedByType").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="DeleteCollection">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response DeleteCollection (Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response DeleteCollection(class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.DeleteCollection(Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteCollection (Optional options As RequestOptions = Nothing) As Response" />
-      <MemberSignature Language="F#" Value="abstract member DeleteCollection : Azure.RequestOptions -&gt; Azure.Response&#xA;override this.DeleteCollection : Azure.RequestOptions -&gt; Azure.Response" Usage="purviewCollection.DeleteCollection options" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response DeleteCollection (Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response DeleteCollection(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.DeleteCollection(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteCollection (Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="F#" Value="abstract member DeleteCollection : Azure.RequestContext -&gt; Azure.Response&#xA;override this.DeleteCollection : Azure.RequestContext -&gt; Azure.Response" Usage="purviewCollection.DeleteCollection context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
@@ -112,21 +202,47 @@
         <ReturnType>Azure.Response</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="options"> The request options. </param>
-        <summary> Deletes a Collection entity. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Deletes a Collection entity.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call DeleteCollection.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+Response response = client.DeleteCollection();
+
+Console.WriteLine(response.Status);
+]]></code>
+This sample shows how to call DeleteCollection with all request content.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+Response response = client.DeleteCollection();
+
+Console.WriteLine(response.Status);
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="DeleteCollectionAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; DeleteCollectionAsync (Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; DeleteCollectionAsync(class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.DeleteCollectionAsync(Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteCollectionAsync (Optional options As RequestOptions = Nothing) As Task(Of Response)" />
-      <MemberSignature Language="F#" Value="abstract member DeleteCollectionAsync : Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.DeleteCollectionAsync : Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewCollection.DeleteCollectionAsync options" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; DeleteCollectionAsync (Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; DeleteCollectionAsync(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.DeleteCollectionAsync(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteCollectionAsync (Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member DeleteCollectionAsync : Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.DeleteCollectionAsync : Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewCollection.DeleteCollectionAsync context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
@@ -136,21 +252,161 @@
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="options"> The request options. </param>
-        <summary> Deletes a Collection entity. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Deletes a Collection entity.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call DeleteCollectionAsync.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+Response response = await client.DeleteCollectionAsync();
+
+Console.WriteLine(response.Status);
+]]></code>
+This sample shows how to call DeleteCollectionAsync with all request content.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+Response response = await client.DeleteCollectionAsync();
+
+Console.WriteLine(response.Status);
+]]></code></example>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChildCollectionNames">
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetChildCollectionNames (string skipToken, Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetChildCollectionNames(string skipToken, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.GetChildCollectionNames(System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetChildCollectionNames (skipToken As String, context As RequestContext) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="F#" Value="abstract member GetChildCollectionNames : string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetChildCollectionNames : string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="purviewCollection.GetChildCollectionNames (skipToken, context)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Pageable&lt;System.BinaryData&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="skipToken" Type="System.String" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
+      </Parameters>
+      <Docs>
+        <param name="skipToken"> The <see cref="T:System.String" /> to use. </param>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Lists the child collections names in the collection.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetChildCollectionNames and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+foreach (BinaryData item in client.GetChildCollectionNames(null, null))
+{
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
+    Console.WriteLine(result.ToString());
+}
+]]></code>
+This sample shows how to call GetChildCollectionNames with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+foreach (BinaryData item in client.GetChildCollectionNames("<skipToken>", null))
+{
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
+    Console.WriteLine(result.GetProperty("friendlyName").ToString());
+    Console.WriteLine(result.GetProperty("name").ToString());
+}
+]]></code></example>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChildCollectionNamesAsync">
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetChildCollectionNamesAsync (string skipToken, Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetChildCollectionNamesAsync(string skipToken, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.GetChildCollectionNamesAsync(System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetChildCollectionNamesAsync (skipToken As String, context As RequestContext) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="F#" Value="abstract member GetChildCollectionNamesAsync : string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetChildCollectionNamesAsync : string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="purviewCollection.GetChildCollectionNamesAsync (skipToken, context)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AsyncPageable&lt;System.BinaryData&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="skipToken" Type="System.String" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
+      </Parameters>
+      <Docs>
+        <param name="skipToken"> The <see cref="T:System.String" /> to use. </param>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Lists the child collections names in the collection.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetChildCollectionNamesAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+await foreach (BinaryData item in client.GetChildCollectionNamesAsync(null, null))
+{
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
+    Console.WriteLine(result.ToString());
+}
+]]></code>
+This sample shows how to call GetChildCollectionNamesAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+await foreach (BinaryData item in client.GetChildCollectionNamesAsync("<skipToken>", null))
+{
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
+    Console.WriteLine(result.GetProperty("friendlyName").ToString());
+    Console.WriteLine(result.GetProperty("name").ToString());
+}
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetCollection">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetCollection (Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetCollection(class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.GetCollection(Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCollection (Optional options As RequestOptions = Nothing) As Response" />
-      <MemberSignature Language="F#" Value="abstract member GetCollection : Azure.RequestOptions -&gt; Azure.Response&#xA;override this.GetCollection : Azure.RequestOptions -&gt; Azure.Response" Usage="purviewCollection.GetCollection options" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetCollection (Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetCollection(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.GetCollection(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCollection (context As RequestContext) As Response" />
+      <MemberSignature Language="F#" Value="abstract member GetCollection : Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetCollection : Azure.RequestContext -&gt; Azure.Response" Usage="purviewCollection.GetCollection context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
@@ -160,21 +416,60 @@
         <ReturnType>Azure.Response</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="options"> The request options. </param>
-        <summary> Get a collection. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Get a collection
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetCollection and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+Response response = client.GetCollection(null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetCollection with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+Response response = client.GetCollection(null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("collectionProvisioningState").ToString());
+Console.WriteLine(result.GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("friendlyName").ToString());
+Console.WriteLine(result.GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("parentCollection").GetProperty("referenceName").ToString());
+Console.WriteLine(result.GetProperty("parentCollection").GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("createdAt").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("createdByType").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("lastModifiedAt").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("lastModifiedBy").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("lastModifiedByType").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetCollectionAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetCollectionAsync (Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetCollectionAsync(class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.GetCollectionAsync(Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCollectionAsync (Optional options As RequestOptions = Nothing) As Task(Of Response)" />
-      <MemberSignature Language="F#" Value="abstract member GetCollectionAsync : Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetCollectionAsync : Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewCollection.GetCollectionAsync options" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetCollectionAsync (Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetCollectionAsync(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.GetCollectionAsync(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCollectionAsync (context As RequestContext) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member GetCollectionAsync : Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetCollectionAsync : Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewCollection.GetCollectionAsync context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
@@ -184,21 +479,60 @@
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="options"> The request options. </param>
-        <summary> Get a collection. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Get a collection
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetCollectionAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+Response response = await client.GetCollectionAsync(null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetCollectionAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+Response response = await client.GetCollectionAsync(null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("collectionProvisioningState").ToString());
+Console.WriteLine(result.GetProperty("description").ToString());
+Console.WriteLine(result.GetProperty("friendlyName").ToString());
+Console.WriteLine(result.GetProperty("name").ToString());
+Console.WriteLine(result.GetProperty("parentCollection").GetProperty("referenceName").ToString());
+Console.WriteLine(result.GetProperty("parentCollection").GetProperty("type").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("createdAt").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("createdBy").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("createdByType").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("lastModifiedAt").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("lastModifiedBy").ToString());
+Console.WriteLine(result.GetProperty("systemData").GetProperty("lastModifiedByType").ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetCollectionPath">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetCollectionPath (Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetCollectionPath(class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.GetCollectionPath(Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCollectionPath (Optional options As RequestOptions = Nothing) As Response" />
-      <MemberSignature Language="F#" Value="abstract member GetCollectionPath : Azure.RequestOptions -&gt; Azure.Response&#xA;override this.GetCollectionPath : Azure.RequestOptions -&gt; Azure.Response" Usage="purviewCollection.GetCollectionPath options" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetCollectionPath (Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetCollectionPath(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.GetCollectionPath(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCollectionPath (context As RequestContext) As Response" />
+      <MemberSignature Language="F#" Value="abstract member GetCollectionPath : Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetCollectionPath : Azure.RequestContext -&gt; Azure.Response" Usage="purviewCollection.GetCollectionPath context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
@@ -208,21 +542,50 @@
         <ReturnType>Azure.Response</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="options"> The request options. </param>
-        <summary> Gets the parent name and parent friendly name chains that represent the collection path. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Gets the parent name and parent friendly name chains that represent the collection path.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetCollectionPath and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+Response response = client.GetCollectionPath(null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetCollectionPath with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+Response response = client.GetCollectionPath(null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("parentFriendlyNameChain")[0].ToString());
+Console.WriteLine(result.GetProperty("parentNameChain")[0].ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetCollectionPathAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetCollectionPathAsync (Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetCollectionPathAsync(class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.GetCollectionPathAsync(Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCollectionPathAsync (Optional options As RequestOptions = Nothing) As Task(Of Response)" />
-      <MemberSignature Language="F#" Value="abstract member GetCollectionPathAsync : Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetCollectionPathAsync : Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewCollection.GetCollectionPathAsync options" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetCollectionPathAsync (Azure.RequestContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetCollectionPathAsync(class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.GetCollectionPathAsync(Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetCollectionPathAsync (context As RequestContext) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member GetCollectionPathAsync : Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetCollectionPathAsync : Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewCollection.GetCollectionPathAsync context" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
@@ -232,65 +595,42 @@
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="options" Type="Azure.RequestOptions" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
-        <param name="options"> The request options. </param>
-        <summary> Gets the parent name and parent friendly name chains that represent the collection path. </summary>
-        <returns>To be added.</returns>
+        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Gets the parent name and parent friendly name chains that represent the collection path.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="ListChildCollectionNames">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response ListChildCollectionNames (string skipToken = default, Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response ListChildCollectionNames(string skipToken, class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.ListChildCollectionNames(System.String,Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function ListChildCollectionNames (Optional skipToken As String = Nothing, Optional options As RequestOptions = Nothing) As Response" />
-      <MemberSignature Language="F#" Value="abstract member ListChildCollectionNames : string * Azure.RequestOptions -&gt; Azure.Response&#xA;override this.ListChildCollectionNames : string * Azure.RequestOptions -&gt; Azure.Response" Usage="purviewCollection.ListChildCollectionNames (skipToken, options)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.Response</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="skipToken" Type="System.String" />
-        <Parameter Name="options" Type="Azure.RequestOptions" />
-      </Parameters>
-      <Docs>
-        <param name="skipToken"> The String to use. </param>
-        <param name="options"> The request options. </param>
-        <summary> Lists the child collections names in the collection. </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="ListChildCollectionNamesAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; ListChildCollectionNamesAsync (string skipToken = default, Azure.RequestOptions options = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; ListChildCollectionNamesAsync(string skipToken, class Azure.RequestOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Analytics.Purview.Account.PurviewCollection.ListChildCollectionNamesAsync(System.String,Azure.RequestOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function ListChildCollectionNamesAsync (Optional skipToken As String = Nothing, Optional options As RequestOptions = Nothing) As Task(Of Response)" />
-      <MemberSignature Language="F#" Value="abstract member ListChildCollectionNamesAsync : string * Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.ListChildCollectionNamesAsync : string * Azure.RequestOptions -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="purviewCollection.ListChildCollectionNamesAsync (skipToken, options)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Analytics.Purview.Account</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="skipToken" Type="System.String" />
-        <Parameter Name="options" Type="Azure.RequestOptions" />
-      </Parameters>
-      <Docs>
-        <param name="skipToken"> The String to use. </param>
-        <param name="options"> The request options. </param>
-        <summary> Lists the child collections names in the collection. </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+        <example>
+This sample shows how to call GetCollectionPathAsync and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+Response response = await client.GetCollectionPathAsync(null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetCollectionPathAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<endpoint>");
+TokenCredential credential = new DefaultAzureCredential();
+PurviewCollection client = new PurviewAccountClient(endpoint, credential).GetPurviewCollectionClient("<CollectionName>");
+
+Response response = await client.GetCollectionPathAsync(null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.GetProperty("parentFriendlyNameChain")[0].ToString());
+Console.WriteLine(result.GetProperty("parentNameChain")[0].ToString());
+]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="Pipeline">

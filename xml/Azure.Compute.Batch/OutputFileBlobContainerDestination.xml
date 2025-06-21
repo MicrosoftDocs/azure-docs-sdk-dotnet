@@ -28,40 +28,40 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public OutputFileBlobContainerDestination (string containerUrl);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string containerUrl) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.OutputFileBlobContainerDestination.#ctor(System.String)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (containerUrl As String)" />
-      <MemberSignature Language="F#" Value="new Azure.Compute.Batch.OutputFileBlobContainerDestination : string -&gt; Azure.Compute.Batch.OutputFileBlobContainerDestination" Usage="new Azure.Compute.Batch.OutputFileBlobContainerDestination containerUrl" />
+      <MemberSignature Language="C#" Value="public OutputFileBlobContainerDestination (Uri containerUri);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Uri containerUri) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.OutputFileBlobContainerDestination.#ctor(System.Uri)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (containerUri As Uri)" />
+      <MemberSignature Language="F#" Value="new Azure.Compute.Batch.OutputFileBlobContainerDestination : Uri -&gt; Azure.Compute.Batch.OutputFileBlobContainerDestination" Usage="new Azure.Compute.Batch.OutputFileBlobContainerDestination containerUri" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="containerUrl" Type="System.String" />
+        <Parameter Name="containerUri" Type="System.Uri" />
       </Parameters>
       <Docs>
-        <param name="containerUrl"> The URL of the container within Azure Blob Storage to which to upload the file(s). If not using a managed identity, the URL must include a Shared Access Signature (SAS) granting write permissions to the container. </param>
+        <param name="containerUri"> The URL of the container within Azure Blob Storage to which to upload the file(s). If not using a managed identity, the URL must include a Shared Access Signature (SAS) granting write permissions to the container. </param>
         <summary> Initializes a new instance of <see cref="T:Azure.Compute.Batch.OutputFileBlobContainerDestination" />. </summary>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="containerUrl" /> is null. </exception>
+          <paramref name="containerUri" /> is null. </exception>
       </Docs>
     </Member>
-    <Member MemberName="ContainerUrl">
-      <MemberSignature Language="C#" Value="public string ContainerUrl { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string ContainerUrl" />
-      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.OutputFileBlobContainerDestination.ContainerUrl" />
-      <MemberSignature Language="VB.NET" Value="Public Property ContainerUrl As String" />
-      <MemberSignature Language="F#" Value="member this.ContainerUrl : string with get, set" Usage="Azure.Compute.Batch.OutputFileBlobContainerDestination.ContainerUrl" />
+    <Member MemberName="ContainerUri">
+      <MemberSignature Language="C#" Value="public Uri ContainerUri { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Uri ContainerUri" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.OutputFileBlobContainerDestination.ContainerUri" />
+      <MemberSignature Language="VB.NET" Value="Public Property ContainerUri As Uri" />
+      <MemberSignature Language="F#" Value="member this.ContainerUri : Uri with get, set" Usage="Azure.Compute.Batch.OutputFileBlobContainerDestination.ContainerUri" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>System.Uri</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> The URL of the container within Azure Blob Storage to which to upload the file(s). If not using a managed identity, the URL must include a Shared Access Signature (SAS) granting write permissions to the container. </summary>
@@ -254,7 +254,7 @@
         <summary>
             Gets the data interchange format (JSON, Xml, etc) that the model uses when communicating with the service.
             </summary>
-        <returns>The format that the model uses when communicating with the serivce.</returns>
+        <returns>The format that the model uses when communicating with the service.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -289,18 +289,18 @@
       </Docs>
     </Member>
     <Member MemberName="UploadHeaders">
-      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.Compute.Batch.HttpHeader&gt; UploadHeaders { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.Compute.Batch.HttpHeader&gt; UploadHeaders" />
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.Compute.Batch.OutputFileUploadHeader&gt; UploadHeaders { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.Compute.Batch.OutputFileUploadHeader&gt; UploadHeaders" />
       <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.OutputFileBlobContainerDestination.UploadHeaders" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property UploadHeaders As IList(Of HttpHeader)" />
-      <MemberSignature Language="F#" Value="member this.UploadHeaders : System.Collections.Generic.IList&lt;Azure.Compute.Batch.HttpHeader&gt;" Usage="Azure.Compute.Batch.OutputFileBlobContainerDestination.UploadHeaders" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property UploadHeaders As IList(Of OutputFileUploadHeader)" />
+      <MemberSignature Language="F#" Value="member this.UploadHeaders : System.Collections.Generic.IList&lt;Azure.Compute.Batch.OutputFileUploadHeader&gt;" Usage="Azure.Compute.Batch.OutputFileBlobContainerDestination.UploadHeaders" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Collections.Generic.IList&lt;Azure.Compute.Batch.HttpHeader&gt;</ReturnType>
+        <ReturnType>System.Collections.Generic.IList&lt;Azure.Compute.Batch.OutputFileUploadHeader&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> A list of name-value pairs for headers to be used in uploading output files. These headers will be specified when uploading files to Azure Storage. Official document on allowed headers when uploading blobs: https://learn.microsoft.com/rest/api/storageservices/put-blob#request-headers-all-blob-types. </summary>

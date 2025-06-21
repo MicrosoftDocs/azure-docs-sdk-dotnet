@@ -1,0 +1,363 @@
+<Type Name="BatchInboundNatPool" FullName="Azure.Compute.Batch.BatchInboundNatPool">
+  <TypeSignature Language="C#" Value="public class BatchInboundNatPool : System.ClientModel.Primitives.IJsonModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;, System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit BatchInboundNatPool extends System.Object implements class System.ClientModel.Primitives.IJsonModel`1&lt;class Azure.Compute.Batch.BatchInboundNatPool&gt;, class System.ClientModel.Primitives.IPersistableModel`1&lt;class Azure.Compute.Batch.BatchInboundNatPool&gt;" />
+  <TypeSignature Language="DocId" Value="T:Azure.Compute.Batch.BatchInboundNatPool" />
+  <TypeSignature Language="VB.NET" Value="Public Class BatchInboundNatPool&#xA;Implements IJsonModel(Of BatchInboundNatPool), IPersistableModel(Of BatchInboundNatPool)" />
+  <TypeSignature Language="F#" Value="type BatchInboundNatPool = class&#xA;    interface IJsonModel&lt;BatchInboundNatPool&gt;&#xA;    interface IPersistableModel&lt;BatchInboundNatPool&gt;" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.Compute.Batch</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.ClientModel.Primitives.IJsonModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.ClientModel.Primitives.IPersistableModel&lt;T&gt;</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>
+            A inbound NAT Pool that can be used to address specific ports on Compute Nodes
+            in a Batch Pool externally.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BatchInboundNatPool (string name, Azure.Compute.Batch.InboundEndpointProtocol protocol, int backendPort, int frontendPortRangeStart, int frontendPortRangeEnd);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string name, valuetype Azure.Compute.Batch.InboundEndpointProtocol protocol, int32 backendPort, int32 frontendPortRangeStart, int32 frontendPortRangeEnd) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.BatchInboundNatPool.#ctor(System.String,Azure.Compute.Batch.InboundEndpointProtocol,System.Int32,System.Int32,System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (name As String, protocol As InboundEndpointProtocol, backendPort As Integer, frontendPortRangeStart As Integer, frontendPortRangeEnd As Integer)" />
+      <MemberSignature Language="F#" Value="new Azure.Compute.Batch.BatchInboundNatPool : string * Azure.Compute.Batch.InboundEndpointProtocol * int * int * int -&gt; Azure.Compute.Batch.BatchInboundNatPool" Usage="new Azure.Compute.Batch.BatchInboundNatPool (name, protocol, backendPort, frontendPortRangeStart, frontendPortRangeEnd)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="protocol" Type="Azure.Compute.Batch.InboundEndpointProtocol" />
+        <Parameter Name="backendPort" Type="System.Int32" />
+        <Parameter Name="frontendPortRangeStart" Type="System.Int32" />
+        <Parameter Name="frontendPortRangeEnd" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="name"> The name of the endpoint. The name must be unique within a Batch Pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters.  If any invalid values are provided the request fails with HTTP status code 400. </param>
+        <param name="protocol"> The protocol of the endpoint. </param>
+        <param name="backendPort"> The port number on the Compute Node. This must be unique within a Batch Pool. Acceptable values are between 1 and 65535 except for 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400. </param>
+        <param name="frontendPortRangeStart"> The first port number in the range of external ports that will be used to provide inbound access to the backendPort on individual Compute Nodes. Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved. All ranges within a Pool must be distinct and cannot overlap. Each range must contain at least 40 ports. If any reserved or overlapping values are provided the request fails with HTTP status code 400. </param>
+        <param name="frontendPortRangeEnd"> The last port number in the range of external ports that will be used to provide inbound access to the backendPort on individual Compute Nodes. Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved by the Batch service. All ranges within a Pool must be distinct and cannot overlap. Each range must contain at least 40 ports. If any reserved or overlapping values are provided the request fails with HTTP status code 400. </param>
+        <summary> Initializes a new instance of <see cref="T:Azure.Compute.Batch.BatchInboundNatPool" />. </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="name" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="BackendPort">
+      <MemberSignature Language="C#" Value="public int BackendPort { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 BackendPort" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchInboundNatPool.BackendPort" />
+      <MemberSignature Language="VB.NET" Value="Public Property BackendPort As Integer" />
+      <MemberSignature Language="F#" Value="member this.BackendPort : int with get, set" Usage="Azure.Compute.Batch.BatchInboundNatPool.BackendPort" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The port number on the Compute Node. This must be unique within a Batch Pool. Acceptable values are between 1 and 65535 except for 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FrontendPortRangeEnd">
+      <MemberSignature Language="C#" Value="public int FrontendPortRangeEnd { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 FrontendPortRangeEnd" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchInboundNatPool.FrontendPortRangeEnd" />
+      <MemberSignature Language="VB.NET" Value="Public Property FrontendPortRangeEnd As Integer" />
+      <MemberSignature Language="F#" Value="member this.FrontendPortRangeEnd : int with get, set" Usage="Azure.Compute.Batch.BatchInboundNatPool.FrontendPortRangeEnd" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The last port number in the range of external ports that will be used to provide inbound access to the backendPort on individual Compute Nodes. Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved by the Batch service. All ranges within a Pool must be distinct and cannot overlap. Each range must contain at least 40 ports. If any reserved or overlapping values are provided the request fails with HTTP status code 400. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FrontendPortRangeStart">
+      <MemberSignature Language="C#" Value="public int FrontendPortRangeStart { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 FrontendPortRangeStart" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchInboundNatPool.FrontendPortRangeStart" />
+      <MemberSignature Language="VB.NET" Value="Public Property FrontendPortRangeStart As Integer" />
+      <MemberSignature Language="F#" Value="member this.FrontendPortRangeStart : int with get, set" Usage="Azure.Compute.Batch.BatchInboundNatPool.FrontendPortRangeStart" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The first port number in the range of external ports that will be used to provide inbound access to the backendPort on individual Compute Nodes. Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved. All ranges within a Pool must be distinct and cannot overlap. Each range must contain at least 40 ports. If any reserved or overlapping values are provided the request fails with HTTP status code 400. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="JsonModelWriteCore">
+      <MemberSignature Language="C#" Value="protected virtual void JsonModelWriteCore (System.Text.Json.Utf8JsonWriter writer, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance void JsonModelWriteCore(class System.Text.Json.Utf8JsonWriter writer, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.BatchInboundNatPool.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Sub JsonModelWriteCore (writer As Utf8JsonWriter, options As ModelReaderWriterOptions)" />
+      <MemberSignature Language="F#" Value="abstract member JsonModelWriteCore : System.Text.Json.Utf8JsonWriter * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; unit&#xA;override this.JsonModelWriteCore : System.Text.Json.Utf8JsonWriter * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; unit" Usage="batchInboundNatPool.JsonModelWriteCore (writer, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="writer" Type="System.Text.Json.Utf8JsonWriter" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="writer"> The JSON writer. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Name">
+      <MemberSignature Language="C#" Value="public string Name { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Name" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchInboundNatPool.Name" />
+      <MemberSignature Language="VB.NET" Value="Public Property Name As String" />
+      <MemberSignature Language="F#" Value="member this.Name : string with get, set" Usage="Azure.Compute.Batch.BatchInboundNatPool.Name" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The name of the endpoint. The name must be unique within a Batch Pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters.  If any invalid values are provided the request fails with HTTP status code 400. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NetworkSecurityGroupRules">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.Compute.Batch.NetworkSecurityGroupRule&gt; NetworkSecurityGroupRules { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.Compute.Batch.NetworkSecurityGroupRule&gt; NetworkSecurityGroupRules" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchInboundNatPool.NetworkSecurityGroupRules" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property NetworkSecurityGroupRules As IList(Of NetworkSecurityGroupRule)" />
+      <MemberSignature Language="F#" Value="member this.NetworkSecurityGroupRules : System.Collections.Generic.IList&lt;Azure.Compute.Batch.NetworkSecurityGroupRule&gt;" Usage="Azure.Compute.Batch.BatchInboundNatPool.NetworkSecurityGroupRules" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;Azure.Compute.Batch.NetworkSecurityGroupRule&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch Pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Protocol">
+      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.InboundEndpointProtocol Protocol { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Azure.Compute.Batch.InboundEndpointProtocol Protocol" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchInboundNatPool.Protocol" />
+      <MemberSignature Language="VB.NET" Value="Public Property Protocol As InboundEndpointProtocol" />
+      <MemberSignature Language="F#" Value="member this.Protocol : Azure.Compute.Batch.InboundEndpointProtocol with get, set" Usage="Azure.Compute.Batch.BatchInboundNatPool.Protocol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Compute.Batch.InboundEndpointProtocol</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The protocol of the endpoint. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IJsonModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Create">
+      <MemberSignature Language="C#" Value="Azure.Compute.Batch.BatchInboundNatPool IJsonModel&lt;BatchInboundNatPool&gt;.Create (ref System.Text.Json.Utf8JsonReader reader, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance class Azure.Compute.Batch.BatchInboundNatPool System.ClientModel.Primitives.IJsonModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Create(valuetype System.Text.Json.Utf8JsonReader&amp; reader, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.BatchInboundNatPool.System#ClientModel#Primitives#IJsonModel&lt;Azure#Compute#Batch#BatchInboundNatPool&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Function Create (ByRef reader As Utf8JsonReader, options As ModelReaderWriterOptions) As BatchInboundNatPool Implements IJsonModel(Of BatchInboundNatPool).Create" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IJsonModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Create : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.Compute.Batch.BatchInboundNatPool&#xA;override this.System.ClientModel.Primitives.IJsonModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Create : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.Compute.Batch.BatchInboundNatPool" Usage="batchInboundNatPool.System.ClientModel.Primitives.IJsonModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Create (reader, options)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IJsonModel`1.Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Compute.Batch.BatchInboundNatPool</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="reader" Type="System.Text.Json.Utf8JsonReader" RefType="ref" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="reader">The <see cref="T:System.Text.Json.Utf8JsonReader" /> to read.</param>
+        <param name="options">The <see cref="T:System.ClientModel.Primitives.ModelReaderWriterOptions" /> to use.</param>
+        <summary>
+            Reads one JSON value (including objects or arrays) from the provided reader and converts it to a model.
+            </summary>
+        <returns>A <typeparamref name="T" /> representation of the JSON value.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.FormatException">If the model does not support the requested <see cref="P:System.ClientModel.Primitives.ModelReaderWriterOptions.Format" />.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IJsonModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Write">
+      <MemberSignature Language="C#" Value="void IJsonModel&lt;BatchInboundNatPool&gt;.Write (System.Text.Json.Utf8JsonWriter writer, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance void System.ClientModel.Primitives.IJsonModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Write(class System.Text.Json.Utf8JsonWriter writer, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.BatchInboundNatPool.System#ClientModel#Primitives#IJsonModel&lt;Azure#Compute#Batch#BatchInboundNatPool&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Sub Write (writer As Utf8JsonWriter, options As ModelReaderWriterOptions) Implements IJsonModel(Of BatchInboundNatPool).Write" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IJsonModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Write : System.Text.Json.Utf8JsonWriter * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; unit&#xA;override this.System.ClientModel.Primitives.IJsonModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Write : System.Text.Json.Utf8JsonWriter * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; unit" Usage="batchInboundNatPool.System.ClientModel.Primitives.IJsonModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Write (writer, options)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IJsonModel`1.Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="writer" Type="System.Text.Json.Utf8JsonWriter" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="writer">The <see cref="T:System.Text.Json.Utf8JsonWriter" /> to write into.</param>
+        <param name="options">The <see cref="T:System.ClientModel.Primitives.ModelReaderWriterOptions" /> to use.</param>
+        <summary>
+            Writes the model to the provided <see cref="T:System.Text.Json.Utf8JsonWriter" />.
+            </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.FormatException">If the model does not support the requested <see cref="P:System.ClientModel.Primitives.ModelReaderWriterOptions.Format" />.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Create">
+      <MemberSignature Language="C#" Value="Azure.Compute.Batch.BatchInboundNatPool IPersistableModel&lt;BatchInboundNatPool&gt;.Create (BinaryData data, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance class Azure.Compute.Batch.BatchInboundNatPool System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Create(class System.BinaryData data, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.BatchInboundNatPool.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Compute#Batch#BatchInboundNatPool&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Function Create (data As BinaryData, options As ModelReaderWriterOptions) As BatchInboundNatPool Implements IPersistableModel(Of BatchInboundNatPool).Create" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Create : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.Compute.Batch.BatchInboundNatPool&#xA;override this.System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Create : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.Compute.Batch.BatchInboundNatPool" Usage="batchInboundNatPool.System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Create (data, options)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IPersistableModel`1.Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Compute.Batch.BatchInboundNatPool</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="data" Type="System.BinaryData" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="data">The <see cref="T:System.BinaryData" /> to parse.</param>
+        <param name="options">The <see cref="T:System.ClientModel.Primitives.ModelReaderWriterOptions" /> to use.</param>
+        <summary>
+            Converts the provided <see cref="T:System.BinaryData" /> into a model.
+            </summary>
+        <returns>A <typeparamref name="T" /> representation of the data.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.FormatException">If the model does not support the requested <see cref="P:System.ClientModel.Primitives.ModelReaderWriterOptions.Format" />.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.GetFormatFromOptions">
+      <MemberSignature Language="C#" Value="string IPersistableModel&lt;BatchInboundNatPool&gt;.GetFormatFromOptions (System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance string System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.GetFormatFromOptions(class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.BatchInboundNatPool.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Compute#Batch#BatchInboundNatPool&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Function GetFormatFromOptions (options As ModelReaderWriterOptions) As String Implements IPersistableModel(Of BatchInboundNatPool).GetFormatFromOptions" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.GetFormatFromOptions : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; string&#xA;override this.System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.GetFormatFromOptions : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; string" Usage="batchInboundNatPool.System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.GetFormatFromOptions options" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IPersistableModel`1.GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="options">The <see cref="T:System.ClientModel.Primitives.ModelReaderWriterOptions" /> to consider when serializing and deserializing the model.</param>
+        <summary>
+            Gets the data interchange format (JSON, Xml, etc) that the model uses when communicating with the service.
+            </summary>
+        <returns>The format that the model uses when communicating with the service.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Write">
+      <MemberSignature Language="C#" Value="BinaryData IPersistableModel&lt;BatchInboundNatPool&gt;.Write (System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance class System.BinaryData System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Write(class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.BatchInboundNatPool.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Compute#Batch#BatchInboundNatPool&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Function Write (options As ModelReaderWriterOptions) As BinaryData Implements IPersistableModel(Of BatchInboundNatPool).Write" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Write : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; BinaryData&#xA;override this.System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Write : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; BinaryData" Usage="batchInboundNatPool.System.ClientModel.Primitives.IPersistableModel&lt;Azure.Compute.Batch.BatchInboundNatPool&gt;.Write options" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IPersistableModel`1.Write(System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.BinaryData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="options">The <see cref="T:System.ClientModel.Primitives.ModelReaderWriterOptions" /> to use.</param>
+        <summary>
+            Writes the model into a <see cref="T:System.BinaryData" />.
+            </summary>
+        <returns>A binary representation of the written model.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.FormatException">If the model does not support the requested <see cref="P:System.ClientModel.Primitives.ModelReaderWriterOptions.Format" />.</exception>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -56,10 +56,14 @@
       <Docs>
         <param name="partyId"> Id of the party resource. </param>
         <param name="nutrientAnalysisId"> Id of the nutrient analysis resource. </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Creates or updates a nutrient analysis resource. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Creates or updates a nutrient analysis resource.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the request and response payloads.
 
@@ -146,34 +150,38 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> or <paramref name="nutrientAnalysisId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateOrUpdate with required parameters and parse the result.
+This sample shows how to call CreateOrUpdate and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetNutrientAnalysesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
 
-var data = new {};
-
-Response response = client.CreateOrUpdate("<partyId>", "<nutrientAnalysisId>", RequestContent.Create(data));
+using RequestContent content = RequestContent.Create(new object());
+Response response = client.CreateOrUpdate("<partyId>", "<nutrientAnalysisId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.ToString());
 ]]></code>
-This sample shows how to call CreateOrUpdate with all parameters and request content, and how to parse the result.
+This sample shows how to call CreateOrUpdate with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetNutrientAnalysesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
 
-var data = new {
+using RequestContent content = RequestContent.Create(new
+{
     parentId = "<parentId>",
     parentType = "PlantTissueAnalysis",
     unit = "<unit>",
-    value = 123.45d,
-    referenceValueLow = 123.45d,
-    referenceValueHigh = 123.45d,
+    value = 123.45,
+    referenceValueLow = 123.45,
+    referenceValueHigh = 123.45,
     classification = "<classification>",
     recommendation = "<recommendation>",
-    products = new[] {
-        new {
+    products = new object[]
+    {
+        new
+        {
             rate = "<rate>",
             instruction = "<instruction>",
             product = "<product>",
@@ -183,12 +191,12 @@ var data = new {
     source = "<source>",
     name = "<name>",
     description = "<description>",
-    properties = new {
-        key = new {},
+    properties = new
+    {
+        key = new object(),
     },
-};
-
-Response response = client.CreateOrUpdate("<partyId>", "<nutrientAnalysisId>", RequestContent.Create(data));
+});
+Response response = client.CreateOrUpdate("<partyId>", "<nutrientAnalysisId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
@@ -213,7 +221,7 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
@@ -240,10 +248,14 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
       <Docs>
         <param name="partyId"> Id of the party resource. </param>
         <param name="nutrientAnalysisId"> Id of the nutrient analysis resource. </param>
-        <param name="content"> The content to send as the body of the request. Details of the request body schema are in the Remarks section below. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Creates or updates a nutrient analysis resource. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Creates or updates a nutrient analysis resource.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the request and response payloads.
 
@@ -330,34 +342,38 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> or <paramref name="nutrientAnalysisId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call CreateOrUpdateAsync with required parameters and parse the result.
+This sample shows how to call CreateOrUpdateAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetNutrientAnalysesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
 
-var data = new {};
-
-Response response = await client.CreateOrUpdateAsync("<partyId>", "<nutrientAnalysisId>", RequestContent.Create(data));
+using RequestContent content = RequestContent.Create(new object());
+Response response = await client.CreateOrUpdateAsync("<partyId>", "<nutrientAnalysisId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.ToString());
 ]]></code>
-This sample shows how to call CreateOrUpdateAsync with all parameters and request content, and how to parse the result.
+This sample shows how to call CreateOrUpdateAsync with all parameters and request content and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetNutrientAnalysesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
 
-var data = new {
+using RequestContent content = RequestContent.Create(new
+{
     parentId = "<parentId>",
     parentType = "PlantTissueAnalysis",
     unit = "<unit>",
-    value = 123.45d,
-    referenceValueLow = 123.45d,
-    referenceValueHigh = 123.45d,
+    value = 123.45,
+    referenceValueLow = 123.45,
+    referenceValueHigh = 123.45,
     classification = "<classification>",
     recommendation = "<recommendation>",
-    products = new[] {
-        new {
+    products = new object[]
+    {
+        new
+        {
             rate = "<rate>",
             instruction = "<instruction>",
             product = "<product>",
@@ -367,12 +383,12 @@ var data = new {
     source = "<source>",
     name = "<name>",
     description = "<description>",
-    properties = new {
-        key = new {},
+    properties = new
+    {
+        key = new object(),
     },
-};
-
-Response response = await client.CreateOrUpdateAsync("<partyId>", "<nutrientAnalysisId>", RequestContent.Create(data));
+});
+Response response = await client.CreateOrUpdateAsync("<partyId>", "<nutrientAnalysisId>", content);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
@@ -397,7 +413,7 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
@@ -424,7 +440,11 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
         <param name="partyId"> Id of the party. </param>
         <param name="nutrientAnalysisId"> Id of the nutrient analysis. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Deletes a specified nutrient analysis resource under a particular party. </summary>
+        <summary>
+            [Protocol Method] Deletes a specified nutrient analysis resource under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -433,12 +453,24 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
           <paramref name="partyId" /> or <paramref name="nutrientAnalysisId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call Delete with required parameters.
+This sample shows how to call Delete.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetNutrientAnalysesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
 
 Response response = client.Delete("<partyId>", "<nutrientAnalysisId>");
+
+Console.WriteLine(response.Status);
+]]></code>
+This sample shows how to call Delete with all parameters.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
+
+Response response = client.Delete("<partyId>", "<nutrientAnalysisId>");
+
 Console.WriteLine(response.Status);
 ]]></code></example>
       </Docs>
@@ -466,7 +498,11 @@ Console.WriteLine(response.Status);
         <param name="partyId"> Id of the party. </param>
         <param name="nutrientAnalysisId"> Id of the nutrient analysis. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Deletes a specified nutrient analysis resource under a particular party. </summary>
+        <summary>
+            [Protocol Method] Deletes a specified nutrient analysis resource under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -475,21 +511,33 @@ Console.WriteLine(response.Status);
           <paramref name="partyId" /> or <paramref name="nutrientAnalysisId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call DeleteAsync with required parameters.
+This sample shows how to call DeleteAsync.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetNutrientAnalysesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
 
 Response response = await client.DeleteAsync("<partyId>", "<nutrientAnalysisId>");
+
+Console.WriteLine(response.Status);
+]]></code>
+This sample shows how to call DeleteAsync with all parameters.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
+
+Response response = await client.DeleteAsync("<partyId>", "<nutrientAnalysisId>");
+
 Console.WriteLine(response.Status);
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetNutrientAnalyses">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetNutrientAnalyses (string parentType = default, System.Collections.Generic.IEnumerable&lt;string&gt; parentIds = default, System.Collections.Generic.IEnumerable&lt;string&gt; classifications = default, System.Collections.Generic.IEnumerable&lt;string&gt; ids = default, System.Collections.Generic.IEnumerable&lt;string&gt; names = default, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters = default, System.Collections.Generic.IEnumerable&lt;string&gt; statuses = default, DateTimeOffset? minCreatedDateTime = default, DateTimeOffset? maxCreatedDateTime = default, DateTimeOffset? minLastModifiedDateTime = default, DateTimeOffset? maxLastModifiedDateTime = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetNutrientAnalyses (string parentType, System.Collections.Generic.IEnumerable&lt;string&gt; parentIds, System.Collections.Generic.IEnumerable&lt;string&gt; classifications, System.Collections.Generic.IEnumerable&lt;string&gt; ids, System.Collections.Generic.IEnumerable&lt;string&gt; names, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters, System.Collections.Generic.IEnumerable&lt;string&gt; statuses, DateTimeOffset? minCreatedDateTime, DateTimeOffset? maxCreatedDateTime, DateTimeOffset? minLastModifiedDateTime, DateTimeOffset? maxLastModifiedDateTime, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetNutrientAnalyses(string parentType, class System.Collections.Generic.IEnumerable`1&lt;string&gt; parentIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; classifications, class System.Collections.Generic.IEnumerable`1&lt;string&gt; ids, class System.Collections.Generic.IEnumerable`1&lt;string&gt; names, class System.Collections.Generic.IEnumerable`1&lt;string&gt; propertyFilters, class System.Collections.Generic.IEnumerable`1&lt;string&gt; statuses, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minLastModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxLastModifiedDateTime, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.NutrientAnalyses.GetNutrientAnalyses(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNutrientAnalyses (Optional parentType As String = Nothing, Optional parentIds As IEnumerable(Of String) = Nothing, Optional classifications As IEnumerable(Of String) = Nothing, Optional ids As IEnumerable(Of String) = Nothing, Optional names As IEnumerable(Of String) = Nothing, Optional propertyFilters As IEnumerable(Of String) = Nothing, Optional statuses As IEnumerable(Of String) = Nothing, Optional minCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNutrientAnalyses (parentType As String, parentIds As IEnumerable(Of String), classifications As IEnumerable(Of String), ids As IEnumerable(Of String), names As IEnumerable(Of String), propertyFilters As IEnumerable(Of String), statuses As IEnumerable(Of String), minCreatedDateTime As Nullable(Of DateTimeOffset), maxCreatedDateTime As Nullable(Of DateTimeOffset), minLastModifiedDateTime As Nullable(Of DateTimeOffset), maxLastModifiedDateTime As Nullable(Of DateTimeOffset), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As Pageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetNutrientAnalyses : string * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetNutrientAnalyses : string * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="nutrientAnalyses.GetNutrientAnalyses (parentType, parentIds, classifications, ids, names, propertyFilters, statuses, minCreatedDateTime, maxCreatedDateTime, minLastModifiedDateTime, maxLastModifiedDateTime, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -539,7 +587,11 @@ Console.WriteLine(response.Status);
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of nutrient analysis resources across all parties. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of nutrient analysis resources across all parties.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -586,23 +638,25 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
         <example>
 This sample shows how to call GetNutrientAnalyses and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetNutrientAnalysesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
 
-foreach (var data in client.GetNutrientAnalyses())
+foreach (BinaryData item in client.GetNutrientAnalyses(null, null, null, null, null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetNutrientAnalyses with all parameters, and how to parse the result.
+This sample shows how to call GetNutrientAnalyses with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetNutrientAnalysesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
 
-foreach (var data in client.GetNutrientAnalyses("<parentType>", new String[]{"<parentIds>"}, new String[]{"<classifications>"}, new String[]{"<ids>"}, new String[]{"<names>"}, new String[]{"<propertyFilters>"}, new String[]{"<statuses>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, "<skipToken>"))
+foreach (BinaryData item in client.GetNutrientAnalyses("<parentType>", new string[] { "<parentIds>" }, new string[] { "<classifications>" }, new string[] { "<ids>" }, new string[] { "<names>" }, new string[] { "<propertyFilters>" }, new string[] { "<statuses>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("partyId").ToString());
     Console.WriteLine(result.GetProperty("parentId").ToString());
     Console.WriteLine(result.GetProperty("parentType").ToString());
@@ -625,16 +679,16 @@ foreach (var data in client.GetNutrientAnalyses("<parentType>", new String[]{"<p
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetNutrientAnalysesAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetNutrientAnalysesAsync (string parentType = default, System.Collections.Generic.IEnumerable&lt;string&gt; parentIds = default, System.Collections.Generic.IEnumerable&lt;string&gt; classifications = default, System.Collections.Generic.IEnumerable&lt;string&gt; ids = default, System.Collections.Generic.IEnumerable&lt;string&gt; names = default, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters = default, System.Collections.Generic.IEnumerable&lt;string&gt; statuses = default, DateTimeOffset? minCreatedDateTime = default, DateTimeOffset? maxCreatedDateTime = default, DateTimeOffset? minLastModifiedDateTime = default, DateTimeOffset? maxLastModifiedDateTime = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetNutrientAnalysesAsync (string parentType, System.Collections.Generic.IEnumerable&lt;string&gt; parentIds, System.Collections.Generic.IEnumerable&lt;string&gt; classifications, System.Collections.Generic.IEnumerable&lt;string&gt; ids, System.Collections.Generic.IEnumerable&lt;string&gt; names, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters, System.Collections.Generic.IEnumerable&lt;string&gt; statuses, DateTimeOffset? minCreatedDateTime, DateTimeOffset? maxCreatedDateTime, DateTimeOffset? minLastModifiedDateTime, DateTimeOffset? maxLastModifiedDateTime, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetNutrientAnalysesAsync(string parentType, class System.Collections.Generic.IEnumerable`1&lt;string&gt; parentIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; classifications, class System.Collections.Generic.IEnumerable`1&lt;string&gt; ids, class System.Collections.Generic.IEnumerable`1&lt;string&gt; names, class System.Collections.Generic.IEnumerable`1&lt;string&gt; propertyFilters, class System.Collections.Generic.IEnumerable`1&lt;string&gt; statuses, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minLastModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxLastModifiedDateTime, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.NutrientAnalyses.GetNutrientAnalysesAsync(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNutrientAnalysesAsync (Optional parentType As String = Nothing, Optional parentIds As IEnumerable(Of String) = Nothing, Optional classifications As IEnumerable(Of String) = Nothing, Optional ids As IEnumerable(Of String) = Nothing, Optional names As IEnumerable(Of String) = Nothing, Optional propertyFilters As IEnumerable(Of String) = Nothing, Optional statuses As IEnumerable(Of String) = Nothing, Optional minCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNutrientAnalysesAsync (parentType As String, parentIds As IEnumerable(Of String), classifications As IEnumerable(Of String), ids As IEnumerable(Of String), names As IEnumerable(Of String), propertyFilters As IEnumerable(Of String), statuses As IEnumerable(Of String), minCreatedDateTime As Nullable(Of DateTimeOffset), maxCreatedDateTime As Nullable(Of DateTimeOffset), minLastModifiedDateTime As Nullable(Of DateTimeOffset), maxLastModifiedDateTime As Nullable(Of DateTimeOffset), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As AsyncPageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetNutrientAnalysesAsync : string * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetNutrientAnalysesAsync : string * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="nutrientAnalyses.GetNutrientAnalysesAsync (parentType, parentIds, classifications, ids, names, propertyFilters, statuses, minCreatedDateTime, maxCreatedDateTime, minLastModifiedDateTime, maxLastModifiedDateTime, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -684,7 +738,11 @@ foreach (var data in client.GetNutrientAnalyses("<parentType>", new String[]{"<p
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of nutrient analysis resources across all parties. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of nutrient analysis resources across all parties.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -731,23 +789,25 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
         <example>
 This sample shows how to call GetNutrientAnalysesAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetNutrientAnalysesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
 
-await foreach (var data in client.GetNutrientAnalysesAsync())
+await foreach (BinaryData item in client.GetNutrientAnalysesAsync(null, null, null, null, null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetNutrientAnalysesAsync with all parameters, and how to parse the result.
+This sample shows how to call GetNutrientAnalysesAsync with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetNutrientAnalysesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
 
-await foreach (var data in client.GetNutrientAnalysesAsync("<parentType>", new String[]{"<parentIds>"}, new String[]{"<classifications>"}, new String[]{"<ids>"}, new String[]{"<names>"}, new String[]{"<propertyFilters>"}, new String[]{"<statuses>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, "<skipToken>"))
+await foreach (BinaryData item in client.GetNutrientAnalysesAsync("<parentType>", new string[] { "<parentIds>" }, new string[] { "<classifications>" }, new string[] { "<ids>" }, new string[] { "<names>" }, new string[] { "<propertyFilters>" }, new string[] { "<statuses>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("partyId").ToString());
     Console.WriteLine(result.GetProperty("parentId").ToString());
     Console.WriteLine(result.GetProperty("parentType").ToString());
@@ -770,16 +830,16 @@ await foreach (var data in client.GetNutrientAnalysesAsync("<parentType>", new S
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetNutrientAnalysesByPartyId">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetNutrientAnalysesByPartyId (string partyId, string parentType = default, System.Collections.Generic.IEnumerable&lt;string&gt; parentIds = default, System.Collections.Generic.IEnumerable&lt;string&gt; classifications = default, System.Collections.Generic.IEnumerable&lt;string&gt; ids = default, System.Collections.Generic.IEnumerable&lt;string&gt; names = default, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters = default, System.Collections.Generic.IEnumerable&lt;string&gt; statuses = default, DateTimeOffset? minCreatedDateTime = default, DateTimeOffset? maxCreatedDateTime = default, DateTimeOffset? minLastModifiedDateTime = default, DateTimeOffset? maxLastModifiedDateTime = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetNutrientAnalysesByPartyId (string partyId, string parentType, System.Collections.Generic.IEnumerable&lt;string&gt; parentIds, System.Collections.Generic.IEnumerable&lt;string&gt; classifications, System.Collections.Generic.IEnumerable&lt;string&gt; ids, System.Collections.Generic.IEnumerable&lt;string&gt; names, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters, System.Collections.Generic.IEnumerable&lt;string&gt; statuses, DateTimeOffset? minCreatedDateTime, DateTimeOffset? maxCreatedDateTime, DateTimeOffset? minLastModifiedDateTime, DateTimeOffset? maxLastModifiedDateTime, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetNutrientAnalysesByPartyId(string partyId, string parentType, class System.Collections.Generic.IEnumerable`1&lt;string&gt; parentIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; classifications, class System.Collections.Generic.IEnumerable`1&lt;string&gt; ids, class System.Collections.Generic.IEnumerable`1&lt;string&gt; names, class System.Collections.Generic.IEnumerable`1&lt;string&gt; propertyFilters, class System.Collections.Generic.IEnumerable`1&lt;string&gt; statuses, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minLastModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxLastModifiedDateTime, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.NutrientAnalyses.GetNutrientAnalysesByPartyId(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNutrientAnalysesByPartyId (partyId As String, Optional parentType As String = Nothing, Optional parentIds As IEnumerable(Of String) = Nothing, Optional classifications As IEnumerable(Of String) = Nothing, Optional ids As IEnumerable(Of String) = Nothing, Optional names As IEnumerable(Of String) = Nothing, Optional propertyFilters As IEnumerable(Of String) = Nothing, Optional statuses As IEnumerable(Of String) = Nothing, Optional minCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As Pageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNutrientAnalysesByPartyId (partyId As String, parentType As String, parentIds As IEnumerable(Of String), classifications As IEnumerable(Of String), ids As IEnumerable(Of String), names As IEnumerable(Of String), propertyFilters As IEnumerable(Of String), statuses As IEnumerable(Of String), minCreatedDateTime As Nullable(Of DateTimeOffset), maxCreatedDateTime As Nullable(Of DateTimeOffset), minLastModifiedDateTime As Nullable(Of DateTimeOffset), maxLastModifiedDateTime As Nullable(Of DateTimeOffset), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As Pageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetNutrientAnalysesByPartyId : string * string * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetNutrientAnalysesByPartyId : string * string * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="nutrientAnalyses.GetNutrientAnalysesByPartyId (partyId, parentType, parentIds, classifications, ids, names, propertyFilters, statuses, minCreatedDateTime, maxCreatedDateTime, minLastModifiedDateTime, maxLastModifiedDateTime, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -831,7 +891,11 @@ await foreach (var data in client.GetNutrientAnalysesAsync("<parentType>", new S
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of nutrient analysis resources under a particular party. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of nutrient analysis resources under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -880,25 +944,27 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetNutrientAnalysesByPartyId with required parameters and parse the result.
+This sample shows how to call GetNutrientAnalysesByPartyId and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetNutrientAnalysesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
 
-foreach (var data in client.GetNutrientAnalysesByPartyId("<partyId>"))
+foreach (BinaryData item in client.GetNutrientAnalysesByPartyId("<partyId>", null, null, null, null, null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetNutrientAnalysesByPartyId with all parameters, and how to parse the result.
+This sample shows how to call GetNutrientAnalysesByPartyId with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetNutrientAnalysesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
 
-foreach (var data in client.GetNutrientAnalysesByPartyId("<partyId>", "<parentType>", new String[]{"<parentIds>"}, new String[]{"<classifications>"}, new String[]{"<ids>"}, new String[]{"<names>"}, new String[]{"<propertyFilters>"}, new String[]{"<statuses>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, "<skipToken>"))
+foreach (BinaryData item in client.GetNutrientAnalysesByPartyId("<partyId>", "<parentType>", new string[] { "<parentIds>" }, new string[] { "<classifications>" }, new string[] { "<ids>" }, new string[] { "<names>" }, new string[] { "<propertyFilters>" }, new string[] { "<statuses>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("partyId").ToString());
     Console.WriteLine(result.GetProperty("parentId").ToString());
     Console.WriteLine(result.GetProperty("parentType").ToString());
@@ -921,16 +987,16 @@ foreach (var data in client.GetNutrientAnalysesByPartyId("<partyId>", "<parentTy
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetNutrientAnalysesByPartyIdAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetNutrientAnalysesByPartyIdAsync (string partyId, string parentType = default, System.Collections.Generic.IEnumerable&lt;string&gt; parentIds = default, System.Collections.Generic.IEnumerable&lt;string&gt; classifications = default, System.Collections.Generic.IEnumerable&lt;string&gt; ids = default, System.Collections.Generic.IEnumerable&lt;string&gt; names = default, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters = default, System.Collections.Generic.IEnumerable&lt;string&gt; statuses = default, DateTimeOffset? minCreatedDateTime = default, DateTimeOffset? maxCreatedDateTime = default, DateTimeOffset? minLastModifiedDateTime = default, DateTimeOffset? maxLastModifiedDateTime = default, int? maxPageSize = default, string skipToken = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetNutrientAnalysesByPartyIdAsync (string partyId, string parentType, System.Collections.Generic.IEnumerable&lt;string&gt; parentIds, System.Collections.Generic.IEnumerable&lt;string&gt; classifications, System.Collections.Generic.IEnumerable&lt;string&gt; ids, System.Collections.Generic.IEnumerable&lt;string&gt; names, System.Collections.Generic.IEnumerable&lt;string&gt; propertyFilters, System.Collections.Generic.IEnumerable&lt;string&gt; statuses, DateTimeOffset? minCreatedDateTime, DateTimeOffset? maxCreatedDateTime, DateTimeOffset? minLastModifiedDateTime, DateTimeOffset? maxLastModifiedDateTime, int? maxPageSize, string skipToken, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetNutrientAnalysesByPartyIdAsync(string partyId, string parentType, class System.Collections.Generic.IEnumerable`1&lt;string&gt; parentIds, class System.Collections.Generic.IEnumerable`1&lt;string&gt; classifications, class System.Collections.Generic.IEnumerable`1&lt;string&gt; ids, class System.Collections.Generic.IEnumerable`1&lt;string&gt; names, class System.Collections.Generic.IEnumerable`1&lt;string&gt; propertyFilters, class System.Collections.Generic.IEnumerable`1&lt;string&gt; statuses, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxCreatedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; minLastModifiedDateTime, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; maxLastModifiedDateTime, valuetype System.Nullable`1&lt;int32&gt; maxPageSize, string skipToken, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.NutrientAnalyses.GetNutrientAnalysesByPartyIdAsync(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNutrientAnalysesByPartyIdAsync (partyId As String, Optional parentType As String = Nothing, Optional parentIds As IEnumerable(Of String) = Nothing, Optional classifications As IEnumerable(Of String) = Nothing, Optional ids As IEnumerable(Of String) = Nothing, Optional names As IEnumerable(Of String) = Nothing, Optional propertyFilters As IEnumerable(Of String) = Nothing, Optional statuses As IEnumerable(Of String) = Nothing, Optional minCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxCreatedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional minLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxLastModifiedDateTime As Nullable(Of DateTimeOffset) = Nothing, Optional maxPageSize As Nullable(Of Integer) = Nothing, Optional skipToken As String = Nothing, Optional context As RequestContext = Nothing) As AsyncPageable(Of BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNutrientAnalysesByPartyIdAsync (partyId As String, parentType As String, parentIds As IEnumerable(Of String), classifications As IEnumerable(Of String), ids As IEnumerable(Of String), names As IEnumerable(Of String), propertyFilters As IEnumerable(Of String), statuses As IEnumerable(Of String), minCreatedDateTime As Nullable(Of DateTimeOffset), maxCreatedDateTime As Nullable(Of DateTimeOffset), minLastModifiedDateTime As Nullable(Of DateTimeOffset), maxLastModifiedDateTime As Nullable(Of DateTimeOffset), maxPageSize As Nullable(Of Integer), skipToken As String, context As RequestContext) As AsyncPageable(Of BinaryData)" />
       <MemberSignature Language="F#" Value="abstract member GetNutrientAnalysesByPartyIdAsync : string * string * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetNutrientAnalysesByPartyIdAsync : string * string * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * seq&lt;string&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;int&gt; * string * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="nutrientAnalyses.GetNutrientAnalysesByPartyIdAsync (partyId, parentType, parentIds, classifications, ids, names, propertyFilters, statuses, minCreatedDateTime, maxCreatedDateTime, minLastModifiedDateTime, maxLastModifiedDateTime, maxPageSize, skipToken, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -982,7 +1048,11 @@ foreach (var data in client.GetNutrientAnalysesByPartyId("<partyId>", "<parentTy
             </param>
         <param name="skipToken"> Skip token for getting next set of results. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Returns a paginated list of nutrient analysis resources under a particular party. </summary>
+        <summary>
+            [Protocol Method] Returns a paginated list of nutrient analysis resources under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
         <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
         <remarks>
 Below is the JSON schema for one item in the pageable response.
@@ -1031,25 +1101,27 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetNutrientAnalysesByPartyIdAsync with required parameters and parse the result.
+This sample shows how to call GetNutrientAnalysesByPartyIdAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetNutrientAnalysesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
 
-await foreach (var data in client.GetNutrientAnalysesByPartyIdAsync("<partyId>"))
+await foreach (BinaryData item in client.GetNutrientAnalysesByPartyIdAsync("<partyId>", null, null, null, null, null, null, null, null, null, null, null, null, null, null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.ToString());
 }
 ]]></code>
-This sample shows how to call GetNutrientAnalysesByPartyIdAsync with all parameters, and how to parse the result.
+This sample shows how to call GetNutrientAnalysesByPartyIdAsync with all parameters and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetNutrientAnalysesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
 
-await foreach (var data in client.GetNutrientAnalysesByPartyIdAsync("<partyId>", "<parentType>", new String[]{"<parentIds>"}, new String[]{"<classifications>"}, new String[]{"<ids>"}, new String[]{"<names>"}, new String[]{"<propertyFilters>"}, new String[]{"<statuses>"}, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow, 1234, "<skipToken>"))
+await foreach (BinaryData item in client.GetNutrientAnalysesByPartyIdAsync("<partyId>", "<parentType>", new string[] { "<parentIds>" }, new string[] { "<classifications>" }, new string[] { "<ids>" }, new string[] { "<names>" }, new string[] { "<propertyFilters>" }, new string[] { "<statuses>" }, DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), DateTimeOffset.Parse("2022-05-10T18:57:31.2311892Z"), 1234, "<skipToken>", null))
 {
-    JsonElement result = JsonDocument.Parse(data.ToStream()).RootElement;
+    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("partyId").ToString());
     Console.WriteLine(result.GetProperty("parentId").ToString());
     Console.WriteLine(result.GetProperty("parentType").ToString());
@@ -1072,16 +1144,16 @@ await foreach (var data in client.GetNutrientAnalysesByPartyIdAsync("<partyId>",
     Console.WriteLine(result.GetProperty("description").ToString());
     Console.WriteLine(result.GetProperty("createdBy").ToString());
     Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-    Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+    Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 }
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetNutrientAnalysis">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response GetNutrientAnalysis (string partyId, string nutrientAnalysisId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetNutrientAnalysis (string partyId, string nutrientAnalysisId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetNutrientAnalysis(string partyId, string nutrientAnalysisId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.NutrientAnalyses.GetNutrientAnalysis(System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNutrientAnalysis (partyId As String, nutrientAnalysisId As String, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNutrientAnalysis (partyId As String, nutrientAnalysisId As String, context As RequestContext) As Response" />
       <MemberSignature Language="F#" Value="abstract member GetNutrientAnalysis : string * string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetNutrientAnalysis : string * string * Azure.RequestContext -&gt; Azure.Response" Usage="nutrientAnalyses.GetNutrientAnalysis (partyId, nutrientAnalysisId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1100,8 +1172,12 @@ await foreach (var data in client.GetNutrientAnalysesByPartyIdAsync("<partyId>",
         <param name="partyId"> Id of the associated party. </param>
         <param name="nutrientAnalysisId"> Id of the nutrient analysis. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Gets a specified nutrient analysis resource under a particular party. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Gets a specified nutrient analysis resource under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -1149,12 +1225,24 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> or <paramref name="nutrientAnalysisId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetNutrientAnalysis with required parameters and parse the result.
+This sample shows how to call GetNutrientAnalysis and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetNutrientAnalysesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
 
-Response response = client.GetNutrientAnalysis("<partyId>", "<nutrientAnalysisId>");
+Response response = client.GetNutrientAnalysis("<partyId>", "<nutrientAnalysisId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetNutrientAnalysis with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
+
+Response response = client.GetNutrientAnalysis("<partyId>", "<nutrientAnalysisId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
@@ -1179,15 +1267,15 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>
     <Member MemberName="GetNutrientAnalysisAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetNutrientAnalysisAsync (string partyId, string nutrientAnalysisId, Azure.RequestContext context = default);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetNutrientAnalysisAsync (string partyId, string nutrientAnalysisId, Azure.RequestContext context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetNutrientAnalysisAsync(string partyId, string nutrientAnalysisId, class Azure.RequestContext context) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Verticals.AgriFood.Farming.NutrientAnalyses.GetNutrientAnalysisAsync(System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNutrientAnalysisAsync (partyId As String, nutrientAnalysisId As String, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNutrientAnalysisAsync (partyId As String, nutrientAnalysisId As String, context As RequestContext) As Task(Of Response)" />
       <MemberSignature Language="F#" Value="abstract member GetNutrientAnalysisAsync : string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetNutrientAnalysisAsync : string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="nutrientAnalyses.GetNutrientAnalysisAsync (partyId, nutrientAnalysisId, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1206,8 +1294,12 @@ Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToStrin
         <param name="partyId"> Id of the associated party. </param>
         <param name="nutrientAnalysisId"> Id of the nutrient analysis. </param>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary> Gets a specified nutrient analysis resource under a particular party. </summary>
-        <returns> The response returned from the service. Details of the response body schema are in the Remarks section below. </returns>
+        <summary>
+            [Protocol Method] Gets a specified nutrient analysis resource under a particular party.
+            <list type="bullet"><item><description>
+            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
+            </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>
 Below is the JSON schema for the response payload.
 
@@ -1255,12 +1347,24 @@ numeral and datetime (yyyy-MM-ddTHH:mm:ssZ) values are supported.
           <paramref name="partyId" /> or <paramref name="nutrientAnalysisId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
         <example>
-This sample shows how to call GetNutrientAnalysisAsync with required parameters and parse the result.
+This sample shows how to call GetNutrientAnalysisAsync and parse the result.
 <code><![CDATA[
-var credential = new DefaultAzureCredential();
-var client = new FarmBeatsClient(credential).GetNutrientAnalysesClient(<2022-11-01-preview>);
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
 
-Response response = await client.GetNutrientAnalysisAsync("<partyId>", "<nutrientAnalysisId>");
+Response response = await client.GetNutrientAnalysisAsync("<partyId>", "<nutrientAnalysisId>", null);
+
+JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
+Console.WriteLine(result.ToString());
+]]></code>
+This sample shows how to call GetNutrientAnalysisAsync with all parameters and parse the result.
+<code><![CDATA[
+Uri endpoint = new Uri("<https://my-service.azure.com>");
+TokenCredential credential = new DefaultAzureCredential();
+NutrientAnalyses client = new FarmBeatsClient(endpoint, credential).GetNutrientAnalysesClient();
+
+Response response = await client.GetNutrientAnalysisAsync("<partyId>", "<nutrientAnalysisId>", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("partyId").ToString());
@@ -1285,7 +1389,7 @@ Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("description").ToString());
 Console.WriteLine(result.GetProperty("createdBy").ToString());
 Console.WriteLine(result.GetProperty("modifiedBy").ToString());
-Console.WriteLine(result.GetProperty("properties").GetProperty("<test>").ToString());
+Console.WriteLine(result.GetProperty("properties").GetProperty("<key>").ToString());
 ]]></code></example>
       </Docs>
     </Member>

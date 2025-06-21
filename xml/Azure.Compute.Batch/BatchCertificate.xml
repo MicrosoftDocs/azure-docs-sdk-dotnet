@@ -31,11 +31,11 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public BatchCertificate (string thumbprint, string thumbprintAlgorithm, string data);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string thumbprint, string thumbprintAlgorithm, string data) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.BatchCertificate.#ctor(System.String,System.String,System.String)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (thumbprint As String, thumbprintAlgorithm As String, data As String)" />
-      <MemberSignature Language="F#" Value="new Azure.Compute.Batch.BatchCertificate : string * string * string -&gt; Azure.Compute.Batch.BatchCertificate" Usage="new Azure.Compute.Batch.BatchCertificate (thumbprint, thumbprintAlgorithm, data)" />
+      <MemberSignature Language="C#" Value="public BatchCertificate (string thumbprint, string thumbprintAlgorithm, BinaryData data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string thumbprint, string thumbprintAlgorithm, class System.BinaryData data) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.BatchCertificate.#ctor(System.String,System.String,System.BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (thumbprint As String, thumbprintAlgorithm As String, data As BinaryData)" />
+      <MemberSignature Language="F#" Value="new Azure.Compute.Batch.BatchCertificate : string * string * BinaryData -&gt; Azure.Compute.Batch.BatchCertificate" Usage="new Azure.Compute.Batch.BatchCertificate (thumbprint, thumbprintAlgorithm, data)" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
@@ -44,7 +44,7 @@
       <Parameters>
         <Parameter Name="thumbprint" Type="System.String" />
         <Parameter Name="thumbprintAlgorithm" Type="System.String" />
-        <Parameter Name="data" Type="System.String" />
+        <Parameter Name="data" Type="System.BinaryData" />
       </Parameters>
       <Docs>
         <param name="thumbprint"> The X.509 thumbprint of the Certificate. This is a sequence of up to 40 hex digits (it may include spaces but these are removed). </param>
@@ -77,38 +77,45 @@
       </Docs>
     </Member>
     <Member MemberName="Data">
-      <MemberSignature Language="C#" Value="public string Data { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string Data" />
+      <MemberSignature Language="C#" Value="public BinaryData Data { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.BinaryData Data" />
       <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchCertificate.Data" />
-      <MemberSignature Language="VB.NET" Value="Public Property Data As String" />
-      <MemberSignature Language="F#" Value="member this.Data : string with get, set" Usage="Azure.Compute.Batch.BatchCertificate.Data" />
+      <MemberSignature Language="VB.NET" Value="Public Property Data As BinaryData" />
+      <MemberSignature Language="F#" Value="member this.Data : BinaryData with get, set" Usage="Azure.Compute.Batch.BatchCertificate.Data" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>System.BinaryData</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The base64-encoded contents of the Certificate. The maximum size is 10KB. </summary>
+        <summary>
+            The base64-encoded contents of the Certificate. The maximum size is 10KB.
+            <para>
+            To assign a byte[] to this property use <see cref="M:System.BinaryData.FromBytes(System.Byte[])" />.
+            The byte[] will be serialized to a Base64 encoded string.
+            </para><para>
+            Examples:
+            <list type="bullet"><item><term>BinaryData.FromBytes(new byte[] { 1, 2, 3 })</term><description>Creates a payload of "AQID".</description></item></list></para></summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="DeleteCertificateError">
-      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.DeleteBatchCertificateError DeleteCertificateError { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.DeleteBatchCertificateError DeleteCertificateError" />
+      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.BatchCertificateDeleteError DeleteCertificateError { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.BatchCertificateDeleteError DeleteCertificateError" />
       <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchCertificate.DeleteCertificateError" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property DeleteCertificateError As DeleteBatchCertificateError" />
-      <MemberSignature Language="F#" Value="member this.DeleteCertificateError : Azure.Compute.Batch.DeleteBatchCertificateError" Usage="Azure.Compute.Batch.BatchCertificate.DeleteCertificateError" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property DeleteCertificateError As BatchCertificateDeleteError" />
+      <MemberSignature Language="F#" Value="member this.DeleteCertificateError : Azure.Compute.Batch.BatchCertificateDeleteError" Usage="Azure.Compute.Batch.BatchCertificate.DeleteCertificateError" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.Compute.Batch.DeleteBatchCertificateError</ReturnType>
+        <ReturnType>Azure.Compute.Batch.BatchCertificateDeleteError</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> The error that occurred on the last attempt to delete this Certificate. This property is set only if the Certificate is in the DeleteFailed state. </summary>
@@ -381,7 +388,7 @@
         <summary>
             Gets the data interchange format (JSON, Xml, etc) that the model uses when communicating with the service.
             </summary>
-        <returns>The format that the model uses when communicating with the serivce.</returns>
+        <returns>The format that the model uses when communicating with the service.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -455,19 +462,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Url">
-      <MemberSignature Language="C#" Value="public string Url { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string Url" />
-      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchCertificate.Url" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Url As String" />
-      <MemberSignature Language="F#" Value="member this.Url : string" Usage="Azure.Compute.Batch.BatchCertificate.Url" />
+    <Member MemberName="Uri">
+      <MemberSignature Language="C#" Value="public Uri Uri { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Uri Uri" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchCertificate.Uri" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Uri As Uri" />
+      <MemberSignature Language="F#" Value="member this.Uri : Uri" Usage="Azure.Compute.Batch.BatchCertificate.Uri" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>System.Uri</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> The URL of the Certificate. </summary>

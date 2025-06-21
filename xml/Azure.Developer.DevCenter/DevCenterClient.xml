@@ -7,6 +7,7 @@
   <AssemblyInfo>
     <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
@@ -26,6 +27,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
@@ -43,6 +45,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="endpoint" Type="System.Uri" />
@@ -51,32 +54,6 @@
       <Docs>
         <param name="endpoint"> The DevCenter-specific URI to operate on. </param>
         <param name="credential"> A credential used to authenticate to an Azure Service. </param>
-        <summary> Initializes a new instance of DevCenterClient. </summary>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="endpoint" /> or <paramref name="credential" /> is null. </exception>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public DevCenterClient (Uri endpoint, Azure.Core.TokenCredential credential, Azure.Developer.DevCenter.AzureDeveloperDevCenterClientOptions options);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Uri endpoint, class Azure.Core.TokenCredential credential, class Azure.Developer.DevCenter.AzureDeveloperDevCenterClientOptions options) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Developer.DevCenter.DevCenterClient.#ctor(System.Uri,Azure.Core.TokenCredential,Azure.Developer.DevCenter.AzureDeveloperDevCenterClientOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (endpoint As Uri, credential As TokenCredential, options As AzureDeveloperDevCenterClientOptions)" />
-      <MemberSignature Language="F#" Value="new Azure.Developer.DevCenter.DevCenterClient : Uri * Azure.Core.TokenCredential * Azure.Developer.DevCenter.AzureDeveloperDevCenterClientOptions -&gt; Azure.Developer.DevCenter.DevCenterClient" Usage="new Azure.Developer.DevCenter.DevCenterClient (endpoint, credential, options)" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Parameters>
-        <Parameter Name="endpoint" Type="System.Uri" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="credential" Type="Azure.Core.TokenCredential" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="options" Type="Azure.Developer.DevCenter.AzureDeveloperDevCenterClientOptions" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="endpoint"> The DevCenter-specific URI to operate on. </param>
-        <param name="credential"> A credential used to authenticate to an Azure Service. </param>
-        <param name="options"> The options for configuring the client. </param>
         <summary> Initializes a new instance of DevCenterClient. </summary>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -93,11 +70,12 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="endpoint" Type="System.Uri" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="credential" Type="Azure.Core.TokenCredential" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="options" Type="Azure.Developer.DevCenter.DevCenterClientOptions" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="endpoint" Type="System.Uri" />
+        <Parameter Name="credential" Type="Azure.Core.TokenCredential" />
+        <Parameter Name="options" Type="Azure.Developer.DevCenter.DevCenterClientOptions" />
       </Parameters>
       <Docs>
         <param name="endpoint"> The DevCenter-specific URI to operate on. </param>
@@ -119,6 +97,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Developer.DevCenter.DeploymentEnvironmentsClient</ReturnType>
@@ -140,6 +119,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Developer.DevCenter.DevBoxesClient</ReturnType>
@@ -161,6 +141,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response</ReturnType>
@@ -199,27 +180,14 @@ Schema for <c>Project</c>:
         <example>
 This sample shows how to call GetProject and parse the result.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 DevCenterClient client = new DevCenterClient(endpoint, credential);
 
-Response response = client.GetProject("<projectName>", null);
+Response response = client.GetProject("myProject", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("name").ToString());
-]]></code>
-This sample shows how to call GetProject with all parameters and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DevCenterClient client = new DevCenterClient(endpoint, credential);
-
-Response response = client.GetProject("<projectName>", null);
-
-JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-Console.WriteLine(result.GetProperty("name").ToString());
-Console.WriteLine(result.GetProperty("description").ToString());
-Console.WriteLine(result.GetProperty("maxDevBoxesPerUser").ToString());
 ]]></code></example>
       </Docs>
     </Member>
@@ -233,13 +201,14 @@ Console.WriteLine(result.GetProperty("maxDevBoxesPerUser").ToString());
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.Developer.DevCenter.Models.DevCenterProject&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="projectName" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="projectName" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="projectName"> Name of the project. </param>
@@ -254,19 +223,11 @@ Console.WriteLine(result.GetProperty("maxDevBoxesPerUser").ToString());
         <example>
 This sample shows how to call GetProject.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 DevCenterClient client = new DevCenterClient(endpoint, credential);
 
-Response<DevCenterProject> response = client.GetProject("<projectName>");
-]]></code>
-This sample shows how to call GetProject with all parameters.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DevCenterClient client = new DevCenterClient(endpoint, credential);
-
-Response<DevCenterProject> response = client.GetProject("<projectName>");
+Response<DevCenterProject> response = client.GetProject("myProject");
 ]]></code></example>
       </Docs>
     </Member>
@@ -280,6 +241,7 @@ Response<DevCenterProject> response = client.GetProject("<projectName>");
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
@@ -318,27 +280,14 @@ Schema for <c>Project</c>:
         <example>
 This sample shows how to call GetProjectAsync and parse the result.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 DevCenterClient client = new DevCenterClient(endpoint, credential);
 
-Response response = await client.GetProjectAsync("<projectName>", null);
+Response response = await client.GetProjectAsync("myProject", null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("name").ToString());
-]]></code>
-This sample shows how to call GetProjectAsync with all parameters and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DevCenterClient client = new DevCenterClient(endpoint, credential);
-
-Response response = await client.GetProjectAsync("<projectName>", null);
-
-JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-Console.WriteLine(result.GetProperty("name").ToString());
-Console.WriteLine(result.GetProperty("description").ToString());
-Console.WriteLine(result.GetProperty("maxDevBoxesPerUser").ToString());
 ]]></code></example>
       </Docs>
     </Member>
@@ -352,13 +301,14 @@ Console.WriteLine(result.GetProperty("maxDevBoxesPerUser").ToString());
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Developer.DevCenter.Models.DevCenterProject&gt;&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="projectName" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="projectName" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="projectName"> Name of the project. </param>
@@ -373,19 +323,11 @@ Console.WriteLine(result.GetProperty("maxDevBoxesPerUser").ToString());
         <example>
 This sample shows how to call GetProjectAsync.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 DevCenterClient client = new DevCenterClient(endpoint, credential);
 
-Response<DevCenterProject> response = await client.GetProjectAsync("<projectName>");
-]]></code>
-This sample shows how to call GetProjectAsync with all parameters.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DevCenterClient client = new DevCenterClient(endpoint, credential);
-
-Response<DevCenterProject> response = await client.GetProjectAsync("<projectName>");
+Response<DevCenterProject> response = await client.GetProjectAsync("myProject");
 ]]></code></example>
       </Docs>
     </Member>
@@ -399,12 +341,13 @@ Response<DevCenterProject> response = await client.GetProjectAsync("<projectName
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;System.BinaryData&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="context" Type="Azure.RequestContext" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
@@ -421,7 +364,7 @@ Response<DevCenterProject> response = await client.GetProjectAsync("<projectName
         <example>
 This sample shows how to call GetProjects and parse the result.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 DevCenterClient client = new DevCenterClient(endpoint, credential);
 
@@ -429,20 +372,6 @@ foreach (BinaryData item in client.GetProjects(null))
 {
     JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("name").ToString());
-}
-]]></code>
-This sample shows how to call GetProjects with all parameters and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DevCenterClient client = new DevCenterClient(endpoint, credential);
-
-foreach (BinaryData item in client.GetProjects(null))
-{
-    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
-    Console.WriteLine(result.GetProperty("name").ToString());
-    Console.WriteLine(result.GetProperty("description").ToString());
-    Console.WriteLine(result.GetProperty("maxDevBoxesPerUser").ToString());
 }
 ]]></code></example>
       </Docs>
@@ -457,12 +386,13 @@ foreach (BinaryData item in client.GetProjects(null))
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.Developer.DevCenter.Models.DevCenterProject&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
@@ -472,92 +402,12 @@ foreach (BinaryData item in client.GetProjects(null))
         <example>
 This sample shows how to call GetProjects.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 DevCenterClient client = new DevCenterClient(endpoint, credential);
 
 foreach (DevCenterProject item in client.GetProjects())
 {
-}
-]]></code>
-This sample shows how to call GetProjects with all parameters.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DevCenterClient client = new DevCenterClient(endpoint, credential);
-
-foreach (DevCenterProject item in client.GetProjects())
-{
-}
-]]></code></example>
-      </Docs>
-    </Member>
-    <Member MemberName="GetProjects">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;BinaryData&gt; GetProjects (string filter, int? maxCount, Azure.RequestContext context);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class System.BinaryData&gt; GetProjects(string filter, valuetype System.Nullable`1&lt;int32&gt; maxCount, class Azure.RequestContext context) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Developer.DevCenter.DevCenterClient.GetProjects(System.String,System.Nullable{System.Int32},Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetProjects (filter As String, maxCount As Nullable(Of Integer), context As RequestContext) As Pageable(Of BinaryData)" />
-      <MemberSignature Language="F#" Value="abstract member GetProjects : string * Nullable&lt;int&gt; * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;&#xA;override this.GetProjects : string * Nullable&lt;int&gt; * Azure.RequestContext -&gt; Azure.Pageable&lt;BinaryData&gt;" Usage="devCenterClient.GetProjects (filter, maxCount, context)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.Pageable&lt;System.BinaryData&gt;</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="filter" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="maxCount" Type="System.Nullable&lt;System.Int32&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="context" Type="Azure.RequestContext" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="filter"> An OData filter clause to apply to the operation. </param>
-        <param name="maxCount"> The maximum number of resources to return from the operation. Example: 'top=10'. </param>
-        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary>
-            [Protocol Method] Lists all projects.
-            <list type="bullet"><item><description>
-            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
-            </description></item></list></summary>
-        <returns> The <see cref="T:Azure.Pageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
-        <remarks>
-Below is the JSON schema for one item in the pageable response.
-
-Response Body:
-
-Schema for <c>ProjectListResultValue</c>:
-<code>{
-  name: string, # Optional. Name of the project
-  description: string, # Optional. Description of the project.
-}
-</code></remarks>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
-        <example>
-This sample shows how to call GetProjects and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DevCenterClient client = new DevCenterClient(endpoint, credential);
-
-foreach (BinaryData item in client.GetProjects(null, null, null))
-{
-    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
-    Console.WriteLine(result.GetProperty("name").ToString());
-}
-]]></code>
-This sample shows how to call GetProjects with all parameters and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DevCenterClient client = new DevCenterClient(endpoint, credential);
-
-foreach (BinaryData item in client.GetProjects("<filter>", 1234, null))
-{
-    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
-    Console.WriteLine(result.GetProperty("name").ToString());
-    Console.WriteLine(result.GetProperty("description").ToString());
-    Console.WriteLine(result.GetProperty("maxDevBoxesPerUser").ToString());
 }
 ]]></code></example>
       </Docs>
@@ -572,12 +422,13 @@ foreach (BinaryData item in client.GetProjects("<filter>", 1234, null))
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;System.BinaryData&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="context" Type="Azure.RequestContext" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="context" Type="Azure.RequestContext" />
       </Parameters>
       <Docs>
         <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
@@ -594,7 +445,7 @@ foreach (BinaryData item in client.GetProjects("<filter>", 1234, null))
         <example>
 This sample shows how to call GetProjectsAsync and parse the result.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 DevCenterClient client = new DevCenterClient(endpoint, credential);
 
@@ -602,20 +453,6 @@ await foreach (BinaryData item in client.GetProjectsAsync(null))
 {
     JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
     Console.WriteLine(result.GetProperty("name").ToString());
-}
-]]></code>
-This sample shows how to call GetProjectsAsync with all parameters and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DevCenterClient client = new DevCenterClient(endpoint, credential);
-
-await foreach (BinaryData item in client.GetProjectsAsync(null))
-{
-    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
-    Console.WriteLine(result.GetProperty("name").ToString());
-    Console.WriteLine(result.GetProperty("description").ToString());
-    Console.WriteLine(result.GetProperty("maxDevBoxesPerUser").ToString());
 }
 ]]></code></example>
       </Docs>
@@ -630,12 +467,13 @@ await foreach (BinaryData item in client.GetProjectsAsync(null))
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.Developer.DevCenter.Models.DevCenterProject&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
@@ -645,92 +483,12 @@ await foreach (BinaryData item in client.GetProjectsAsync(null))
         <example>
 This sample shows how to call GetProjectsAsync.
 <code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
+Uri endpoint = new Uri("<endpoint>");
 TokenCredential credential = new DefaultAzureCredential();
 DevCenterClient client = new DevCenterClient(endpoint, credential);
 
 await foreach (DevCenterProject item in client.GetProjectsAsync())
 {
-}
-]]></code>
-This sample shows how to call GetProjectsAsync with all parameters.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DevCenterClient client = new DevCenterClient(endpoint, credential);
-
-await foreach (DevCenterProject item in client.GetProjectsAsync())
-{
-}
-]]></code></example>
-      </Docs>
-    </Member>
-    <Member MemberName="GetProjectsAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;BinaryData&gt; GetProjectsAsync (string filter, int? maxCount, Azure.RequestContext context);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class System.BinaryData&gt; GetProjectsAsync(string filter, valuetype System.Nullable`1&lt;int32&gt; maxCount, class Azure.RequestContext context) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Developer.DevCenter.DevCenterClient.GetProjectsAsync(System.String,System.Nullable{System.Int32},Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetProjectsAsync (filter As String, maxCount As Nullable(Of Integer), context As RequestContext) As AsyncPageable(Of BinaryData)" />
-      <MemberSignature Language="F#" Value="abstract member GetProjectsAsync : string * Nullable&lt;int&gt; * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;&#xA;override this.GetProjectsAsync : string * Nullable&lt;int&gt; * Azure.RequestContext -&gt; Azure.AsyncPageable&lt;BinaryData&gt;" Usage="devCenterClient.GetProjectsAsync (filter, maxCount, context)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.AsyncPageable&lt;System.BinaryData&gt;</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="filter" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="maxCount" Type="System.Nullable&lt;System.Int32&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="context" Type="Azure.RequestContext" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="filter"> An OData filter clause to apply to the operation. </param>
-        <param name="maxCount"> The maximum number of resources to return from the operation. Example: 'top=10'. </param>
-        <param name="context"> The request context, which can override default behaviors of the client pipeline on a per-call basis. </param>
-        <summary>
-            [Protocol Method] Lists all projects.
-            <list type="bullet"><item><description>
-            This <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios.
-            </description></item></list></summary>
-        <returns> The <see cref="T:Azure.AsyncPageable`1" /> from the service containing a list of <see cref="T:System.BinaryData" /> objects. Details of the body schema for each item in the collection are in the Remarks section below. </returns>
-        <remarks>
-Below is the JSON schema for one item in the pageable response.
-
-Response Body:
-
-Schema for <c>ProjectListResultValue</c>:
-<code>{
-  name: string, # Optional. Name of the project
-  description: string, # Optional. Description of the project.
-}
-</code></remarks>
-        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
-        <example>
-This sample shows how to call GetProjectsAsync and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DevCenterClient client = new DevCenterClient(endpoint, credential);
-
-await foreach (BinaryData item in client.GetProjectsAsync(null, null, null))
-{
-    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
-    Console.WriteLine(result.GetProperty("name").ToString());
-}
-]]></code>
-This sample shows how to call GetProjectsAsync with all parameters and parse the result.
-<code><![CDATA[
-Uri endpoint = new Uri("<https://my-service.azure.com>");
-TokenCredential credential = new DefaultAzureCredential();
-DevCenterClient client = new DevCenterClient(endpoint, credential);
-
-await foreach (BinaryData item in client.GetProjectsAsync("<filter>", 1234, null))
-{
-    JsonElement result = JsonDocument.Parse(item.ToStream()).RootElement;
-    Console.WriteLine(result.GetProperty("name").ToString());
-    Console.WriteLine(result.GetProperty("description").ToString());
-    Console.WriteLine(result.GetProperty("maxDevBoxesPerUser").ToString());
 }
 ]]></code></example>
       </Docs>
@@ -745,6 +503,7 @@ await foreach (BinaryData item in client.GetProjectsAsync("<filter>", 1234, null
       <AssemblyInfo>
         <AssemblyName>Azure.Developer.DevCenter</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Core.Pipeline.HttpPipeline</ReturnType>

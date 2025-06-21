@@ -54,18 +54,18 @@
       </Docs>
     </Member>
     <Member MemberName="AffinityInfo">
-      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.AffinityInfo AffinityInfo { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.AffinityInfo AffinityInfo" />
+      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.BatchAffinityInfo AffinityInfo { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.BatchAffinityInfo AffinityInfo" />
       <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchTask.AffinityInfo" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property AffinityInfo As AffinityInfo" />
-      <MemberSignature Language="F#" Value="member this.AffinityInfo : Azure.Compute.Batch.AffinityInfo" Usage="Azure.Compute.Batch.BatchTask.AffinityInfo" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property AffinityInfo As BatchAffinityInfo" />
+      <MemberSignature Language="F#" Value="member this.AffinityInfo : Azure.Compute.Batch.BatchAffinityInfo" Usage="Azure.Compute.Batch.BatchTask.AffinityInfo" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.Compute.Batch.AffinityInfo</ReturnType>
+        <ReturnType>Azure.Compute.Batch.BatchAffinityInfo</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> A locality hint that can be used by the Batch service to select a Compute Node on which to start the new Task. </summary>
@@ -254,18 +254,18 @@
       </Docs>
     </Member>
     <Member MemberName="ETag">
-      <MemberSignature Language="C#" Value="public string ETag { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string ETag" />
+      <MemberSignature Language="C#" Value="public Azure.ETag? ETag { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ETag&gt; ETag" />
       <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchTask.ETag" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ETag As String" />
-      <MemberSignature Language="F#" Value="member this.ETag : string" Usage="Azure.Compute.Batch.BatchTask.ETag" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ETag As Nullable(Of ETag)" />
+      <MemberSignature Language="F#" Value="member this.ETag : Nullable&lt;Azure.ETag&gt;" Usage="Azure.Compute.Batch.BatchTask.ETag" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>System.Nullable&lt;Azure.ETag&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> The ETag of the Task. This is an opaque string. You can use it to detect whether the Task has changed between requests. In particular, you can be pass the ETag when updating a Task to specify that your changes should take effect only if nobody else has modified the Task in the meantime. </summary>
@@ -558,26 +558,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Stats">
-      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.BatchTaskStatistics Stats { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.BatchTaskStatistics Stats" />
-      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchTask.Stats" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Stats As BatchTaskStatistics" />
-      <MemberSignature Language="F#" Value="member this.Stats : Azure.Compute.Batch.BatchTaskStatistics" Usage="Azure.Compute.Batch.BatchTask.Stats" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Compute.Batch</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.Compute.Batch.BatchTaskStatistics</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary> Resource usage statistics for the Task. </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="System.ClientModel.Primitives.IJsonModel&lt;Azure.Compute.Batch.BatchTask&gt;.Create">
       <MemberSignature Language="C#" Value="Azure.Compute.Batch.BatchTask IJsonModel&lt;BatchTask&gt;.Create (ref System.Text.Json.Utf8JsonReader reader, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
       <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance class Azure.Compute.Batch.BatchTask System.ClientModel.Primitives.IJsonModel&lt;Azure.Compute.Batch.BatchTask&gt;.Create(valuetype System.Text.Json.Utf8JsonReader&amp; reader, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
@@ -698,7 +678,7 @@
         <summary>
             Gets the data interchange format (JSON, Xml, etc) that the model uses when communicating with the service.
             </summary>
-        <returns>The format that the model uses when communicating with the serivce.</returns>
+        <returns>The format that the model uses when communicating with the service.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -732,19 +712,39 @@
         <exception cref="T:System.FormatException">If the model does not support the requested <see cref="P:System.ClientModel.Primitives.ModelReaderWriterOptions.Format" />.</exception>
       </Docs>
     </Member>
-    <Member MemberName="Url">
-      <MemberSignature Language="C#" Value="public string Url { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string Url" />
-      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchTask.Url" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Url As String" />
-      <MemberSignature Language="F#" Value="member this.Url : string" Usage="Azure.Compute.Batch.BatchTask.Url" />
+    <Member MemberName="TaskStatistics">
+      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.BatchTaskStatistics TaskStatistics { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.BatchTaskStatistics TaskStatistics" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchTask.TaskStatistics" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property TaskStatistics As BatchTaskStatistics" />
+      <MemberSignature Language="F#" Value="member this.TaskStatistics : Azure.Compute.Batch.BatchTaskStatistics" Usage="Azure.Compute.Batch.BatchTask.TaskStatistics" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>Azure.Compute.Batch.BatchTaskStatistics</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Resource usage statistics for the Task. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Uri">
+      <MemberSignature Language="C#" Value="public Uri Uri { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Uri Uri" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchTask.Uri" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Uri As Uri" />
+      <MemberSignature Language="F#" Value="member this.Uri : Uri" Usage="Azure.Compute.Batch.BatchTask.Uri" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Uri</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> The URL of the Task. </summary>

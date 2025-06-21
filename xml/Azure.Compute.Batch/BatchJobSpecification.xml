@@ -69,6 +69,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="AllTasksCompleteMode">
+      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.BatchAllTasksCompleteMode? AllTasksCompleteMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.Compute.Batch.BatchAllTasksCompleteMode&gt; AllTasksCompleteMode" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchJobSpecification.AllTasksCompleteMode" />
+      <MemberSignature Language="VB.NET" Value="Public Property AllTasksCompleteMode As Nullable(Of BatchAllTasksCompleteMode)" />
+      <MemberSignature Language="F#" Value="member this.AllTasksCompleteMode : Nullable&lt;Azure.Compute.Batch.BatchAllTasksCompleteMode&gt; with get, set" Usage="Azure.Compute.Batch.BatchJobSpecification.AllTasksCompleteMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;Azure.Compute.Batch.BatchAllTasksCompleteMode&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The action the Batch service should take when all Tasks in a Job created under this schedule are in the completed state. Note that if a Job contains no Tasks, then all Tasks are considered complete. This option is therefore most commonly used with a Job Manager task; if you want to use automatic Job termination without a Job Manager, you should initially set onAllTasksComplete to noaction and update the Job properties to set onAllTasksComplete to terminatejob once you have finished adding Tasks. The default is noaction. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="CommonEnvironmentSettings">
       <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.Compute.Batch.EnvironmentSetting&gt; CommonEnvironmentSettings { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.Compute.Batch.EnvironmentSetting&gt; CommonEnvironmentSettings" />
@@ -235,18 +255,18 @@
       </Docs>
     </Member>
     <Member MemberName="Metadata">
-      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.Compute.Batch.MetadataItem&gt; Metadata { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.Compute.Batch.MetadataItem&gt; Metadata" />
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.Compute.Batch.BatchMetadataItem&gt; Metadata { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.Compute.Batch.BatchMetadataItem&gt; Metadata" />
       <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchJobSpecification.Metadata" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Metadata As IList(Of MetadataItem)" />
-      <MemberSignature Language="F#" Value="member this.Metadata : System.Collections.Generic.IList&lt;Azure.Compute.Batch.MetadataItem&gt;" Usage="Azure.Compute.Batch.BatchJobSpecification.Metadata" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Metadata As IList(Of BatchMetadataItem)" />
+      <MemberSignature Language="F#" Value="member this.Metadata : System.Collections.Generic.IList&lt;Azure.Compute.Batch.BatchMetadataItem&gt;" Usage="Azure.Compute.Batch.BatchJobSpecification.Metadata" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Collections.Generic.IList&lt;Azure.Compute.Batch.MetadataItem&gt;</ReturnType>
+        <ReturnType>System.Collections.Generic.IList&lt;Azure.Compute.Batch.BatchMetadataItem&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> A list of name-value pairs associated with each Job created under this schedule as metadata. The Batch service does not assign any meaning to metadata; it is solely for the use of user code. </summary>
@@ -270,46 +290,6 @@
       </ReturnValue>
       <Docs>
         <summary> The network configuration for the Job. </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="OnAllTasksComplete">
-      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.OnAllBatchTasksComplete? OnAllTasksComplete { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.Compute.Batch.OnAllBatchTasksComplete&gt; OnAllTasksComplete" />
-      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchJobSpecification.OnAllTasksComplete" />
-      <MemberSignature Language="VB.NET" Value="Public Property OnAllTasksComplete As Nullable(Of OnAllBatchTasksComplete)" />
-      <MemberSignature Language="F#" Value="member this.OnAllTasksComplete : Nullable&lt;Azure.Compute.Batch.OnAllBatchTasksComplete&gt; with get, set" Usage="Azure.Compute.Batch.BatchJobSpecification.OnAllTasksComplete" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Compute.Batch</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Nullable&lt;Azure.Compute.Batch.OnAllBatchTasksComplete&gt;</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary> The action the Batch service should take when all Tasks in a Job created under this schedule are in the completed state. Note that if a Job contains no Tasks, then all Tasks are considered complete. This option is therefore most commonly used with a Job Manager task; if you want to use automatic Job termination without a Job Manager, you should initially set onAllTasksComplete to noaction and update the Job properties to set onAllTasksComplete to terminatejob once you have finished adding Tasks. The default is noaction. </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="OnTaskFailure">
-      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.OnBatchTaskFailure? OnTaskFailure { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.Compute.Batch.OnBatchTaskFailure&gt; OnTaskFailure" />
-      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchJobSpecification.OnTaskFailure" />
-      <MemberSignature Language="VB.NET" Value="Public Property OnTaskFailure As Nullable(Of OnBatchTaskFailure)" />
-      <MemberSignature Language="F#" Value="member this.OnTaskFailure : Nullable&lt;Azure.Compute.Batch.OnBatchTaskFailure&gt; with get, set" Usage="Azure.Compute.Batch.BatchJobSpecification.OnTaskFailure" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Compute.Batch</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Nullable&lt;Azure.Compute.Batch.OnBatchTaskFailure&gt;</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary> The action the Batch service should take when any Task fails in a Job created under this schedule. A Task is considered to have failed if it have failed if has a failureInfo. A failureInfo is set if the Task completes with a non-zero exit code after exhausting its retry count, or if there was an error starting the Task, for example due to a resource file download error. The default is noaction. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -474,7 +454,7 @@
         <summary>
             Gets the data interchange format (JSON, Xml, etc) that the model uses when communicating with the service.
             </summary>
-        <returns>The format that the model uses when communicating with the serivce.</returns>
+        <returns>The format that the model uses when communicating with the service.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -506,6 +486,26 @@
         <returns>A binary representation of the written model.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.FormatException">If the model does not support the requested <see cref="P:System.ClientModel.Primitives.ModelReaderWriterOptions.Format" />.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="TaskFailureMode">
+      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.BatchTaskFailureMode? TaskFailureMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.Compute.Batch.BatchTaskFailureMode&gt; TaskFailureMode" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchJobSpecification.TaskFailureMode" />
+      <MemberSignature Language="VB.NET" Value="Public Property TaskFailureMode As Nullable(Of BatchTaskFailureMode)" />
+      <MemberSignature Language="F#" Value="member this.TaskFailureMode : Nullable&lt;Azure.Compute.Batch.BatchTaskFailureMode&gt; with get, set" Usage="Azure.Compute.Batch.BatchJobSpecification.TaskFailureMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;Azure.Compute.Batch.BatchTaskFailureMode&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The action the Batch service should take when any Task fails in a Job created under this schedule. A Task is considered to have failed if it have failed if has a failureInfo. A failureInfo is set if the Task completes with a non-zero exit code after exhausting its retry count, or if there was an error starting the Task, for example due to a resource file download error. The default is noaction. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="UsesTaskDependencies">

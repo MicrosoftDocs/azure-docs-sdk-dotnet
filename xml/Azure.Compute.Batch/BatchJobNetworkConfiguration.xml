@@ -28,11 +28,11 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public BatchJobNetworkConfiguration (string subnetId, bool skipWithdrawFromVNet);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string subnetId, bool skipWithdrawFromVNet) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.BatchJobNetworkConfiguration.#ctor(System.String,System.Boolean)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (subnetId As String, skipWithdrawFromVNet As Boolean)" />
-      <MemberSignature Language="F#" Value="new Azure.Compute.Batch.BatchJobNetworkConfiguration : string * bool -&gt; Azure.Compute.Batch.BatchJobNetworkConfiguration" Usage="new Azure.Compute.Batch.BatchJobNetworkConfiguration (subnetId, skipWithdrawFromVNet)" />
+      <MemberSignature Language="C#" Value="public BatchJobNetworkConfiguration (string subnetId);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string subnetId) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.BatchJobNetworkConfiguration.#ctor(System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (subnetId As String)" />
+      <MemberSignature Language="F#" Value="new Azure.Compute.Batch.BatchJobNetworkConfiguration : string -&gt; Azure.Compute.Batch.BatchJobNetworkConfiguration" Usage="new Azure.Compute.Batch.BatchJobNetworkConfiguration subnetId" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
@@ -40,11 +40,9 @@
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="subnetId" Type="System.String" />
-        <Parameter Name="skipWithdrawFromVNet" Type="System.Boolean" />
       </Parameters>
       <Docs>
         <param name="subnetId"> The ARM resource identifier of the virtual network subnet which Compute Nodes running Tasks from the Job will join for the duration of the Task. The virtual network must be in the same region and subscription as the Azure Batch Account. The specified subnet should have enough free IP addresses to accommodate the number of Compute Nodes which will run Tasks from the Job. This can be up to the number of Compute Nodes in the Pool. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet so that Azure Batch service can schedule Tasks on the Nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the Nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the Compute Nodes to unusable. This is of the form /subscriptions/{subscription}/resourceGroups/{group}/providers/{provider}/virtualNetworks/{network}/subnets/{subnet}. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication from the Azure Batch service. For Pools created with a Virtual Machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. Port 443 is also required to be open for outbound connections for communications to Azure Storage. For more details see: https://learn.microsoft.com/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration. </param>
-        <param name="skipWithdrawFromVNet"> Whether to withdraw Compute Nodes from the virtual network to DNC when the job is terminated or deleted.  If true, nodes will remain joined to the virtual network to DNC. If false, nodes will automatically withdraw when the job ends. Defaults to false. </param>
         <summary> Initializes a new instance of <see cref="T:Azure.Compute.Batch.BatchJobNetworkConfiguration" />. </summary>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -76,19 +74,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SkipWithdrawFromVNet">
-      <MemberSignature Language="C#" Value="public bool SkipWithdrawFromVNet { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance bool SkipWithdrawFromVNet" />
-      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchJobNetworkConfiguration.SkipWithdrawFromVNet" />
-      <MemberSignature Language="VB.NET" Value="Public Property SkipWithdrawFromVNet As Boolean" />
-      <MemberSignature Language="F#" Value="member this.SkipWithdrawFromVNet : bool with get, set" Usage="Azure.Compute.Batch.BatchJobNetworkConfiguration.SkipWithdrawFromVNet" />
+    <Member MemberName="SkipWithdrawFromVnet">
+      <MemberSignature Language="C#" Value="public bool? SkipWithdrawFromVnet { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;bool&gt; SkipWithdrawFromVnet" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchJobNetworkConfiguration.SkipWithdrawFromVnet" />
+      <MemberSignature Language="VB.NET" Value="Public Property SkipWithdrawFromVnet As Nullable(Of Boolean)" />
+      <MemberSignature Language="F#" Value="member this.SkipWithdrawFromVnet : Nullable&lt;bool&gt; with get, set" Usage="Azure.Compute.Batch.BatchJobNetworkConfiguration.SkipWithdrawFromVnet" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
+        <ReturnType>System.Nullable&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> Whether to withdraw Compute Nodes from the virtual network to DNC when the job is terminated or deleted.  If true, nodes will remain joined to the virtual network to DNC. If false, nodes will automatically withdraw when the job ends. Defaults to false. </summary>
@@ -236,7 +234,7 @@
         <summary>
             Gets the data interchange format (JSON, Xml, etc) that the model uses when communicating with the service.
             </summary>
-        <returns>The format that the model uses when communicating with the serivce.</returns>
+        <returns>The format that the model uses when communicating with the service.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

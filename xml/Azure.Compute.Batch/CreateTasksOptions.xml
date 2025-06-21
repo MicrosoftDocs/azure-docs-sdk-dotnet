@@ -20,11 +20,11 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public CreateTasksOptions (int maxDegreeOfParallelism = 1, int maxTimeBetweenCallsInSeconds = 30, Azure.Compute.Batch.ICreateTaskResultHandler createTaskResultHandler = default, bool returnBatchTaskAddResults = false);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(int32 maxDegreeOfParallelism, int32 maxTimeBetweenCallsInSeconds, class Azure.Compute.Batch.ICreateTaskResultHandler createTaskResultHandler, bool returnBatchTaskAddResults) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.CreateTasksOptions.#ctor(System.Int32,System.Int32,Azure.Compute.Batch.ICreateTaskResultHandler,System.Boolean)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (Optional maxDegreeOfParallelism As Integer = 1, Optional maxTimeBetweenCallsInSeconds As Integer = 30, Optional createTaskResultHandler As ICreateTaskResultHandler = Nothing, Optional returnBatchTaskAddResults As Boolean = false)" />
-      <MemberSignature Language="F#" Value="new Azure.Compute.Batch.CreateTasksOptions : int * int * Azure.Compute.Batch.ICreateTaskResultHandler * bool -&gt; Azure.Compute.Batch.CreateTasksOptions" Usage="new Azure.Compute.Batch.CreateTasksOptions (maxDegreeOfParallelism, maxTimeBetweenCallsInSeconds, createTaskResultHandler, returnBatchTaskAddResults)" />
+      <MemberSignature Language="C#" Value="public CreateTasksOptions (int maxDegreeOfParallelism = 1, int maxTimeBetweenCallsInSeconds = 30, Azure.Compute.Batch.TaskResultHandler createTaskResultHandler = default, bool returnBatchTaskAddResults = false);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(int32 maxDegreeOfParallelism, int32 maxTimeBetweenCallsInSeconds, class Azure.Compute.Batch.TaskResultHandler createTaskResultHandler, bool returnBatchTaskAddResults) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Compute.Batch.CreateTasksOptions.#ctor(System.Int32,System.Int32,Azure.Compute.Batch.TaskResultHandler,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (Optional maxDegreeOfParallelism As Integer = 1, Optional maxTimeBetweenCallsInSeconds As Integer = 30, Optional createTaskResultHandler As TaskResultHandler = Nothing, Optional returnBatchTaskAddResults As Boolean = false)" />
+      <MemberSignature Language="F#" Value="new Azure.Compute.Batch.CreateTasksOptions : int * int * Azure.Compute.Batch.TaskResultHandler * bool -&gt; Azure.Compute.Batch.CreateTasksOptions" Usage="new Azure.Compute.Batch.CreateTasksOptions (maxDegreeOfParallelism, maxTimeBetweenCallsInSeconds, createTaskResultHandler, returnBatchTaskAddResults)" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
@@ -33,7 +33,7 @@
       <Parameters>
         <Parameter Name="maxDegreeOfParallelism" Type="System.Int32" />
         <Parameter Name="maxTimeBetweenCallsInSeconds" Type="System.Int32" />
-        <Parameter Name="createTaskResultHandler" Type="Azure.Compute.Batch.ICreateTaskResultHandler" />
+        <Parameter Name="createTaskResultHandler" Type="Azure.Compute.Batch.TaskResultHandler" />
         <Parameter Name="returnBatchTaskAddResults" Type="System.Boolean" />
       </Parameters>
       <Docs>
@@ -48,18 +48,18 @@
       </Docs>
     </Member>
     <Member MemberName="CreateTaskResultHandler">
-      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.ICreateTaskResultHandler CreateTaskResultHandler { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.ICreateTaskResultHandler CreateTaskResultHandler" />
+      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.TaskResultHandler CreateTaskResultHandler { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.TaskResultHandler CreateTaskResultHandler" />
       <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.CreateTasksOptions.CreateTaskResultHandler" />
-      <MemberSignature Language="VB.NET" Value="Public Property CreateTaskResultHandler As ICreateTaskResultHandler" />
-      <MemberSignature Language="F#" Value="member this.CreateTaskResultHandler : Azure.Compute.Batch.ICreateTaskResultHandler with get, set" Usage="Azure.Compute.Batch.CreateTasksOptions.CreateTaskResultHandler" />
+      <MemberSignature Language="VB.NET" Value="Public Property CreateTaskResultHandler As TaskResultHandler" />
+      <MemberSignature Language="F#" Value="member this.CreateTaskResultHandler : Azure.Compute.Batch.TaskResultHandler with get, set" Usage="Azure.Compute.Batch.CreateTasksOptions.CreateTaskResultHandler" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.Compute.Batch.ICreateTaskResultHandler</ReturnType>
+        <ReturnType>Azure.Compute.Batch.TaskResultHandler</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -115,12 +115,12 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="ReturnBatchTaskAddResults">
-      <MemberSignature Language="C#" Value="public bool ReturnBatchTaskAddResults { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance bool ReturnBatchTaskAddResults" />
-      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.CreateTasksOptions.ReturnBatchTaskAddResults" />
-      <MemberSignature Language="VB.NET" Value="Public Property ReturnBatchTaskAddResults As Boolean" />
-      <MemberSignature Language="F#" Value="member this.ReturnBatchTaskAddResults : bool with get, set" Usage="Azure.Compute.Batch.CreateTasksOptions.ReturnBatchTaskAddResults" />
+    <Member MemberName="ReturnBatchTaskCreateResults">
+      <MemberSignature Language="C#" Value="public bool ReturnBatchTaskCreateResults { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ReturnBatchTaskCreateResults" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.CreateTasksOptions.ReturnBatchTaskCreateResults" />
+      <MemberSignature Language="VB.NET" Value="Public Property ReturnBatchTaskCreateResults As Boolean" />
+      <MemberSignature Language="F#" Value="member this.ReturnBatchTaskCreateResults : bool with get, set" Usage="Azure.Compute.Batch.CreateTasksOptions.ReturnBatchTaskCreateResults" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>

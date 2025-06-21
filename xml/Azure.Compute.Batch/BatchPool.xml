@@ -313,18 +313,18 @@
       </Docs>
     </Member>
     <Member MemberName="ETag">
-      <MemberSignature Language="C#" Value="public string ETag { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string ETag" />
+      <MemberSignature Language="C#" Value="public Azure.ETag? ETag { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ETag&gt; ETag" />
       <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchPool.ETag" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ETag As String" />
-      <MemberSignature Language="F#" Value="member this.ETag : string" Usage="Azure.Compute.Batch.BatchPool.ETag" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ETag As Nullable(Of ETag)" />
+      <MemberSignature Language="F#" Value="member this.ETag : Nullable&lt;Azure.ETag&gt;" Usage="Azure.Compute.Batch.BatchPool.ETag" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>System.Nullable&lt;Azure.ETag&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> The ETag of the Pool. This is an opaque string. You can use it to detect whether the Pool has changed between requests. In particular, you can be pass the ETag when updating a Pool to specify that your changes should take effect only if nobody else has modified the Pool in the meantime. </summary>
@@ -418,18 +418,18 @@
       </Docs>
     </Member>
     <Member MemberName="Metadata">
-      <MemberSignature Language="C#" Value="public System.Collections.Generic.IReadOnlyList&lt;Azure.Compute.Batch.MetadataItem&gt; Metadata { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IReadOnlyList`1&lt;class Azure.Compute.Batch.MetadataItem&gt; Metadata" />
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IReadOnlyList&lt;Azure.Compute.Batch.BatchMetadataItem&gt; Metadata { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IReadOnlyList`1&lt;class Azure.Compute.Batch.BatchMetadataItem&gt; Metadata" />
       <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchPool.Metadata" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Metadata As IReadOnlyList(Of MetadataItem)" />
-      <MemberSignature Language="F#" Value="member this.Metadata : System.Collections.Generic.IReadOnlyList&lt;Azure.Compute.Batch.MetadataItem&gt;" Usage="Azure.Compute.Batch.BatchPool.Metadata" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Metadata As IReadOnlyList(Of BatchMetadataItem)" />
+      <MemberSignature Language="F#" Value="member this.Metadata : System.Collections.Generic.IReadOnlyList&lt;Azure.Compute.Batch.BatchMetadataItem&gt;" Usage="Azure.Compute.Batch.BatchPool.Metadata" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Collections.Generic.IReadOnlyList&lt;Azure.Compute.Batch.MetadataItem&gt;</ReturnType>
+        <ReturnType>System.Collections.Generic.IReadOnlyList&lt;Azure.Compute.Batch.BatchMetadataItem&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> A list of name-value pairs associated with the Pool as metadata. </summary>
@@ -473,6 +473,26 @@
       </ReturnValue>
       <Docs>
         <summary> The network configuration for the Pool. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PoolStatistics">
+      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.BatchPoolStatistics PoolStatistics { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.BatchPoolStatistics PoolStatistics" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchPool.PoolStatistics" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property PoolStatistics As BatchPoolStatistics" />
+      <MemberSignature Language="F#" Value="member this.PoolStatistics : Azure.Compute.Batch.BatchPoolStatistics" Usage="Azure.Compute.Batch.BatchPool.PoolStatistics" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Compute.Batch.BatchPoolStatistics</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Utilization and resource usage statistics for the entire lifetime of the Pool. This property is populated only if the BatchPool was retrieved with an expand clause including the 'stats' attribute; otherwise it is null. The statistics may not be immediately available. The Batch service performs periodic roll-up of statistics. The typical delay is about 30 minutes. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -597,26 +617,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Stats">
-      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.BatchPoolStatistics Stats { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.BatchPoolStatistics Stats" />
-      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchPool.Stats" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Stats As BatchPoolStatistics" />
-      <MemberSignature Language="F#" Value="member this.Stats : Azure.Compute.Batch.BatchPoolStatistics" Usage="Azure.Compute.Batch.BatchPool.Stats" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Compute.Batch</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.Compute.Batch.BatchPoolStatistics</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary> Utilization and resource usage statistics for the entire lifetime of the Pool. This property is populated only if the BatchPool was retrieved with an expand clause including the 'stats' attribute; otherwise it is null. The statistics may not be immediately available. The Batch service performs periodic roll-up of statistics. The typical delay is about 30 minutes. </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="System.ClientModel.Primitives.IJsonModel&lt;Azure.Compute.Batch.BatchPool&gt;.Create">
       <MemberSignature Language="C#" Value="Azure.Compute.Batch.BatchPool IJsonModel&lt;BatchPool&gt;.Create (ref System.Text.Json.Utf8JsonReader reader, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
       <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance class Azure.Compute.Batch.BatchPool System.ClientModel.Primitives.IJsonModel&lt;Azure.Compute.Batch.BatchPool&gt;.Create(valuetype System.Text.Json.Utf8JsonReader&amp; reader, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
@@ -737,7 +737,7 @@
         <summary>
             Gets the data interchange format (JSON, Xml, etc) that the model uses when communicating with the service.
             </summary>
-        <returns>The format that the model uses when communicating with the serivce.</returns>
+        <returns>The format that the model uses when communicating with the service.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -891,19 +891,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Url">
-      <MemberSignature Language="C#" Value="public string Url { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string Url" />
-      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchPool.Url" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Url As String" />
-      <MemberSignature Language="F#" Value="member this.Url : string" Usage="Azure.Compute.Batch.BatchPool.Url" />
+    <Member MemberName="Uri">
+      <MemberSignature Language="C#" Value="public Uri Uri { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Uri Uri" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchPool.Uri" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Uri As Uri" />
+      <MemberSignature Language="F#" Value="member this.Uri : Uri" Usage="Azure.Compute.Batch.BatchPool.Uri" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>System.Uri</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> The URL of the Pool. </summary>

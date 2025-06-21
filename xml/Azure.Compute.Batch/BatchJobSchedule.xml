@@ -93,18 +93,18 @@
       </Docs>
     </Member>
     <Member MemberName="ETag">
-      <MemberSignature Language="C#" Value="public string ETag { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string ETag" />
+      <MemberSignature Language="C#" Value="public Azure.ETag? ETag { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ETag&gt; ETag" />
       <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchJobSchedule.ETag" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ETag As String" />
-      <MemberSignature Language="F#" Value="member this.ETag : string" Usage="Azure.Compute.Batch.BatchJobSchedule.ETag" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ETag As Nullable(Of ETag)" />
+      <MemberSignature Language="F#" Value="member this.ETag : Nullable&lt;Azure.ETag&gt;" Usage="Azure.Compute.Batch.BatchJobSchedule.ETag" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>System.Nullable&lt;Azure.ETag&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> The ETag of the Job Schedule. This is an opaque string. You can use it to detect whether the Job Schedule has changed between requests. In particular, you can be pass the ETag with an Update Job Schedule request to specify that your changes should take effect only if nobody else has modified the schedule in the meantime. </summary>
@@ -148,6 +148,26 @@
       </ReturnValue>
       <Docs>
         <summary> A string that uniquely identifies the schedule within the Account. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="JobScheduleStatistics">
+      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.BatchJobScheduleStatistics JobScheduleStatistics { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.BatchJobScheduleStatistics JobScheduleStatistics" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchJobSchedule.JobScheduleStatistics" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property JobScheduleStatistics As BatchJobScheduleStatistics" />
+      <MemberSignature Language="F#" Value="member this.JobScheduleStatistics : Azure.Compute.Batch.BatchJobScheduleStatistics" Usage="Azure.Compute.Batch.BatchJobSchedule.JobScheduleStatistics" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Compute.Batch</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Compute.Batch.BatchJobScheduleStatistics</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The lifetime resource usage statistics for the Job Schedule. The statistics may not be immediately available. The Batch service performs periodic roll-up of statistics. The typical delay is about 30 minutes. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -218,18 +238,18 @@
       </Docs>
     </Member>
     <Member MemberName="Metadata">
-      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.Compute.Batch.MetadataItem&gt; Metadata { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.Compute.Batch.MetadataItem&gt; Metadata" />
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.Compute.Batch.BatchMetadataItem&gt; Metadata { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.Compute.Batch.BatchMetadataItem&gt; Metadata" />
       <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchJobSchedule.Metadata" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Metadata As IList(Of MetadataItem)" />
-      <MemberSignature Language="F#" Value="member this.Metadata : System.Collections.Generic.IList&lt;Azure.Compute.Batch.MetadataItem&gt;" Usage="Azure.Compute.Batch.BatchJobSchedule.Metadata" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Metadata As IList(Of BatchMetadataItem)" />
+      <MemberSignature Language="F#" Value="member this.Metadata : System.Collections.Generic.IList&lt;Azure.Compute.Batch.BatchMetadataItem&gt;" Usage="Azure.Compute.Batch.BatchJobSchedule.Metadata" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Collections.Generic.IList&lt;Azure.Compute.Batch.MetadataItem&gt;</ReturnType>
+        <ReturnType>System.Collections.Generic.IList&lt;Azure.Compute.Batch.BatchMetadataItem&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> A list of name-value pairs associated with the schedule as metadata. The Batch service does not assign any meaning to metadata; it is solely for the use of user code. </summary>
@@ -333,26 +353,6 @@
       </ReturnValue>
       <Docs>
         <summary> The time at which the Job Schedule entered the current state. </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Stats">
-      <MemberSignature Language="C#" Value="public Azure.Compute.Batch.BatchJobScheduleStatistics Stats { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Compute.Batch.BatchJobScheduleStatistics Stats" />
-      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchJobSchedule.Stats" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Stats As BatchJobScheduleStatistics" />
-      <MemberSignature Language="F#" Value="member this.Stats : Azure.Compute.Batch.BatchJobScheduleStatistics" Usage="Azure.Compute.Batch.BatchJobSchedule.Stats" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Compute.Batch</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.Compute.Batch.BatchJobScheduleStatistics</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary> The lifetime resource usage statistics for the Job Schedule. The statistics may not be immediately available. The Batch service performs periodic roll-up of statistics. The typical delay is about 30 minutes. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -477,7 +477,7 @@
         <summary>
             Gets the data interchange format (JSON, Xml, etc) that the model uses when communicating with the service.
             </summary>
-        <returns>The format that the model uses when communicating with the serivce.</returns>
+        <returns>The format that the model uses when communicating with the service.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -511,19 +511,19 @@
         <exception cref="T:System.FormatException">If the model does not support the requested <see cref="P:System.ClientModel.Primitives.ModelReaderWriterOptions.Format" />.</exception>
       </Docs>
     </Member>
-    <Member MemberName="Url">
-      <MemberSignature Language="C#" Value="public string Url { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string Url" />
-      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchJobSchedule.Url" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Url As String" />
-      <MemberSignature Language="F#" Value="member this.Url : string" Usage="Azure.Compute.Batch.BatchJobSchedule.Url" />
+    <Member MemberName="Uri">
+      <MemberSignature Language="C#" Value="public Uri Uri { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Uri Uri" />
+      <MemberSignature Language="DocId" Value="P:Azure.Compute.Batch.BatchJobSchedule.Uri" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Uri As Uri" />
+      <MemberSignature Language="F#" Value="member this.Uri : Uri" Usage="Azure.Compute.Batch.BatchJobSchedule.Uri" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Compute.Batch</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>System.Uri</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> The URL of the Job Schedule. </summary>
