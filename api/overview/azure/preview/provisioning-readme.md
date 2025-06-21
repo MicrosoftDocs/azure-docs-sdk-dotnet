@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning, provisioning
-ms.date: 10/05/2024
+ms.date: 06/21/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: provisioning
 ---
-# Azure Provisioning client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning client library for .NET - version 1.2.0-alpha.20250620.1 
 
 
 Azure.Provisioning makes it easy to declaratively specify Azure infrastructure natively in .NET.
@@ -16,12 +16,6 @@ Azure.Provisioning makes it easy to declaratively specify Azure infrastructure n
 ### Install the package
 
 Install the client library for .NET with [NuGet](https://www.nuget.org/ ):
-
-```dotnetcli
-dotnet add package Azure.Provisioning --prerelease
-```
-
-You can also install the previous version for use with Aspire 8.x via:
 
 ```dotnetcli
 dotnet add package Azure.Provisioning
@@ -65,7 +59,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
