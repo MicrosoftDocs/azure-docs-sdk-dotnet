@@ -75,15 +75,11 @@
       </Docs>
     </Member>
     <Member MemberName="CreateObjectContract">
-      <MemberSignature Language="C#" Value="protected override Newtonsoft.Json.Serialization.JsonObjectContract CreateObjectContract (Type objectType);" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance class Newtonsoft.Json.Serialization.JsonObjectContract CreateObjectContract(class System.Type objectType) cil managed" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="protected override Newtonsoft.Json.Serialization.JsonObjectContract CreateObjectContract (Type objectType);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance class Newtonsoft.Json.Serialization.JsonObjectContract CreateObjectContract(class System.Type objectType) cil managed" />
       <MemberSignature Language="DocId" Value="M:Microsoft.WindowsAzure.MobileServices.MobileServiceContractResolver.CreateObjectContract(System.Type)" />
-      <MemberSignature Language="VB.NET" Value="Protected Overrides Function CreateObjectContract (objectType As Type) As JsonObjectContract" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="F#" Value="override this.CreateObjectContract : Type -&gt; Newtonsoft.Json.Serialization.JsonObjectContract" Usage="mobileServiceContractResolver.CreateObjectContract objectType" FrameworkAlternate="azure-dotnet" />
-      <MemberSignature Language="C#" Value="protected override Newtonsoft.Json.Serialization.JsonObjectContract CreateObjectContract (Type type);" FrameworkAlternate="azure-dotnet-legacy" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance class Newtonsoft.Json.Serialization.JsonObjectContract CreateObjectContract(class System.Type type) cil managed" FrameworkAlternate="azure-dotnet-legacy" />
-      <MemberSignature Language="VB.NET" Value="Protected Overrides Function CreateObjectContract (type As Type) As JsonObjectContract" FrameworkAlternate="azure-dotnet-legacy" />
-      <MemberSignature Language="F#" Value="override this.CreateObjectContract : Type -&gt; Newtonsoft.Json.Serialization.JsonObjectContract" Usage="mobileServiceContractResolver.CreateObjectContract type" FrameworkAlternate="azure-dotnet-legacy" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Function CreateObjectContract (objectType As Type) As JsonObjectContract" />
+      <MemberSignature Language="F#" Value="override this.CreateObjectContract : Type -&gt; Newtonsoft.Json.Serialization.JsonObjectContract" Usage="mobileServiceContractResolver.CreateObjectContract objectType" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Microsoft.Azure.Mobile.Client</AssemblyName>
@@ -97,24 +93,18 @@
         <ReturnType>Newtonsoft.Json.Serialization.JsonObjectContract</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="objectType" Type="System.Type" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="type" Type="System.Type" Index="0" FrameworkAlternate="azure-dotnet-legacy" />
+        <Parameter Name="objectType" Type="System.Type" />
       </Parameters>
       <Docs>
         <param name="objectType">The type for which to return a <see cref="T:Newtonsoft.Json.Serialization.JsonObjectContract" />.</param>
-        <param name="type">
-            The type for which to return a <see cref="T:Newtonsoft.Json.Serialization.JsonObjectContract" />.
-            </param>
         <summary>
             Creates a <see cref="T:Newtonsoft.Json.Serialization.JsonObjectContract" /> that provides information about how
             the given type should be serialized to JSON.
             </summary>
-        <returns>
-            The <see cref="T:Newtonsoft.Json.Serialization.JsonObjectContract" /> for the type.
-            </returns>
+        <returns>The <see cref="T:Newtonsoft.Json.Serialization.JsonObjectContract" /> for the type.</returns>
         <remarks>
-            This method is overridden in order to catch types that have 
-            <see cref="T:System.Runtime.Serialization.DataMemberAttribute" /> on one or more members without having a 
+            This method is overridden in order to catch types that have
+            <see cref="T:System.Runtime.Serialization.DataMemberAttribute" /> on one or more members without having a
             <see cref="T:System.Runtime.Serialization.DataContractAttribute" /> on the type itself. This used to be supported
             but no longer is and therefore an exception must be thrown for such types. The exception
             informs the developer about how to correctly attribute the type with the
@@ -146,28 +136,28 @@
       </Parameters>
       <Docs>
         <param name="type">
-            The type for which to create the collection of <see cref="T:Newtonsoft.Json.Serialization.JsonProperty" /> instances.
-            </param>
+             The type for which to create the collection of <see cref="T:Newtonsoft.Json.Serialization.JsonProperty" /> instances.
+             </param>
         <param name="memberSerialization">
-            Specifies the member serialization options for the type.
-            </param>
+             Specifies the member serialization options for the type.
+             </param>
         <summary>
-            Creates a collection of <see cref="T:Newtonsoft.Json.Serialization.JsonProperty" /> instances for the members of a given 
-            type.
-            </summary>
+             Creates a collection of <see cref="T:Newtonsoft.Json.Serialization.JsonProperty" /> instances for the members of a given
+             type.
+             </summary>
         <returns>
-            A collection of <see cref="T:Newtonsoft.Json.Serialization.JsonProperty" /> instances for the members of a given 
-            type.
-            </returns>
+             A collection of <see cref="T:Newtonsoft.Json.Serialization.JsonProperty" /> instances for the members of a given
+             type.
+             </returns>
         <remarks>
-            This method is overridden in order to handle the id property of the type. Because multiple
-            property names ("id" with different casings) are all treated as the id property, we must
-            ensure that there is one and only one id property for the type. Also, the id property
-            should be ignored when it is the default or null value and it should always serialize to JSON
-            with a lowercase 'id' name.
+             This method is overridden in order to handle the id property of the type. Because multiple
+             property names ("id" with different casings) are all treated as the id property, we must
+             ensure that there is one and only one id property for the type. Also, the id property
+             should be ignored when it is the default or null value and it should always serialize to JSON
+             with a lowercase 'id' name.
             
-            This method also checks for and applies and system property attributes.
-            </remarks>
+             This method also checks for and applies and system property attributes.
+             </remarks>
       </Docs>
     </Member>
     <Member MemberName="CreateProperty">
@@ -207,7 +197,7 @@
             </returns>
         <remarks>
             This method is overridden in order set specialized <see cref="T:Newtonsoft.Json.Serialization.IValueProvider" />
-            implementations for certain property types. The date types (<see cref="T:System.DateTime" />, 
+            implementations for certain property types. The date types (<see cref="T:System.DateTime" />,
             <see cref="T:System.DateTimeOffset" />) require conversion to UTC dates on serialization and to
             local dates on deserialization. The numerical types (<see cref="T:System.Int64" />, <see cref="T:System.UInt64" />,
             <see cref="T:System.Decimal" />) require checks to ensure that precision will not be lost on
@@ -277,7 +267,7 @@
             </param>
         <summary>
             Returns the <see cref="T:Newtonsoft.Json.Serialization.JsonProperty" /> for the given <see cref="T:System.Reflection.MemberInfo" /> instance.
-            The <see cref="T:Newtonsoft.Json.Serialization.JsonProperty" /> can be used to get information about how the 
+            The <see cref="T:Newtonsoft.Json.Serialization.JsonProperty" /> can be used to get information about how the
             <see cref="T:System.Reflection.MemberInfo" /> should be serialized.
             </summary>
         <returns>
@@ -346,11 +336,11 @@
       <Docs>
         <param name="type">The type for which to get the system properties.</param>
         <summary>
-            Returns the system properties as a comma seperated list for a 
+            Returns the system properties as a comma seperated list for a
             given type. Returns null if the type does not support system properties.
             </summary>
         <returns>
-            The system properties as a comma seperated list for the given type or null 
+            The system properties as a comma seperated list for the given type or null
             if the type does not support system properties.
             </returns>
         <remarks>To be added.</remarks>
@@ -382,7 +372,7 @@
             The type for which to return the table name.
             </param>
         <summary>
-            Returns a table name for a type and accounts for table renaming 
+            Returns a table name for a type and accounts for table renaming
             via the DataContractAttribute, DataTableAttribute and/or the JsonObjectAttribute.
             </summary>
         <returns>
