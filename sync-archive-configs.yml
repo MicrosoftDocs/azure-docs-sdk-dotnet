@@ -1,0 +1,20 @@
+trigger:
+  batch: true
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - metadata/legacy
+    - bundlepackages/azure-dotnet-legacy.csv
+    
+resources:
+  repositories:
+    - repository: ReferenceAutomation
+      type: git
+      name: Content CI/ReferenceAutomation
+      ref: refs/heads/main
+
+extends:
+  template: dotnet/pipeline-yaml/azure-sdk-dotnet-archive-push-configs.yml@ReferenceAutomation
+  
