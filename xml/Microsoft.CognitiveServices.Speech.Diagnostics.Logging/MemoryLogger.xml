@@ -1,0 +1,221 @@
+<Type Name="MemoryLogger" FullName="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger">
+  <TypeSignature Language="C#" Value="public static class MemoryLogger" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit MemoryLogger extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger" />
+  <TypeSignature Language="VB.NET" Value="Public Class MemoryLogger" />
+  <TypeSignature Language="F#" Value="type MemoryLogger = class" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+    <AssemblyVersion>1.46.0.28</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            A static class to control SDK logging into an in-memory buffer.
+            Turning on logging while running your Speech SDK scenario provides
+            detailed information from the SDK's core native components. If you
+            report an issue to Microsoft, you may be asked to provide logs to help
+            Microsoft diagnose the issue. Your application should not take dependency
+            on particular log strings, as they may change from one SDK release to another
+            without notice.
+            MemoryLogger is designed for the case where you want to get access to logs
+            that were taken in the short duration before some unexpected event happens.
+            For example, if you are running a Speech Recognizer, you may want to dump the MemoryLogger
+            after getting an event indicating recognition was canceled due to some error.
+            The size of the memory buffer is fixed at 2MB and cannot be changed. This is
+            a "ring" buffer, that is, new log strings written replace the oldest ones
+            in the buffer.
+            Added in version 1.20.0
+            </summary>
+    <remarks>Memory logging is a process wide construct. That means that if (for example)
+            you have multiple speech recognizer objects running in parallel, there will be one
+            memory buffer containing interleaved logs from all recognizers. You cannot get a
+            separate logs for each recognizer.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Dump">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Dump ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Dump() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.Dump" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function Dump () As IEnumerable(Of String)" />
+      <MemberSignature Language="F#" Value="static member Dump : unit -&gt; seq&lt;string&gt;" Usage="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.Dump " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Returns the content of the whole memory buffer as a string enumerable.
+            For example, you can access it as a string list by calling MemoryLogger.Dump().ToList&lt;string&gt;().
+            It does not block other SDK threads from continuing to log into the buffer.
+            </summary>
+        <returns>A string enumerable of the contents of the memory buffer copied into it.</returns>
+        <remarks>This does not reset (clear) the memory buffer.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dump">
+      <MemberSignature Language="C#" Value="public static void Dump (System.IO.TextWriter writer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Dump(class System.IO.TextWriter writer) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.Dump(System.IO.TextWriter)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Sub Dump (writer As TextWriter)" />
+      <MemberSignature Language="F#" Value="static member Dump : System.IO.TextWriter -&gt; unit" Usage="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.Dump writer" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="writer" Type="System.IO.TextWriter" />
+      </Parameters>
+      <Docs>
+        <param name="writer">TextWriter object to write to.</param>
+        <summary>
+            Writes the content of the whole memory buffer to an object that implements System.IO.TextWriter.
+            For example, System.Console.Out (for console output).
+            It does not block other SDK threads from continuing to log into the buffer.
+            </summary>
+        <remarks>This does not reset (clear) the memory buffer.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dump">
+      <MemberSignature Language="C#" Value="public static void Dump (string filePath);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Dump(string filePath) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.Dump(System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Sub Dump (filePath As String)" />
+      <MemberSignature Language="F#" Value="static member Dump : string -&gt; unit" Usage="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.Dump filePath" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="filePath" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="filePath">Path to a log file on local disk.</param>
+        <summary>
+            Writes the content of the whole memory buffer to the specified file.
+            It does not block other SDK threads from continuing to log into the buffer.
+            </summary>
+        <remarks>This does not reset (clear) the memory buffer.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetFilters">
+      <MemberSignature Language="C#" Value="public static void SetFilters (params string[] filters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetFilters(string[] filters) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.SetFilters(System.String[])" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Sub SetFilters (ParamArray filters As String())" />
+      <MemberSignature Language="F#" Value="static member SetFilters : string[] -&gt; unit" Usage="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.SetFilters filters" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="filters" Type="System.String[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.ParamArray]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.ParamArray&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="filters">Filters to use, or an empty list to remove previously set filters.</param>
+        <summary>
+            Sets or clears filters for memory logging.
+            Once filters are set, memory logger will only be updated with log strings
+            containing at least one of the strings specified by the filters. The match is case sensitive.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetLevel">
+      <MemberSignature Language="C#" Value="public static void SetLevel (Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level level);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetLevel(valuetype Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level level) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.SetLevel(Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Sub SetLevel (level As Level)" />
+      <MemberSignature Language="F#" Value="static member SetLevel : Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level -&gt; unit" Usage="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.SetLevel level" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="level" Type="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level" />
+      </Parameters>
+      <Docs>
+        <param name="level">Maximum level of detail to be captured by the logger.</param>
+        <summary>
+            Sets the level of the messages to be captured by the logger
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Start">
+      <MemberSignature Language="C#" Value="public static void Start ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Start() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.Start" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Sub Start ()" />
+      <MemberSignature Language="F#" Value="static member Start : unit -&gt; unit" Usage="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.Start " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Starts logging into the internal memory buffer.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Stop">
+      <MemberSignature Language="C#" Value="public static void Stop ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Stop() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.Stop" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Sub Stop ()" />
+      <MemberSignature Language="F#" Value="static member Stop : unit -&gt; unit" Usage="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.Stop " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Stops logging into the internal memory buffer.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

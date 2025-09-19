@@ -1,0 +1,492 @@
+<Type Name="ClientRetryPolicy" FullName="System.ClientModel.Primitives.ClientRetryPolicy">
+  <TypeSignature Language="C#" Value="public class ClientRetryPolicy : System.ClientModel.Primitives.PipelinePolicy" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ClientRetryPolicy extends System.ClientModel.Primitives.PipelinePolicy" />
+  <TypeSignature Language="DocId" Value="T:System.ClientModel.Primitives.ClientRetryPolicy" />
+  <TypeSignature Language="VB.NET" Value="Public Class ClientRetryPolicy&#xA;Inherits PipelinePolicy" />
+  <TypeSignature Language="F#" Value="type ClientRetryPolicy = class&#xA;    inherit PipelinePolicy" />
+  <AssemblyInfo>
+    <AssemblyName>System.ClientModel</AssemblyName>
+    <AssemblyVersion>1.5.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ClientModel.Primitives.PipelinePolicy</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            A <see cref="T:System.ClientModel.Primitives.PipelinePolicy" /> used by a <see cref="T:System.ClientModel.Primitives.ClientPipeline" /> to
+            decide whether or not to retry a <see cref="T:System.ClientModel.Primitives.PipelineRequest" />.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ClientRetryPolicy (int maxRetries = 3);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(int32 maxRetries) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientRetryPolicy.#ctor(System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (Optional maxRetries As Integer = 3)" />
+      <MemberSignature Language="F#" Value="new System.ClientModel.Primitives.ClientRetryPolicy : int -&gt; System.ClientModel.Primitives.ClientRetryPolicy" Usage="new System.ClientModel.Primitives.ClientRetryPolicy maxRetries" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="maxRetries" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="maxRetries">The maximum number of retries to attempt.</param>
+        <summary>
+            Creates a new instance of the <see cref="T:System.ClientModel.Primitives.ClientRetryPolicy" /> class.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ClientRetryPolicy (int maxRetries, bool enableLogging, Microsoft.Extensions.Logging.ILoggerFactory? loggerFactory);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(int32 maxRetries, bool enableLogging, class Microsoft.Extensions.Logging.ILoggerFactory loggerFactory) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientRetryPolicy.#ctor(System.Int32,System.Boolean,Microsoft.Extensions.Logging.ILoggerFactory)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (maxRetries As Integer, enableLogging As Boolean, loggerFactory As ILoggerFactory)" />
+      <MemberSignature Language="F#" Value="new System.ClientModel.Primitives.ClientRetryPolicy : int * bool * Microsoft.Extensions.Logging.ILoggerFactory -&gt; System.ClientModel.Primitives.ClientRetryPolicy" Usage="new System.ClientModel.Primitives.ClientRetryPolicy (maxRetries, enableLogging, loggerFactory)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="maxRetries" Type="System.Int32" />
+        <Parameter Name="enableLogging" Type="System.Boolean" />
+        <Parameter Name="loggerFactory" Type="Microsoft.Extensions.Logging.ILoggerFactory" />
+      </Parameters>
+      <Docs>
+        <param name="maxRetries">The maximum number of retries to attempt.</param>
+        <param name="enableLogging">If client-wide logging is enabled for this pipeline.</param>
+        <param name="loggerFactory">The <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory" /> to use to create an <see cref="T:Microsoft.Extensions.Logging.ILogger" /> instance for logging.
+            If one is not provided, logs are written to Event Source by default.</param>
+        <summary>
+            Creates a new instance of the <see cref="T:System.ClientModel.Primitives.ClientRetryPolicy" /> class.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Default">
+      <MemberSignature Language="C#" Value="public static System.ClientModel.Primitives.ClientRetryPolicy Default { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class System.ClientModel.Primitives.ClientRetryPolicy Default" />
+      <MemberSignature Language="DocId" Value="P:System.ClientModel.Primitives.ClientRetryPolicy.Default" />
+      <MemberSignature Language="VB.NET" Value="Public Shared ReadOnly Property Default As ClientRetryPolicy" />
+      <MemberSignature Language="F#" Value="static member Default : System.ClientModel.Primitives.ClientRetryPolicy" Usage="System.ClientModel.Primitives.ClientRetryPolicy.Default" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.ClientModel.Primitives.ClientRetryPolicy</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The <see cref="T:System.ClientModel.Primitives.ClientRetryPolicy" /> instance used by a default
+            <see cref="T:System.ClientModel.Primitives.ClientPipeline" />.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetNextDelay">
+      <MemberSignature Language="C#" Value="protected virtual TimeSpan GetNextDelay (System.ClientModel.Primitives.PipelineMessage message, int tryCount);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance valuetype System.TimeSpan GetNextDelay(class System.ClientModel.Primitives.PipelineMessage message, int32 tryCount) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientRetryPolicy.GetNextDelay(System.ClientModel.Primitives.PipelineMessage,System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Function GetNextDelay (message As PipelineMessage, tryCount As Integer) As TimeSpan" />
+      <MemberSignature Language="F#" Value="abstract member GetNextDelay : System.ClientModel.Primitives.PipelineMessage * int -&gt; TimeSpan&#xA;override this.GetNextDelay : System.ClientModel.Primitives.PipelineMessage * int -&gt; TimeSpan" Usage="clientRetryPolicy.GetNextDelay (message, tryCount)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.TimeSpan</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.ClientModel.Primitives.PipelineMessage" />
+        <Parameter Name="tryCount" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="message">The <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> for this
+            pipeline invocation.</param>
+        <param name="tryCount">A number indicating how many times the policy has
+            tried to send the request.</param>
+        <summary>
+            A method that can be overridden by derived types to customize the default
+            <see cref="T:System.ClientModel.Primitives.ClientRetryPolicy" /> logic. It is called from
+            <see cref="M:System.ClientModel.Primitives.ClientRetryPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+            to determine how long the policy should wait before re-sending the request.
+            </summary>
+        <returns>The amount of time to wait before the next retry attempt.
+            </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnRequestSent">
+      <MemberSignature Language="C#" Value="protected virtual void OnRequestSent (System.ClientModel.Primitives.PipelineMessage message);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance void OnRequestSent(class System.ClientModel.Primitives.PipelineMessage message) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientRetryPolicy.OnRequestSent(System.ClientModel.Primitives.PipelineMessage)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Sub OnRequestSent (message As PipelineMessage)" />
+      <MemberSignature Language="F#" Value="abstract member OnRequestSent : System.ClientModel.Primitives.PipelineMessage -&gt; unit&#xA;override this.OnRequestSent : System.ClientModel.Primitives.PipelineMessage -&gt; unit" Usage="clientRetryPolicy.OnRequestSent message" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.ClientModel.Primitives.PipelineMessage" />
+      </Parameters>
+      <Docs>
+        <param name="message">The <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> containing the
+            <see cref="T:System.ClientModel.Primitives.PipelineResponse" /> that was received from the service.</param>
+        <summary>
+            A method that can be overridden by derived types to extend the default
+            <see cref="T:System.ClientModel.Primitives.ClientRetryPolicy" /> logic.  It is called from
+            <see cref="M:System.ClientModel.Primitives.ClientRetryPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+            just after control has been returned from the policy at the position
+            after the retry policy in the pipeline.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnRequestSentAsync">
+      <MemberSignature Language="C#" Value="protected virtual System.Threading.Tasks.ValueTask OnRequestSentAsync (System.ClientModel.Primitives.PipelineMessage message);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance valuetype System.Threading.Tasks.ValueTask OnRequestSentAsync(class System.ClientModel.Primitives.PipelineMessage message) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientRetryPolicy.OnRequestSentAsync(System.ClientModel.Primitives.PipelineMessage)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Function OnRequestSentAsync (message As PipelineMessage) As ValueTask" />
+      <MemberSignature Language="F#" Value="abstract member OnRequestSentAsync : System.ClientModel.Primitives.PipelineMessage -&gt; System.Threading.Tasks.ValueTask&#xA;override this.OnRequestSentAsync : System.ClientModel.Primitives.PipelineMessage -&gt; System.Threading.Tasks.ValueTask" Usage="clientRetryPolicy.OnRequestSentAsync message" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.ValueTask</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.ClientModel.Primitives.PipelineMessage" />
+      </Parameters>
+      <Docs>
+        <param name="message">The <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> containing the
+            <see cref="T:System.ClientModel.Primitives.PipelineResponse" /> that was received from the service.</param>
+        <summary>
+            A method that can be overridden by derived types to extend the default
+            <see cref="T:System.ClientModel.Primitives.ClientRetryPolicy" /> logic.  It is called from
+            <see cref="M:System.ClientModel.Primitives.ClientRetryPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+            just after control has been returned from the policy at the position
+            after the retry policy in the pipeline.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnSendingRequest">
+      <MemberSignature Language="C#" Value="protected virtual void OnSendingRequest (System.ClientModel.Primitives.PipelineMessage message);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance void OnSendingRequest(class System.ClientModel.Primitives.PipelineMessage message) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientRetryPolicy.OnSendingRequest(System.ClientModel.Primitives.PipelineMessage)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Sub OnSendingRequest (message As PipelineMessage)" />
+      <MemberSignature Language="F#" Value="abstract member OnSendingRequest : System.ClientModel.Primitives.PipelineMessage -&gt; unit&#xA;override this.OnSendingRequest : System.ClientModel.Primitives.PipelineMessage -&gt; unit" Usage="clientRetryPolicy.OnSendingRequest message" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.ClientModel.Primitives.PipelineMessage" />
+      </Parameters>
+      <Docs>
+        <param name="message">The <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> containing the
+            <see cref="T:System.ClientModel.Primitives.PipelineRequest" /> to be sent to the service.</param>
+        <summary>
+            A method that can be overridden by derived types to extend the default
+            <see cref="T:System.ClientModel.Primitives.ClientRetryPolicy" /> logic.  It is called from
+            <see cref="M:System.ClientModel.Primitives.ClientRetryPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+            prior to passing control to the next policy in the pipeline.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnSendingRequestAsync">
+      <MemberSignature Language="C#" Value="protected virtual System.Threading.Tasks.ValueTask OnSendingRequestAsync (System.ClientModel.Primitives.PipelineMessage message);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance valuetype System.Threading.Tasks.ValueTask OnSendingRequestAsync(class System.ClientModel.Primitives.PipelineMessage message) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientRetryPolicy.OnSendingRequestAsync(System.ClientModel.Primitives.PipelineMessage)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Function OnSendingRequestAsync (message As PipelineMessage) As ValueTask" />
+      <MemberSignature Language="F#" Value="abstract member OnSendingRequestAsync : System.ClientModel.Primitives.PipelineMessage -&gt; System.Threading.Tasks.ValueTask&#xA;override this.OnSendingRequestAsync : System.ClientModel.Primitives.PipelineMessage -&gt; System.Threading.Tasks.ValueTask" Usage="clientRetryPolicy.OnSendingRequestAsync message" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.ValueTask</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.ClientModel.Primitives.PipelineMessage" />
+      </Parameters>
+      <Docs>
+        <param name="message">The <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> containing the
+            <see cref="T:System.ClientModel.Primitives.PipelineRequest" /> to be sent to the service.</param>
+        <summary>
+            A method that can be overridden by derived types to extend the default
+            <see cref="T:System.ClientModel.Primitives.ClientRetryPolicy" /> logic.  It is called from
+            <see cref="M:System.ClientModel.Primitives.ClientRetryPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+            prior to passing control to the next policy in the pipeline.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnTryComplete">
+      <MemberSignature Language="C#" Value="protected virtual void OnTryComplete (System.ClientModel.Primitives.PipelineMessage message);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance void OnTryComplete(class System.ClientModel.Primitives.PipelineMessage message) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientRetryPolicy.OnTryComplete(System.ClientModel.Primitives.PipelineMessage)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Sub OnTryComplete (message As PipelineMessage)" />
+      <MemberSignature Language="F#" Value="abstract member OnTryComplete : System.ClientModel.Primitives.PipelineMessage -&gt; unit&#xA;override this.OnTryComplete : System.ClientModel.Primitives.PipelineMessage -&gt; unit" Usage="clientRetryPolicy.OnTryComplete message" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.ClientModel.Primitives.PipelineMessage" />
+      </Parameters>
+      <Docs>
+        <param name="message">The <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> for this
+            pipeline invocation.</param>
+        <summary>
+            A method that can be overridden by derived types to extend the default
+            <see cref="T:System.ClientModel.Primitives.ClientRetryPolicy" /> logic.  It is called from
+            <see cref="M:System.ClientModel.Primitives.ClientRetryPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+            after the time interval for the current retry attempt has passed.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Process">
+      <MemberSignature Language="C#" Value="public override sealed void Process (System.ClientModel.Primitives.PipelineMessage message, System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt; pipeline, int currentIndex);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void Process(class System.ClientModel.Primitives.PipelineMessage message, class System.Collections.Generic.IReadOnlyList`1&lt;class System.ClientModel.Primitives.PipelinePolicy&gt; pipeline, int32 currentIndex) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientRetryPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Public Overrides NotOverridable Sub Process (message As PipelineMessage, pipeline As IReadOnlyList(Of PipelinePolicy), currentIndex As Integer)" />
+      <MemberSignature Language="F#" Value="override this.Process : System.ClientModel.Primitives.PipelineMessage * System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt; * int -&gt; unit" Usage="clientRetryPolicy.Process (message, pipeline, currentIndex)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.ClientModel.Primitives.PipelineMessage" />
+        <Parameter Name="pipeline" Type="System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt;" />
+        <Parameter Name="currentIndex" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="message">The <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> to process.</param>
+        <param name="pipeline">The collection of <see cref="T:System.ClientModel.Primitives.PipelinePolicy" />
+            instances in the <see cref="T:System.ClientModel.Primitives.ClientPipeline" /> instance whose
+            <see cref="M:System.ClientModel.Primitives.ClientPipeline.Send(System.ClientModel.Primitives.PipelineMessage)" /> method was called to invoke
+            this method.</param>
+        <param name="currentIndex">The index of this policy in the
+            <paramref name="pipeline" /> policy list. This value should be passed to
+            <see cref="M:System.ClientModel.Primitives.PipelinePolicy.ProcessNext(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+            to pass control to the next policy in the pipeline.</param>
+        <summary>
+            Process the provided <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> according to the
+            intended purpose of this <see cref="T:System.ClientModel.Primitives.PipelinePolicy" />instance.
+            Derived types must pass control to the next
+            <see cref="T:System.ClientModel.Primitives.PipelinePolicy" /> in the pipeline by calling
+            <see cref="M:System.ClientModel.Primitives.PipelinePolicy.ProcessNext(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ProcessAsync">
+      <MemberSignature Language="C#" Value="public override sealed System.Threading.Tasks.ValueTask ProcessAsync (System.ClientModel.Primitives.PipelineMessage message, System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt; pipeline, int currentIndex);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance valuetype System.Threading.Tasks.ValueTask ProcessAsync(class System.ClientModel.Primitives.PipelineMessage message, class System.Collections.Generic.IReadOnlyList`1&lt;class System.ClientModel.Primitives.PipelinePolicy&gt; pipeline, int32 currentIndex) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientRetryPolicy.ProcessAsync(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Public Overrides NotOverridable Function ProcessAsync (message As PipelineMessage, pipeline As IReadOnlyList(Of PipelinePolicy), currentIndex As Integer) As ValueTask" />
+      <MemberSignature Language="F#" Value="override this.ProcessAsync : System.ClientModel.Primitives.PipelineMessage * System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt; * int -&gt; System.Threading.Tasks.ValueTask" Usage="clientRetryPolicy.ProcessAsync (message, pipeline, currentIndex)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.ValueTask</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.ClientModel.Primitives.PipelineMessage" />
+        <Parameter Name="pipeline" Type="System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt;" />
+        <Parameter Name="currentIndex" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="message">The <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> to process.</param>
+        <param name="pipeline">The collection of <see cref="T:System.ClientModel.Primitives.PipelinePolicy" />
+            instances in the <see cref="T:System.ClientModel.Primitives.ClientPipeline" /> instance whose
+            <see cref="M:System.ClientModel.Primitives.ClientPipeline.SendAsync(System.ClientModel.Primitives.PipelineMessage)" /> method was called to invoke
+            this method.</param>
+        <param name="currentIndex">The index of this policy in the
+            <paramref name="pipeline" /> policy list. This value should be passed to
+            <see cref="M:System.ClientModel.Primitives.PipelinePolicy.ProcessNextAsync(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+            to pass control to the next policy in the pipeline.</param>
+        <summary>
+            Process the provided <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> according to the
+            intended purpose of this <see cref="T:System.ClientModel.Primitives.PipelinePolicy" />instance.
+            Derived types must pass control to the next
+            <see cref="T:System.ClientModel.Primitives.PipelinePolicy" /> in the pipeline by calling
+            <see cref="M:System.ClientModel.Primitives.PipelinePolicy.ProcessNextAsync(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldRetry">
+      <MemberSignature Language="C#" Value="protected virtual bool ShouldRetry (System.ClientModel.Primitives.PipelineMessage message, Exception? exception);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance bool ShouldRetry(class System.ClientModel.Primitives.PipelineMessage message, class System.Exception exception) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientRetryPolicy.ShouldRetry(System.ClientModel.Primitives.PipelineMessage,System.Exception)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Function ShouldRetry (message As PipelineMessage, exception As Exception) As Boolean" />
+      <MemberSignature Language="F#" Value="abstract member ShouldRetry : System.ClientModel.Primitives.PipelineMessage * Exception -&gt; bool&#xA;override this.ShouldRetry : System.ClientModel.Primitives.PipelineMessage * Exception -&gt; bool" Usage="clientRetryPolicy.ShouldRetry (message, exception)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.ClientModel.Primitives.PipelineMessage" />
+        <Parameter Name="exception" Type="System.Exception" />
+      </Parameters>
+      <Docs>
+        <param name="message">The <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> for this
+            pipeline invocation.</param>
+        <param name="exception">The exception, if any, that was thrown from
+            a policy after the retry policy in the pipeline.</param>
+        <summary>
+            A method that can be overridden by derived types to customize the default
+            <see cref="T:System.ClientModel.Primitives.ClientRetryPolicy" /> logic. It is called from
+            <see cref="M:System.ClientModel.Primitives.ClientRetryPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+            after control has been returned from the policy at the position
+            after the retry policy in the pipeline.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldRetryAsync">
+      <MemberSignature Language="C#" Value="protected virtual System.Threading.Tasks.ValueTask&lt;bool&gt; ShouldRetryAsync (System.ClientModel.Primitives.PipelineMessage message, Exception? exception);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance valuetype System.Threading.Tasks.ValueTask`1&lt;bool&gt; ShouldRetryAsync(class System.ClientModel.Primitives.PipelineMessage message, class System.Exception exception) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientRetryPolicy.ShouldRetryAsync(System.ClientModel.Primitives.PipelineMessage,System.Exception)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Function ShouldRetryAsync (message As PipelineMessage, exception As Exception) As ValueTask(Of Boolean)" />
+      <MemberSignature Language="F#" Value="abstract member ShouldRetryAsync : System.ClientModel.Primitives.PipelineMessage * Exception -&gt; System.Threading.Tasks.ValueTask&lt;bool&gt;&#xA;override this.ShouldRetryAsync : System.ClientModel.Primitives.PipelineMessage * Exception -&gt; System.Threading.Tasks.ValueTask&lt;bool&gt;" Usage="clientRetryPolicy.ShouldRetryAsync (message, exception)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.ValueTask&lt;System.Boolean&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.ClientModel.Primitives.PipelineMessage" />
+        <Parameter Name="exception" Type="System.Exception" />
+      </Parameters>
+      <Docs>
+        <param name="message">The <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> for this
+            pipeline invocation.</param>
+        <param name="exception">The exception, if any, that was thrown from
+            a policy after the retry policy in the pipeline.</param>
+        <summary>
+            A method that can be overridden by derived types to customize the default
+            <see cref="T:System.ClientModel.Primitives.ClientRetryPolicy" /> logic. It is called from
+            <see cref="M:System.ClientModel.Primitives.ClientRetryPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+            after control has been returned from the policy at the position
+            after the retry policy in the pipeline.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Wait">
+      <MemberSignature Language="C#" Value="protected virtual void Wait (TimeSpan time, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance void Wait(valuetype System.TimeSpan time, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientRetryPolicy.Wait(System.TimeSpan,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Sub Wait (time As TimeSpan, cancellationToken As CancellationToken)" />
+      <MemberSignature Language="F#" Value="abstract member Wait : TimeSpan * System.Threading.CancellationToken -&gt; unit&#xA;override this.Wait : TimeSpan * System.Threading.CancellationToken -&gt; unit" Usage="clientRetryPolicy.Wait (time, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="time" Type="System.TimeSpan" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="time">The amount of time to wait before trying to send the
+            request again.</param>
+        <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> used
+            to cancel the wait if needed.</param>
+        <summary>
+            A method that can be overridden by derived types to customize the default
+            <see cref="T:System.ClientModel.Primitives.ClientRetryPolicy" /> logic. It is called from
+            <see cref="M:System.ClientModel.Primitives.ClientRetryPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+            to wait the time interval returned by <see cref="M:System.ClientModel.Primitives.ClientRetryPolicy.GetNextDelay(System.ClientModel.Primitives.PipelineMessage,System.Int32)" />.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WaitAsync">
+      <MemberSignature Language="C#" Value="protected virtual System.Threading.Tasks.Task WaitAsync (TimeSpan time, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance class System.Threading.Tasks.Task WaitAsync(valuetype System.TimeSpan time, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.ClientRetryPolicy.WaitAsync(System.TimeSpan,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Function WaitAsync (time As TimeSpan, cancellationToken As CancellationToken) As Task" />
+      <MemberSignature Language="F#" Value="abstract member WaitAsync : TimeSpan * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&#xA;override this.WaitAsync : TimeSpan * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task" Usage="clientRetryPolicy.WaitAsync (time, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="time" Type="System.TimeSpan" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="time">The amount of time to wait before trying to send the
+            request again.</param>
+        <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> used
+            to cancel the wait if needed.</param>
+        <summary>
+            A method that can be overridden by derived types to customize the default
+            <see cref="T:System.ClientModel.Primitives.ClientRetryPolicy" /> logic. It is called from
+            <see cref="M:System.ClientModel.Primitives.ClientRetryPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+            to wait the time interval returned by <see cref="M:System.ClientModel.Primitives.ClientRetryPolicy.GetNextDelay(System.ClientModel.Primitives.PipelineMessage,System.Int32)" />.
+            </summary>
+        <returns>A task that can be awaited to asynchronously delay before the
+            next retry attempt.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

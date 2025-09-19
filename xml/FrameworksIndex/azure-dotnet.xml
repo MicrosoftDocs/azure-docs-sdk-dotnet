@@ -1,0 +1,1539 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Framework Name="azure-dotnet">
+  <Assemblies>
+    <Assembly Name="Microsoft.CognitiveServices.Speech.csharp" Version="1.46.0.28" />
+    <Assembly Name="Microsoft.CognitiveServices.Speech.Remoteconversation" Version="1.46.0.0" />
+  </Assemblies>
+  <Namespace Name="Azure.AI.Common.Internal">
+    <Type Name="Azure.AI.Common.Internal.JsonBuilder" Id="T:Azure.AI.Common.Internal.JsonBuilder">
+      <Member Id="M:Azure.AI.Common.Internal.JsonBuilder.#ctor" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonBuilder.AddItem(System.Int32,System.Int32,System.String)" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonBuilder.Dispose(System.Boolean)" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonBuilder.SetBoolean(System.Int32,System.Boolean)" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonBuilder.SetDouble(System.Int32,System.Double)" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonBuilder.SetInteger(System.Int32,System.Int32)" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonBuilder.SetJson(System.Int32,System.String)" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonBuilder.SetString(System.Int32,System.String)" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonBuilder.ToString" />
+      <Member Id="P:Azure.AI.Common.Internal.JsonBuilder.root" />
+    </Type>
+    <Type Name="Azure.AI.Common.Internal.JsonValue" Id="T:Azure.AI.Common.Internal.JsonValue">
+      <Member Id="M:Azure.AI.Common.Internal.JsonValue.AsArray" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonValue.AsBool" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonValue.AsDouble" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonValue.AsFloat" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonValue.AsJson" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonValue.AsLong" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonValue.AsString" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonValue.AsStringCopy" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonValue.AsULong" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonValue.Dispose(System.Boolean)" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonValue.HasValue(System.Int32)" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonValue.HasValue(System.String)" />
+      <Member Id="M:Azure.AI.Common.Internal.JsonValue.Parse(System.String)" />
+      <Member Id="P:Azure.AI.Common.Internal.JsonValue.Count" />
+      <Member Id="P:Azure.AI.Common.Internal.JsonValue.Item(System.Int32)" />
+      <Member Id="P:Azure.AI.Common.Internal.JsonValue.Item(System.String)" />
+      <Member Id="P:Azure.AI.Common.Internal.JsonValue.Items" />
+      <Member Id="P:Azure.AI.Common.Internal.JsonValue.Kind" />
+      <Member Id="P:Azure.AI.Common.Internal.JsonValue.Name" />
+    </Type>
+    <Type Name="Azure.AI.Common.Internal.ValueKind" Id="T:Azure.AI.Common.Internal.ValueKind">
+      <Member Id="F:Azure.AI.Common.Internal.ValueKind.Array" />
+      <Member Id="F:Azure.AI.Common.Internal.ValueKind.Boolean" />
+      <Member Id="F:Azure.AI.Common.Internal.ValueKind.End" />
+      <Member Id="F:Azure.AI.Common.Internal.ValueKind.Error" />
+      <Member Id="F:Azure.AI.Common.Internal.ValueKind.Null" />
+      <Member Id="F:Azure.AI.Common.Internal.ValueKind.Number" />
+      <Member Id="F:Azure.AI.Common.Internal.ValueKind.Object" />
+      <Member Id="F:Azure.AI.Common.Internal.ValueKind.String" />
+      <Member Id="F:Azure.AI.Common.Internal.ValueKind.Unspecified" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Microsoft.CognitiveServices.Speech.Audio">
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.AudioConfig" Id="T:Microsoft.CognitiveServices.Speech.Audio.AudioConfig">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromDefaultMicrophoneInput" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromDefaultMicrophoneInput(Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromDefaultSpeakerOutput" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromMicrophoneInput(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromMicrophoneInput(System.String,Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromSpeakerOutput(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromStreamInput(Microsoft.CognitiveServices.Speech.Audio.AudioInputStream)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromStreamInput(Microsoft.CognitiveServices.Speech.Audio.AudioInputStream,Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromStreamInput(Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStreamCallback)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromStreamInput(Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStreamCallback,Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromStreamInput(Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStreamCallback,Microsoft.CognitiveServices.Speech.Audio.AudioStreamFormat)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromStreamInput(Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStreamCallback,Microsoft.CognitiveServices.Speech.Audio.AudioStreamFormat,Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromStreamOutput(Microsoft.CognitiveServices.Speech.Audio.AudioOutputStream)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromStreamOutput(Microsoft.CognitiveServices.Speech.Audio.PushAudioOutputStreamCallback)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromWavFileInput(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromWavFileInput(System.String,Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.FromWavFileOutput(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.GetProperty(Microsoft.CognitiveServices.Speech.PropertyId)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.GetProperty(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.SetProperty(Microsoft.CognitiveServices.Speech.PropertyId,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.SetProperty(System.String,System.String)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Audio.AudioConfig.AudioProcessingOptions" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.AudioInputStream" Id="T:Microsoft.CognitiveServices.Speech.Audio.AudioInputStream">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioInputStream.isDisposing" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioInputStream.CreatePullStream(Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStreamCallback)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioInputStream.CreatePullStream(Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStreamCallback,Microsoft.CognitiveServices.Speech.Audio.AudioStreamFormat)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioInputStream.CreatePushStream" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioInputStream.CreatePushStream(Microsoft.CognitiveServices.Speech.Audio.AudioStreamFormat)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioInputStream.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioInputStream.Dispose(System.Boolean)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.AudioOutputStream" Id="T:Microsoft.CognitiveServices.Speech.Audio.AudioOutputStream">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioOutputStream.isDisposing" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioOutputStream.CreatePullStream" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioOutputStream.CreatePushStream(Microsoft.CognitiveServices.Speech.Audio.PushAudioOutputStreamCallback)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioOutputStream.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioOutputStream.Dispose(System.Boolean)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.AudioProcessingConstants" Id="T:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingConstants">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingConstants.AUDIO_INPUT_PROCESSING_DISABLE_DEREVERBERATION" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingConstants.AUDIO_INPUT_PROCESSING_DISABLE_ECHO_CANCELLATION" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingConstants.AUDIO_INPUT_PROCESSING_DISABLE_GAIN_CONTROL" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingConstants.AUDIO_INPUT_PROCESSING_DISABLE_NOISE_SUPPRESSION" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_V2" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_VOICE_ACTIVITY_DETECTION" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingConstants.AUDIO_INPUT_PROCESSING_NONE" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions" Id="T:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions.Create(System.Int32)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions.Create(System.Int32,Microsoft.CognitiveServices.Speech.Audio.MicrophoneArrayGeometry,Microsoft.CognitiveServices.Speech.Audio.SpeakerReferenceChannel)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions.Create(System.Int32,Microsoft.CognitiveServices.Speech.Audio.PresetMicrophoneArrayGeometry,Microsoft.CognitiveServices.Speech.Audio.SpeakerReferenceChannel)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions.Dispose" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions.AudioProcessingFlags" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions.BeamformingEndAngle" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions.BeamformingStartAngle" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions.MicrophoneArrayType" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions.MicrophoneCoordinates" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions.PresetMicrophoneArrayGeometry" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Audio.AudioProcessingOptions.SpeakerReferenceChannel" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.AudioStreamContainerFormat" Id="T:Microsoft.CognitiveServices.Speech.Audio.AudioStreamContainerFormat">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioStreamContainerFormat.ALAW" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioStreamContainerFormat.AMRNB" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioStreamContainerFormat.AMRWB" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioStreamContainerFormat.ANY" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioStreamContainerFormat.FLAC" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioStreamContainerFormat.MP3" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioStreamContainerFormat.MULAW" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioStreamContainerFormat.OGG_OPUS" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.AudioStreamFormat" Id="T:Microsoft.CognitiveServices.Speech.Audio.AudioStreamFormat">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioStreamFormat.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioStreamFormat.GetCompressedFormat(Microsoft.CognitiveServices.Speech.Audio.AudioStreamContainerFormat)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioStreamFormat.GetDefaultInputFormat" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioStreamFormat.GetDefaultOutputFormat" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioStreamFormat.GetWaveFormat(System.UInt32,System.Byte,System.Byte,Microsoft.CognitiveServices.Speech.Audio.AudioStreamWaveFormat)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.AudioStreamFormat.GetWaveFormatPCM(System.UInt32,System.Byte,System.Byte)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.AudioStreamWaveFormat" Id="T:Microsoft.CognitiveServices.Speech.Audio.AudioStreamWaveFormat">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioStreamWaveFormat.ALAW" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioStreamWaveFormat.G722" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioStreamWaveFormat.MULAW" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.AudioStreamWaveFormat.PCM" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.MicrophoneArrayGeometry" Id="T:Microsoft.CognitiveServices.Speech.Audio.MicrophoneArrayGeometry">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.MicrophoneArrayGeometry.#ctor(Microsoft.CognitiveServices.Speech.Audio.MicrophoneArrayType,Microsoft.CognitiveServices.Speech.Audio.MicrophoneCoordinates[])" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.MicrophoneArrayGeometry.#ctor(Microsoft.CognitiveServices.Speech.Audio.MicrophoneArrayType,System.UInt16,System.UInt16,Microsoft.CognitiveServices.Speech.Audio.MicrophoneCoordinates[])" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Audio.MicrophoneArrayGeometry.BeamformingEndAngle" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Audio.MicrophoneArrayGeometry.BeamformingStartAngle" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Audio.MicrophoneArrayGeometry.MicrophoneArrayType" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Audio.MicrophoneArrayGeometry.MicrophoneCoordinates" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.MicrophoneArrayType" Id="T:Microsoft.CognitiveServices.Speech.Audio.MicrophoneArrayType">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.MicrophoneArrayType.Linear" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.MicrophoneArrayType.Planar" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.MicrophoneCoordinates" Id="T:Microsoft.CognitiveServices.Speech.Audio.MicrophoneCoordinates">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.MicrophoneCoordinates.#ctor(System.Int32,System.Int32,System.Int32)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Audio.MicrophoneCoordinates.X" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Audio.MicrophoneCoordinates.Y" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Audio.MicrophoneCoordinates.Z" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.PresetMicrophoneArrayGeometry" Id="T:Microsoft.CognitiveServices.Speech.Audio.PresetMicrophoneArrayGeometry">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.PresetMicrophoneArrayGeometry.Circular4" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.PresetMicrophoneArrayGeometry.Circular7" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.PresetMicrophoneArrayGeometry.Custom" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.PresetMicrophoneArrayGeometry.Linear2" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.PresetMicrophoneArrayGeometry.Linear4" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.PresetMicrophoneArrayGeometry.Mono" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.PresetMicrophoneArrayGeometry.Uninitialized" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStream" Id="T:Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStream">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStream.#ctor(Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStreamCallback)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStream.#ctor(Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStreamCallback,Microsoft.CognitiveServices.Speech.Audio.AudioStreamFormat)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStream.Dispose(System.Boolean)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStreamCallback" Id="T:Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStreamCallback">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStreamCallback.#ctor" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStreamCallback.Close" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStreamCallback.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStreamCallback.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStreamCallback.GetProperty(Microsoft.CognitiveServices.Speech.PropertyId)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PullAudioInputStreamCallback.Read(System.Byte[],System.UInt32)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.PullAudioOutputStream" Id="T:Microsoft.CognitiveServices.Speech.Audio.PullAudioOutputStream">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PullAudioOutputStream.#ctor" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PullAudioOutputStream.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PullAudioOutputStream.Read(System.Byte[])" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.PushAudioInputStream" Id="T:Microsoft.CognitiveServices.Speech.Audio.PushAudioInputStream">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioInputStream.#ctor" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioInputStream.#ctor(Microsoft.CognitiveServices.Speech.Audio.AudioStreamFormat)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioInputStream.Close" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioInputStream.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioInputStream.SetProperty(Microsoft.CognitiveServices.Speech.PropertyId,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioInputStream.SetProperty(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioInputStream.Write(System.Byte[])" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioInputStream.Write(System.Byte[],System.Int32)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.PushAudioOutputStream" Id="T:Microsoft.CognitiveServices.Speech.Audio.PushAudioOutputStream">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioOutputStream.#ctor(Microsoft.CognitiveServices.Speech.Audio.PushAudioOutputStreamCallback)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioOutputStream.Dispose(System.Boolean)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.PushAudioOutputStreamCallback" Id="T:Microsoft.CognitiveServices.Speech.Audio.PushAudioOutputStreamCallback">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioOutputStreamCallback.#ctor" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioOutputStreamCallback.Close" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioOutputStreamCallback.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioOutputStreamCallback.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioOutputStreamCallback.Write(System.Byte[])" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Audio.SpeakerReferenceChannel" Id="T:Microsoft.CognitiveServices.Speech.Audio.SpeakerReferenceChannel">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.SpeakerReferenceChannel.LastChannel" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Audio.SpeakerReferenceChannel.None" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Microsoft.CognitiveServices.Speech">
+    <Type Name="Microsoft.CognitiveServices.Speech.AudioDataStream" Id="T:Microsoft.CognitiveServices.Speech.AudioDataStream">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AudioDataStream.CanReadData(System.UInt32)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AudioDataStream.CanReadData(System.UInt32,System.UInt32)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AudioDataStream.DetachInput" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AudioDataStream.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AudioDataStream.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AudioDataStream.FromResult(Microsoft.CognitiveServices.Speech.KeywordRecognitionResult)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AudioDataStream.FromResult(Microsoft.CognitiveServices.Speech.SpeechSynthesisResult)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AudioDataStream.FromWavFileInput(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AudioDataStream.GetPosition" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AudioDataStream.GetStatus" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AudioDataStream.ReadData(System.Byte[])" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AudioDataStream.ReadData(System.UInt32,System.Byte[])" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AudioDataStream.SaveToWaveFileAsync(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AudioDataStream.SetPosition(System.UInt32)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.AudioDataStream.Properties" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig" Id="T:Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig.FromLanguages(System.String[])" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig.FromOpenRange" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig.FromSourceLanguageConfigs(Microsoft.CognitiveServices.Speech.SourceLanguageConfig[])" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageResult" Id="T:Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageResult">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageResult.FromResult(Microsoft.CognitiveServices.Speech.SpeechRecognitionResult)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageResult.FromResult(Microsoft.CognitiveServices.Speech.Translation.TranslationRecognitionResult)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageResult.Language" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.CancellationDetails" Id="T:Microsoft.CognitiveServices.Speech.CancellationDetails">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.CancellationDetails.FromResult(Microsoft.CognitiveServices.Speech.RecognitionResult)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.CancellationDetails.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.CancellationDetails.ErrorCode" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.CancellationDetails.ErrorDetails" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.CancellationDetails.Reason" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.CancellationErrorCode" Id="T:Microsoft.CognitiveServices.Speech.CancellationErrorCode">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.CancellationErrorCode.AuthenticationFailure" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.CancellationErrorCode.BadRequest" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.CancellationErrorCode.ConnectionFailure" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.CancellationErrorCode.EmbeddedModelError" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.CancellationErrorCode.Forbidden" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.CancellationErrorCode.NoError" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.CancellationErrorCode.RuntimeError" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.CancellationErrorCode.ServiceError" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.CancellationErrorCode.ServiceTimeout" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.CancellationErrorCode.ServiceUnavailable" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.CancellationErrorCode.TooManyRequests" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.CancellationReason" Id="T:Microsoft.CognitiveServices.Speech.CancellationReason">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.CancellationReason.CancelledByUser" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.CancellationReason.EndOfStream" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.CancellationReason.Error" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.ClassLanguageModel" Id="T:Microsoft.CognitiveServices.Speech.ClassLanguageModel">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.ClassLanguageModel.AssignClass(System.String,Microsoft.CognitiveServices.Speech.Grammar)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.ClassLanguageModel.FromStorageId(System.String)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Connection" Id="T:Microsoft.CognitiveServices.Speech.Connection">
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Connection.Connected" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Connection.Disconnected" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Connection.MessageReceived" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Connection.Close" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Connection.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Connection.Finalize" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Connection.FromConversationTranslator(Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Connection.FromDialogServiceConnector(Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Connection.FromRecognizer(Microsoft.CognitiveServices.Speech.Recognizer)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Connection.FromSpeechSynthesizer(Microsoft.CognitiveServices.Speech.SpeechSynthesizer)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Connection.Open(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Connection.SendMessageAsync(System.String,System.Byte[],System.UInt32)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Connection.SendMessageAsync(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Connection.SetMessageProperty(System.String,System.String,System.String)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.ConnectionEventArgs" Id="T:Microsoft.CognitiveServices.Speech.ConnectionEventArgs" />
+    <Type Name="Microsoft.CognitiveServices.Speech.ConnectionMessage" Id="T:Microsoft.CognitiveServices.Speech.ConnectionMessage">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.ConnectionMessage.GetBinaryMessage" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.ConnectionMessage.GetTextMessage" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.ConnectionMessage.IsBinaryMessage" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.ConnectionMessage.IsTextMessage" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.ConnectionMessage.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.ConnectionMessage.Path" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.ConnectionMessage.Properties" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.ConnectionMessageEventArgs" Id="T:Microsoft.CognitiveServices.Speech.ConnectionMessageEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.ConnectionMessageEventArgs.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.ConnectionMessageEventArgs.Message" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.DetailedSpeechRecognitionResult" Id="T:Microsoft.CognitiveServices.Speech.DetailedSpeechRecognitionResult">
+      <Member Id="P:Microsoft.CognitiveServices.Speech.DetailedSpeechRecognitionResult.Confidence" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.DetailedSpeechRecognitionResult.DisplayWords" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.DetailedSpeechRecognitionResult.LexicalForm" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.DetailedSpeechRecognitionResult.MaskedNormalizedForm" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.DetailedSpeechRecognitionResult.NormalizedForm" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.DetailedSpeechRecognitionResult.Text" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.DetailedSpeechRecognitionResult.Words" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig" Id="T:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.FromPath(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.FromPaths(System.String[])" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.GetProperty(Microsoft.CognitiveServices.Speech.PropertyId)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.GetProperty(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.GetSpeechRecognitionModels" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.GetSpeechTranslationModels" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.SetKeywordRecognitionModel(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.SetProfanity(Microsoft.CognitiveServices.Speech.ProfanityOption)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.SetProperty(Microsoft.CognitiveServices.Speech.PropertyId,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.SetProperty(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.SetSpeechRecognitionModel(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.SetSpeechSynthesisOutputFormat(Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.SetSpeechSynthesisVoice(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.SetSpeechTranslationModel(System.String,System.String)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.KeywordRecognitionModelName" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.SpeechRecognitionModelName" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.SpeechRecognitionOutputFormat" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.SpeechSynthesisOutputFormat" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.SpeechSynthesisVoiceName" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig.SpeechTranslationModelName" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Grammar" Id="T:Microsoft.CognitiveServices.Speech.Grammar">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Grammar.FromStorageId(System.String)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.GrammarList" Id="T:Microsoft.CognitiveServices.Speech.GrammarList">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.GrammarList.Add(Microsoft.CognitiveServices.Speech.Grammar)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.GrammarList.FromRecognizer(Microsoft.CognitiveServices.Speech.Recognizer)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.GrammarList.SetRecognitionFactor(System.Double,Microsoft.CognitiveServices.Speech.RecognitionFactorScope)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.GrammarPhrase" Id="T:Microsoft.CognitiveServices.Speech.GrammarPhrase">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.GrammarPhrase.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.GrammarPhrase.From(System.String)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.HybridSpeechConfig" Id="T:Microsoft.CognitiveServices.Speech.HybridSpeechConfig">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.HybridSpeechConfig.FromConfigs(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.HybridSpeechConfig.GetProperty(Microsoft.CognitiveServices.Speech.PropertyId)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.HybridSpeechConfig.GetProperty(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.HybridSpeechConfig.SetProperty(Microsoft.CognitiveServices.Speech.PropertyId,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.HybridSpeechConfig.SetProperty(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.HybridSpeechConfig.SetSpeechSynthesisOutputFormat(Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.HybridSpeechConfig.SpeechRecognitionOutputFormat" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.HybridSpeechConfig.SpeechSynthesisOutputFormat" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.KeywordRecognitionEventArgs" Id="T:Microsoft.CognitiveServices.Speech.KeywordRecognitionEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.KeywordRecognitionEventArgs.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.KeywordRecognitionEventArgs.Result" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.KeywordRecognitionModel" Id="T:Microsoft.CognitiveServices.Speech.KeywordRecognitionModel">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.KeywordRecognitionModel.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.KeywordRecognitionModel.FromConfig(Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.KeywordRecognitionModel.FromConfig(Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig,System.String[])" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.KeywordRecognitionModel.FromFile(System.String)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.KeywordRecognitionResult" Id="T:Microsoft.CognitiveServices.Speech.KeywordRecognitionResult" />
+    <Type Name="Microsoft.CognitiveServices.Speech.KeywordRecognizer" Id="T:Microsoft.CognitiveServices.Speech.KeywordRecognizer">
+      <Member Id="E:Microsoft.CognitiveServices.Speech.KeywordRecognizer.Canceled" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.KeywordRecognizer.Recognized" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.KeywordRecognizer.#ctor(Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.KeywordRecognizer.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.KeywordRecognizer.RecognizeOnceAsync(Microsoft.CognitiveServices.Speech.KeywordRecognitionModel)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.KeywordRecognizer.StopRecognitionAsync" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.KeywordRecognizer.Properties" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.NoMatchDetails" Id="T:Microsoft.CognitiveServices.Speech.NoMatchDetails">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.NoMatchDetails.FromResult(Microsoft.CognitiveServices.Speech.RecognitionResult)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.NoMatchDetails.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.NoMatchDetails.Reason" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.NoMatchReason" Id="T:Microsoft.CognitiveServices.Speech.NoMatchReason">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.NoMatchReason.EndSilenceTimeout" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.NoMatchReason.InitialBabbleTimeout" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.NoMatchReason.InitialSilenceTimeout" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.NoMatchReason.KeywordNotRecognized" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.NoMatchReason.NotRecognized" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.OutputFormat" Id="T:Microsoft.CognitiveServices.Speech.OutputFormat">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.OutputFormat.Detailed" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.OutputFormat.Simple" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.PersonalVoiceSynthesisRequest" Id="T:Microsoft.CognitiveServices.Speech.PersonalVoiceSynthesisRequest">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PersonalVoiceSynthesisRequest.#ctor(Microsoft.CognitiveServices.Speech.SpeechSynthesisRequestInputType,System.String,System.String)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.PhonemeLevelTimingResult" Id="T:Microsoft.CognitiveServices.Speech.PhonemeLevelTimingResult">
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PhonemeLevelTimingResult.AccuracyScore" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PhonemeLevelTimingResult.Duration" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PhonemeLevelTimingResult.NBestPhonemes" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PhonemeLevelTimingResult.Offset" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PhonemeLevelTimingResult.Phoneme" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.PhraseListGrammar" Id="T:Microsoft.CognitiveServices.Speech.PhraseListGrammar">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PhraseListGrammar.AddPhrase(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PhraseListGrammar.Clear" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PhraseListGrammar.FromRecognizer(Microsoft.CognitiveServices.Speech.Recognizer)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PhraseListGrammar.SetWeight(System.Double)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.ProfanityOption" Id="T:Microsoft.CognitiveServices.Speech.ProfanityOption">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ProfanityOption.Masked" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ProfanityOption.Raw" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ProfanityOption.Removed" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.PronunciationAssessmentNBestPhoneme" Id="T:Microsoft.CognitiveServices.Speech.PronunciationAssessmentNBestPhoneme">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PronunciationAssessmentNBestPhoneme.#ctor" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PronunciationAssessmentNBestPhoneme.Phoneme" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PronunciationAssessmentNBestPhoneme.Score" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.PropertyCollection" Id="T:Microsoft.CognitiveServices.Speech.PropertyCollection">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PropertyCollection.#ctor(System.IntPtr)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PropertyCollection.Close" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PropertyCollection.GetProperty(Microsoft.CognitiveServices.Speech.PropertyId)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PropertyCollection.GetProperty(Microsoft.CognitiveServices.Speech.PropertyId,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PropertyCollection.GetProperty(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PropertyCollection.GetProperty(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PropertyCollection.SetProperty(Microsoft.CognitiveServices.Speech.PropertyId,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PropertyCollection.SetProperty(System.String,System.String)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.PropertyId" Id="T:Microsoft.CognitiveServices.Speech.PropertyId">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.AudioConfig_DeviceNameForRender" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.AudioConfig_PlaybackBufferLengthInMs" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.CancellationDetails_Reason" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.CancellationDetails_ReasonDetailedText" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.CancellationDetails_ReasonText" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.Conversation_ApplicationId" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.Conversation_Connection_Id" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.Conversation_Conversation_Id" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.Conversation_Custom_Voice_Deployment_Ids" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.Conversation_DialogType" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.Conversation_From_Id" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.Conversation_Initial_Silence_Timeout" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.Conversation_ParticipantId" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.Conversation_Request_Bot_Status_Messages" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.Conversation_Speech_Activity_Template" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.ConversationTranscribingService_DataBufferTimeStamp" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.ConversationTranscribingService_DataBufferUserId" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.EmbeddedSpeech_EnablePerformanceMetrics" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.KeywordRecognition_ModelKey" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.KeywordRecognition_ModelName" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.LanguageUnderstandingServiceResponse_JsonResult" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.PronunciationAssessment_EnableMiscue" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.PronunciationAssessment_EnableProsodyAssessment" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.PronunciationAssessment_GradingSystem" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.PronunciationAssessment_Granularity" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.PronunciationAssessment_Json" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.PronunciationAssessment_NBestPhonemeCount" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.PronunciationAssessment_Params" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.PronunciationAssessment_PhonemeAlphabet" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.PronunciationAssessment_ReferenceText" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeakerRecognition_Api_Version" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.Speech_LogFilename" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.Speech_SegmentationMaximumTimeMs" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.Speech_SegmentationSilenceTimeoutMs" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.Speech_SegmentationStrategy" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.Speech_SessionId" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.Speech_StartEventSensitivity" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceAuthorization_Token" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceAuthorization_Type" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_AutoDetectSourceLanguageResult" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_AutoDetectSourceLanguages" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_EnableAudioLogging" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_Endpoint" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_EndpointId" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_EndSilenceTimeoutMs" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_Host" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_InitialSilenceTimeoutMs" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_IntentRegion" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_Key" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_LanguageIdMode" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_ProxyHostBypass" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_ProxyHostName" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_ProxyPassword" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_ProxyPort" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_ProxyUserName" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_RecoBackend" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_RecoLanguage" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_RecoMode" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_RecoModelKey" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_RecoModelName" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_Region" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_SynthBackend" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_SynthEnableCompressedAudioTransmission" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_SynthLanguage" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_SynthModelKey" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_SynthOfflineDataPath" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_SynthOfflineVoice" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_SynthOutputFormat" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_SynthVoice" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_TranslationCategoryId" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_TranslationFeatures" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_TranslationToLanguages" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_TranslationVoice" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_Url" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceConnection_VoicesListEndpoint" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_DiarizeIntermediateResults" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_JsonErrorDetails" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_JsonResult" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_OutputFormatOption" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_PostProcessingOption" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_ProfanityOption" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_RecognitionBackend" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_RecognitionLatencyMs" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_RequestDetailedResultTrueFalse" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_RequestProfanityFilterTrueFalse" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_RequestPunctuationBoundary" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_RequestSentenceBoundary" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_RequestSnr" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_RequestWordBoundary" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_RequestWordLevelTimestamps" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_StablePartialResultThreshold" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_SynthesisBackend" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_SynthesisConnectionLatencyMs" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_SynthesisEventsSyncToAudio" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_SynthesisFinishLatencyMs" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_SynthesisFirstByteLatencyMs" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_SynthesisNetworkLatencyMs" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_SynthesisServiceLatencyMs" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_SynthesisUnderrunTimeMs" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechServiceResponse_TranslationRequestStablePartialResult" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechSynthesis_FrameTimeoutInterval" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechSynthesis_RtfTimeoutThreshold" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechSynthesisRequest_Pitch" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechSynthesisRequest_Rate" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechSynthesisRequest_Volume" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechTranslation_ModelKey" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PropertyId.SpeechTranslation_ModelName" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.RecognitionEventArgs" Id="T:Microsoft.CognitiveServices.Speech.RecognitionEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.RecognitionEventArgs.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.RecognitionEventArgs.Offset" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.RecognitionFactorScope" Id="T:Microsoft.CognitiveServices.Speech.RecognitionFactorScope">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.RecognitionFactorScope.PartialPhrase" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.RecognitionResult" Id="T:Microsoft.CognitiveServices.Speech.RecognitionResult">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.RecognitionResult.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.RecognitionResult.Channel" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.RecognitionResult.Duration" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.RecognitionResult.OffsetInTicks" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.RecognitionResult.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.RecognitionResult.Reason" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.RecognitionResult.ResultId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.RecognitionResult.Text" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Recognizer" Id="T:Microsoft.CognitiveServices.Speech.Recognizer">
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Recognizer.SessionStarted" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Recognizer.SessionStopped" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Recognizer.SpeechEndDetected" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Recognizer.SpeechStartDetected" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Recognizer.TokenRequested" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Recognizer._tokenCredential" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Recognizer.disposed" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Recognizer.gch" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Recognizer.isDisposing" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Recognizer.pointerHandle" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Recognizer.recognizerLock" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Recognizer.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Recognizer.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Recognizer.Finalize" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Recognizer.SetUpTokenRefreshCallback(Microsoft.CognitiveServices.Speech.PropertyCollection)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.ResultReason" Id="T:Microsoft.CognitiveServices.Speech.ResultReason">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.Canceled" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.DeletedVoiceProfile" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.EnrolledVoiceProfile" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.EnrollingVoiceProfile" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.NoMatch" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.RecognizedIntent" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.RecognizedKeyword" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.RecognizedSpeaker" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.RecognizedSpeakers" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.RecognizedSpeech" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.RecognizingIntent" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.RecognizingKeyword" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.RecognizingSpeech" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.ResetVoiceProfile" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.SynthesizingAudio" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.SynthesizingAudioCompleted" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.SynthesizingAudioStarted" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.TranslatedInstantMessage" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.TranslatedParticipantInstantMessage" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.TranslatedParticipantSpeech" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.TranslatedSpeech" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.TranslatingParticipantSpeech" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.TranslatingSpeech" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ResultReason.VoicesListRetrieved" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.ServicePropertyChannel" Id="T:Microsoft.CognitiveServices.Speech.ServicePropertyChannel">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ServicePropertyChannel.HttpHeader" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.ServicePropertyChannel.UriQueryParameter" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SessionEventArgs" Id="T:Microsoft.CognitiveServices.Speech.SessionEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SessionEventArgs.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SessionEventArgs.SessionId" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SourceLanguageConfig" Id="T:Microsoft.CognitiveServices.Speech.SourceLanguageConfig">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SourceLanguageConfig.FromLanguage(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SourceLanguageConfig.FromLanguage(System.String,System.String)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SourceLanguageRecognizer" Id="T:Microsoft.CognitiveServices.Speech.SourceLanguageRecognizer">
+      <Member Id="E:Microsoft.CognitiveServices.Speech.SourceLanguageRecognizer.Canceled" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.SourceLanguageRecognizer.Recognized" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SourceLanguageRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SourceLanguageRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SourceLanguageRecognizer.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SourceLanguageRecognizer.Finalize" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SourceLanguageRecognizer.RecognizeOnceAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SourceLanguageRecognizer.StartContinuousRecognitionAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SourceLanguageRecognizer.StopContinuousRecognitionAsync" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SourceLanguageRecognizer.AuthorizationToken" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SourceLanguageRecognizer.OutputFormat" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SourceLanguageRecognizer.Properties" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechConfig" Id="T:Microsoft.CognitiveServices.Speech.SpeechConfig">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.EnableAudioLogging" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.EnableDictation" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.FromAuthorizationToken(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.FromEndpoint(System.Uri)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.FromEndpoint(System.Uri,Azure.Core.TokenCredential)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.FromEndpoint(System.Uri,System.ClientModel.ApiKeyCredential)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.FromEndpoint(System.Uri,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.FromHost(System.Uri)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.FromHost(System.Uri,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.FromSubscription(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.GetProperty(Microsoft.CognitiveServices.Speech.PropertyId)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.GetProperty(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.RequestWordLevelTimestamps" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.SetProfanity(Microsoft.CognitiveServices.Speech.ProfanityOption)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.SetProperty(Microsoft.CognitiveServices.Speech.PropertyId,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.SetProperty(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.SetProxy(System.String,System.Int32)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.SetProxy(System.String,System.Int32,System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.SetServiceProperty(System.String,System.String,Microsoft.CognitiveServices.Speech.ServicePropertyChannel)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechConfig.SetSpeechSynthesisOutputFormat(Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechConfig.AuthorizationToken" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechConfig.EndpointId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechConfig.OutputFormat" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechConfig.Region" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechConfig.SpeechRecognitionLanguage" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechConfig.SpeechSynthesisLanguage" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechConfig.SpeechSynthesisOutputFormat" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechConfig.SpeechSynthesisVoiceName" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechConfig.SubscriptionKey" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechRecognitionCanceledEventArgs" Id="T:Microsoft.CognitiveServices.Speech.SpeechRecognitionCanceledEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognitionCanceledEventArgs.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechRecognitionCanceledEventArgs.ErrorCode" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechRecognitionCanceledEventArgs.ErrorDetails" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechRecognitionCanceledEventArgs.Reason" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechRecognitionEventArgs" Id="T:Microsoft.CognitiveServices.Speech.SpeechRecognitionEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognitionEventArgs.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechRecognitionEventArgs.Result" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechRecognitionModel" Id="T:Microsoft.CognitiveServices.Speech.SpeechRecognitionModel">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognitionModel.Dispose(System.Boolean)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechRecognitionModel.Locales" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechRecognitionModel.Name" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechRecognitionModel.Path" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechRecognitionModel.Version" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechRecognitionResult" Id="T:Microsoft.CognitiveServices.Speech.SpeechRecognitionResult" />
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechRecognitionResultExtensions" Id="T:Microsoft.CognitiveServices.Speech.SpeechRecognitionResultExtensions">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognitionResultExtensions.Best(Microsoft.CognitiveServices.Speech.SpeechRecognitionResult)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechRecognizer" Id="T:Microsoft.CognitiveServices.Speech.SpeechRecognizer">
+      <Member Id="E:Microsoft.CognitiveServices.Speech.SpeechRecognizer.Canceled" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.SpeechRecognizer.Recognized" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.SpeechRecognizer.Recognizing" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.#ctor(Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.#ctor(Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.#ctor(Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig,Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.#ctor(Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig,Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.#ctor(Microsoft.CognitiveServices.Speech.HybridSpeechConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.#ctor(Microsoft.CognitiveServices.Speech.HybridSpeechConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.#ctor(Microsoft.CognitiveServices.Speech.HybridSpeechConfig,Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.#ctor(Microsoft.CognitiveServices.Speech.HybridSpeechConfig,Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.SourceLanguageConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.SourceLanguageConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,System.String,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.Finalize" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.RecognizeOnceAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.StartContinuousRecognitionAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.StartKeywordRecognitionAsync(Microsoft.CognitiveServices.Speech.KeywordRecognitionModel)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.StopContinuousRecognitionAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.StopKeywordRecognitionAsync" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechRecognizer.AuthorizationToken" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechRecognizer.EndpointId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechRecognizer.OutputFormat" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechRecognizer.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechRecognizer.SpeechRecognitionLanguage" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechSynthesisBookmarkEventArgs" Id="T:Microsoft.CognitiveServices.Speech.SpeechSynthesisBookmarkEventArgs">
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisBookmarkEventArgs.AudioOffset" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisBookmarkEventArgs.ResultId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisBookmarkEventArgs.Text" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechSynthesisBoundaryType" Id="T:Microsoft.CognitiveServices.Speech.SpeechSynthesisBoundaryType">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisBoundaryType.Punctuation" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisBoundaryType.Sentence" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisBoundaryType.Word" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechSynthesisCancellationDetails" Id="T:Microsoft.CognitiveServices.Speech.SpeechSynthesisCancellationDetails">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesisCancellationDetails.FromResult(Microsoft.CognitiveServices.Speech.SpeechSynthesisResult)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesisCancellationDetails.FromStream(Microsoft.CognitiveServices.Speech.AudioDataStream)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesisCancellationDetails.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisCancellationDetails.ErrorCode" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisCancellationDetails.ErrorDetails" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisCancellationDetails.Reason" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechSynthesisEventArgs" Id="T:Microsoft.CognitiveServices.Speech.SpeechSynthesisEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesisEventArgs.Dispose" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisEventArgs.Result" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat" Id="T:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.AmrWb16000Hz" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Audio16Khz128KBitRateMonoMp3" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Audio16Khz16Bit32KbpsMonoOpus" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Audio16Khz16KbpsMonoSiren" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Audio16Khz32KBitRateMonoMp3" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Audio16Khz64KBitRateMonoMp3" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Audio24Khz160KBitRateMonoMp3" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Audio24Khz16Bit24KbpsMonoOpus" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Audio24Khz16Bit48KbpsMonoOpus" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Audio24Khz48KBitRateMonoMp3" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Audio24Khz96KBitRateMonoMp3" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Audio48Khz192KBitRateMonoMp3" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Audio48Khz96KBitRateMonoMp3" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.G72216Khz64Kbps" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Ogg16Khz16BitMonoOpus" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Ogg24Khz16BitMonoOpus" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Ogg48Khz16BitMonoOpus" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Raw16Khz16BitMonoPcm" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Raw16Khz16BitMonoTrueSilk" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Raw22050Hz16BitMonoPcm" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Raw24Khz16BitMonoPcm" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Raw24Khz16BitMonoTrueSilk" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Raw44100Hz16BitMonoPcm" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Raw48Khz16BitMonoPcm" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Raw8Khz16BitMonoPcm" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Raw8Khz8BitMonoALaw" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Raw8Khz8BitMonoMULaw" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Riff16Khz16BitMonoPcm" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Riff16Khz16KbpsMonoSiren" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Riff22050Hz16BitMonoPcm" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Riff44100Hz16BitMonoPcm" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Riff48Khz16BitMonoPcm" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Riff8Khz16BitMonoPcm" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Riff8Khz8BitMonoALaw" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Riff8Khz8BitMonoMULaw" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Webm16Khz16BitMonoOpus" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Webm24Khz16Bit24KbpsMonoOpus" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisOutputFormat.Webm24Khz16BitMonoOpus" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechSynthesisRequest" Id="T:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequest">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequest.#ctor(Microsoft.CognitiveServices.Speech.SpeechSynthesisRequestInputType)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequest.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequest.Dispose(System.Boolean)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequest.InputStream" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequest.Pitch" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequest.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequest.Rate" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequest.Volume" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechSynthesisRequestInputStream" Id="T:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequestInputStream">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequestInputStream.Close" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequestInputStream.Write(System.String)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechSynthesisRequestInputType" Id="T:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequestInputType">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequestInputType.None" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequestInputType.SSML" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequestInputType.Text" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SpeechSynthesisRequestInputType.TextStream" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechSynthesisResult" Id="T:Microsoft.CognitiveServices.Speech.SpeechSynthesisResult">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesisResult.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesisResult.Dispose(System.Boolean)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisResult.AudioData" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisResult.AudioDuration" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisResult.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisResult.Reason" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisResult.ResultId" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechSynthesisVisemeEventArgs" Id="T:Microsoft.CognitiveServices.Speech.SpeechSynthesisVisemeEventArgs">
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisVisemeEventArgs.Animation" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisVisemeEventArgs.AudioOffset" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisVisemeEventArgs.ResultId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisVisemeEventArgs.VisemeId" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechSynthesisWordBoundaryEventArgs" Id="T:Microsoft.CognitiveServices.Speech.SpeechSynthesisWordBoundaryEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesisWordBoundaryEventArgs.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesisWordBoundaryEventArgs.Dispose(System.Boolean)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisWordBoundaryEventArgs.AudioOffset" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisWordBoundaryEventArgs.BoundaryType" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisWordBoundaryEventArgs.Duration" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisWordBoundaryEventArgs.ResultId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisWordBoundaryEventArgs.Text" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisWordBoundaryEventArgs.TextOffset" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesisWordBoundaryEventArgs.WordLength" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechSynthesizer" Id="T:Microsoft.CognitiveServices.Speech.SpeechSynthesizer">
+      <Member Id="E:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.BookmarkReached" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.SynthesisCanceled" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.SynthesisCompleted" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.SynthesisStarted" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.Synthesizing" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.VisemeReceived" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.WordBoundary" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.#ctor(Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.#ctor(Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.#ctor(Microsoft.CognitiveServices.Speech.HybridSpeechConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.#ctor(Microsoft.CognitiveServices.Speech.HybridSpeechConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.Finalize" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.GetVoicesAsync(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.SpeakAsync(Microsoft.CognitiveServices.Speech.SpeechSynthesisRequest)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.SpeakSsmlAsync(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.SpeakTextAsync(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.StartSpeakingAsync(Microsoft.CognitiveServices.Speech.SpeechSynthesisRequest)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.StartSpeakingSsmlAsync(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.StartSpeakingTextAsync(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.StopSpeakingAsync" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.AuthorizationToken" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechSynthesizer.Properties" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechTranslationConfig" Id="T:Microsoft.CognitiveServices.Speech.SpeechTranslationConfig">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechTranslationConfig.AddTargetLanguage(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechTranslationConfig.FromAuthorizationToken(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechTranslationConfig.FromEndpoint(System.Uri)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechTranslationConfig.FromEndpoint(System.Uri,Azure.Core.TokenCredential)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechTranslationConfig.FromEndpoint(System.Uri,System.ClientModel.ApiKeyCredential)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechTranslationConfig.FromEndpoint(System.Uri,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechTranslationConfig.FromHost(System.Uri)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechTranslationConfig.FromHost(System.Uri,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechTranslationConfig.FromSubscription(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechTranslationConfig.RemoveTargetLanguage(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechTranslationConfig.SetCustomModelCategoryId(System.String)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechTranslationConfig.TargetLanguages" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechTranslationConfig.VoiceName" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SpeechTranslationModel" Id="T:Microsoft.CognitiveServices.Speech.SpeechTranslationModel">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SpeechTranslationModel.Dispose(System.Boolean)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechTranslationModel.Name" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechTranslationModel.Path" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechTranslationModel.SourceLanguages" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechTranslationModel.TargetLanguages" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SpeechTranslationModel.Version" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.StreamStatus" Id="T:Microsoft.CognitiveServices.Speech.StreamStatus">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.StreamStatus.AllData" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.StreamStatus.Canceled" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.StreamStatus.NoData" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.StreamStatus.PartialData" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.StreamStatus.Unknown" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SyllableLevelTimingResult" Id="T:Microsoft.CognitiveServices.Speech.SyllableLevelTimingResult">
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SyllableLevelTimingResult.AccuracyScore" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SyllableLevelTimingResult.Duration" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SyllableLevelTimingResult.Grapheme" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SyllableLevelTimingResult.Offset" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SyllableLevelTimingResult.Syllable" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SynthesisVoiceGender" Id="T:Microsoft.CognitiveServices.Speech.SynthesisVoiceGender">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SynthesisVoiceGender.Female" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SynthesisVoiceGender.Male" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SynthesisVoiceGender.Neutral" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SynthesisVoiceGender.Unknown" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SynthesisVoicesResult" Id="T:Microsoft.CognitiveServices.Speech.SynthesisVoicesResult">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.SynthesisVoicesResult.Dispose(System.Boolean)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SynthesisVoicesResult.ErrorDetails" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SynthesisVoicesResult.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SynthesisVoicesResult.Reason" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SynthesisVoicesResult.ResultId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.SynthesisVoicesResult.Voices" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SynthesisVoiceStatus" Id="T:Microsoft.CognitiveServices.Speech.SynthesisVoiceStatus">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SynthesisVoiceStatus.Deprecated" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SynthesisVoiceStatus.GeneralAvailability" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SynthesisVoiceStatus.Preview" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SynthesisVoiceStatus.Unknown" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.SynthesisVoiceType" Id="T:Microsoft.CognitiveServices.Speech.SynthesisVoiceType">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SynthesisVoiceType.OfflineNeural" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SynthesisVoiceType.OfflineStandard" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SynthesisVoiceType.OnlineNeural" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.SynthesisVoiceType.OnlineStandard" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.VoiceInfo" Id="T:Microsoft.CognitiveServices.Speech.VoiceInfo">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.VoiceInfo.Dispose(System.Boolean)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.VoiceInfo.Gender" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.VoiceInfo.Locale" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.VoiceInfo.LocalName" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.VoiceInfo.Name" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.VoiceInfo.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.VoiceInfo.ShortName" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.VoiceInfo.Status" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.VoiceInfo.StyleList" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.VoiceInfo.VoicePath" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.VoiceInfo.VoiceType" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.WordLevelTimingResult" Id="T:Microsoft.CognitiveServices.Speech.WordLevelTimingResult">
+      <Member Id="P:Microsoft.CognitiveServices.Speech.WordLevelTimingResult.Confidence" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.WordLevelTimingResult.Duration" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.WordLevelTimingResult.Offset" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.WordLevelTimingResult.Word" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Microsoft.CognitiveServices.Speech.Diagnostics.Logging">
+    <Type Name="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventLogger" Id="T:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventLogger">
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventLogger.OnMessage" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventLogger.SetFilters(System.String[])" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventLogger.SetLevel(Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventSourceLogger" Id="T:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventSourceLogger">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventSourceLogger.SetFilters(System.String[])" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventSourceLogger.SetLevel(Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventSourceLogger.Instance" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.FileLogger" Id="T:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.FileLogger">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.FileLogger.SetFilters(System.String[])" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.FileLogger.SetLevel(Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.FileLogger.Start(System.String,System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.FileLogger.Stop" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level" Id="T:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level.Error" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level.Info" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level.Verbose" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level.Warning" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger" Id="T:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.Dump" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.Dump(System.IO.TextWriter)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.Dump(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.SetFilters(System.String[])" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.SetLevel(Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.Start" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.MemoryLogger.Stop" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Microsoft.CognitiveServices.Speech.Dialog">
+    <Type Name="Microsoft.CognitiveServices.Speech.Dialog.ActivityReceivedEventArgs" Id="T:Microsoft.CognitiveServices.Speech.Dialog.ActivityReceivedEventArgs">
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Dialog.ActivityReceivedEventArgs.Activity" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Dialog.ActivityReceivedEventArgs.Audio" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Dialog.ActivityReceivedEventArgs.HasAudio" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Dialog.BotFrameworkConfig" Id="T:Microsoft.CognitiveServices.Speech.Dialog.BotFrameworkConfig">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.BotFrameworkConfig.FromAuthorizationToken(System.String,System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.BotFrameworkConfig.FromSubscription(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.BotFrameworkConfig.FromSubscription(System.String,System.String,System.String)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Dialog.CustomCommandsConfig" Id="T:Microsoft.CognitiveServices.Speech.Dialog.CustomCommandsConfig">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.CustomCommandsConfig.FromAuthorizationToken(System.String,System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.CustomCommandsConfig.FromSubscription(System.String,System.String,System.String)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Dialog.CustomCommandsConfig.ApplicationId" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConfig" Id="T:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConfig">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConfig.GetProperty(Microsoft.CognitiveServices.Speech.PropertyId)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConfig.GetProperty(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConfig.SetProperty(Microsoft.CognitiveServices.Speech.PropertyId,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConfig.SetProperty(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConfig.SetProxy(System.String,System.Int32)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConfig.SetProxy(System.String,System.Int32,System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConfig.SetServiceProperty(System.String,System.String,Microsoft.CognitiveServices.Speech.ServicePropertyChannel)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConfig.Language" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector" Id="T:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector">
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.ActivityReceived" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.Canceled" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.Recognized" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.Recognizing" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.SessionStarted" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.SessionStopped" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.SpeechEndDetected" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.SpeechStartDetected" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.TurnStatusReceived" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.#ctor(Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.#ctor(Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.ConnectAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.DisconnectAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.Finalize" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.ListenOnceAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.SendActivityAsync(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.StartContinuousListeningAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.StartKeywordRecognitionAsync(Microsoft.CognitiveServices.Speech.KeywordRecognitionModel)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.StopKeywordRecognitionAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.StopListeningAsync" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.AuthorizationToken" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector.SpeechActivityTemplate" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Dialog.TurnStatusReceivedEventArgs" Id="T:Microsoft.CognitiveServices.Speech.Dialog.TurnStatusReceivedEventArgs">
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Dialog.TurnStatusReceivedEventArgs.ConversationId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Dialog.TurnStatusReceivedEventArgs.InteractionId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Dialog.TurnStatusReceivedEventArgs.StatusCode" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Microsoft.CognitiveServices.Speech.Intent">
+    <Type Name="Microsoft.CognitiveServices.Speech.Intent.ConversationalLanguageUnderstandingModel" Id="T:Microsoft.CognitiveServices.Speech.Intent.ConversationalLanguageUnderstandingModel">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.ConversationalLanguageUnderstandingModel.#ctor(System.String,System.String,System.String,System.String)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.ConversationalLanguageUnderstandingModel.DeploymentName" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.ConversationalLanguageUnderstandingModel.Endpoint" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.ConversationalLanguageUnderstandingModel.LanguageResourceKey" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.ConversationalLanguageUnderstandingModel.ModelId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.ConversationalLanguageUnderstandingModel.ProjectName" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Intent.EntityMatchMode" Id="T:Microsoft.CognitiveServices.Speech.Intent.EntityMatchMode">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Intent.EntityMatchMode.Basic" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Intent.EntityMatchMode.Fuzzy" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Intent.EntityMatchMode.Strict" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Intent.EntityType" Id="T:Microsoft.CognitiveServices.Speech.Intent.EntityType">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Intent.EntityType.Any" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Intent.EntityType.List" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Intent.EntityType.PrebuiltInteger" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionCanceledEventArgs" Id="T:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionCanceledEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionCanceledEventArgs.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionCanceledEventArgs.ErrorCode" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionCanceledEventArgs.ErrorDetails" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionCanceledEventArgs.Reason" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionEventArgs" Id="T:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionEventArgs.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionEventArgs.Result" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionResult" Id="T:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionResult">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionResult.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionResult.Entities" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionResult.IntentId" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer" Id="T:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer">
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.Canceled" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.Recognized" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.Recognizing" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.#ctor(Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.#ctor(Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.AddAllIntents(Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.AddAllIntents(Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.AddIntent(Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.AddIntent(Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel,System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.AddIntent(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.AddIntent(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.ApplyLanguageModels(Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModelCollection)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.Finalize" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.RecognizeOnceAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.RecognizeOnceAsync(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.StartContinuousRecognitionAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.StartKeywordRecognitionAsync(Microsoft.CognitiveServices.Speech.KeywordRecognitionModel)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.StopContinuousRecognitionAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.StopKeywordRecognitionAsync" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.AuthorizationToken" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.SpeechRecognitionLanguage" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel" Id="T:Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel.#ctor" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel.FromAppId(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel.FromEndpoint(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel.FromSubscription(System.String,System.String,System.String)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel.ModelId" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModelCollection" Id="T:Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModelCollection">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModelCollection.#ctor" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModelCollection.GetKeyForItem(Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Intent.PatternMatchingEntity" Id="T:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingEntity">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingEntity.#ctor(System.String,Microsoft.CognitiveServices.Speech.Intent.EntityType,Microsoft.CognitiveServices.Speech.Intent.EntityMatchMode,System.Collections.Generic.IEnumerable{System.String})" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingEntity.CreateAnyEntity(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingEntity.CreateIntegerEntity(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingEntity.CreateListEntity(System.String,Microsoft.CognitiveServices.Speech.Intent.EntityMatchMode,System.Collections.Generic.IEnumerable{System.String})" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingEntity.CreateListEntity(System.String,Microsoft.CognitiveServices.Speech.Intent.EntityMatchMode,System.String[])" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingEntity.EntityId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingEntity.Mode" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingEntity.Phrases" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingEntity.Type" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Intent.PatternMatchingEntityCollection" Id="T:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingEntityCollection">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingEntityCollection.#ctor" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingEntityCollection.GetKeyForItem(Microsoft.CognitiveServices.Speech.Intent.PatternMatchingEntity)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Intent.PatternMatchingIntent" Id="T:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingIntent">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingIntent.#ctor(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingIntent.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingIntent.#ctor(System.String,System.String[])" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingIntent.IntentId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingIntent.Phrases" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Intent.PatternMatchingIntentCollection" Id="T:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingIntentCollection">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingIntentCollection.#ctor" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingIntentCollection.GetKeyForItem(Microsoft.CognitiveServices.Speech.Intent.PatternMatchingIntent)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Intent.PatternMatchingModel" Id="T:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingModel">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingModel.#ctor(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingModel.FromJSONFile(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingModel.FromJSONFileStream(System.IO.Stream)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingModel.Entities" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingModel.Intents" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Intent.PatternMatchingModel.ModelId" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Microsoft.CognitiveServices.Speech.Internal">
+    <Type Name="Microsoft.CognitiveServices.Speech.Internal.DisposableBase" Id="T:Microsoft.CognitiveServices.Speech.Internal.DisposableBase">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Internal.DisposableBase.#ctor" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Internal.DisposableBase.CheckDisposed" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Internal.DisposableBase.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Internal.DisposableBase.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Internal.DisposableBase.Finalize" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Internal.DisposableBase.IsDisposed" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Internal.LogEventSourceMessageCallbackFunctionDelegate" Id="T:Microsoft.CognitiveServices.Speech.Internal.LogEventSourceMessageCallbackFunctionDelegate" />
+    <Type Name="Microsoft.CognitiveServices.Speech.Internal.LogMessageCallbackFunctionDelegate" Id="T:Microsoft.CognitiveServices.Speech.Internal.LogMessageCallbackFunctionDelegate" />
+    <Type Name="Microsoft.CognitiveServices.Speech.Internal.PushAudioStreamCloseDelegate" Id="T:Microsoft.CognitiveServices.Speech.Internal.PushAudioStreamCloseDelegate" />
+    <Type Name="Microsoft.CognitiveServices.Speech.Internal.PushAudioStreamWriteDelegate" Id="T:Microsoft.CognitiveServices.Speech.Internal.PushAudioStreamWriteDelegate" />
+  </Namespace>
+  <Namespace Name="Microsoft.CognitiveServices.Speech.PronunciationAssessment">
+    <Type Name="Microsoft.CognitiveServices.Speech.PronunciationAssessment.GradingSystem" Id="T:Microsoft.CognitiveServices.Speech.PronunciationAssessment.GradingSystem">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PronunciationAssessment.GradingSystem.FivePoint" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PronunciationAssessment.GradingSystem.HundredMark" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.PronunciationAssessment.Granularity" Id="T:Microsoft.CognitiveServices.Speech.PronunciationAssessment.Granularity">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PronunciationAssessment.Granularity.FullText" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PronunciationAssessment.Granularity.Phoneme" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.PronunciationAssessment.Granularity.Word" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentConfig" Id="T:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentConfig">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentConfig.#ctor(System.String,Microsoft.CognitiveServices.Speech.PronunciationAssessment.GradingSystem,Microsoft.CognitiveServices.Speech.PronunciationAssessment.Granularity,System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentConfig.ApplyTo(Microsoft.CognitiveServices.Speech.Recognizer)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentConfig.EnableProsodyAssessment" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentConfig.FromJson(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentConfig.ToJson" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentConfig.NBestPhonemeCount" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentConfig.PhonemeAlphabet" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentConfig.ReferenceText" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentResult" Id="T:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentResult">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentResult.FromResult(Microsoft.CognitiveServices.Speech.SpeechRecognitionResult)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentResult.AccuracyScore" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentResult.CompletenessScore" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentResult.FluencyScore" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentResult.PronunciationScore" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentResult.ProsodyScore" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentResult.Words" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentWordResult" Id="T:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentWordResult">
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentWordResult.AccuracyScore" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentWordResult.ErrorType" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentWordResult.Phonemes" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentWordResult.Syllables" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.PronunciationAssessment.PronunciationAssessmentWordResult.Word" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Microsoft.CognitiveServices.Speech.RemoteMeeting">
+    <Type Name="Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionClient" Id="T:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionClient">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionClient.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionClient.DeleteRemoteTranscription(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionClient.DeleteRemoteTranscriptionAsync(System.String)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionOperation" Id="T:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionOperation">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionOperation.#ctor(System.String,Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionClient)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionOperation.GetRawResponse" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionOperation.UpdateStatus(System.Threading.CancellationToken)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionOperation.UpdateStatusAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionOperation.WaitForCompletionAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionOperation.WaitForCompletionAsync(System.TimeSpan,System.Threading.CancellationToken)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionOperation.HasCompleted" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionOperation.HasValue" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionOperation.Id" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionOperation.Value" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionResult" Id="T:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionResult">
+      <Member Id="P:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionResult.Id" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.RemoteMeeting.RemoteMeetingTranscriptionResult.MeetingTranscriptionResults" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Microsoft.CognitiveServices.Speech.Speaker">
+    <Type Name="Microsoft.CognitiveServices.Speech.Speaker.SpeakerIdentificationModel" Id="T:Microsoft.CognitiveServices.Speech.Speaker.SpeakerIdentificationModel">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.SpeakerIdentificationModel.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.SpeakerIdentificationModel.FromProfiles(System.Collections.Generic.IEnumerable{Microsoft.CognitiveServices.Speech.Speaker.VoiceProfile})" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognitionCancellationDetails" Id="T:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognitionCancellationDetails">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognitionCancellationDetails.FromResult(Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognitionResult)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognitionCancellationDetails.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognitionCancellationDetails.ErrorCode" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognitionCancellationDetails.ErrorDetails" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognitionCancellationDetails.Reason" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognitionResult" Id="T:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognitionResult">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognitionResult.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognitionResult.ProfileId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognitionResult.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognitionResult.Reason" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognitionResult.ResultId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognitionResult.Score" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognizer" Id="T:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognizer">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognizer.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognizer.RecognizeOnceAsync(Microsoft.CognitiveServices.Speech.Speaker.SpeakerIdentificationModel)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognizer.RecognizeOnceAsync(Microsoft.CognitiveServices.Speech.Speaker.SpeakerVerificationModel)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.SpeakerRecognizer.Properties" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Speaker.SpeakerVerificationModel" Id="T:Microsoft.CognitiveServices.Speech.Speaker.SpeakerVerificationModel">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.SpeakerVerificationModel.Dispose" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.SpeakerVerificationModel.FromProfile(Microsoft.CognitiveServices.Speech.Speaker.VoiceProfile)" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Speaker.VoiceProfile" Id="T:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfile">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfile.#ctor(System.String,Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileType)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfile.Dispose(System.Boolean)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfile.Id" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfile.Type" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileCancellationDetails" Id="T:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileCancellationDetails">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileCancellationDetails.FromResult(Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileResult)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileCancellationDetails.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileCancellationDetails.ErrorCode" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileCancellationDetails.ErrorDetails" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileCancellationDetails.Reason" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileClient" Id="T:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileClient">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileClient.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileClient.CreateProfileAsync(Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileType,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileClient.DeleteProfileAsync(Microsoft.CognitiveServices.Speech.Speaker.VoiceProfile)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileClient.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileClient.EnrollProfileAsync(Microsoft.CognitiveServices.Speech.Speaker.VoiceProfile,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileClient.GetActivationPhrasesAsync(Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileType,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileClient.GetAllProfilesAsync(Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileType)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileClient.ResetProfileAsync(Microsoft.CognitiveServices.Speech.Speaker.VoiceProfile)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileClient.RetrieveEnrollmentResultAsync(Microsoft.CognitiveServices.Speech.Speaker.VoiceProfile)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileClient.Properties" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentCancellationDetails" Id="T:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentCancellationDetails">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentCancellationDetails.FromResult(Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentCancellationDetails.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentCancellationDetails.ErrorCode" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentCancellationDetails.ErrorDetails" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentCancellationDetails.Reason" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult" Id="T:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult.AudioLength" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult.AudioSpeechLength" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult.CreatedTime" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult.EnrollmentsCount" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult.EnrollmentsLength" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult.EnrollmentsSpeechLength" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult.LastUpdatedDateTime" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult.ProfileId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult.Reason" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult.RemainingEnrollmentsCount" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult.RemainingEnrollmentsSpeechLength" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileEnrollmentResult.ResultId" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Speaker.VoiceProfilePhraseCancellationDetails" Id="T:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfilePhraseCancellationDetails">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfilePhraseCancellationDetails.FromResult(Microsoft.CognitiveServices.Speech.Speaker.VoiceProfilePhraseResult)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfilePhraseCancellationDetails.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfilePhraseCancellationDetails.ErrorCode" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfilePhraseCancellationDetails.ErrorDetails" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfilePhraseCancellationDetails.Reason" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Speaker.VoiceProfilePhraseResult" Id="T:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfilePhraseResult">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfilePhraseResult.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfilePhraseResult.Phrases" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfilePhraseResult.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfilePhraseResult.Reason" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfilePhraseResult.ResultId" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileResult" Id="T:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileResult">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileResult.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileResult.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileResult.Reason" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileResult.ResultId" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileType" Id="T:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileType">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileType.TextDependentVerification" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileType.TextIndependentIdentification" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Speaker.VoiceProfileType.TextIndependentVerification" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Microsoft.CognitiveServices.Speech.Transcription">
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.Conversation" Id="T:Microsoft.CognitiveServices.Speech.Transcription.Conversation">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.AddParticipantAsync(Microsoft.CognitiveServices.Speech.Transcription.Participant)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.AddParticipantAsync(Microsoft.CognitiveServices.Speech.Transcription.User)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.AddParticipantAsync(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.CreateConversationAsync(Microsoft.CognitiveServices.Speech.SpeechConfig,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.DeleteConversationAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.EndConversationAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.LockConversationAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.MuteAllParticipantsAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.MuteParticipantAsync(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.RemoveParticipantAsync(Microsoft.CognitiveServices.Speech.Transcription.Participant)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.RemoveParticipantAsync(Microsoft.CognitiveServices.Speech.Transcription.User)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.RemoveParticipantAsync(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.StartConversationAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.UnlockConversationAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.UnmuteAllParticipantsAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Conversation.UnmuteParticipantAsync(System.String)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Conversation.AuthorizationToken" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Conversation.ConversationId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Conversation.OutputFormat" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Conversation.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Conversation.SpeechRecognitionLanguage" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.ConversationExpirationEventArgs" Id="T:Microsoft.CognitiveServices.Speech.Transcription.ConversationExpirationEventArgs">
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationExpirationEventArgs.ExpirationTime" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.ConversationParticipantsChangedEventArgs" Id="T:Microsoft.CognitiveServices.Speech.Transcription.ConversationParticipantsChangedEventArgs">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Transcription.ConversationParticipantsChangedEventArgs.Participants" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationParticipantsChangedEventArgs.Reason" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber" Id="T:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber">
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber.Canceled" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber.Transcribed" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber.Transcribing" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.SourceLanguageConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber.#ctor(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.SourceLanguageConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber.StartTranscribingAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber.StopTranscribingAsync" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber.AuthorizationToken" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber.OutputFormat" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriber.SpeechRecognitionLanguage" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriptionCanceledEventArgs" Id="T:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriptionCanceledEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriptionCanceledEventArgs.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriptionCanceledEventArgs.ErrorCode" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriptionCanceledEventArgs.ErrorDetails" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriptionCanceledEventArgs.Reason" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriptionEventArgs" Id="T:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriptionEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriptionEventArgs.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriptionEventArgs.Result" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriptionResult" Id="T:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriptionResult">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriptionResult.#ctor(System.IntPtr)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriptionResult.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranscriptionResult.SpeakerId" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslationCanceledEventArgs" Id="T:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslationCanceledEventArgs">
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslationCanceledEventArgs.ErrorCode" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslationCanceledEventArgs.ErrorDetails" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslationCanceledEventArgs.Reason" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslationEventArgs" Id="T:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslationEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslationEventArgs.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslationEventArgs.Result" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslationResult" Id="T:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslationResult">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslationResult.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslationResult.OriginalLang" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslationResult.ParticipantId" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator" Id="T:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator">
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.Canceled" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.ConversationExpiration" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.ParticipantsChanged" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.SessionStarted" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.SessionStopped" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.TextMessageReceived" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.Transcribed" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.Transcribing" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.#ctor" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.#ctor(Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.JoinConversationAsync(Microsoft.CognitiveServices.Speech.Transcription.Conversation,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.JoinConversationAsync(System.String,System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.LeaveConversationAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.SendTextMessageAsync(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.SetAuthorizationToken(System.String,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.StartTranscribingAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.StopTranscribingAsync" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.AuthorizationToken" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.ParticipantId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator.SpeechRecognitionLanguage" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.Meeting" Id="T:Microsoft.CognitiveServices.Speech.Transcription.Meeting">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.AddParticipantAsync(Microsoft.CognitiveServices.Speech.Transcription.Participant)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.AddParticipantAsync(Microsoft.CognitiveServices.Speech.Transcription.User)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.AddParticipantAsync(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.CreateMeetingAsync(Microsoft.CognitiveServices.Speech.SpeechConfig,System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.DeleteMeetingAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.EndMeetingAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.LockMeetingAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.MuteAllParticipantsAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.MuteParticipantAsync(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.RemoveParticipantAsync(Microsoft.CognitiveServices.Speech.Transcription.Participant)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.RemoveParticipantAsync(Microsoft.CognitiveServices.Speech.Transcription.User)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.RemoveParticipantAsync(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.StartMeetingAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.UnlockMeetingAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.UnmuteAllParticipantsAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Meeting.UnmuteParticipantAsync(System.String)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Meeting.AuthorizationToken" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Meeting.MeetingId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Meeting.OutputFormat" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Meeting.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Meeting.SpeechRecognitionLanguage" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriber" Id="T:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriber">
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriber.Canceled" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriber.Transcribed" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriber.Transcribing" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriber.#ctor" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriber.#ctor(Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriber.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriber.JoinMeetingAsync(Microsoft.CognitiveServices.Speech.Transcription.Meeting)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriber.LeaveMeetingAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriber.StartTranscribingAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriber.StopTranscribingAsync" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriber.AuthorizationToken" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriber.OutputFormat" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriber.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriber.SpeechRecognitionLanguage" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriptionCanceledEventArgs" Id="T:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriptionCanceledEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriptionCanceledEventArgs.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriptionCanceledEventArgs.ErrorCode" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriptionCanceledEventArgs.ErrorDetails" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriptionCanceledEventArgs.Reason" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriptionEventArgs" Id="T:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriptionEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriptionEventArgs.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriptionEventArgs.Result" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriptionResult" Id="T:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriptionResult">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriptionResult.#ctor(System.IntPtr)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriptionResult.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriptionResult.UserId" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.MeetingTranscriptionResult.UtteranceId" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.Participant" Id="T:Microsoft.CognitiveServices.Speech.Transcription.Participant">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Participant.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.Participant.From(System.String,System.String,System.String)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Participant.Avatar" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Participant.DisplayName" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Participant.Id" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Participant.IsHost" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Participant.IsMuted" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Participant.IsUsingTts" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Participant.PreferredLanguage" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Participant.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.Participant.VoiceSignature" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.ParticipantChangedReason" Id="T:Microsoft.CognitiveServices.Speech.Transcription.ParticipantChangedReason">
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Transcription.ParticipantChangedReason.JoinedConversation" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Transcription.ParticipantChangedReason.LeftConversation" />
+      <Member Id="F:Microsoft.CognitiveServices.Speech.Transcription.ParticipantChangedReason.Updated" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Transcription.User" Id="T:Microsoft.CognitiveServices.Speech.Transcription.User">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Transcription.User.FromUserId(System.String)" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Transcription.User.UserId" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Microsoft.CognitiveServices.Speech.Translation">
+    <Type Name="Microsoft.CognitiveServices.Speech.Translation.TranslationRecognitionCanceledEventArgs" Id="T:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognitionCanceledEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognitionCanceledEventArgs.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognitionCanceledEventArgs.ErrorCode" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognitionCanceledEventArgs.ErrorDetails" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognitionCanceledEventArgs.Reason" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Translation.TranslationRecognitionEventArgs" Id="T:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognitionEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognitionEventArgs.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognitionEventArgs.Result" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Translation.TranslationRecognitionResult" Id="T:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognitionResult">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognitionResult.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognitionResult.Translations" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer" Id="T:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer">
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.Canceled" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.Recognized" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.Recognizing" />
+      <Member Id="E:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.Synthesizing" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.#ctor(Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.#ctor(Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.#ctor(Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig,Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.#ctor(Microsoft.CognitiveServices.Speech.EmbeddedSpeechConfig,Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.#ctor(Microsoft.CognitiveServices.Speech.HybridSpeechConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.#ctor(Microsoft.CognitiveServices.Speech.HybridSpeechConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechTranslationConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechTranslationConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechTranslationConfig,Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.#ctor(Microsoft.CognitiveServices.Speech.SpeechTranslationConfig,Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig,Microsoft.CognitiveServices.Speech.Audio.AudioConfig)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.AddTargetLanguage(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.Dispose(System.Boolean)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.Finalize" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.RecognizeOnceAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.RemoveTargetLanguage(System.String)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.StartContinuousRecognitionAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.StartKeywordRecognitionAsync(Microsoft.CognitiveServices.Speech.KeywordRecognitionModel)" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.StopContinuousRecognitionAsync" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.StopKeywordRecognitionAsync" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.AuthorizationToken" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.Properties" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.SpeechRecognitionLanguage" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.TargetLanguages" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.VoiceName" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisEventArgs" Id="T:Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisEventArgs">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisEventArgs.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisEventArgs.Result" />
+    </Type>
+    <Type Name="Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisResult" Id="T:Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisResult">
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisResult.GetAudio" />
+      <Member Id="M:Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisResult.ToString" />
+      <Member Id="P:Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisResult.Reason" />
+    </Type>
+  </Namespace>
+</Framework>

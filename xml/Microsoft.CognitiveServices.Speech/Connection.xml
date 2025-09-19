@@ -1,0 +1,403 @@
+<Type Name="Connection" FullName="Microsoft.CognitiveServices.Speech.Connection">
+  <TypeSignature Language="C#" Value="public sealed class Connection : IDisposable" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed beforefieldinit Connection extends System.Object implements class System.IDisposable" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.CognitiveServices.Speech.Connection" />
+  <TypeSignature Language="VB.NET" Value="Public NotInheritable Class Connection&#xA;Implements IDisposable" />
+  <TypeSignature Language="F#" Value="type Connection = class&#xA;    interface IDisposable" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+    <AssemblyVersion>1.46.0.28</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.IDisposable</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>
+            A proxy class for managing connection to the speech service of the specified Recognizer. Added in 1.2.0
+            </summary>
+    <remarks>
+            By default, a Recognizer autonomously manages connection to service when needed.
+            The Connection class provides additional methods you can use to explicitly open or close a connection and
+            to subscribe to connection status changes.
+            The use of Connection is optional. It is intended for scenarios where fine tuning of application
+            behavior based on connection status is needed. You can optionally call Open() to manually
+            initiate a service connection before starting recognition on the Recognizer associated with this Connection.
+            After starting a recognition, calling Open() or Close() might fail. This will not impact
+            the Recognizer or the ongoing recognition. Connection might drop for various reasons, the Recognizer will
+            always try to reinstitute the connection as required to guarantee ongoing operations. In all these cases
+            Connected/Disconnected events will indicate the change of the connection status.
+            </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Close">
+      <MemberSignature Language="C#" Value="public void Close ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Close() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Connection.Close" />
+      <MemberSignature Language="VB.NET" Value="Public Sub Close ()" />
+      <MemberSignature Language="F#" Value="member this.Close : unit -&gt; unit" Usage="connection.Close " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Closes the connection the service.
+            You can optionally call Close() to manually shutdown the connection of the associated Recognizer.
+            The call might fail, depending on the process state of the Recognizer. But the failure does not affect the state of the
+            associated Recognizer.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Connected">
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;Microsoft.CognitiveServices.Speech.ConnectionEventArgs&gt; Connected;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class Microsoft.CognitiveServices.Speech.ConnectionEventArgs&gt; Connected" />
+      <MemberSignature Language="DocId" Value="E:Microsoft.CognitiveServices.Speech.Connection.Connected" />
+      <MemberSignature Language="VB.NET" Value="Public Custom Event Connected As EventHandler(Of ConnectionEventArgs) " />
+      <MemberSignature Language="F#" Value="member this.Connected : EventHandler&lt;Microsoft.CognitiveServices.Speech.ConnectionEventArgs&gt; " Usage="member this.Connected : System.EventHandler&lt;Microsoft.CognitiveServices.Speech.ConnectionEventArgs&gt; " />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler&lt;Microsoft.CognitiveServices.Speech.ConnectionEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The Connected event to indicate that the recognizer is connected to service.
+            In order to receive the Connected event after subscribing to it, the Connection object itself needs to be alive.
+            If the Connection object owning this event is out of its life time, all subscribed events won't be delivered.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Disconnected">
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;Microsoft.CognitiveServices.Speech.ConnectionEventArgs&gt; Disconnected;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class Microsoft.CognitiveServices.Speech.ConnectionEventArgs&gt; Disconnected" />
+      <MemberSignature Language="DocId" Value="E:Microsoft.CognitiveServices.Speech.Connection.Disconnected" />
+      <MemberSignature Language="VB.NET" Value="Public Custom Event Disconnected As EventHandler(Of ConnectionEventArgs) " />
+      <MemberSignature Language="F#" Value="member this.Disconnected : EventHandler&lt;Microsoft.CognitiveServices.Speech.ConnectionEventArgs&gt; " Usage="member this.Disconnected : System.EventHandler&lt;Microsoft.CognitiveServices.Speech.ConnectionEventArgs&gt; " />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler&lt;Microsoft.CognitiveServices.Speech.ConnectionEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The Disconnected event to indicate that the recognizer is disconnected from service.
+            In order to receive the Disconnected event after subscribing to it, the Connection object itself needs to be alive.
+            If the Connection object owning this event is out of its life time, all subscribed events won't be delivered.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="public void Dispose ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Dispose() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Connection.Dispose" />
+      <MemberSignature Language="VB.NET" Value="Public Sub Dispose ()" />
+      <MemberSignature Language="F#" Value="abstract member Dispose : unit -&gt; unit&#xA;override this.Dispose : unit -&gt; unit" Usage="connection.Dispose " />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.IDisposable.Dispose</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Dispose of associated resources.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Finalize">
+      <MemberSignature Language="C#" Value="~Connection ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Finalize() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Connection.Finalize" />
+      <MemberSignature Language="VB.NET" Value="Finalize ()" />
+      <MemberSignature Language="F#" Value="override this.Finalize : unit -&gt; unit" Usage="connection.Finalize " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromConversationTranslator">
+      <MemberSignature Language="C#" Value="public static Microsoft.CognitiveServices.Speech.Connection FromConversationTranslator (Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator convTrans);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.CognitiveServices.Speech.Connection FromConversationTranslator(class Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator convTrans) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Connection.FromConversationTranslator(Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function FromConversationTranslator (convTrans As ConversationTranslator) As Connection" />
+      <MemberSignature Language="F#" Value="static member FromConversationTranslator : Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator -&gt; Microsoft.CognitiveServices.Speech.Connection" Usage="Microsoft.CognitiveServices.Speech.Connection.FromConversationTranslator convTrans" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.CognitiveServices.Speech.Connection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="convTrans" Type="Microsoft.CognitiveServices.Speech.Transcription.ConversationTranslator" />
+      </Parameters>
+      <Docs>
+        <param name="convTrans">The conversation translator associated with the connection.</param>
+        <summary>
+            Gets the Connection instance from the conversation translator.
+            </summary>
+        <returns>The Connection instance of the conversation translator.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromDialogServiceConnector">
+      <MemberSignature Language="C#" Value="public static Microsoft.CognitiveServices.Speech.Connection FromDialogServiceConnector (Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector dialogServiceConnector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.CognitiveServices.Speech.Connection FromDialogServiceConnector(class Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector dialogServiceConnector) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Connection.FromDialogServiceConnector(Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function FromDialogServiceConnector (dialogServiceConnector As DialogServiceConnector) As Connection" />
+      <MemberSignature Language="F#" Value="static member FromDialogServiceConnector : Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector -&gt; Microsoft.CognitiveServices.Speech.Connection" Usage="Microsoft.CognitiveServices.Speech.Connection.FromDialogServiceConnector dialogServiceConnector" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.CognitiveServices.Speech.Connection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dialogServiceConnector" Type="Microsoft.CognitiveServices.Speech.Dialog.DialogServiceConnector" />
+      </Parameters>
+      <Docs>
+        <param name="dialogServiceConnector">The dialog service connector associated with the connection.</param>
+        <summary>
+            Gets the Connection instance from the specified dialog service connector, used for observing and managing
+            connection and disconnection from the speech service.
+            </summary>
+        <returns>The Connection instance of the dialog service connector.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromRecognizer">
+      <MemberSignature Language="C#" Value="public static Microsoft.CognitiveServices.Speech.Connection FromRecognizer (Microsoft.CognitiveServices.Speech.Recognizer recognizer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.CognitiveServices.Speech.Connection FromRecognizer(class Microsoft.CognitiveServices.Speech.Recognizer recognizer) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Connection.FromRecognizer(Microsoft.CognitiveServices.Speech.Recognizer)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function FromRecognizer (recognizer As Recognizer) As Connection" />
+      <MemberSignature Language="F#" Value="static member FromRecognizer : Microsoft.CognitiveServices.Speech.Recognizer -&gt; Microsoft.CognitiveServices.Speech.Connection" Usage="Microsoft.CognitiveServices.Speech.Connection.FromRecognizer recognizer" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.CognitiveServices.Speech.Connection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="recognizer" Type="Microsoft.CognitiveServices.Speech.Recognizer" />
+      </Parameters>
+      <Docs>
+        <param name="recognizer">The recognizer associated with the connection.</param>
+        <summary>
+            Gets the Connection instance from the specified recognizer.
+            </summary>
+        <returns>The Connection instance of the recognizer.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromSpeechSynthesizer">
+      <MemberSignature Language="C#" Value="public static Microsoft.CognitiveServices.Speech.Connection FromSpeechSynthesizer (Microsoft.CognitiveServices.Speech.SpeechSynthesizer speechSynthesizer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.CognitiveServices.Speech.Connection FromSpeechSynthesizer(class Microsoft.CognitiveServices.Speech.SpeechSynthesizer speechSynthesizer) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Connection.FromSpeechSynthesizer(Microsoft.CognitiveServices.Speech.SpeechSynthesizer)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function FromSpeechSynthesizer (speechSynthesizer As SpeechSynthesizer) As Connection" />
+      <MemberSignature Language="F#" Value="static member FromSpeechSynthesizer : Microsoft.CognitiveServices.Speech.SpeechSynthesizer -&gt; Microsoft.CognitiveServices.Speech.Connection" Usage="Microsoft.CognitiveServices.Speech.Connection.FromSpeechSynthesizer speechSynthesizer" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.CognitiveServices.Speech.Connection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="speechSynthesizer" Type="Microsoft.CognitiveServices.Speech.SpeechSynthesizer" />
+      </Parameters>
+      <Docs>
+        <param name="speechSynthesizer">The speech synthesizer associated with the connection.</param>
+        <summary>
+            Gets the Connection instance from the specified speech synthesizer, used for observing and managing
+            connection and disconnection from the speech service.
+            Added in version 1.17.0
+            </summary>
+        <returns>The Connection instance of the speech synthesizer.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MessageReceived">
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;Microsoft.CognitiveServices.Speech.ConnectionMessageEventArgs&gt; MessageReceived;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class Microsoft.CognitiveServices.Speech.ConnectionMessageEventArgs&gt; MessageReceived" />
+      <MemberSignature Language="DocId" Value="E:Microsoft.CognitiveServices.Speech.Connection.MessageReceived" />
+      <MemberSignature Language="VB.NET" Value="Public Custom Event MessageReceived As EventHandler(Of ConnectionMessageEventArgs) " />
+      <MemberSignature Language="F#" Value="member this.MessageReceived : EventHandler&lt;Microsoft.CognitiveServices.Speech.ConnectionMessageEventArgs&gt; " Usage="member this.MessageReceived : System.EventHandler&lt;Microsoft.CognitiveServices.Speech.ConnectionMessageEventArgs&gt; " />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler&lt;Microsoft.CognitiveServices.Speech.ConnectionMessageEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The MessageReceived event indicates that the service has sent a network message to the client.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Open">
+      <MemberSignature Language="C#" Value="public void Open (bool forContinuousRecognition);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Open(bool forContinuousRecognition) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Connection.Open(System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub Open (forContinuousRecognition As Boolean)" />
+      <MemberSignature Language="F#" Value="member this.Open : bool -&gt; unit" Usage="connection.Open forContinuousRecognition" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="forContinuousRecognition" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="forContinuousRecognition">Indicates whether the connection is used for continuous recognition or single-shot recognition.  It takes no effect if the connection is from SpeechSynthsizer.</param>
+        <summary>
+            Starts to set up connection to the service.
+            You can optionally call Open() to manually set up a connection in advance before starting recognition on the
+            Recognizer associated with this Connection. After starting recognition, calling Open() might fail, depending on
+            the process state of the Recognizer. But the failure does not affect the state of the associated Recognizer.
+            Note: On return, the connection might not be ready yet. Please subscribe to the Connected event to
+            be notified when the connection is established.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SendMessageAsync">
+      <MemberSignature Language="C#" Value="public System.Threading.Tasks.Task SendMessageAsync (string path, string payload);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class System.Threading.Tasks.Task SendMessageAsync(string path, string payload) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Connection.SendMessageAsync(System.String,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Function SendMessageAsync (path As String, payload As String) As Task" />
+      <MemberSignature Language="F#" Value="member this.SendMessageAsync : string * string -&gt; System.Threading.Tasks.Task" Usage="connection.SendMessageAsync (path, payload)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="path" Type="System.String" />
+        <Parameter Name="payload" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="path">The path of the message.</param>
+        <param name="payload">The payload of the message. This is a JSON string.</param>
+        <summary>
+            Sends a message to the Speech service as an asynchronous operation.
+            Added in 1.7.0
+            </summary>
+        <returns>A task representing the asynchronous operation that sends the message.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SendMessageAsync">
+      <MemberSignature Language="C#" Value="public System.Threading.Tasks.Task SendMessageAsync (string path, byte[] payload, uint size);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class System.Threading.Tasks.Task SendMessageAsync(string path, unsigned int8[] payload, unsigned int32 size) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Connection.SendMessageAsync(System.String,System.Byte[],System.UInt32)" />
+      <MemberSignature Language="VB.NET" Value="Public Function SendMessageAsync (path As String, payload As Byte(), size As UInteger) As Task" />
+      <MemberSignature Language="F#" Value="member this.SendMessageAsync : string * byte[] * uint32 -&gt; System.Threading.Tasks.Task" Usage="connection.SendMessageAsync (path, payload, size)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="path" Type="System.String" />
+        <Parameter Name="payload" Type="System.Byte[]" />
+        <Parameter Name="size" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="path">The path of the message.</param>
+        <param name="payload">The binary payload of the message.</param>
+        <param name="size">The size of the binary payload.</param>
+        <summary>
+            Sends a binary message to the speech service as an asynchronous operation.
+            Note: This method doesn't work for the connection of SpeechSynthesizer.
+            Added in 1.10.0
+            </summary>
+        <returns>A task representing the asynchronous operation that sends the message.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMessageProperty">
+      <MemberSignature Language="C#" Value="public void SetMessageProperty (string path, string propertyName, string propertyValue);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMessageProperty(string path, string propertyName, string propertyValue) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Connection.SetMessageProperty(System.String,System.String,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetMessageProperty (path As String, propertyName As String, propertyValue As String)" />
+      <MemberSignature Language="F#" Value="member this.SetMessageProperty : string * string * string -&gt; unit" Usage="connection.SetMessageProperty (path, propertyName, propertyValue)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="path" Type="System.String" />
+        <Parameter Name="propertyName" Type="System.String" />
+        <Parameter Name="propertyValue" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="path">The path of the network message.</param>
+        <param name="propertyName">Name of the property.</param>
+        <param name="propertyValue">Value of the property. This is a JSON string.</param>
+        <summary>
+            Appends a parameter in a message to service.
+            Added in 1.7.0
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

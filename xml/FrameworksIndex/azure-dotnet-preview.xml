@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Framework Name="azure-dotnet-preview">
+  <Assemblies>
+    <Assembly Name="System.ClientModel" Version="1.5.0.0" />
+  </Assemblies>
+  <Namespace Name="System.ClientModel">
+    <Type Name="System.ClientModel.ApiKeyCredential" Id="T:System.ClientModel.ApiKeyCredential">
+      <Member Id="M:System.ClientModel.ApiKeyCredential.#ctor(System.String)" />
+      <Member Id="M:System.ClientModel.ApiKeyCredential.Deconstruct(System.String@)" />
+      <Member Id="M:System.ClientModel.ApiKeyCredential.Update(System.String)" />
+    </Type>
+    <Type Name="System.ClientModel.AsyncCollectionResult`1" Id="T:System.ClientModel.AsyncCollectionResult`1">
+      <Member Id="M:System.ClientModel.AsyncCollectionResult`1.#ctor" />
+      <Member Id="M:System.ClientModel.AsyncCollectionResult`1.GetAsyncEnumerator(System.Threading.CancellationToken)" />
+      <Member Id="M:System.ClientModel.AsyncCollectionResult`1.GetValuesFromPageAsync(System.ClientModel.ClientResult)" />
+    </Type>
+    <Type Name="System.ClientModel.AuthenticationTokenProvider" Id="T:System.ClientModel.AuthenticationTokenProvider">
+      <Member Id="M:System.ClientModel.AuthenticationTokenProvider.#ctor" />
+      <Member Id="M:System.ClientModel.AuthenticationTokenProvider.CreateTokenOptions(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object})" />
+      <Member Id="M:System.ClientModel.AuthenticationTokenProvider.GetToken(System.ClientModel.Primitives.GetTokenOptions,System.Threading.CancellationToken)" />
+      <Member Id="M:System.ClientModel.AuthenticationTokenProvider.GetTokenAsync(System.ClientModel.Primitives.GetTokenOptions,System.Threading.CancellationToken)" />
+    </Type>
+    <Type Name="System.ClientModel.BinaryContent" Id="T:System.ClientModel.BinaryContent">
+      <Member Id="M:System.ClientModel.BinaryContent.#ctor" />
+      <Member Id="M:System.ClientModel.BinaryContent.Create(System.BinaryData)" />
+      <Member Id="M:System.ClientModel.BinaryContent.Create(System.IO.Stream)" />
+      <Member Id="M:System.ClientModel.BinaryContent.Create``1(``0,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:System.ClientModel.BinaryContent.Dispose" />
+      <Member Id="M:System.ClientModel.BinaryContent.TryComputeLength(System.Int64@)" />
+      <Member Id="M:System.ClientModel.BinaryContent.WriteTo(System.IO.Stream,System.Threading.CancellationToken)" />
+      <Member Id="M:System.ClientModel.BinaryContent.WriteToAsync(System.IO.Stream,System.Threading.CancellationToken)" />
+    </Type>
+    <Type Name="System.ClientModel.ClientResult" Id="T:System.ClientModel.ClientResult">
+      <Member Id="M:System.ClientModel.ClientResult.#ctor(System.ClientModel.Primitives.PipelineResponse)" />
+      <Member Id="M:System.ClientModel.ClientResult.FromOptionalValue``1(``0,System.ClientModel.Primitives.PipelineResponse)" />
+      <Member Id="M:System.ClientModel.ClientResult.FromResponse(System.ClientModel.Primitives.PipelineResponse)" />
+      <Member Id="M:System.ClientModel.ClientResult.FromValue``1(``0,System.ClientModel.Primitives.PipelineResponse)" />
+      <Member Id="M:System.ClientModel.ClientResult.GetRawResponse" />
+    </Type>
+    <Type Name="System.ClientModel.ClientResult`1" Id="T:System.ClientModel.ClientResult`1">
+      <Member Id="M:System.ClientModel.ClientResult`1.#ctor(`0,System.ClientModel.Primitives.PipelineResponse)" />
+      <Member Id="M:System.ClientModel.ClientResult`1.op_Implicit(System.ClientModel.ClientResult{`0})~`0" />
+      <Member Id="P:System.ClientModel.ClientResult`1.Value" />
+    </Type>
+    <Type Name="System.ClientModel.ClientResultException" Id="T:System.ClientModel.ClientResultException">
+      <Member Id="M:System.ClientModel.ClientResultException.#ctor(System.ClientModel.Primitives.PipelineResponse,System.Exception)" />
+      <Member Id="M:System.ClientModel.ClientResultException.#ctor(System.String,System.ClientModel.Primitives.PipelineResponse,System.Exception)" />
+      <Member Id="M:System.ClientModel.ClientResultException.CreateAsync(System.ClientModel.Primitives.PipelineResponse,System.Exception)" />
+      <Member Id="M:System.ClientModel.ClientResultException.GetRawResponse" />
+      <Member Id="P:System.ClientModel.ClientResultException.Status" />
+    </Type>
+    <Type Name="System.ClientModel.CollectionResult`1" Id="T:System.ClientModel.CollectionResult`1">
+      <Member Id="M:System.ClientModel.CollectionResult`1.#ctor" />
+      <Member Id="M:System.ClientModel.CollectionResult`1.GetEnumerator" />
+      <Member Id="M:System.ClientModel.CollectionResult`1.GetValuesFromPage(System.ClientModel.ClientResult)" />
+      <Member Id="M:System.ClientModel.CollectionResult`1.System#Collections#IEnumerable#GetEnumerator" />
+    </Type>
+    <Type Name="System.ClientModel.ContinuationToken" Id="T:System.ClientModel.ContinuationToken">
+      <Member Id="M:System.ClientModel.ContinuationToken.#ctor" />
+      <Member Id="M:System.ClientModel.ContinuationToken.#ctor(System.BinaryData)" />
+      <Member Id="M:System.ClientModel.ContinuationToken.FromBytes(System.BinaryData)" />
+      <Member Id="M:System.ClientModel.ContinuationToken.ToBytes" />
+    </Type>
+  </Namespace>
+  <Namespace Name="System.ClientModel.Primitives">
+    <Type Name="System.ClientModel.Primitives.ActivityExtensions" Id="T:System.ClientModel.Primitives.ActivityExtensions">
+      <Member Id="M:System.ClientModel.Primitives.ActivityExtensions.MarkClientActivityFailed(System.Diagnostics.Activity,System.Exception)" />
+      <Member Id="M:System.ClientModel.Primitives.ActivityExtensions.StartClientActivity(System.Diagnostics.ActivitySource,System.ClientModel.Primitives.ClientPipelineOptions,System.String,System.Diagnostics.ActivityKind,System.Diagnostics.ActivityContext,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.ApiKeyAuthenticationPolicy" Id="T:System.ClientModel.Primitives.ApiKeyAuthenticationPolicy">
+      <Member Id="M:System.ClientModel.Primitives.ApiKeyAuthenticationPolicy.CreateBasicAuthorizationPolicy(System.ClientModel.ApiKeyCredential)" />
+      <Member Id="M:System.ClientModel.Primitives.ApiKeyAuthenticationPolicy.CreateBearerAuthorizationPolicy(System.ClientModel.ApiKeyCredential)" />
+      <Member Id="M:System.ClientModel.Primitives.ApiKeyAuthenticationPolicy.CreateHeaderApiKeyPolicy(System.ClientModel.ApiKeyCredential,System.String,System.String)" />
+      <Member Id="M:System.ClientModel.Primitives.ApiKeyAuthenticationPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <Member Id="M:System.ClientModel.Primitives.ApiKeyAuthenticationPolicy.ProcessAsync(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.AsyncCollectionResult" Id="T:System.ClientModel.Primitives.AsyncCollectionResult">
+      <Member Id="M:System.ClientModel.Primitives.AsyncCollectionResult.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.AsyncCollectionResult.GetContinuationToken(System.ClientModel.ClientResult)" />
+      <Member Id="M:System.ClientModel.Primitives.AsyncCollectionResult.GetRawPagesAsync" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.AuthenticationPolicy" Id="T:System.ClientModel.Primitives.AuthenticationPolicy">
+      <Member Id="M:System.ClientModel.Primitives.AuthenticationPolicy.#ctor" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.AuthenticationToken" Id="T:System.ClientModel.Primitives.AuthenticationToken">
+      <Member Id="M:System.ClientModel.Primitives.AuthenticationToken.#ctor(System.String,System.String,System.DateTimeOffset,System.Nullable{System.DateTimeOffset})" />
+      <Member Id="P:System.ClientModel.Primitives.AuthenticationToken.ExpiresOn" />
+      <Member Id="P:System.ClientModel.Primitives.AuthenticationToken.RefreshOn" />
+      <Member Id="P:System.ClientModel.Primitives.AuthenticationToken.TokenType" />
+      <Member Id="P:System.ClientModel.Primitives.AuthenticationToken.TokenValue" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.BearerTokenPolicy" Id="T:System.ClientModel.Primitives.BearerTokenPolicy">
+      <Member Id="M:System.ClientModel.Primitives.BearerTokenPolicy.#ctor(System.ClientModel.AuthenticationTokenProvider,System.Collections.Generic.IEnumerable{System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}})" />
+      <Member Id="M:System.ClientModel.Primitives.BearerTokenPolicy.#ctor(System.ClientModel.AuthenticationTokenProvider,System.String)" />
+      <Member Id="M:System.ClientModel.Primitives.BearerTokenPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <Member Id="M:System.ClientModel.Primitives.BearerTokenPolicy.ProcessAsync(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.ClientCache" Id="T:System.ClientModel.Primitives.ClientCache">
+      <Member Id="M:System.ClientModel.Primitives.ClientCache.#ctor(System.Int32)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientCache.GetClient``1(System.Object,System.Func{``0})" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.ClientConnection" Id="T:System.ClientModel.Primitives.ClientConnection">
+      <Member Id="M:System.ClientModel.Primitives.ClientConnection.#ctor(System.String,System.String)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientConnection.#ctor(System.String,System.String,System.Object,System.ClientModel.Primitives.CredentialKind)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientConnection.ToString" />
+      <Member Id="M:System.ClientModel.Primitives.ClientConnection.TryGetLocatorAsUri(System.Uri@)" />
+      <Member Id="P:System.ClientModel.Primitives.ClientConnection.Credential" />
+      <Member Id="P:System.ClientModel.Primitives.ClientConnection.CredentialKind" />
+      <Member Id="P:System.ClientModel.Primitives.ClientConnection.Id" />
+      <Member Id="P:System.ClientModel.Primitives.ClientConnection.Locator" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.ClientConnectionCollection" Id="T:System.ClientModel.Primitives.ClientConnectionCollection">
+      <Member Id="M:System.ClientModel.Primitives.ClientConnectionCollection.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.ClientConnectionCollection.AddRange(System.Collections.Generic.IEnumerable{System.ClientModel.Primitives.ClientConnection})" />
+      <Member Id="M:System.ClientModel.Primitives.ClientConnectionCollection.GetKeyForItem(System.ClientModel.Primitives.ClientConnection)" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.ClientConnectionProvider" Id="T:System.ClientModel.Primitives.ClientConnectionProvider">
+      <Member Id="M:System.ClientModel.Primitives.ClientConnectionProvider.#ctor(System.Int32)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientConnectionProvider.GetAllConnections" />
+      <Member Id="M:System.ClientModel.Primitives.ClientConnectionProvider.GetConnection(System.String)" />
+      <Member Id="P:System.ClientModel.Primitives.ClientConnectionProvider.Subclients" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.ClientErrorBehaviors" Id="T:System.ClientModel.Primitives.ClientErrorBehaviors">
+      <Member Id="F:System.ClientModel.Primitives.ClientErrorBehaviors.Default" />
+      <Member Id="F:System.ClientModel.Primitives.ClientErrorBehaviors.NoThrow" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.ClientLoggingOptions" Id="T:System.ClientModel.Primitives.ClientLoggingOptions">
+      <Member Id="M:System.ClientModel.Primitives.ClientLoggingOptions.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.ClientLoggingOptions.AssertNotFrozen" />
+      <Member Id="M:System.ClientModel.Primitives.ClientLoggingOptions.Freeze" />
+      <Member Id="P:System.ClientModel.Primitives.ClientLoggingOptions.AllowedHeaderNames" />
+      <Member Id="P:System.ClientModel.Primitives.ClientLoggingOptions.AllowedQueryParameters" />
+      <Member Id="P:System.ClientModel.Primitives.ClientLoggingOptions.EnableLogging" />
+      <Member Id="P:System.ClientModel.Primitives.ClientLoggingOptions.EnableMessageContentLogging" />
+      <Member Id="P:System.ClientModel.Primitives.ClientLoggingOptions.EnableMessageLogging" />
+      <Member Id="P:System.ClientModel.Primitives.ClientLoggingOptions.LoggerFactory" />
+      <Member Id="P:System.ClientModel.Primitives.ClientLoggingOptions.MessageContentSizeLimit" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.ClientPipeline" Id="T:System.ClientModel.Primitives.ClientPipeline">
+      <Member Id="M:System.ClientModel.Primitives.ClientPipeline.Create(System.ClientModel.Primitives.ClientPipelineOptions)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientPipeline.Create(System.ClientModel.Primitives.ClientPipelineOptions,System.ReadOnlySpan{System.ClientModel.Primitives.PipelinePolicy},System.ReadOnlySpan{System.ClientModel.Primitives.PipelinePolicy},System.ReadOnlySpan{System.ClientModel.Primitives.PipelinePolicy})" />
+      <Member Id="M:System.ClientModel.Primitives.ClientPipeline.CreateMessage" />
+      <Member Id="M:System.ClientModel.Primitives.ClientPipeline.Send(System.ClientModel.Primitives.PipelineMessage)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientPipeline.SendAsync(System.ClientModel.Primitives.PipelineMessage)" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.ClientPipelineOptions" Id="T:System.ClientModel.Primitives.ClientPipelineOptions">
+      <Member Id="M:System.ClientModel.Primitives.ClientPipelineOptions.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.ClientPipelineOptions.AddPolicy(System.ClientModel.Primitives.PipelinePolicy,System.ClientModel.Primitives.PipelinePosition)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientPipelineOptions.AssertNotFrozen" />
+      <Member Id="M:System.ClientModel.Primitives.ClientPipelineOptions.Freeze" />
+      <Member Id="P:System.ClientModel.Primitives.ClientPipelineOptions.ClientLoggingOptions" />
+      <Member Id="P:System.ClientModel.Primitives.ClientPipelineOptions.EnableDistributedTracing" />
+      <Member Id="P:System.ClientModel.Primitives.ClientPipelineOptions.MessageLoggingPolicy" />
+      <Member Id="P:System.ClientModel.Primitives.ClientPipelineOptions.NetworkTimeout" />
+      <Member Id="P:System.ClientModel.Primitives.ClientPipelineOptions.RetryPolicy" />
+      <Member Id="P:System.ClientModel.Primitives.ClientPipelineOptions.Transport" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.ClientRetryPolicy" Id="T:System.ClientModel.Primitives.ClientRetryPolicy">
+      <Member Id="M:System.ClientModel.Primitives.ClientRetryPolicy.#ctor(System.Int32)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientRetryPolicy.#ctor(System.Int32,System.Boolean,Microsoft.Extensions.Logging.ILoggerFactory)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientRetryPolicy.GetNextDelay(System.ClientModel.Primitives.PipelineMessage,System.Int32)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientRetryPolicy.OnRequestSent(System.ClientModel.Primitives.PipelineMessage)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientRetryPolicy.OnRequestSentAsync(System.ClientModel.Primitives.PipelineMessage)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientRetryPolicy.OnSendingRequest(System.ClientModel.Primitives.PipelineMessage)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientRetryPolicy.OnSendingRequestAsync(System.ClientModel.Primitives.PipelineMessage)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientRetryPolicy.OnTryComplete(System.ClientModel.Primitives.PipelineMessage)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientRetryPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientRetryPolicy.ProcessAsync(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientRetryPolicy.ShouldRetry(System.ClientModel.Primitives.PipelineMessage,System.Exception)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientRetryPolicy.ShouldRetryAsync(System.ClientModel.Primitives.PipelineMessage,System.Exception)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientRetryPolicy.Wait(System.TimeSpan,System.Threading.CancellationToken)" />
+      <Member Id="M:System.ClientModel.Primitives.ClientRetryPolicy.WaitAsync(System.TimeSpan,System.Threading.CancellationToken)" />
+      <Member Id="P:System.ClientModel.Primitives.ClientRetryPolicy.Default" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.CollectionResult" Id="T:System.ClientModel.Primitives.CollectionResult">
+      <Member Id="M:System.ClientModel.Primitives.CollectionResult.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.CollectionResult.GetContinuationToken(System.ClientModel.ClientResult)" />
+      <Member Id="M:System.ClientModel.Primitives.CollectionResult.GetRawPages" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.CredentialKind" Id="T:System.ClientModel.Primitives.CredentialKind">
+      <Member Id="F:System.ClientModel.Primitives.CredentialKind.ApiKeyString" />
+      <Member Id="F:System.ClientModel.Primitives.CredentialKind.None" />
+      <Member Id="F:System.ClientModel.Primitives.CredentialKind.TokenCredential" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.GetTokenOptions" Id="T:System.ClientModel.Primitives.GetTokenOptions">
+      <Member Id="F:System.ClientModel.Primitives.GetTokenOptions.AuthorizationUrlPropertyName" />
+      <Member Id="F:System.ClientModel.Primitives.GetTokenOptions.RefreshUrlPropertyName" />
+      <Member Id="F:System.ClientModel.Primitives.GetTokenOptions.ScopesPropertyName" />
+      <Member Id="F:System.ClientModel.Primitives.GetTokenOptions.TokenUrlPropertyName" />
+      <Member Id="M:System.ClientModel.Primitives.GetTokenOptions.#ctor(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object})" />
+      <Member Id="P:System.ClientModel.Primitives.GetTokenOptions.Properties" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.HttpClientPipelineTransport" Id="T:System.ClientModel.Primitives.HttpClientPipelineTransport">
+      <Member Id="M:System.ClientModel.Primitives.HttpClientPipelineTransport.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.HttpClientPipelineTransport.#ctor(System.Net.Http.HttpClient)" />
+      <Member Id="M:System.ClientModel.Primitives.HttpClientPipelineTransport.#ctor(System.Net.Http.HttpClient,System.Boolean,Microsoft.Extensions.Logging.ILoggerFactory)" />
+      <Member Id="M:System.ClientModel.Primitives.HttpClientPipelineTransport.CreateMessageCore" />
+      <Member Id="M:System.ClientModel.Primitives.HttpClientPipelineTransport.Dispose" />
+      <Member Id="M:System.ClientModel.Primitives.HttpClientPipelineTransport.Dispose(System.Boolean)" />
+      <Member Id="M:System.ClientModel.Primitives.HttpClientPipelineTransport.OnReceivedResponse(System.ClientModel.Primitives.PipelineMessage,System.Net.Http.HttpResponseMessage)" />
+      <Member Id="M:System.ClientModel.Primitives.HttpClientPipelineTransport.OnSendingRequest(System.ClientModel.Primitives.PipelineMessage,System.Net.Http.HttpRequestMessage)" />
+      <Member Id="M:System.ClientModel.Primitives.HttpClientPipelineTransport.ProcessCore(System.ClientModel.Primitives.PipelineMessage)" />
+      <Member Id="M:System.ClientModel.Primitives.HttpClientPipelineTransport.ProcessCoreAsync(System.ClientModel.Primitives.PipelineMessage)" />
+      <Member Id="P:System.ClientModel.Primitives.HttpClientPipelineTransport.Shared" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.IJsonModel`1" Id="T:System.ClientModel.Primitives.IJsonModel`1">
+      <Member Id="M:System.ClientModel.Primitives.IJsonModel`1.Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:System.ClientModel.Primitives.IJsonModel`1.Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.IPersistableModel`1" Id="T:System.ClientModel.Primitives.IPersistableModel`1">
+      <Member Id="M:System.ClientModel.Primitives.IPersistableModel`1.Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:System.ClientModel.Primitives.IPersistableModel`1.GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:System.ClientModel.Primitives.IPersistableModel`1.Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.JsonModelConverter" Id="T:System.ClientModel.Primitives.JsonModelConverter">
+      <Member Id="M:System.ClientModel.Primitives.JsonModelConverter.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.JsonModelConverter.#ctor(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:System.ClientModel.Primitives.JsonModelConverter.#ctor(System.ClientModel.Primitives.ModelReaderWriterOptions,System.ClientModel.Primitives.ModelReaderWriterContext)" />
+      <Member Id="M:System.ClientModel.Primitives.JsonModelConverter.CanConvert(System.Type)" />
+      <Member Id="M:System.ClientModel.Primitives.JsonModelConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)" />
+      <Member Id="M:System.ClientModel.Primitives.JsonModelConverter.Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.IJsonModel{System.Object},System.Text.Json.JsonSerializerOptions)" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.MessageLoggingPolicy" Id="T:System.ClientModel.Primitives.MessageLoggingPolicy">
+      <Member Id="M:System.ClientModel.Primitives.MessageLoggingPolicy.#ctor(System.ClientModel.Primitives.ClientLoggingOptions)" />
+      <Member Id="M:System.ClientModel.Primitives.MessageLoggingPolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <Member Id="M:System.ClientModel.Primitives.MessageLoggingPolicy.ProcessAsync(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <Member Id="P:System.ClientModel.Primitives.MessageLoggingPolicy.Default" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.ModelReaderWriter" Id="T:System.ClientModel.Primitives.ModelReaderWriter">
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriter.Read(System.BinaryData,System.Type,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriter.Read(System.BinaryData,System.Type,System.ClientModel.Primitives.ModelReaderWriterOptions,System.ClientModel.Primitives.ModelReaderWriterContext)" />
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriter.Read``1(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriter.Read``1(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions,System.ClientModel.Primitives.ModelReaderWriterContext)" />
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriter.Write(System.Object,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriter.Write(System.Object,System.ClientModel.Primitives.ModelReaderWriterOptions,System.ClientModel.Primitives.ModelReaderWriterContext)" />
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriter.Write``1(``0,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriter.Write``1(``0,System.ClientModel.Primitives.ModelReaderWriterOptions,System.ClientModel.Primitives.ModelReaderWriterContext)" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.ModelReaderWriterBuildableAttribute" Id="T:System.ClientModel.Primitives.ModelReaderWriterBuildableAttribute">
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriterBuildableAttribute.#ctor(System.Type)" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.ModelReaderWriterContext" Id="T:System.ClientModel.Primitives.ModelReaderWriterContext">
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriterContext.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriterContext.GetTypeBuilder(System.Type)" />
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriterContext.TryGetTypeBuilder(System.Type,System.ClientModel.Primitives.ModelReaderWriterTypeBuilder@)" />
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriterContext.TryGetTypeBuilderCore(System.Type,System.ClientModel.Primitives.ModelReaderWriterTypeBuilder@)" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.ModelReaderWriterOptions" Id="T:System.ClientModel.Primitives.ModelReaderWriterOptions">
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriterOptions.#ctor(System.String)" />
+      <Member Id="P:System.ClientModel.Primitives.ModelReaderWriterOptions.Format" />
+      <Member Id="P:System.ClientModel.Primitives.ModelReaderWriterOptions.Json" />
+      <Member Id="P:System.ClientModel.Primitives.ModelReaderWriterOptions.Xml" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.ModelReaderWriterTypeBuilder" Id="T:System.ClientModel.Primitives.ModelReaderWriterTypeBuilder">
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriterTypeBuilder.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriterTypeBuilder.AddItem(System.Object,System.Object)" />
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriterTypeBuilder.AddItemWithKey(System.Object,System.String,System.Object)" />
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriterTypeBuilder.ConvertCollectionBuilder(System.Object)" />
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriterTypeBuilder.CreateInstance" />
+      <Member Id="M:System.ClientModel.Primitives.ModelReaderWriterTypeBuilder.GetItems(System.Object)" />
+      <Member Id="P:System.ClientModel.Primitives.ModelReaderWriterTypeBuilder.BuilderType" />
+      <Member Id="P:System.ClientModel.Primitives.ModelReaderWriterTypeBuilder.ItemType" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.OperationResult" Id="T:System.ClientModel.Primitives.OperationResult">
+      <Member Id="M:System.ClientModel.Primitives.OperationResult.#ctor(System.ClientModel.Primitives.PipelineResponse)" />
+      <Member Id="M:System.ClientModel.Primitives.OperationResult.GetRawResponse" />
+      <Member Id="M:System.ClientModel.Primitives.OperationResult.SetRawResponse(System.ClientModel.Primitives.PipelineResponse)" />
+      <Member Id="M:System.ClientModel.Primitives.OperationResult.UpdateStatus(System.ClientModel.Primitives.RequestOptions)" />
+      <Member Id="M:System.ClientModel.Primitives.OperationResult.UpdateStatusAsync(System.ClientModel.Primitives.RequestOptions)" />
+      <Member Id="M:System.ClientModel.Primitives.OperationResult.WaitForCompletion(System.Threading.CancellationToken)" />
+      <Member Id="M:System.ClientModel.Primitives.OperationResult.WaitForCompletionAsync(System.Threading.CancellationToken)" />
+      <Member Id="P:System.ClientModel.Primitives.OperationResult.HasCompleted" />
+      <Member Id="P:System.ClientModel.Primitives.OperationResult.RehydrationToken" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.PersistableModelProxyAttribute" Id="T:System.ClientModel.Primitives.PersistableModelProxyAttribute">
+      <Member Id="M:System.ClientModel.Primitives.PersistableModelProxyAttribute.#ctor(System.Type)" />
+      <Member Id="P:System.ClientModel.Primitives.PersistableModelProxyAttribute.ProxyType" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.PipelineMessage" Id="T:System.ClientModel.Primitives.PipelineMessage">
+      <Member Id="M:System.ClientModel.Primitives.PipelineMessage.#ctor(System.ClientModel.Primitives.PipelineRequest)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineMessage.Apply(System.ClientModel.Primitives.RequestOptions)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineMessage.Dispose" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineMessage.Dispose(System.Boolean)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineMessage.ExtractResponse" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineMessage.SetProperty(System.Type,System.Object)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineMessage.TryGetProperty(System.Type,System.Object@)" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineMessage.BufferResponse" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineMessage.CancellationToken" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineMessage.NetworkTimeout" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineMessage.Request" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineMessage.Response" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineMessage.ResponseClassifier" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.PipelineMessageClassifier" Id="T:System.ClientModel.Primitives.PipelineMessageClassifier">
+      <Member Id="M:System.ClientModel.Primitives.PipelineMessageClassifier.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineMessageClassifier.Create(System.ReadOnlySpan{System.UInt16})" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineMessageClassifier.TryClassify(System.ClientModel.Primitives.PipelineMessage,System.Boolean@)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineMessageClassifier.TryClassify(System.ClientModel.Primitives.PipelineMessage,System.Exception,System.Boolean@)" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineMessageClassifier.Default" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.PipelinePolicy" Id="T:System.ClientModel.Primitives.PipelinePolicy">
+      <Member Id="M:System.ClientModel.Primitives.PipelinePolicy.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.PipelinePolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelinePolicy.ProcessAsync(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelinePolicy.ProcessNext(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelinePolicy.ProcessNextAsync(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.PipelinePosition" Id="T:System.ClientModel.Primitives.PipelinePosition">
+      <Member Id="F:System.ClientModel.Primitives.PipelinePosition.BeforeTransport" />
+      <Member Id="F:System.ClientModel.Primitives.PipelinePosition.PerCall" />
+      <Member Id="F:System.ClientModel.Primitives.PipelinePosition.PerTry" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.PipelineRequest" Id="T:System.ClientModel.Primitives.PipelineRequest">
+      <Member Id="M:System.ClientModel.Primitives.PipelineRequest.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineRequest.Dispose" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineRequest.Content" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineRequest.ContentCore" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineRequest.Headers" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineRequest.HeadersCore" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineRequest.Method" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineRequest.MethodCore" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineRequest.Uri" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineRequest.UriCore" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.PipelineRequestHeaders" Id="T:System.ClientModel.Primitives.PipelineRequestHeaders">
+      <Member Id="M:System.ClientModel.Primitives.PipelineRequestHeaders.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineRequestHeaders.Add(System.String,System.String)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineRequestHeaders.GetEnumerator" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineRequestHeaders.Remove(System.String)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineRequestHeaders.Set(System.String,System.String)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineRequestHeaders.System#Collections#IEnumerable#GetEnumerator" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineRequestHeaders.TryGetValue(System.String,System.String@)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineRequestHeaders.TryGetValues(System.String,System.Collections.Generic.IEnumerable{System.String}@)" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.PipelineResponse" Id="T:System.ClientModel.Primitives.PipelineResponse">
+      <Member Id="M:System.ClientModel.Primitives.PipelineResponse.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineResponse.BufferContent(System.Threading.CancellationToken)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineResponse.BufferContentAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineResponse.Dispose" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineResponse.Content" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineResponse.ContentStream" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineResponse.Headers" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineResponse.HeadersCore" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineResponse.IsError" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineResponse.IsErrorCore" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineResponse.ReasonPhrase" />
+      <Member Id="P:System.ClientModel.Primitives.PipelineResponse.Status" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.PipelineResponseHeaders" Id="T:System.ClientModel.Primitives.PipelineResponseHeaders">
+      <Member Id="M:System.ClientModel.Primitives.PipelineResponseHeaders.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineResponseHeaders.GetEnumerator" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineResponseHeaders.System#Collections#IEnumerable#GetEnumerator" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineResponseHeaders.TryGetValue(System.String,System.String@)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineResponseHeaders.TryGetValues(System.String,System.Collections.Generic.IEnumerable{System.String}@)" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.PipelineTransport" Id="T:System.ClientModel.Primitives.PipelineTransport">
+      <Member Id="M:System.ClientModel.Primitives.PipelineTransport.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineTransport.#ctor(System.Boolean,Microsoft.Extensions.Logging.ILoggerFactory)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineTransport.CreateMessage" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineTransport.CreateMessageCore" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineTransport.Process(System.ClientModel.Primitives.PipelineMessage)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineTransport.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineTransport.ProcessAsync(System.ClientModel.Primitives.PipelineMessage)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineTransport.ProcessAsync(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineTransport.ProcessCore(System.ClientModel.Primitives.PipelineMessage)" />
+      <Member Id="M:System.ClientModel.Primitives.PipelineTransport.ProcessCoreAsync(System.ClientModel.Primitives.PipelineMessage)" />
+    </Type>
+    <Type Name="System.ClientModel.Primitives.RequestOptions" Id="T:System.ClientModel.Primitives.RequestOptions">
+      <Member Id="M:System.ClientModel.Primitives.RequestOptions.#ctor" />
+      <Member Id="M:System.ClientModel.Primitives.RequestOptions.AddHeader(System.String,System.String)" />
+      <Member Id="M:System.ClientModel.Primitives.RequestOptions.AddPolicy(System.ClientModel.Primitives.PipelinePolicy,System.ClientModel.Primitives.PipelinePosition)" />
+      <Member Id="M:System.ClientModel.Primitives.RequestOptions.Apply(System.ClientModel.Primitives.PipelineMessage)" />
+      <Member Id="M:System.ClientModel.Primitives.RequestOptions.AssertNotFrozen" />
+      <Member Id="M:System.ClientModel.Primitives.RequestOptions.Freeze" />
+      <Member Id="M:System.ClientModel.Primitives.RequestOptions.SetHeader(System.String,System.String)" />
+      <Member Id="P:System.ClientModel.Primitives.RequestOptions.BufferResponse" />
+      <Member Id="P:System.ClientModel.Primitives.RequestOptions.CancellationToken" />
+      <Member Id="P:System.ClientModel.Primitives.RequestOptions.ErrorOptions" />
+    </Type>
+  </Namespace>
+</Framework>

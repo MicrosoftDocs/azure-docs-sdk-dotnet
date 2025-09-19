@@ -1,0 +1,112 @@
+<Type Name="EventSourceLogger" FullName="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventSourceLogger">
+  <TypeSignature Language="C#" Value="public static class EventSourceLogger" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit EventSourceLogger extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventSourceLogger" />
+  <TypeSignature Language="VB.NET" Value="Public Class EventSourceLogger" />
+  <TypeSignature Language="F#" Value="type EventSourceLogger = class" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+    <AssemblyVersion>1.46.0.28</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            An event source logger for SDK messages that integrates with System.Diagnostics.Tracing.EventSource.
+            </summary>
+    <remarks>
+            This logger provides the C# idiomatic EventSource logging support for the Speech SDK,
+            enabling integration with .NET diagnostics tools such as PerfView, Application Insights,
+            and other EventSource consumers.
+            Note that EventSource logging is a process-wide construct. If multiple speech recognizer
+            instances are running in parallel, their events will be interleaved in the log output.
+            The EventSource name used by this logger is "Microsoft-CognitiveServices-Speech".
+            </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Instance">
+      <MemberSignature Language="C#" Value="public static System.Diagnostics.Tracing.EventSource Instance { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class System.Diagnostics.Tracing.EventSource Instance" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventSourceLogger.Instance" />
+      <MemberSignature Language="VB.NET" Value="Public Shared ReadOnly Property Instance As EventSource" />
+      <MemberSignature Language="F#" Value="static member Instance : System.Diagnostics.Tracing.EventSource" Usage="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventSourceLogger.Instance" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Diagnostics.Tracing.EventSource</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets the singleton instance of the Speech EventSource for advanced scenarios.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetFilters">
+      <MemberSignature Language="C#" Value="public static void SetFilters (params string[] filters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetFilters(string[] filters) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventSourceLogger.SetFilters(System.String[])" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Sub SetFilters (ParamArray filters As String())" />
+      <MemberSignature Language="F#" Value="static member SetFilters : string[] -&gt; unit" Usage="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventSourceLogger.SetFilters filters" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="filters" Type="System.String[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.ParamArray]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.ParamArray&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="filters">Filters to use, or an empty array to clear previously set filters</param>
+        <summary>
+            Sets or clears filters for log messages.
+            </summary>
+        <remarks>
+            Once filters are set, EventSource events will be written only if the log message
+            contains at least one of the strings specified by the filters. The match is case sensitive.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetLevel">
+      <MemberSignature Language="C#" Value="public static void SetLevel (Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level level);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetLevel(valuetype Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level level) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventSourceLogger.SetLevel(Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Sub SetLevel (level As Level)" />
+      <MemberSignature Language="F#" Value="static member SetLevel : Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level -&gt; unit" Usage="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.EventSourceLogger.SetLevel level" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.46.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="level" Type="Microsoft.CognitiveServices.Speech.Diagnostics.Logging.Level" />
+      </Parameters>
+      <Docs>
+        <param name="level">Maximum level of detail to be captured by the logger.</param>
+        <summary>
+            Sets the level of the messages to be captured by the logger
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

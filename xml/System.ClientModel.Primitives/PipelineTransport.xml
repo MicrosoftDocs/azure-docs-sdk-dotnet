@@ -1,0 +1,302 @@
+<Type Name="PipelineTransport" FullName="System.ClientModel.Primitives.PipelineTransport">
+  <TypeSignature Language="C#" Value="public abstract class PipelineTransport : System.ClientModel.Primitives.PipelinePolicy" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit PipelineTransport extends System.ClientModel.Primitives.PipelinePolicy" />
+  <TypeSignature Language="DocId" Value="T:System.ClientModel.Primitives.PipelineTransport" />
+  <TypeSignature Language="VB.NET" Value="Public MustInherit Class PipelineTransport&#xA;Inherits PipelinePolicy" />
+  <TypeSignature Language="F#" Value="type PipelineTransport = class&#xA;    inherit PipelinePolicy" />
+  <AssemblyInfo>
+    <AssemblyName>System.ClientModel</AssemblyName>
+    <AssemblyVersion>1.5.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ClientModel.Primitives.PipelinePolicy</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Represents an HTTP pipeline transport used to send and receive HTTP requests
+            and responses.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected PipelineTransport ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.PipelineTransport.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>
+            Creates a new instance of the <see cref="T:System.ClientModel.Primitives.PipelineTransport" /> class.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected PipelineTransport (bool enableLogging, Microsoft.Extensions.Logging.ILoggerFactory? loggerFactory);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(bool enableLogging, class Microsoft.Extensions.Logging.ILoggerFactory loggerFactory) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.PipelineTransport.#ctor(System.Boolean,Microsoft.Extensions.Logging.ILoggerFactory)" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New (enableLogging As Boolean, loggerFactory As ILoggerFactory)" />
+      <MemberSignature Language="F#" Value="new System.ClientModel.Primitives.PipelineTransport : bool * Microsoft.Extensions.Logging.ILoggerFactory -&gt; System.ClientModel.Primitives.PipelineTransport" Usage="new System.ClientModel.Primitives.PipelineTransport (enableLogging, loggerFactory)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="enableLogging" Type="System.Boolean" />
+        <Parameter Name="loggerFactory" Type="Microsoft.Extensions.Logging.ILoggerFactory" />
+      </Parameters>
+      <Docs>
+        <param name="enableLogging">If client-wide logging is enabled for this pipeline.</param>
+        <param name="loggerFactory">The <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory" /> to use to create an <see cref="T:Microsoft.Extensions.Logging.ILogger" /> instance for logging.
+            If one is not provided, logs are written to Event Source by default.</param>
+        <summary>
+            Creates a new instance of the <see cref="T:System.ClientModel.Primitives.PipelineTransport" /> class.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateMessage">
+      <MemberSignature Language="C#" Value="public System.ClientModel.Primitives.PipelineMessage CreateMessage ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class System.ClientModel.Primitives.PipelineMessage CreateMessage() cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.PipelineTransport.CreateMessage" />
+      <MemberSignature Language="VB.NET" Value="Public Function CreateMessage () As PipelineMessage" />
+      <MemberSignature Language="F#" Value="member this.CreateMessage : unit -&gt; System.ClientModel.Primitives.PipelineMessage" Usage="pipelineTransport.CreateMessage " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.ClientModel.Primitives.PipelineMessage</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Create an instance of <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> that can be sent
+            using this transport instance. This method will rarely be called directly;
+            <see cref="M:System.ClientModel.Primitives.ClientPipeline.CreateMessage" /> should be called instead.
+            </summary>
+        <returns>A <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> that can be passed to
+            <see cref="M:System.ClientModel.Primitives.PipelineTransport.Process(System.ClientModel.Primitives.PipelineMessage)" />.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateMessageCore">
+      <MemberSignature Language="C#" Value="protected abstract System.ClientModel.Primitives.PipelineMessage CreateMessageCore ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance class System.ClientModel.Primitives.PipelineMessage CreateMessageCore() cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.PipelineTransport.CreateMessageCore" />
+      <MemberSignature Language="VB.NET" Value="Protected MustOverride Function CreateMessageCore () As PipelineMessage" />
+      <MemberSignature Language="F#" Value="abstract member CreateMessageCore : unit -&gt; System.ClientModel.Primitives.PipelineMessage" Usage="pipelineTransport.CreateMessageCore " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.ClientModel.Primitives.PipelineMessage</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Creates a new transport-specific instance of <see cref="T:System.ClientModel.Primitives.PipelineMessage" />.
+            Types that derive from <see cref="T:System.ClientModel.Primitives.PipelineTransport" /> must implement this
+            method to provide transport-specific functionality.
+            </summary>
+        <returns>A <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> that can be passed to
+            <see cref="M:System.ClientModel.Primitives.PipelineTransport.Process(System.ClientModel.Primitives.PipelineMessage)" />.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Process">
+      <MemberSignature Language="C#" Value="public void Process (System.ClientModel.Primitives.PipelineMessage message);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Process(class System.ClientModel.Primitives.PipelineMessage message) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.PipelineTransport.Process(System.ClientModel.Primitives.PipelineMessage)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub Process (message As PipelineMessage)" />
+      <MemberSignature Language="F#" Value="override this.Process : System.ClientModel.Primitives.PipelineMessage -&gt; unit" Usage="pipelineTransport.Process message" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.ClientModel.Primitives.PipelineMessage" />
+      </Parameters>
+      <Docs>
+        <param name="message">The <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> containing the
+            request that was sent and response that was received by the transport.</param>
+        <summary>
+            Sends the HTTP request contained by <see cref="P:System.ClientModel.Primitives.PipelineMessage.Request" />
+            and sets the value of <see cref="P:System.ClientModel.Primitives.PipelineMessage.Response" />.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Process">
+      <MemberSignature Language="C#" Value="public override sealed void Process (System.ClientModel.Primitives.PipelineMessage message, System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt; pipeline, int currentIndex);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void Process(class System.ClientModel.Primitives.PipelineMessage message, class System.Collections.Generic.IReadOnlyList`1&lt;class System.ClientModel.Primitives.PipelinePolicy&gt; pipeline, int32 currentIndex) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.PipelineTransport.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Public Overrides NotOverridable Sub Process (message As PipelineMessage, pipeline As IReadOnlyList(Of PipelinePolicy), currentIndex As Integer)" />
+      <MemberSignature Language="F#" Value="override this.Process : System.ClientModel.Primitives.PipelineMessage * System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt; * int -&gt; unit" Usage="pipelineTransport.Process (message, pipeline, currentIndex)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.ClientModel.Primitives.PipelineMessage" />
+        <Parameter Name="pipeline" Type="System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt;" />
+        <Parameter Name="currentIndex" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="message">The <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> to pass to <see cref="M:System.ClientModel.Primitives.PipelineTransport.Process(System.ClientModel.Primitives.PipelineMessage)" />.</param>
+        <param name="pipeline">The collection of policies in the pipeline.</param>
+        <param name="currentIndex">The index of the current policy being processed
+            in the pipeline invocation.</param>
+        <summary>
+            Implementation of <see cref="M:System.ClientModel.Primitives.PipelinePolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />.
+            Since the transport is the last policy in the <see cref="T:System.ClientModel.Primitives.ClientPipeline" /> policy
+            chain, this method does not call <see cref="M:System.ClientModel.Primitives.PipelinePolicy.ProcessNext(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+            as other policy implementations do.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ProcessAsync">
+      <MemberSignature Language="C#" Value="public System.Threading.Tasks.ValueTask ProcessAsync (System.ClientModel.Primitives.PipelineMessage message);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype System.Threading.Tasks.ValueTask ProcessAsync(class System.ClientModel.Primitives.PipelineMessage message) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.PipelineTransport.ProcessAsync(System.ClientModel.Primitives.PipelineMessage)" />
+      <MemberSignature Language="VB.NET" Value="Public Function ProcessAsync (message As PipelineMessage) As ValueTask" />
+      <MemberSignature Language="F#" Value="override this.ProcessAsync : System.ClientModel.Primitives.PipelineMessage -&gt; System.Threading.Tasks.ValueTask" Usage="pipelineTransport.ProcessAsync message" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.ValueTask</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.ClientModel.Primitives.PipelineMessage" />
+      </Parameters>
+      <Docs>
+        <param name="message">The <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> containing the
+            request that was sent and response that was received by the transport.</param>
+        <summary>
+            Sends the HTTP request contained by <see cref="P:System.ClientModel.Primitives.PipelineMessage.Request" />
+            and sets the value of <see cref="P:System.ClientModel.Primitives.PipelineMessage.Response" />.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ProcessAsync">
+      <MemberSignature Language="C#" Value="public override sealed System.Threading.Tasks.ValueTask ProcessAsync (System.ClientModel.Primitives.PipelineMessage message, System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt; pipeline, int currentIndex);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance valuetype System.Threading.Tasks.ValueTask ProcessAsync(class System.ClientModel.Primitives.PipelineMessage message, class System.Collections.Generic.IReadOnlyList`1&lt;class System.ClientModel.Primitives.PipelinePolicy&gt; pipeline, int32 currentIndex) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.PipelineTransport.ProcessAsync(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Public Overrides NotOverridable Function ProcessAsync (message As PipelineMessage, pipeline As IReadOnlyList(Of PipelinePolicy), currentIndex As Integer) As ValueTask" />
+      <MemberSignature Language="F#" Value="override this.ProcessAsync : System.ClientModel.Primitives.PipelineMessage * System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt; * int -&gt; System.Threading.Tasks.ValueTask" Usage="pipelineTransport.ProcessAsync (message, pipeline, currentIndex)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.ValueTask</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.ClientModel.Primitives.PipelineMessage" />
+        <Parameter Name="pipeline" Type="System.Collections.Generic.IReadOnlyList&lt;System.ClientModel.Primitives.PipelinePolicy&gt;" />
+        <Parameter Name="currentIndex" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="message">The <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> to pass to <see cref="M:System.ClientModel.Primitives.PipelineTransport.Process(System.ClientModel.Primitives.PipelineMessage)" />.</param>
+        <param name="pipeline">The collection of policies in the pipeline.</param>
+        <param name="currentIndex">The index of the current policy being processed
+            in the pipeline invocation.</param>
+        <summary>
+            Implementation of <see cref="M:System.ClientModel.Primitives.PipelinePolicy.Process(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />.
+            Since the transport is the last policy in the <see cref="T:System.ClientModel.Primitives.ClientPipeline" /> policy
+            chain, this method does not call <see cref="M:System.ClientModel.Primitives.PipelinePolicy.ProcessNext(System.ClientModel.Primitives.PipelineMessage,System.Collections.Generic.IReadOnlyList{System.ClientModel.Primitives.PipelinePolicy},System.Int32)" />
+            as other policy implementations do.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ProcessCore">
+      <MemberSignature Language="C#" Value="protected abstract void ProcessCore (System.ClientModel.Primitives.PipelineMessage message);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance void ProcessCore(class System.ClientModel.Primitives.PipelineMessage message) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.PipelineTransport.ProcessCore(System.ClientModel.Primitives.PipelineMessage)" />
+      <MemberSignature Language="VB.NET" Value="Protected MustOverride Sub ProcessCore (message As PipelineMessage)" />
+      <MemberSignature Language="F#" Value="abstract member ProcessCore : System.ClientModel.Primitives.PipelineMessage -&gt; unit" Usage="pipelineTransport.ProcessCore message" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.ClientModel.Primitives.PipelineMessage" />
+      </Parameters>
+      <Docs>
+        <param name="message">The <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> containing the
+            request that was sent and response that was received by the transport.</param>
+        <summary>
+            Transport-specific implementation used to sends the HTTP request
+            contained by <see cref="P:System.ClientModel.Primitives.PipelineMessage.Request" /> and set the
+            value of <see cref="P:System.ClientModel.Primitives.PipelineMessage.Response" />. Types that derive
+            from <see cref="T:System.ClientModel.Primitives.PipelineTransport" /> must implement this method to
+            provide transport-specific functionality.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ProcessCoreAsync">
+      <MemberSignature Language="C#" Value="protected abstract System.Threading.Tasks.ValueTask ProcessCoreAsync (System.ClientModel.Primitives.PipelineMessage message);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance valuetype System.Threading.Tasks.ValueTask ProcessCoreAsync(class System.ClientModel.Primitives.PipelineMessage message) cil managed" />
+      <MemberSignature Language="DocId" Value="M:System.ClientModel.Primitives.PipelineTransport.ProcessCoreAsync(System.ClientModel.Primitives.PipelineMessage)" />
+      <MemberSignature Language="VB.NET" Value="Protected MustOverride Function ProcessCoreAsync (message As PipelineMessage) As ValueTask" />
+      <MemberSignature Language="F#" Value="abstract member ProcessCoreAsync : System.ClientModel.Primitives.PipelineMessage -&gt; System.Threading.Tasks.ValueTask" Usage="pipelineTransport.ProcessCoreAsync message" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>System.ClientModel</AssemblyName>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.ValueTask</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.ClientModel.Primitives.PipelineMessage" />
+      </Parameters>
+      <Docs>
+        <param name="message">The <see cref="T:System.ClientModel.Primitives.PipelineMessage" /> containing the
+            request that was sent and response that was received by the transport.</param>
+        <summary>
+            Transport-specific implementation used to sends the HTTP request
+            contained by <see cref="P:System.ClientModel.Primitives.PipelineMessage.Request" /> and set the
+            value of <see cref="P:System.ClientModel.Primitives.PipelineMessage.Response" />. Types that derive
+            from <see cref="T:System.ClientModel.Primitives.PipelineTransport" /> must implement this method to
+            provide transport-specific functionality.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
