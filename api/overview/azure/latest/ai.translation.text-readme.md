@@ -8,20 +8,17 @@ ms.service: translation
 ---
 # Azure Text Translation client library for .NET - version 2.0.0 
 
+Azure text translation is a cloud-based REST API provided by the Azure Translator service. It utilizes neural machine translation technology to deliver precise, contextually relevant, and semantically accurate real-time text translations across all supported languages.
 
-Text translation is a cloud-based REST API feature of the Translator service that uses neural machine translation technology to enable quick and accurate source-to-target text translation in real time across all supported languages.
+The .NET client library offers several key functionalities:
 
-Use the Text Translation client library for .NET to:
+* Retrieve a complete list of languages supported for translation and transliteration operations, including all available LLM-based translation models.
 
-* Return a list of languages supported by Translate, Transliterate, and Dictionary operations.
+* Perform deterministic text translation from a specified source language to a target language, with configurable parameters to ensure precision and maintain contextual integrity.
 
-* Render single source-language text to multiple target-language texts with a single request.
+* Execute transliteration by converting text from the original script to an alternative script representation.
 
-* Convert text of a source language in letters of a different script.
-
-* Return equivalent words for the source term in the target language.
-
-* Return grammatical structure and context examples for the source term and target term pair.
+* Use LLM-driven translation models to produce output variations that are tone-specific and gender-aware.
 
 [Source code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Text_1.0.0/sdk/translation/Azure.AI.Translation.Text/src) | [API reference documentation](https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) | [Product documentation](https://learn.microsoft.com/azure/cognitive-services/translator/)
 
