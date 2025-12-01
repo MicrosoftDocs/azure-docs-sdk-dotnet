@@ -1,12 +1,12 @@
 ---
 title: Azure Text Translation client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Translation.Text, translation
-ms.date: 05/21/2024
+ms.date: 12/01/2025
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: translation
 ---
-# Azure Text Translation client library for .NET - version 1.0.0 
+# Azure Text Translation client library for .NET - version 2.0.0 
 
 
 Text translation is a cloud-based REST API feature of the Translator service that uses neural machine translation technology to enable quick and accurate source-to-target text translation in real time across all supported languages.
