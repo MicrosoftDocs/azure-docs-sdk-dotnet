@@ -1,29 +1,28 @@
 ---
 title: Azure Text Translation client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Translation.Text, translation
-ms.date: 05/21/2024
+description: Azure text translation .NET client library overview
+ms.date: 12/01/2025
 ms.topic: reference
 ms.devlang: dotnet
-ms.service: translation
+ms.service: azure-ai-translator
 ---
-# Azure Text Translation client library for .NET - version 1.0.0 
 
+# Azure Text Translation client library for .NET - version 2.0.0 
 
-Text translation is a cloud-based REST API feature of the Translator service that uses neural machine translation technology to enable quick and accurate source-to-target text translation in real time across all supported languages.
+Azure text translation is a cloud-based REST API provided by the Azure Translator service. It utilizes neural machine translation technology to deliver precise, contextually relevant, and semantically accurate real-time text translations across all supported languages.
 
-Use the Text Translation client library for .NET to:
+The .NET client library offers several key functionalities:
 
-* Return a list of languages supported by Translate, Transliterate, and Dictionary operations.
+* Retrieve a complete list of languages supported for translation and transliteration operations, including all available LLM-based translation models.
 
-* Render single source-language text to multiple target-language texts with a single request.
+* Perform deterministic text translation from a specified source language to a target language, with configurable parameters to ensure precision and maintain contextual integrity.
 
-* Convert text of a source language in letters of a different script.
+* Execute transliteration by converting text from the original script to an alternative script representation.
 
-* Return equivalent words for the source term in the target language.
+* Use LLM-driven translation models to produce output variations that are tone-specific and gender-aware.
 
-* Return grammatical structure and context examples for the source term and target term pair.
-
-[Source code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Text_1.0.0/sdk/translation/Azure.AI.Translation.Text/src) | [API reference documentation](https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) | [Product documentation](https://learn.microsoft.com/azure/cognitive-services/translator/)
+[Source code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Text_1.0.0/sdk/translation/Azure.AI.Translation.Text/src) | [API reference documentation](/azure/cognitive-services/translator/reference/v3-0-reference) | [Product documentation](/azure/cognitive-services/translator/)
 
 ## Getting started
 
@@ -121,7 +120,7 @@ We guarantee that all client instance methods are thread-safe and independent of
 [Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_1.0.0/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
 [Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_1.0.0/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
 [Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_1.0.0/sdk/core/Azure.Core/samples/Diagnostics.md) |
-[Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
+[Mocking](/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
 
@@ -460,15 +459,15 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 
 [translator_client_class]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_1.0.0/sdk/translation/Azure.AI.Translation.Text/src/Custom/TextTranslationClient.cs
 
-[translator_auth]: https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication
-[translator_limits]: https://learn.microsoft.com/azure/cognitive-services/translator/request-limits
+[translator_auth]: /azure/cognitive-services/translator/reference/v3-0-reference#authentication
+[translator_limits]: /azure/cognitive-services/translator/request-limits
 
-[languages_doc]: https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages
-[translate_doc]: https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate
-[transliterate_doc]: https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate
-[breaksentence_doc]: https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence
-[dictionarylookup_doc]: https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup
-[dictionaryexamples_doc]: https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-examples
+[languages_doc]: /azure/cognitive-services/translator/reference/v3-0-languages
+[translate_doc]: /azure/cognitive-services/translator/reference/v3-0-translate
+[transliterate_doc]: /azure/cognitive-services/translator/reference/v3-0-transliterate
+[breaksentence_doc]: /azure/cognitive-services/translator/reference/v3-0-break-sentence
+[dictionarylookup_doc]: /azure/cognitive-services/translator/reference/v3-0-dictionary-lookup
+[dictionaryexamples_doc]: /azure/cognitive-services/translator/reference/v3-0-dictionary-examples
 
 [client_sample]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Text_1.0.0/sdk/translation/Azure.AI.Translation.Text/samples/Sample0_CreateClient.md
 [languages_sample]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Text_1.0.0/sdk/translation/Azure.AI.Translation.Text/samples/Sample1_GetLanguages.md
@@ -478,16 +477,16 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 [dictionarylookup_sample]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Text_1.0.0/sdk/translation/Azure.AI.Translation.Text/samples/Sample5_DictionaryLookup.md
 [dictionaryexamples_sample]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Text_1.0.0/sdk/translation/Azure.AI.Translation.Text/samples/Sample6_DictionaryExamples.md
 
-[translator_resource_create]: https://learn.microsoft.com/azure/cognitive-services/Translator/create-translator-resource
+[translator_resource_create]: /azure/cognitive-services/Translator/create-translator-resource
 [azure_identity]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_1.0.0/sdk/identity/Azure.Identity/README.md
 [DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_1.0.0/sdk/identity/Azure.Identity/README.md#defaultazurecredential
-[register_aad_app]: https://learn.microsoft.com/azure/cognitive-services/authentication#assign-a-role-to-a-service-principal
-[aad_grant_access]: https://learn.microsoft.com/azure/cognitive-services/authentication#assign-a-role-to-a-service-principal
-[custom_subdomain]: https://learn.microsoft.com/azure/cognitive-services/authentication#create-a-resource-with-a-custom-subdomain
-[custom_details]: https://learn.microsoft.com/azure/ai-services/translator/reference/v3-0-reference#authentication-with-microsoft-entra-id
+[register_aad_app]: /azure/cognitive-services/authentication#assign-a-role-to-a-service-principal
+[aad_grant_access]: /azure/cognitive-services/authentication#assign-a-role-to-a-service-principal
+[custom_subdomain]: /azure/cognitive-services/authentication#create-a-resource-with-a-custom-subdomain
+[custom_details]: /azure/ai-services/translator/reference/v3-0-reference#authentication-with-microsoft-entra-id
 [logging]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_1.0.0/sdk/core/Azure.Core/samples/Diagnostics.md
 
-[azure_cli]: https://learn.microsoft.com/cli/azure/
+[azure_cli]: /cli/azure/
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
 [nuget]: https://www.nuget.org/
 [azure_portal]: https://portal.azure.com
