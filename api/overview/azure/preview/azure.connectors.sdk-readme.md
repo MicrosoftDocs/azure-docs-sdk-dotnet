@@ -1,10 +1,11 @@
 ---
 title: Azure Logic Apps connectors client library for .NET
-keywords: Azure, dotnet, SDK, API, Azure.Connectors.Sdk, connector-namespace
+description: Reference for the Azure.Connectors.Sdk .NET package that provides typed clients to call Azure Logic Apps managed connectors from your apps
+keywords: Azure, dotnet, SDK, API, Azure.Connectors.Sdk, azure-logic-apps
 ms.date: 06/30/2026
 ms.topic: reference
 ms.devlang: dotnet
-ms.service: connector-namespace
+ms.service: azure-logic-apps
 ---
 # Azure Logic Apps connectors client library for .NET - version 0.12.0-preview.1
 
@@ -30,7 +31,7 @@ dotnet add package Azure.Connectors.Sdk --prerelease
 
 ### Authenticate the client
 
-The generated clients accept an Azure.Core `TokenCredential`, so any credential from the [Azure Identity library](https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme) works. Azure-hosted apps default to `ManagedIdentityCredential`. For local development, pass a credential such as `AzureCliCredential` explicitly.
+The generated clients accept an Azure.Core `TokenCredential`, so any credential from the [Azure Identity library](/dotnet/api/overview/azure/identity-readme) works. Azure-hosted apps default to `ManagedIdentityCredential`. For local development, pass a credential such as `AzureCliCredential` explicitly.
 
 ## Key concepts
 
@@ -69,7 +70,7 @@ await client.SendEmailAsync(new SendEmailInput
 ## Documentation
 
 * [Connector Namespace conceptual documentation](#) <!-- TODO: replace with the canonical Microsoft Learn URL once the Connector Namespace conceptual article is published. -->
-* [API reference for the Azure Logic Apps connectors SDK](/dotnet/api/?view=azure-dotnet) <!-- TODO: confirm the moniker-scoped API reference path for azure.connectors.sdk once the package is indexed. -->
+* [API reference for the Azure Logic Apps connectors SDK](/dotnet/api/) <!-- TODO: confirm the moniker-scoped API reference path for azure.connectors.sdk once the package is indexed. -->
 * [Connectors SDK samples](https://github.com/Azure/Connectors-NET-Samples)
 
 ## Troubleshooting
