@@ -1,11 +1,11 @@
 ---
 title: Azure Logic Apps connectors client library for .NET
 description: Reference for the Azure.Connectors.Sdk .NET package that provides typed clients to call Azure Logic Apps managed connectors from your apps
-keywords: Azure, dotnet, SDK, API, Azure.Connectors.Sdk, azure-logic-apps
-ms.date: 06/30/2026
+keywords: Azure, dotnet, SDK, API, Azure.Connectors.Sdk, connector-namespace
+ms.date: 07/06/2026
 ms.topic: reference
 ms.devlang: dotnet
-ms.service: azure-logic-apps
+ms.service: connector-namespace
 ---
 # Azure Logic Apps connectors client library for .NET - version 0.12.0-preview.1
 
