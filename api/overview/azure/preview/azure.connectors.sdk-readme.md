@@ -69,7 +69,7 @@ await client.SendEmailAsync(new SendEmailInput
 
 ## Documentation
 
-* [Connector Namespace conceptual documentation](#) <!-- TODO: replace with the canonical Microsoft Learn URL once the Connector Namespace conceptual article is published. -->
+* [Connector Namespace conceptual documentation](/azure/connector-namespace/)
 * [API reference for the Azure Logic Apps connectors SDK](/dotnet/api/) <!-- TODO: confirm the moniker-scoped API reference path for azure.connectors.sdk once the package is indexed. -->
 * [Connectors SDK samples](https://github.com/Azure/Connectors-NET-Samples)
 
