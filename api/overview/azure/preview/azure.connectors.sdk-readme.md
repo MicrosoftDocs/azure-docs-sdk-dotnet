@@ -7,7 +7,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: connector-namespace
 ---
-# Azure Logic Apps connectors client library for .NET - version 0.12.0-preview.1
+# Azure Logic Apps connectors client library for .NET - version 0.13.0-preview.1
 
 The `Azure.Connectors.Sdk` package provides typed .NET clients for Azure Logic Apps connectors, so you can call Office 365, SharePoint, Teams, Dataverse, and other managed connectors directly from Azure Functions and other .NET apps without running a workflow host. The public API is auto-generated from the managed connector contracts, which gives you strongly typed async methods, request and response models, and IntelliSense for each connector operation.
 
