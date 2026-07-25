@@ -116,11 +116,6 @@ This example deletes a container group from a resource group.
 <!-- SOURCE REPO: https://github.com/Azure-Samples/aci-docs-sample-dotnet -->  
 [!code-csharp[delete_container_group](~/aci-docs-sample-dotnet/Program.cs#delete_container_group "Delete container group")]
 
-## API reference
-
-> [!div class="nextstepaction"]
-> [Explore the management APIs](/dotnet/api/overview/azure/containerinstances/management)
-
 ## Samples
 
 * The source code for the preceding examples can be found on GitHub:
