@@ -1,9 +1,9 @@
 ---
 title: Azure Container Instances libraries for .NET
 description: Reference for Azure Container Instances libraries for .NET
-ms.date: 06/11/2018
+ms.date: 07/25/2026
 ms.topic: reference
-ms.service: container-instances
+ms.service: azure-container-instances
 ---
 # Azure Container Instances libraries for .NET
 
@@ -115,11 +115,6 @@ This example deletes a container group from a resource group.
 
 <!-- SOURCE REPO: https://github.com/Azure-Samples/aci-docs-sample-dotnet -->  
 [!code-csharp[delete_container_group](~/aci-docs-sample-dotnet/Program.cs#delete_container_group "Delete container group")]
-
-## API reference
-
-> [!div class="nextstepaction"]
-> [Explore the management APIs](/dotnet/api/overview/azure/containerinstances/management)
 
 ## Samples
 
