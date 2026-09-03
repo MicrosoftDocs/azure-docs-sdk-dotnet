@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.PlanetaryComputer, planetarycomputer
-ms.date: 04/29/2026
+ms.date: 09/03/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: planetarycomputer
@@ -40,7 +40,7 @@ sdk/
 Install the package via [NuGet](https://www.nuget.org/):
 
 ```bash
-dotnet add package Azure.ResourceManager.PlanetaryComputer --prerelease
+dotnet add package Azure.ResourceManager.PlanetaryComputer
 ```
 
 ---
@@ -179,5 +179,5 @@ Explore additional features of the PlanetaryComputer SDK:
 
 ## Contributing
 
-We welcome contributions! Please see our [Contributing Guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.PlanetaryComputer_1.0.0-beta.2/CONTRIBUTING.md) for details on how to get started.
+We welcome contributions! Please see our [Contributing Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md) for details on how to get started.
 
