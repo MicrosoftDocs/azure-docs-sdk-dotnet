@@ -1,12 +1,12 @@
 ---
 title: Azure Cognitive Language Services Question Answering Authoring client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Language.QuestionAnswering.Authoring, cognitivelanguage
-ms.date: 12/06/2025
+ms.date: 09/03/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: cognitivelanguage
 ---
-# Azure Cognitive Language Services Question Answering Authoring client library for .NET - version 1.0.0-beta.1 
+# Azure Cognitive Language Services Question Answering Authoring client library for .NET - version 1.0.0-alpha.20260903.1 
 
 
 The Question Answering Authoring client library lets you manage Question Answering projects: create and configure projects, add and update knowledge sources, add QnA pairs, deploy a project, and delete it. Use this library to automate lifecycle management while using the runtime (Inference) library to ask questions.
@@ -96,11 +96,11 @@ Client instances are thread-safe and intended to be reused.
 ### Additional concepts
 
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering.Authoring_1.0.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering.Authoring_1.0.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering.Authoring_1.0.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering.Authoring_1.0.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering.Authoring_1.0.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
@@ -113,14 +113,16 @@ Client instances are thread-safe and intended to be reused.
 // Set project name and request content parameters
 string newProjectName = "{ProjectName}";
 RequestContent creationRequestContent = RequestContent.Create(
-    new {
+    new
+    {
         description = "This is the description for a test project",
         language = "en",
         multilingualResource = false,
-        settings = new {
+        settings = new
+        {
             defaultAnswer = "No answer found for your question."
-            }
         }
+    }
     );
 
 Response creationResponse = client.CreateProject(newProjectName, creationRequestContent);
@@ -221,10 +223,10 @@ using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsole
 See the root repository contributing guide for how to build, test, and submit changes.
 
 <!-- LINKS -->
-[authoring_src]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.QuestionAnswering.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering.Authoring/src/
+[authoring_src]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering.Authoring/src/
 [authoring_package]: https://www.nuget.org/packages/Azure.AI.Language.QuestionAnswering.Authoring
 [authoring_refdocs]: https://learn.microsoft.com/dotnet/api/Azure.AI.Language.QuestionAnswering.Authoring
-[authoring_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.QuestionAnswering.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/cognitivelanguage/Azure.AI.Language.QuestionAnswering.Authoring/samples/
+[authoring_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering.Authoring/samples/
 [questionanswering_docs]: https://learn.microsoft.com/azure/ai-services/language-service/question-answering/overview
 [authoring_rest_docs]: https://learn.microsoft.com/rest/api/language/question-answering-authoring/operation-groups?view=rest-language-question-answering-authoring-2025-05-15-preview
 

@@ -1,12 +1,12 @@
 ---
 title: Azure Cognitive Language Services Question Answering (Inference) client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Language.QuestionAnswering.Inference, cognitivelanguage
-ms.date: 12/06/2025
+ms.date: 09/03/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: cognitivelanguage
 ---
-# Azure Cognitive Language Services Question Answering (Inference) client library for .NET - version 1.0.0-beta.1 
+# Azure Cognitive Language Services Question Answering (Inference) client library for .NET - version 1.0.0-alpha.20260903.1 
 
 
 The Question Answering service lets you build a conversational question–answering layer over your data. It can extract questions and answers from semi‑structured content (FAQs, manuals, documents) and improve relevance over time.
@@ -85,11 +85,11 @@ Client instances are thread‑safe; reuse them across threads and requests.
 ### Additional concepts
 
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering.Inference_1.0.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering.Inference_1.0.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering.Inference_1.0.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering.Inference_1.0.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering.Inference_1.0.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
@@ -171,12 +171,12 @@ using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsole
 See [CONTRIBUTING.md][contributing]. This project follows the Microsoft Open Source Code of Conduct.
 
 <!-- LINKS -->
-[questionanswering_client_src]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.QuestionAnswering.Inference_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering.Inference/src/
-[questionanswering_refdocs]: https://learn.microsoft.com/dotnet/api/Azure.AI.Language.QuestionAnswering.Inference/
-[questionanswering_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.QuestionAnswering.Inference_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering.Inference/samples/README.md
+[questionanswering_client_src]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering.Inference/src/
+[questionanswering_refdocs]: https://learn.microsoft.com/dotnet/api/Azure.AI.Language.QuestionAnswering.Inference
+[questionanswering_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering.Inference/samples/README.md
 [questionanswering_docs]: https://learn.microsoft.com/azure/ai-services/language-service/question-answering/overview
 [questionanswering_docs_chat]: https://learn.microsoft.com/azure/ai-services/language-service/question-answering/how-to/chit-chatview=rest-language-question-answering-2025-05-15-preview
 [azure_subscription]: https://azure.microsoft.com/free/dotnet/
-[contributing]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering.Inference_1.0.0-beta.1/CONTRIBUTING.md
+[contributing]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 [custom_domain]: https://learn.microsoft.com/azure/cognitive-services/authentication#create-a-resource-with-a-custom-subdomain
 
