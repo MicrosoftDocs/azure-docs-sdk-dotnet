@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning Logic client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.Logic, logic
-ms.date: 05/04/2026
+ms.date: 09/03/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: logic
 ---
-# Azure Provisioning Logic client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning Logic client library for .NET - version 1.0.0-alpha.20260903.1 
 
 
 Azure.Provisioning.Logic simplifies declarative resource provisioning for Azure Logic Apps in .NET.
@@ -76,7 +76,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.Logic_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
