@@ -1,12 +1,12 @@
 ---
 title: Azure Text Translation client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Translation.Text, translation
-ms.date: 01/08/2026
+ms.date: 09/03/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: translation
 ---
-# Azure Text Translation client library for .NET - version 2.0.0-beta.1 
+# Azure Text Translation client library for .NET - version 2.1.0-alpha.20260903.1 
 
 
 Azure text translation is a cloud-based REST API provided by the Azure Translator service. It utilizes neural machine translation technology to deliver precise, contextually relevant, and semantically accurate real-time text translations across all supported languages.
@@ -21,7 +21,7 @@ Use the Text Translation client library for .NET to:
 
 - Use LLM models to produce translation output variants that are tone-specific and gender-aware.
 
-[Source code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Text_2.0.0-beta.1/sdk/translation/Azure.AI.Translation.Text/src) | [API reference documentation](https://learn.microsoft.com/azure/ai-services/translator/text-translation/preview/rest-api-guide) | [Product documentation](https://learn.microsoft.com/azure/cognitive-services/translator/)
+[Source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation/Azure.AI.Translation.Text/src) | [API reference documentation](https://learn.microsoft.com/azure/ai-services/translator/text-translation/preview/rest-api-guide) | [Product documentation](https://learn.microsoft.com/azure/cognitive-services/translator/)
 
 ## Getting started
 
@@ -30,7 +30,7 @@ Use the Text Translation client library for .NET to:
 Install the Azure Text Translation client library for .NET with [NuGet][nuget]:
 
 ```dotnetcli
-dotnet add package Azure.AI.Translation.Text --prerelease
+dotnet add package Azure.AI.Translation.Text
 ```
 
 This table shows the relationship between SDK versions and supported API versions of the service:
@@ -40,6 +40,7 @@ This table shows the relationship between SDK versions and supported API version
 |1.0.0-beta.1 | 3.0
 |1.0.0 | 3.0
 |2.0.0-beta.1 | 2025-10-01-preview
+|2.0.0 | 2026-06-06
 
 ### Prerequisites
 
@@ -115,11 +116,11 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_2.0.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_2.0.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_2.0.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_2.0.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_2.0.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
@@ -279,13 +280,13 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 This project has adopted the [Microsoft Open Source Code of Conduct][code_of_conduct]. For more information see the [Code of Conduct FAQ][coc_faq] or contact [opencode@microsoft.com][coc_contact] with any additional questions or comments.
 
 <!-- LINKS -->
-[contributing]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_2.0.0-beta.1/CONTRIBUTING.md
+[contributing]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 [coc_contact]: mailto:opencode@microsoft.com
 
-[translator_client_class]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_2.0.0-beta.1/sdk/translation/Azure.AI.Translation.Text/src/Custom/TextTranslationClient.cs
+[translator_client_class]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/translation/Azure.AI.Translation.Text/src/Custom/TextTranslationClient.cs
 
 [translator_auth]: https://learn.microsoft.com/azure/ai-services/translator/text-translation/reference/authentication
 [translator_limits]: https://learn.microsoft.com/azure/cognitive-services/translator/request-limits
@@ -294,19 +295,19 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 [translate_doc]: https://learn.microsoft.com/azure/ai-services/translator/text-translation/preview/translate-api
 [transliterate_doc]: https://learn.microsoft.com/azure/ai-services/translator/text-translation/preview/transliterate-api
 
-[client_sample]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Text_2.0.0-beta.1/sdk/translation/Azure.AI.Translation.Text/samples/Sample0_CreateClient.md
-[languages_sample]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Text_2.0.0-beta.1/sdk/translation/Azure.AI.Translation.Text/samples/Sample1_GetLanguages.md
-[translate_sample]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Text_2.0.0-beta.1/sdk/translation/Azure.AI.Translation.Text/samples/Sample2_Translate.md
-[transliterate_sample]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Text_2.0.0-beta.1/sdk/translation/Azure.AI.Translation.Text/samples/Sample3_Transliterate.md
+[client_sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation/Azure.AI.Translation.Text/samples/Sample0_CreateClient.md
+[languages_sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation/Azure.AI.Translation.Text/samples/Sample1_GetLanguages.md
+[translate_sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation/Azure.AI.Translation.Text/samples/Sample2_Translate.md
+[transliterate_sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation/Azure.AI.Translation.Text/samples/Sample3_Transliterate.md
 
 [translator_resource_create]: https://learn.microsoft.com/azure/cognitive-services/Translator/create-translator-resource
-[azure_identity]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_2.0.0-beta.1/sdk/identity/Azure.Identity/README.md
-[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_2.0.0-beta.1/sdk/identity/Azure.Identity/README.md#defaultazurecredential
+[azure_identity]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md
+[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md#defaultazurecredential
 [register_aad_app]: https://learn.microsoft.com/azure/cognitive-services/authentication#assign-a-role-to-a-service-principal
 [aad_grant_access]: https://learn.microsoft.com/azure/cognitive-services/authentication#assign-a-role-to-a-service-principal
 [custom_subdomain]: https://learn.microsoft.com/azure/cognitive-services/authentication#create-a-resource-with-a-custom-subdomain
 [custom_details]: https://learn.microsoft.com/azure/ai-services/translator/text-translation/reference/authentication#authentication-with-microsoft-entra-id
-[logging]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Text_2.0.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md
+[logging]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md
 
 [azure_cli]: https://learn.microsoft.com/cli/azure/
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
