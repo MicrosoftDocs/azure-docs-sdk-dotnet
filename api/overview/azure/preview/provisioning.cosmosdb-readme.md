@@ -1,12 +1,13 @@
 ---
-title: 
-keywords: Azure, dotnet, SDK, API, Azure.Provisioning.CosmosDB, provisioning
-ms.date: 06/17/2025
+title: Azure Provisioning CosmosDB client library for .NET
+keywords: Azure, dotnet, SDK, API, Azure.Provisioning.CosmosDB, cosmosdb
+ms.date: 09/03/2026
 ms.topic: reference
 ms.devlang: dotnet
-ms.service: provisioning
+ms.service: cosmosdb
 ---
-# Azure.Provisioning.CosmosDB client library for .NET
+# Azure Provisioning CosmosDB client library for .NET - version 1.1.0-alpha.20260903.1 
+
 
 Azure.Provisioning.CosmosDB simplifies declarative resource provisioning in .NET.
 
@@ -29,6 +30,72 @@ dotnet add package Azure.Provisioning.CosmosDB
 ## Key concepts
 
 This library allows you to specify your infrastructure in a declarative style using dotnet.  You can then use azd to deploy your infrastructure to Azure directly without needing to write or maintain bicep or arm templates.
+
+## Examples
+
+### Create a Basic Cosmos DB Account
+
+This example demonstrates how to create a Cosmos DB account with a SQL database and container configured for optimal performance.
+
+```C# Snippet:CosmosDBBasic
+Infrastructure infra = new();
+
+ProvisioningParameter dbName = new(nameof(dbName), typeof(string)) { Value = "orders" };
+infra.Add(dbName);
+
+ProvisioningParameter containerName = new(nameof(containerName), typeof(string)) { Value = "products" };
+infra.Add(containerName);
+
+CosmosDBAccount cosmos =
+    new(nameof(cosmos), CosmosDBAccount.ResourceVersions.V2024_08_15)
+    {
+        DatabaseAccountOfferType = CosmosDBAccountOfferType.Standard,
+        ConsistencyPolicy = new ConsistencyPolicy
+        {
+            DefaultConsistencyLevel = DefaultConsistencyLevel.Session
+        },
+        Locations =
+        {
+            new CosmosDBAccountLocation { LocationName = BicepFunction.GetResourceGroup().Location }
+        }
+    };
+infra.Add(cosmos);
+
+CosmosDBSqlDatabase db =
+    new(nameof(db), CosmosDBAccount.ResourceVersions.V2023_11_15)
+    {
+        Parent = cosmos,
+        Name = dbName,
+        Resource = new CosmosDBSqlDatabaseResourceInfo
+        {
+            DatabaseName = dbName
+        },
+        Options = new CosmosDBCreateUpdateConfig
+        {
+            Throughput = 400
+        }
+    };
+infra.Add(db);
+
+CosmosDBSqlContainer container =
+    new(nameof(container), CosmosDBAccount.ResourceVersions.V2023_11_15)
+    {
+        Parent = db,
+        Name = containerName,
+        Resource = new CosmosDBSqlContainerResourceInfo
+        {
+            ContainerName = containerName,
+            PartitionKey = new CosmosDBContainerPartitionKey
+            {
+                Paths = { "/myPartitionKey" }
+            }
+        },
+    };
+infra.Add(container);
+
+infra.Add(new ProvisioningOutput("containerName", typeof(string)) { Value = container.Name });
+infra.Add(new ProvisioningOutput("containerId", typeof(string)) { Value = container.Id });
+```
 
 ## Troubleshooting
 
@@ -58,7 +125,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.CosmosDB_1.1.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
