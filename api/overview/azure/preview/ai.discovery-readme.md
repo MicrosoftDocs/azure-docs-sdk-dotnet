@@ -1,12 +1,12 @@
 ---
 title: Azure AI Discovery client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Discovery, discovery
-ms.date: 08/24/2026
+ms.date: 09/03/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: discovery
 ---
-# Azure AI Discovery client library for .NET - version 1.0.0-beta.1 
+# Azure AI Discovery client library for .NET - version 1.0.0-alpha.20260902.1 
 
 
 Azure AI Discovery lets you build investigation and knowledge-base experiences on top of your
@@ -56,7 +56,7 @@ BookshelfClient bookshelfClient = new BookshelfClient(bookshelfEndpoint, new Def
 
 ## Examples
 
-See the [samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Discovery_1.0.0-beta.1/sdk/discovery/Azure.AI.Discovery/samples/README.md) for end-to-end usage. A minimal example that creates and reads a
+See the [samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/discovery/Azure.AI.Discovery/samples/README.md) for end-to-end usage. A minimal example that creates and reads a
 conversation:
 
 ```C# Snippet:Discovery_CreateAndReadConversation
@@ -78,7 +78,7 @@ error `Message` that can be used to diagnose the failure.
 
 ## Next steps
 
-Browse the [samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Discovery_1.0.0-beta.1/sdk/discovery/Azure.AI.Discovery/samples/README.md) for more scenarios covering investigations, tasks, tools, and
+Browse the [samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/discovery/Azure.AI.Discovery/samples/README.md) for more scenarios covering investigations, tasks, tools, and
 knowledge bases.
 
 ## Contributing
