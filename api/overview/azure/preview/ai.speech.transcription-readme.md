@@ -1,12 +1,12 @@
 ---
 title: Azure AI Speech Transcription client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Speech.Transcription, transcription
-ms.date: 04/20/2026
+ms.date: 09/03/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: transcription
 ---
-# Azure AI Speech Transcription client library for .NET - version 1.0.0-beta.2 
+# Azure AI Speech Transcription client library for .NET - version 1.1.0-alpha.20260902.1 
 
 
 The Azure AI Speech Transcription client library provides easy access to Azure's speech-to-text transcription service, enabling you to convert audio to text with high accuracy.
@@ -20,7 +20,7 @@ Use the client library to:
 * Use custom speech models
 * Process both local files and remote URLs
 
-[Source code](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/transcription/Azure.AI.Speech.Transcription/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Speech.Transcription) | [API reference documentation](https://learn.microsoft.com/dotnet/api/azure.ai.speech.transcription) | [Product documentation](https://learn.microsoft.com/azure/ai-services/speech-service/)
+[Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/transcription/Azure.AI.Speech.Transcription/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Speech.Transcription) | [API reference documentation](https://learn.microsoft.com/dotnet/api/azure.ai.speech.transcription) | [Product documentation](https://learn.microsoft.com/azure/ai-services/speech-service/)
 
 ## Getting started
 
@@ -35,7 +35,7 @@ Use the client library to:
 Install the client library for .NET with [NuGet](https://www.nuget.org/):
 
 ```dotnetcli
-dotnet add package Azure.AI.Speech.Transcription --prerelease
+dotnet add package Azure.AI.Speech.Transcription
 ```
 
 ### Authenticate the client
@@ -138,12 +138,12 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/core/Azure.Core/samples/Diagnostics.md) |
-[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/core/Azure.Core/README.md#mocking) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
 
@@ -186,7 +186,7 @@ TranscriptionOptions options = new TranscriptionOptions(audioStream);
 ClientResult<TranscriptionResult> response = await client.TranscribeAsync(options);
 
 // Get the transcribed text
-var channelPhrases = response.Value.PhrasesByChannel.First();
+var channelPhrases = response.Value.CombinedPhrases.First();
 Console.WriteLine(channelPhrases.Text);
 ```
 
@@ -204,7 +204,7 @@ ClientResult<TranscriptionResult> response = await client.TranscribeAsync(option
 TranscriptionResult result = response.Value;
 
 Console.WriteLine($"Transcribed audio from URL: {audioUrl}");
-var channelPhrases = result.PhrasesByChannel.First();
+var channelPhrases = result.CombinedPhrases.First();
 Console.WriteLine($"\nTranscription:\n{channelPhrases.Text}");
 ```
 
@@ -222,8 +222,7 @@ ClientResult<TranscriptionResult> response = await client.TranscribeAsync(option
 TranscriptionResult result = response.Value;
 
 // Access individual words in each phrase
-var channelPhrases = result.PhrasesByChannel.First();
-foreach (TranscribedPhrase phrase in channelPhrases.Phrases)
+foreach (TranscribedPhrase phrase in result.Phrases)
 {
     Console.WriteLine($"\nPhrase: {phrase.Text}");
     Console.WriteLine("Words:");
@@ -255,8 +254,8 @@ ClientResult<TranscriptionResult> response = await client.TranscribeAsync(option
 TranscriptionResult result = response.Value;
 
 Console.WriteLine("Transcription with speaker diarization:");
-var channelPhrases = result.PhrasesByChannel.First();
-foreach (TranscribedPhrase phrase in channelPhrases.Phrases)
+var channelPhrases = result.CombinedPhrases.First();
+foreach (TranscribedPhrase phrase in result.Phrases)
 {
     Console.WriteLine($"Speaker {phrase.Speaker}: {phrase.Text}");
 }
@@ -278,7 +277,7 @@ TranscriptionOptions options = new TranscriptionOptions(audioStream)
 ClientResult<TranscriptionResult> response = await client.TranscribeAsync(options);
 TranscriptionResult result = response.Value;
 
-var channelPhrases = result.PhrasesByChannel.First();
+var channelPhrases = result.CombinedPhrases.First();
 Console.WriteLine(channelPhrases.Text); // Profanity will appear as "f***"
 ```
 
@@ -309,7 +308,7 @@ options.PhraseList.Phrases.Add("Rehaan");
 ClientResult<TranscriptionResult> response = await client.TranscribeAsync(options);
 TranscriptionResult result = response.Value;
 
-var channelPhrases = result.PhrasesByChannel.First();
+var channelPhrases = result.CombinedPhrases.First();
 Console.WriteLine(channelPhrases.Text);
 ```
 
@@ -327,11 +326,11 @@ options.Locales.Add("en-US");
 ClientResult<TranscriptionResult> response = await client.TranscribeAsync(options);
 TranscriptionResult result = response.Value;
 
-var channelPhrases = result.PhrasesByChannel.First();
+var channelPhrases = result.CombinedPhrases.First();
 Console.WriteLine(channelPhrases.Text);
 ```
 
-For language identification when you're unsure of the language, specify multiple candidate locales and the service will automatically detect the language. See [Sample08_TranscribeWithLocales.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample08_TranscribeWithLocales.cs) for details.
+For language identification when you're unsure of the language, specify multiple candidate locales and the service will automatically detect the language. See [Sample08_TranscribeWithLocales.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample08_TranscribeWithLocales.cs) for details.
 
 ### Use Enhanced Mode for highest accuracy
 
@@ -354,11 +353,11 @@ TranscriptionOptions options = new TranscriptionOptions(audioStream)
 ClientResult<TranscriptionResult> response = await client.TranscribeAsync(options);
 TranscriptionResult result = response.Value;
 
-var channelPhrases = result.PhrasesByChannel.First();
+var channelPhrases = result.CombinedPhrases.First();
 Console.WriteLine(channelPhrases.Text);
 ```
 
-Enhanced Mode also supports translation. See [Sample04_EnhancedMode.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample04_EnhancedMode.cs) for translation examples.
+Enhanced Mode also supports translation. See [Sample04_EnhancedMode.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample04_EnhancedMode.cs) for translation examples.
 
 ### Combine multiple options
 
@@ -389,7 +388,7 @@ ClientResult<TranscriptionResult> response = await client.TranscribeAsync(option
 TranscriptionResult result = response.Value;
 
 // Display results
-var channelPhrases = result.PhrasesByChannel.First();
+var channelPhrases = result.CombinedPhrases.First();
 Console.WriteLine("Full Transcript:");
 Console.WriteLine(result.CombinedPhrases.First().Text);
 ```
@@ -412,25 +411,25 @@ The library throws exceptions for various error conditions:
 
 ### Enable client logging
 
-You can enable logging to debug issues with the client library. For more information, see the [diagnostics documentation](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/core/Azure.Core/samples/Diagnostics.md).
+You can enable logging to debug issues with the client library. For more information, see the [diagnostics documentation](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md).
 
 ## Next steps
 
 Explore additional samples to learn more about advanced features:
 
-- [Sample01_BasicTranscription.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample01_BasicTranscription.cs) - Create clients and basic transcription
-- [Sample02_TranscriptionOptions.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample02_TranscriptionOptions.cs) - Combine multiple transcription features
-- [Sample03_TranscribeFromUrl.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample03_TranscribeFromUrl.cs) - Transcribe from remote URLs
-- [Sample04_EnhancedMode.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample04_EnhancedMode.cs) - LLM-powered transcription and translation
-- [Sample05_TranscribeWithProfanityFilter.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample05_TranscribeWithProfanityFilter.cs) - All profanity filtering modes
-- [Sample06_TranscribeWithDiarization.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample06_TranscribeWithDiarization.cs) - Speaker identification
-- [Sample07_TranscribeWithPhraseList.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample07_TranscribeWithPhraseList.cs) - Custom vocabulary
-- [Sample08_TranscribeWithLocales.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample08_TranscribeWithLocales.cs) - Language specification and detection
-- [Sample09_MultilingualTranscription.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample09_MultilingualTranscription.cs) - Multilingual content
+- [Sample01_BasicTranscription.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample01_BasicTranscription.cs) - Create clients and basic transcription
+- [Sample02_TranscriptionOptions.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample02_TranscriptionOptions.cs) - Combine multiple transcription features
+- [Sample03_TranscribeFromUrl.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample03_TranscribeFromUrl.cs) - Transcribe from remote URLs
+- [Sample04_EnhancedMode.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample04_EnhancedMode.cs) - LLM-powered transcription and translation
+- [Sample05_TranscribeWithProfanityFilter.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample05_TranscribeWithProfanityFilter.cs) - All profanity filtering modes
+- [Sample06_TranscribeWithDiarization.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample06_TranscribeWithDiarization.cs) - Speaker identification
+- [Sample07_TranscribeWithPhraseList.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample07_TranscribeWithPhraseList.cs) - Custom vocabulary
+- [Sample08_TranscribeWithLocales.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample08_TranscribeWithLocales.cs) - Language specification and detection
+- [Sample09_MultilingualTranscription.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/transcription/Azure.AI.Speech.Transcription/tests/Samples/Sample09_MultilingualTranscription.cs) - Multilingual content
 
 ## Contributing
 
-For details on contributing to this repository, see the [contributing guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Speech.Transcription_1.0.0-beta.2/CONTRIBUTING.md).
+For details on contributing to this repository, see the [contributing guide](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md).
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
