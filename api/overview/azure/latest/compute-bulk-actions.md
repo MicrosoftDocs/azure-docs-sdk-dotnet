@@ -1,7 +1,7 @@
 ---
 title: Azure Compute Bulk Actions SDK for .NET
 description: Reference for Azure Compute Bulk Actions SDK for .NET
-ms.date: 09/02/2026
+ms.date: 09/03/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: computebulkactions
