@@ -1,12 +1,13 @@
 ---
-title: 
-keywords: Azure, dotnet, SDK, API, Azure.Provisioning.WebPubSub, provisioning
-ms.date: 10/05/2024
+title: Azure Provisioning WebPubSub client library for .NET
+keywords: Azure, dotnet, SDK, API, Azure.Provisioning.WebPubSub, webpubsub
+ms.date: 09/03/2026
 ms.topic: reference
 ms.devlang: dotnet
-ms.service: provisioning
+ms.service: webpubsub
 ---
-# Azure.Provisioning.WebPubSub client library for .NET
+# Azure Provisioning WebPubSub client library for .NET - version 1.2.0-alpha.20260902.1 
+
 
 Azure.Provisioning.WebPubSub simplifies declarative resource provisioning in .NET.
 
@@ -17,7 +18,7 @@ Azure.Provisioning.WebPubSub simplifies declarative resource provisioning in .NE
 Install the client library for .NET with [NuGet](https://www.nuget.org/ ):
 
 ```dotnetcli
-dotnet add package Azure.Provisioning.WebPubSub --prerelease
+dotnet add package Azure.Provisioning.WebPubSub
 ```
 
 ### Prerequisites
@@ -29,6 +30,66 @@ dotnet add package Azure.Provisioning.WebPubSub --prerelease
 ## Key concepts
 
 This library allows you to specify your infrastructure in a declarative style using dotnet.  You can then use azd to deploy your infrastructure to Azure directly without needing to write or maintain bicep or arm templates.
+
+## Examples
+
+### Create a Basic Web PubSub Service
+
+This example demonstrates how to create an Azure Web PubSub service for real-time messaging, based on the [Azure quickstart template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/azure-web-pubsub/main.bicep).
+
+```C# Snippet:WebPubSubBasic
+Infrastructure infra = new();
+
+WebPubSubService webpubsub =
+    new(nameof(webpubsub), "2021-10-01")
+    {
+        Sku =
+            new BillingInfoSku
+            {
+                Name = "Free_F1",
+                Tier = WebPubSubSkuTier.Free,
+                Capacity = 1
+            },
+        Identity = new ManagedServiceIdentity { ManagedServiceIdentityType = ManagedServiceIdentityType.None },
+        IsAadAuthDisabled = false,
+        IsLocalAuthDisabled = false,
+        LiveTraceConfiguration =
+            new LiveTraceConfiguration
+            {
+                IsEnabled = "false",
+                Categories =
+                {
+                    new LiveTraceCategory { Name = "ConnectivityLogs", IsEnabled = "false" },
+                    new LiveTraceCategory { Name = "MessagingLogs", IsEnabled = "false" },
+                }
+            },
+        NetworkAcls =
+            new WebPubSubNetworkAcls
+            {
+                DefaultAction = AclAction.Deny,
+                PublicNetwork =
+                    new PublicNetworkAcls
+                    {
+                        Allow =
+                        {
+                            WebPubSubRequestType.ServerConnection,
+                            WebPubSubRequestType.ClientConnection,
+                            WebPubSubRequestType.RestApi,
+                            WebPubSubRequestType.Trace
+                        }
+                    }
+            },
+        PublicNetworkAccess = "Enabled",
+        ResourceLogCategories =
+        {
+            new ResourceLogCategory { Enabled = "true", Name = "ConnectivityLogs" },
+            new ResourceLogCategory { Enabled = "true", Name = "MessagingLogs" },
+        },
+        IsClientCertEnabled = false
+    };
+
+infra.Add(webpubsub);
+```
 
 ## Troubleshooting
 
@@ -58,7 +119,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.WebPubSub_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
