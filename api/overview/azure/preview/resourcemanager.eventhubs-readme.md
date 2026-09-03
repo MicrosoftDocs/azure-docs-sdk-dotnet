@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.EventHubs, azure-event-hubs
-ms.date: 12/04/2025
+ms.date: 09/03/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: azure-event-hubs
@@ -51,7 +51,7 @@ More documentation for the `Azure.Identity.DefaultAzureCredential` class can be 
 
 ## Key concepts
 
-Key concepts of the Azure .NET SDK can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.EventHubs_1.3.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/README.md#key-concepts)
+Key concepts of the Azure .NET SDK can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/README.md#key-concepts)
 
 ## Examples
 
@@ -110,7 +110,7 @@ EventHubsNamespaceResource eventHubNamespace = await namespaceCollection.GetAsyn
 await eventHubNamespace.AddTagAsync("key","value");
 ```
 
-For more detailed examples, take a look at [samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EventHubs_1.3.0-beta.1/sdk/eventhub/Azure.ResourceManager.EventHubs/samples) we have available.
+For more detailed examples, take a look at [samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.ResourceManager.EventHubs/samples) we have available.
 
 ## Troubleshooting
 
@@ -121,7 +121,7 @@ For more detailed examples, take a look at [samples](https://github.com/Azure/az
 
 ### More sample code
 
-- [Managing EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.EventHubs_1.3.0-beta.1/sdk/eventhub/Azure.ResourceManager.EventHubs/samples/Sample1_ManagingEventHubs.md)
+- [Managing EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventhub/Azure.ResourceManager.EventHubs/samples/Sample1_ManagingEventHubs.md)
 
 ### More Documentation
 
@@ -148,7 +148,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.EventHubs_1.3.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
