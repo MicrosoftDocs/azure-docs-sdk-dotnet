@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: sqlmanagement
 ---
-# Azure Provisioning Sql client library for .NET - version 1.2.0-alpha.20260903.1 
+# Azure Provisioning Sql client library for .NET - version 1.2.0-alpha.20260904.1 
 
 
 Azure.Provisioning.Sql simplifies declarative resource provisioning in .NET.
