@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Microsoft.Azure.PostgreSQL.Auth, postgresql
-ms.date: 04/29/2026
+ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: postgresql
@@ -10,7 +10,7 @@ ms.service: postgresql
 
 The `Microsoft.Azure.PostgreSQL.Auth` library provides Entra ID (formerly Azure Active Directory) authentication support for the [Npgsql](https://www.npgsql.org/) PostgreSQL driver. It enables passwordless authentication to Azure Database for PostgreSQL using Azure Identity credentials.
 
-[Source code](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.PostgreSQL.Auth_1.0.0-beta.1/sdk/postgresql/Microsoft.Azure.PostgreSQL.Auth/src) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.PostgreSQL.Auth) | [Product documentation](https://learn.microsoft.com/azure/postgresql/)
+[Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/postgresql/Microsoft.Azure.PostgreSQL.Auth/src) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.PostgreSQL.Auth) | [Product documentation](https://learn.microsoft.com/azure/postgresql/)
 
 ## Getting started
 
@@ -19,7 +19,7 @@ The `Microsoft.Azure.PostgreSQL.Auth` library provides Entra ID (formerly Azure 
 Install the client library for .NET with [NuGet](https://www.nuget.org/):
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.PostgreSQL.Auth --prerelease
+dotnet add package Microsoft.Azure.PostgreSQL.Auth
 ```
 
 ### Prerequisites
@@ -59,9 +59,9 @@ The `UseEntraAuthentication` and `UseEntraAuthenticationAsync` extension methods
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.PostgreSQL.Auth_1.0.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.PostgreSQL.Auth_1.0.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.PostgreSQL.Auth_1.0.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
