@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning ResourceHealth client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.ResourceHealth, resourcehealth
-ms.date: 08/28/2026
+ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: resourcehealth
 ---
-# Azure Provisioning ResourceHealth client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning ResourceHealth client library for .NET - version 1.0.0-alpha.20260904.1 
 
 
 Azure.Provisioning.ResourceHealth simplifies declarative resource provisioning for Azure Resource Health in .NET.
@@ -64,7 +64,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct][coc]. For m
 
 <!-- LINKS -->
 
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.ResourceHealth_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
