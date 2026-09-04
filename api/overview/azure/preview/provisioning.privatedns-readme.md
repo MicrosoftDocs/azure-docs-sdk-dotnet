@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning PrivateDns client library for .NET
-keywords: Azure, dotnet, SDK, API, Azure.Provisioning.PrivateDns, provisioning
-ms.date: 01/09/2026
+keywords: Azure, dotnet, SDK, API, Azure.Provisioning.PrivateDns, privatedns
+ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
-ms.service: provisioning
+ms.service: privatedns
 ---
-# Azure Provisioning PrivateDns client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning PrivateDns client library for .NET - version 1.1.0-alpha.20260904.1 
 
 
 Azure.Provisioning.PrivateDns simplifies declarative resource provisioning in .NET.
@@ -18,7 +18,7 @@ Azure.Provisioning.PrivateDns simplifies declarative resource provisioning in .N
 Install the client library for .NET with [NuGet](https://www.nuget.org/ ):
 
 ```dotnetcli
-dotnet add package Azure.Provisioning.PrivateDns --prerelease
+dotnet add package Azure.Provisioning.PrivateDns
 ```
 
 ### Prerequisites
@@ -40,39 +40,39 @@ This is a starter template that shows how to create a private Azure DNS zone and
 ```C# Snippet:PrivateDnsZoneBasic
 Infrastructure infra = new();
 ProvisioningParameter privateDnsZoneName = new(nameof(privateDnsZoneName), typeof(string))
-    {
-        Description = "Private DNS zone name"
-    };
+{
+    Description = "Private DNS zone name"
+};
 infra.Add(privateDnsZoneName);
 ProvisioningParameter vmRegistration = new(nameof(vmRegistration), typeof(bool))
-    {
-        Description = "Enable automatic VM DNS registration in the zone",
-        Value = true
-    };
+{
+    Description = "Enable automatic VM DNS registration in the zone",
+    Value = true
+};
 infra.Add(vmRegistration);
 ProvisioningParameter vnetName = new(nameof(vnetName), typeof(string))
-    {
-        Description = "VNet name",
-        Value = "VNet"
-    };
+{
+    Description = "VNet name",
+    Value = "VNet"
+};
 infra.Add(vnetName);
 ProvisioningParameter vnetAddressPrefix = new(nameof(vnetAddressPrefix), typeof(string))
-    {
-        Description = "VNet Address prefix",
-        Value = "10.0.0.0/16"
-    };
+{
+    Description = "VNet Address prefix",
+    Value = "10.0.0.0/16"
+};
 infra.Add(vnetAddressPrefix);
 ProvisioningParameter subnetPrefix = new(nameof(subnetPrefix), typeof(string))
-    {
-        Description = "Subnet Prefix",
-        Value = "10.0.0.0/24"
-    };
+{
+    Description = "Subnet Prefix",
+    Value = "10.0.0.0/24"
+};
 infra.Add(subnetPrefix);
 ProvisioningParameter subnetName = new(nameof(subnetName), typeof(string))
-    {
-        Description = "Subnet Name",
-        Value = "App"
-    };
+{
+    Description = "Subnet Name",
+    Value = "App"
+};
 infra.Add(subnetName);
 VirtualNetwork vnet =
     new(nameof(vnet), VirtualNetwork.ResourceVersions.V2021_03_01)
@@ -139,7 +139,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.PrivateDns_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
