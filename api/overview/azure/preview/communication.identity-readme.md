@@ -1,12 +1,12 @@
 ---
 title: Azure Communication Identity client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Communication.Identity, communication
-ms.date: 06/10/2025
+ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: communication
 ---
-# Azure Communication Identity client library for .NET - version 1.4.0-beta.1 
+# Azure Communication Identity client library for .NET - version 1.4.0-alpha.20260904.1 
 
 
 Azure Communication Identity is managing tokens for Azure Communication Services.
@@ -52,6 +52,8 @@ Or alternatively using the endpoint and access key acquired from an Azure Commun
 ```C# Snippet:CreateCommunicationIdentityFromAccessKey
 var endpoint = new Uri("https://my-resource.communication.azure.com");
 var accessKey = "<access_key>";
+endpoint = TestEnvironment.LiveTestDynamicEndpoint;
+accessKey = TestEnvironment.LiveTestDynamicAccessKey;
 var client = new CommunicationIdentityClient(endpoint, new AzureKeyCredential(accessKey));
 ```
 
@@ -59,6 +61,7 @@ Clients also have the option to authenticate using a valid Active Directory toke
 
 ```C# Snippet:CreateCommunicationIdentityFromToken
 var endpoint = new Uri("https://my-resource.communication.azure.com");
+endpoint = TestEnvironment.LiveTestDynamicEndpoint;
 TokenCredential tokenCredential = TestEnvironment.Credential;
 var client = new CommunicationIdentityClient(endpoint, tokenCredential);
 ```
@@ -72,11 +75,11 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Identity_1.4.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Identity_1.4.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Identity_1.4.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Identity_1.4.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Identity_1.4.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
@@ -89,6 +92,31 @@ We guarantee that all client instance methods are thread-safe and independent of
 Response<CommunicationUserIdentifier> userResponse = await client.CreateUserAsync();
 CommunicationUserIdentifier user = userResponse.Value;
 Console.WriteLine($"User id: {user.Id}");
+```
+
+## Create a user with an associated customId
+
+The `CommunicationIdentityClient` allows you to create users with an associated customId. This customId can be used to map your application's user identities with Azure Communication Services identities.
+
+```C# Snippet:CreateCommunicationUserWithCustomIdAsync
+Response<CommunicationUserIdentifier> userResponse = await client.CreateUserAsync(customId: "alice@contoso.com");
+CommunicationUserIdentifier user = userResponse.Value;
+Console.WriteLine($"User id: {user.Id}");
+```
+
+If you call the CreateUser method again with the same customId, it will return the same user.Id. Therefore, you do not need to store this mapping yourself.
+
+## Get user detail
+
+The CommunicationIdentityClient can be used to retrieve details about a user. This includes the user's ID, customId ID, and the last time a token was issued for the user.
+
+```C# Snippet:GetUserDetailAsync
+Response<CommunicationUserIdentifier> userResponse = await client.CreateUserAsync(customId: "alice@contoso.com");
+CommunicationUserIdentifier user = userResponse.Value;
+var userDetails = await client.GetUserDetailAsync(user);
+Console.WriteLine($"User id: {userDetails.Value.User.Id}");
+Console.WriteLine($"Custom id: {userDetails.Value.CustomId}");
+Console.WriteLine($"Last token issued at: {userDetails.Value.LastTokenIssuedAt}");
 ```
 
 ### Getting a token for an existing user
@@ -174,6 +202,7 @@ All User token service operations will throw a RequestFailedException on failure
 // Get a connection string to our Azure Communication resource.
 var connectionString = "<connection_string>";
 var client = new CommunicationIdentityClient(connectionString);
+client = CreateClient();
 
 try
 {
@@ -200,8 +229,8 @@ This project has adopted the [Microsoft Open Source Code of Conduct][coc]. For m
 
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
 [azure_portal]: https://portal.azure.com
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Identity_1.4.0-beta.1/sdk/communication/Azure.Communication.Identity/src
-[source_samples]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Identity_1.4.0-beta.1/sdk/communication/Azure.Communication.Identity/samples
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication/Azure.Communication.Identity/src
+[source_samples]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.Identity/samples
 [cla]: https://cla.microsoft.com
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/

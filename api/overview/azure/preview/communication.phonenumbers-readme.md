@@ -1,12 +1,12 @@
 ---
 title: Azure Communication Phone Numbers client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Communication.PhoneNumbers, communication
-ms.date: 07/31/2025
+ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: communication
 ---
-# Azure Communication Phone Numbers client library for .NET - version 1.5.0-beta.2 
+# Azure Communication Phone Numbers client library for .NET - version 1.6.0-alpha.20260904.1 
 
 
 Azure Communication Phone Numbers is managing phone numbers for Azure Communication Services.
@@ -102,7 +102,7 @@ Reservations represent a collection of phone numbers that are locked by a specif
 
 ### SIP routing client
 
-Direct routing feature allows connecting customer-provided telephony infrastructure to Azure Communication Resources. In order to setup routing configuration properly, customer needs to supply the SIP domains configuration, the SIP trunk configuration and SIP routing rules for calls. SIP routing client provides the necessary interface for setting this configuration.
+Direct routing feature allows connecting customer-provided telephony infrastructure to Azure Communication Resources. In order to setup routing configuration properly, customer needs to supply the SIP trunk configuration and SIP routing rules for calls. SIP routing client provides the necessary interface for setting this configuration.
 
 When a call is made, the system tries to match the destination number with regex number patterns of defined routes. The first route to match the number will be selected. The order of regex matching is the same as the order of routes in configuration, therefore the order of routes matters.
 Once a route is matched, the call is routed to the first trunk in the route's trunks list. If the trunk is not available, next trunk in the list is selected.
@@ -112,11 +112,11 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.5.0-beta.2/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.5.0-beta.2/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.5.0-beta.2/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.5.0-beta.2/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.5.0-beta.2/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
@@ -230,58 +230,26 @@ await purchaseReservationOperation.WaitForCompletionResponseAsync();
 
 ### SipRoutingClient
 
-#### Retrieve SIP domains, trunks and routes
+#### Retrieve SIP trunks and routes
 
-Get the list of currently configured domains, trunks or routes.
+Get the list of currently configured trunks or routes.
 
 ```C# Snippet:RetrieveListAsync
-var domainsResponse = await client.GetDomainsAsync();
 var trunksResponse = await client.GetTrunksAsync();
 var routesResponse = await client.GetRoutesAsync();
 ```
 
-#### Replace SIP domains, trunks and routes
+#### Replace SIP trunks and routes
 
-Replace the list of currently configured domains, trunks or routes.
+Replace the list of currently configured trunks or routes.
 
 ```C# Snippet:ReplaceAsync
 // The service will not allow trunks that are used in any of the routes to be deleted, therefore first set the routes as empty list, and then update the routes.
-var newDomains = "<new_domains_list>";
 var newTrunks = "<new_trunks_list>";
 var newRoutes = "<new_routes_list>";
 await client.SetRoutesAsync(new List<SipTrunkRoute>());
-await client.SetDomainsAsync(newDomains);
 await client.SetTrunksAsync(newTrunks);
 await client.SetRoutesAsync(newRoutes);
-```
-
-#### Manage single domain
-
-SIP domains can be managed separately by using the `SipRoutingClient` to retrieve, set or delete a single domain.
-
-#### Retrieve single domain
-
-```C# Snippet:RetrieveDomainAsync
-// Get domain object, based on it's FQDN.
-var domainFqdnToRetrieve = "<domain_fqdn>";
-var domainResponse = await client.GetDomainAsync(domainFqdnToRetrieve);
-```
-
-#### Set single domain
-
-```C# Snippet:SetDomainAsync
-// Set function will either modify existing item or add new item to the collection.
-// The domain is matched based on it's FQDN.
-var domainToSet = "<domain_to_set>";
-await client.SetDomainAsync(domainToSet);
-```
-
-#### Delete single domain
-
-```C# Snippet:DeleteDomainAsync
-// Deletes domain with supplied FQDN.
-var domainFqdnToDelete = "<domain_fqdn>";
-await client.DeleteDomainAsync(domainFqdnToDelete);
 ```
 
 #### Manage single trunk
@@ -295,7 +263,6 @@ SIP trunks can be managed separately by using the `SipRoutingClient` to retrieve
 var fqdnToRetrieve = "<fqdn>";
 var trunkResponse = await client.GetTrunkAsync(fqdnToRetrieve);
 ```
-
 #### Set single trunk
 
 ```C# Snippet:SetTrunkAsync
@@ -332,8 +299,8 @@ This project has adopted the [Microsoft Open Source Code of Conduct][coc]. For m
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
 [azure_portal]: https://portal.azure.com
 [azure_identity]: https://learn.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.5.0-beta.2/sdk/communication/Azure.Communication.PhoneNumbers/src
-[source_samples]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.5.0-beta.2/sdk/communication/Azure.Communication.PhoneNumbers/samples
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication/Azure.Communication.PhoneNumbers/src
+[source_samples]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.PhoneNumbers/samples
 [cla]: https://cla.microsoft.com
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/

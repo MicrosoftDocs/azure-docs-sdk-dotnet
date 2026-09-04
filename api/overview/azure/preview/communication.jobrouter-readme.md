@@ -1,12 +1,12 @@
 ---
 title: Azure Communication JobRouter client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Communication.JobRouter, communication
-ms.date: 04/12/2024
+ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: communication
 ---
-# Azure Communication JobRouter client library for .NET - version 1.1.0-beta.1 
+# Azure Communication JobRouter client library for .NET - version 1.1.0-alpha.20260904.1 
 
 
 This package contains a C# SDK for Azure Communication Services for JobRouter.
@@ -166,10 +166,10 @@ foreach (EventGridEvent egEvent in egEvents)
     switch (egEvent.EventType)
     {
         case "Microsoft.Communication.WorkerOfferIssued":
-            AcsRouterWorkerOfferIssuedEventData deserializedEventData =
+            AcsRouterWorkerOfferIssuedEventData? deserializedEventData =
                 egEvent.Data.ToObjectFromJson<AcsRouterWorkerOfferIssuedEventData>();
-            Console.Write(deserializedEventData.OfferId); // Offer Id
-            offerId = deserializedEventData.OfferId;
+            Console.Write(deserializedEventData?.OfferId); // Offer Id
+            offerId = deserializedEventData?.OfferId ?? string.Empty;
             break;
         // Handle any other custom event type
         default:
@@ -212,9 +212,9 @@ Console.WriteLine($"Job assignment has been successful: {updatedJob.Value.Status
 Once the worker is done with the job, the worker has to mark the job as `completed`.
 ```C# Snippet:Azure_Communication_JobRouter_Tests_Samples_CompleteJob_Async
 Response completeJob = await routerClient.CompleteJobAsync(new CompleteJobOptions(job.Value.Id, acceptJobOfferResult.Value.AssignmentId)
-    {
-        Note = $"Job has been completed by {worker.Value.Id} at {DateTimeOffset.UtcNow}"
-    });
+{
+    Note = $"Job has been completed by {worker.Value.Id} at {DateTimeOffset.UtcNow}"
+});
 
 Console.WriteLine($"Job has been successfully completed: {completeJob.Status == 200}");
 ```
@@ -223,9 +223,9 @@ Console.WriteLine($"Job has been successfully completed: {completeJob.Status == 
 After a job has been completed, the worker can perform wrap up actions to the job before closing the job and finally releasing its capacity to accept more incoming jobs
 ```C# Snippet:Azure_Communication_JobRouter_Tests_Samples_CloseJob_Async
 Response closeJob = await routerClient.CloseJobAsync(new CloseJobOptions(job.Value.Id, acceptJobOfferResult.Value.AssignmentId)
-    {
-        Note = $"Job has been closed by {worker.Value.Id} at {DateTimeOffset.UtcNow}"
-    });
+{
+    Note = $"Job has been closed by {worker.Value.Id} at {DateTimeOffset.UtcNow}"
+});
 Console.WriteLine($"Job has been successfully closed: {closeJob.Status == 200}");
 
 updatedJob = await routerClient.GetJobAsync(job.Value.Id);
@@ -235,10 +235,10 @@ Console.WriteLine($"Updated job status: {updatedJob.Value.Status == RouterJobSta
 ```C# Snippet:Azure_Communication_JobRouter_Tests_Samples_CloseJobInFuture_Async
 // Optionally, a job can also be set up to be marked as closed in the future.
 var closeJobInFuture = await routerClient.CloseJobAsync(new CloseJobOptions(job.Value.Id, acceptJobOfferResult.Value.AssignmentId)
-    {
-        CloseAt = DateTimeOffset.UtcNow.AddSeconds(2), // this will mark the job as closed after 2 seconds
-        Note = $"Job has been marked to close in the future by {worker.Value.Id} at {DateTimeOffset.UtcNow}"
-    });
+{
+    CloseAt = DateTimeOffset.UtcNow.AddSeconds(2), // this will mark the job as closed after 2 seconds
+    Note = $"Job has been marked to close in the future by {worker.Value.Id} at {DateTimeOffset.UtcNow}"
+});
 Console.WriteLine($"Job has been marked to close: {closeJob.Status == 202}"); // You'll received a 202 in that case
 
 await Task.Delay(TimeSpan.FromSeconds(2));
@@ -267,19 +267,19 @@ This project has adopted the [Microsoft Open Source Code of Conduct][coc]. For m
 [coc_contact]: mailto:opencode@microsoft.com
 [nuget]: https://www.nuget.org/
 [netstandars2mappings]:https://github.com/dotnet/standard/blob/master/docs/versions.md
-[useraccesstokens]:/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-csharp
-[communication_resource_docs]: /azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp
-[communication_resource_create_portal]:  /azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp
-[communication_resource_create_power_shell]: /powershell/module/az.communication/new-azcommunicationservice
-[communication_resource_create_net]: /azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-net
-[nextsteps]:/azure/communication-services/concepts/router/concepts
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.JobRouter_1.1.0-beta.1/sdk/communication/Azure.Communication.JobRouter/src
-[product_docs]: /azure/communication-services/overview
-[classification_concepts]: /azure/communication-services/concepts/router/classification-concepts
-[subscribe_events]: /azure/communication-services/how-tos/router-sdk/subscribe-events
-[offer_issued_event_schema]: /azure/communication-services/how-tos/router-sdk/subscribe-events#microsoftcommunicationrouterworkerofferissued
-[deserialize_event_grid_event_data]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.JobRouter_1.1.0-beta.1/sdk/eventgrid/Azure.Messaging.EventGrid#receiving-and-deserializing-events
-[event_grid_event_handlers]: /azure/event-grid/event-handlers
-[webhook_event_grid_event_delivery]: /azure/event-grid/webhook-event-delivery
+[useraccesstokens]:https://learn.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-csharp
+[communication_resource_docs]: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp
+[communication_resource_create_portal]:  https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp
+[communication_resource_create_power_shell]: https://learn.microsoft.com/powershell/module/az.communication/new-azcommunicationservice
+[communication_resource_create_net]: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-net
+[nextsteps]:https://learn.microsoft.com/azure/communication-services/concepts/router/concepts
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication/Azure.Communication.JobRouter/src
+[product_docs]: https://learn.microsoft.com/azure/communication-services/overview
+[classification_concepts]: https://learn.microsoft.com/azure/communication-services/concepts/router/classification-concepts
+[subscribe_events]: https://learn.microsoft.com/azure/communication-services/how-tos/router-sdk/subscribe-events
+[offer_issued_event_schema]: https://learn.microsoft.com/azure/communication-services/how-tos/router-sdk/subscribe-events#microsoftcommunicationrouterworkerofferissued
+[deserialize_event_grid_event_data]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid/Azure.Messaging.EventGrid#receiving-and-deserializing-events
+[event_grid_event_handlers]: https://learn.microsoft.com/azure/event-grid/event-handlers
+[webhook_event_grid_event_delivery]: https://learn.microsoft.com/azure/event-grid/webhook-event-delivery
 [nuget_link]: https://www.nuget.org
 
