@@ -1,14 +1,14 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Microsoft.Extensions.Azure, extensions
-ms.date: 05/11/2021
+ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: extensions
 ---
-# Azure client library integration for ASP.NET Core (Preview)
+# Azure client library integration for ASP.NET Core
 
-Microsoft.Extensions.Azure.Core provides shared primitives to integrate Azure clients with ASP.NET Core [dependency injection][dependency_injection] and [configuration][configuration] systems.
+Microsoft.Extensions.Azure provides shared primitives to integrate Azure clients with ASP.NET Core [dependency injection][dependency_injection] and [configuration][configuration] systems.
 
 [Source code][source_root] | [Package (NuGet)][package]
 
@@ -18,7 +18,7 @@ Microsoft.Extensions.Azure.Core provides shared primitives to integrate Azure cl
 
 Install the ASP.NET Core integration library using [NuGet][nuget]:
 
-```
+```dotnetcli
 dotnet add package Microsoft.Extensions.Azure
 ```
 
@@ -27,42 +27,39 @@ dotnet add package Microsoft.Extensions.Azure
 Make a call to `AddAzureClients` in your app's `ConfigureServices` method. You can use the provided builder to register client instances with your dependency injection container.
 
 ```C# Snippet:ConfigureServices
-public void ConfigureServices(IServiceCollection services)
-{
-    // Registering policy to use in ConfigureDefaults later
-    services.AddSingleton<DependencyInjectionEnabledPolicy>();
+// Registering policy to use in ConfigureDefaults later
+builder.Services.AddSingleton<DependencyInjectionEnabledPolicy>();
 
-    services.AddAzureClients(builder => {
-        // Register blob service client and initialize it using the KeyVault section of configuration
-        builder.AddSecretClient(Configuration.GetSection("KeyVault"))
-            // Set the name for this client registration
-            .WithName("NamedBlobClient")
-            // Set the credential for this client registration
-            .WithCredential(new ClientSecretCredential("<tenant_id>", "<client_id>", "<client_secret>"))
-            // Configure the client options
-            .ConfigureOptions(options => options.Retry.MaxRetries = 10);
+builder.Services.AddAzureClients(azureBuilder => {
+    // Register blob service client and initialize it using the KeyVault section of configuration
+    azureBuilder.AddSecretClient(builder.Configuration.GetSection("KeyVault"))
+        // Set the name for this client registration
+        .WithName("NamedBlobClient")
+        // Set the credential for this client registration
+        .WithCredential(new ClientSecretCredential("<tenant_id>", "<client_id>", "<client_secret>"))
+        // Configure the client options
+        .ConfigureOptions(options => options.Retry.MaxRetries = 10);
 
-        // Adds a secret client using the provided endpoint and default credential set later
-        builder.AddSecretClient(new Uri("http://my.keyvault.com"));
+    // Adds a secret client using the provided endpoint and default credential set later
+    azureBuilder.AddSecretClient(new Uri("http://my.keyvault.com"));
 
-        // Configures environment credential to be used by default for all clients that require TokenCredential
-        // and doesn't override it on per registration level
-        builder.UseCredential(new EnvironmentCredential());
+    // Configures environment credential to be used by default for all clients that require TokenCredential
+    // and doesn't override it on per registration level
+    azureBuilder.UseCredential(new EnvironmentCredential());
 
-        // This would use configuration for auth and client settings
-        builder.ConfigureDefaults(Configuration.GetSection("Default"));
+    // This would use configuration for auth and client settings
+    azureBuilder.ConfigureDefaults(builder.Configuration.GetSection("Default"));
 
-        // Configure global retry mode
-        builder.ConfigureDefaults(options => options.Retry.Mode = RetryMode.Exponential);
+    // Configure global retry mode
+    azureBuilder.ConfigureDefaults(options => options.Retry.Mode = RetryMode.Exponential);
 
-        // Advanced configure global defaults
-        builder.ConfigureDefaults((options, provider) =>  options.AddPolicy(provider.GetService<DependencyInjectionEnabledPolicy>(), HttpPipelinePosition.PerCall));
+    // Advanced configure global defaults
+    azureBuilder.ConfigureDefaults((options, provider) => options.AddPolicy(provider.GetService<DependencyInjectionEnabledPolicy>(), HttpPipelinePosition.PerCall));
 
-        // Register blob service client and initialize it using the Storage section of configuration
-        builder.AddBlobServiceClient(Configuration.GetSection("Storage"))
-                .WithVersion(BlobClientOptions.ServiceVersion.V2019_02_02);
-    });
-}
+    // Register blob service client and initialize it using the Storage section of configuration
+    azureBuilder.AddBlobServiceClient(builder.Configuration.GetSection("Storage"))
+            .WithVersion(BlobClientOptions.ServiceVersion.V2019_02_02);
+});
 ```
 
 ### Inject clients
@@ -70,7 +67,8 @@ public void ConfigureServices(IServiceCollection services)
 To use the client request the client type from any place that supports Dependency Injection (constructors, Configure calls, `@inject` razor definitions etc.)
 
 ```C# Snippet:Inject
-public void Configure(IApplicationBuilder app, SecretClient secretClient, IAzureClientFactory<BlobServiceClient> blobClientFactory)
+var secretClient = app.Services.GetRequiredService<SecretClient>();
+var blobClientFactory = app.Services.GetRequiredService<IAzureClientFactory<BlobServiceClient>>();
 ```
 
 ### Create named instances
@@ -133,7 +131,7 @@ public void ConfigureServices(IServiceCollection services)
     services.AddAzureClients(builder =>
     {
         // Register a client using MyApplicationOptions to get constructor parameters
-        builder.AddClient<SecretClient, SecretClientOptions>((provider, credential, options) =>
+        builder.AddClient<SecretClient, SecretClientOptions>((options, credential, provider) =>
         {
             var appOptions = provider.GetService<IOptions<MyApplicationOptions>>();
             return new SecretClient(appOptions.Value.KeyVaultEndpoint, credential, options);
@@ -151,11 +149,11 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 
 
 <!-- LINKS -->
-[source_root]: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.1.0-beta.3/sdk/extensions/Microsoft.Extensions.Azure/src
+[source_root]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/extensions/Microsoft.Extensions.Azure/src
 [nuget]: https://www.nuget.org/
 [package]: https://www.nuget.org/packages/Microsoft.Extensions.Azure/
-[configuration]: https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.0
-[dependency_injection]: https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.0
+[configuration]: https://learn.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.0
+[dependency_injection]: https://learn.microsoft.com/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.0
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
