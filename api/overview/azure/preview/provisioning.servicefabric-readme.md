@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning ServiceFabric client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.ServiceFabric, servicefabric
-ms.date: 07/13/2026
+ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: servicefabric
 ---
-# Azure Provisioning ServiceFabric client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning ServiceFabric client library for .NET - version 1.0.0-alpha.20260904.1 
 
 
 Azure.Provisioning.ServiceFabric simplifies declarative resource provisioning in .NET.
@@ -81,7 +81,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.ServiceFabric_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
