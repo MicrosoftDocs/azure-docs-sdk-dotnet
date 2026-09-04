@@ -1,12 +1,13 @@
 ---
-title: 
-keywords: Azure, dotnet, SDK, API, Azure.Provisioning.ContainerRegistry, provisioning
-ms.date: 10/05/2024
+title: Azure Provisioning ContainerRegistry client library for .NET
+keywords: Azure, dotnet, SDK, API, Azure.Provisioning.ContainerRegistry, containerregistry
+ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
-ms.service: provisioning
+ms.service: containerregistry
 ---
-# Azure.Provisioning.ContainerRegistry client library for .NET
+# Azure Provisioning ContainerRegistry client library for .NET - version 1.2.0-alpha.20260904.1 
+
 
 Azure.Provisioning.ContainerRegistry simplifies declarative resource provisioning in .NET.
 
@@ -17,7 +18,7 @@ Azure.Provisioning.ContainerRegistry simplifies declarative resource provisionin
 Install the client library for .NET with [NuGet](https://www.nuget.org/ ):
 
 ```dotnetcli
-dotnet add package Azure.Provisioning.ContainerRegistry --prerelease
+dotnet add package Azure.Provisioning.ContainerRegistry
 ```
 
 ### Prerequisites
@@ -29,6 +30,29 @@ dotnet add package Azure.Provisioning.ContainerRegistry --prerelease
 ## Key concepts
 
 This library allows you to specify your infrastructure in a declarative style using dotnet.  You can then use azd to deploy your infrastructure to Azure directly without needing to write or maintain bicep or arm templates.
+
+## Examples
+
+### Create A Container Registry
+
+This example demonstrates how to create a Container Registry with standard SKU and custom tags, based on the [Azure quickstart template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.containerregistry/container-registry/main.bicep).
+
+```C# Snippet:ContainerRegistryBasic
+Infrastructure infra = new();
+
+ContainerRegistryService registry =
+    new(nameof(registry), ContainerRegistryService.ResourceVersions.V2023_07_01)
+    {
+        Name = BicepFunction.Take(BicepFunction.Interpolate($"registry{BicepFunction.GetUniqueString(BicepFunction.GetResourceGroup().Id)}"), 50),
+        Sku = new ContainerRegistrySku { Name = ContainerRegistrySkuName.Standard },
+        IsAdminUserEnabled = false,
+        Tags = { { "displayName", "ContainerRegistry" } }
+    };
+registry.Tags.Add("container.registry", registry.Name);
+infra.Add(registry);
+
+infra.Add(new ProvisioningOutput("registryLoginServer", typeof(string)) { Value = registry.LoginServer });
+```
 
 ## Troubleshooting
 
@@ -58,7 +82,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.ContainerRegistry_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
