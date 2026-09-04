@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning DomainRegistration client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.DomainRegistration, domainregistration
-ms.date: 07/30/2026
+ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: domainregistration
 ---
-# Azure Provisioning DomainRegistration client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning DomainRegistration client library for .NET - version 1.0.0-alpha.20260904.1 
 
 
 Azure.Provisioning.DomainRegistration simplifies declarative resource provisioning for Azure App Service domains in .NET.
@@ -106,7 +106,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 
 <!-- LINKS -->
 
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.DomainRegistration_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
