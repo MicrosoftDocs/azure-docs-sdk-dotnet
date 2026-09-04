@@ -1,14 +1,14 @@
 ---
 title: 
-keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.KubernetesConfiguration.PrivateLinkScopes, kubernetesconfiguration
+keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.KubernetesConfiguration.Extensions, kubernetesconfiguration
 ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: kubernetesconfiguration
 ---
-# Microsoft Azure Kubernetes Configuration PrivateLinkScopes management client library for .NET
+# Microsoft Azure Kubernetes Configuration Extensions management client library for .NET
 
-This library supports managing Microsoft Azure Kubernetes Configuration PrivateLinkScopes resources.
+This library supports managing Microsoft Azure Kubernetes Configuration Extensions resources.
 
 This library follows the [new Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html), and provides many core capabilities:
 
@@ -22,10 +22,10 @@ This library follows the [new Azure SDK guidelines](https://azure.github.io/azur
 
 ### Install the package
 
-Install the Microsoft Azure Kubernetes Configuration PrivateLinkScopes management library for .NET with [NuGet](https://www.nuget.org/):
+Install the Microsoft Azure Kubernetes Configuration Extensions management library for .NET with [NuGet](https://www.nuget.org/):
 
 ```dotnetcli
-dotnet add package Azure.ResourceManager.KubernetesConfiguration.PrivateLinkScopes --prerelease
+dotnet add package Azure.ResourceManager.KubernetesConfiguration.Extensions
 ```
 
 ### Prerequisites
