@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning DurableTask client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.DurableTask, durabletask
-ms.date: 07/15/2026
+ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: durabletask
 ---
-# Azure Provisioning DurableTask client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning DurableTask client library for .NET - version 1.0.0-alpha.20260904.1 
 
 
 Azure.Provisioning.DurableTask simplifies declarative resource provisioning for Azure Durable Task Scheduler in .NET.
@@ -86,7 +86,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.DurableTask_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
