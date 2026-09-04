@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning Enclave client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.Enclave, enclave
-ms.date: 08/25/2026
+ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: enclave
 ---
-# Azure Provisioning Enclave client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning Enclave client library for .NET - version 1.0.0-alpha.20260904.1 
 
 
 Azure.Provisioning.Enclave simplifies declarative resource provisioning for Azure Virtual Enclaves in .NET.
@@ -93,6 +93,6 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 [opencode@microsoft.com](mailto:opencode@microsoft.com) with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.Enclave_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
