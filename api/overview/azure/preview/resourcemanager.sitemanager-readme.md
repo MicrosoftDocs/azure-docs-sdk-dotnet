@@ -1,14 +1,14 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.SiteManager, sitemanager
-ms.date: 05/24/2025
+ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: sitemanager
 ---
 # Microsoft Azure Site Manager management client library for .NET
 
-The Site Manager simplifies audit & remediation of overall health & cost management of Azure resources associated at a particular address by providing tailored experiences by integrating with Azure Monitor, Update Management Center & Azure Device Updates, Microsoft Defender for Cloud and Azure cost management. Site would enable IT administrators to apply policies, perform update management, monitor health & governance uniformly on all resources. 
+The Site Manager simplifies audit & remediation of overall health & cost management of Azure resources associated at a particular address by providing tailored experiences by integrating with Azure Monitor, Update Management Center & Azure Device Updates, Microsoft Defender for Cloud and Azure cost management. Site would enable IT administrators to apply policies, perform update management, monitor health & governance uniformly on all resources.
 
 This library follows the [new Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html), and provides many core capabilities:
 
@@ -18,14 +18,14 @@ This library follows the [new Azure SDK guidelines](https://azure.github.io/azur
     - Better error-handling.
     - Support uniform telemetry across all languages.
 
-## Getting started 
+## Getting started
 
 ### Install the package
 
 Install the Microsoft Azure Site Manager management library for .NET with [NuGet](https://www.nuget.org/):
 
 ```dotnetcli
-dotnet add package Azure.ResourceManager.SiteManager --prerelease
+dotnet add package Azure.ResourceManager.SiteManager
 ```
 
 ### Prerequisites
@@ -34,7 +34,7 @@ dotnet add package Azure.ResourceManager.SiteManager --prerelease
 
 ### Authenticate the Client
 
-To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.SiteManager_1.0.0-beta.1/doc/dev/mgmt_quickstart.md).
+To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
 
 ## Key concepts
 
@@ -44,9 +44,9 @@ Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://azu
 
 Documentation is available to help you learn how to use this package:
 
-- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.SiteManager_1.0.0-beta.1/doc/dev/mgmt_quickstart.md).
+- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
 - [API References](/dotnet/api/?view=azure-dotnet).
-- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.SiteManager_1.0.0-beta.1/sdk/identity/Azure.Identity/README.md).
+- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
 
 ## Examples
 
@@ -83,6 +83,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.SiteManager_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
+
