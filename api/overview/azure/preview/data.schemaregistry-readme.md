@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: schemaregistry
 ---
-# Azure Schema Registry client library for .NET - version 1.5.0-alpha.20260903.1 
+# Azure Schema Registry client library for .NET - version 1.5.0-alpha.20260904.1 
 
 
 Azure Schema Registry is a schema repository service hosted by Azure Event Hubs, providing schema storage, versioning, and management. The registry is leveraged by serializers to reduce payload size while describing payload structure with schema identifiers rather than full schemas.
