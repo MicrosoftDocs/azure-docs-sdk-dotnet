@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning Compute client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.Compute, compute
-ms.date: 08/12/2026
+ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: compute
 ---
-# Azure Provisioning Compute client library for .NET - version 1.0.0-beta.2 
+# Azure Provisioning Compute client library for .NET - version 1.0.0-alpha.20260904.1 
 
 
 Azure.Provisioning.Compute simplifies declarative resource provisioning in .NET.
