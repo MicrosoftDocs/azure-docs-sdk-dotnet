@@ -1,12 +1,12 @@
 ---
 title: Azure Content Understanding client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.ContentUnderstanding, contentunderstanding
-ms.date: 08/11/2026
+ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: contentunderstanding
 ---
-# Azure Content Understanding client library for .NET - version 1.2.0-beta.3 
+# Azure Content Understanding client library for .NET - version 1.2.0-alpha.20260904.1 
 
 
 Azure AI Content Understanding is a multimodal AI service that extracts semantic content from documents, video, audio, and image files. It transforms unstructured content into structured, machine-readable data optimized for retrieval-augmented generation (RAG) and automated workflows.
@@ -406,11 +406,11 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 This project has adopted the [Microsoft Open Source Code of Conduct][code_of_conduct]. For more information see the [Code of Conduct FAQ][code_of_conduct_faq] or contact [opencode@microsoft.com][opencode_email] with any additional questions or comments.
 
 <!-- LINKS -->
-[source_code]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.ContentUnderstanding_1.2.0-beta.3/sdk/contentunderstanding/Azure.AI.ContentUnderstanding
+[source_code]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding
 [nuget_package]: https://www.nuget.org/packages/Azure.AI.ContentUnderstanding
 [api_reference]: https://learn.microsoft.com/dotnet/api/azure.ai.contentunderstanding
 [product_docs]: https://learn.microsoft.com/azure/ai-services/content-understanding/
-[changelog]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.ContentUnderstanding_1.2.0-beta.3/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/CHANGELOG.md
+[changelog]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/CHANGELOG.md
 [nuget]: https://www.nuget.org/
 [azure_subscription]: https://azure.microsoft.com/free/dotnet/
 [cu_quickstart]: https://learn.microsoft.com/azure/ai-services/content-understanding/quickstart/use-rest-api?tabs=portal%2Cdocument
@@ -420,22 +420,22 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 [model_retirement_schedule]: https://learn.microsoft.com/azure/foundry/openai/concepts/model-retirement-schedule
 [azure_portal]: https://portal.azure.com/
 [deploy_models_docs]: https://learn.microsoft.com/azure/ai-studio/how-to/deploy-models-openai
-[azure_identity_readme]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.ContentUnderstanding_1.2.0-beta.3/sdk/identity/Azure.Identity/README.md
+[azure_identity_readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md
 [thread_safety_guideline]: https://azure.github.io/azure-sdk/dotnet_introduction.html#dotnet-service-methods-thread-safety
-[client_options]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.ContentUnderstanding_1.2.0-beta.3/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions
-[accessing_response]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.ContentUnderstanding_1.2.0-beta.3/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset
-[long_running_operations]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.ContentUnderstanding_1.2.0-beta.3/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt
-[handling_failures]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.ContentUnderstanding_1.2.0-beta.3/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception
-[diagnostics]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.ContentUnderstanding_1.2.0-beta.3/sdk/core/Azure.Core/samples/Diagnostics.md
+[client_options]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions
+[accessing_response]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset
+[long_running_operations]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt
+[handling_failures]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception
+[diagnostics]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md
 [mocking]: https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking
 [client_lifetime]: https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/
-[samples_directory]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.ContentUnderstanding_1.2.0-beta.3/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples
-[sample00]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.ContentUnderstanding_1.2.0-beta.3/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample00_UpdateDefaults.md
-[sample01]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.ContentUnderstanding_1.2.0-beta.3/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample01_AnalyzeBinary.md
-[sample18-inline]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.ContentUnderstanding_1.2.0-beta.3/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample18_AnalyzeInline.md
-[sample19-inline]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.ContentUnderstanding_1.2.0-beta.3/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample19_AnalyzeBinaryInline.md
+[samples_directory]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples
+[sample00]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample00_UpdateDefaults.md
+[sample01]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample01_AnalyzeBinary.md
+[sample18-inline]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample18_AnalyzeInline.md
+[sample19-inline]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample19_AnalyzeBinaryInline.md
 [prebuilt-analyzers-docs]: https://learn.microsoft.com/azure/ai-services/content-understanding/concepts/prebuilt-analyzers
-[sample-advanced-to-llm-input]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.ContentUnderstanding_1.2.0-beta.3/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample_Advanced_ToLlmInput.md
+[sample-advanced-to-llm-input]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample_Advanced_ToLlmInput.md
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
