@@ -1,16 +1,14 @@
 ---
 title: 
-keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.AlertsManagement, alertsmanagement
+keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.AlertRuleRecommendations, alertsmanagement
 ms.date: 09/04/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: alertsmanagement
 ---
-# Microsoft Azure AlertsManagement management client library for .NET
+# Microsoft Azure AlertRuleRecommendations management client library for .NET
 
-The Microsoft Alerts Management solution helps you analyze all of the alerts in your Log Analytics repository. These alerts may have come from a variety of sources including those sources created by Log Analytics or imported from Nagios or Zabbix. The solution also imports alerts from any connected System Center Operations Manager management groups.
-
-This library supports managing Microsoft Azure Alerts Management resources.
+This library supports managing Microsoft Azure Alert Rule Recommendations resources.
 
 This library follows the [new Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html), and provides many core capabilities:
 
@@ -20,14 +18,14 @@ This library follows the [new Azure SDK guidelines](https://azure.github.io/azur
     - Better error-handling.
     - Support uniform telemetry across all languages.
 
-## Getting started 
+## Getting started
 
 ### Install the package
 
-Install the Microsoft Azure AlertsManagement management library for .NET with [NuGet](https://www.nuget.org/):
+Install the Microsoft Azure AlertRuleRecommendations management library for .NET with [NuGet](https://www.nuget.org/):
 
 ```dotnetcli
-dotnet add package Azure.ResourceManager.AlertsManagement
+dotnet add package Azure.ResourceManager.AlertRuleRecommendations --prerelease
 ```
 
 ### Prerequisites
@@ -85,6 +83,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
+
