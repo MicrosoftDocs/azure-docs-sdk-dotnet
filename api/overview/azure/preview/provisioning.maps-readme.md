@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning Maps client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.Maps, maps
-ms.date: 08/31/2026
+ms.date: 09/05/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: maps
 ---
-# Azure Provisioning Maps client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning Maps client library for .NET - version 1.0.0-alpha.20260904.1 
 
 
 Azure.Provisioning.Maps simplifies declarative resource provisioning for Azure Maps in .NET.
@@ -68,5 +68,5 @@ This project has adopted the [Microsoft Open Source Code of Conduct][coc]. For m
 
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.Maps_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 
