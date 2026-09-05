@@ -1,12 +1,12 @@
 ---
 title: Azure Signing Transparency client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Security.CodeTransparency, confidentialledger
-ms.date: 07/31/2026
+ms.date: 09/05/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: confidentialledger
 ---
-# Azure Signing Transparency client library for .NET - version 1.0.0-beta.12 
+# Azure Signing Transparency client library for .NET - version 1.0.0-alpha.20260904.1 
 
 
 <!-- cspell:ignore cose merkle scitt -->
@@ -38,7 +38,7 @@ dotnet add package Azure.Security.CodeTransparency --prerelease
 - A running, accessible Signing Transparency service
 - Ability to create `COSE_Sign1` envelopes (see [example script][CTS_claim_generator_script])
 - Your signer details (CA certificate) must be configured in the running service (see [configuration options][CTS_configuration_doc])
-- Obtain a valid bearer token if service authentication requires one (see [example](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.CodeTransparency_1.0.0-beta.12/sdk/confidentialledger/Azure.Security.CodeTransparency/samples/Sample3_UseYourCredentials.md))
+- Obtain a valid bearer token if service authentication requires one (see [example](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/confidentialledger/Azure.Security.CodeTransparency/samples/Sample3_UseYourCredentials.md))
 
 ### Thread safety
 
@@ -46,7 +46,7 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Authenticate the client
 
-Obtain a valid bearer token if the service requires authentication (see [example](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.CodeTransparency_1.0.0-beta.12/sdk/confidentialledger/Azure.Security.CodeTransparency/samples/Sample3_UseYourCredentials.md)).
+Obtain a valid bearer token if the service requires authentication (see [example](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/confidentialledger/Azure.Security.CodeTransparency/samples/Sample3_UseYourCredentials.md)).
 
 ## Examples
 
@@ -95,17 +95,17 @@ catch (Exception e)
 
 If verification completes without exception, you can trust the signature and the receipt. You can then safely inspect the files, especially the payload embedded in the COSE signature envelope.
 
-To learn more about other APIs, see the [samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.CodeTransparency_1.0.0-beta.12/sdk/confidentialledger/Azure.Security.CodeTransparency/samples).
+To learn more about other APIs, see the [samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/confidentialledger/Azure.Security.CodeTransparency/samples).
 
 ### Key concepts
 
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.CodeTransparency_1.0.0-beta.12/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.CodeTransparency_1.0.0-beta.12/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.CodeTransparency_1.0.0-beta.12/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.CodeTransparency_1.0.0-beta.12/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.CodeTransparency_1.0.0-beta.12/sdk/core/Azure.Core/samples/Diagnostics.md) |
-[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.CodeTransparency_1.0.0-beta.12/sdk/core/Azure.Core/README.md#mocking) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
 
