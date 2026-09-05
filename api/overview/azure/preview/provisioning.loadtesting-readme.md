@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning LoadTesting client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.LoadTesting, loadtestservice
-ms.date: 08/17/2026
+ms.date: 09/05/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: loadtestservice
 ---
-# Azure Provisioning LoadTesting client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning LoadTesting client library for .NET - version 1.0.0-alpha.20260904.1 
 
 
 Azure.Provisioning.LoadTesting simplifies declarative resource provisioning for Azure Load Testing in .NET.
@@ -68,7 +68,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct][coc]. For m
 
 <!-- LINKS -->
 
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.LoadTesting_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
