@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning KubernetesConfiguration Extensions client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.KubernetesConfiguration.Extensions, kubernetesconfiguration
-ms.date: 08/26/2026
+ms.date: 09/05/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: kubernetesconfiguration
 ---
-# Azure Provisioning KubernetesConfiguration Extensions client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning KubernetesConfiguration Extensions client library for .NET - version 1.0.0-alpha.20260904.1 
 
 
 Azure.Provisioning.KubernetesConfiguration.Extensions simplifies declarative resource provisioning in .NET.
@@ -62,5 +62,5 @@ Use the generated `Infrastructure` with the [Azure Developer CLI](https://learn.
 For details on contributing to this repository, see the [contributing guide][cg].
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.KubernetesConfiguration.Extensions_1.0.0-beta.1/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 
