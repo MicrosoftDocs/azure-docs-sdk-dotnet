@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning AppService client library for .NET
-keywords: Azure, dotnet, SDK, API, Azure.Provisioning.AppService, provisioning
-ms.date: 03/02/2026
+keywords: Azure, dotnet, SDK, API, Azure.Provisioning.AppService, websites
+ms.date: 09/05/2026
 ms.topic: reference
 ms.devlang: dotnet
-ms.service: provisioning
+ms.service: websites
 ---
-# Azure Provisioning AppService client library for .NET - version 1.4.0-beta.2 
+# Azure Provisioning AppService client library for .NET - version 1.4.0-alpha.20260904.1 
 
 
 Azure.Provisioning.AppService simplifies declarative resource provisioning in .NET.
@@ -41,7 +41,7 @@ This example demonstrates how to create a Function App with required dependencie
 Infrastructure infra = new();
 
 StorageAccount storage =
-    new(nameof(storage))
+    new(nameof(storage), StorageAccount.ResourceVersions.V2024_01_01)
     {
         Sku = new StorageSku { Name = StorageSkuName.StandardLrs },
         Kind = StorageKind.Storage,
@@ -162,7 +162,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.AppService_1.4.0-beta.2/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
