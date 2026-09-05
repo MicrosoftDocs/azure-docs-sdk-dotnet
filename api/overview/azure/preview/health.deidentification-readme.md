@@ -1,12 +1,12 @@
 ---
 title: Azure Health Data Services de-identification service client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Health.Deidentification, healthdataaiservices
-ms.date: 09/25/2025
+ms.date: 09/05/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: healthdataaiservices
 ---
-# Azure Health Data Services de-identification service client library for .NET - version 1.1.0-beta.1 
+# Azure Health Data Services de-identification service client library for .NET - version 1.1.0-alpha.20260904.1 
 
 [![Nuget](https://img.shields.io/nuget/v/Azure.Health.Deidentification.svg?style=flat-square)][deid_nuget]
 
@@ -14,7 +14,7 @@ This package contains a client library for the de-identification service in Azur
 enables users to tag, redact, or surrogate health data containing Protected Health Information (PHI).
 For more on service functionality and important usage considerations, see [the de-identification service overview][product_documentation].
 
-[Source code](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Health.Deidentification_1.1.0-beta.1/sdk/healthdataaiservices/Azure.Health.Deidentification/src) | [Package (NuGet)][deid_nuget] | [API reference documentation][docs] | [Product documentation][product_documentation] | [Samples][samples]
+[Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdataaiservices/Azure.Health.Deidentification/src) | [Package (NuGet)][deid_nuget] | [API reference documentation][docs] | [Product documentation][product_documentation] | [Samples][samples]
 
 ## Getting started
 
@@ -133,12 +133,12 @@ All client instance methods are thread-safe and independent of each other ([guid
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Health.Deidentification_1.1.0-beta.1/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Health.Deidentification_1.1.0-beta.1/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Health.Deidentification_1.1.0-beta.1/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Health.Deidentification_1.1.0-beta.1/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Health.Deidentification_1.1.0-beta.1/sdk/core/Azure.Core/samples/Diagnostics.md) |
-[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Health.Deidentification_1.1.0-beta.1/sdk/core/Azure.Core/README.md#mocking) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/README.md#mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
 
@@ -178,7 +178,7 @@ additional questions or comments.
 [product_documentation]: https://learn.microsoft.com/azure/healthcare-apis/deidentification/
 [docs]: https://learn.microsoft.com/dotnet/api/azure.health.deidentification
 [deid_nuget]: https://www.nuget.org/packages/Azure.Health.Deidentification
-[string_index]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Health.Deidentification_1.1.0-beta.1/sdk/healthdataaiservices/Azure.Health.Deidentification/src/Generated/StringIndex.cs
+[string_index]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdataaiservices/Azure.Health.Deidentification/src/Generated/Models/StringIndex.cs
 [character_encoding]: https://learn.microsoft.com/dotnet/standard/base-types/character-encoding-introduction
 [deid_redaction_format]: https://learn.microsoft.com/azure/healthcare-apis/deidentification/redaction-format
 [azure_subscription]: https://azure.microsoft.com/free/
@@ -190,7 +190,7 @@ additional questions or comments.
 [azure_cli]: https://learn.microsoft.com/cli/azure/healthcareapis/deidservice?view=azure-cli-latest
 [azure_portal]: https://ms.portal.azure.com
 [github_issue_label]: https://github.com/Azure/azure-sdk-for-net/labels/Health%20Deidentification
-[samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Health.Deidentification_1.1.0-beta.1/sdk/healthdataaiservices/Azure.Health.Deidentification/samples/README.md
+[samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthdataaiservices/Azure.Health.Deidentification/samples/README.md
 [blob_names]: https://learn.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#blob-names
 [test_data]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthdataaiservices/azure-health-deidentification/tests/data
 
