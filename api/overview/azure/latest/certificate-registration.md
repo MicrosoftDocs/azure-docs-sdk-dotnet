@@ -1,7 +1,7 @@
 ---
 title: Azure Certificate Registration SDK for .NET
 description: Reference for Azure Certificate Registration SDK for .NET
-ms.date: 09/09/2026
+ms.date: 09/11/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: certificateregistration
