@@ -1,14 +1,14 @@
 ---
 title: 
-keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.Monitor.Workspaces, monitor
+keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.Monitor.Agents, monitor
 ms.date: 09/12/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: monitor
 ---
-# Microsoft Azure Monitor Workspaces management client library for .NET
+# Microsoft Azure Monitor Agents management client library for .NET
 
-This client library enables management of Azure Monitor Workspaces resources through Azure Resource Manager.
+This client library enables management of Azure Monitor observability agent resources through Azure Resource Manager.
 
 This library follows the [new Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html), and provides many core capabilities:
 
@@ -22,10 +22,10 @@ This library follows the [new Azure SDK guidelines](https://azure.github.io/azur
 
 ### Install the package
 
-Install the Azure Monitor Workspaces management library for .NET with [NuGet](https://www.nuget.org/):
+Install the Azure Monitor Agents management library for .NET with [NuGet](https://www.nuget.org/):
 
 ```dotnetcli
-dotnet add package Azure.ResourceManager.Monitor.Workspaces
+dotnet add package Azure.ResourceManager.Monitor.Agents --prerelease
 ```
 
 ### Prerequisites
