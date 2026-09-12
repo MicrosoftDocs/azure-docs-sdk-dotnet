@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: storage
 ---
-# Azure Storage Blobs Batch client library for .NET - version 12.27.0-alpha.20260911.2 
+# Azure Storage Blobs Batch client library for .NET - version 12.27.0-alpha.20260911.3 
 
 
 > Server Version: 2021-02-12, 2020-12-06, 2020-10-02, 2020-08-04, 2020-06-12, 2020-04-08, 2020-02-10, 2019-12-12, 2019-07-07, and 2019-02-02
