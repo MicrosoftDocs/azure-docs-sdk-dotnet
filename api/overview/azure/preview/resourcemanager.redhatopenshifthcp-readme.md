@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: redhatopenshifthcp
 ---
-# Azure Red Hat OpenShift HCP management client library for .NET - version 1.0.0-alpha.20260911.1 
+# Azure Red Hat OpenShift HCP management client library for .NET - version 1.0.0-alpha.20260912.1 
 
 
 This library supports managing Microsoft Azure resources.
