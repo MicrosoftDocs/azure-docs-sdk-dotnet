@@ -1,0 +1,4 @@
+| Reference | Package | Source |
+|---|---|---|
+|[Provisioning - Kubernetesconfiguration.Privatelinkscopes](provisioning.kubernetesconfiguration.privatelinkscopes-readme.md)|[Azure.Provisioning.KubernetesConfiguration.PrivateLinkScopes](https://www.nuget.org/packages/Azure.Provisioning.KubernetesConfiguration.PrivateLinkScopes)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/kubernetesconfiguration/Azure.Provisioning.KubernetesConfiguration.PrivateLinkScopes)|
+|[Resource Management - Kubernetesconfiguration.Privatelinkscopes](resourcemanager.kubernetesconfiguration.privatelinkscopes-readme.md)|[Azure.ResourceManager.KubernetesConfiguration.PrivateLinkScopes](https://www.nuget.org/packages/Azure.ResourceManager.KubernetesConfiguration.PrivateLinkScopes)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/kubernetesconfiguration/Azure.ResourceManager.KubernetesConfiguration.PrivateLinkScopes)|

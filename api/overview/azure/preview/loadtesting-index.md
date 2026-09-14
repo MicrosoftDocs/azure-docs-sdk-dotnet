@@ -1,3 +1,3 @@
 | Reference | Package | Source |
 |---|---|---|
-|[Resource Management - Loadtesting](resourcemanager.loadtesting-readme.md)|[Azure.ResourceManager.LoadTesting](https://www.nuget.org/packages/Azure.ResourceManager.LoadTesting)|[Github](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/loadtestservice/Azure.ResourceManager.LoadTesting)|
+|[Provisioning - Loadtesting](provisioning.loadtesting-readme.md)|[Azure.Provisioning.LoadTesting](https://www.nuget.org/packages/Azure.Provisioning.LoadTesting)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/loadtestservice/Azure.Provisioning.LoadTesting)|

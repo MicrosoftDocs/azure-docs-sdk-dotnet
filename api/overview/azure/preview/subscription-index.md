@@ -1,3 +1,3 @@
 | Reference | Package | Source |
 |---|---|---|
-|[Resource Management - Subscription](resourcemanager.subscription-readme.md)|[Azure.ResourceManager.Subscription](https://www.nuget.org/packages/Azure.ResourceManager.Subscription)|[Github](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/subscription/Azure.ResourceManager.Subscription)|
+|[Provisioning - Subscription](provisioning.subscription-readme.md)|[Azure.Provisioning.Subscription](https://www.nuget.org/packages/Azure.Provisioning.Subscription)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/subscription/Azure.Provisioning.Subscription)|
