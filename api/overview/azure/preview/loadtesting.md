@@ -1,7 +1,7 @@
 ---
 title: Azure Loadtesting SDK for .NET
 description: Reference for Azure Loadtesting SDK for .NET
-ms.date: 09/15/2026
+ms.date: 09/16/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: loadtesting
