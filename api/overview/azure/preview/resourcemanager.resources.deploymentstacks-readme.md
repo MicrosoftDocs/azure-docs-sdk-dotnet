@@ -1,16 +1,14 @@
 ---
 title: 
-keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.Resources, resources
+keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.Resources.DeploymentStacks, resources
 ms.date: 09/17/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: resources
 ---
-# Microsoft Azure Resources management client library for .NET
+# Microsoft Azure DeploymentStacks management client library for .NET
 
-Microsoft Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account.
-
-This library provides resource deployment capabilities for Microsoft Azure.
+An Azure deployment stack is a resource that enables you to manage a group of Azure resources as a single, cohesive unit. When you submit a Bicep file or an Azure Resource Manager JSON template (ARM JSON template) to a deployment stack, you define the resources that the stack manages. If you remove a resource from the template, it can be detached or deleted based on the specified actionOnUnmanage behavior of the deployment stack. You can restrict access to the deployment stack using Azure role-based access control (Azure RBAC), similar to other Azure resources.
 
 This library follows the [new Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html), and provides many core capabilities:
 
@@ -24,10 +22,10 @@ This library follows the [new Azure SDK guidelines](https://azure.github.io/azur
 
 ### Install the package
 
-Install the Microsoft Azure Resources management library for .NET with [NuGet](https://www.nuget.org/):
+Install the Microsoft Azure DeploymentStacks management library for .NET with [NuGet](https://www.nuget.org/):
 
 ```dotnetcli
-dotnet add package Azure.ResourceManager.Resources
+dotnet add package Azure.ResourceManager.Resources.DeploymentStacks
 ```
 
 ### Prerequisites
@@ -40,14 +38,14 @@ To create an authenticated client and start interacting with Microsoft Azure res
 
 ## Key concepts
 
-Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://azure.github.io/azure-sdk/dotnet_introduction.html).
+Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://azure.github.io/azure-sdk/dotnet_introduction.html)
 
 ## Documentation
 
 Documentation is available to help you learn how to use this package:
 
 - [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
-- [API References](https://learn.microsoft.com/dotnet/api/?view=azure-dotnet).
+- [API References](/dotnet/api/?view=azure-dotnet).
 - [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
 
 ## Examples
@@ -88,3 +86,4 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 [cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
+
