@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: vision
 ---
-# Azure Image Analysis client library for .NET - version 1.1.0-alpha.20260916.1 
+# Azure Image Analysis client library for .NET - version 1.1.0-alpha.20260917.1 
 
 
 The Azure.AI.Vision.ImageAnalysis client library provides AI algorithms for processing images and returning information about their content. It enables you to extract one or more visual features from an image simultaneously, including getting a caption for the image, extracting text shown in the image (OCR), and detecting objects. For more information on the service and the supported visual features, see [Image Analysis overview][image_analysis_overview], and the [Concepts][image_analysis_concepts] page.
