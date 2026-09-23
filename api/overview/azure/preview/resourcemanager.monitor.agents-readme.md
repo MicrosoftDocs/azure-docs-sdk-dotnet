@@ -1,16 +1,14 @@
 ---
 title: 
-keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.Monitor, monitor
+keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.Monitor.Agents, monitor
 ms.date: 09/23/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: monitor
 ---
-# Microsoft Azure Monitor management client library for .NET
+# Microsoft Azure Monitor Agents management client library for .NET
 
-Microsoft Azure Monitor helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
-
-This library supports managing Microsoft Azure Monitor resources.
+This client library enables management of Azure Monitor observability agent resources through Azure Resource Manager.
 
 This library follows the [new Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html), and provides many core capabilities:
 
@@ -20,14 +18,14 @@ This library follows the [new Azure SDK guidelines](https://azure.github.io/azur
     - Better error-handling.
     - Support uniform telemetry across all languages.
 
-## Getting started 
+## Getting started
 
 ### Install the package
 
-Install the Microsoft Azure Monitor management library for .NET with [NuGet](https://www.nuget.org/):
+Install the Azure Monitor Agents management library for .NET with [NuGet](https://www.nuget.org/):
 
 ```dotnetcli
-dotnet add package Azure.ResourceManager.Monitor
+dotnet add package Azure.ResourceManager.Monitor.Agents --prerelease
 ```
 
 ### Prerequisites
@@ -40,7 +38,7 @@ To create an authenticated client and start interacting with Microsoft Azure res
 
 ## Key concepts
 
-Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://azure.github.io/azure-sdk/dotnet_introduction.html).
+Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://azure.github.io/azure-sdk/dotnet_introduction.html)
 
 ## Documentation
 
