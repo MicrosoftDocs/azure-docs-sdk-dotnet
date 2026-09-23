@@ -1,12 +1,12 @@
 ---
 title: Azure Web PubSub Chat client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Messaging.WebPubSub.Chat, webpubsub
-ms.date: 09/21/2026
+ms.date: 09/23/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: webpubsub
 ---
-# Azure Web PubSub Chat client library for .NET - version 1.0.0-beta.1 
+# Azure Web PubSub Chat client library for .NET - version 1.0.0-alpha.20260922.1 
 
 
 Azure.Messaging.WebPubSub.Chat is a client library for developing .NET applications with rich experience.
@@ -92,7 +92,7 @@ foreach (WebPubSubChatMessage message in client.GetMessages(room.DefaultConversa
 }
 ```
 
-More detailed examples are available in the [samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.WebPubSub.Chat_1.0.0-beta.1/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/tests/Samples/README.md) folder.
+More detailed examples are available in the [samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/tests/Samples/README.md) folder.
 
 ## Troubleshooting
 
