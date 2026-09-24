@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.AI.AgentServer.Core, agentserver
-ms.date: 09/08/2026
+ms.date: 09/24/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: agentserver
@@ -152,21 +152,25 @@ string? callId = FoundryAgentRequestContext.Current.CallId;   // per-request cal
 
 OpenTelemetry is configured automatically via the `Microsoft.OpenTelemetry` distro. The Responses and Invocations protocols use dedicated activity source names (`Azure.AI.AgentServer.Responses` and `Azure.AI.AgentServer.Invocations`) for distributed tracing. Azure Monitor export is enabled when `APPLICATIONINSIGHTS_CONNECTION_STRING` is set, and OTLP export is enabled when `OTEL_EXPORTER_OTLP_ENDPOINT` is set.
 
+Azure Monitor uses 100% fixed-percentage trace sampling by default. Set `OTEL_TRACES_SAMPLER` to `microsoft.rate_limited` or `microsoft.fixed_percentage` and provide its value through `OTEL_TRACES_SAMPLER_ARG` to override this default.
+
+Azure SDK and outbound `HttpClient` dependency spans are disabled by default to reduce infrastructure noise. To opt in, use `AgentHostBuilder.ConfigureTracing(...)` and add the `Azure.*` activity source with `AddSource("Azure.*")`, outbound HTTP instrumentation with `AddHttpClientInstrumentation()`, or both.
+
 ### Health endpoint
 
 A `/readiness` endpoint is registered by default, responding to liveness and readiness probes. It reports healthy as soon as the host finishes starting.
 
 ### Resilient tasks and streaming
 
-The library provides durable **task** and resumable **streaming** primitives for long-running agents. Register tasks with `AddResilientTasks()` and event streams with `AddAgentEventStreams()`, then run work through `ITaskInvoker` and emit progress through `AgentEventStreamRegistry`. Tasks survive process restarts and support multi-turn conversations and steering. Persist application checkpoints and idempotency state explicitly with `FoundryStateStore`. See the [Tasks guide][tasks_guide], [Streaming guide][streaming_guide], and [State Store guide][state_store_guide] for full walkthroughs.
+The library provides durable **task** and resumable **streaming** primitives for long-running agents. Register tasks with `AddResilientTask()`/`AddResilientMultiTurnTask()` and event streams with `AddAgentEventStreams()`, then run work through the typed `TaskDefinition<TInput, TOutput>` handle returned at registration and emit progress through `AgentEventStreamRegistry`. Tasks survive process restarts and support multi-turn conversations and steering. Persist application checkpoints and idempotency state explicitly with `FoundryStateStore`. See the [Tasks guide][tasks_guide], [Streaming guide][streaming_guide], and [State Store guide][state_store_guide] for full walkthroughs.
 
 ### Durable state store
 
-`FoundryStateStore` is a durable, server-backed store for agent state. Each store is bound to a caller-chosen name and holds items — keyed JSON values — that you read, write, and list. Use it to persist checkpoints, conversation state, or counters across requests and restarts. `FoundryStateStore.GetOrCreateAsync` fetches or creates the store in one call, and items support tags, store-level TTL, and optimistic concurrency via `If-Match`. See the [state store guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AgentServer.Core_1.0.0-beta.29/sdk/agentserver/Azure.AI.AgentServer.Core/docs/StateStoreGuide.md).
+`FoundryStateStore` is a durable, server-backed store for agent state. Each store is bound to a caller-chosen name and holds items — keyed JSON values — that you read, write, and list. Use it to persist checkpoints, conversation state, or counters across requests and restarts. `FoundryStateStore.GetOrCreateAsync` fetches or creates the store in one call, and items support tags, store-level TTL, and optimistic concurrency via `If-Match`. See the [state store guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/agentserver/Azure.AI.AgentServer.Core/docs/StateStoreGuide.md).
 
 ## Examples
 
-You can familiarise yourself with different APIs using [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.29/sdk/agentserver/Azure.AI.AgentServer.Core/samples).
+You can familiarise yourself with different APIs using [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agentserver/Azure.AI.AgentServer.Core/samples).
 
 ## Troubleshooting
 
@@ -183,8 +187,8 @@ The library emits OpenTelemetry traces via the `Azure.AI.AgentServer.Responses` 
 
 - [Tasks guide][tasks_guide] — Build durable, resumable one-shot and multi-turn tasks
 - [Streaming guide][streaming_guide] — Emit resumable event streams to clients
-- [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.29/sdk/agentserver/Azure.AI.AgentServer.Core/samples) — Getting started, multi-protocol composition
-- [State store guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AgentServer.Core_1.0.0-beta.29/sdk/agentserver/Azure.AI.AgentServer.Core/docs/StateStoreGuide.md) — Persist agent state with `FoundryStateStore`
+- [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agentserver/Azure.AI.AgentServer.Core/samples) — Getting started, multi-protocol composition
+- [State store guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/agentserver/Azure.AI.AgentServer.Core/docs/StateStoreGuide.md) — Persist agent state with `FoundryStateStore`
 
 ## Contributing
 
@@ -195,15 +199,15 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 <!-- LINKS -->
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.29/sdk/agentserver/Azure.AI.AgentServer.Core/src
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agentserver/Azure.AI.AgentServer.Core/src
 [nuget]: https://www.nuget.org/packages/Azure.AI.AgentServer.Core
 [product_doc]: https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agents
-[migration]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AgentServer.Core_1.0.0-beta.29/sdk/agentserver/Azure.AI.AgentServer.Core/MigrationGuide.md
-[responses]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.29/sdk/agentserver/Azure.AI.AgentServer.Responses
-[invocations]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.29/sdk/agentserver/Azure.AI.AgentServer.Invocations
-[tasks_guide]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AgentServer.Core_1.0.0-beta.29/sdk/agentserver/Azure.AI.AgentServer.Core/docs/tasks-guide.md
-[streaming_guide]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AgentServer.Core_1.0.0-beta.29/sdk/agentserver/Azure.AI.AgentServer.Core/docs/streaming-guide.md
-[state_store_guide]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AgentServer.Core_1.0.0-beta.29/sdk/agentserver/Azure.AI.AgentServer.Core/docs/StateStoreGuide.md
-[responses_tier3]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AgentServer.Core_1.0.0-beta.29/sdk/agentserver/Azure.AI.AgentServer.Responses/samples/Sample9_Tier3SelfHosting.md
-[invocations_tier3]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AgentServer.Core_1.0.0-beta.29/sdk/agentserver/Azure.AI.AgentServer.Invocations/samples/Sample7_Tier3SelfHosting.md
+[migration]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/agentserver/Azure.AI.AgentServer.Core/MigrationGuide.md
+[responses]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agentserver/Azure.AI.AgentServer.Responses
+[invocations]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agentserver/Azure.AI.AgentServer.Invocations
+[tasks_guide]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/agentserver/Azure.AI.AgentServer.Core/docs/tasks-guide.md
+[streaming_guide]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/agentserver/Azure.AI.AgentServer.Core/docs/streaming-guide.md
+[state_store_guide]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/agentserver/Azure.AI.AgentServer.Core/docs/StateStoreGuide.md
+[responses_tier3]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/agentserver/Azure.AI.AgentServer.Responses/samples/Sample9_Tier3SelfHosting.md
+[invocations_tier3]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/agentserver/Azure.AI.AgentServer.Invocations/samples/Sample7_Tier3SelfHosting.md
 
