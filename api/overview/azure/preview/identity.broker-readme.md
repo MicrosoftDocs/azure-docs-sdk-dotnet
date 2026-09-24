@@ -1,12 +1,12 @@
 ---
-title: Azure Identity Brokered Authentication client library for .NET
+title: Azure Identity brokered authentication client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Identity.Broker, entra-id
-ms.date: 07/12/2025
+ms.date: 09/24/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: entra-id
 ---
-# Azure Identity Brokered Authentication client library for .NET - version 1.3.0-beta.4 
+# Azure Identity brokered authentication client library for .NET - version 1.8.0-alpha.20260924.1 
 
 
 The library extends the `Azure.Identity` library to provide authentication broker support. It includes the necessary dependencies and provides the `InteractiveBrowserCredentialBrokerOptions` class. This options class can be used to create an `InteractiveBrowserCredential` capable of using the system authentication broker in lieu of an embedded web view or the system browser.
@@ -17,7 +17,7 @@ The library extends the `Azure.Identity` library to provide authentication broke
 
 ### Install the package
 
-Install the Azure Identity client library for .NET with [NuGet][nuget]:
+Install the Azure Identity brokered authentication extension for .NET with [NuGet][nuget]:
 
 ```dotnetcli
 dotnet add package Azure.Identity.Broker
@@ -25,63 +25,24 @@ dotnet add package Azure.Identity.Broker
 
 ### Prerequisites
 
-The [Azure.Identity][azure_identity] library is a dependency of `Azure.Identity.Broker`.
+* An [Azure subscription][azure_sub].
+* The [Azure.Identity][azure_identity] package.
 
 ### Authenticate the client
+
+See the end-to-end instructions at [Use a broker](https://aka.ms/azsdk/net/identity/broker).
 
 ## Key concepts
 
 This package enables authentication broker support via [InteractiveBrowserCredentialBrokerOptions](https://learn.microsoft.com/dotnet/api/azure.identity.broker.interactivebrowsercredentialbrokeroptions), in combination with `InteractiveBrowserCredential` in the `Azure.Identity` package.
 
-### Parent window handles
-
-When authenticating interactively via `InteractiveBrowserCredential` constructed with the `InteractiveBrowserCredentialBrokerOptions`, a parent window handle is required to ensure that the authentication dialog is shown correctly over the requesting window. In the context of graphical user interfaces on devices, a window handle is a unique identifier that the operating system assigns to each window. For the Windows operating system, this handle is an integer value that serves as a reference to a specific window.
-
 ### Microsoft account (MSA) passthrough
 
 Microsoft accounts (MSA) are personal accounts created by users to access Microsoft services. MSA passthrough is a legacy configuration which enables users to get tokens to resources which normally don't accept MSA logins. This feature is only available to first-party applications. Users authenticating with an application that is configured to use MSA passthrough can set the `InteractiveBrowserCredentialBrokerOptions.IsLegacyMsaPassthroughEnabled` property to `true` to allow these personal accounts to be listed by WAM.
 
-## Redirect URIs
-
-Microsoft Entra applications rely on redirect URIs to determine where to send the authentication response after a user has logged in. To enable brokered authentication, a redirect URI matching the following pattern should be registered to the application:
-
-| Platform    | Redirect URI                                                                                                          |
-|-------------|-----------------------------------------------------------------------------------------------------------------------|
-| Windows 10+ | `ms-appx-web://Microsoft.AAD.BrokerPlugin/your_client_id`                                                             |
-| macOS       | `msauth.com.msauth.unsignedapp://auth` for unsigned applications<br>`msauth.BUNDLE_ID://auth` for signed applications |
-| WSL         | `ms-appx-web://Microsoft.AAD.BrokerPlugin/your_client_id`                                                             |
-| Linux       | `https://login.microsoftonline.com/common/oauth2/nativeclient`                                                        |
-
-## Examples
-
-### Configure the `InteractiveBrowserCredential` to use the system authentication broker
-
-This example demonstrates configuring the `InteractiveBrowserCredential` with the specialized options type `InteractiveBrowserCredentialBrokerOptions` to enable brokered authentication.
-
-```C# Snippet:ConfigureInteractiveBrowserToUseBroker
-IntPtr parentWindowHandle = GetForegroundWindow();
-
-// Create an interactive browser credential which will use the system authentication broker
-var credential = new InteractiveBrowserCredential(
-    new InteractiveBrowserCredentialBrokerOptions(parentWindowHandle));
-
-// Use the credential to authenticate a secret client
-var client = new SecretClient(new Uri("https://myvault.vault.azure.net/"), credential);
-```
-
-To bypass the account selection dialog and use the default broker account, set the [InteractiveBrowserCredentialBrokerOptions.UseDefaultBrokerAccount](https://learn.microsoft.com/dotnet/api/azure.identity.broker.interactivebrowsercredentialbrokeroptions) property:
-
-```C# Snippet:ConfigureInteractiveBrowserToUseDefaultOsAccount
-var credential = new InteractiveBrowserCredential(
-    new InteractiveBrowserCredentialBrokerOptions(parentWindowHandle)
-    {
-        UseDefaultBrokerAccount = true,
-    });
-```
-
 ## Troubleshooting
 
-See the [troubleshooting guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity.Broker_1.3.0-beta.4/sdk/identity/Azure.Identity/TROUBLESHOOTING.md) for details on how to diagnose various failure scenarios.
+See the [troubleshooting guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/TROUBLESHOOTING.md) for details on how to diagnose various failure scenarios.
 
 ### Error handling
 
@@ -108,7 +69,7 @@ For more details on dealing with errors arising from failed requests to Microsof
 
 ### Logging
 
-The Azure Identity library provides the same [logging capabilities](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity.Broker_1.3.0-beta.4/sdk/core/Azure.Core/samples/Diagnostics.md#logging) as the rest of the Azure SDK.
+The Azure Identity library provides the same [logging capabilities](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#logging) as the rest of the Azure SDK.
 
 The simplest way to see the logs to help debug authentication issues is to enable the console logging.
 
@@ -140,10 +101,10 @@ This ensures that the recommendation of reusing credential instances is always s
 
 ### Additional concepts
 
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity.Broker_1.3.0-beta.4/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity.Broker_1.3.0-beta.4/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity.Broker_1.3.0-beta.4/sdk/core/Azure.Core/samples/Diagnostics.md) |
-[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity.Broker_1.3.0-beta.4/sdk/core/Azure.Core/README.md#mocking) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/README.md#mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 
 ## Next steps
@@ -160,6 +121,7 @@ This library does not currently support scenarios relating to the [AAD B2C](http
 Currently open issues for the Azure.Identity library can be found [here](https://github.com/Azure/azure-sdk-for-net/issues?q=is%3Aissue+is%3Aopen+label%3AAzure.Identity).
 
 ## Contributing
+
 This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit https://cla.microsoft.com.
 
 When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA.
@@ -168,13 +130,13 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 
 <!-- LINKS -->
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
-[azure_identity]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity.Broker_1.3.0-beta.4/sdk/identity/Azure.Identity/README.md
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity.Broker_1.3.0-beta.4/sdk/identity/Azure.Identity.Broker/src
+[azure_identity]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/README.md
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity.Broker/src
 [package]: https://www.nuget.org/packages/Azure.Identity.Broker
 [entraid_doc]: https://learn.microsoft.com/entra/identity/
 [entraid_err_doc]: https://learn.microsoft.com/entra/identity-platform/reference-error-codes
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 [nuget]: https://www.nuget.org/
-[identity_api_docs]: https://learn.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet
+[identity_api_docs]: https://learn.microsoft.com/dotnet/api/azure.identity.broker?view=azure-dotnet
 
