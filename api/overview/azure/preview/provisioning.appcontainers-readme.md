@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning AppContainers client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.AppContainers, containerapps
-ms.date: 09/16/2026
+ms.date: 09/24/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: containerapps
 ---
-# Azure Provisioning AppContainers client library for .NET - version 1.3.0-beta.1 
+# Azure Provisioning AppContainers client library for .NET - version 1.3.0-alpha.20260924.3 
 
 
 Azure.Provisioning.AppContainers simplifies declarative resource provisioning in .NET.
@@ -55,8 +55,8 @@ OperationalInsightsWorkspace logAnalytics =
     };
 infra.Add(logAnalytics);
 
-ContainerAppManagedEnvironment env =
-    new(nameof(env), ContainerAppManagedEnvironment.ResourceVersions.V2024_03_01)
+ContainerAppManagedEnvironment env1 =
+    new(nameof(env1), ContainerAppManagedEnvironment.ResourceVersions.V2024_03_01)
     {
         AppLogsConfiguration =
             new ContainerAppLogsConfiguration
@@ -69,12 +69,12 @@ ContainerAppManagedEnvironment env =
                 }
             },
     };
-infra.Add(env);
+infra.Add(env1);
 
 ContainerApp app =
     new(nameof(app), ContainerApp.ResourceVersions.V2024_03_01)
     {
-        ManagedEnvironmentId = env.Id,
+        ManagedEnvironmentId = env1.Id,
         Configuration =
             new ContainerAppConfiguration
             {
@@ -146,7 +146,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.AppContainers_1.3.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
