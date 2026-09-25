@@ -1,12 +1,12 @@
 ---
 title: Azure Identity client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Identity, entra-id
-ms.date: 02/20/2026
+ms.date: 09/25/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: entra-id
 ---
-# Azure Identity client library for .NET - version 1.18.0-beta.3 
+# Azure Identity client library for .NET - version 1.22.0-alpha.20260925.1 
 
 
 The Azure Identity library provides [Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/whatis) token-based authentication support across the Azure SDK. It provides a set of [`TokenCredential`](https://learn.microsoft.com/dotnet/api/azure.core.tokencredential?view=azure-dotnet) implementations that can be used to construct Azure SDK clients that support Microsoft Entra token authentication.
@@ -22,6 +22,9 @@ Install the Azure Identity client library for .NET with NuGet:
 ```dotnetcli
 dotnet add package Azure.Identity
 ```
+
+> [!NOTE]
+> Starting with `Azure.Core` 1.53.0, all credential types (including `DefaultAzureCredential`) are bundled directly in `Azure.Core`. If your project already targets `Azure.Core` 1.53.0+ or does so through a transitive dependency, you should omit the `Azure.Identity` package reference entirely. See the [Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/MigrationGuide.md) for upgrade and compatibility details.
 
 ### Prerequisites
 
@@ -41,6 +44,8 @@ A credential is a class that contains or can obtain the data needed for a servic
 The Azure Identity library focuses on OAuth authentication with Microsoft Entra ID. It offers numerous credentials capable of acquiring a Microsoft Entra token to authenticate service requests. Each credential in this library is an implementation of the `TokenCredential` abstract class in [Azure.Core][azure_core_library], and any of them can be used to construct service clients capable of authenticating with a `TokenCredential`.
 
 See [Credential classes](#credential-classes) for a complete listing of available credential types.
+
+For details on the assembly consolidation introduced in version 1.53.0 and how to handle [`CS0433`](https://learn.microsoft.com/dotnet/csharp/language-reference/compiler-messages/cs0433) conflicts when mixing package versions, see the [Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/MigrationGuide.md).
 
 ### DefaultAzureCredential
 
@@ -240,7 +245,7 @@ Not all credentials require this configuration. Credentials that authenticate th
 |-|-
 |`AZURE_CLIENT_ID`|ID of a Microsoft Entra application
 |`AZURE_TENANT_ID`|ID of the application's Microsoft Entra tenant
-|`AZURE_CLIENT_CERTIFICATE_PATH`|path to a PFX or PEM-encoded certificate file including private key
+|`AZURE_CLIENT_CERTIFICATE_PATH`|Path to the client certificate, including the private key. The path must be to either a "pfx"- or "pem"-encoded certificate on disk, or a certificate in the platform certificate store by thumbprint.<br>For example:<ul><li>`c:\data\certificate.pfx`</li><li>`/etc/app/cert.pem`</li><li>`cert:/CurrentUser/My/E661583E8FABEF4C0BEF694CBC41C28FB81CD870`</li></ul>
 |`AZURE_CLIENT_CERTIFICATE_PASSWORD`|(optional) the password protecting the certificate file (currently only supported for PFX (PKCS12) certificates)
 |`AZURE_CLIENT_SEND_CERTIFICATE_CHAIN`|(optional) send certificate chain in x5c header to support subject name / issuer based authentication
 
@@ -268,7 +273,7 @@ As of version 1.10.0, accessing resources protected by [Continuous Access Evalua
 * Improve resilience and performance.
 * Reduce the number of requests made to Microsoft Entra ID to obtain access tokens.
 
-The Azure Identity library offers both in-memory and persistent disk caching. For more information, see the [token caching documentation](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.18.0-beta.3/sdk/identity/Azure.Identity/samples/TokenCache.md).
+The Azure Identity library offers both in-memory and persistent disk caching. For more information, see the [token caching documentation](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/samples/TokenCache.md).
 
 ## Brokered authentication
 
@@ -276,7 +281,7 @@ An authentication broker is an app that runs on a user's machine and manages the
 
 ## Troubleshooting
 
-See the [troubleshooting guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.18.0-beta.3/sdk/identity/Azure.Identity/TROUBLESHOOTING.md).
+See the [troubleshooting guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/TROUBLESHOOTING.md).
 
 ### Error handling
 
@@ -303,7 +308,7 @@ For more information on handling errors from failed requests to Microsoft Entra 
 
 ### Logging
 
-See [Enable and configure logging](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.18.0-beta.3/sdk/identity/Azure.Identity/TROUBLESHOOTING.md#enable-and-configure-logging).
+See [Enable and configure logging](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/TROUBLESHOOTING.md#enable-and-configure-logging).
 
 ### Thread safety
 
@@ -311,10 +316,10 @@ We guarantee that all credential instance methods are thread-safe and independen
 
 ### Additional concepts
 
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.18.0-beta.3/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.18.0-beta.3/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.18.0-beta.3/sdk/core/Azure.Core/samples/Diagnostics.md) |
-[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.18.0-beta.3/sdk/core/Azure.Core/README.md#mocking) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/README.md#mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 
 ## Next steps
@@ -340,14 +345,14 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 <!-- LINKS -->
 [azure_cli]: https://learn.microsoft.com/cli/azure
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.18.0-beta.3/sdk/identity/Azure.Identity/src
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/src
 [package]: https://www.nuget.org/packages/Azure.Identity
 [entraid_doc]: https://learn.microsoft.com/entra/identity/
 [entraid_err_doc]: https://learn.microsoft.com/entra/identity-platform/reference-error-codes
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
-[blobs_client_library]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.18.0-beta.3/sdk/storage/Azure.Storage.Blobs
-[azure_core_library]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.18.0-beta.3/sdk/core/Azure.Core
+[blobs_client_library]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Blobs
+[azure_core_library]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core/Azure.Core
 [identity_api_docs]: https://learn.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet
 [ctc_overview]: https://aka.ms/azsdk/net/identity/credential-chains#chainedtokencredential-overview
 [dac_overview]: https://aka.ms/azsdk/net/identity/credential-chains#defaultazurecredential-overview
