@@ -1,7 +1,7 @@
 ---
 title: Azure Transcription SDK for .NET
 description: Reference for Azure Transcription SDK for .NET
-ms.date: 09/24/2026
+ms.date: 09/25/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: transcription
