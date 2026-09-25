@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning Databricks client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.Databricks, databricks
-ms.date: 09/24/2026
+ms.date: 09/25/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: databricks
 ---
-# Azure Provisioning Databricks client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning Databricks client library for .NET - version 1.0.0-alpha.20260925.1 
 
 
 Azure.Provisioning.Databricks simplifies declarative resource provisioning for Azure Databricks in .NET.
@@ -56,5 +56,5 @@ infra.Add(workspace);
 
 ## Contributing
 
-For details on contributing to this repository, see the [contributing guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.Databricks_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md).
+For details on contributing to this repository, see the [contributing guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md).
 
