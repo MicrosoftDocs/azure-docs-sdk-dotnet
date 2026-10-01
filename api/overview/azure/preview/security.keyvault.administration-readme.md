@@ -1,12 +1,12 @@
 ---
 title: Azure KeyVault Administration client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Security.KeyVault.Administration, keyvault
-ms.date: 09/29/2026
+ms.date: 10/01/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: keyvault
 ---
-# Azure KeyVault Administration client library for .NET - version 4.9.0-beta.3 
+# Azure KeyVault Administration client library for .NET - version 4.9.0-beta.4 
 
 
 Azure Key Vault Managed HSM is a fully-managed, highly-available, single-tenant, standards-compliant cloud service that enables you to safeguard
@@ -185,11 +185,11 @@ Client service methods are thread-safe and independent of each other ([guideline
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
@@ -203,42 +203,54 @@ The following section provides several code snippets using the `client` created 
 ### Sync examples
 
 * Access control
-  * [Listing All Role Definitions](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldSync.md#listing-all-role-definitions)
-  * [Listing All Role Assignments](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldSync.md#listing-all-role-assignments)
-  * [Creating a Role Assignment](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldSync.md#creating-a-role-assignment)
-  * [Getting a Role Assignment](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldSync.md#getting-a-role-assignment)
-  * [Deleting a Role Assignment](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldSync.md#deleting-a-role-assignment)
+  * [Listing All Role Definitions](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldSync.md#listing-all-role-definitions)
+  * [Listing All Role Assignments](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldSync.md#listing-all-role-assignments)
+  * [Creating a Role Assignment](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldSync.md#creating-a-role-assignment)
+  * [Getting a Role Assignment](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldSync.md#getting-a-role-assignment)
+  * [Deleting a Role Assignment](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldSync.md#deleting-a-role-assignment)
 * Backup and restore
-  * [Performing a full key backup](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_BackupHelloWorldSync.md#performing-a-full-key-backup)
-  * [Performing a full key restore](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_BackupHelloWorldSync.md#performing-a-full-key-restore)
+  * [Performing a full key backup](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_BackupHelloWorldSync.md#performing-a-full-key-backup)
+  * [Performing a full key restore](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_BackupHelloWorldSync.md#performing-a-full-key-restore)
 * EKM connection
-  * [Creating an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldSync.md#creating-an-ekm-connection)
-  * [Getting an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldSync.md#getting-an-ekm-connection)
-  * [Checking an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldSync.md#checking-an-ekm-connection)
-  * [Deleting an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldSync.md#deleting-an-ekm-connection)
+  * [Creating an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldSync.md#creating-an-ekm-connection)
+  * [Getting an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldSync.md#getting-an-ekm-connection)
+  * [Checking an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldSync.md#checking-an-ekm-connection)
+  * [Deleting an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldSync.md#deleting-an-ekm-connection)
+* EKM proxy private endpoints
+  * [Creating an EKM proxy private endpoint](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample6_EkmPrivateEndpointSync.md#creating-an-ekm-proxy-private-endpoint)
+  * [Getting an EKM proxy private endpoint](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample6_EkmPrivateEndpointSync.md#getting-an-ekm-proxy-private-endpoint)
+  * [Listing EKM proxy private endpoints](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample6_EkmPrivateEndpointSync.md#listing-ekm-proxy-private-endpoints)
+  * [Creating a private EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample6_EkmPrivateEndpointSync.md#creating-a-private-ekm-connection)
+  * [Deleting an EKM proxy private endpoint](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample6_EkmPrivateEndpointSync.md#deleting-an-ekm-proxy-private-endpoint)
 
 ### Async examples
 
 * Access control
-  * [Listing All Role Definitions](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldAsync.md#listing-all-role-definitions)
-  * [Listing All Role Assignments](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldAsync.md#listing-all-role-assignments)
-  * [Creating a Role Assignment](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldAsync.md#creating-a-role-assignment)
-  * [Getting a Role Assignment](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldAsync.md#getting-a-role-assignment)
-  * [Deleting a Role Assignment](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldAsync.md#deleting-a-role-assignment)
+  * [Listing All Role Definitions](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldAsync.md#listing-all-role-definitions)
+  * [Listing All Role Assignments](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldAsync.md#listing-all-role-assignments)
+  * [Creating a Role Assignment](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldAsync.md#creating-a-role-assignment)
+  * [Getting a Role Assignment](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldAsync.md#getting-a-role-assignment)
+  * [Deleting a Role Assignment](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_RbacHelloWorldAsync.md#deleting-a-role-assignment)
 * Backup and restore
-  * [Performing a full key backup](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_BackupHelloWorldAsync.md#performing-a-full-key-backup)
-  * [Performing a full key restore](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_BackupHelloWorldAsync.md#performing-a-full-key-restore)
+  * [Performing a full key backup](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_BackupHelloWorldAsync.md#performing-a-full-key-backup)
+  * [Performing a full key restore](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample1_BackupHelloWorldAsync.md#performing-a-full-key-restore)
 * EKM connection
-  * [Creating an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldAsync.md#creating-an-ekm-connection)
-  * [Getting an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldAsync.md#getting-an-ekm-connection)
-  * [Checking an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldAsync.md#checking-an-ekm-connection)
-  * [Updating an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldAsync.md#updating-an-ekm-connection)
-  * [Retrieving the EKM client certificate](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldAsync.md#retrieving-the-ekm-client-certificate)
-  * [Deleting an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldAsync.md#deleting-an-ekm-connection)
+  * [Creating an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldAsync.md#creating-an-ekm-connection)
+  * [Getting an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldAsync.md#getting-an-ekm-connection)
+  * [Checking an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldAsync.md#checking-an-ekm-connection)
+  * [Updating an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldAsync.md#updating-an-ekm-connection)
+  * [Retrieving the EKM client certificate](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldAsync.md#retrieving-the-ekm-client-certificate)
+  * [Deleting an EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample5_EkmHelloWorldAsync.md#deleting-an-ekm-connection)
+* EKM proxy private endpoints
+  * [Creating an EKM proxy private endpoint](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample6_EkmPrivateEndpointAsync.md#creating-an-ekm-proxy-private-endpoint)
+  * [Getting an EKM proxy private endpoint](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample6_EkmPrivateEndpointAsync.md#getting-an-ekm-proxy-private-endpoint)
+  * [Listing EKM proxy private endpoints](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample6_EkmPrivateEndpointAsync.md#listing-ekm-proxy-private-endpoints)
+  * [Creating a private EKM connection](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample6_EkmPrivateEndpointAsync.md#creating-a-private-ekm-connection)
+  * [Deleting an EKM proxy private endpoint](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples/Sample6_EkmPrivateEndpointAsync.md#deleting-an-ekm-proxy-private-endpoint)
 
 ## Troubleshooting
 
-See our [troubleshooting guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/TROUBLESHOOTING.md)
+See our [troubleshooting guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/TROUBLESHOOTING.md)
 for details on how to diagnose various failure scenarios.
 
 ### General
@@ -305,7 +317,7 @@ additional questions or comments.
 [access_policy]: https://learn.microsoft.com/azure/key-vault/general/assign-access-policy
 [rbac_guide]: https://learn.microsoft.com/azure/key-vault/general/rbac-guide
 [azure_cli]: https://learn.microsoft.com/cli/azure
-[azure_identity]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/identity/Azure.Identity
+[azure_identity]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/identity/Azure.Identity
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
 [best_practices]: https://learn.microsoft.com/azure/key-vault/managed-hsm/best-practices
 [built_in_roles]: https://learn.microsoft.com/azure/key-vault/managed-hsm/built-in-roles
@@ -313,10 +325,10 @@ additional questions or comments.
 [managedhsm_docs]: https://learn.microsoft.com/azure/key-vault/managed-hsm/
 [keyvault_rest]: https://learn.microsoft.com/rest/api/keyvault/
 [admin_client_nuget_package]: https://www.nuget.org/packages?q=Azure.Security.KeyVault.Administration
-[admin_client_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/samples
-[admin_client_src]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/src
+[admin_client_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/samples
+[admin_client_src]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Administration/src
 [nuget]: https://www.nuget.org/
-[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/identity/Azure.Identity/README.md#defaultazurecredential
-[logging]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.3/sdk/core/Azure.Core/samples/Diagnostics.md
+[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/identity/Azure.Identity/README.md#defaultazurecredential
+[logging]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.9.0-beta.4/sdk/core/Azure.Core/samples/Diagnostics.md
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
