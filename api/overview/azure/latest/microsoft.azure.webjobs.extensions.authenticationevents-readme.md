@@ -167,14 +167,14 @@ It's a good idea to test the function locally before deploying it to Azure. We c
 ```json
 {
     "type": "microsoft.graph.authenticationEvent.tokenIssuanceStart",
-    "source": "/tenants/30000000-0000-0000-0000-000000000003/applications/40000000-0000-0000-0000-000000000002",
+    "source": "/tenants/aaaabbbb-0000-cccc-1111-dddd2222eeee/applications/00001111-aaaa-2222-bbbb-3333cccc4444",
     "data": {
         "@odata.type": "microsoft.graph.onTokenIssuanceStartCalloutData",
-        "tenantId": "30000000-0000-0000-0000-000000000003",
+        "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
         "authenticationEventListenerId": "10000000-0000-0000-0000-000000000001",
         "customAuthenticationExtensionId": "10000000-0000-0000-0000-000000000002",
         "authenticationContext": {
-            "correlationId": "20000000-0000-0000-0000-000000000002",
+            "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
             "client": {
                 "ip": "127.0.0.1",
                 "locale": "en-us",
@@ -183,13 +183,13 @@ It's a good idea to test the function locally before deploying it to Azure. We c
             "protocol": "OAUTH2.0",
             "clientServicePrincipal": {
                 "id": "40000000-0000-0000-0000-000000000001",
-                "appId": "40000000-0000-0000-0000-000000000002",
+                "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
                 "appDisplayName": "My Test application",
                 "displayName": "My Test application"
             },
             "resourceServicePrincipal": {
                 "id": "40000000-0000-0000-0000-000000000003",
-                "appId": "40000000-0000-0000-0000-000000000004",
+                "appId": "11112222-bbbb-3333-cccc-4444dddd5555",
                 "appDisplayName": "My Test application",
                 "displayName": "My Test application"
             },
@@ -283,4 +283,3 @@ more information see the [Code of Conduct FAQ][coc_faq] or contact
 [cg]: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents_1.1.0/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
-
