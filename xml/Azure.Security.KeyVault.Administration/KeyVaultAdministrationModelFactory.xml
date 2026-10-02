@@ -181,11 +181,11 @@
       </Docs>
     </Member>
     <Member MemberName="KeyVaultEkmConnection">
-      <MemberSignature Language="C#" Value="public static Azure.Security.KeyVault.Administration.KeyVaultEkmConnection KeyVaultEkmConnection (string hostName = default, string pathPrefix = default, System.Collections.Generic.IEnumerable&lt;BinaryData&gt; serverCaCertificates = default, string serverSubjectCommonName = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Security.KeyVault.Administration.KeyVaultEkmConnection KeyVaultEkmConnection(string hostName, string pathPrefix, class System.Collections.Generic.IEnumerable`1&lt;class System.BinaryData&gt; serverCaCertificates, string serverSubjectCommonName) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Security.KeyVault.Administration.KeyVaultAdministrationModelFactory.KeyVaultEkmConnection(System.String,System.String,System.Collections.Generic.IEnumerable{System.BinaryData},System.String)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function KeyVaultEkmConnection (Optional hostName As String = Nothing, Optional pathPrefix As String = Nothing, Optional serverCaCertificates As IEnumerable(Of BinaryData) = Nothing, Optional serverSubjectCommonName As String = Nothing) As KeyVaultEkmConnection" />
-      <MemberSignature Language="F#" Value="static member KeyVaultEkmConnection : string * string * seq&lt;BinaryData&gt; * string -&gt; Azure.Security.KeyVault.Administration.KeyVaultEkmConnection" Usage="Azure.Security.KeyVault.Administration.KeyVaultAdministrationModelFactory.KeyVaultEkmConnection (hostName, pathPrefix, serverCaCertificates, serverSubjectCommonName)" />
+      <MemberSignature Language="C#" Value="public static Azure.Security.KeyVault.Administration.KeyVaultEkmConnection KeyVaultEkmConnection (string hostName = default, string pathPrefix = default, System.Collections.Generic.IEnumerable&lt;BinaryData&gt; serverCaCertificates = default, string serverSubjectCommonName = default, Azure.Security.KeyVault.Administration.KeyVaultEkmConnectivityMode? connectivityMode = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Security.KeyVault.Administration.KeyVaultEkmConnection KeyVaultEkmConnection(string hostName, string pathPrefix, class System.Collections.Generic.IEnumerable`1&lt;class System.BinaryData&gt; serverCaCertificates, string serverSubjectCommonName, valuetype System.Nullable`1&lt;valuetype Azure.Security.KeyVault.Administration.KeyVaultEkmConnectivityMode&gt; connectivityMode) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.KeyVault.Administration.KeyVaultAdministrationModelFactory.KeyVaultEkmConnection(System.String,System.String,System.Collections.Generic.IEnumerable{System.BinaryData},System.String,System.Nullable{Azure.Security.KeyVault.Administration.KeyVaultEkmConnectivityMode})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function KeyVaultEkmConnection (Optional hostName As String = Nothing, Optional pathPrefix As String = Nothing, Optional serverCaCertificates As IEnumerable(Of BinaryData) = Nothing, Optional serverSubjectCommonName As String = Nothing, Optional connectivityMode As Nullable(Of KeyVaultEkmConnectivityMode) = Nothing) As KeyVaultEkmConnection" />
+      <MemberSignature Language="F#" Value="static member KeyVaultEkmConnection : string * string * seq&lt;BinaryData&gt; * string * Nullable&lt;Azure.Security.KeyVault.Administration.KeyVaultEkmConnectivityMode&gt; -&gt; Azure.Security.KeyVault.Administration.KeyVaultEkmConnection" Usage="Azure.Security.KeyVault.Administration.KeyVaultAdministrationModelFactory.KeyVaultEkmConnection (hostName, pathPrefix, serverCaCertificates, serverSubjectCommonName, connectivityMode)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.KeyVault.Administration</AssemblyName>
@@ -199,14 +199,142 @@
         <Parameter Name="pathPrefix" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="serverCaCertificates" Type="System.Collections.Generic.IEnumerable&lt;System.BinaryData&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="serverSubjectCommonName" Type="System.String" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="connectivityMode" Type="System.Nullable&lt;Azure.Security.KeyVault.Administration.KeyVaultEkmConnectivityMode&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
       </Parameters>
       <Docs>
         <param name="hostName"> EKM proxy FQDN (Fully Qualified Domain Name). Only allowed characters are a-z, A-Z, 0-9, hyphen (-), dot (.), and colon (:). </param>
         <param name="pathPrefix"> Optional path prefix for the EKM proxy (if any). </param>
         <param name="serverCaCertificates"> The root CA certificate chain that issued the proxy server's certificate. An array of certificates in the certificate chain, each in DER format and base64 encoded. </param>
         <param name="serverSubjectCommonName"> The subject common name of the server certificate of EKM Proxy. </param>
+        <param name="connectivityMode"> The connectivity mode used to reach the EKM proxy. Defaults to "Public". In "PrivateEndpoint" mode, the host field holds the name of a private endpoint (peName) instead of a DNS name or IP address. </param>
         <summary> A EkmConnection model object. </summary>
         <returns> A new <see cref="T:Azure.Security.KeyVault.Administration.KeyVaultEkmConnection" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="KeyVaultEkmPrivateEndpoint">
+      <MemberSignature Language="C#" Value="public static Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpoint KeyVaultEkmPrivateEndpoint (string name = default, string location = default, Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointProvisioningState? provisioningState = default, Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointProperties properties = default, Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointConnectionState privateLinkServiceConnectionState = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpoint KeyVaultEkmPrivateEndpoint(string name, string location, valuetype System.Nullable`1&lt;valuetype Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointProvisioningState&gt; provisioningState, class Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointProperties properties, class Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointConnectionState privateLinkServiceConnectionState) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.KeyVault.Administration.KeyVaultAdministrationModelFactory.KeyVaultEkmPrivateEndpoint(System.String,System.String,System.Nullable{Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointProvisioningState},Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointProperties,Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointConnectionState)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function KeyVaultEkmPrivateEndpoint (Optional name As String = Nothing, Optional location As String = Nothing, Optional provisioningState As Nullable(Of KeyVaultEkmPrivateEndpointProvisioningState) = Nothing, Optional properties As KeyVaultEkmPrivateEndpointProperties = Nothing, Optional privateLinkServiceConnectionState As KeyVaultEkmPrivateEndpointConnectionState = Nothing) As KeyVaultEkmPrivateEndpoint" />
+      <MemberSignature Language="F#" Value="static member KeyVaultEkmPrivateEndpoint : string * string * Nullable&lt;Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointProvisioningState&gt; * Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointProperties * Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointConnectionState -&gt; Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpoint" Usage="Azure.Security.KeyVault.Administration.KeyVaultAdministrationModelFactory.KeyVaultEkmPrivateEndpoint (name, location, provisioningState, properties, privateLinkServiceConnectionState)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.KeyVault.Administration</AssemblyName>
+        <AssemblyVersion>4.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpoint</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="location" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="provisioningState" Type="System.Nullable&lt;Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointProvisioningState&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="properties" Type="Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointProperties" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="privateLinkServiceConnectionState" Type="Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointConnectionState" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="name"> The name of the private endpoint (peName). </param>
+        <param name="location"> The Azure region where the private endpoint is provisioned. </param>
+        <param name="provisioningState"> The provisioning state of the private endpoint. </param>
+        <param name="properties"> The properties of the private endpoint. </param>
+        <param name="privateLinkServiceConnectionState"> The state of the connection between the private endpoint and the Private Link Service. </param>
+        <summary> An EKM proxy private endpoint. </summary>
+        <returns> A new <see cref="T:Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpoint" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="KeyVaultEkmPrivateEndpointConnectionState">
+      <MemberSignature Language="C#" Value="public static Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointConnectionState KeyVaultEkmPrivateEndpointConnectionState (Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointConnectionStatus? status = default, string description = default, string actionsRequired = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointConnectionState KeyVaultEkmPrivateEndpointConnectionState(valuetype System.Nullable`1&lt;valuetype Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointConnectionStatus&gt; status, string description, string actionsRequired) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.KeyVault.Administration.KeyVaultAdministrationModelFactory.KeyVaultEkmPrivateEndpointConnectionState(System.Nullable{Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointConnectionStatus},System.String,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function KeyVaultEkmPrivateEndpointConnectionState (Optional status As Nullable(Of KeyVaultEkmPrivateEndpointConnectionStatus) = Nothing, Optional description As String = Nothing, Optional actionsRequired As String = Nothing) As KeyVaultEkmPrivateEndpointConnectionState" />
+      <MemberSignature Language="F#" Value="static member KeyVaultEkmPrivateEndpointConnectionState : Nullable&lt;Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointConnectionStatus&gt; * string * string -&gt; Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointConnectionState" Usage="Azure.Security.KeyVault.Administration.KeyVaultAdministrationModelFactory.KeyVaultEkmPrivateEndpointConnectionState (status, description, actionsRequired)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.KeyVault.Administration</AssemblyName>
+        <AssemblyVersion>4.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointConnectionState</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="status" Type="System.Nullable&lt;Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointConnectionStatus&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="description" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="actionsRequired" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="status"> The status of the private link service connection. </param>
+        <param name="description"> A description of the current connection state. </param>
+        <param name="actionsRequired"> Any actions required from the customer to maintain the connection. </param>
+        <summary> The state of the connection between the private endpoint and the Private Link Service. </summary>
+        <returns> A new <see cref="T:Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointConnectionState" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="KeyVaultEkmPrivateEndpointOperation">
+      <MemberSignature Language="C#" Value="public static Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointOperation KeyVaultEkmPrivateEndpointOperation (string jobId = default, string privateEndpointName = default, Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointOperationType? operationType = default, Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointOperationStatus? status = default, string statusDetails = default, DateTimeOffset? startsOn = default, DateTimeOffset? endsOn = default, string errorCode = default, string errorMessage = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointOperation KeyVaultEkmPrivateEndpointOperation(string jobId, string privateEndpointName, valuetype System.Nullable`1&lt;valuetype Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointOperationType&gt; operationType, valuetype System.Nullable`1&lt;valuetype Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointOperationStatus&gt; status, string statusDetails, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; startsOn, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; endsOn, string errorCode, string errorMessage) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.KeyVault.Administration.KeyVaultAdministrationModelFactory.KeyVaultEkmPrivateEndpointOperation(System.String,System.String,System.Nullable{Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointOperationType},System.Nullable{Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointOperationStatus},System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.String,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function KeyVaultEkmPrivateEndpointOperation (Optional jobId As String = Nothing, Optional privateEndpointName As String = Nothing, Optional operationType As Nullable(Of KeyVaultEkmPrivateEndpointOperationType) = Nothing, Optional status As Nullable(Of KeyVaultEkmPrivateEndpointOperationStatus) = Nothing, Optional statusDetails As String = Nothing, Optional startsOn As Nullable(Of DateTimeOffset) = Nothing, Optional endsOn As Nullable(Of DateTimeOffset) = Nothing, Optional errorCode As String = Nothing, Optional errorMessage As String = Nothing) As KeyVaultEkmPrivateEndpointOperation" />
+      <MemberSignature Language="F#" Value="static member KeyVaultEkmPrivateEndpointOperation : string * string * Nullable&lt;Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointOperationType&gt; * Nullable&lt;Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointOperationStatus&gt; * string * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; * string * string -&gt; Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointOperation" Usage="Azure.Security.KeyVault.Administration.KeyVaultAdministrationModelFactory.KeyVaultEkmPrivateEndpointOperation (jobId, privateEndpointName, operationType, status, statusDetails, startsOn, endsOn, errorCode, errorMessage)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.KeyVault.Administration</AssemblyName>
+        <AssemblyVersion>4.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointOperation</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="privateEndpointName" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="operationType" Type="System.Nullable&lt;Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointOperationType&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="status" Type="System.Nullable&lt;Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointOperationStatus&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="statusDetails" Type="System.String" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="startsOn" Type="System.Nullable&lt;System.DateTimeOffset&gt;" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="endsOn" Type="System.Nullable&lt;System.DateTimeOffset&gt;" Index="6" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="errorCode" Type="System.String" Index="7" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="errorMessage" Type="System.String" Index="8" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="jobId"> Identifier for the private endpoint operation. </param>
+        <param name="privateEndpointName"> The name of the private endpoint the operation applies to. </param>
+        <param name="operationType"> The type of the operation. </param>
+        <param name="status"> The status of the operation. </param>
+        <param name="statusDetails"> The status details of the operation. </param>
+        <param name="startsOn"> The start time of the operation in UTC. </param>
+        <param name="endsOn"> The end time of the operation in UTC. </param>
+        <param name="errorCode"> The code of the error encountered, if any, during the operation. </param>
+        <param name="errorMessage"> The message of the error encountered, if any, during the operation. </param>
+        <summary> Initializes a new instance of <see cref="T:Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointOperation" />. </summary>
+        <returns> A new <see cref="T:Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointOperation" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="KeyVaultEkmPrivateEndpointProperties">
+      <MemberSignature Language="C#" Value="public static Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointProperties KeyVaultEkmPrivateEndpointProperties (string privateLinkServiceAlias = default, string privateLinkServiceConnectionName = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointProperties KeyVaultEkmPrivateEndpointProperties(string privateLinkServiceAlias, string privateLinkServiceConnectionName) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.KeyVault.Administration.KeyVaultAdministrationModelFactory.KeyVaultEkmPrivateEndpointProperties(System.String,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function KeyVaultEkmPrivateEndpointProperties (Optional privateLinkServiceAlias As String = Nothing, Optional privateLinkServiceConnectionName As String = Nothing) As KeyVaultEkmPrivateEndpointProperties" />
+      <MemberSignature Language="F#" Value="static member KeyVaultEkmPrivateEndpointProperties : string * string -&gt; Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointProperties" Usage="Azure.Security.KeyVault.Administration.KeyVaultAdministrationModelFactory.KeyVaultEkmPrivateEndpointProperties (privateLinkServiceAlias, privateLinkServiceConnectionName)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.KeyVault.Administration</AssemblyName>
+        <AssemblyVersion>4.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointProperties</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="privateLinkServiceAlias" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="privateLinkServiceConnectionName" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="privateLinkServiceAlias"> Alias of the Private Link Service that the private endpoint connects to. </param>
+        <param name="privateLinkServiceConnectionName"> The name of the private link service connection, generated by the service. </param>
+        <summary> The properties of an EKM proxy private endpoint. </summary>
+        <returns> A new <see cref="T:Azure.Security.KeyVault.Administration.KeyVaultEkmPrivateEndpointProperties" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

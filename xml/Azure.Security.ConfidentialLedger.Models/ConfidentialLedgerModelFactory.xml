@@ -545,11 +545,11 @@
       </Docs>
     </Member>
     <Member MemberName="LedgerWriteResult">
-      <MemberSignature Language="C#" Value="public static Azure.Security.ConfidentialLedger.Models.LedgerWriteResult LedgerWriteResult (string transactionId = default, string collectionId = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Security.ConfidentialLedger.Models.LedgerWriteResult LedgerWriteResult(string transactionId, string collectionId) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Security.ConfidentialLedger.Models.ConfidentialLedgerModelFactory.LedgerWriteResult(System.String,System.String)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function LedgerWriteResult (Optional transactionId As String = Nothing, Optional collectionId As String = Nothing) As LedgerWriteResult" />
-      <MemberSignature Language="F#" Value="static member LedgerWriteResult : string * string -&gt; Azure.Security.ConfidentialLedger.Models.LedgerWriteResult" Usage="Azure.Security.ConfidentialLedger.Models.ConfidentialLedgerModelFactory.LedgerWriteResult (transactionId, collectionId)" />
+      <MemberSignature Language="C#" Value="public static Azure.Security.ConfidentialLedger.Models.LedgerWriteResult LedgerWriteResult (string transactionId = default, string collectionId = default, Azure.Security.ConfidentialLedger.Models.ReceiptContents receipt = default, Azure.Security.ConfidentialLedger.Models.TransactionState state = default, System.Collections.Generic.IEnumerable&lt;Azure.Security.ConfidentialLedger.Models.ApplicationClaim&gt; applicationClaims = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Security.ConfidentialLedger.Models.LedgerWriteResult LedgerWriteResult(string transactionId, string collectionId, class Azure.Security.ConfidentialLedger.Models.ReceiptContents receipt, valuetype Azure.Security.ConfidentialLedger.Models.TransactionState state, class System.Collections.Generic.IEnumerable`1&lt;class Azure.Security.ConfidentialLedger.Models.ApplicationClaim&gt; applicationClaims) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.ConfidentialLedger.Models.ConfidentialLedgerModelFactory.LedgerWriteResult(System.String,System.String,Azure.Security.ConfidentialLedger.Models.ReceiptContents,Azure.Security.ConfidentialLedger.Models.TransactionState,System.Collections.Generic.IEnumerable{Azure.Security.ConfidentialLedger.Models.ApplicationClaim})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function LedgerWriteResult (Optional transactionId As String = Nothing, Optional collectionId As String = Nothing, Optional receipt As ReceiptContents = Nothing, Optional state As TransactionState = Nothing, Optional applicationClaims As IEnumerable(Of ApplicationClaim) = Nothing) As LedgerWriteResult" />
+      <MemberSignature Language="F#" Value="static member LedgerWriteResult : string * string * Azure.Security.ConfidentialLedger.Models.ReceiptContents * Azure.Security.ConfidentialLedger.Models.TransactionState * seq&lt;Azure.Security.ConfidentialLedger.Models.ApplicationClaim&gt; -&gt; Azure.Security.ConfidentialLedger.Models.LedgerWriteResult" Usage="Azure.Security.ConfidentialLedger.Models.ConfidentialLedgerModelFactory.LedgerWriteResult (transactionId, collectionId, receipt, state, applicationClaims)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.ConfidentialLedger</AssemblyName>
@@ -561,10 +561,16 @@
       <Parameters>
         <Parameter Name="transactionId" Type="System.String" />
         <Parameter Name="collectionId" Type="System.String" />
+        <Parameter Name="receipt" Type="Azure.Security.ConfidentialLedger.Models.ReceiptContents" />
+        <Parameter Name="state" Type="Azure.Security.ConfidentialLedger.Models.TransactionState" />
+        <Parameter Name="applicationClaims" Type="System.Collections.Generic.IEnumerable&lt;Azure.Security.ConfidentialLedger.Models.ApplicationClaim&gt;" />
       </Parameters>
       <Docs>
         <param name="transactionId"> The transaction id at which this write will become durable. </param>
         <param name="collectionId"> The collection identifier of the ledger entry. </param>
+        <param name="receipt"> The receipt certifying the committed transaction. </param>
+        <param name="state"> State of the write transaction. </param>
+        <param name="applicationClaims"> The list of application claims. </param>
         <summary>
             Returned as a result of a write to the Confidential Ledger, the transaction id
             in the response indicates when the write will become durable.

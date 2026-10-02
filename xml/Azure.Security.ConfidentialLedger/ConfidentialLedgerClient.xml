@@ -248,11 +248,11 @@ Console.WriteLine(result.GetProperty("collectionId").ToString());
       </Docs>
     </Member>
     <Member MemberName="CreateLedgerEntry">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response CreateLedgerEntry (Azure.Core.RequestContent content, string collectionId = default, string tags = default, Azure.RequestContext context = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response CreateLedgerEntry(class Azure.Core.RequestContent content, string collectionId, string tags, class Azure.RequestContext context) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.CreateLedgerEntry(Azure.Core.RequestContent,System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateLedgerEntry (content As RequestContent, Optional collectionId As String = Nothing, Optional tags As String = Nothing, Optional context As RequestContext = Nothing) As Response" />
-      <MemberSignature Language="F#" Value="abstract member CreateLedgerEntry : Azure.Core.RequestContent * string * string * Azure.RequestContext -&gt; Azure.Response&#xA;override this.CreateLedgerEntry : Azure.Core.RequestContent * string * string * Azure.RequestContext -&gt; Azure.Response" Usage="confidentialLedgerClient.CreateLedgerEntry (content, collectionId, tags, context)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response CreateLedgerEntry (Azure.Core.RequestContent content, string collectionId = default, string tags = default, bool? waitForCommit = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response CreateLedgerEntry(class Azure.Core.RequestContent content, string collectionId, string tags, valuetype System.Nullable`1&lt;bool&gt; waitForCommit, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.CreateLedgerEntry(Azure.Core.RequestContent,System.String,System.String,System.Nullable{System.Boolean},Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateLedgerEntry (content As RequestContent, Optional collectionId As String = Nothing, Optional tags As String = Nothing, Optional waitForCommit As Nullable(Of Boolean) = Nothing, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="F#" Value="abstract member CreateLedgerEntry : Azure.Core.RequestContent * string * string * Nullable&lt;bool&gt; * Azure.RequestContext -&gt; Azure.Response&#xA;override this.CreateLedgerEntry : Azure.Core.RequestContent * string * string * Nullable&lt;bool&gt; * Azure.RequestContext -&gt; Azure.Response" Usage="confidentialLedgerClient.CreateLedgerEntry (content, collectionId, tags, waitForCommit, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.ConfidentialLedger</AssemblyName>
@@ -265,86 +265,49 @@ Console.WriteLine(result.GetProperty("collectionId").ToString());
         <Parameter Name="content" Type="Azure.Core.RequestContent" Index="0" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="collectionId" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="tags" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="context" Type="Azure.RequestContext" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="waitForCommit" Type="System.Nullable&lt;System.Boolean&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="context" Type="Azure.RequestContext" Index="4" FrameworkAlternate="azure-dotnet-preview" />
       </Parameters>
       <Docs>
         <param name="content"> The content to send as the body of the request. </param>
         <param name="collectionId"> The collection id. </param>
         <param name="tags"> Comma separated tags. </param>
+        <param name="waitForCommit">
+            Whether to wait for the transaction to be globally committed before
+            returning. When true, the response includes the transaction receipt, but
+            a disconnect before the response is received can prevent recovery of the
+            specific write. Use the default behavior and poll the transaction status
+            or receipt endpoints when unambiguous per-request recovery is required.
+            </param>
         <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
-            [Protocol Method] A collection id may optionally be specified.
+            [Protocol Method] A collection id may optionally be specified. By default, the operation
+            returns after local commit with an `x-ms-ccf-transaction-id` that callers can
+            use with the `/app/transactions/{transactionId}/status` and
+            `/app/transactions/{transactionId}/receipt` endpoints, including after
+            reconnecting.
+            When `waitForCommit` is true, the response is held until the transaction is
+            globally committed. If the connection is lost before the response is
+            received, the caller might not receive the transaction ID and cannot
+            uniquely recover the specific write. Clients that require unambiguous
+            per-request recovery should use the default behavior and poll using the
+            returned transaction ID.
+            For more information, see [Azure Confidential Ledger write transaction
+            receipts](https://learn.microsoft.com/azure/confidential-ledger/write-transaction-receipts).
             <list type="bullet"><item><description> This <see href="https://aka.ms/azsdk/net/protocol-methods">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios. </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
-        <example>
-This sample shows how to call CreateLedgerEntry and parse the result.
-<code><![CDATA[
-TokenCredential credential = new DefaultAzureCredential();
-ConfidentialLedgerClient client = new ConfidentialLedgerClient(new Uri("http://localhost:3000"), credential);
-
-using RequestContent content = RequestContent.Create(new
-{
-    contents = "<contents>",
-});
-Response response = client.CreateLedgerEntry(content);
-
-JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-Console.WriteLine(result.GetProperty("collectionId").ToString());
-]]></code>
-This sample shows how to call CreateLedgerEntry with all parameters and request content and parse the result.
-<code><![CDATA[
-TokenCredential credential = new DefaultAzureCredential();
-ConfidentialLedgerClient client = new ConfidentialLedgerClient(new Uri("http://localhost:3000"), credential);
-
-using RequestContent content = RequestContent.Create(new
-{
-    contents = "<contents>",
-    preHooks = new object[]
-    {
-        new
-        {
-            functionId = "<functionId>",
-            properties = new
-            {
-                arguments = new object[]
-                {
-                    "<arguments>"
-                },
-                exportedFunctionName = "<exportedFunctionName>",
-                runtimeOptions = new
-                {
-                    log_exception_details = true,
-                    max_cached_interpreters = 1234L,
-                    max_execution_time_ms = 1234L,
-                    max_heap_bytes = 1234L,
-                    max_stack_bytes = 1234L,
-                    return_exception_details = true,
-                },
-            },
-        }
-    },
-    postHooks = new object[]
-    {
-        null
-    },
-});
-Response response = client.CreateLedgerEntry(content, collectionId: "<collectionId>", tags: "<tags>");
-
-JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-Console.WriteLine(result.GetProperty("collectionId").ToString());
-]]></code></example>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="content" /> is null. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
       </Docs>
     </Member>
     <Member MemberName="CreateLedgerEntry">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Security.ConfidentialLedger.Models.LedgerWriteResult&gt; CreateLedgerEntry (Azure.Security.ConfidentialLedger.Models.LedgerEntry entry, string collectionId = default, string tags = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Security.ConfidentialLedger.Models.LedgerWriteResult&gt; CreateLedgerEntry(class Azure.Security.ConfidentialLedger.Models.LedgerEntry entry, string collectionId, string tags, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.CreateLedgerEntry(Azure.Security.ConfidentialLedger.Models.LedgerEntry,System.String,System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateLedgerEntry (entry As LedgerEntry, Optional collectionId As String = Nothing, Optional tags As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Response(Of LedgerWriteResult)" />
-      <MemberSignature Language="F#" Value="abstract member CreateLedgerEntry : Azure.Security.ConfidentialLedger.Models.LedgerEntry * string * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Security.ConfidentialLedger.Models.LedgerWriteResult&gt;&#xA;override this.CreateLedgerEntry : Azure.Security.ConfidentialLedger.Models.LedgerEntry * string * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Security.ConfidentialLedger.Models.LedgerWriteResult&gt;" Usage="confidentialLedgerClient.CreateLedgerEntry (entry, collectionId, tags, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Security.ConfidentialLedger.Models.LedgerWriteResult&gt; CreateLedgerEntry (Azure.Security.ConfidentialLedger.Models.LedgerEntry entry, string collectionId = default, string tags = default, bool? waitForCommit = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Security.ConfidentialLedger.Models.LedgerWriteResult&gt; CreateLedgerEntry(class Azure.Security.ConfidentialLedger.Models.LedgerEntry entry, string collectionId, string tags, valuetype System.Nullable`1&lt;bool&gt; waitForCommit, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.CreateLedgerEntry(Azure.Security.ConfidentialLedger.Models.LedgerEntry,System.String,System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateLedgerEntry (entry As LedgerEntry, Optional collectionId As String = Nothing, Optional tags As String = Nothing, Optional waitForCommit As Nullable(Of Boolean) = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Response(Of LedgerWriteResult)" />
+      <MemberSignature Language="F#" Value="abstract member CreateLedgerEntry : Azure.Security.ConfidentialLedger.Models.LedgerEntry * string * string * Nullable&lt;bool&gt; * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Security.ConfidentialLedger.Models.LedgerWriteResult&gt;&#xA;override this.CreateLedgerEntry : Azure.Security.ConfidentialLedger.Models.LedgerEntry * string * string * Nullable&lt;bool&gt; * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Security.ConfidentialLedger.Models.LedgerWriteResult&gt;" Usage="confidentialLedgerClient.CreateLedgerEntry (entry, collectionId, tags, waitForCommit, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.ConfidentialLedger</AssemblyName>
@@ -357,14 +320,36 @@ Console.WriteLine(result.GetProperty("collectionId").ToString());
         <Parameter Name="entry" Type="Azure.Security.ConfidentialLedger.Models.LedgerEntry" Index="0" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="collectionId" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="tags" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="waitForCommit" Type="System.Nullable&lt;System.Boolean&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="4" FrameworkAlternate="azure-dotnet-preview" />
       </Parameters>
       <Docs>
         <param name="entry"> Ledger entry. </param>
         <param name="collectionId"> The collection id. </param>
         <param name="tags"> Comma separated tags. </param>
+        <param name="waitForCommit">
+            Whether to wait for the transaction to be globally committed before
+            returning. When true, the response includes the transaction receipt, but
+            a disconnect before the response is received can prevent recovery of the
+            specific write. Use the default behavior and poll the transaction status
+            or receipt endpoints when unambiguous per-request recovery is required.
+            </param>
         <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
-        <summary> A collection id may optionally be specified. </summary>
+        <summary>
+            A collection id may optionally be specified. By default, the operation
+            returns after local commit with an `x-ms-ccf-transaction-id` that callers can
+            use with the `/app/transactions/{transactionId}/status` and
+            `/app/transactions/{transactionId}/receipt` endpoints, including after
+            reconnecting.
+            When `waitForCommit` is true, the response is held until the transaction is
+            globally committed. If the connection is lost before the response is
+            received, the caller might not receive the transaction ID and cannot
+            uniquely recover the specific write. Clients that require unambiguous
+            per-request recovery should use the default behavior and poll using the
+            returned transaction ID.
+            For more information, see [Azure Confidential Ledger write transaction
+            receipts](https://learn.microsoft.com/azure/confidential-ledger/write-transaction-receipts).
+            </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -463,11 +448,11 @@ Console.WriteLine(result.GetProperty("collectionId").ToString());
       </Docs>
     </Member>
     <Member MemberName="CreateLedgerEntryAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; CreateLedgerEntryAsync (Azure.Core.RequestContent content, string collectionId = default, string tags = default, Azure.RequestContext context = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; CreateLedgerEntryAsync(class Azure.Core.RequestContent content, string collectionId, string tags, class Azure.RequestContext context) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.CreateLedgerEntryAsync(Azure.Core.RequestContent,System.String,System.String,Azure.RequestContext)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateLedgerEntryAsync (content As RequestContent, Optional collectionId As String = Nothing, Optional tags As String = Nothing, Optional context As RequestContext = Nothing) As Task(Of Response)" />
-      <MemberSignature Language="F#" Value="abstract member CreateLedgerEntryAsync : Azure.Core.RequestContent * string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.CreateLedgerEntryAsync : Azure.Core.RequestContent * string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="confidentialLedgerClient.CreateLedgerEntryAsync (content, collectionId, tags, context)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; CreateLedgerEntryAsync (Azure.Core.RequestContent content, string collectionId = default, string tags = default, bool? waitForCommit = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; CreateLedgerEntryAsync(class Azure.Core.RequestContent content, string collectionId, string tags, valuetype System.Nullable`1&lt;bool&gt; waitForCommit, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.CreateLedgerEntryAsync(Azure.Core.RequestContent,System.String,System.String,System.Nullable{System.Boolean},Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateLedgerEntryAsync (content As RequestContent, Optional collectionId As String = Nothing, Optional tags As String = Nothing, Optional waitForCommit As Nullable(Of Boolean) = Nothing, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member CreateLedgerEntryAsync : Azure.Core.RequestContent * string * string * Nullable&lt;bool&gt; * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.CreateLedgerEntryAsync : Azure.Core.RequestContent * string * string * Nullable&lt;bool&gt; * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="confidentialLedgerClient.CreateLedgerEntryAsync (content, collectionId, tags, waitForCommit, context)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.ConfidentialLedger</AssemblyName>
@@ -480,86 +465,49 @@ Console.WriteLine(result.GetProperty("collectionId").ToString());
         <Parameter Name="content" Type="Azure.Core.RequestContent" Index="0" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="collectionId" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="tags" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="context" Type="Azure.RequestContext" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="waitForCommit" Type="System.Nullable&lt;System.Boolean&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="context" Type="Azure.RequestContext" Index="4" FrameworkAlternate="azure-dotnet-preview" />
       </Parameters>
       <Docs>
         <param name="content"> The content to send as the body of the request. </param>
         <param name="collectionId"> The collection id. </param>
         <param name="tags"> Comma separated tags. </param>
+        <param name="waitForCommit">
+            Whether to wait for the transaction to be globally committed before
+            returning. When true, the response includes the transaction receipt, but
+            a disconnect before the response is received can prevent recovery of the
+            specific write. Use the default behavior and poll the transaction status
+            or receipt endpoints when unambiguous per-request recovery is required.
+            </param>
         <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         <summary>
-            [Protocol Method] A collection id may optionally be specified.
+            [Protocol Method] A collection id may optionally be specified. By default, the operation
+            returns after local commit with an `x-ms-ccf-transaction-id` that callers can
+            use with the `/app/transactions/{transactionId}/status` and
+            `/app/transactions/{transactionId}/receipt` endpoints, including after
+            reconnecting.
+            When `waitForCommit` is true, the response is held until the transaction is
+            globally committed. If the connection is lost before the response is
+            received, the caller might not receive the transaction ID and cannot
+            uniquely recover the specific write. Clients that require unambiguous
+            per-request recovery should use the default behavior and poll using the
+            returned transaction ID.
+            For more information, see [Azure Confidential Ledger write transaction
+            receipts](https://learn.microsoft.com/azure/confidential-ledger/write-transaction-receipts).
             <list type="bullet"><item><description> This <see href="https://aka.ms/azsdk/net/protocol-methods">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios. </description></item></list></summary>
         <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
-        <example>
-This sample shows how to call CreateLedgerEntryAsync and parse the result.
-<code><![CDATA[
-TokenCredential credential = new DefaultAzureCredential();
-ConfidentialLedgerClient client = new ConfidentialLedgerClient(new Uri("http://localhost:3000"), credential);
-
-using RequestContent content = RequestContent.Create(new
-{
-    contents = "<contents>",
-});
-Response response = await client.CreateLedgerEntryAsync(content);
-
-JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-Console.WriteLine(result.GetProperty("collectionId").ToString());
-]]></code>
-This sample shows how to call CreateLedgerEntryAsync with all parameters and request content and parse the result.
-<code><![CDATA[
-TokenCredential credential = new DefaultAzureCredential();
-ConfidentialLedgerClient client = new ConfidentialLedgerClient(new Uri("http://localhost:3000"), credential);
-
-using RequestContent content = RequestContent.Create(new
-{
-    contents = "<contents>",
-    preHooks = new object[]
-    {
-        new
-        {
-            functionId = "<functionId>",
-            properties = new
-            {
-                arguments = new object[]
-                {
-                    "<arguments>"
-                },
-                exportedFunctionName = "<exportedFunctionName>",
-                runtimeOptions = new
-                {
-                    log_exception_details = true,
-                    max_cached_interpreters = 1234L,
-                    max_execution_time_ms = 1234L,
-                    max_heap_bytes = 1234L,
-                    max_stack_bytes = 1234L,
-                    return_exception_details = true,
-                },
-            },
-        }
-    },
-    postHooks = new object[]
-    {
-        null
-    },
-});
-Response response = await client.CreateLedgerEntryAsync(content, collectionId: "<collectionId>", tags: "<tags>");
-
-JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-Console.WriteLine(result.GetProperty("collectionId").ToString());
-]]></code></example>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="content" /> is null. </exception>
         <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
       </Docs>
     </Member>
     <Member MemberName="CreateLedgerEntryAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.ConfidentialLedger.Models.LedgerWriteResult&gt;&gt; CreateLedgerEntryAsync (Azure.Security.ConfidentialLedger.Models.LedgerEntry entry, string collectionId = default, string tags = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Security.ConfidentialLedger.Models.LedgerWriteResult&gt;&gt; CreateLedgerEntryAsync(class Azure.Security.ConfidentialLedger.Models.LedgerEntry entry, string collectionId, string tags, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.CreateLedgerEntryAsync(Azure.Security.ConfidentialLedger.Models.LedgerEntry,System.String,System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateLedgerEntryAsync (entry As LedgerEntry, Optional collectionId As String = Nothing, Optional tags As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of LedgerWriteResult))" />
-      <MemberSignature Language="F#" Value="abstract member CreateLedgerEntryAsync : Azure.Security.ConfidentialLedger.Models.LedgerEntry * string * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.ConfidentialLedger.Models.LedgerWriteResult&gt;&gt;&#xA;override this.CreateLedgerEntryAsync : Azure.Security.ConfidentialLedger.Models.LedgerEntry * string * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.ConfidentialLedger.Models.LedgerWriteResult&gt;&gt;" Usage="confidentialLedgerClient.CreateLedgerEntryAsync (entry, collectionId, tags, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.ConfidentialLedger.Models.LedgerWriteResult&gt;&gt; CreateLedgerEntryAsync (Azure.Security.ConfidentialLedger.Models.LedgerEntry entry, string collectionId = default, string tags = default, bool? waitForCommit = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Security.ConfidentialLedger.Models.LedgerWriteResult&gt;&gt; CreateLedgerEntryAsync(class Azure.Security.ConfidentialLedger.Models.LedgerEntry entry, string collectionId, string tags, valuetype System.Nullable`1&lt;bool&gt; waitForCommit, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.CreateLedgerEntryAsync(Azure.Security.ConfidentialLedger.Models.LedgerEntry,System.String,System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateLedgerEntryAsync (entry As LedgerEntry, Optional collectionId As String = Nothing, Optional tags As String = Nothing, Optional waitForCommit As Nullable(Of Boolean) = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of LedgerWriteResult))" />
+      <MemberSignature Language="F#" Value="abstract member CreateLedgerEntryAsync : Azure.Security.ConfidentialLedger.Models.LedgerEntry * string * string * Nullable&lt;bool&gt; * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.ConfidentialLedger.Models.LedgerWriteResult&gt;&gt;&#xA;override this.CreateLedgerEntryAsync : Azure.Security.ConfidentialLedger.Models.LedgerEntry * string * string * Nullable&lt;bool&gt; * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.ConfidentialLedger.Models.LedgerWriteResult&gt;&gt;" Usage="confidentialLedgerClient.CreateLedgerEntryAsync (entry, collectionId, tags, waitForCommit, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.ConfidentialLedger</AssemblyName>
@@ -572,14 +520,36 @@ Console.WriteLine(result.GetProperty("collectionId").ToString());
         <Parameter Name="entry" Type="Azure.Security.ConfidentialLedger.Models.LedgerEntry" Index="0" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="collectionId" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="tags" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="waitForCommit" Type="System.Nullable&lt;System.Boolean&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="4" FrameworkAlternate="azure-dotnet-preview" />
       </Parameters>
       <Docs>
         <param name="entry"> Ledger entry. </param>
         <param name="collectionId"> The collection id. </param>
         <param name="tags"> Comma separated tags. </param>
+        <param name="waitForCommit">
+            Whether to wait for the transaction to be globally committed before
+            returning. When true, the response includes the transaction receipt, but
+            a disconnect before the response is received can prevent recovery of the
+            specific write. Use the default behavior and poll the transaction status
+            or receipt endpoints when unambiguous per-request recovery is required.
+            </param>
         <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
-        <summary> A collection id may optionally be specified. </summary>
+        <summary>
+            A collection id may optionally be specified. By default, the operation
+            returns after local commit with an `x-ms-ccf-transaction-id` that callers can
+            use with the `/app/transactions/{transactionId}/status` and
+            `/app/transactions/{transactionId}/receipt` endpoints, including after
+            reconnecting.
+            When `waitForCommit` is true, the response is held until the transaction is
+            globally committed. If the connection is lost before the response is
+            received, the caller might not receive the transaction ID and cannot
+            uniquely recover the specific write. Clients that require unambiguous
+            per-request recovery should use the default behavior and poll using the
+            returned transaction ID.
+            For more information, see [Azure Confidential Ledger write transaction
+            receipts](https://learn.microsoft.com/azure/confidential-ledger/write-transaction-receipts).
+            </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -6453,6 +6423,41 @@ await foreach (BinaryData item in client.GetUsersAsync())
              </code></remarks>
       </Docs>
     </Member>
+    <Member MemberName="PostLedgerEntry">
+      <MemberSignature Language="C#" Value="public virtual Azure.Operation PostLedgerEntry (Azure.WaitUntil waitUntil, Azure.Core.RequestContent content, bool waitForCommit, string collectionId = default, string tags = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Operation PostLedgerEntry(valuetype Azure.WaitUntil waitUntil, class Azure.Core.RequestContent content, bool waitForCommit, string collectionId, string tags, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.PostLedgerEntry(Azure.WaitUntil,Azure.Core.RequestContent,System.Boolean,System.String,System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function PostLedgerEntry (waitUntil As WaitUntil, content As RequestContent, waitForCommit As Boolean, Optional collectionId As String = Nothing, Optional tags As String = Nothing, Optional context As RequestContext = Nothing) As Operation" />
+      <MemberSignature Language="F#" Value="abstract member PostLedgerEntry : Azure.WaitUntil * Azure.Core.RequestContent * bool * string * string * Azure.RequestContext -&gt; Azure.Operation&#xA;override this.PostLedgerEntry : Azure.WaitUntil * Azure.Core.RequestContent * bool * string * string * Azure.RequestContext -&gt; Azure.Operation" Usage="confidentialLedgerClient.PostLedgerEntry (waitUntil, content, waitForCommit, collectionId, tags, context)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.ConfidentialLedger</AssemblyName>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Operation</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="content" Type="Azure.Core.RequestContent" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="waitForCommit" Type="System.Boolean" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="collectionId" Type="System.String" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="tags" Type="System.String" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="context" Type="Azure.RequestContext" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="waitUntil">
+          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>.</param>
+        <param name="content"> The content to send as the body of the request. </param>
+        <param name="waitForCommit"> When <see langword="true" />, the service holds the response until the transaction is globally committed and the returned <see cref="T:Azure.Operation" /> is already completed (no status polling is performed). When <see langword="false" />, the call returns after local commit and the transaction is tracked via status polling. </param>
+        <param name="collectionId"> The collection id. </param>
+        <param name="tags"> The tags. </param>
+        <param name="context"> The request context. </param>
+        <summary> Posts a new entry to the ledger, optionally waiting for the entry to be globally committed before returning. </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="PostLedgerEntryAsync">
       <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Operation&gt; PostLedgerEntryAsync (Azure.WaitUntil waitUntil, Azure.Core.RequestContent content, string collectionId = default, Azure.RequestContext context = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Operation&gt; PostLedgerEntryAsync(valuetype Azure.WaitUntil waitUntil, class Azure.Core.RequestContent content, string collectionId, class Azure.RequestContext context) cil managed" />
@@ -6544,6 +6549,41 @@ await foreach (BinaryData item in client.GetUsersAsync())
                transactionId: string, # Optional. A unique identifier for the state of the ledger. If returned as part of a LedgerEntry, it indicates the state from which the entry was read.
              }
              </code></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PostLedgerEntryAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Operation&gt; PostLedgerEntryAsync (Azure.WaitUntil waitUntil, Azure.Core.RequestContent content, bool waitForCommit, string collectionId = default, string tags = default, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Operation&gt; PostLedgerEntryAsync(valuetype Azure.WaitUntil waitUntil, class Azure.Core.RequestContent content, bool waitForCommit, string collectionId, string tags, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.PostLedgerEntryAsync(Azure.WaitUntil,Azure.Core.RequestContent,System.Boolean,System.String,System.String,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function PostLedgerEntryAsync (waitUntil As WaitUntil, content As RequestContent, waitForCommit As Boolean, Optional collectionId As String = Nothing, Optional tags As String = Nothing, Optional context As RequestContext = Nothing) As Task(Of Operation)" />
+      <MemberSignature Language="F#" Value="abstract member PostLedgerEntryAsync : Azure.WaitUntil * Azure.Core.RequestContent * bool * string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Operation&gt;&#xA;override this.PostLedgerEntryAsync : Azure.WaitUntil * Azure.Core.RequestContent * bool * string * string * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Operation&gt;" Usage="confidentialLedgerClient.PostLedgerEntryAsync (waitUntil, content, waitForCommit, collectionId, tags, context)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.ConfidentialLedger</AssemblyName>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Operation&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="content" Type="Azure.Core.RequestContent" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="waitForCommit" Type="System.Boolean" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="collectionId" Type="System.String" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="tags" Type="System.String" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="context" Type="Azure.RequestContext" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="waitUntil">
+          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>.</param>
+        <param name="content"> The content to send as the body of the request. </param>
+        <param name="waitForCommit"> When <see langword="true" />, the service holds the response until the transaction is globally committed and the returned <see cref="T:Azure.Operation" /> is already completed (no status polling is performed). When <see langword="false" />, the call returns after local commit and the transaction is tracked via status polling. </param>
+        <param name="collectionId"> The collection id. </param>
+        <param name="tags"> The tags. </param>
+        <param name="context"> The request context. </param>
+        <summary> Posts a new entry to the ledger, optionally waiting for the entry to be globally committed before returning. </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="RehydratePostLedgerEntryOperation">
