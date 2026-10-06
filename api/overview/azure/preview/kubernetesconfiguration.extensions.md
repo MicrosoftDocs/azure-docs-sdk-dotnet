@@ -1,7 +1,7 @@
 ---
 title: Azure Kubernetesconfiguration.Extensions SDK for .NET
 description: Reference for Azure Kubernetesconfiguration.Extensions SDK for .NET
-ms.date: 10/05/2026
+ms.date: 10/06/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: kubernetesconfiguration.extensions
