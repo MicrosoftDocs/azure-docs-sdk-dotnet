@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.AI.AgentServer.Optimization, agentserver
-ms.date: 10/01/2026
+ms.date: 10/06/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: agentserver
@@ -94,5 +94,5 @@ When troubleshooting configuration resolution, set the environment variables for
 
 ## Contributing
 
-This project welcomes contributions and suggestions. See [CONTRIBUTING.md](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AgentServer.Optimization_1.0.0-beta.1/CONTRIBUTING.md) for details.
+This project welcomes contributions and suggestions. See [CONTRIBUTING.md](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md) for details.
 
