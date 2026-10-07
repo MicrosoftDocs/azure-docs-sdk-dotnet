@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: communication
 ---
-# Azure Communication JobRouter client library for .NET - version 1.1.0-alpha.20261007.1 
+# Azure Communication JobRouter client library for .NET - version 1.1.0-alpha.20261007.5 
 
 
 This package contains a C# SDK for Azure Communication Services for JobRouter.
