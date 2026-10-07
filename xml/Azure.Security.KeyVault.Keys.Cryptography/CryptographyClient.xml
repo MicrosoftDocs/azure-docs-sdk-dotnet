@@ -916,6 +916,43 @@
       </Docs>
     </Member>
     <Member MemberName="Sign">
+      <MemberSignature Language="C#" Value="public virtual Azure.Security.KeyVault.Keys.Cryptography.SignResult Sign (Azure.Security.KeyVault.Keys.Cryptography.MLDsaSignOptions options, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Security.KeyVault.Keys.Cryptography.SignResult Sign(class Azure.Security.KeyVault.Keys.Cryptography.MLDsaSignOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.KeyVault.Keys.Cryptography.CryptographyClient.Sign(Azure.Security.KeyVault.Keys.Cryptography.MLDsaSignOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Sign (options As MLDsaSignOptions, Optional cancellationToken As CancellationToken = Nothing) As SignResult" />
+      <MemberSignature Language="F#" Value="abstract member Sign : Azure.Security.KeyVault.Keys.Cryptography.MLDsaSignOptions * System.Threading.CancellationToken -&gt; Azure.Security.KeyVault.Keys.Cryptography.SignResult&#xA;override this.Sign : Azure.Security.KeyVault.Keys.Cryptography.MLDsaSignOptions * System.Threading.CancellationToken -&gt; Azure.Security.KeyVault.Keys.Cryptography.SignResult" Usage="cryptographyClient.Sign (options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.KeyVault.Keys</AssemblyName>
+        <AssemblyVersion>4.11.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Security.KeyVault.Keys.Cryptography.SignResult</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="Azure.Security.KeyVault.Keys.Cryptography.MLDsaSignOptions" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="options">The <see cref="T:Azure.Security.KeyVault.Keys.Cryptography.MLDsaSignOptions" /> describing the message or external mu to sign and any optional context.</param>
+        <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> to cancel the operation.</param>
+        <summary>
+            Signs a message using a post-quantum ML-DSA (AKP) key.
+            </summary>
+        <returns>
+            The result of the sign operation. The returned <see cref="T:Azure.Security.KeyVault.Keys.Cryptography.SignResult" /> contains the signature
+            along with all other information needed to verify it. This information should be stored with the signature.
+            </returns>
+        <remarks>
+            The algorithm is inferred from the key and is not specified by the caller. This operation is always performed by the vault and is not supported by local-only clients.
+            </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="options" /> is null.</exception>
+        <exception cref="T:System.InvalidOperationException">The client was constructed with a local key and cannot perform this operation.</exception>
+        <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Sign">
       <MemberSignature Language="C#" Value="public virtual Azure.Security.KeyVault.Keys.Cryptography.SignResult Sign (Azure.Security.KeyVault.Keys.Cryptography.SignatureAlgorithm algorithm, byte[] digest, System.Threading.CancellationToken cancellationToken = default);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Security.KeyVault.Keys.Cryptography.SignResult Sign(valuetype Azure.Security.KeyVault.Keys.Cryptography.SignatureAlgorithm algorithm, unsigned int8[] digest, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Security.KeyVault.Keys.Cryptography.CryptographyClient.Sign(Azure.Security.KeyVault.Keys.Cryptography.SignatureAlgorithm,System.Byte[],System.Threading.CancellationToken)" />
@@ -951,6 +988,43 @@
         <exception cref="T:System.Security.Cryptography.CryptographicException">The local cryptographic provider threw an exception.</exception>
         <exception cref="T:System.InvalidOperationException">The key is invalid for the current operation.</exception>
         <exception cref="T:System.NotSupportedException">The operation is not supported with the specified key.</exception>
+        <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="SignAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Security.KeyVault.Keys.Cryptography.SignResult&gt; SignAsync (Azure.Security.KeyVault.Keys.Cryptography.MLDsaSignOptions options, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Security.KeyVault.Keys.Cryptography.SignResult&gt; SignAsync(class Azure.Security.KeyVault.Keys.Cryptography.MLDsaSignOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.KeyVault.Keys.Cryptography.CryptographyClient.SignAsync(Azure.Security.KeyVault.Keys.Cryptography.MLDsaSignOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function SignAsync (options As MLDsaSignOptions, Optional cancellationToken As CancellationToken = Nothing) As Task(Of SignResult)" />
+      <MemberSignature Language="F#" Value="abstract member SignAsync : Azure.Security.KeyVault.Keys.Cryptography.MLDsaSignOptions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Security.KeyVault.Keys.Cryptography.SignResult&gt;&#xA;override this.SignAsync : Azure.Security.KeyVault.Keys.Cryptography.MLDsaSignOptions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Security.KeyVault.Keys.Cryptography.SignResult&gt;" Usage="cryptographyClient.SignAsync (options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.KeyVault.Keys</AssemblyName>
+        <AssemblyVersion>4.11.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Security.KeyVault.Keys.Cryptography.SignResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="Azure.Security.KeyVault.Keys.Cryptography.MLDsaSignOptions" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="options">The <see cref="T:Azure.Security.KeyVault.Keys.Cryptography.MLDsaSignOptions" /> describing the message or external mu to sign and any optional context.</param>
+        <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> to cancel the operation.</param>
+        <summary>
+            Signs a message using a post-quantum ML-DSA (AKP) key.
+            </summary>
+        <returns>
+            The result of the sign operation. The returned <see cref="T:Azure.Security.KeyVault.Keys.Cryptography.SignResult" /> contains the signature
+            along with all other information needed to verify it. This information should be stored with the signature.
+            </returns>
+        <remarks>
+            The algorithm is inferred from the key and is not specified by the caller. This operation is always performed by the vault and is not supported by local-only clients.
+            </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="options" /> is null.</exception>
+        <exception cref="T:System.InvalidOperationException">The client was constructed with a local key and cannot perform this operation.</exception>
         <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
       </Docs>
     </Member>
@@ -1240,6 +1314,42 @@
       </Docs>
     </Member>
     <Member MemberName="Verify">
+      <MemberSignature Language="C#" Value="public virtual Azure.Security.KeyVault.Keys.Cryptography.VerifyResult Verify (Azure.Security.KeyVault.Keys.Cryptography.MLDsaVerifyOptions options, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Security.KeyVault.Keys.Cryptography.VerifyResult Verify(class Azure.Security.KeyVault.Keys.Cryptography.MLDsaVerifyOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.KeyVault.Keys.Cryptography.CryptographyClient.Verify(Azure.Security.KeyVault.Keys.Cryptography.MLDsaVerifyOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Verify (options As MLDsaVerifyOptions, Optional cancellationToken As CancellationToken = Nothing) As VerifyResult" />
+      <MemberSignature Language="F#" Value="abstract member Verify : Azure.Security.KeyVault.Keys.Cryptography.MLDsaVerifyOptions * System.Threading.CancellationToken -&gt; Azure.Security.KeyVault.Keys.Cryptography.VerifyResult&#xA;override this.Verify : Azure.Security.KeyVault.Keys.Cryptography.MLDsaVerifyOptions * System.Threading.CancellationToken -&gt; Azure.Security.KeyVault.Keys.Cryptography.VerifyResult" Usage="cryptographyClient.Verify (options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.KeyVault.Keys</AssemblyName>
+        <AssemblyVersion>4.11.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Security.KeyVault.Keys.Cryptography.VerifyResult</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="Azure.Security.KeyVault.Keys.Cryptography.MLDsaVerifyOptions" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="options">The <see cref="T:Azure.Security.KeyVault.Keys.Cryptography.MLDsaVerifyOptions" /> describing the signature to verify, the message or external mu, and any optional context.</param>
+        <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> to cancel the operation.</param>
+        <summary>
+            Verifies a signature using a post-quantum ML-DSA (AKP) key.
+            </summary>
+        <returns>
+            The result of the verify operation. If the signature is valid the <see cref="P:Azure.Security.KeyVault.Keys.Cryptography.VerifyResult.IsValid" /> property of the returned <see cref="T:Azure.Security.KeyVault.Keys.Cryptography.VerifyResult" /> will be set to true.
+            </returns>
+        <remarks>
+            The algorithm is inferred from the key and is not specified by the caller. This operation is always performed by the vault and is not supported by local-only clients.
+            </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="options" /> is null.</exception>
+        <exception cref="T:System.InvalidOperationException">The client was constructed with a local key and cannot perform this operation.</exception>
+        <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Verify">
       <MemberSignature Language="C#" Value="public virtual Azure.Security.KeyVault.Keys.Cryptography.VerifyResult Verify (Azure.Security.KeyVault.Keys.Cryptography.SignatureAlgorithm algorithm, byte[] digest, byte[] signature, System.Threading.CancellationToken cancellationToken = default);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Security.KeyVault.Keys.Cryptography.VerifyResult Verify(valuetype Azure.Security.KeyVault.Keys.Cryptography.SignatureAlgorithm algorithm, unsigned int8[] digest, unsigned int8[] signature, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Security.KeyVault.Keys.Cryptography.CryptographyClient.Verify(Azure.Security.KeyVault.Keys.Cryptography.SignatureAlgorithm,System.Byte[],System.Byte[],System.Threading.CancellationToken)" />
@@ -1276,6 +1386,42 @@
         <exception cref="T:System.Security.Cryptography.CryptographicException">The local cryptographic provider threw an exception.</exception>
         <exception cref="T:System.InvalidOperationException">The key is invalid for the current operation.</exception>
         <exception cref="T:System.NotSupportedException">The operation is not supported with the specified key.</exception>
+        <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="VerifyAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Security.KeyVault.Keys.Cryptography.VerifyResult&gt; VerifyAsync (Azure.Security.KeyVault.Keys.Cryptography.MLDsaVerifyOptions options, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Security.KeyVault.Keys.Cryptography.VerifyResult&gt; VerifyAsync(class Azure.Security.KeyVault.Keys.Cryptography.MLDsaVerifyOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.KeyVault.Keys.Cryptography.CryptographyClient.VerifyAsync(Azure.Security.KeyVault.Keys.Cryptography.MLDsaVerifyOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function VerifyAsync (options As MLDsaVerifyOptions, Optional cancellationToken As CancellationToken = Nothing) As Task(Of VerifyResult)" />
+      <MemberSignature Language="F#" Value="abstract member VerifyAsync : Azure.Security.KeyVault.Keys.Cryptography.MLDsaVerifyOptions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Security.KeyVault.Keys.Cryptography.VerifyResult&gt;&#xA;override this.VerifyAsync : Azure.Security.KeyVault.Keys.Cryptography.MLDsaVerifyOptions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Security.KeyVault.Keys.Cryptography.VerifyResult&gt;" Usage="cryptographyClient.VerifyAsync (options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.KeyVault.Keys</AssemblyName>
+        <AssemblyVersion>4.11.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Security.KeyVault.Keys.Cryptography.VerifyResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="Azure.Security.KeyVault.Keys.Cryptography.MLDsaVerifyOptions" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="options">The <see cref="T:Azure.Security.KeyVault.Keys.Cryptography.MLDsaVerifyOptions" /> describing the signature to verify, the message or external mu, and any optional context.</param>
+        <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> to cancel the operation.</param>
+        <summary>
+            Verifies a signature using a post-quantum ML-DSA (AKP) key.
+            </summary>
+        <returns>
+            The result of the verify operation. If the signature is valid the <see cref="P:Azure.Security.KeyVault.Keys.Cryptography.VerifyResult.IsValid" /> property of the returned <see cref="T:Azure.Security.KeyVault.Keys.Cryptography.VerifyResult" /> will be set to true.
+            </returns>
+        <remarks>
+            The algorithm is inferred from the key and is not specified by the caller. This operation is always performed by the vault and is not supported by local-only clients.
+            </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="options" /> is null.</exception>
+        <exception cref="T:System.InvalidOperationException">The client was constructed with a local key and cannot perform this operation.</exception>
         <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
       </Docs>
     </Member>
