@@ -9,7 +9,8 @@ ms.service: servicebus
 # Azure Service Bus client library for .NET - version 5.2.0 
 
 
-> Please be aware that a newer package, [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) is available as of November 2020. While this package will continue to receive critical bug fixes, we strongly encourage upgrading for new development. Please see the [migration guide](https://aka.ms/azsdk/net/migrate/sb) for more details.
+> [!IMPORTANT]
+> `Microsoft.Azure.ServiceBus` was retired on September 30, 2026 and no longer receives official support or updates from Microsoft. This page describes the retired library. Use [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) for supported applications, and follow the [migration guide](https://aka.ms/azsdk/net/migrate/sb) to update existing applications.
 
 Azure Service Bus allows you to build applications that take advantage of asynchronous messaging patterns using a highly-reliable service to broker messages between producers and consumers. Azure Service Bus provides flexible, brokered messaging between client and server, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities with complex routing.
 
@@ -57,9 +58,7 @@ For information on building the Azure Service bus client library, please see [Bu
 
 1. Deploy the Azure Resource Manager template located at [sdk/servicebus/Microsoft.Azure.ServiceBus/assets/azure-deploy-test-dependencies.json](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.ServiceBus_5.2.0/sdk/servicebus/Microsoft.Azure.ServiceBus/assets/azure-deploy-test-dependencies.json) by clicking the following button:
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-sdk-for-net%2Fmaster%2Fsdk%2Fservicebus%2FMicrosoft.Azure.ServiceBus%2Fassets%2Fazure-deploy-test-dependencies.json" target="_blank">
-       <img src="http://azuredeploy.net/deploybutton.png"/>
-   </a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-sdk-for-net%2Fmaster%2Fsdk%2Fservicebus%2FMicrosoft.Azure.ServiceBus%2Fassets%2Fazure-deploy-test-dependencies.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/> </a>
 
    *Running the above template will provision a standard Service Bus namespace along with the required entities to successfully run the unit tests.*
 
@@ -88,6 +87,5 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 - [Azure Service Bus General Documentation](https://docs.microsoft.com/azure/service-bus-messaging/)
 - [Azure Service Bus REST API Reference](https://docs.microsoft.com/rest/api/servicebus/)
 - [Azure Service Bus SDK for .NET Documentation](https://docs.microsoft.com/dotnet/api/overview/azure/service-bus?view=azure-dotnet)
-
 
 
