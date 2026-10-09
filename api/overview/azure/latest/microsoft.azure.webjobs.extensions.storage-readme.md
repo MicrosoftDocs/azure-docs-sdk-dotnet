@@ -1,12 +1,12 @@
 ---
 title: Azure WebJobs Storage Blobs and Queues client library for .NET
 keywords: Azure, dotnet, SDK, API, Microsoft.Azure.WebJobs.Extensions.Storage, storage
-ms.date: 09/02/2026
+ms.date: 10/09/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: storage
 ---
-# Azure WebJobs Storage Blobs and Queues client library for .NET - version 5.3.9 
+# Azure WebJobs Storage Blobs and Queues client library for .NET - version 5.3.10 
 
 
 This extension provides functionality for accessing Azure Storage Blobs and Queues in Azure Functions. This package is a metapackage created for backwards compatibity. Using `Azure.WebJobs.Extensions.Storage.Blobs` and `Azure.WebJobs.Extensions.Storage.Queues` directly is recommended.
@@ -48,15 +48,15 @@ The connection string can be supplied through [AzureWebJobsStorage app setting](
 
 ### Using Queues
 
-Please refer to [Azure WebJobs Storage Queues](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage_5.3.9/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues).
+Please refer to [Azure WebJobs Storage Queues](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage_5.3.10/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues).
 
 ### Using Blobs
 
-Please refer to [Azure WebJobs Storage Blobs](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage_5.3.9/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs).
+Please refer to [Azure WebJobs Storage Blobs](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage_5.3.10/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs).
 
 ## Examples
 
-Please refer to [Azure WebJobs Storage Queues](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage_5.3.9/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues) and [Azure WebJobs Storage Blobs](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage_5.3.9/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs).
+Please refer to [Azure WebJobs Storage Queues](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage_5.3.10/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues) and [Azure WebJobs Storage Blobs](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage_5.3.10/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs).
 
 ## Troubleshooting
 
@@ -88,8 +88,8 @@ additional questions or comments.
 [storage_account_create_cli]: https://learn.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli
 [storage_account_create_portal]: https://learn.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
-[RequestFailedException]: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage_5.3.9/sdk/core/Azure.Core/src/RequestFailedException.cs
-[storage_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.Storage_5.3.9/sdk/storage/CONTRIBUTING.md
+[RequestFailedException]: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage_5.3.10/sdk/core/Azure.Core/src/RequestFailedException.cs
+[storage_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.Storage_5.3.10/sdk/storage/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
