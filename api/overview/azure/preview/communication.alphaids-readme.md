@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: communication
 ---
-# Azure Communication Alpha ID client library for .NET - version 1.0.0-alpha.20261009.1 
+# Azure Communication Alpha ID client library for .NET - version 1.0.0-alpha.20261009.2 
 
 
 This package contains a C# SDK for Azure Communication Services for Alpha IDs.
