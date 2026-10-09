@@ -1,12 +1,12 @@
 ---
 title: Azure AI Projects client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Projects, ai
-ms.date: 09/23/2026
+ms.date: 10/09/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: ai
 ---
-# Azure AI Projects client library for .NET - version 3.0.0-beta.3 
+# Azure AI Projects client library for .NET - version 3.0.0-alpha.20261008.2 
 
 The AI Projects client library is part of the Azure AI Foundry SDK and provides easy access to resources in your Azure AI Foundry Project. Use it to:
 
@@ -54,6 +54,8 @@ The client library uses version `v1` of the AI Foundry [data plane REST APIs](ht
     - [Evaluating responses](#evaluating-responses)
     - [Evaluation rules](#evaluation-rules)
     - [Evaluation insights](#evaluation-insights)
+    - [Evaluator generation job](#evaluator-generation-job)
+    - [Data generation jobs](#data-generation-jobs)
   - [Red teams](#red-teams)
   - [Schedules](#schedules)
   - [Toolboxes](#toolboxes)
@@ -1479,20 +1481,18 @@ ProjectsAgentVersion agentVersion = await projectClient.AgentAdministrationClien
     agentName: "evalAgent",
     options: new(agentDefinition));
 Console.WriteLine($"Agent created (id: {agentVersion.Id}, name: {agentVersion.Name}, version: {agentVersion.Version})");
-EvaluatorGenerationJob job = new()
-{
-    Inputs = new EvaluatorGenerationInputs(
-        sources: [new AgentEvaluatorGenerationJobSource(agentName: agentVersion.Name)],
-        model: modelDeploymentName,
-        evaluatorName: "coherence"
-    )
-};
+EvaluatorGenerationInputs job = new(
+    sources: [new AgentEvaluatorGenerationJobSource(agentName: agentVersion.Name)],
+    model: modelDeploymentName,
+    evaluatorName: "coherence"
+);
 ```
 
 To generate the evaluator, we need to start the job:
 
 ```C# Snippet:Sample_CreateJob_EvaluatorGenerationJob_Async
-EvaluatorGenerationJob runningJob = await projectClient.EvaluatorGenerationJobs.CreateAsync(job);
+OperationResult result = await projectClient.EvaluatorGenerationJobs.CreateAsync(waitUntilCompleted: true, job: job);
+EvaluatorGenerationJob runningJob = EvaluatorGenerationJob.FromClientResult(await result.UpdateStatusAsync());
 Console.WriteLine($"Created job ID: {runningJob.Id}");
 ```
 
@@ -1500,17 +1500,68 @@ After the generation job is complete, the `EvaluatorVersion` object will be retu
 in `runningJob.Result` property.
 
 ```C# Snippet:Sample_GetJob_EvaluatorGenerationJob_Async
-while (runningJob.Status != ProjectsJobStatus.Failed && runningJob.Status != ProjectsJobStatus.Succeeded)
-{
-    await Task.Delay(500);
-    Console.WriteLine($"Waiting for job ID: {runningJob.Id}...");
-    runningJob = await projectClient.EvaluatorGenerationJobs.GetAsync(jobId: runningJob.Id);
-}
 if (runningJob.Status == ProjectsJobStatus.Failed)
 {
     throw new InvalidOperationException($"The job {runningJob.Id} has failed.");
 }
 Console.WriteLine($"The job ID: {runningJob.Id} completed, created evaluator {runningJob.Result.Name}, v. {runningJob.Result.Version}");
+```
+
+#### Data generation jobs
+
+Microsoft Foundry provides the capability to generate data sets using AI models. It can be done using `DataGenerationJobs` client.
+In the sample below, we will generate 16 questions and answer pairs based on the provided prompt and will save them into the data set named "dataset-generation-eval-sample".
+
+```C# Snippet:Sample_UploadFile_DataGenerationJob
+EvaluationDataGenerationJobOutputConfiguration outputOptions = new()
+{
+    Name = "dataset-generation-eval-sample",
+    Description = "QnA pairs generated from the Contoso refund policy prompt.",
+};
+outputOptions.Tags["sample"] = "dataset-generation-with-evaluation";
+EvaluationDataGenerationJobInputs job = new(
+    name: "sampleGeneration",
+    sources: [new PromptDataGenerationJobSource(prompt: "Contoso offers a full refund within 30 days of purchase for any product " +
+            "returned in its original condition. After 30 days, store credit may be " +
+            "issued at the discretion of customer support. Digital goods are " +
+            "non-refundable once downloaded."){
+        Description = "Contoso refund policy"
+    }],
+    generationConfiguration: new SimpleQnADataGenerationJobConfiguration(maxSamples: 16)
+    {
+        ModelOptions = new(modelDeploymentName)
+    }
+)
+{
+    OutputConfiguration = outputOptions
+};
+```
+
+Start the data generation job.
+
+```C# Snippet:Sample_CreateJob_DataGenerationJob_Async
+DataGenerationJob runningJob = await projectClient.DataGenerationJobs.CreateAsync(job);
+Console.WriteLine($"Created job ID: {runningJob.Id}");
+```
+
+Wait for the job to arrive at a final state and print out data set ID and version.
+
+```C# Snippet:Sample_GetJob_DataGenerationJob_Async
+while (runningJob.Status != ProjectsJobStatus.Failed && runningJob.Status != ProjectsJobStatus.Succeeded)
+{
+    await Task.Delay(500);
+    Console.WriteLine($"Waiting for job ID: {runningJob.Id}...");
+    runningJob = await projectClient.DataGenerationJobs.GetAsync(jobId: runningJob.Id);
+}
+if (runningJob.Status == ProjectsJobStatus.Failed)
+{
+    throw new InvalidOperationException($"The job {runningJob.Id} has failed.");
+}
+Console.WriteLine($"The job ID: {runningJob.Id} completed");
+if (runningJob.Result.Outputs[0] is DatasetDataGenerationJobOutput dataOutput)
+{
+    Console.WriteLine($"Created the dataset {dataOutput.Name}, v. {dataOutput.Version}");
+}
 ```
 
 ### Red teams
@@ -1885,7 +1936,7 @@ For tracing to Azure Monitor from your application, the preferred option is to u
 dotnet add package Azure.Monitor.OpenTelemetry.AspNetCore
 ```
 
-More information about using the Azure.Monitor.OpenTelemetry.AspNetCore package can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Projects_3.0.0-beta.3/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/README.md).
+More information about using the Azure.Monitor.OpenTelemetry.AspNetCore package can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/README.md).
 
 Another option is to use Azure.Monitor.OpenTelemetry.Exporter package. Install the package with [NuGet](https://www.nuget.org/ ):
 ```dotnetcli
@@ -2053,7 +2104,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 [product_doc]: https://aka.ms/azsdk/azure-ai-projects-v2/product-doc
 [azure_identity]: https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet
 [azure_identity_dac]: https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
-[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Projects_3.0.0-beta.3/CONTRIBUTING.md
+[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
