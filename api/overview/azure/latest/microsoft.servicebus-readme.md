@@ -1,10 +1,11 @@
 ---
-title: Azure Service Bus client library for .NET
+title: Azure Service Bus .NET client library 5.1.1 (retired)
+description: Review the retired Microsoft.Azure.ServiceBus 5.1.1 library for .NET and find migration guidance for the supported Azure.Messaging.ServiceBus library.
 keywords: Azure, dotnet, SDK, API, Microsoft.Azure.ServiceBus, servicebus
 ms.date: 01/13/2021
 ms.topic: reference
 ms.devlang: dotnet
-ms.service: servicebus
+ms.service: azure-service-bus
 ---
 # Azure Service Bus client library for .NET - version 5.1.1 
 
@@ -25,13 +26,13 @@ Use the client library for Azure Service Bus to:
 
 - Implement complex workflows: message sessions support scenarios that require message ordering or message deferral.
 
-[Source code](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.ServiceBus_5.1.1/sdk/servicebus) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) | [API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/service-bus?view=azure-dotnet) | [Product documentation](https://docs.microsoft.com/azure/service-bus-messaging/)
+[Source code](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.ServiceBus_5.1.1/sdk/servicebus) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) | [API reference documentation](/dotnet/api/overview/azure/service-bus) | [Product documentation](/azure/service-bus-messaging/)
 
 ## Getting started
 
 The complete Microsoft Azure SDK can be downloaded from the [Microsoft Azure Downloads Page](https://azure.microsoft.com/downloads/?sdk=net) and ships with support for building deployment packages, integrating with tooling, rich command line tooling, and more.
 
-If you are not already familiar with Azure Service Bus, please review: [What is Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview).
+If you are not already familiar with Azure Service Bus, please review: [What is Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview).
 
 For the best development experience, developers should use the official Microsoft NuGet packages for libraries. NuGet packages are regularly updated with new functionality and hotfixes.
 
@@ -47,7 +48,7 @@ Code samples for the Azure Service Bus client library that detail how to get sta
 
 - [Azure Code Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=service-bus&platform=dotnet)
 - [Azure Service Bus Sample Repository](https://github.com/Azure/azure-service-bus/tree/master/samples/)
-- [Azure Service Bus Documentation](https://docs.microsoft.com/azure/service-bus-messaging/)
+- [Azure Service Bus Documentation](/azure/service-bus-messaging/)
 
 ## To build
 
@@ -57,7 +58,7 @@ For information on building the Azure Service bus client library, please see [Bu
 
 1. Deploy the Azure Resource Manager template located at [sdk/servicebus/Microsoft.Azure.ServiceBus/assets/azure-deploy-test-dependencies.json](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.ServiceBus_5.1.1/sdk/servicebus/Microsoft.Azure.ServiceBus/assets/azure-deploy-test-dependencies.json) by clicking the following button:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-sdk-for-net%2Fmaster%2Fsdk%2Fservicebus%2FMicrosoft.Azure.ServiceBus%2Fassets%2Fazure-deploy-test-dependencies.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/> </a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-sdk-for-net%2Fmaster%2Fsdk%2Fservicebus%2FMicrosoft.Azure.ServiceBus%2Fassets%2Fazure-deploy-test-dependencies.json" target="_blank"> <img src="https://aka.ms/deploytoazurebutton" alt="Deploy to Azure"/> </a>
 
     *Running the above template will provision a standard Service Bus namespace along with the required entities to successfully run the unit tests.*
 
@@ -83,8 +84,8 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ## Additional documentation
 
-- [Azure Service Bus General Documentation](https://docs.microsoft.com/azure/service-bus-messaging/)
-- [Azure Service Bus REST API Reference](https://docs.microsoft.com/rest/api/servicebus/)
-- [Azure Service Bus SDK for .NET Documentation](https://docs.microsoft.com/dotnet/api/overview/azure/service-bus?view=azure-dotnet)
+- [Azure Service Bus General Documentation](/azure/service-bus-messaging/)
+- [Azure Service Bus REST API Reference](/rest/api/servicebus/)
+- [Azure Service Bus SDK for .NET Documentation](/dotnet/api/overview/azure/service-bus)
 
 
