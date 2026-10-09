@@ -12,6 +12,7 @@
     <AssemblyVersion>1.2.1.0</AssemblyVersion>
     <AssemblyVersion>1.3.0.0</AssemblyVersion>
     <AssemblyVersion>1.4.0.0</AssemblyVersion>
+    <AssemblyVersion>1.5.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>Azure.ResourceManager.ArmCollection</BaseTypeName>
@@ -27,11 +28,20 @@
       <InterfaceName>System.Collections.IEnumerable</InterfaceName>
     </Interface>
   </Interfaces>
+  <Attributes>
+    <Attribute FrameworkAlternate="azure-dotnet-preview">
+      <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+    </Attribute>
+    <Attribute FrameworkAlternate="azure-dotnet-preview">
+      <AttributeName Language="C#">[System.Obsolete("This type is obsolete and will be removed in a future release. Use SqlDistributedAvailabilityGroupCollection instead.", false)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Obsolete("This type is obsolete and will be removed in a future release. Use SqlDistributedAvailabilityGroupCollection instead.", false)&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
     <summary>
-            A class representing a collection of <see cref="T:Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource" /> and their operations.
-            Each <see cref="T:Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource" /> in the collection will belong to the same instance of <see cref="T:Azure.ResourceManager.Sql.ManagedInstanceResource" />.
-            To get a <see cref="T:Azure.ResourceManager.Sql.DistributedAvailabilityGroupCollection" /> instance call the GetDistributedAvailabilityGroups method from an instance of <see cref="T:Azure.ResourceManager.Sql.ManagedInstanceResource" />.
+            A class representing a collection of <see cref="T:Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource" />.
+            Kept for backward compatibility; use <see cref="T:Azure.ResourceManager.Sql.SqlDistributedAvailabilityGroupCollection" /> instead.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>
@@ -45,6 +55,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Sql</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
@@ -62,6 +73,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Sql</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource&gt;</ReturnType>
@@ -78,9 +90,7 @@
         <param name="distributedAvailabilityGroupName"> The distributed availability group name. </param>
         <param name="data"> The distributed availability group info. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Creates a distributed availability group between Sql On-Prem and Sql Managed Instance.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/distributedAvailabilityGroups/{distributedAvailabilityGroupName}</description></item><item><term>Operation Id</term><description>DistributedAvailabilityGroups_CreateOrUpdate</description></item><item><term>Default Api Version</term><description>2021-11-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource" /></description></item></list></summary>
+        <summary> Creates or updates a distributed availability group. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
@@ -99,6 +109,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Sql</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource&gt;&gt;</ReturnType>
@@ -115,9 +126,7 @@
         <param name="distributedAvailabilityGroupName"> The distributed availability group name. </param>
         <param name="data"> The distributed availability group info. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Creates a distributed availability group between Sql On-Prem and Sql Managed Instance.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/distributedAvailabilityGroups/{distributedAvailabilityGroupName}</description></item><item><term>Operation Id</term><description>DistributedAvailabilityGroups_CreateOrUpdate</description></item><item><term>Default Api Version</term><description>2021-11-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource" /></description></item></list></summary>
+        <summary> Creates or updates a distributed availability group. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
@@ -136,6 +145,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Sql</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;System.Boolean&gt;</ReturnType>
@@ -147,9 +157,7 @@
       <Docs>
         <param name="distributedAvailabilityGroupName"> The distributed availability group name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Checks to see if the resource exists in azure.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/distributedAvailabilityGroups/{distributedAvailabilityGroupName}</description></item><item><term>Operation Id</term><description>DistributedAvailabilityGroups_Get</description></item><item><term>Default Api Version</term><description>2021-11-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource" /></description></item></list></summary>
+        <summary> Checks to see if the resource exists in azure. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
@@ -168,6 +176,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Sql</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;System.Boolean&gt;&gt;</ReturnType>
@@ -179,9 +188,7 @@
       <Docs>
         <param name="distributedAvailabilityGroupName"> The distributed availability group name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Checks to see if the resource exists in azure.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/distributedAvailabilityGroups/{distributedAvailabilityGroupName}</description></item><item><term>Operation Id</term><description>DistributedAvailabilityGroups_Get</description></item><item><term>Default Api Version</term><description>2021-11-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource" /></description></item></list></summary>
+        <summary> Checks to see if the resource exists in azure. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
@@ -200,6 +207,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Sql</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource&gt;</ReturnType>
@@ -211,9 +219,7 @@
       <Docs>
         <param name="distributedAvailabilityGroupName"> The distributed availability group name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Gets a distributed availability group info.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/distributedAvailabilityGroups/{distributedAvailabilityGroupName}</description></item><item><term>Operation Id</term><description>DistributedAvailabilityGroups_Get</description></item><item><term>Default Api Version</term><description>2021-11-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource" /></description></item></list></summary>
+        <summary> Gets a distributed availability group. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
@@ -232,6 +238,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Sql</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource&gt;</ReturnType>
@@ -241,9 +248,7 @@
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Gets a list of a distributed availability groups in instance.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/distributedAvailabilityGroups</description></item><item><term>Operation Id</term><description>DistributedAvailabilityGroups_ListByInstance</description></item><item><term>Default Api Version</term><description>2021-11-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource" /></description></item></list></summary>
+        <summary> Lists distributed availability groups. </summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -258,6 +263,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Sql</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource&gt;</ReturnType>
@@ -267,9 +273,7 @@
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Gets a list of a distributed availability groups in instance.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/distributedAvailabilityGroups</description></item><item><term>Operation Id</term><description>DistributedAvailabilityGroups_ListByInstance</description></item><item><term>Default Api Version</term><description>2021-11-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource" /></description></item></list></summary>
+        <summary> Lists distributed availability groups. </summary>
         <returns> An async collection of <see cref="T:Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -284,6 +288,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Sql</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource&gt;&gt;</ReturnType>
@@ -295,9 +300,7 @@
       <Docs>
         <param name="distributedAvailabilityGroupName"> The distributed availability group name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Gets a distributed availability group info.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/distributedAvailabilityGroups/{distributedAvailabilityGroupName}</description></item><item><term>Operation Id</term><description>DistributedAvailabilityGroups_Get</description></item><item><term>Default Api Version</term><description>2021-11-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource" /></description></item></list></summary>
+        <summary> Gets a distributed availability group. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
@@ -316,6 +319,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Sql</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.NullableResponse&lt;Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource&gt;</ReturnType>
@@ -327,9 +331,7 @@
       <Docs>
         <param name="distributedAvailabilityGroupName"> The distributed availability group name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Tries to get details for this resource from the service.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/distributedAvailabilityGroups/{distributedAvailabilityGroupName}</description></item><item><term>Operation Id</term><description>DistributedAvailabilityGroups_Get</description></item><item><term>Default Api Version</term><description>2021-11-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource" /></description></item></list></summary>
+        <summary> Tries to get details for this resource from the service. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
@@ -348,6 +350,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Sql</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.NullableResponse&lt;Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource&gt;&gt;</ReturnType>
@@ -359,9 +362,7 @@
       <Docs>
         <param name="distributedAvailabilityGroupName"> The distributed availability group name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Tries to get details for this resource from the service.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/distributedAvailabilityGroups/{distributedAvailabilityGroupName}</description></item><item><term>Operation Id</term><description>DistributedAvailabilityGroups_Get</description></item><item><term>Default Api Version</term><description>2021-11-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource" /></description></item></list></summary>
+        <summary> Tries to get details for this resource from the service. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
@@ -383,6 +384,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Sql</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Collections.Generic.IAsyncEnumerator&lt;Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource&gt;</ReturnType>
@@ -410,6 +412,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Sql</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Collections.Generic.IEnumerator&lt;Azure.ResourceManager.Sql.DistributedAvailabilityGroupResource&gt;</ReturnType>
@@ -434,6 +437,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Sql</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Collections.IEnumerator</ReturnType>
