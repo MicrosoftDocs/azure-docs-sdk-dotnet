@@ -1,12 +1,12 @@
 ---
 title: Azure Semantic Reranker client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Data.AI, dataai
-ms.date: 09/29/2026
+ms.date: 10/10/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: dataai
 ---
-# Azure Semantic Reranker client library for .NET - version 1.0.0-beta.1 
+# Azure Semantic Reranker client library for .NET - version 1.0.0-alpha.20261010.1 
 
 
 > [!IMPORTANT]
@@ -56,7 +56,7 @@ Use `InferenceClient.SemanticRerank` or `SemanticRerankAsync` to rerank document
 
 ## Examples
 
-See [Semantic reranking](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AI_1.0.0-beta.1/sdk/dataai/Azure.Data.AI/samples/Sample1_SemanticReranking.md).
+See [Semantic reranking](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/dataai/Azure.Data.AI/samples/Sample1_SemanticReranking.md).
 
 ## Troubleshooting
 
