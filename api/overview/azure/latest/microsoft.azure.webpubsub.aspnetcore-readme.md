@@ -1,12 +1,12 @@
 ---
 title: Azure Web PubSub service middleware client library for .NET
 keywords: Azure, dotnet, SDK, API, Microsoft.Azure.WebPubSub.AspNetCore, webpubsub
-ms.date: 09/23/2025
+ms.date: 10/13/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: webpubsub
 ---
-# Azure Web PubSub service middleware client library for .NET - version 1.5.0 
+# Azure Web PubSub service middleware client library for .NET - version 1.6.0 
 
 
 [Azure Web PubSub Service](https://aka.ms/awps/doc) is a service that enables you to build real-time messaging web applications using WebSockets and the publish-subscribe pattern. Any platform supporting WebSocket APIs can connect to the service easily, e.g. web pages, mobile applications, edge devices, etc. The service manages the WebSocket connections for you and allows up to 100K **concurrent** connections. It provides powerful APIs for you to manage these clients and deliver real-time messages.
@@ -19,7 +19,7 @@ This library can be used to do the following actions. Details about the terms us
 - Add validation options for upstream request
 - API to add user defined functionality to handle different upstream events
 
-[Source code](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebPubSub.AspNetCore_1.5.0/sdk/webpubsub/Microsoft.Azure.WebPubSub.AspNetCore/src) |
+[Source code](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebPubSub.AspNetCore_1.6.0/sdk/webpubsub/Microsoft.Azure.WebPubSub.AspNetCore/src) |
 [Package][package_ref] |
 [API reference documentation](https://aka.ms/awps/sdk/csharp) |
 [Product documentation](https://aka.ms/awps/doc) |
@@ -57,7 +57,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Configure with [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebPubSub.AspNetCore_1.5.0/sdk/identity/Azure.Identity):
+Configure with [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebPubSub.AspNetCore_1.6.0/sdk/identity/Azure.Identity):
 ```C# Snippet:WebPubSubDependencyInjectionWithAzureIdentity
 public void ConfigureServices(IServiceCollection services)
 {
@@ -236,7 +236,7 @@ private sealed class SampleHub4 : WebPubSubHub
 
 ### Setting up console logging
 
-You can also easily [enable console logging](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebPubSub.AspNetCore_1.5.0/sdk/core/Azure.Core/samples/Diagnostics.md#logging) if you want to dig deeper into the requests you're making against the service.
+You can also easily [enable console logging](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebPubSub.AspNetCore_1.6.0/sdk/core/Azure.Core/samples/Diagnostics.md#logging) if you want to dig deeper into the requests you're making against the service.
 
 ## Next steps
 
@@ -256,5 +256,5 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
-[sample_ref]: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebPubSub.AspNetCore_1.5.0/sdk/webpubsub/Microsoft.Azure.WebPubSub.AspNetCore/tests/Samples/
+[sample_ref]: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebPubSub.AspNetCore_1.6.0/sdk/webpubsub/Microsoft.Azure.WebPubSub.AspNetCore/tests/Samples/
 [package_ref]: https://www.nuget.org/packages/Microsoft.Azure.WebPubSub.AspNetCore/
