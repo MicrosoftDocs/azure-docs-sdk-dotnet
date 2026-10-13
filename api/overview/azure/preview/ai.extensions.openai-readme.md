@@ -1,12 +1,12 @@
 ---
 title: Azure AI Extensions OpenAI client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Extensions.OpenAI, ai
-ms.date: 09/23/2026
+ms.date: 10/13/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: ai
 ---
-# Azure AI Extensions OpenAI client library for .NET - version 3.0.0-beta.3 
+# Azure AI Extensions OpenAI client library for .NET - version 3.0.0-beta.4 
 
 
 Develop Agents using the Azure AI Foundry platform, leveraging an extensive ecosystem of models, tools, and capabilities from OpenAI, Microsoft, and other LLM providers.
@@ -53,7 +53,8 @@ Develop Agents using the Azure AI Foundry platform, leveraging an extensive ecos
   - [Browser automation](#browser-automation)
     - [Create Azure Playwright workspace](#create-azure-playwright-workspace)
     - [Configure Microsoft Foundry](#configure-microsoft-foundry)
-    - [Using Browser automation tool](#using-browser-automation-tool)
+    - [Browser automation tool](#browser-automation-tool)
+    - [Browser automation preview tool](#browser-automation-preview-tool)
   - [SharePoint tool](#sharepoint)
   - [Fabric Data Agent tool](#fabric)
     - [Create a Fabric Capacity](#create-a-fabric-capacity)
@@ -1502,20 +1503,26 @@ Playwright is a Node.js library for browser automation. Microsoft provides the [
 
 #### Configure Microsoft Foundry
 
-1. Open the left navigation and select **Management center**.
-2. Choose **Connected resources**.
-3. Create a new connection of type **Serverless Model**.
-4. Provide a name, then paste your Access Token into the **Key** field.
-5. Set the Playwright Workspace Browser endpoint as the **Target URI**. You can find this endpoint on the Workspace **Overview page**. It begins with `wss://`.
+See the [Playwright Workspaces remote MCP quickstart](https://learn.microsoft.com/azure/app-testing/playwright-cloud-browsers/quickstart-automate-browser-tasks-remote-mcp) to configure the connection. Microsoft Entra ID is the preferred authentication method. For instructions to create a project connection, see [Automate browsers with the Playwright Workspaces remote MCP server](https://learn.microsoft.com/azure/app-testing/playwright-cloud-browsers/how-to-playwright-workspaces-remote-mcp). You can also use a workspace access token as described in the following steps.
+1. In the Microsoft foundry portal select **Build**.
+2. On the left panel select **Tools** sectrion and click **Connect a tool**.
+3. In the opened window select **Custom** tab, choose **Model Context Protocol (MCP)** and click **Create**.
+4. Name the connection.
+5. Open the Playwright workspace in the Azure portal and copy the Mcp endpoint address to `Remote MCP Server endpoint` (Mcp endpoint can be found on the **Overview** section).
+6. Paste the token generagted in the previous section to "Credential" section and name this key `x-api-k`.
+7. Click **Connect**.
 
 #### Using Browser automation tool
 
 Please note that Browser automation operations may take longer than typical calls to process. Using background mode for Responses or applying a network timeout of at least five minutes for non-background calls is highly recommended.
+The `BrowserAutomationTool` is using MCP connection as opposed to `BrowserAutomationPreviewTool`, which uses the serverless connection.
+Please refer to the playwright [quickstart document](https://learn.microsoft.com/azure/app-testing/playwright-cloud-browsers/quickstart-automate-browser-tasks-remote-mcp) to configure playwright mcp connection.
+The preferred way to access MCP server is  by using EntraID; see this [document](https://learn.microsoft.com/azure/app-testing/playwright-cloud-browsers/how-to-playwright-workspaces-remote-mcp) on how to create a project connection.
 
-```C# Snippet:Sample_CreateProjectClient_BrowserAutomotionPreview
+```C# Snippet:Sample_CreateProjectClient_BrowserAutomotion
 var projectEndpoint = System.Environment.GetEnvironmentVariable("FOUNDRY_PROJECT_ENDPOINT");
 var modelDeploymentName = System.Environment.GetEnvironmentVariable("FOUNDRY_MODEL_NAME");
-var playwrightConnectionName = System.Environment.GetEnvironmentVariable("PLAYWRIGHT_CONNECTION_NAME");
+var playwrightConnectionName = System.Environment.GetEnvironmentVariable("PLAYWRIGHT_MCP_CONNECTION_NAME");
 AIProjectClientOptions options = new()
 {
     NetworkTimeout = TimeSpan.FromMinutes(5)
@@ -1525,11 +1532,10 @@ AIProjectClient projectClient = new(endpoint: new Uri(projectEndpoint), tokenPro
 
 To use Azure Playwright workspace we need to create agent with `BrowserAutomationAgentTool`.
 
-```C# Snippet:Sample_CreateAgent_BrowserAutomotionPreview_Async
-AIProjectConnection playwrightConnection = await projectClient.Connections.GetConnectionAsync(playwrightConnectionName);
-BrowserAutomationPreviewTool playwrightTool = new(
+```C# Snippet:Sample_CreateAgent_BrowserAutomotion_Async
+BrowserAutomationTool playwrightTool = new(
     new BrowserAutomationToolOptions(
-        new BrowserAutomationToolConnectionOptions(playwrightConnection.Id)
+        new BrowserAutomationToolConnectionOptions(playwrightConnectionName)
     ));
 
 DeclarativeAgentDefinition agentDefinition = new(model: modelDeploymentName)
@@ -1546,7 +1552,7 @@ ProjectsAgentVersion agentVersion = await projectClient.AgentAdministrationClien
 
 Streaming response outputs with browser automation provides incremental updates as the automation is processed. This is advised for interactive scenarios, as browser automation can require several minutes to fully complete.
 
-```C# Snippet:Sample_CreateResponse_BrowserAutomotionPreview_Async
+```C# Snippet:Sample_CreateResponse_BrowserAutomotion_Async
 ProjectResponsesClient responseClient = projectClient.ProjectOpenAIClient.GetProjectResponsesClientForAgent(agentVersion.Name);
 CreateResponseOptions responseOptions = new()
 {
@@ -1567,6 +1573,19 @@ await foreach (StreamingResponseUpdate update in responseClient.CreateResponseSt
     ParseResponse(update);
 }
 ```
+
+#### Browser automation preview tool
+
+Along with `BrowserAutomationTool`, Azure.AI.Extensions.OpenAI contain `BrowserAutomationPreviewTool`, which has the same functionality as `BrowserAutomationTool`.
+This tool was released to preview the functionality, please use the stable version of the tool.
+
+`BrowserAutomationPreviewTool` is using Serverless Model connection as opposed to MCP connection, used by `BrowserAutomationTool`. Please follow the steps below to create it.
+
+1. On the left panel select **Management center**.
+2. Choose **Connected resources**.
+3. Create a new connection of type **Serverless Model**.
+4. Provide a name, then paste your Access Token into the **Key** field.
+5. Set the Playwright Workspace Browser endpoint as the **Target URI**. You can find this endpoint on the Workspace **Overview page**. It begins with `wss://`.
 
 
 ### SharePoint tool (preview)<a id="sharepoint"></a>
@@ -2007,7 +2026,7 @@ For tracing to Azure Monitor from your application, the preferred option is to u
 dotnet add package Azure.Monitor.OpenTelemetry.AspNetCore
 ```
 
-More information about using the Azure.Monitor.OpenTelemetry.AspNetCore package can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Extensions.OpenAI_3.0.0-beta.3/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/README.md).
+More information about using the Azure.Monitor.OpenTelemetry.AspNetCore package can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Extensions.OpenAI_3.0.0-beta.4/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/README.md).
 
 Another option is to use Azure.Monitor.OpenTelemetry.Exporter package. Install the package with [NuGet](https://www.nuget.org/ ):
 ```dotnetcli
@@ -2095,7 +2114,7 @@ See the [Azure SDK CONTRIBUTING.md][aiprojects_contrib] for details on building,
 [product_doc]: https://aka.ms/azsdk/azure-ai-projects-v2/product-doc
 [azure_identity]: https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet
 [azure_identity_dac]: https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
-[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Extensions.OpenAI_3.0.0-beta.3/CONTRIBUTING.md
+[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Extensions.OpenAI_3.0.0-beta.4/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
