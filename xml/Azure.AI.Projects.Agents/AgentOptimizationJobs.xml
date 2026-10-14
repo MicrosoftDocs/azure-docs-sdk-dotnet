@@ -35,6 +35,39 @@
       </Docs>
     </Member>
     <Member MemberName="Cancel">
+      <MemberSignature Language="C#" Value="public virtual System.ClientModel.ClientResult Cancel (string jobId, System.ClientModel.Primitives.RequestOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.ClientModel.ClientResult Cancel(string jobId, class System.ClientModel.Primitives.RequestOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.Cancel(System.String,System.ClientModel.Primitives.RequestOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Cancel (jobId As String, options As RequestOptions) As ClientResult" />
+      <MemberSignature Language="F#" Value="abstract member Cancel : string * System.ClientModel.Primitives.RequestOptions -&gt; System.ClientModel.ClientResult&#xA;override this.Cancel : string * System.ClientModel.Primitives.RequestOptions -&gt; System.ClientModel.ClientResult" Usage="agentOptimizationJobs.Cancel (jobId, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.ClientModel.ClientResult</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobId" Type="System.String" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.RequestOptions" />
+      </Parameters>
+      <Docs>
+        <param name="jobId"> The ID of the job to cancel. </param>
+        <param name="options"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Requests cancellation of a running or queued job. Returns 409 Conflict if the job is already in a terminal state.
+            <list type="bullet"><item><description> This <see href="https://aka.ms/azsdk/net/protocol-methods">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios. </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="jobId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ClientModel.ClientResultException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Cancel">
       <MemberSignature Language="C#" Value="public virtual System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt; Cancel (string jobId, System.Threading.CancellationToken cancellationToken = default);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.ClientModel.ClientResult`1&lt;class Azure.AI.Projects.Agents.AgentOptimizationJob&gt; Cancel(string jobId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.Cancel(System.String,System.Threading.CancellationToken)" />
@@ -55,8 +88,41 @@
       <Docs>
         <param name="jobId"> The ID of the job to cancel. </param>
         <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
-        <summary> Request cancellation. Idempotent on terminal states. </summary>
+        <summary> Requests cancellation of a running or queued job. Returns 409 Conflict if the job is already in a terminal state. </summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="jobId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ClientModel.ClientResultException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CancelAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&gt; CancelAsync (string jobId, System.ClientModel.Primitives.RequestOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class System.ClientModel.ClientResult&gt; CancelAsync(string jobId, class System.ClientModel.Primitives.RequestOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.CancelAsync(System.String,System.ClientModel.Primitives.RequestOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CancelAsync (jobId As String, options As RequestOptions) As Task(Of ClientResult)" />
+      <MemberSignature Language="F#" Value="abstract member CancelAsync : string * System.ClientModel.Primitives.RequestOptions -&gt; System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&gt;&#xA;override this.CancelAsync : string * System.ClientModel.Primitives.RequestOptions -&gt; System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&gt;" Usage="agentOptimizationJobs.CancelAsync (jobId, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobId" Type="System.String" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.RequestOptions" />
+      </Parameters>
+      <Docs>
+        <param name="jobId"> The ID of the job to cancel. </param>
+        <param name="options"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Requests cancellation of a running or queued job. Returns 409 Conflict if the job is already in a terminal state.
+            <list type="bullet"><item><description> This <see href="https://aka.ms/azsdk/net/protocol-methods">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios. </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="jobId" /> is null. </exception>
@@ -86,44 +152,13 @@
       <Docs>
         <param name="jobId"> The ID of the job to cancel. </param>
         <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
-        <summary> Request cancellation. Idempotent on terminal states. </summary>
+        <summary> Requests cancellation of a running or queued job. Returns 409 Conflict if the job is already in a terminal state. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="jobId" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
           <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
-        <exception cref="T:System.ClientModel.ClientResultException"> Service returned a non-success status code. </exception>
-      </Docs>
-    </Member>
-    <Member MemberName="Create">
-      <MemberSignature Language="C#" Value="public virtual System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt; Create (Azure.AI.Projects.Agents.AgentOptimizationJob job, string operationId = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.ClientModel.ClientResult`1&lt;class Azure.AI.Projects.Agents.AgentOptimizationJob&gt; Create(class Azure.AI.Projects.Agents.AgentOptimizationJob job, string operationId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.Create(Azure.AI.Projects.Agents.AgentOptimizationJob,System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function Create (job As AgentOptimizationJob, Optional operationId As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As ClientResult(Of AgentOptimizationJob)" />
-      <MemberSignature Language="F#" Value="abstract member Create : Azure.AI.Projects.Agents.AgentOptimizationJob * string * System.Threading.CancellationToken -&gt; System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt;&#xA;override this.Create : Azure.AI.Projects.Agents.AgentOptimizationJob * string * System.Threading.CancellationToken -&gt; System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt;" Usage="agentOptimizationJobs.Create (job, operationId, cancellationToken)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt;</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="job" Type="Azure.AI.Projects.Agents.AgentOptimizationJob" />
-        <Parameter Name="operationId" Type="System.String" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
-      </Parameters>
-      <Docs>
-        <param name="job"> The job to create. </param>
-        <param name="operationId"> Client-generated unique ID for idempotent retries. When absent, the server creates the job unconditionally. </param>
-        <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
-        <summary> Create an optimization job. Returns 201 with the queued job. Honours `Operation-Id` for idempotent retry. </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="job" /> is null. </exception>
         <exception cref="T:System.ClientModel.ClientResultException"> Service returned a non-success status code. </exception>
       </Docs>
     </Member>
@@ -152,43 +187,44 @@
         <param name="job"> The job to create. </param>
         <param name="operationId"> Client-generated unique ID for idempotent retries. When absent, the server creates the job unconditionally. </param>
         <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
-        <summary> Create an optimization job. Returns 201 with the queued job. Honours `Operation-Id` for idempotent retry. </summary>
+        <summary> Creates an optimization job and returns the queued job. Honors `Operation-Id` for idempotent retry. Clients poll the URL in `Operation-Location` by using the get operation. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ClientModel.ClientResultException"> Service returned a non-success status code. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="job" /> is null. </exception>
-        <exception cref="T:System.ClientModel.ClientResultException"> Service returned a non-success status code. </exception>
       </Docs>
     </Member>
-    <Member MemberName="CreateAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt;&gt; CreateAsync (Azure.AI.Projects.Agents.AgentOptimizationJob job, string operationId = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class System.ClientModel.ClientResult`1&lt;class Azure.AI.Projects.Agents.AgentOptimizationJob&gt;&gt; CreateAsync(class Azure.AI.Projects.Agents.AgentOptimizationJob job, string operationId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.CreateAsync(Azure.AI.Projects.Agents.AgentOptimizationJob,System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateAsync (job As AgentOptimizationJob, Optional operationId As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ClientResult(Of AgentOptimizationJob))" />
-      <MemberSignature Language="F#" Value="abstract member CreateAsync : Azure.AI.Projects.Agents.AgentOptimizationJob * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt;&gt;&#xA;override this.CreateAsync : Azure.AI.Projects.Agents.AgentOptimizationJob * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt;&gt;" Usage="agentOptimizationJobs.CreateAsync (job, operationId, cancellationToken)" />
+    <Member MemberName="Create">
+      <MemberSignature Language="C#" Value="public virtual System.ClientModel.Primitives.OperationResult Create (bool waitUntilCompleted, System.ClientModel.BinaryContent content, string operationId = default, System.ClientModel.Primitives.RequestOptions options = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.ClientModel.Primitives.OperationResult Create(bool waitUntilCompleted, class System.ClientModel.BinaryContent content, string operationId, class System.ClientModel.Primitives.RequestOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.Create(System.Boolean,System.ClientModel.BinaryContent,System.String,System.ClientModel.Primitives.RequestOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Create (waitUntilCompleted As Boolean, content As BinaryContent, Optional operationId As String = Nothing, Optional options As RequestOptions = Nothing) As OperationResult" />
+      <MemberSignature Language="F#" Value="abstract member Create : bool * System.ClientModel.BinaryContent * string * System.ClientModel.Primitives.RequestOptions -&gt; System.ClientModel.Primitives.OperationResult&#xA;override this.Create : bool * System.ClientModel.BinaryContent * string * System.ClientModel.Primitives.RequestOptions -&gt; System.ClientModel.Primitives.OperationResult" Usage="agentOptimizationJobs.Create (waitUntilCompleted, content, operationId, options)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
         <AssemblyVersion>3.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt;&gt;</ReturnType>
+        <ReturnType>System.ClientModel.Primitives.OperationResult</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="job" Type="Azure.AI.Projects.Agents.AgentOptimizationJob" />
+        <Parameter Name="waitUntilCompleted" Type="System.Boolean" />
+        <Parameter Name="content" Type="System.ClientModel.BinaryContent" />
         <Parameter Name="operationId" Type="System.String" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.RequestOptions" />
       </Parameters>
       <Docs>
-        <param name="job"> The job to create. </param>
+        <param name="waitUntilCompleted"> Whether the method should wait until the long-running operation has completed on the service. </param>
+        <param name="content"> The content to send as the body of the request. </param>
         <param name="operationId"> Client-generated unique ID for idempotent retries. When absent, the server creates the job unconditionally. </param>
-        <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
-        <summary> Create an optimization job. Returns 201 with the queued job. Honours `Operation-Id` for idempotent retry. </summary>
-        <returns>To be added.</returns>
+        <param name="options"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary> Creates an optimization job and returns the queued job. Honors `Operation-Id` for idempotent retry. Clients poll the URL in `Operation-Location` by using the get operation. </summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="job" /> is null. </exception>
-        <exception cref="T:System.ClientModel.ClientResultException"> Service returned a non-success status code. </exception>
+          <paramref name="content" /> is null. </exception>
       </Docs>
     </Member>
     <Member MemberName="CreateAsync">
@@ -216,11 +252,76 @@
         <param name="job"> The job to create. </param>
         <param name="operationId"> Client-generated unique ID for idempotent retries. When absent, the server creates the job unconditionally. </param>
         <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
-        <summary> Create an optimization job. Returns 201 with the queued job. Honours `Operation-Id` for idempotent retry. </summary>
+        <summary> Creates an optimization job and returns the queued job. Honors `Operation-Id` for idempotent retry. Clients poll the URL in `Operation-Location` by using the get operation. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ClientModel.ClientResultException"> Service returned a non-success status code. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="job" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;System.ClientModel.Primitives.OperationResult&gt; CreateAsync (bool waitUntilCompleted, System.ClientModel.BinaryContent content, string operationId = default, System.ClientModel.Primitives.RequestOptions options = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class System.ClientModel.Primitives.OperationResult&gt; CreateAsync(bool waitUntilCompleted, class System.ClientModel.BinaryContent content, string operationId, class System.ClientModel.Primitives.RequestOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.CreateAsync(System.Boolean,System.ClientModel.BinaryContent,System.String,System.ClientModel.Primitives.RequestOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateAsync (waitUntilCompleted As Boolean, content As BinaryContent, Optional operationId As String = Nothing, Optional options As RequestOptions = Nothing) As Task(Of OperationResult)" />
+      <MemberSignature Language="F#" Value="abstract member CreateAsync : bool * System.ClientModel.BinaryContent * string * System.ClientModel.Primitives.RequestOptions -&gt; System.Threading.Tasks.Task&lt;System.ClientModel.Primitives.OperationResult&gt;&#xA;override this.CreateAsync : bool * System.ClientModel.BinaryContent * string * System.ClientModel.Primitives.RequestOptions -&gt; System.Threading.Tasks.Task&lt;System.ClientModel.Primitives.OperationResult&gt;" Usage="agentOptimizationJobs.CreateAsync (waitUntilCompleted, content, operationId, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;System.ClientModel.Primitives.OperationResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="waitUntilCompleted" Type="System.Boolean" />
+        <Parameter Name="content" Type="System.ClientModel.BinaryContent" />
+        <Parameter Name="operationId" Type="System.String" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.RequestOptions" />
+      </Parameters>
+      <Docs>
+        <param name="waitUntilCompleted"> Whether the method should wait until the long-running operation has completed on the service. </param>
+        <param name="content"> The content to send as the body of the request. </param>
+        <param name="operationId"> Client-generated unique ID for idempotent retries. When absent, the server creates the job unconditionally. </param>
+        <param name="options"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary> Creates an optimization job and returns the queued job. Honors `Operation-Id` for idempotent retry. Clients poll the URL in `Operation-Location` by using the get operation. </summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="content" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Delete">
+      <MemberSignature Language="C#" Value="public virtual System.ClientModel.ClientResult Delete (string jobId, System.ClientModel.Primitives.RequestOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.ClientModel.ClientResult Delete(string jobId, class System.ClientModel.Primitives.RequestOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.Delete(System.String,System.ClientModel.Primitives.RequestOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Delete (jobId As String, options As RequestOptions) As ClientResult" />
+      <MemberSignature Language="F#" Value="abstract member Delete : string * System.ClientModel.Primitives.RequestOptions -&gt; System.ClientModel.ClientResult&#xA;override this.Delete : string * System.ClientModel.Primitives.RequestOptions -&gt; System.ClientModel.ClientResult" Usage="agentOptimizationJobs.Delete (jobId, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.ClientModel.ClientResult</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobId" Type="System.String" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.RequestOptions" />
+      </Parameters>
+      <Docs>
+        <param name="jobId"> The ID of the job to delete. </param>
+        <param name="options"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Cancels active work, then deletes the job and its candidate artifacts.
+            <list type="bullet"><item><description> This <see href="https://aka.ms/azsdk/net/protocol-methods">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios. </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="jobId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ClientModel.ClientResultException"> Service returned a non-success status code. </exception>
       </Docs>
     </Member>
@@ -245,8 +346,41 @@
       <Docs>
         <param name="jobId"> The ID of the job to delete. </param>
         <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
-        <summary> Delete the job and its candidate artifacts. Cancels first if non-terminal. </summary>
+        <summary> Cancels active work, then deletes the job and its candidate artifacts. </summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="jobId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ClientModel.ClientResultException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&gt; DeleteAsync (string jobId, System.ClientModel.Primitives.RequestOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class System.ClientModel.ClientResult&gt; DeleteAsync(string jobId, class System.ClientModel.Primitives.RequestOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.DeleteAsync(System.String,System.ClientModel.Primitives.RequestOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteAsync (jobId As String, options As RequestOptions) As Task(Of ClientResult)" />
+      <MemberSignature Language="F#" Value="abstract member DeleteAsync : string * System.ClientModel.Primitives.RequestOptions -&gt; System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&gt;&#xA;override this.DeleteAsync : string * System.ClientModel.Primitives.RequestOptions -&gt; System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&gt;" Usage="agentOptimizationJobs.DeleteAsync (jobId, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobId" Type="System.String" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.RequestOptions" />
+      </Parameters>
+      <Docs>
+        <param name="jobId"> The ID of the job to delete. </param>
+        <param name="options"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Cancels active work, then deletes the job and its candidate artifacts.
+            <list type="bullet"><item><description> This <see href="https://aka.ms/azsdk/net/protocol-methods">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios. </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="jobId" /> is null. </exception>
@@ -276,8 +410,161 @@
       <Docs>
         <param name="jobId"> The ID of the job to delete. </param>
         <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
-        <summary> Delete the job and its candidate artifacts. Cancels first if non-terminal. </summary>
+        <summary> Cancels active work, then deletes the job and its candidate artifacts. </summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="jobId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ClientModel.ClientResultException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Estimate">
+      <MemberSignature Language="C#" Value="public virtual System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationEstimateResult&gt; Estimate (Azure.AI.Projects.Agents.AgentOptimizationEstimateInputs inputs, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.ClientModel.ClientResult`1&lt;class Azure.AI.Projects.Agents.AgentOptimizationEstimateResult&gt; Estimate(class Azure.AI.Projects.Agents.AgentOptimizationEstimateInputs inputs, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.Estimate(Azure.AI.Projects.Agents.AgentOptimizationEstimateInputs,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Estimate (inputs As AgentOptimizationEstimateInputs, Optional cancellationToken As CancellationToken = Nothing) As ClientResult(Of AgentOptimizationEstimateResult)" />
+      <MemberSignature Language="F#" Value="abstract member Estimate : Azure.AI.Projects.Agents.AgentOptimizationEstimateInputs * System.Threading.CancellationToken -&gt; System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationEstimateResult&gt;&#xA;override this.Estimate : Azure.AI.Projects.Agents.AgentOptimizationEstimateInputs * System.Threading.CancellationToken -&gt; System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationEstimateResult&gt;" Usage="agentOptimizationJobs.Estimate (inputs, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationEstimateResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="inputs" Type="Azure.AI.Projects.Agents.AgentOptimizationEstimateInputs" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="inputs"> The inputs to estimate against. </param>
+        <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
+        <summary> Estimates validation-set rows, per-stage model call volumes, and cost bands without submitting the job. </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="inputs" /> is null. </exception>
+        <exception cref="T:System.ClientModel.ClientResultException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Estimate">
+      <MemberSignature Language="C#" Value="public virtual System.ClientModel.ClientResult Estimate (System.ClientModel.BinaryContent content, System.ClientModel.Primitives.RequestOptions options = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.ClientModel.ClientResult Estimate(class System.ClientModel.BinaryContent content, class System.ClientModel.Primitives.RequestOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.Estimate(System.ClientModel.BinaryContent,System.ClientModel.Primitives.RequestOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Estimate (content As BinaryContent, Optional options As RequestOptions = Nothing) As ClientResult" />
+      <MemberSignature Language="F#" Value="abstract member Estimate : System.ClientModel.BinaryContent * System.ClientModel.Primitives.RequestOptions -&gt; System.ClientModel.ClientResult&#xA;override this.Estimate : System.ClientModel.BinaryContent * System.ClientModel.Primitives.RequestOptions -&gt; System.ClientModel.ClientResult" Usage="agentOptimizationJobs.Estimate (content, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.ClientModel.ClientResult</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="content" Type="System.ClientModel.BinaryContent" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.RequestOptions" />
+      </Parameters>
+      <Docs>
+        <param name="content"> The content to send as the body of the request. </param>
+        <param name="options"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Estimates validation-set rows, per-stage model call volumes, and cost bands without submitting the job.
+            <list type="bullet"><item><description> This <see href="https://aka.ms/azsdk/net/protocol-methods">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios. </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="content" /> is null. </exception>
+        <exception cref="T:System.ClientModel.ClientResultException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="EstimateAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationEstimateResult&gt;&gt; EstimateAsync (Azure.AI.Projects.Agents.AgentOptimizationEstimateInputs inputs, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class System.ClientModel.ClientResult`1&lt;class Azure.AI.Projects.Agents.AgentOptimizationEstimateResult&gt;&gt; EstimateAsync(class Azure.AI.Projects.Agents.AgentOptimizationEstimateInputs inputs, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.EstimateAsync(Azure.AI.Projects.Agents.AgentOptimizationEstimateInputs,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function EstimateAsync (inputs As AgentOptimizationEstimateInputs, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ClientResult(Of AgentOptimizationEstimateResult))" />
+      <MemberSignature Language="F#" Value="abstract member EstimateAsync : Azure.AI.Projects.Agents.AgentOptimizationEstimateInputs * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationEstimateResult&gt;&gt;&#xA;override this.EstimateAsync : Azure.AI.Projects.Agents.AgentOptimizationEstimateInputs * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationEstimateResult&gt;&gt;" Usage="agentOptimizationJobs.EstimateAsync (inputs, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationEstimateResult&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="inputs" Type="Azure.AI.Projects.Agents.AgentOptimizationEstimateInputs" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="inputs"> The inputs to estimate against. </param>
+        <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
+        <summary> Estimates validation-set rows, per-stage model call volumes, and cost bands without submitting the job. </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="inputs" /> is null. </exception>
+        <exception cref="T:System.ClientModel.ClientResultException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="EstimateAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&gt; EstimateAsync (System.ClientModel.BinaryContent content, System.ClientModel.Primitives.RequestOptions options = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class System.ClientModel.ClientResult&gt; EstimateAsync(class System.ClientModel.BinaryContent content, class System.ClientModel.Primitives.RequestOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.EstimateAsync(System.ClientModel.BinaryContent,System.ClientModel.Primitives.RequestOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function EstimateAsync (content As BinaryContent, Optional options As RequestOptions = Nothing) As Task(Of ClientResult)" />
+      <MemberSignature Language="F#" Value="abstract member EstimateAsync : System.ClientModel.BinaryContent * System.ClientModel.Primitives.RequestOptions -&gt; System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&gt;&#xA;override this.EstimateAsync : System.ClientModel.BinaryContent * System.ClientModel.Primitives.RequestOptions -&gt; System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&gt;" Usage="agentOptimizationJobs.EstimateAsync (content, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="content" Type="System.ClientModel.BinaryContent" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.RequestOptions" />
+      </Parameters>
+      <Docs>
+        <param name="content"> The content to send as the body of the request. </param>
+        <param name="options"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Estimates validation-set rows, per-stage model call volumes, and cost bands without submitting the job.
+            <list type="bullet"><item><description> This <see href="https://aka.ms/azsdk/net/protocol-methods">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios. </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="content" /> is null. </exception>
+        <exception cref="T:System.ClientModel.ClientResultException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Get">
+      <MemberSignature Language="C#" Value="public virtual System.ClientModel.ClientResult Get (string jobId, System.ClientModel.Primitives.RequestOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.ClientModel.ClientResult Get(string jobId, class System.ClientModel.Primitives.RequestOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.Get(System.String,System.ClientModel.Primitives.RequestOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Get (jobId As String, options As RequestOptions) As ClientResult" />
+      <MemberSignature Language="F#" Value="abstract member Get : string * System.ClientModel.Primitives.RequestOptions -&gt; System.ClientModel.ClientResult&#xA;override this.Get : string * System.ClientModel.Primitives.RequestOptions -&gt; System.ClientModel.ClientResult" Usage="agentOptimizationJobs.Get (jobId, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.ClientModel.ClientResult</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobId" Type="System.String" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.RequestOptions" />
+      </Parameters>
+      <Docs>
+        <param name="jobId"> The ID of the job. </param>
+        <param name="options"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Retrieves an optimization job by its identifier.
+            <list type="bullet"><item><description> This <see href="https://aka.ms/azsdk/net/protocol-methods">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios. </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="jobId" /> is null. </exception>
@@ -307,7 +594,7 @@
       <Docs>
         <param name="jobId"> The ID of the job. </param>
         <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
-        <summary> Get an optimization job by id. Returns 202 while in progress, 200 when terminal. </summary>
+        <summary> Retrieves an optimization job by its identifier. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -318,18 +605,18 @@
       </Docs>
     </Member>
     <Member MemberName="GetAll">
-      <MemberSignature Language="C#" Value="public virtual System.ClientModel.CollectionResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJobListItem&gt; GetAll (int? limit = default, Azure.AI.Projects.Agents.AgentListOrder? order = default, string after = default, string before = default, Azure.AI.Projects.Agents.AgentsJobStatus? status = default, string agentName = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.ClientModel.CollectionResult`1&lt;class Azure.AI.Projects.Agents.AgentOptimizationJobListItem&gt; GetAll(valuetype System.Nullable`1&lt;int32&gt; limit, valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.Agents.AgentListOrder&gt; order, string after, string before, valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.Agents.AgentsJobStatus&gt; status, string agentName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual System.ClientModel.CollectionResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt; GetAll (int? limit = default, Azure.AI.Projects.Agents.AgentListOrder? order = default, string after = default, string before = default, Azure.AI.Projects.Agents.AgentsJobStatus? status = default, string agentName = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.ClientModel.CollectionResult`1&lt;class Azure.AI.Projects.Agents.AgentOptimizationJob&gt; GetAll(valuetype System.Nullable`1&lt;int32&gt; limit, valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.Agents.AgentListOrder&gt; order, string after, string before, valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.Agents.AgentsJobStatus&gt; status, string agentName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.GetAll(System.Nullable{System.Int32},System.Nullable{Azure.AI.Projects.Agents.AgentListOrder},System.String,System.String,System.Nullable{Azure.AI.Projects.Agents.AgentsJobStatus},System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAll (Optional limit As Nullable(Of Integer) = Nothing, Optional order As Nullable(Of AgentListOrder) = Nothing, Optional after As String = Nothing, Optional before As String = Nothing, Optional status As Nullable(Of AgentsJobStatus) = Nothing, Optional agentName As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As CollectionResult(Of AgentOptimizationJobListItem)" />
-      <MemberSignature Language="F#" Value="abstract member GetAll : Nullable&lt;int&gt; * Nullable&lt;Azure.AI.Projects.Agents.AgentListOrder&gt; * string * string * Nullable&lt;Azure.AI.Projects.Agents.AgentsJobStatus&gt; * string * System.Threading.CancellationToken -&gt; System.ClientModel.CollectionResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJobListItem&gt;&#xA;override this.GetAll : Nullable&lt;int&gt; * Nullable&lt;Azure.AI.Projects.Agents.AgentListOrder&gt; * string * string * Nullable&lt;Azure.AI.Projects.Agents.AgentsJobStatus&gt; * string * System.Threading.CancellationToken -&gt; System.ClientModel.CollectionResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJobListItem&gt;" Usage="agentOptimizationJobs.GetAll (limit, order, after, before, status, agentName, cancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAll (Optional limit As Nullable(Of Integer) = Nothing, Optional order As Nullable(Of AgentListOrder) = Nothing, Optional after As String = Nothing, Optional before As String = Nothing, Optional status As Nullable(Of AgentsJobStatus) = Nothing, Optional agentName As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As CollectionResult(Of AgentOptimizationJob)" />
+      <MemberSignature Language="F#" Value="abstract member GetAll : Nullable&lt;int&gt; * Nullable&lt;Azure.AI.Projects.Agents.AgentListOrder&gt; * string * string * Nullable&lt;Azure.AI.Projects.Agents.AgentsJobStatus&gt; * string * System.Threading.CancellationToken -&gt; System.ClientModel.CollectionResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt;&#xA;override this.GetAll : Nullable&lt;int&gt; * Nullable&lt;Azure.AI.Projects.Agents.AgentListOrder&gt; * string * string * Nullable&lt;Azure.AI.Projects.Agents.AgentsJobStatus&gt; * string * System.Threading.CancellationToken -&gt; System.ClientModel.CollectionResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt;" Usage="agentOptimizationJobs.GetAll (limit, order, after, before, status, agentName, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
         <AssemblyVersion>3.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.ClientModel.CollectionResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJobListItem&gt;</ReturnType>
+        <ReturnType>System.ClientModel.CollectionResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="limit" Type="System.Nullable&lt;System.Int32&gt;" />
@@ -369,18 +656,18 @@
       </Docs>
     </Member>
     <Member MemberName="GetAllAsync">
-      <MemberSignature Language="C#" Value="public virtual System.ClientModel.AsyncCollectionResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJobListItem&gt; GetAllAsync (int? limit = default, Azure.AI.Projects.Agents.AgentListOrder? order = default, string after = default, string before = default, Azure.AI.Projects.Agents.AgentsJobStatus? status = default, string agentName = default, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.ClientModel.AsyncCollectionResult`1&lt;class Azure.AI.Projects.Agents.AgentOptimizationJobListItem&gt; GetAllAsync(valuetype System.Nullable`1&lt;int32&gt; limit, valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.Agents.AgentListOrder&gt; order, string after, string before, valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.Agents.AgentsJobStatus&gt; status, string agentName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual System.ClientModel.AsyncCollectionResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt; GetAllAsync (int? limit = default, Azure.AI.Projects.Agents.AgentListOrder? order = default, string after = default, string before = default, Azure.AI.Projects.Agents.AgentsJobStatus? status = default, string agentName = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.ClientModel.AsyncCollectionResult`1&lt;class Azure.AI.Projects.Agents.AgentOptimizationJob&gt; GetAllAsync(valuetype System.Nullable`1&lt;int32&gt; limit, valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.Agents.AgentListOrder&gt; order, string after, string before, valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.Agents.AgentsJobStatus&gt; status, string agentName, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.GetAllAsync(System.Nullable{System.Int32},System.Nullable{Azure.AI.Projects.Agents.AgentListOrder},System.String,System.String,System.Nullable{Azure.AI.Projects.Agents.AgentsJobStatus},System.String,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllAsync (Optional limit As Nullable(Of Integer) = Nothing, Optional order As Nullable(Of AgentListOrder) = Nothing, Optional after As String = Nothing, Optional before As String = Nothing, Optional status As Nullable(Of AgentsJobStatus) = Nothing, Optional agentName As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As AsyncCollectionResult(Of AgentOptimizationJobListItem)" />
-      <MemberSignature Language="F#" Value="abstract member GetAllAsync : Nullable&lt;int&gt; * Nullable&lt;Azure.AI.Projects.Agents.AgentListOrder&gt; * string * string * Nullable&lt;Azure.AI.Projects.Agents.AgentsJobStatus&gt; * string * System.Threading.CancellationToken -&gt; System.ClientModel.AsyncCollectionResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJobListItem&gt;&#xA;override this.GetAllAsync : Nullable&lt;int&gt; * Nullable&lt;Azure.AI.Projects.Agents.AgentListOrder&gt; * string * string * Nullable&lt;Azure.AI.Projects.Agents.AgentsJobStatus&gt; * string * System.Threading.CancellationToken -&gt; System.ClientModel.AsyncCollectionResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJobListItem&gt;" Usage="agentOptimizationJobs.GetAllAsync (limit, order, after, before, status, agentName, cancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllAsync (Optional limit As Nullable(Of Integer) = Nothing, Optional order As Nullable(Of AgentListOrder) = Nothing, Optional after As String = Nothing, Optional before As String = Nothing, Optional status As Nullable(Of AgentsJobStatus) = Nothing, Optional agentName As String = Nothing, Optional cancellationToken As CancellationToken = Nothing) As AsyncCollectionResult(Of AgentOptimizationJob)" />
+      <MemberSignature Language="F#" Value="abstract member GetAllAsync : Nullable&lt;int&gt; * Nullable&lt;Azure.AI.Projects.Agents.AgentListOrder&gt; * string * string * Nullable&lt;Azure.AI.Projects.Agents.AgentsJobStatus&gt; * string * System.Threading.CancellationToken -&gt; System.ClientModel.AsyncCollectionResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt;&#xA;override this.GetAllAsync : Nullable&lt;int&gt; * Nullable&lt;Azure.AI.Projects.Agents.AgentListOrder&gt; * string * string * Nullable&lt;Azure.AI.Projects.Agents.AgentsJobStatus&gt; * string * System.Threading.CancellationToken -&gt; System.ClientModel.AsyncCollectionResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt;" Usage="agentOptimizationJobs.GetAllAsync (limit, order, after, before, status, agentName, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
         <AssemblyVersion>3.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.ClientModel.AsyncCollectionResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJobListItem&gt;</ReturnType>
+        <ReturnType>System.ClientModel.AsyncCollectionResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="limit" Type="System.Nullable&lt;System.Int32&gt;" />
@@ -420,6 +707,39 @@
       </Docs>
     </Member>
     <Member MemberName="GetAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&gt; GetAsync (string jobId, System.ClientModel.Primitives.RequestOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class System.ClientModel.ClientResult&gt; GetAsync(string jobId, class System.ClientModel.Primitives.RequestOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.GetAsync(System.String,System.ClientModel.Primitives.RequestOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAsync (jobId As String, options As RequestOptions) As Task(Of ClientResult)" />
+      <MemberSignature Language="F#" Value="abstract member GetAsync : string * System.ClientModel.Primitives.RequestOptions -&gt; System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&gt;&#xA;override this.GetAsync : string * System.ClientModel.Primitives.RequestOptions -&gt; System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&gt;" Usage="agentOptimizationJobs.GetAsync (jobId, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobId" Type="System.String" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.RequestOptions" />
+      </Parameters>
+      <Docs>
+        <param name="jobId"> The ID of the job. </param>
+        <param name="options"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Retrieves an optimization job by its identifier.
+            <list type="bullet"><item><description> This <see href="https://aka.ms/azsdk/net/protocol-methods">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios. </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="jobId" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="jobId" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:System.ClientModel.ClientResultException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetAsync">
       <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;System.ClientModel.ClientResult&lt;Azure.AI.Projects.Agents.AgentOptimizationJob&gt;&gt; GetAsync (string jobId, System.Threading.CancellationToken cancellationToken = default);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class System.ClientModel.ClientResult`1&lt;class Azure.AI.Projects.Agents.AgentOptimizationJob&gt;&gt; GetAsync(string jobId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJobs.GetAsync(System.String,System.Threading.CancellationToken)" />
@@ -440,7 +760,7 @@
       <Docs>
         <param name="jobId"> The ID of the job. </param>
         <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
-        <summary> Get an optimization job by id. Returns 202 while in progress, 200 when terminal. </summary>
+        <summary> Retrieves an optimization job by its identifier. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">

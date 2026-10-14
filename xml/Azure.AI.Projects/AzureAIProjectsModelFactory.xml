@@ -1248,11 +1248,14 @@
         <Parameter Name="tools" Type="System.Collections.Generic.IEnumerable&lt;OpenAI.Responses.ResponseTool&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
       </Parameters>
       <Docs>
-        <param name="name"> The unique identifier of the Azure AI agent. </param>
-        <param name="version"> The version of the Azure AI agent. </param>
-        <param name="toolDescriptions"> The parameters used to control the sampling behavior of the agent during text generation. </param>
-        <param name="tools" />
-        <summary> Represents a target specifying an Azure AI agent. </summary>
+        <param name="name"> The name of the Azure AI agent to invoke as the evaluation target. </param>
+        <param name="version"> The version of the Azure AI agent. When omitted, the latest version is used. </param>
+        <param name="toolDescriptions"> Optional descriptions of tools available to the agent. </param>
+        <param name="tools"> Tool definitions made available when invoking the agent. </param>
+        <summary>
+            A target that identifies an Azure AI agent.
+            See [evaluate model or agent targets](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/cloud-evaluation-targets?tabs=python).
+            </summary>
         <returns> A new <see cref="T:Azure.AI.Projects.Evaluation.AzureAIAgentTarget" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1277,9 +1280,12 @@
         <Parameter Name="samplingParams" Type="Azure.AI.Projects.Evaluation.ModelSamplingParams" />
       </Parameters>
       <Docs>
-        <param name="model"> The unique identifier of the Azure AI model. </param>
+        <param name="model"> The name of the model deployment to invoke as the evaluation target. </param>
         <param name="samplingParams"> The parameters used to control the sampling behavior of the model during text generation. </param>
-        <summary> Represents a target specifying an Azure AI model for operations requiring model selection. </summary>
+        <summary>
+            A target that identifies an Azure AI model.
+            See [evaluate administrator-connected models](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/evaluate-admin-connected-models?tabs=python).
+            </summary>
         <returns> A new <see cref="T:Azure.AI.Projects.Evaluation.AzureAIModelTarget" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1676,19 +1682,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="CreateAsyncResponse">
-      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.CreateAsyncResponse CreateAsyncResponse (Uri location = default, Uri operationResult = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.CreateAsyncResponse CreateAsyncResponse(class System.Uri location, class System.Uri operationResult) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.CreateAsyncResponse(System.Uri,System.Uri)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function CreateAsyncResponse (Optional location As Uri = Nothing, Optional operationResult As Uri = Nothing) As CreateAsyncResponse" />
-      <MemberSignature Language="F#" Value="static member CreateAsyncResponse : Uri * Uri -&gt; Azure.AI.Projects.CreateAsyncResponse" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.CreateAsyncResponse (location, operationResult)" />
+    <Member MemberName="CreateAsyncResult">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.CreateAsyncResult CreateAsyncResult (Uri location = default, Uri operationResult = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.CreateAsyncResult CreateAsyncResult(class System.Uri location, class System.Uri operationResult) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.CreateAsyncResult(System.Uri,System.Uri)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function CreateAsyncResult (Optional location As Uri = Nothing, Optional operationResult As Uri = Nothing) As CreateAsyncResult" />
+      <MemberSignature Language="F#" Value="static member CreateAsyncResult : Uri * Uri -&gt; Azure.AI.Projects.CreateAsyncResult" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.CreateAsyncResult (location, operationResult)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects</AssemblyName>
         <AssemblyVersion>3.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.AI.Projects.CreateAsyncResponse</ReturnType>
+        <ReturnType>Azure.AI.Projects.CreateAsyncResult</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="location" Type="System.Uri" Index="0" FrameworkAlternate="azure-dotnet-preview" />
@@ -1697,8 +1703,8 @@
       <Docs>
         <param name="location"> URL to poll for operation status. </param>
         <param name="operationResult"> URL to the operation result, or null if the operation is still in progress. </param>
-        <summary> The CreateAsyncResponse. </summary>
-        <returns> A new <see cref="T:Azure.AI.Projects.CreateAsyncResponse" /> instance for mocking. </returns>
+        <summary> The CreateAsyncResult. </summary>
+        <returns> A new <see cref="T:Azure.AI.Projects.CreateAsyncResult" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1784,51 +1790,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="DataGenerationJobInputs">
-      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.DataGenerationJobInputs DataGenerationJobInputs (string name = default, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.DataGenerationJobSource&gt; sources = default, Azure.AI.Projects.DataGenerationJobOptions options = default, Azure.AI.Projects.DataGenerationJobScenario scenario = default, Azure.AI.Projects.DataGenerationJobOutputOptions outputOptions = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.DataGenerationJobInputs DataGenerationJobInputs(string name, class System.Collections.Generic.IEnumerable`1&lt;class Azure.AI.Projects.DataGenerationJobSource&gt; sources, class Azure.AI.Projects.DataGenerationJobOptions options, valuetype Azure.AI.Projects.DataGenerationJobScenario scenario, class Azure.AI.Projects.DataGenerationJobOutputOptions outputOptions) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.DataGenerationJobInputs(System.String,System.Collections.Generic.IEnumerable{Azure.AI.Projects.DataGenerationJobSource},Azure.AI.Projects.DataGenerationJobOptions,Azure.AI.Projects.DataGenerationJobScenario,Azure.AI.Projects.DataGenerationJobOutputOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function DataGenerationJobInputs (Optional name As String = Nothing, Optional sources As IEnumerable(Of DataGenerationJobSource) = Nothing, Optional options As DataGenerationJobOptions = Nothing, Optional scenario As DataGenerationJobScenario = Nothing, Optional outputOptions As DataGenerationJobOutputOptions = Nothing) As DataGenerationJobInputs" />
-      <MemberSignature Language="F#" Value="static member DataGenerationJobInputs : string * seq&lt;Azure.AI.Projects.DataGenerationJobSource&gt; * Azure.AI.Projects.DataGenerationJobOptions * Azure.AI.Projects.DataGenerationJobScenario * Azure.AI.Projects.DataGenerationJobOutputOptions -&gt; Azure.AI.Projects.DataGenerationJobInputs" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.DataGenerationJobInputs (name, sources, options, scenario, outputOptions)" />
+    <Member MemberName="DataGenerationJobConfiguration">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.DataGenerationJobConfiguration DataGenerationJobConfiguration (string type = default, float? trainSplit = default, Azure.AI.Projects.DataGenerationModelOptions modelOptions = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.DataGenerationJobConfiguration DataGenerationJobConfiguration(string type, valuetype System.Nullable`1&lt;float32&gt; trainSplit, class Azure.AI.Projects.DataGenerationModelOptions modelOptions) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.DataGenerationJobConfiguration(System.String,System.Nullable{System.Single},Azure.AI.Projects.DataGenerationModelOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function DataGenerationJobConfiguration (Optional type As String = Nothing, Optional trainSplit As Nullable(Of Single) = Nothing, Optional modelOptions As DataGenerationModelOptions = Nothing) As DataGenerationJobConfiguration" />
+      <MemberSignature Language="F#" Value="static member DataGenerationJobConfiguration : string * Nullable&lt;single&gt; * Azure.AI.Projects.DataGenerationModelOptions -&gt; Azure.AI.Projects.DataGenerationJobConfiguration" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.DataGenerationJobConfiguration (type, trainSplit, modelOptions)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects</AssemblyName>
         <AssemblyVersion>3.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.AI.Projects.DataGenerationJobInputs</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="name" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="sources" Type="System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.DataGenerationJobSource&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="options" Type="Azure.AI.Projects.DataGenerationJobOptions" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="scenario" Type="Azure.AI.Projects.DataGenerationJobScenario" Index="3" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="outputOptions" Type="Azure.AI.Projects.DataGenerationJobOutputOptions" Index="4" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="name"> The display name of the data generation job. </param>
-        <param name="sources"> The sources used for the data generation job. </param>
-        <param name="options"> The options for the data generation job. </param>
-        <param name="scenario"> The scenario of the data generation job. Either for fine-tuning or evaluation. </param>
-        <param name="outputOptions"> Optional caller-supplied metadata for the job's output. See individual fields for whether they apply to file outputs (fine-tuning scenarios), dataset outputs (evaluation scenario), or both. </param>
-        <summary> Caller-supplied inputs for a data generation job. </summary>
-        <returns> A new <see cref="T:Azure.AI.Projects.DataGenerationJobInputs" /> instance for mocking. </returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DataGenerationJobOptions">
-      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.DataGenerationJobOptions DataGenerationJobOptions (string type = default, float? trainSplit = default, Azure.AI.Projects.DataGenerationModelOptions modelOptions = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.DataGenerationJobOptions DataGenerationJobOptions(string type, valuetype System.Nullable`1&lt;float32&gt; trainSplit, class Azure.AI.Projects.DataGenerationModelOptions modelOptions) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.DataGenerationJobOptions(System.String,System.Nullable{System.Single},Azure.AI.Projects.DataGenerationModelOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function DataGenerationJobOptions (Optional type As String = Nothing, Optional trainSplit As Nullable(Of Single) = Nothing, Optional modelOptions As DataGenerationModelOptions = Nothing) As DataGenerationJobOptions" />
-      <MemberSignature Language="F#" Value="static member DataGenerationJobOptions : string * Nullable&lt;single&gt; * Azure.AI.Projects.DataGenerationModelOptions -&gt; Azure.AI.Projects.DataGenerationJobOptions" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.DataGenerationJobOptions (type, trainSplit, modelOptions)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.AI.Projects</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.AI.Projects.DataGenerationJobOptions</ReturnType>
+        <ReturnType>Azure.AI.Projects.DataGenerationJobConfiguration</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="type" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
@@ -1840,10 +1814,43 @@
         <param name="trainSplit"> The proportion of the generated data to be used for training when the data is used for fine-tuning. The rest will be used for validation. Value should be between 0 and 1. </param>
         <param name="modelOptions"> The LLM model options. </param>
         <summary>
-            Options for managing data generation jobs.
-            Please note this is the abstract base class. The derived classes available for instantiation are: <see cref="T:Azure.AI.Projects.SimpleQnADataGenerationJobOptions" />, <see cref="T:Azure.AI.Projects.SimulationSeedDataGenerationJobOptions" />, <see cref="T:Azure.AI.Projects.ToolUseFineTuningDataGenerationJobOptions" />, and <see cref="T:Azure.AI.Projects.TracesDataGenerationJobOptions" />.
+            Configuration for managing data generation jobs.
+            Please note this is the abstract base class. The derived classes available for instantiation are: <see cref="T:Azure.AI.Projects.SimpleQnADataGenerationJobConfiguration" />, <see cref="T:Azure.AI.Projects.SimulationSeedDataGenerationJobConfiguration" />, <see cref="T:Azure.AI.Projects.ToolUseFineTuningDataGenerationJobConfiguration" />, and <see cref="T:Azure.AI.Projects.TracesDataGenerationJobConfiguration" />.
             </summary>
-        <returns> A new <see cref="T:Azure.AI.Projects.DataGenerationJobOptions" /> instance for mocking. </returns>
+        <returns> A new <see cref="T:Azure.AI.Projects.DataGenerationJobConfiguration" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DataGenerationJobInputs">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.DataGenerationJobInputs DataGenerationJobInputs (string name = default, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.DataGenerationJobSource&gt; sources = default, Azure.AI.Projects.DataGenerationJobConfiguration generationConfiguration = default, string scenario = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.DataGenerationJobInputs DataGenerationJobInputs(string name, class System.Collections.Generic.IEnumerable`1&lt;class Azure.AI.Projects.DataGenerationJobSource&gt; sources, class Azure.AI.Projects.DataGenerationJobConfiguration generationConfiguration, string scenario) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.DataGenerationJobInputs(System.String,System.Collections.Generic.IEnumerable{Azure.AI.Projects.DataGenerationJobSource},Azure.AI.Projects.DataGenerationJobConfiguration,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function DataGenerationJobInputs (Optional name As String = Nothing, Optional sources As IEnumerable(Of DataGenerationJobSource) = Nothing, Optional generationConfiguration As DataGenerationJobConfiguration = Nothing, Optional scenario As String = Nothing) As DataGenerationJobInputs" />
+      <MemberSignature Language="F#" Value="static member DataGenerationJobInputs : string * seq&lt;Azure.AI.Projects.DataGenerationJobSource&gt; * Azure.AI.Projects.DataGenerationJobConfiguration * string -&gt; Azure.AI.Projects.DataGenerationJobInputs" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.DataGenerationJobInputs (name, sources, generationConfiguration, scenario)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Projects.DataGenerationJobInputs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="sources" Type="System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.DataGenerationJobSource&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="generationConfiguration" Type="Azure.AI.Projects.DataGenerationJobConfiguration" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="scenario" Type="System.String" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="name"> The display name of the data generation job. </param>
+        <param name="sources"> The sources used for the data generation job. </param>
+        <param name="generationConfiguration"> The generation configuration for the data generation job. </param>
+        <param name="scenario"> The scenario of the data generation job. Either for fine-tuning or evaluation. </param>
+        <summary>
+            Caller-supplied inputs for a data generation job.
+            Please note this is the abstract base class. The derived classes available for instantiation are: <see cref="T:Azure.AI.Projects.EvaluationDataGenerationJobInputs" />, <see cref="T:Azure.AI.Projects.ReinforcementFineTuningDataGenerationJobInputs" />, and <see cref="T:Azure.AI.Projects.SupervisedFineTuningDataGenerationJobInputs" />.
+            </summary>
+        <returns> A new <see cref="T:Azure.AI.Projects.DataGenerationJobInputs" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1871,36 +1878,6 @@
             Please note this is the abstract base class. The derived classes available for instantiation are: <see cref="T:Azure.AI.Projects.DatasetDataGenerationJobOutput" /> and <see cref="T:Azure.AI.Projects.FileDataGenerationJobOutput" />.
             </summary>
         <returns> A new <see cref="T:Azure.AI.Projects.DataGenerationJobOutput" /> instance for mocking. </returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DataGenerationJobOutputOptions">
-      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.DataGenerationJobOutputOptions DataGenerationJobOutputOptions (string name = default, string description = default, System.Collections.Generic.IDictionary&lt;string,string&gt; tags = default, Azure.AI.Projects.DataGenerationJobOutputWriteMode? writeMode = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.DataGenerationJobOutputOptions DataGenerationJobOutputOptions(string name, string description, class System.Collections.Generic.IDictionary`2&lt;string, string&gt; tags, valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.DataGenerationJobOutputWriteMode&gt; writeMode) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.DataGenerationJobOutputOptions(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Nullable{Azure.AI.Projects.DataGenerationJobOutputWriteMode})" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function DataGenerationJobOutputOptions (Optional name As String = Nothing, Optional description As String = Nothing, Optional tags As IDictionary(Of String, String) = Nothing, Optional writeMode As Nullable(Of DataGenerationJobOutputWriteMode) = Nothing) As DataGenerationJobOutputOptions" />
-      <MemberSignature Language="F#" Value="static member DataGenerationJobOutputOptions : string * string * System.Collections.Generic.IDictionary&lt;string, string&gt; * Nullable&lt;Azure.AI.Projects.DataGenerationJobOutputWriteMode&gt; -&gt; Azure.AI.Projects.DataGenerationJobOutputOptions" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.DataGenerationJobOutputOptions (name, description, tags, writeMode)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.AI.Projects</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.AI.Projects.DataGenerationJobOutputOptions</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="name" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="description" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="tags" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="writeMode" Type="System.Nullable&lt;Azure.AI.Projects.DataGenerationJobOutputWriteMode&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="name"> Name to assign to the output. Used as the filename for Azure OpenAI file outputs (fine-tuning scenarios) and as the dataset name for dataset outputs (evaluation scenario). </param>
-        <param name="description"> Description to assign to the output. Applies only to dataset outputs (evaluation scenario); ignored for Azure OpenAI file outputs. </param>
-        <param name="tags"> Tags to assign to the output. Applies only to dataset outputs (evaluation scenario); ignored for Azure OpenAI file outputs. </param>
-        <param name="writeMode"> Controls how dataset outputs are written. If omitted, defaults to `overwrite` and creates the next dataset version using only newly generated rows. </param>
-        <summary> Output options for data generation job. </summary>
-        <returns> A new <see cref="T:Azure.AI.Projects.DataGenerationJobOutputOptions" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2441,6 +2418,66 @@
         <param name="blobUri"> The blob URI for the evaluator storage. Example: `https://account.blob.core.windows.net:443/container`. </param>
         <summary> Request body for getting evaluator credentials. </summary>
         <returns> A new <see cref="T:Azure.AI.Projects.Evaluation.EvaluationCredentialContent" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EvaluationDataGenerationJobInputs">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.EvaluationDataGenerationJobInputs EvaluationDataGenerationJobInputs (string name = default, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.DataGenerationJobSource&gt; sources = default, Azure.AI.Projects.DataGenerationJobConfiguration generationConfiguration = default, Azure.AI.Projects.EvaluationDataGenerationJobOutputConfiguration outputConfiguration = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.EvaluationDataGenerationJobInputs EvaluationDataGenerationJobInputs(string name, class System.Collections.Generic.IEnumerable`1&lt;class Azure.AI.Projects.DataGenerationJobSource&gt; sources, class Azure.AI.Projects.DataGenerationJobConfiguration generationConfiguration, class Azure.AI.Projects.EvaluationDataGenerationJobOutputConfiguration outputConfiguration) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.EvaluationDataGenerationJobInputs(System.String,System.Collections.Generic.IEnumerable{Azure.AI.Projects.DataGenerationJobSource},Azure.AI.Projects.DataGenerationJobConfiguration,Azure.AI.Projects.EvaluationDataGenerationJobOutputConfiguration)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function EvaluationDataGenerationJobInputs (Optional name As String = Nothing, Optional sources As IEnumerable(Of DataGenerationJobSource) = Nothing, Optional generationConfiguration As DataGenerationJobConfiguration = Nothing, Optional outputConfiguration As EvaluationDataGenerationJobOutputConfiguration = Nothing) As EvaluationDataGenerationJobInputs" />
+      <MemberSignature Language="F#" Value="static member EvaluationDataGenerationJobInputs : string * seq&lt;Azure.AI.Projects.DataGenerationJobSource&gt; * Azure.AI.Projects.DataGenerationJobConfiguration * Azure.AI.Projects.EvaluationDataGenerationJobOutputConfiguration -&gt; Azure.AI.Projects.EvaluationDataGenerationJobInputs" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.EvaluationDataGenerationJobInputs (name, sources, generationConfiguration, outputConfiguration)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Projects.EvaluationDataGenerationJobInputs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="sources" Type="System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.DataGenerationJobSource&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="generationConfiguration" Type="Azure.AI.Projects.DataGenerationJobConfiguration" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="outputConfiguration" Type="Azure.AI.Projects.EvaluationDataGenerationJobOutputConfiguration" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="name"> The display name of the data generation job. </param>
+        <param name="sources"> The sources used for the data generation job. </param>
+        <param name="generationConfiguration"> The generation configuration for the data generation job. </param>
+        <param name="outputConfiguration"> Optional dataset output configuration for the generated evaluation data. </param>
+        <summary> Caller-supplied inputs for an evaluation data generation job. </summary>
+        <returns> A new <see cref="T:Azure.AI.Projects.EvaluationDataGenerationJobInputs" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EvaluationDataGenerationJobOutputConfiguration">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.EvaluationDataGenerationJobOutputConfiguration EvaluationDataGenerationJobOutputConfiguration (string name = default, string description = default, System.Collections.Generic.IDictionary&lt;string,string&gt; tags = default, Azure.AI.Projects.DataGenerationJobOutputWriteMode? writeMode = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.EvaluationDataGenerationJobOutputConfiguration EvaluationDataGenerationJobOutputConfiguration(string name, string description, class System.Collections.Generic.IDictionary`2&lt;string, string&gt; tags, valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.DataGenerationJobOutputWriteMode&gt; writeMode) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.EvaluationDataGenerationJobOutputConfiguration(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Nullable{Azure.AI.Projects.DataGenerationJobOutputWriteMode})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function EvaluationDataGenerationJobOutputConfiguration (Optional name As String = Nothing, Optional description As String = Nothing, Optional tags As IDictionary(Of String, String) = Nothing, Optional writeMode As Nullable(Of DataGenerationJobOutputWriteMode) = Nothing) As EvaluationDataGenerationJobOutputConfiguration" />
+      <MemberSignature Language="F#" Value="static member EvaluationDataGenerationJobOutputConfiguration : string * string * System.Collections.Generic.IDictionary&lt;string, string&gt; * Nullable&lt;Azure.AI.Projects.DataGenerationJobOutputWriteMode&gt; -&gt; Azure.AI.Projects.EvaluationDataGenerationJobOutputConfiguration" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.EvaluationDataGenerationJobOutputConfiguration (name, description, tags, writeMode)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Projects.EvaluationDataGenerationJobOutputConfiguration</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="description" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="tags" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="writeMode" Type="System.Nullable&lt;Azure.AI.Projects.DataGenerationJobOutputWriteMode&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="name"> Dataset name to assign to the output. </param>
+        <param name="description"> Description to assign to the output dataset. </param>
+        <param name="tags"> Tags to assign to the output dataset. </param>
+        <param name="writeMode"> Controls how dataset outputs are written. If omitted, defaults to `overwrite` and creates the next dataset version using only newly generated rows. </param>
+        <summary> Dataset output configuration for an evaluation data generation job. </summary>
+        <returns> A new <see cref="T:Azure.AI.Projects.EvaluationDataGenerationJobOutputConfiguration" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3129,7 +3166,7 @@
       <Docs>
         <param name="id"> The id of the output Azure OpenAI file. </param>
         <param name="filename"> The filename of the output Azure OpenAI file. </param>
-        <summary> Azure OpenAI file output for a data generation job. </summary>
+        <summary> Azure OpenAI file output for a data generation job. This is a preview feature. </summary>
         <returns> A new <see cref="T:Azure.AI.Projects.FileDataGenerationJobOutput" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -5027,6 +5064,64 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ReinforcementFineTuningDataGenerationJobInputs">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.ReinforcementFineTuningDataGenerationJobInputs ReinforcementFineTuningDataGenerationJobInputs (string name = default, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.DataGenerationJobSource&gt; sources = default, Azure.AI.Projects.DataGenerationJobConfiguration generationConfiguration = default, Azure.AI.Projects.ReinforcementFineTuningDataGenerationJobOutputConfiguration outputConfiguration = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.ReinforcementFineTuningDataGenerationJobInputs ReinforcementFineTuningDataGenerationJobInputs(string name, class System.Collections.Generic.IEnumerable`1&lt;class Azure.AI.Projects.DataGenerationJobSource&gt; sources, class Azure.AI.Projects.DataGenerationJobConfiguration generationConfiguration, class Azure.AI.Projects.ReinforcementFineTuningDataGenerationJobOutputConfiguration outputConfiguration) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.ReinforcementFineTuningDataGenerationJobInputs(System.String,System.Collections.Generic.IEnumerable{Azure.AI.Projects.DataGenerationJobSource},Azure.AI.Projects.DataGenerationJobConfiguration,Azure.AI.Projects.ReinforcementFineTuningDataGenerationJobOutputConfiguration)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ReinforcementFineTuningDataGenerationJobInputs (Optional name As String = Nothing, Optional sources As IEnumerable(Of DataGenerationJobSource) = Nothing, Optional generationConfiguration As DataGenerationJobConfiguration = Nothing, Optional outputConfiguration As ReinforcementFineTuningDataGenerationJobOutputConfiguration = Nothing) As ReinforcementFineTuningDataGenerationJobInputs" />
+      <MemberSignature Language="F#" Value="static member ReinforcementFineTuningDataGenerationJobInputs : string * seq&lt;Azure.AI.Projects.DataGenerationJobSource&gt; * Azure.AI.Projects.DataGenerationJobConfiguration * Azure.AI.Projects.ReinforcementFineTuningDataGenerationJobOutputConfiguration -&gt; Azure.AI.Projects.ReinforcementFineTuningDataGenerationJobInputs" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.ReinforcementFineTuningDataGenerationJobInputs (name, sources, generationConfiguration, outputConfiguration)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Projects.ReinforcementFineTuningDataGenerationJobInputs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="sources" Type="System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.DataGenerationJobSource&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="generationConfiguration" Type="Azure.AI.Projects.DataGenerationJobConfiguration" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="outputConfiguration" Type="Azure.AI.Projects.ReinforcementFineTuningDataGenerationJobOutputConfiguration" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="name"> The display name of the data generation job. </param>
+        <param name="sources"> The sources used for the data generation job. </param>
+        <param name="generationConfiguration"> The generation configuration for the data generation job. </param>
+        <param name="outputConfiguration"> Optional file output configuration for the generated reinforcement fine-tuning data. </param>
+        <summary> Caller-supplied inputs for a reinforcement fine-tuning data generation job. This is a preview feature. </summary>
+        <returns> A new <see cref="T:Azure.AI.Projects.ReinforcementFineTuningDataGenerationJobInputs" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReinforcementFineTuningDataGenerationJobOutputConfiguration">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.ReinforcementFineTuningDataGenerationJobOutputConfiguration ReinforcementFineTuningDataGenerationJobOutputConfiguration (string name = default, Azure.AI.Projects.DataGenerationJobOutputWriteMode? writeMode = default, string mergeFileId = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.ReinforcementFineTuningDataGenerationJobOutputConfiguration ReinforcementFineTuningDataGenerationJobOutputConfiguration(string name, valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.DataGenerationJobOutputWriteMode&gt; writeMode, string mergeFileId) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.ReinforcementFineTuningDataGenerationJobOutputConfiguration(System.String,System.Nullable{Azure.AI.Projects.DataGenerationJobOutputWriteMode},System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ReinforcementFineTuningDataGenerationJobOutputConfiguration (Optional name As String = Nothing, Optional writeMode As Nullable(Of DataGenerationJobOutputWriteMode) = Nothing, Optional mergeFileId As String = Nothing) As ReinforcementFineTuningDataGenerationJobOutputConfiguration" />
+      <MemberSignature Language="F#" Value="static member ReinforcementFineTuningDataGenerationJobOutputConfiguration : string * Nullable&lt;Azure.AI.Projects.DataGenerationJobOutputWriteMode&gt; * string -&gt; Azure.AI.Projects.ReinforcementFineTuningDataGenerationJobOutputConfiguration" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.ReinforcementFineTuningDataGenerationJobOutputConfiguration (name, writeMode, mergeFileId)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Projects.ReinforcementFineTuningDataGenerationJobOutputConfiguration</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="writeMode" Type="System.Nullable&lt;Azure.AI.Projects.DataGenerationJobOutputWriteMode&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="mergeFileId" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="name"> Filename to assign to the generated fine-tuning file. </param>
+        <param name="writeMode"> Controls how file outputs are written. If omitted, defaults to `overwrite` and writes only the newly generated fine-tuning file content. </param>
+        <param name="mergeFileId"> File ID to merge into when `write_mode` is `merge`. </param>
+        <summary> File output configuration for a reinforcement fine-tuning data generation job. This is a preview feature. </summary>
+        <returns> A new <see cref="T:Azure.AI.Projects.ReinforcementFineTuningDataGenerationJobOutputConfiguration" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ResponseUsageInputTokensDetails">
       <MemberSignature Language="C#" Value="public static Azure.AI.Projects.ResponseUsageInputTokensDetails ResponseUsageInputTokensDetails (long cachedTokens = 0);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.ResponseUsageInputTokensDetails ResponseUsageInputTokensDetails(int64 cachedTokens) cil managed" />
@@ -5282,7 +5377,7 @@
         <param name="severity"> Advisory severity. Initial values: `warning`. </param>
         <param name="message"> Human-readable message suitable for direct SDK/CLI/UI display. Must not include raw prompt, instruction, dataset, or trace text. </param>
         <param name="source"> Which source category the warning applies to. `aggregate` is used only for cross-source warnings. </param>
-        <param name="sourceIndex"> Zero-based index into `EvaluatorGenerationJob.inputs.sources` when the warning applies to a specific source. Omitted for aggregate warnings and for warnings not tied to one source. </param>
+        <param name="sourceIndex"> Zero-based index into `EvaluatorGenerationJob.sources` when the warning applies to a specific source. Omitted for aggregate warnings and for warnings not tied to one source. </param>
         <summary> A non-fatal advisory produced during rubric evaluator generation when resolved inputs are technically valid but likely too weak to produce a high-quality rubric. Read-only; service-generated. Persisted with the terminal EvaluatorGenerationJob. </summary>
         <returns> A new <see cref="T:Azure.AI.Projects.RubricGenerationInputQualityWarning" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
@@ -5376,19 +5471,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SimpleQnADataGenerationJobOptions">
-      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.SimpleQnADataGenerationJobOptions SimpleQnADataGenerationJobOptions (float? trainSplit = default, Azure.AI.Projects.DataGenerationModelOptions modelOptions = default, int maxSamples = 0, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.SimpleQnAFineTuningQuestionType&gt; questionTypes = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.SimpleQnADataGenerationJobOptions SimpleQnADataGenerationJobOptions(valuetype System.Nullable`1&lt;float32&gt; trainSplit, class Azure.AI.Projects.DataGenerationModelOptions modelOptions, int32 maxSamples, class System.Collections.Generic.IEnumerable`1&lt;valuetype Azure.AI.Projects.SimpleQnAFineTuningQuestionType&gt; questionTypes) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.SimpleQnADataGenerationJobOptions(System.Nullable{System.Single},Azure.AI.Projects.DataGenerationModelOptions,System.Int32,System.Collections.Generic.IEnumerable{Azure.AI.Projects.SimpleQnAFineTuningQuestionType})" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function SimpleQnADataGenerationJobOptions (Optional trainSplit As Nullable(Of Single) = Nothing, Optional modelOptions As DataGenerationModelOptions = Nothing, Optional maxSamples As Integer = 0, Optional questionTypes As IEnumerable(Of SimpleQnAFineTuningQuestionType) = Nothing) As SimpleQnADataGenerationJobOptions" />
-      <MemberSignature Language="F#" Value="static member SimpleQnADataGenerationJobOptions : Nullable&lt;single&gt; * Azure.AI.Projects.DataGenerationModelOptions * int * seq&lt;Azure.AI.Projects.SimpleQnAFineTuningQuestionType&gt; -&gt; Azure.AI.Projects.SimpleQnADataGenerationJobOptions" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.SimpleQnADataGenerationJobOptions (trainSplit, modelOptions, maxSamples, questionTypes)" />
+    <Member MemberName="SimpleQnADataGenerationJobConfiguration">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.SimpleQnADataGenerationJobConfiguration SimpleQnADataGenerationJobConfiguration (float? trainSplit = default, Azure.AI.Projects.DataGenerationModelOptions modelOptions = default, int maxSamples = 0, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.SimpleQnAFineTuningQuestionType&gt; questionTypes = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.SimpleQnADataGenerationJobConfiguration SimpleQnADataGenerationJobConfiguration(valuetype System.Nullable`1&lt;float32&gt; trainSplit, class Azure.AI.Projects.DataGenerationModelOptions modelOptions, int32 maxSamples, class System.Collections.Generic.IEnumerable`1&lt;valuetype Azure.AI.Projects.SimpleQnAFineTuningQuestionType&gt; questionTypes) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.SimpleQnADataGenerationJobConfiguration(System.Nullable{System.Single},Azure.AI.Projects.DataGenerationModelOptions,System.Int32,System.Collections.Generic.IEnumerable{Azure.AI.Projects.SimpleQnAFineTuningQuestionType})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function SimpleQnADataGenerationJobConfiguration (Optional trainSplit As Nullable(Of Single) = Nothing, Optional modelOptions As DataGenerationModelOptions = Nothing, Optional maxSamples As Integer = 0, Optional questionTypes As IEnumerable(Of SimpleQnAFineTuningQuestionType) = Nothing) As SimpleQnADataGenerationJobConfiguration" />
+      <MemberSignature Language="F#" Value="static member SimpleQnADataGenerationJobConfiguration : Nullable&lt;single&gt; * Azure.AI.Projects.DataGenerationModelOptions * int * seq&lt;Azure.AI.Projects.SimpleQnAFineTuningQuestionType&gt; -&gt; Azure.AI.Projects.SimpleQnADataGenerationJobConfiguration" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.SimpleQnADataGenerationJobConfiguration (trainSplit, modelOptions, maxSamples, questionTypes)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects</AssemblyName>
         <AssemblyVersion>3.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.AI.Projects.SimpleQnADataGenerationJobOptions</ReturnType>
+        <ReturnType>Azure.AI.Projects.SimpleQnADataGenerationJobConfiguration</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="trainSplit" Type="System.Nullable&lt;System.Single&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
@@ -5401,24 +5496,24 @@
         <param name="modelOptions"> The LLM model options. </param>
         <param name="maxSamples"> Maximum number of samples to generate, up to service-defined limits. </param>
         <param name="questionTypes"> The question types to generate. Used only for fine-tuning scenarios. </param>
-        <summary> The options for a data generation job with SimpleQnA type. </summary>
-        <returns> A new <see cref="T:Azure.AI.Projects.SimpleQnADataGenerationJobOptions" /> instance for mocking. </returns>
+        <summary> The configuration for a data generation job with SimpleQnA type. </summary>
+        <returns> A new <see cref="T:Azure.AI.Projects.SimpleQnADataGenerationJobConfiguration" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SimulationSeedDataGenerationJobOptions">
-      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.SimulationSeedDataGenerationJobOptions SimulationSeedDataGenerationJobOptions (float? trainSplit = default, Azure.AI.Projects.DataGenerationModelOptions modelOptions = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.SimulationSeedDataGenerationJobOptions SimulationSeedDataGenerationJobOptions(valuetype System.Nullable`1&lt;float32&gt; trainSplit, class Azure.AI.Projects.DataGenerationModelOptions modelOptions) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.SimulationSeedDataGenerationJobOptions(System.Nullable{System.Single},Azure.AI.Projects.DataGenerationModelOptions)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function SimulationSeedDataGenerationJobOptions (Optional trainSplit As Nullable(Of Single) = Nothing, Optional modelOptions As DataGenerationModelOptions = Nothing) As SimulationSeedDataGenerationJobOptions" />
-      <MemberSignature Language="F#" Value="static member SimulationSeedDataGenerationJobOptions : Nullable&lt;single&gt; * Azure.AI.Projects.DataGenerationModelOptions -&gt; Azure.AI.Projects.SimulationSeedDataGenerationJobOptions" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.SimulationSeedDataGenerationJobOptions (trainSplit, modelOptions)" />
+    <Member MemberName="SimulationSeedDataGenerationJobConfiguration">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.SimulationSeedDataGenerationJobConfiguration SimulationSeedDataGenerationJobConfiguration (float? trainSplit = default, Azure.AI.Projects.DataGenerationModelOptions modelOptions = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.SimulationSeedDataGenerationJobConfiguration SimulationSeedDataGenerationJobConfiguration(valuetype System.Nullable`1&lt;float32&gt; trainSplit, class Azure.AI.Projects.DataGenerationModelOptions modelOptions) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.SimulationSeedDataGenerationJobConfiguration(System.Nullable{System.Single},Azure.AI.Projects.DataGenerationModelOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function SimulationSeedDataGenerationJobConfiguration (Optional trainSplit As Nullable(Of Single) = Nothing, Optional modelOptions As DataGenerationModelOptions = Nothing) As SimulationSeedDataGenerationJobConfiguration" />
+      <MemberSignature Language="F#" Value="static member SimulationSeedDataGenerationJobConfiguration : Nullable&lt;single&gt; * Azure.AI.Projects.DataGenerationModelOptions -&gt; Azure.AI.Projects.SimulationSeedDataGenerationJobConfiguration" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.SimulationSeedDataGenerationJobConfiguration (trainSplit, modelOptions)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects</AssemblyName>
         <AssemblyVersion>3.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.AI.Projects.SimulationSeedDataGenerationJobOptions</ReturnType>
+        <ReturnType>Azure.AI.Projects.SimulationSeedDataGenerationJobConfiguration</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="trainSplit" Type="System.Nullable&lt;System.Single&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
@@ -5427,8 +5522,66 @@
       <Docs>
         <param name="trainSplit"> The proportion of the generated data to be used for training when the data is used for fine-tuning. The rest will be used for validation. Value should be between 0 and 1. </param>
         <param name="modelOptions"> The LLM model options. </param>
-        <summary> The options for a task generation data generation job. Use with multiturn evaluation scenarios and with prompt, file, or agent sources. Generated dataset rows include fields such as `id`, `category`, `test_case_description`, and `desired_num_turns`. </summary>
-        <returns> A new <see cref="T:Azure.AI.Projects.SimulationSeedDataGenerationJobOptions" /> instance for mocking. </returns>
+        <summary> The configuration for a task generation data generation job. Use with multiturn evaluation scenarios and with prompt, file, or agent sources. Generated dataset rows include fields such as `id`, `category`, `test_case_description`, and `desired_num_turns`. </summary>
+        <returns> A new <see cref="T:Azure.AI.Projects.SimulationSeedDataGenerationJobConfiguration" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SupervisedFineTuningDataGenerationJobInputs">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.SupervisedFineTuningDataGenerationJobInputs SupervisedFineTuningDataGenerationJobInputs (string name = default, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.DataGenerationJobSource&gt; sources = default, Azure.AI.Projects.DataGenerationJobConfiguration generationConfiguration = default, Azure.AI.Projects.SupervisedFineTuningDataGenerationJobOutputConfiguration outputConfiguration = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.SupervisedFineTuningDataGenerationJobInputs SupervisedFineTuningDataGenerationJobInputs(string name, class System.Collections.Generic.IEnumerable`1&lt;class Azure.AI.Projects.DataGenerationJobSource&gt; sources, class Azure.AI.Projects.DataGenerationJobConfiguration generationConfiguration, class Azure.AI.Projects.SupervisedFineTuningDataGenerationJobOutputConfiguration outputConfiguration) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.SupervisedFineTuningDataGenerationJobInputs(System.String,System.Collections.Generic.IEnumerable{Azure.AI.Projects.DataGenerationJobSource},Azure.AI.Projects.DataGenerationJobConfiguration,Azure.AI.Projects.SupervisedFineTuningDataGenerationJobOutputConfiguration)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function SupervisedFineTuningDataGenerationJobInputs (Optional name As String = Nothing, Optional sources As IEnumerable(Of DataGenerationJobSource) = Nothing, Optional generationConfiguration As DataGenerationJobConfiguration = Nothing, Optional outputConfiguration As SupervisedFineTuningDataGenerationJobOutputConfiguration = Nothing) As SupervisedFineTuningDataGenerationJobInputs" />
+      <MemberSignature Language="F#" Value="static member SupervisedFineTuningDataGenerationJobInputs : string * seq&lt;Azure.AI.Projects.DataGenerationJobSource&gt; * Azure.AI.Projects.DataGenerationJobConfiguration * Azure.AI.Projects.SupervisedFineTuningDataGenerationJobOutputConfiguration -&gt; Azure.AI.Projects.SupervisedFineTuningDataGenerationJobInputs" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.SupervisedFineTuningDataGenerationJobInputs (name, sources, generationConfiguration, outputConfiguration)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Projects.SupervisedFineTuningDataGenerationJobInputs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="sources" Type="System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.DataGenerationJobSource&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="generationConfiguration" Type="Azure.AI.Projects.DataGenerationJobConfiguration" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="outputConfiguration" Type="Azure.AI.Projects.SupervisedFineTuningDataGenerationJobOutputConfiguration" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="name"> The display name of the data generation job. </param>
+        <param name="sources"> The sources used for the data generation job. </param>
+        <param name="generationConfiguration"> The generation configuration for the data generation job. </param>
+        <param name="outputConfiguration"> Optional file output configuration for the generated supervised fine-tuning data. </param>
+        <summary> Caller-supplied inputs for a supervised fine-tuning data generation job. This is a preview feature. </summary>
+        <returns> A new <see cref="T:Azure.AI.Projects.SupervisedFineTuningDataGenerationJobInputs" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SupervisedFineTuningDataGenerationJobOutputConfiguration">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.SupervisedFineTuningDataGenerationJobOutputConfiguration SupervisedFineTuningDataGenerationJobOutputConfiguration (string name = default, Azure.AI.Projects.DataGenerationJobOutputWriteMode? writeMode = default, string mergeFileId = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.SupervisedFineTuningDataGenerationJobOutputConfiguration SupervisedFineTuningDataGenerationJobOutputConfiguration(string name, valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.DataGenerationJobOutputWriteMode&gt; writeMode, string mergeFileId) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.SupervisedFineTuningDataGenerationJobOutputConfiguration(System.String,System.Nullable{Azure.AI.Projects.DataGenerationJobOutputWriteMode},System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function SupervisedFineTuningDataGenerationJobOutputConfiguration (Optional name As String = Nothing, Optional writeMode As Nullable(Of DataGenerationJobOutputWriteMode) = Nothing, Optional mergeFileId As String = Nothing) As SupervisedFineTuningDataGenerationJobOutputConfiguration" />
+      <MemberSignature Language="F#" Value="static member SupervisedFineTuningDataGenerationJobOutputConfiguration : string * Nullable&lt;Azure.AI.Projects.DataGenerationJobOutputWriteMode&gt; * string -&gt; Azure.AI.Projects.SupervisedFineTuningDataGenerationJobOutputConfiguration" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.SupervisedFineTuningDataGenerationJobOutputConfiguration (name, writeMode, mergeFileId)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Projects.SupervisedFineTuningDataGenerationJobOutputConfiguration</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="writeMode" Type="System.Nullable&lt;Azure.AI.Projects.DataGenerationJobOutputWriteMode&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="mergeFileId" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="name"> Filename to assign to the generated fine-tuning file. </param>
+        <param name="writeMode"> Controls how file outputs are written. If omitted, defaults to `overwrite` and writes only the newly generated fine-tuning file content. </param>
+        <param name="mergeFileId"> File ID to merge into when `write_mode` is `merge`. </param>
+        <summary> File output configuration for a supervised fine-tuning data generation job. This is a preview feature. </summary>
+        <returns> A new <see cref="T:Azure.AI.Projects.SupervisedFineTuningDataGenerationJobOutputConfiguration" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5579,19 +5732,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="ToolUseFineTuningDataGenerationJobOptions">
-      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.ToolUseFineTuningDataGenerationJobOptions ToolUseFineTuningDataGenerationJobOptions (float? trainSplit = default, Azure.AI.Projects.DataGenerationModelOptions modelOptions = default, int maxSamples = 0);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.ToolUseFineTuningDataGenerationJobOptions ToolUseFineTuningDataGenerationJobOptions(valuetype System.Nullable`1&lt;float32&gt; trainSplit, class Azure.AI.Projects.DataGenerationModelOptions modelOptions, int32 maxSamples) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.ToolUseFineTuningDataGenerationJobOptions(System.Nullable{System.Single},Azure.AI.Projects.DataGenerationModelOptions,System.Int32)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function ToolUseFineTuningDataGenerationJobOptions (Optional trainSplit As Nullable(Of Single) = Nothing, Optional modelOptions As DataGenerationModelOptions = Nothing, Optional maxSamples As Integer = 0) As ToolUseFineTuningDataGenerationJobOptions" />
-      <MemberSignature Language="F#" Value="static member ToolUseFineTuningDataGenerationJobOptions : Nullable&lt;single&gt; * Azure.AI.Projects.DataGenerationModelOptions * int -&gt; Azure.AI.Projects.ToolUseFineTuningDataGenerationJobOptions" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.ToolUseFineTuningDataGenerationJobOptions (trainSplit, modelOptions, maxSamples)" />
+    <Member MemberName="ToolUseFineTuningDataGenerationJobConfiguration">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.ToolUseFineTuningDataGenerationJobConfiguration ToolUseFineTuningDataGenerationJobConfiguration (float? trainSplit = default, Azure.AI.Projects.DataGenerationModelOptions modelOptions = default, int maxSamples = 0);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.ToolUseFineTuningDataGenerationJobConfiguration ToolUseFineTuningDataGenerationJobConfiguration(valuetype System.Nullable`1&lt;float32&gt; trainSplit, class Azure.AI.Projects.DataGenerationModelOptions modelOptions, int32 maxSamples) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.ToolUseFineTuningDataGenerationJobConfiguration(System.Nullable{System.Single},Azure.AI.Projects.DataGenerationModelOptions,System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ToolUseFineTuningDataGenerationJobConfiguration (Optional trainSplit As Nullable(Of Single) = Nothing, Optional modelOptions As DataGenerationModelOptions = Nothing, Optional maxSamples As Integer = 0) As ToolUseFineTuningDataGenerationJobConfiguration" />
+      <MemberSignature Language="F#" Value="static member ToolUseFineTuningDataGenerationJobConfiguration : Nullable&lt;single&gt; * Azure.AI.Projects.DataGenerationModelOptions * int -&gt; Azure.AI.Projects.ToolUseFineTuningDataGenerationJobConfiguration" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.ToolUseFineTuningDataGenerationJobConfiguration (trainSplit, modelOptions, maxSamples)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects</AssemblyName>
         <AssemblyVersion>3.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.AI.Projects.ToolUseFineTuningDataGenerationJobOptions</ReturnType>
+        <ReturnType>Azure.AI.Projects.ToolUseFineTuningDataGenerationJobConfiguration</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="trainSplit" Type="System.Nullable&lt;System.Single&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
@@ -5602,24 +5755,24 @@
         <param name="trainSplit"> The proportion of the generated data to be used for training when the data is used for fine-tuning. The rest will be used for validation. Value should be between 0 and 1. </param>
         <param name="modelOptions"> The LLM model options. </param>
         <param name="maxSamples"> Maximum number of samples to generate, up to service-defined limits. </param>
-        <summary> The options for a data generation job with ToolUse type. Used only for fine-tuning scenarios. </summary>
-        <returns> A new <see cref="T:Azure.AI.Projects.ToolUseFineTuningDataGenerationJobOptions" /> instance for mocking. </returns>
+        <summary> The configuration for a data generation job with ToolUse type. This is a preview feature used only for fine-tuning scenarios. </summary>
+        <returns> A new <see cref="T:Azure.AI.Projects.ToolUseFineTuningDataGenerationJobConfiguration" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="TracesDataGenerationJobOptions">
-      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.TracesDataGenerationJobOptions TracesDataGenerationJobOptions (float? trainSplit = default, Azure.AI.Projects.DataGenerationModelOptions modelOptions = default, int? maxSamples = default, bool? redactPrivateContent = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.TracesDataGenerationJobOptions TracesDataGenerationJobOptions(valuetype System.Nullable`1&lt;float32&gt; trainSplit, class Azure.AI.Projects.DataGenerationModelOptions modelOptions, valuetype System.Nullable`1&lt;int32&gt; maxSamples, valuetype System.Nullable`1&lt;bool&gt; redactPrivateContent) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.TracesDataGenerationJobOptions(System.Nullable{System.Single},Azure.AI.Projects.DataGenerationModelOptions,System.Nullable{System.Int32},System.Nullable{System.Boolean})" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function TracesDataGenerationJobOptions (Optional trainSplit As Nullable(Of Single) = Nothing, Optional modelOptions As DataGenerationModelOptions = Nothing, Optional maxSamples As Nullable(Of Integer) = Nothing, Optional redactPrivateContent As Nullable(Of Boolean) = Nothing) As TracesDataGenerationJobOptions" />
-      <MemberSignature Language="F#" Value="static member TracesDataGenerationJobOptions : Nullable&lt;single&gt; * Azure.AI.Projects.DataGenerationModelOptions * Nullable&lt;int&gt; * Nullable&lt;bool&gt; -&gt; Azure.AI.Projects.TracesDataGenerationJobOptions" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.TracesDataGenerationJobOptions (trainSplit, modelOptions, maxSamples, redactPrivateContent)" />
+    <Member MemberName="TracesDataGenerationJobConfiguration">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.TracesDataGenerationJobConfiguration TracesDataGenerationJobConfiguration (float? trainSplit = default, Azure.AI.Projects.DataGenerationModelOptions modelOptions = default, int? maxSamples = default, bool? redactPrivateContent = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.TracesDataGenerationJobConfiguration TracesDataGenerationJobConfiguration(valuetype System.Nullable`1&lt;float32&gt; trainSplit, class Azure.AI.Projects.DataGenerationModelOptions modelOptions, valuetype System.Nullable`1&lt;int32&gt; maxSamples, valuetype System.Nullable`1&lt;bool&gt; redactPrivateContent) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.AzureAIProjectsModelFactory.TracesDataGenerationJobConfiguration(System.Nullable{System.Single},Azure.AI.Projects.DataGenerationModelOptions,System.Nullable{System.Int32},System.Nullable{System.Boolean})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function TracesDataGenerationJobConfiguration (Optional trainSplit As Nullable(Of Single) = Nothing, Optional modelOptions As DataGenerationModelOptions = Nothing, Optional maxSamples As Nullable(Of Integer) = Nothing, Optional redactPrivateContent As Nullable(Of Boolean) = Nothing) As TracesDataGenerationJobConfiguration" />
+      <MemberSignature Language="F#" Value="static member TracesDataGenerationJobConfiguration : Nullable&lt;single&gt; * Azure.AI.Projects.DataGenerationModelOptions * Nullable&lt;int&gt; * Nullable&lt;bool&gt; -&gt; Azure.AI.Projects.TracesDataGenerationJobConfiguration" Usage="Azure.AI.Projects.AzureAIProjectsModelFactory.TracesDataGenerationJobConfiguration (trainSplit, modelOptions, maxSamples, redactPrivateContent)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects</AssemblyName>
         <AssemblyVersion>3.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.AI.Projects.TracesDataGenerationJobOptions</ReturnType>
+        <ReturnType>Azure.AI.Projects.TracesDataGenerationJobConfiguration</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="trainSplit" Type="System.Nullable&lt;System.Single&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
@@ -5632,8 +5785,8 @@
         <param name="modelOptions"> The LLM model options. </param>
         <param name="maxSamples"> Maximum number of samples to generate, up to service-defined limits. If omitted, sampling is turned off. </param>
         <param name="redactPrivateContent"> Whether to redact private content from traces. When omitted or set to true, private content is redacted. Set to false to opt out of redaction. </param>
-        <summary> The options for a data generation job with Traces type. </summary>
-        <returns> A new <see cref="T:Azure.AI.Projects.TracesDataGenerationJobOptions" /> instance for mocking. </returns>
+        <summary> The configuration for a data generation job with Traces type. </summary>
+        <returns> A new <see cref="T:Azure.AI.Projects.TracesDataGenerationJobConfiguration" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
