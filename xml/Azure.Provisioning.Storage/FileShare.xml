@@ -17,18 +17,17 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            FileShare.
-            </summary>
+    <summary> Properties of the file share, including Id, resource name, resource type, Etag. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public FileShare (string bicepIdentifier, string? resourceVersion = default);" />
+      <MemberSignature Language="C#" Value="public FileShare (string bicepIdentifier, string? resourceVersion = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string bicepIdentifier, string resourceVersion) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Provisioning.Storage.FileShare.#ctor(System.String,System.String)" />
       <MemberSignature Language="VB.NET" Value="Public Sub New (bicepIdentifier As String, Optional resourceVersion As String = Nothing)" />
       <MemberSignature Language="F#" Value="new Azure.Provisioning.Storage.FileShare : string * string -&gt; Azure.Provisioning.Storage.FileShare" Usage="new Azure.Provisioning.Storage.FileShare (bicepIdentifier, resourceVersion)" />
+      <MemberSignature Language="C#" Value="public FileShare (string bicepIdentifier, string resourceVersion = default);" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Storage</AssemblyName>
@@ -40,16 +39,9 @@
         <Parameter Name="resourceVersion" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="bicepIdentifier">
-            The the Bicep identifier name of the FileShare resource.  This can be
-            used to refer to the resource in expressions, but is not the Azure
-            name of the resource.  This value can contain letters, numbers, and
-            underscores.
-            </param>
-        <param name="resourceVersion">Version of the FileShare.</param>
-        <summary>
-            Creates a new FileShare.
-            </summary>
+        <param name="bicepIdentifier"> The bicep identifier name. </param>
+        <param name="resourceVersion"> The resource API version. </param>
+        <summary> Creates a new FileShare. </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -69,11 +61,27 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.FileShareAccessTier&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Access tier for specific share. GpV2 account can choose between
-            TransactionOptimized (default), Hot, and Cool. FileStorage account can
-            choose Premium.
-            </summary>
+        <summary> Gets or sets the AccessTier. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AccessTierChangedOn">
+      <MemberSignature Language="C#" Value="public Azure.Provisioning.BicepValue&lt;DateTimeOffset&gt; AccessTierChangedOn { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Provisioning.BicepValue`1&lt;valuetype System.DateTimeOffset&gt; AccessTierChangedOn" />
+      <MemberSignature Language="DocId" Value="P:Azure.Provisioning.Storage.FileShare.AccessTierChangedOn" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property AccessTierChangedOn As BicepValue(Of DateTimeOffset)" />
+      <MemberSignature Language="F#" Value="member this.AccessTierChangedOn : Azure.Provisioning.BicepValue&lt;DateTimeOffset&gt;" Usage="Azure.Provisioning.Storage.FileShare.AccessTierChangedOn" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Provisioning.Storage</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Provisioning.BicepValue&lt;System.DateTimeOffset&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Gets the AccessTierChangedOn. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -90,13 +98,21 @@
         <AssemblyVersion>1.1.2.0</AssemblyVersion>
         <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.Obsolete("This property is obsoleted and will be removed in a future version. Please use AccessTierChangedOn instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Obsolete("This property is obsoleted and will be removed in a future version. Please use AccessTierChangedOn instead.")&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.DateTimeOffset&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Indicates the last modification time for share access tier.
-            </summary>
+        <summary> Gets the last modification time for the share access tier. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -117,9 +133,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.String&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Indicates if there is a pending transition for access tier.
-            </summary>
+        <summary> Gets the AccessTierStatus. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -141,9 +155,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>
-            Define all the provisionable properties of FileShare.
-            </summary>
+        <summary> Define all the provisionable properties for FileShare. </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -163,9 +175,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.DateTimeOffset&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The deleted time if the share was deleted.
-            </summary>
+        <summary> Gets the DeletedOn. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -186,10 +196,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.FileShareEnabledProtocol&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The authentication protocol that is used for the file share. Can only
-            be specified when creating a share.
-            </summary>
+        <summary> Gets or sets the EnabledProtocol. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -210,9 +217,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.ETag&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Resource Etag.
-            </summary>
+        <summary> Gets the ETag. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -233,19 +238,18 @@
         <ReturnType>Azure.Provisioning.Storage.FileSharePropertiesFileSharePaidBursting</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            File Share Paid Bursting properties.
-            </summary>
+        <summary> Gets or sets the FileSharePaidBursting. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="FromExisting">
-      <MemberSignature Language="C#" Value="public static Azure.Provisioning.Storage.FileShare FromExisting (string bicepIdentifier, string? resourceVersion = default);" />
+      <MemberSignature Language="C#" Value="public static Azure.Provisioning.Storage.FileShare FromExisting (string bicepIdentifier, string? resourceVersion = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Provisioning.Storage.FileShare FromExisting(string bicepIdentifier, string resourceVersion) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Provisioning.Storage.FileShare.FromExisting(System.String,System.String)" />
       <MemberSignature Language="VB.NET" Value="Public Shared Function FromExisting (bicepIdentifier As String, Optional resourceVersion As String = Nothing) As FileShare" />
       <MemberSignature Language="F#" Value="static member FromExisting : string * string -&gt; Azure.Provisioning.Storage.FileShare" Usage="Azure.Provisioning.Storage.FileShare.FromExisting (bicepIdentifier, resourceVersion)" />
+      <MemberSignature Language="C#" Value="public static Azure.Provisioning.Storage.FileShare FromExisting (string bicepIdentifier, string resourceVersion = default);" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Storage</AssemblyName>
@@ -260,16 +264,9 @@
         <Parameter Name="resourceVersion" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="bicepIdentifier">
-            The the Bicep identifier name of the FileShare resource.  This can be
-            used to refer to the resource in expressions, but is not the Azure
-            name of the resource.  This value can contain letters, numbers, and
-            underscores.
-            </param>
-        <param name="resourceVersion">Version of the FileShare.</param>
-        <summary>
-            Creates a reference to an existing FileShare.
-            </summary>
+        <param name="bicepIdentifier"> The bicep identifier name. </param>
+        <param name="resourceVersion"> The resource API version. </param>
+        <summary> Creates a reference to an existing FileShare. </summary>
         <returns>The existing FileShare resource.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -297,10 +294,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>
-            Get the requirements for naming this FileShare resource.
-            </summary>
-        <returns>Naming requirements.</returns>
+        <summary> Get the requirements for naming this resource. </summary>
+        <returns> Naming requirements. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -320,9 +315,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Core.ResourceIdentifier&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Gets the Id.
-            </summary>
+        <summary> Gets the Id. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -343,10 +336,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Int32&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The calculated burst IOPS of the share. This property is only for file
-            shares created under Files Provisioned v2 account type.
-            </summary>
+        <summary> Gets the IncludedBurstIops. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -367,9 +357,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Indicates whether the share was deleted.
-            </summary>
+        <summary> Gets the IsDeleted. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -390,9 +378,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.DateTimeOffset&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Returns the date and time the share was last modified.
-            </summary>
+        <summary> Gets the LastModifiedOn. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -413,10 +399,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.StorageLeaseDurationType&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Specifies whether the lease on a share is of infinite or fixed
-            duration, only when the share is leased.
-            </summary>
+        <summary> Gets the LeaseDuration. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -437,9 +420,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.StorageLeaseState&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Lease state of the share.
-            </summary>
+        <summary> Gets the LeaseState. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -460,9 +441,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.StorageLeaseStatus&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The lease status of the share.
-            </summary>
+        <summary> Gets the LeaseStatus. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -483,10 +462,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Int64&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The calculated maximum burst credits for the share. This property is
-            only for file shares created under Files Provisioned v2 account type.
-            </summary>
+        <summary> Gets the MaxBurstCreditsForIops. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -507,9 +483,7 @@
         <ReturnType>Azure.Provisioning.BicepDictionary&lt;System.String&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            A name-value pair to associate with the share as metadata.
-            </summary>
+        <summary> Gets or sets the Metadata. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -530,13 +504,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.String&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The name of the file share within the specified storage account. File
-            share names must be between 3 and 63 characters in length and use
-            numbers, lower-case letters and dash (-) only. Every dash (-)
-            character must be immediately preceded and followed by a letter or
-            number.
-            </summary>
+        <summary> Gets or sets the Name. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -557,11 +525,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.DateTimeOffset&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Returns the next allowed provisioned bandwidth downgrade time for the
-            share. This property is only for file shares created under Files
-            Provisioned v2 account type.
-            </summary>
+        <summary> Gets the NextAllowedProvisionedBandwidthDowngradeOn. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -582,11 +546,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.DateTimeOffset&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Returns the next allowed provisioned IOPS downgrade time for the share.
-            This property is only for file shares created under Files Provisioned
-            v2 account type.
-            </summary>
+        <summary> Gets the NextAllowedProvisionedIopsDowngradeOn. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -607,21 +567,18 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.DateTimeOffset&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Returns the next allowed provisioned storage size downgrade time for
-            the share. This property is only for file shares created under Files
-            Provisioned v1 SSD and Files Provisioned v2 account type.
-            </summary>
+        <summary> Gets the NextAllowedQuotaDowngradeOn. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Parent">
-      <MemberSignature Language="C#" Value="public Azure.Provisioning.Storage.FileService? Parent { get; set; }" />
+      <MemberSignature Language="C#" Value="public Azure.Provisioning.Storage.FileService? Parent { get; set; }" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".property instance class Azure.Provisioning.Storage.FileService Parent" />
       <MemberSignature Language="DocId" Value="P:Azure.Provisioning.Storage.FileShare.Parent" />
       <MemberSignature Language="VB.NET" Value="Public Property Parent As FileService" />
       <MemberSignature Language="F#" Value="member this.Parent : Azure.Provisioning.Storage.FileService with get, set" Usage="Azure.Provisioning.Storage.FileShare.Parent" />
+      <MemberSignature Language="C#" Value="public Azure.Provisioning.Storage.FileService Parent { get; set; }" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Storage</AssemblyName>
@@ -632,9 +589,7 @@
         <ReturnType>Azure.Provisioning.Storage.FileService</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Gets or sets a reference to the parent FileService.
-            </summary>
+        <summary> Gets or sets the Parent. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -655,12 +610,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Int32&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The provisioned bandwidth of the share, in mebibytes per second. This
-            property is only for file shares created under Files Provisioned v2
-            account type. Please refer to the GetFileServiceUsage API response for
-            the minimum and maximum allowed value for provisioned bandwidth.
-            </summary>
+        <summary> Gets or sets the ProvisionedBandwidthMibps. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -681,12 +631,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Int32&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The provisioned IOPS of the share. This property is only for file
-            shares created under Files Provisioned v2 account type. Please refer
-            to the GetFileServiceUsage API response for the minimum and maximum
-            allowed value for provisioned IOPS.
-            </summary>
+        <summary> Gets or sets the ProvisionedIops. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -707,9 +652,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Int32&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Remaining retention days for share that was soft deleted.
-            </summary>
+        <summary> Gets the RemainingRetentionDays. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -730,9 +673,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.RootSquashType&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The property is for NFS share only. The default is NoRootSquash.
-            </summary>
+        <summary> Gets or sets the RootSquash. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -753,14 +694,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Int32&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The provisioned size of the share, in gibibytes. Must be greater than
-            0, and less than or equal to 5TB (5120). For Large File Shares, the
-            maximum size is 102400. For file shares created under Files
-            Provisioned v2 account type, please refer to the GetFileServiceUsage
-            API response for the minimum and maximum allowed provisioned storage
-            size.
-            </summary>
+        <summary> Gets or sets the ShareQuota. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -781,10 +715,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Int64&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The approximate size of the data stored on the share. Note that this
-            value may not include all recently created or recently resized files.
-            </summary>
+        <summary> Gets the ShareUsageBytes. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -805,9 +736,7 @@
         <ReturnType>Azure.Provisioning.BicepList&lt;Azure.Provisioning.Storage.StorageSignedIdentifier&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            List of stored access policies specified on the share.
-            </summary>
+        <summary> Gets or sets the SignedIdentifiers. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -828,10 +757,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.DateTimeOffset&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Creation time of share snapshot returned in the response of list shares
-            with expand param "snapshots".
-            </summary>
+        <summary> Gets the SnapshotOn. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -852,9 +778,7 @@
         <ReturnType>Azure.Provisioning.Resources.SystemData</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Gets the SystemData.
-            </summary>
+        <summary> Gets the SystemData. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -875,9 +799,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.String&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The version of the share.
-            </summary>
+        <summary> Gets the Version. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -28,11 +28,11 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public BulkCreateCustomProperties (int capacity, Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomPriorityProfile priorityProfile, Azure.ResourceManager.Compute.BulkActions.Models.ComputeProfile computeProfile);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(int32 capacity, class Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomPriorityProfile priorityProfile, class Azure.ResourceManager.Compute.BulkActions.Models.ComputeProfile computeProfile) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomProperties.#ctor(System.Int32,Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomPriorityProfile,Azure.ResourceManager.Compute.BulkActions.Models.ComputeProfile)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (capacity As Integer, priorityProfile As BulkCreateCustomPriorityProfile, computeProfile As ComputeProfile)" />
-      <MemberSignature Language="F#" Value="new Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomProperties : int * Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomPriorityProfile * Azure.ResourceManager.Compute.BulkActions.Models.ComputeProfile -&gt; Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomProperties" Usage="new Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomProperties (capacity, priorityProfile, computeProfile)" />
+      <MemberSignature Language="C#" Value="public BulkCreateCustomProperties (int capacity, Azure.ResourceManager.Compute.BulkActions.Models.ComputeProfile computeProfile);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(int32 capacity, class Azure.ResourceManager.Compute.BulkActions.Models.ComputeProfile computeProfile) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomProperties.#ctor(System.Int32,Azure.ResourceManager.Compute.BulkActions.Models.ComputeProfile)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (capacity As Integer, computeProfile As ComputeProfile)" />
+      <MemberSignature Language="F#" Value="new Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomProperties : int * Azure.ResourceManager.Compute.BulkActions.Models.ComputeProfile -&gt; Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomProperties" Usage="new Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomProperties (capacity, computeProfile)" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Compute.BulkActions</AssemblyName>
@@ -40,17 +40,15 @@
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="capacity" Type="System.Int32" />
-        <Parameter Name="priorityProfile" Type="Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomPriorityProfile" />
         <Parameter Name="computeProfile" Type="Azure.ResourceManager.Compute.BulkActions.Models.ComputeProfile" />
       </Parameters>
       <Docs>
         <param name="capacity"> Total capacity to achieve. It can be in terms of VMs or vCPUs. </param>
-        <param name="priorityProfile"> Configuration Options for Regular or Spot instances in BulkCreateCustom. </param>
         <param name="computeProfile"> Compute Profile to configure the Virtual Machines. </param>
         <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomProperties" />. </summary>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="priorityProfile" /> or <paramref name="computeProfile" /> is null. </exception>
+          <paramref name="computeProfile" /> is null. </exception>
       </Docs>
     </Member>
     <Member MemberName="Capacity">
@@ -204,26 +202,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="MinCapacity">
-      <MemberSignature Language="C#" Value="public int? MinCapacity { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;int32&gt; MinCapacity" />
-      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomProperties.MinCapacity" />
-      <MemberSignature Language="VB.NET" Value="Public Property MinCapacity As Nullable(Of Integer)" />
-      <MemberSignature Language="F#" Value="member this.MinCapacity : Nullable&lt;int&gt; with get, set" Usage="Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomProperties.MinCapacity" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.ResourceManager.Compute.BulkActions</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Nullable&lt;System.Int32&gt;</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary> The minimum capacity, expressed in units specified by capacityType, that Azure must be able to allocate for the request to proceed. If Azure cannot allocate at least this capacity with high confidence, the request is rejected with 409 Conflict (InsufficientCapacity) and no VMs are created. Otherwise, Azure allocates as much capacity as possible, up to the requested capacity. Must be greater than 0, less than capacity, and requires partialFulfillmentPolicy.mode to be Enabled. </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="OverridesProfile">
       <MemberSignature Language="C#" Value="public Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomOverridesProfile OverridesProfile { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomOverridesProfile OverridesProfile" />
@@ -240,26 +218,6 @@
       </ReturnValue>
       <Docs>
         <summary> Per-VM overrides and the shared name prefix, specified when the operation is created. </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="PartialFulfillmentPolicy">
-      <MemberSignature Language="C#" Value="public Azure.ResourceManager.Compute.BulkActions.Models.PartialFulfillmentPolicy PartialFulfillmentPolicy { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.ResourceManager.Compute.BulkActions.Models.PartialFulfillmentPolicy PartialFulfillmentPolicy" />
-      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomProperties.PartialFulfillmentPolicy" />
-      <MemberSignature Language="VB.NET" Value="Public Property PartialFulfillmentPolicy As PartialFulfillmentPolicy" />
-      <MemberSignature Language="F#" Value="member this.PartialFulfillmentPolicy : Azure.ResourceManager.Compute.BulkActions.Models.PartialFulfillmentPolicy with get, set" Usage="Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomProperties.PartialFulfillmentPolicy" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.ResourceManager.Compute.BulkActions</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.ResourceManager.Compute.BulkActions.Models.PartialFulfillmentPolicy</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary> Controls how partial fulfillment is handled for a BulkCreateCustom request. When enabled, Azure creates only the VMs or vCPUs it has high confidence can be successfully allocated, instead of attempting the entire request and potentially returning allocation failures. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -311,26 +269,6 @@
         <param name="options"> The client options for reading and writing models. </param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="PriorityProfile">
-      <MemberSignature Language="C#" Value="public Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomPriorityProfile PriorityProfile { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomPriorityProfile PriorityProfile" />
-      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomProperties.PriorityProfile" />
-      <MemberSignature Language="VB.NET" Value="Public Property PriorityProfile As BulkCreateCustomPriorityProfile" />
-      <MemberSignature Language="F#" Value="member this.PriorityProfile : Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomPriorityProfile with get, set" Usage="Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomProperties.PriorityProfile" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.ResourceManager.Compute.BulkActions</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.ResourceManager.Compute.BulkActions.Models.BulkCreateCustomPriorityProfile</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary> Configuration Options for Regular or Spot instances in BulkCreateCustom. </summary>
-        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -23,18 +23,17 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            StorageAccount.
-            </summary>
+    <summary> The storage account. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public StorageAccount (string bicepIdentifier, string? resourceVersion = default);" />
+      <MemberSignature Language="C#" Value="public StorageAccount (string bicepIdentifier, string? resourceVersion = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string bicepIdentifier, string resourceVersion) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Provisioning.Storage.StorageAccount.#ctor(System.String,System.String)" />
       <MemberSignature Language="VB.NET" Value="Public Sub New (bicepIdentifier As String, Optional resourceVersion As String = Nothing)" />
       <MemberSignature Language="F#" Value="new Azure.Provisioning.Storage.StorageAccount : string * string -&gt; Azure.Provisioning.Storage.StorageAccount" Usage="new Azure.Provisioning.Storage.StorageAccount (bicepIdentifier, resourceVersion)" />
+      <MemberSignature Language="C#" Value="public StorageAccount (string bicepIdentifier, string resourceVersion = default);" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Storage</AssemblyName>
@@ -46,16 +45,9 @@
         <Parameter Name="resourceVersion" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="bicepIdentifier">
-            The the Bicep identifier name of the StorageAccount resource.  This can
-            be used to refer to the resource in expressions, but is not the Azure
-            name of the resource.  This value can contain letters, numbers, and
-            underscores.
-            </param>
-        <param name="resourceVersion">Version of the StorageAccount.</param>
-        <summary>
-            Creates a new StorageAccount.
-            </summary>
+        <param name="bicepIdentifier"> The bicep identifier name. </param>
+        <param name="resourceVersion"> The resource API version. </param>
+        <summary> Creates a new StorageAccount. </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -75,12 +67,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.StorageAccountAccessTier&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Required for storage accounts where kind = BlobStorage. The access tier
-            is used for billing. The 'Premium' access tier is the
-            default value for premium block blobs storage account type and it
-            cannot be changed for the premium block blobs storage account type.
-            </summary>
+        <summary> Gets or sets the access tier. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -101,10 +88,27 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Allow or disallow public access to all blobs or containers in the
-            storage account. The default interpretation is false for this property.
-            </summary>
+        <summary> Gets or sets the AllowBlobPublicAccess. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AllowCrossTenantDelegationSas">
+      <MemberSignature Language="C#" Value="public Azure.Provisioning.BicepValue&lt;bool&gt; AllowCrossTenantDelegationSas { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Provisioning.BicepValue`1&lt;bool&gt; AllowCrossTenantDelegationSas" />
+      <MemberSignature Language="DocId" Value="P:Azure.Provisioning.Storage.StorageAccount.AllowCrossTenantDelegationSas" />
+      <MemberSignature Language="VB.NET" Value="Public Property AllowCrossTenantDelegationSas As BicepValue(Of Boolean)" />
+      <MemberSignature Language="F#" Value="member this.AllowCrossTenantDelegationSas : Azure.Provisioning.BicepValue&lt;bool&gt; with get, set" Usage="Azure.Provisioning.Storage.StorageAccount.AllowCrossTenantDelegationSas" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Provisioning.Storage</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Gets or sets the AllowCrossTenantDelegationSas. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -125,13 +129,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Allow or disallow cross AAD tenant object replication. Set this
-            property to true for new or existing accounts only if object
-            replication policies will involve storage accounts in different AAD
-            tenants. The default interpretation is false for new accounts to
-            follow best security practices by default.
-            </summary>
+        <summary> Gets or sets the AllowCrossTenantReplication. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -152,10 +150,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.AllowedCopyScope&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Restrict copy to and from Storage Accounts within an AAD tenant or with
-            Private Links to the same VNet.
-            </summary>
+        <summary> Gets or sets the AllowedCopyScope. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -176,13 +171,27 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Indicates whether the storage account permits requests to be authorized
-            with the account access key via Shared Key. If false, then all
-            requests, including shared access signatures, must be authorized with
-            Azure Active Directory (Azure AD). The default value is null, which is
-            equivalent to true.
-            </summary>
+        <summary> Gets or sets the AllowSharedKeyAccess. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AllowSharedKeyAccessForServices">
+      <MemberSignature Language="C#" Value="public Azure.Provisioning.Storage.StorageAccountSharedKeyAccessProperties AllowSharedKeyAccessForServices { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Provisioning.Storage.StorageAccountSharedKeyAccessProperties AllowSharedKeyAccessForServices" />
+      <MemberSignature Language="DocId" Value="P:Azure.Provisioning.Storage.StorageAccount.AllowSharedKeyAccessForServices" />
+      <MemberSignature Language="VB.NET" Value="Public Property AllowSharedKeyAccessForServices As StorageAccountSharedKeyAccessProperties" />
+      <MemberSignature Language="F#" Value="member this.AllowSharedKeyAccessForServices : Azure.Provisioning.Storage.StorageAccountSharedKeyAccessProperties with get, set" Usage="Azure.Provisioning.Storage.StorageAccount.AllowSharedKeyAccessForServices" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Provisioning.Storage</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Provisioning.Storage.StorageAccountSharedKeyAccessProperties</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Gets or sets the AllowSharedKeyAccessForServices. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -203,9 +212,7 @@
         <ReturnType>Azure.Provisioning.Storage.FilesIdentityBasedAuthentication</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Provides the identity based authentication settings for Azure Files.
-            </summary>
+        <summary> Gets or sets the AzureFilesIdentityBasedAuthentication. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -226,9 +233,7 @@
         <ReturnType>Azure.Provisioning.Storage.BlobRestoreStatus</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Blob restore status.
-            </summary>
+        <summary> Gets the BlobRestoreStatus. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -249,9 +254,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.DateTimeOffset&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Gets the creation date and time of the storage account in UTC.
-            </summary>
+        <summary> Gets the CreatedOn. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -276,22 +279,20 @@
         <Parameter Name="identity" Type="Azure.Provisioning.Roles.UserAssignedIdentity" />
       </Parameters>
       <Docs>
-        <param name="role">The role to grant.</param>
-        <param name="identity">The <see cref="T:Azure.Provisioning.Roles.UserAssignedIdentity" />.</param>
-        <summary>
-            Creates a role assignment for a user-assigned identity that grants
-            access to this StorageAccount.
-            </summary>
-        <returns>The <see cref="T:Azure.Provisioning.Authorization.RoleAssignment" />.</returns>
+        <param name="role"> The role to grant. </param>
+        <param name="identity"> The <see cref="T:Azure.Provisioning.Roles.UserAssignedIdentity" />. </param>
+        <summary> Creates a role assignment for a user-assigned identity that grants access to this StorageAccount. </summary>
+        <returns> The <see cref="T:Azure.Provisioning.Authorization.RoleAssignment" />. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="CreateRoleAssignment">
-      <MemberSignature Language="C#" Value="public Azure.Provisioning.Authorization.RoleAssignment CreateRoleAssignment (Azure.Provisioning.Storage.StorageBuiltInRole role, Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Authorization.RoleManagementPrincipalType&gt; principalType, Azure.Provisioning.BicepValue&lt;Guid&gt; principalId, string? bicepIdentifierSuffix = default);" />
+      <MemberSignature Language="C#" Value="public Azure.Provisioning.Authorization.RoleAssignment CreateRoleAssignment (Azure.Provisioning.Storage.StorageBuiltInRole role, Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Authorization.RoleManagementPrincipalType&gt; principalType, Azure.Provisioning.BicepValue&lt;Guid&gt; principalId, string? bicepIdentifierSuffix = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Azure.Provisioning.Authorization.RoleAssignment CreateRoleAssignment(valuetype Azure.Provisioning.Storage.StorageBuiltInRole role, class Azure.Provisioning.BicepValue`1&lt;valuetype Azure.Provisioning.Authorization.RoleManagementPrincipalType&gt; principalType, class Azure.Provisioning.BicepValue`1&lt;valuetype System.Guid&gt; principalId, string bicepIdentifierSuffix) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Provisioning.Storage.StorageAccount.CreateRoleAssignment(Azure.Provisioning.Storage.StorageBuiltInRole,Azure.Provisioning.BicepValue{Azure.Provisioning.Authorization.RoleManagementPrincipalType},Azure.Provisioning.BicepValue{System.Guid},System.String)" />
       <MemberSignature Language="VB.NET" Value="Public Function CreateRoleAssignment (role As StorageBuiltInRole, principalType As BicepValue(Of RoleManagementPrincipalType), principalId As BicepValue(Of Guid), Optional bicepIdentifierSuffix As String = Nothing) As RoleAssignment" />
       <MemberSignature Language="F#" Value="member this.CreateRoleAssignment : Azure.Provisioning.Storage.StorageBuiltInRole * Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Authorization.RoleManagementPrincipalType&gt; * Azure.Provisioning.BicepValue&lt;Guid&gt; * string -&gt; Azure.Provisioning.Authorization.RoleAssignment" Usage="storageAccount.CreateRoleAssignment (role, principalType, principalId, bicepIdentifierSuffix)" />
+      <MemberSignature Language="C#" Value="public Azure.Provisioning.Authorization.RoleAssignment CreateRoleAssignment (Azure.Provisioning.Storage.StorageBuiltInRole role, Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Authorization.RoleManagementPrincipalType&gt; principalType, Azure.Provisioning.BicepValue&lt;Guid&gt; principalId, string bicepIdentifierSuffix = default);" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Storage</AssemblyName>
@@ -308,15 +309,12 @@
         <Parameter Name="bicepIdentifierSuffix" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="role">The role to grant.</param>
-        <param name="principalType">The type of the principal to assign to.</param>
-        <param name="principalId">The principal to assign to.</param>
-        <param name="bicepIdentifierSuffix">Optional role assignment identifier name suffix.</param>
-        <summary>
-            Creates a role assignment for a principal that grants access to this
-            StorageAccount.
-            </summary>
-        <returns>The <see cref="T:Azure.Provisioning.Authorization.RoleAssignment" />.</returns>
+        <param name="role"> The role to grant. </param>
+        <param name="principalType"> The type of the principal to assign to. </param>
+        <param name="principalId"> The principal to assign to. </param>
+        <param name="bicepIdentifierSuffix"> Optional role assignment identifier name suffix. </param>
+        <summary> Creates a role assignment for a principal that grants access to this StorageAccount. </summary>
+        <returns> The <see cref="T:Azure.Provisioning.Authorization.RoleAssignment" />. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -336,12 +334,27 @@
         <ReturnType>Azure.Provisioning.Storage.StorageCustomDomain</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            User domain assigned to the storage account. Name is the CNAME source.
-            Only one custom domain is supported per storage account at this time.
-            To clear the existing custom domain, use an empty string for the
-            custom domain name property.
-            </summary>
+        <summary> Gets or sets the custom domain assigned to this storage account. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DataCollaborationPolicyProperties">
+      <MemberSignature Language="C#" Value="public Azure.Provisioning.Storage.StorageDataCollaborationPolicyProperties DataCollaborationPolicyProperties { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Provisioning.Storage.StorageDataCollaborationPolicyProperties DataCollaborationPolicyProperties" />
+      <MemberSignature Language="DocId" Value="P:Azure.Provisioning.Storage.StorageAccount.DataCollaborationPolicyProperties" />
+      <MemberSignature Language="VB.NET" Value="Public Property DataCollaborationPolicyProperties As StorageDataCollaborationPolicyProperties" />
+      <MemberSignature Language="F#" Value="member this.DataCollaborationPolicyProperties : Azure.Provisioning.Storage.StorageDataCollaborationPolicyProperties with get, set" Usage="Azure.Provisioning.Storage.StorageAccount.DataCollaborationPolicyProperties" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Provisioning.Storage</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Provisioning.Storage.StorageDataCollaborationPolicyProperties</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Gets or sets the DataCollaborationPolicyProperties. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -363,9 +376,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>
-            Define all the provisionable properties of StorageAccount.
-            </summary>
+        <summary> Define all the provisionable properties for StorageAccount. </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -385,12 +396,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.StorageDnsEndpointType&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Allows you to specify the type of endpoint. Set this to AzureDNSZone to
-            create a large number of accounts in a single subscription, which
-            creates accounts in an Azure DNS Zone and the endpoint URL will have
-            an alphanumeric DNS Zone identifier.
-            </summary>
+        <summary> Gets or sets the DnsEndpointType. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -411,10 +417,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Allows https traffic only to storage service if sets to true. The
-            default value is true since API version 2019-04-01.
-            </summary>
+        <summary> Gets or sets the EnableHttpsTrafficOnly. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -435,10 +438,7 @@
         <ReturnType>Azure.Provisioning.Storage.StorageAccountEncryption</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Encryption settings to be used for server-side encryption for the
-            storage account.
-            </summary>
+        <summary> Gets or sets the encryption settings on the storage account. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -459,21 +459,18 @@
         <ReturnType>Azure.Provisioning.Resources.ExtendedAzureLocation</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Optional. Set the extended location of the resource. If not set, the
-            storage account will be created in Azure main region. Otherwise it
-            will be created in the specified extended location.
-            </summary>
+        <summary> Gets or sets the ExtendedLocation. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="FromExisting">
-      <MemberSignature Language="C#" Value="public static Azure.Provisioning.Storage.StorageAccount FromExisting (string bicepIdentifier, string? resourceVersion = default);" />
+      <MemberSignature Language="C#" Value="public static Azure.Provisioning.Storage.StorageAccount FromExisting (string bicepIdentifier, string? resourceVersion = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Provisioning.Storage.StorageAccount FromExisting(string bicepIdentifier, string resourceVersion) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Provisioning.Storage.StorageAccount.FromExisting(System.String,System.String)" />
       <MemberSignature Language="VB.NET" Value="Public Shared Function FromExisting (bicepIdentifier As String, Optional resourceVersion As String = Nothing) As StorageAccount" />
       <MemberSignature Language="F#" Value="static member FromExisting : string * string -&gt; Azure.Provisioning.Storage.StorageAccount" Usage="Azure.Provisioning.Storage.StorageAccount.FromExisting (bicepIdentifier, resourceVersion)" />
+      <MemberSignature Language="C#" Value="public static Azure.Provisioning.Storage.StorageAccount FromExisting (string bicepIdentifier, string resourceVersion = default);" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Storage</AssemblyName>
@@ -488,17 +485,30 @@
         <Parameter Name="resourceVersion" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="bicepIdentifier">
-            The the Bicep identifier name of the StorageAccount resource.  This can
-            be used to refer to the resource in expressions, but is not the Azure
-            name of the resource.  This value can contain letters, numbers, and
-            underscores.
-            </param>
-        <param name="resourceVersion">Version of the StorageAccount.</param>
-        <summary>
-            Creates a reference to an existing StorageAccount.
-            </summary>
+        <param name="bicepIdentifier"> The bicep identifier name. </param>
+        <param name="resourceVersion"> The resource API version. </param>
+        <summary> Creates a reference to an existing StorageAccount. </summary>
         <returns>The existing StorageAccount resource.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GeoPriorityReplicationStatusIsBlobEnabled">
+      <MemberSignature Language="C#" Value="public Azure.Provisioning.BicepValue&lt;bool&gt; GeoPriorityReplicationStatusIsBlobEnabled { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Provisioning.BicepValue`1&lt;bool&gt; GeoPriorityReplicationStatusIsBlobEnabled" />
+      <MemberSignature Language="DocId" Value="P:Azure.Provisioning.Storage.StorageAccount.GeoPriorityReplicationStatusIsBlobEnabled" />
+      <MemberSignature Language="VB.NET" Value="Public Property GeoPriorityReplicationStatusIsBlobEnabled As BicepValue(Of Boolean)" />
+      <MemberSignature Language="F#" Value="member this.GeoPriorityReplicationStatusIsBlobEnabled : Azure.Provisioning.BicepValue&lt;bool&gt; with get, set" Usage="Azure.Provisioning.Storage.StorageAccount.GeoPriorityReplicationStatusIsBlobEnabled" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Provisioning.Storage</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Gets or sets the IsBlobEnabled. </summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -518,9 +528,7 @@
         <ReturnType>Azure.Provisioning.Storage.GeoReplicationStatistics</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Geo Replication Stats.
-            </summary>
+        <summary> Gets the GeoReplicationStats. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -572,10 +580,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>
-            Get the requirements for naming this StorageAccount resource.
-            </summary>
-        <returns>Naming requirements.</returns>
+        <summary> Get the requirements for naming this resource. </summary>
+        <returns> Naming requirements. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -595,9 +601,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Core.ResourceIdentifier&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Gets the Id.
-            </summary>
+        <summary> Gets the Id. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -618,9 +622,7 @@
         <ReturnType>Azure.Provisioning.Resources.ManagedServiceIdentity</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The identity of the resource.
-            </summary>
+        <summary> Gets or sets the Identity. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -641,11 +643,7 @@
         <ReturnType>Azure.Provisioning.Storage.ImmutableStorageAccount</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The property is immutable and can only be set to true at the account
-            creation time. When set to true, it enables object level immutability
-            for all the new containers in the account by default.
-            </summary>
+        <summary> Gets or sets the ImmutableStorageWithVersioning. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -666,33 +664,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            If customer initiated account migration is in progress, the value will
-            be true else it will be null.
-            </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsBlobEnabled">
-      <MemberSignature Language="C#" Value="public Azure.Provisioning.BicepValue&lt;bool&gt; IsBlobEnabled { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Provisioning.BicepValue`1&lt;bool&gt; IsBlobEnabled" />
-      <MemberSignature Language="DocId" Value="P:Azure.Provisioning.Storage.StorageAccount.IsBlobEnabled" />
-      <MemberSignature Language="VB.NET" Value="Public Property IsBlobEnabled As BicepValue(Of Boolean)" />
-      <MemberSignature Language="F#" Value="member this.IsBlobEnabled : Azure.Provisioning.BicepValue&lt;bool&gt; with get, set" Usage="Azure.Provisioning.Storage.StorageAccount.IsBlobEnabled" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Provisioning.Storage</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            Indicates whether Blob Geo Priority Replication is enabled for the
-            storage account.
-            </summary>
+        <summary> Gets the IsAccountMigrationInProgress. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -713,10 +685,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            A boolean flag which indicates whether the default authentication is
-            OAuth or not. The default interpretation is false for this property.
-            </summary>
+        <summary> Gets or sets the IsDefaultToOAuthAuthentication. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -737,9 +706,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Enables extended group support with local users feature, if set to true.
-            </summary>
+        <summary> Gets or sets the IsExtendedGroupEnabled. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -760,10 +727,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            If the failover is in progress, the value will be true, otherwise, it
-            will be null.
-            </summary>
+        <summary> Gets the IsFailoverInProgress. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -784,9 +748,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Account HierarchicalNamespace enabled if sets to true.
-            </summary>
+        <summary> Gets or sets the IsHnsEnabled. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -806,10 +768,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            A boolean flag which indicates whether IPv6 storage endpoints are to be
-            published.
-            </summary>
+        <summary> Gets or sets the IsIPv6EndpointToBePublished. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -830,9 +789,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Enables local users feature, if set to true.
-            </summary>
+        <summary> Gets or sets the IsLocalUserEnabled. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -853,9 +810,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            NFS 3.0 protocol support enabled if set to true.
-            </summary>
+        <summary> Gets or sets the IsNfsV3Enabled. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -876,9 +831,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Enables Secure File Transfer Protocol, if set to true.
-            </summary>
+        <summary> Gets or sets the IsSftpEnabled. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -899,10 +852,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            This property will be set to true or false on an event of ongoing
-            migration. Default value is null.
-            </summary>
+        <summary> Gets the IsSkuConversionBlocked. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -923,9 +873,7 @@
         <ReturnType>Azure.Provisioning.Storage.StorageAccountKeyCreationTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Storage account keys creation time.
-            </summary>
+        <summary> Gets the KeyCreationTime. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -946,9 +894,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Int32&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The key expiration period in days.
-            </summary>
+        <summary> Gets or sets the key expiration period in days. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -969,9 +915,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.StorageKind&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Required. Indicates the type of storage account.
-            </summary>
+        <summary> Gets or sets the Kind. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -992,10 +936,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.LargeFileSharesState&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Allow large file shares if sets to Enabled. It cannot be disabled once
-            it is enabled.
-            </summary>
+        <summary> Gets or sets the LargeFileSharesState. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1016,12 +957,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.DateTimeOffset&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Gets the timestamp of the most recent instance of a failover to the
-            secondary location. Only the most recent timestamp is retained. This
-            element is not returned if there has never been a failover instance.
-            Only available if the accountType is Standard_GRS or Standard_RAGRS.
-            </summary>
+        <summary> Gets the LastGeoFailoverOn. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1042,13 +978,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Core.AzureLocation&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Required. Gets or sets the location of the resource. This will be one
-            of the supported and registered Azure Geo Regions (e.g. West US, East
-            US, Southeast Asia, etc.). The geo region of a resource cannot be
-            changed once it is created, but if an identical geo region is
-            specified on update, the request will succeed.
-            </summary>
+        <summary> Gets or sets the Location. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1069,10 +999,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.StorageMinimumTlsVersion&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Set the minimum TLS version to be permitted on requests to storage. The
-            default interpretation is TLS 1.0 for this property.
-            </summary>
+        <summary> Gets or sets the MinimumTlsVersion. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1093,11 +1020,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.String&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The name of the storage account within the specified resource group.
-            Storage account names must be between 3 and 24 characters in length
-            and use numbers and lower-case letters only.
-            </summary>
+        <summary> Gets or sets the Name. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1118,9 +1041,7 @@
         <ReturnType>Azure.Provisioning.Storage.StorageAccountNetworkRuleSet</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Network rule set.
-            </summary>
+        <summary> Gets or sets the network rule set. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1141,11 +1062,7 @@
         <ReturnType>Azure.Provisioning.Storage.StorageAccountEndpoints</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Gets the URLs that are used to perform a retrieval of a public blob,
-            queue, or table object. Note that Standard_ZRS and Premium_LRS
-            accounts only return the blob endpoint.
-            </summary>
+        <summary> Gets the PrimaryEndpoints. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1166,9 +1083,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Core.AzureLocation&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Gets the location of the primary data center for the storage account.
-            </summary>
+        <summary> Gets the PrimaryLocation. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1188,10 +1103,7 @@
         <ReturnType>Azure.Provisioning.BicepList&lt;Azure.Provisioning.Storage.StoragePrivateEndpointConnection&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            List of private endpoint connection associated with the specified
-            storage account.
-            </summary>
+        <summary> Gets the private endpoint connection resources associated with the storage account. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1213,18 +1125,16 @@
           <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
           <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
         </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.Obsolete("This property is obsoleted and will be removed in a future version. Please use PrivateEndpointConnectionResources instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Obsolete("This property is obsoleted and will be removed in a future version. Please use PrivateEndpointConnectionResources instead.")&gt;]</AttributeName>
+        </Attribute>
       </Attributes>
       <ReturnValue>
         <ReturnType>Azure.Provisioning.BicepList&lt;Azure.Provisioning.Storage.StoragePrivateEndpointConnectionData&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-             List of private endpoint connection associated with the specified
-             storage account.
-            
-             This property is obsoleted and will be removed in future versions. Please use
-             <see cref="P:Azure.Provisioning.Storage.StorageAccount.PrivateEndpointConnectionResources" /> instead.
-             </summary>
+        <summary> Gets the private endpoint connections associated with the storage account. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1241,14 +1151,21 @@
         <AssemblyVersion>1.1.2.0</AssemblyVersion>
         <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.Obsolete("This property is obsoleted and will be removed in a future version. Please use StorageAccountProvisioningState instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Obsolete("This property is obsoleted and will be removed in a future version. Please use StorageAccountProvisioningState instead.")&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.StorageProvisioningState&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Gets the status of the storage account at the time the operation was
-            called.
-            </summary>
+        <summary> Gets the status of the storage account at the time the operation was called. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1269,12 +1186,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.StoragePublicNetworkAccess&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Allow, disallow, or let Network Security Perimeter configuration to
-            evaluate public network access to Storage Account. Value is optional
-            but if passed in, must be 'Enabled', 'Disabled' or
-            'SecuredByPerimeter'.
-            </summary>
+        <summary> Gets or sets the PublicNetworkAccess. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1295,10 +1207,7 @@
         <ReturnType>Azure.Provisioning.Storage.StorageRoutingPreference</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Maintains information about the network routing choice opted by the
-            user for data transfer.
-            </summary>
+        <summary> Gets or sets the RoutingPreference. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1319,9 +1228,7 @@
         <ReturnType>Azure.Provisioning.Storage.StorageAccountSasPolicy</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            SasPolicy assigned to the storage account.
-            </summary>
+        <summary> Gets or sets the SAS policy assigned to the storage account. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1342,11 +1249,7 @@
         <ReturnType>Azure.Provisioning.Storage.StorageAccountEndpoints</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Gets the URLs that are used to perform a retrieval of a public blob,
-            queue, or table object from the secondary location of the storage
-            account. Only available if the SKU name is Standard_RAGRS.
-            </summary>
+        <summary> Gets the SecondaryEndpoints. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1367,11 +1270,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Core.AzureLocation&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Gets the location of the geo-replicated secondary for the storage
-            account. Only available if the accountType is Standard_GRS or
-            Standard_RAGRS.
-            </summary>
+        <summary> Gets the SecondaryLocation. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1392,9 +1291,7 @@
         <ReturnType>Azure.Provisioning.Storage.StorageSku</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Required. Gets or sets the SKU name.
-            </summary>
+        <summary> Gets or sets the Sku. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1415,10 +1312,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.StorageAccountStatus&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Gets the status indicating whether the primary location of the storage
-            account is available or unavailable.
-            </summary>
+        <summary> Gets the StatusOfPrimary. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1439,11 +1333,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.StorageAccountStatus&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Gets the status indicating whether the secondary location of the
-            storage account is available or unavailable. Only available if the SKU
-            name is Standard_GRS or Standard_RAGRS.
-            </summary>
+        <summary> Gets the StatusOfSecondary. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1464,20 +1354,20 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.StorageAccountProvisioningState&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Gets the status of the storage account at the time the operation was
-            called.
-            </summary>
+        <summary> Gets the status of the storage account at the time the operation was called. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="StorageAccountSkuConversionStatus">
-      <MemberSignature Language="C#" Value="public Azure.Provisioning.Storage.StorageAccountSkuConversionStatus StorageAccountSkuConversionStatus { get; }" />
+      <MemberSignature Language="C#" Value="public Azure.Provisioning.Storage.StorageAccountSkuConversionStatus StorageAccountSkuConversionStatus { get; }" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".property instance class Azure.Provisioning.Storage.StorageAccountSkuConversionStatus StorageAccountSkuConversionStatus" />
       <MemberSignature Language="DocId" Value="P:Azure.Provisioning.Storage.StorageAccount.StorageAccountSkuConversionStatus" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property StorageAccountSkuConversionStatus As StorageAccountSkuConversionStatus" />
-      <MemberSignature Language="F#" Value="member this.StorageAccountSkuConversionStatus : Azure.Provisioning.Storage.StorageAccountSkuConversionStatus" Usage="Azure.Provisioning.Storage.StorageAccount.StorageAccountSkuConversionStatus" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property StorageAccountSkuConversionStatus As StorageAccountSkuConversionStatus" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="F#" Value="member this.StorageAccountSkuConversionStatus : Azure.Provisioning.Storage.StorageAccountSkuConversionStatus" Usage="Azure.Provisioning.Storage.StorageAccount.StorageAccountSkuConversionStatus" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public Azure.Provisioning.Storage.StorageAccountSkuConversionStatus StorageAccountSkuConversionStatus { get; set; }" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Property StorageAccountSkuConversionStatus As StorageAccountSkuConversionStatus" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="F#" Value="member this.StorageAccountSkuConversionStatus : Azure.Provisioning.Storage.StorageAccountSkuConversionStatus with get, set" Usage="Azure.Provisioning.Storage.StorageAccount.StorageAccountSkuConversionStatus" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Storage</AssemblyName>
@@ -1488,10 +1378,7 @@
         <ReturnType>Azure.Provisioning.Storage.StorageAccountSkuConversionStatus</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            This property is readOnly and is set by server during asynchronous
-            storage account sku conversion operations.
-            </summary>
+        <summary> Gets or sets the StorageAccountSkuConversionStatus. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1512,9 +1399,7 @@
         <ReturnType>Azure.Provisioning.Resources.SystemData</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Gets the SystemData.
-            </summary>
+        <summary> Gets the SystemData. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1535,13 +1420,7 @@
         <ReturnType>Azure.Provisioning.BicepDictionary&lt;System.String&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Gets or sets a list of key value pairs that describe the resource.
-            These tags can be used for viewing and grouping this resource (across
-            resource groups). A maximum of 15 tags can be provided for a resource.
-            Each tag must have a key with a length no greater than 128 characters
-            and a value with a length no greater than 256 characters.
-            </summary>
+        <summary> Gets or sets the Tags. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1561,9 +1440,7 @@
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Storage.StorageAccountZonePlacementPolicy&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The availability zone pinning policy for the storage account.
-            </summary>
+        <summary> Gets or sets the ZonePlacementPolicy. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1583,10 +1460,7 @@
         <ReturnType>Azure.Provisioning.BicepList&lt;System.String&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Optional. Gets or sets the pinned logical availability zone for the
-            storage account.
-            </summary>
+        <summary> Gets or sets the Zones. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
