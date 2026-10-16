@@ -1,12 +1,12 @@
 ---
 title: Azure AI Projects client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Projects, ai
-ms.date: 10/13/2026
+ms.date: 10/16/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: ai
 ---
-# Azure AI Projects client library for .NET - version 3.0.0-beta.4 
+# Azure AI Projects client library for .NET - version 3.0.0-beta.5 
 
 The AI Projects client library is part of the Azure AI Foundry SDK and provides easy access to resources in your Azure AI Foundry Project. Use it to:
 
@@ -33,6 +33,7 @@ The client library uses version `v1` of the AI Foundry [data plane REST APIs](ht
 - [Key concepts](#key-concepts)
   - [Create and authenticate the client](#create-and-authenticate-the-client)
 - [Examples](#examples)
+  - [Voice Agent realtime transport](#voice-agent-realtime-transport)
   - [Performing Agent operations](#performing-agent-operations)
   - [Get an authenticated AzureOpenAI client](#get-an-authenticated-azureopenai-client)
   - [Get an authenticated ChatCompletionsClient](#get-an-authenticated-chatcompletionsclient)
@@ -107,6 +108,33 @@ AIProjectClient projectClient = new AIProjectClient(new Uri(endpoint), new Defau
 Once the `AIProjectClient` is created, you can use properties such as `.Datasets` and `.Indexes` on this client to perform relevant operations.
 
 ## Examples
+
+### Voice Agent realtime transport
+
+To select a transport for a Voice Agent connection, pass `ProjectsRealtimeSessionClientOptions`
+to `AIProjectClient.ProjectsRealtimeClient.StartSessionAsync`:
+
+```C#
+#pragma warning disable AAIP001 // VoiceAgentTransport is experimental.
+#pragma warning disable AAIP002 // The realtime client is experimental.
+#pragma warning disable OPENAI002 // OpenAI realtime types are experimental.
+ProjectsRealtimeSessionClientOptions options = new()
+{
+    Transport = VoiceAgentTransport.Websocket,
+    QueryString = "store=true"
+};
+using RealtimeSessionClient session = await projectClient.ProjectsRealtimeClient.StartSessionAsync(
+    "my-voice-agent", intent: null, options: options);
+```
+
+Use `Transport` to select the connection transport; the SDK handles the connection details.
+Setting `VoiceAgentTransport.Webrtc` selects WebRTC signaling over the WebSocket; your application
+must also handle the peer connection, media, and SDP exchange.
+
+See the [runnable WebSocket transport sample](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Projects_3.0.0-beta.5/sdk/ai/Azure.AI.Projects/samples/Sample_VoiceAgent_WebSocketTransport.md)
+for a complete text exchange using the typed transport with `store=true` and a REST read of the
+persisted conversation. The [WebSocket audio sample](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Projects_3.0.0-beta.5/sdk/ai/Azure.AI.Projects/samples/Sample_VoiceAgent_WebSocketAudio.md)
+demonstrates streaming PCM input and output while logging actual byte counts.
 
 ### Performing Agent operations
 
@@ -1936,7 +1964,7 @@ For tracing to Azure Monitor from your application, the preferred option is to u
 dotnet add package Azure.Monitor.OpenTelemetry.AspNetCore
 ```
 
-More information about using the Azure.Monitor.OpenTelemetry.AspNetCore package can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Projects_3.0.0-beta.4/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/README.md).
+More information about using the Azure.Monitor.OpenTelemetry.AspNetCore package can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Projects_3.0.0-beta.5/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/README.md).
 
 Another option is to use Azure.Monitor.OpenTelemetry.Exporter package. Install the package with [NuGet](https://www.nuget.org/ ):
 ```dotnetcli
@@ -2104,7 +2132,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 [product_doc]: https://aka.ms/azsdk/azure-ai-projects-v2/product-doc
 [azure_identity]: https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet
 [azure_identity_dac]: https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
-[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Projects_3.0.0-beta.4/CONTRIBUTING.md
+[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Projects_3.0.0-beta.5/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
