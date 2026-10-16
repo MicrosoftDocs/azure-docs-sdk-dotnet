@@ -10,6 +10,7 @@
     <AssemblyVersion>1.1.0.0</AssemblyVersion>
     <AssemblyVersion>1.2.0.0</AssemblyVersion>
     <AssemblyVersion>1.2.1.0</AssemblyVersion>
+    <AssemblyVersion>1.3.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
@@ -30,12 +31,13 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.DiskSnapshotListContent</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="diskSnapshotIds" Type="System.Collections.Generic.IEnumerable&lt;Azure.Core.ResourceIdentifier&gt;" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="diskSnapshotIds" Type="System.Collections.Generic.IEnumerable&lt;Azure.Core.ResourceIdentifier&gt;" />
       </Parameters>
       <Docs>
         <param name="diskSnapshotIds"> array of DiskSnapshot ARM IDs. </param>
@@ -53,8 +55,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -86,12 +88,12 @@
         <Parameter Name="publicNetworkAccess" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess&gt;" />
       </Parameters>
       <Docs>
-        <param name="id"> The id. </param>
-        <param name="name"> The name. </param>
-        <param name="resourceType"> The resourceType. </param>
-        <param name="systemData"> The systemData. </param>
-        <param name="tags"> The tags. </param>
-        <param name="location"> The location. </param>
+        <param name="id"> Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. </param>
+        <param name="name"> The name of the resource. </param>
+        <param name="resourceType"> The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts". </param>
+        <param name="systemData"> Azure Resource Manager metadata containing createdBy and modifiedBy information. </param>
+        <param name="tags"> Resource tags. </param>
+        <param name="location"> The geo-location where the resource lives. </param>
         <param name="sku"> resource sku. </param>
         <param name="availabilityZones"> Logical zone for Elastic San resource; example: ["1"]. </param>
         <param name="provisioningState"> State of the operation on the resource. </param>
@@ -99,12 +101,12 @@
         <param name="extendedCapacitySizeTiB"> Extended size of the Elastic San appliance in TiB. </param>
         <param name="totalVolumeSizeGiB"> Total size of the provisioned Volumes in GiB. </param>
         <param name="volumeGroupCount"> Total number of volume groups in this Elastic San appliance. </param>
-        <param name="totalIops"> Total Provisioned IOPS of the Elastic San appliance. </param>
-        <param name="totalMbps"> Total Provisioned MBps Elastic San appliance. </param>
-        <param name="totalSizeTiB"> Total size of the Elastic San appliance in TB. </param>
+        <param name="totalIops"> Total Provisioned IOPS of the Elastic San appliance. Settable only for ElasticSanVersion V2, where it is required; read-only for V1. </param>
+        <param name="totalMbps"> Total Provisioned MBps Elastic San appliance. Settable only for ElasticSanVersion V2, where it is required; read-only for V1. </param>
+        <param name="totalSizeTiB"> Total size of the Elastic San appliance in TB. Settable only for ElasticSanVersion V2, where it is required; read-only for V1. </param>
         <param name="privateEndpointConnections"> The list of Private Endpoint Connections. </param>
         <param name="publicNetworkAccess"> Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'. </param>
-        <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanData" />. </summary>
+        <summary> Response for ElasticSan request. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanData" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -118,8 +120,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.ElasticSanData</ReturnType>
@@ -180,9 +182,10 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
-        <Attribute FrameworkAlternate="azure-dotnet">
+        <Attribute>
           <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
           <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
         </Attribute>
@@ -191,25 +194,25 @@
         <ReturnType>Azure.ResourceManager.ElasticSan.ElasticSanData</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="id" Type="Azure.Core.ResourceIdentifier" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="name" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="resourceType" Type="Azure.Core.ResourceType" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="systemData" Type="Azure.ResourceManager.Models.SystemData" Index="3" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="tags" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" Index="4" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="location" Type="Azure.Core.AzureLocation" Index="5" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="sku" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanSku" Index="6" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="availabilityZones" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="7" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="provisioningState" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt;" Index="8" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="baseSizeTiB" Type="System.Nullable&lt;System.Int64&gt;" Index="9" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="extendedCapacitySizeTiB" Type="System.Nullable&lt;System.Int64&gt;" Index="10" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="totalVolumeSizeGiB" Type="System.Nullable&lt;System.Int64&gt;" Index="11" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="volumeGroupCount" Type="System.Nullable&lt;System.Int64&gt;" Index="12" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="totalIops" Type="System.Nullable&lt;System.Int64&gt;" Index="13" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="totalMbps" Type="System.Nullable&lt;System.Int64&gt;" Index="14" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="totalSizeTiB" Type="System.Nullable&lt;System.Int64&gt;" Index="15" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="privateEndpointConnections" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt;" Index="16" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="publicNetworkAccess" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess&gt;" Index="17" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="scaleUpProperties" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties" Index="18" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="id" Type="Azure.Core.ResourceIdentifier" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="resourceType" Type="Azure.Core.ResourceType" />
+        <Parameter Name="systemData" Type="Azure.ResourceManager.Models.SystemData" />
+        <Parameter Name="tags" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" />
+        <Parameter Name="location" Type="Azure.Core.AzureLocation" />
+        <Parameter Name="sku" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanSku" />
+        <Parameter Name="availabilityZones" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" />
+        <Parameter Name="provisioningState" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt;" />
+        <Parameter Name="baseSizeTiB" Type="System.Nullable&lt;System.Int64&gt;" />
+        <Parameter Name="extendedCapacitySizeTiB" Type="System.Nullable&lt;System.Int64&gt;" />
+        <Parameter Name="totalVolumeSizeGiB" Type="System.Nullable&lt;System.Int64&gt;" />
+        <Parameter Name="volumeGroupCount" Type="System.Nullable&lt;System.Int64&gt;" />
+        <Parameter Name="totalIops" Type="System.Nullable&lt;System.Int64&gt;" />
+        <Parameter Name="totalMbps" Type="System.Nullable&lt;System.Int64&gt;" />
+        <Parameter Name="totalSizeTiB" Type="System.Nullable&lt;System.Int64&gt;" />
+        <Parameter Name="privateEndpointConnections" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt;" />
+        <Parameter Name="publicNetworkAccess" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess&gt;" />
+        <Parameter Name="scaleUpProperties" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties" />
       </Parameters>
       <Docs>
         <param name="id"> Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. </param>
@@ -236,6 +239,100 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ElasticSanData">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.ElasticSanData ElasticSanData (Azure.Core.ResourceIdentifier id, string name, Azure.Core.ResourceType resourceType, Azure.ResourceManager.Models.SystemData systemData, System.Collections.Generic.IDictionary&lt;string,string&gt; tags, Azure.Core.AzureLocation location, Azure.ResourceManager.ElasticSan.Models.ElasticSanSku sku, System.Collections.Generic.IEnumerable&lt;string&gt; availabilityZones, Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState? provisioningState, long baseSizeTiB, long extendedCapacitySizeTiB, long? totalVolumeSizeGiB, long? volumeGroupCount, long? totalIops, long? totalMbps, long? totalSizeTiB, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt; privateEndpointConnections, Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess? publicNetworkAccess, Azure.ResourceManager.ElasticSan.Models.ElasticSanVersion? version, long? usedCapacityGiB, int? totalReservedIops = default, int? totalReservedMBps = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties scaleUpProperties = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ElasticSan.ElasticSanData ElasticSanData(class Azure.Core.ResourceIdentifier id, string name, valuetype Azure.Core.ResourceType resourceType, class Azure.ResourceManager.Models.SystemData systemData, class System.Collections.Generic.IDictionary`2&lt;string, string&gt; tags, valuetype Azure.Core.AzureLocation location, class Azure.ResourceManager.ElasticSan.Models.ElasticSanSku sku, class System.Collections.Generic.IEnumerable`1&lt;string&gt; availabilityZones, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt; provisioningState, int64 baseSizeTiB, int64 extendedCapacitySizeTiB, valuetype System.Nullable`1&lt;int64&gt; totalVolumeSizeGiB, valuetype System.Nullable`1&lt;int64&gt; volumeGroupCount, valuetype System.Nullable`1&lt;int64&gt; totalIops, valuetype System.Nullable`1&lt;int64&gt; totalMbps, valuetype System.Nullable`1&lt;int64&gt; totalSizeTiB, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt; privateEndpointConnections, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess&gt; publicNetworkAccess, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanVersion&gt; version, valuetype System.Nullable`1&lt;int64&gt; usedCapacityGiB, valuetype System.Nullable`1&lt;int32&gt; totalReservedIops, valuetype System.Nullable`1&lt;int32&gt; totalReservedMBps, class Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties scaleUpProperties) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,System.Collections.Generic.IDictionary{System.String,System.String},Azure.Core.AzureLocation,Azure.ResourceManager.ElasticSan.Models.ElasticSanSku,System.Collections.Generic.IEnumerable{System.String},System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState},System.Int64,System.Int64,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Collections.Generic.IEnumerable{Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData},System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess},System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanVersion},System.Nullable{System.Int64},System.Nullable{System.Int32},System.Nullable{System.Int32},Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ElasticSanData (id As ResourceIdentifier, name As String, resourceType As ResourceType, systemData As SystemData, tags As IDictionary(Of String, String), location As AzureLocation, sku As ElasticSanSku, availabilityZones As IEnumerable(Of String), provisioningState As Nullable(Of ElasticSanProvisioningState), baseSizeTiB As Long, extendedCapacitySizeTiB As Long, totalVolumeSizeGiB As Nullable(Of Long), volumeGroupCount As Nullable(Of Long), totalIops As Nullable(Of Long), totalMbps As Nullable(Of Long), totalSizeTiB As Nullable(Of Long), privateEndpointConnections As IEnumerable(Of ElasticSanPrivateEndpointConnectionData), publicNetworkAccess As Nullable(Of ElasticSanPublicNetworkAccess), version As Nullable(Of ElasticSanVersion), usedCapacityGiB As Nullable(Of Long), Optional totalReservedIops As Nullable(Of Integer) = Nothing, Optional totalReservedMBps As Nullable(Of Integer) = Nothing, Optional scaleUpProperties As ElasticSanScaleUpProperties = Nothing) As ElasticSanData" />
+      <MemberSignature Language="F#" Value="static member ElasticSanData : Azure.Core.ResourceIdentifier * string * Azure.Core.ResourceType * Azure.ResourceManager.Models.SystemData * System.Collections.Generic.IDictionary&lt;string, string&gt; * Azure.Core.AzureLocation * Azure.ResourceManager.ElasticSan.Models.ElasticSanSku * seq&lt;string&gt; * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt; * int64 * int64 * Nullable&lt;int64&gt; * Nullable&lt;int64&gt; * Nullable&lt;int64&gt; * Nullable&lt;int64&gt; * Nullable&lt;int64&gt; * seq&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt; * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess&gt; * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVersion&gt; * Nullable&lt;int64&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties -&gt; Azure.ResourceManager.ElasticSan.ElasticSanData" Usage="Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanData (id, name, resourceType, systemData, tags, location, sku, availabilityZones, provisioningState, baseSizeTiB, extendedCapacitySizeTiB, totalVolumeSizeGiB, volumeGroupCount, totalIops, totalMbps, totalSizeTiB, privateEndpointConnections, publicNetworkAccess, version, usedCapacityGiB, totalReservedIops, totalReservedMBps, scaleUpProperties)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ElasticSan.ElasticSanData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="Azure.Core.ResourceIdentifier" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="name" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="resourceType" Type="Azure.Core.ResourceType" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="systemData" Type="Azure.ResourceManager.Models.SystemData" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="tags" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="location" Type="Azure.Core.AzureLocation" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="sku" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanSku" Index="6" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="availabilityZones" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="7" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="provisioningState" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt;" Index="8" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="baseSizeTiB" Type="System.Int64" Index="9" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="extendedCapacitySizeTiB" Type="System.Int64" Index="10" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="totalVolumeSizeGiB" Type="System.Nullable&lt;System.Int64&gt;" Index="11" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="volumeGroupCount" Type="System.Nullable&lt;System.Int64&gt;" Index="12" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="totalIops" Type="System.Nullable&lt;System.Int64&gt;" Index="13" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="totalMbps" Type="System.Nullable&lt;System.Int64&gt;" Index="14" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="totalSizeTiB" Type="System.Nullable&lt;System.Int64&gt;" Index="15" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="privateEndpointConnections" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt;" Index="16" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="publicNetworkAccess" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess&gt;" Index="17" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="version" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVersion&gt;" Index="18" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="usedCapacityGiB" Type="System.Nullable&lt;System.Int64&gt;" Index="19" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="totalReservedIops" Type="System.Nullable&lt;System.Int32&gt;" Index="20" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="totalReservedMBps" Type="System.Nullable&lt;System.Int32&gt;" Index="21" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="scaleUpProperties" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties" Index="22" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="id"> Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. </param>
+        <param name="name"> The name of the resource. </param>
+        <param name="resourceType"> The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts". </param>
+        <param name="systemData"> Azure Resource Manager metadata containing createdBy and modifiedBy information. </param>
+        <param name="tags"> Resource tags. </param>
+        <param name="location"> The geo-location where the resource lives. </param>
+        <param name="sku"> resource sku. </param>
+        <param name="availabilityZones"> Logical zone for Elastic San resource; example: ["1"]. </param>
+        <param name="provisioningState"> State of the operation on the resource. </param>
+        <param name="baseSizeTiB"> Base size of the Elastic San appliance in TiB. </param>
+        <param name="extendedCapacitySizeTiB"> Extended size of the Elastic San appliance in TiB. </param>
+        <param name="totalVolumeSizeGiB"> Total size of the provisioned Volumes in GiB. </param>
+        <param name="volumeGroupCount"> Total number of volume groups in this Elastic San appliance. </param>
+        <param name="totalIops"> Total Provisioned IOPS of the Elastic San appliance. Settable only for ElasticSanVersion V2, where it is required; read-only for V1. </param>
+        <param name="totalMbps"> Total Provisioned MBps Elastic San appliance. Settable only for ElasticSanVersion V2, where it is required; read-only for V1. </param>
+        <param name="totalSizeTiB"> Total size of the Elastic San appliance in TB. Settable only for ElasticSanVersion V2, where it is required; read-only for V1. </param>
+        <param name="privateEndpointConnections"> The list of Private Endpoint Connections. </param>
+        <param name="publicNetworkAccess"> Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'. </param>
+        <param name="version"> Elastic San appliance version. Defaults to V1 if not specified. </param>
+        <param name="usedCapacityGiB"> Used capacity in GiB. </param>
+        <param name="totalReservedIops"> Total IOPS reserved by all the volume groups under an ElasticSan. </param>
+        <param name="totalReservedMBps"> Total MBps reserved by all the volume groups under an ElasticSan. </param>
+        <param name="scaleUpProperties"> Scale up settings on Elastic San Appliance. </param>
+        <summary>To be added.</summary>
+        <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanData" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ElasticSanDeleteRetentionPolicy">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy ElasticSanDeleteRetentionPolicy (Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicyState? policyState = default, int? retentionPeriodDays = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy ElasticSanDeleteRetentionPolicy(valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicyState&gt; policyState, valuetype System.Nullable`1&lt;int32&gt; retentionPeriodDays) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanDeleteRetentionPolicy(System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicyState},System.Nullable{System.Int32})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ElasticSanDeleteRetentionPolicy (Optional policyState As Nullable(Of ElasticSanDeleteRetentionPolicyState) = Nothing, Optional retentionPeriodDays As Nullable(Of Integer) = Nothing) As ElasticSanDeleteRetentionPolicy" />
+      <MemberSignature Language="F#" Value="static member ElasticSanDeleteRetentionPolicy : Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicyState&gt; * Nullable&lt;int&gt; -&gt; Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy" Usage="Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanDeleteRetentionPolicy (policyState, retentionPeriodDays)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="policyState" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicyState&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="retentionPeriodDays" Type="System.Nullable&lt;System.Int32&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="policyState" />
+        <param name="retentionPeriodDays" />
+        <summary> Response for Delete Retention Policy object. </summary>
+        <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ElasticSanEncryptionProperties">
       <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties ElasticSanEncryptionProperties (Azure.ResourceManager.ElasticSan.Models.ElasticSanKeyVaultProperties keyVaultProperties = default, Azure.Core.ResourceIdentifier encryptionUserAssignedIdentity = default);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties ElasticSanEncryptionProperties(class Azure.ResourceManager.ElasticSan.Models.ElasticSanKeyVaultProperties keyVaultProperties, class Azure.Core.ResourceIdentifier encryptionUserAssignedIdentity) cil managed" />
@@ -246,13 +343,14 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="keyVaultProperties" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanKeyVaultProperties" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="encryptionUserAssignedIdentity" Type="Azure.Core.ResourceIdentifier" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="keyVaultProperties" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanKeyVaultProperties" />
+        <Parameter Name="encryptionUserAssignedIdentity" Type="Azure.Core.ResourceIdentifier" />
       </Parameters>
       <Docs>
         <param name="keyVaultProperties"> Properties provided by key vault. </param>
@@ -271,8 +369,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanKeyVaultProperties</ReturnType>
@@ -297,6 +395,34 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ElasticSanManagedByInfo">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.Models.ElasticSanManagedByInfo ElasticSanManagedByInfo (string clientId = default, int? version = default, System.Collections.Generic.IEnumerable&lt;Azure.Core.ResourceIdentifier&gt; resourceIds = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ElasticSan.Models.ElasticSanManagedByInfo ElasticSanManagedByInfo(string clientId, valuetype System.Nullable`1&lt;int32&gt; version, class System.Collections.Generic.IEnumerable`1&lt;class Azure.Core.ResourceIdentifier&gt; resourceIds) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanManagedByInfo(System.String,System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{Azure.Core.ResourceIdentifier})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ElasticSanManagedByInfo (Optional clientId As String = Nothing, Optional version As Nullable(Of Integer) = Nothing, Optional resourceIds As IEnumerable(Of ResourceIdentifier) = Nothing) As ElasticSanManagedByInfo" />
+      <MemberSignature Language="F#" Value="static member ElasticSanManagedByInfo : string * Nullable&lt;int&gt; * seq&lt;Azure.Core.ResourceIdentifier&gt; -&gt; Azure.ResourceManager.ElasticSan.Models.ElasticSanManagedByInfo" Usage="Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanManagedByInfo (clientId, version, resourceIds)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanManagedByInfo</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="clientId" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="version" Type="System.Nullable&lt;System.Int32&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="resourceIds" Type="System.Collections.Generic.IEnumerable&lt;Azure.Core.ResourceIdentifier&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="clientId"> ClientId of the application managing the resource. </param>
+        <param name="version"> Version number to keep track of resources using the Volume. </param>
+        <param name="resourceIds"> ARM Resource IDs of the resources managing the volume. </param>
+        <summary> Information about Azure services owning the ElasticSan volume resource. </summary>
+        <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.Models.ElasticSanManagedByInfo" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ElasticSanPatch">
       <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.Models.ElasticSanPatch ElasticSanPatch (long? baseSizeTiB = default, long? extendedCapacitySizeTiB = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess? publicNetworkAccess = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties scaleUpProperties = default, System.Collections.Generic.IDictionary&lt;string,string&gt; tags = default);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ElasticSan.Models.ElasticSanPatch ElasticSanPatch(valuetype System.Nullable`1&lt;int64&gt; baseSizeTiB, valuetype System.Nullable`1&lt;int64&gt; extendedCapacitySizeTiB, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess&gt; publicNetworkAccess, class Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties scaleUpProperties, class System.Collections.Generic.IDictionary`2&lt;string, string&gt; tags) cil managed" />
@@ -307,21 +433,66 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanPatch</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="baseSizeTiB" Type="System.Nullable&lt;System.Int64&gt;" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="extendedCapacitySizeTiB" Type="System.Nullable&lt;System.Int64&gt;" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="publicNetworkAccess" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess&gt;" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="scaleUpProperties" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties" Index="3" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="tags" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" Index="4" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="baseSizeTiB" Type="System.Nullable&lt;System.Int64&gt;" />
+        <Parameter Name="extendedCapacitySizeTiB" Type="System.Nullable&lt;System.Int64&gt;" />
+        <Parameter Name="publicNetworkAccess" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess&gt;" />
+        <Parameter Name="scaleUpProperties" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties" />
+        <Parameter Name="tags" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" />
       </Parameters>
       <Docs>
         <param name="baseSizeTiB"> Base size of the Elastic San appliance in TiB. </param>
         <param name="extendedCapacitySizeTiB"> Extended size of the Elastic San appliance in TiB. </param>
         <param name="publicNetworkAccess"> Allow or disallow public network access to ElasticSan Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'. </param>
+        <param name="scaleUpProperties"> Scale up settings on Elastic San Appliance. </param>
+        <param name="tags"> Update tags. </param>
+        <summary> Response for ElasticSan update request. </summary>
+        <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.Models.ElasticSanPatch" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ElasticSanPatch">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.Models.ElasticSanPatch ElasticSanPatch (long? baseSizeTiB, long? extendedCapacitySizeTiB, Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess? publicNetworkAccess, long? totalIops, long? totalMbps, long? totalSizeTiB, Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties scaleUpProperties = default, System.Collections.Generic.IDictionary&lt;string,string&gt; tags = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ElasticSan.Models.ElasticSanPatch ElasticSanPatch(valuetype System.Nullable`1&lt;int64&gt; baseSizeTiB, valuetype System.Nullable`1&lt;int64&gt; extendedCapacitySizeTiB, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess&gt; publicNetworkAccess, valuetype System.Nullable`1&lt;int64&gt; totalIops, valuetype System.Nullable`1&lt;int64&gt; totalMbps, valuetype System.Nullable`1&lt;int64&gt; totalSizeTiB, class Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties scaleUpProperties, class System.Collections.Generic.IDictionary`2&lt;string, string&gt; tags) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanPatch(System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties,System.Collections.Generic.IDictionary{System.String,System.String})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ElasticSanPatch (baseSizeTiB As Nullable(Of Long), extendedCapacitySizeTiB As Nullable(Of Long), publicNetworkAccess As Nullable(Of ElasticSanPublicNetworkAccess), totalIops As Nullable(Of Long), totalMbps As Nullable(Of Long), totalSizeTiB As Nullable(Of Long), Optional scaleUpProperties As ElasticSanScaleUpProperties = Nothing, Optional tags As IDictionary(Of String, String) = Nothing) As ElasticSanPatch" />
+      <MemberSignature Language="F#" Value="static member ElasticSanPatch : Nullable&lt;int64&gt; * Nullable&lt;int64&gt; * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess&gt; * Nullable&lt;int64&gt; * Nullable&lt;int64&gt; * Nullable&lt;int64&gt; * Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties * System.Collections.Generic.IDictionary&lt;string, string&gt; -&gt; Azure.ResourceManager.ElasticSan.Models.ElasticSanPatch" Usage="Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanPatch (baseSizeTiB, extendedCapacitySizeTiB, publicNetworkAccess, totalIops, totalMbps, totalSizeTiB, scaleUpProperties, tags)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanPatch</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="baseSizeTiB" Type="System.Nullable&lt;System.Int64&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="extendedCapacitySizeTiB" Type="System.Nullable&lt;System.Int64&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="publicNetworkAccess" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanPublicNetworkAccess&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="totalIops" Type="System.Nullable&lt;System.Int64&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="totalMbps" Type="System.Nullable&lt;System.Int64&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="totalSizeTiB" Type="System.Nullable&lt;System.Int64&gt;" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="scaleUpProperties" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties" Index="6" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="tags" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" Index="7" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="baseSizeTiB"> Base size of the Elastic San appliance in TiB. </param>
+        <param name="extendedCapacitySizeTiB"> Extended size of the Elastic San appliance in TiB. </param>
+        <param name="publicNetworkAccess"> Allow or disallow public network access to ElasticSan Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'. </param>
+        <param name="totalIops"> Total Provisioned IOPS of the Elastic San appliance. Supported only for ElasticSanVersion V2. </param>
+        <param name="totalMbps"> Total Provisioned MBps Elastic San appliance. Supported only for ElasticSanVersion V2. </param>
+        <param name="totalSizeTiB"> Total size of the Elastic San appliance in TB. Supported only for ElasticSanVersion V2. </param>
         <param name="scaleUpProperties"> Scale up settings on Elastic San Appliance. </param>
         <param name="tags"> Update tags. </param>
         <summary>To be added.</summary>
@@ -338,8 +509,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanPreValidationResult</ReturnType>
@@ -363,11 +534,11 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
-        <Attribute FrameworkAlternate="azure-dotnet">
+        <Attribute>
           <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
           <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
         </Attribute>
@@ -386,15 +557,15 @@
         <Parameter Name="groupIds" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" />
       </Parameters>
       <Docs>
-        <param name="id"> The id. </param>
-        <param name="name"> The name. </param>
-        <param name="resourceType"> The resourceType. </param>
-        <param name="systemData"> The systemData. </param>
+        <param name="id"> Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. </param>
+        <param name="name"> The name of the resource. </param>
+        <param name="resourceType"> The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts". </param>
+        <param name="systemData"> Azure Resource Manager metadata containing createdBy and modifiedBy information. </param>
         <param name="provisioningState"> Provisioning State of Private Endpoint connection resource. </param>
-        <param name="privateEndpointId"> Private Endpoint resource. </param>
+        <param name="privateEndpointId"> The ARM identifier for Private Endpoint. </param>
         <param name="connectionState"> Private Link Service Connection State. </param>
         <param name="groupIds"> List of resources private endpoint is mapped. </param>
-        <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData" />. </summary>
+        <summary> Response for PrivateEndpoint Connection object. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -409,19 +580,20 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="id" Type="Azure.Core.ResourceIdentifier" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="name" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="resourceType" Type="Azure.Core.ResourceType" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="systemData" Type="Azure.ResourceManager.Models.SystemData" Index="3" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="provisioningState" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt;" Index="4" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="connectionState" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanPrivateLinkServiceConnectionState" Index="5" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="groupIds" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="6" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="privateEndpointId" Type="Azure.Core.ResourceIdentifier" Index="7" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="id" Type="Azure.Core.ResourceIdentifier" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="resourceType" Type="Azure.Core.ResourceType" />
+        <Parameter Name="systemData" Type="Azure.ResourceManager.Models.SystemData" />
+        <Parameter Name="provisioningState" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt;" />
+        <Parameter Name="connectionState" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanPrivateLinkServiceConnectionState" />
+        <Parameter Name="groupIds" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" />
+        <Parameter Name="privateEndpointId" Type="Azure.Core.ResourceIdentifier" />
       </Parameters>
       <Docs>
         <param name="id"> Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. </param>
@@ -448,8 +620,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanPrivateLinkResource</ReturnType>
@@ -486,20 +658,21 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanPrivateLinkServiceConnectionState</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="status" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanPrivateEndpointServiceConnectionStatus&gt;" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="description" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="actionsRequired" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="status" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanPrivateEndpointServiceConnectionStatus&gt;" />
+        <Parameter Name="description" Type="System.String" />
+        <Parameter Name="actionsRequired" Type="System.String" />
       </Parameters>
       <Docs>
         <param name="status"> Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service. </param>
         <param name="description"> The reason for approval/rejection of the connection. </param>
         <param name="actionsRequired"> A message indicating if changes on the service provider require any updates on the consumer. </param>
-        <summary>To be added.</summary>
+        <summary> Response for Private Link Service Connection state. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.Models.ElasticSanPrivateLinkServiceConnectionState" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -514,22 +687,23 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="unusedSizeTiB" Type="System.Nullable&lt;System.Int64&gt;" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="increaseCapacityUnitByTiB" Type="System.Nullable&lt;System.Int64&gt;" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="capacityUnitScaleUpLimitTiB" Type="System.Nullable&lt;System.Int64&gt;" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="autoScalePolicyEnforcement" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.AutoScalePolicyEnforcement&gt;" Index="3" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="unusedSizeTiB" Type="System.Nullable&lt;System.Int64&gt;" />
+        <Parameter Name="increaseCapacityUnitByTiB" Type="System.Nullable&lt;System.Int64&gt;" />
+        <Parameter Name="capacityUnitScaleUpLimitTiB" Type="System.Nullable&lt;System.Int64&gt;" />
+        <Parameter Name="autoScalePolicyEnforcement" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.AutoScalePolicyEnforcement&gt;" />
       </Parameters>
       <Docs>
         <param name="unusedSizeTiB"> Unused size on Elastic San appliance in TiB. </param>
         <param name="increaseCapacityUnitByTiB"> Unit to increase Capacity Unit on Elastic San appliance in TiB. </param>
         <param name="capacityUnitScaleUpLimitTiB"> Maximum scale up size on Elastic San appliance in TiB. </param>
         <param name="autoScalePolicyEnforcement"> Enable or Disable scale up setting on Elastic San Appliance. </param>
-        <summary>To be added.</summary>
+        <summary> Scale up properties on Elastic San Appliance. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.Models.ElasticSanScaleUpProperties" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -544,18 +718,19 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanSku</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="name" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuName" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="tier" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuTier&gt;" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="name" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuName" />
+        <Parameter Name="tier" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuTier&gt;" />
       </Parameters>
       <Docs>
         <param name="name"> The sku name. </param>
         <param name="tier"> The sku tier. </param>
-        <summary>To be added.</summary>
+        <summary> The SKU name. Required for account creation; optional for update. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.Models.ElasticSanSku" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -569,8 +744,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuCapability</ReturnType>
@@ -596,8 +771,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuInformation</ReturnType>
@@ -631,9 +806,15 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuLocationInfo</ReturnType>
       </ReturnValue>
@@ -649,6 +830,60 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ElasticSanSkuLocationInfo">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuLocationInfo ElasticSanSkuLocationInfo (Azure.Core.AzureLocation? location, System.Collections.Generic.IEnumerable&lt;string&gt; zones, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuZoneDetails&gt; zoneDetails);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuLocationInfo ElasticSanSkuLocationInfo(valuetype System.Nullable`1&lt;valuetype Azure.Core.AzureLocation&gt; location, class System.Collections.Generic.IEnumerable`1&lt;string&gt; zones, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuZoneDetails&gt; zoneDetails) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanSkuLocationInfo(System.Nullable{Azure.Core.AzureLocation},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuZoneDetails})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ElasticSanSkuLocationInfo (location As Nullable(Of AzureLocation), zones As IEnumerable(Of String), zoneDetails As IEnumerable(Of ElasticSanSkuZoneDetails)) As ElasticSanSkuLocationInfo" />
+      <MemberSignature Language="F#" Value="static member ElasticSanSkuLocationInfo : Nullable&lt;Azure.Core.AzureLocation&gt; * seq&lt;string&gt; * seq&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuZoneDetails&gt; -&gt; Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuLocationInfo" Usage="Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanSkuLocationInfo (location, zones, zoneDetails)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuLocationInfo</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="location" Type="System.Nullable&lt;Azure.Core.AzureLocation&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="zones" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="zoneDetails" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuZoneDetails&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="location"> The location. </param>
+        <param name="zones"> The zones. </param>
+        <param name="zoneDetails"> Details of capabilities available in each zone. </param>
+        <summary> The location info. </summary>
+        <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuLocationInfo" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ElasticSanSkuZoneDetails">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuZoneDetails ElasticSanSkuZoneDetails (System.Collections.Generic.IEnumerable&lt;string&gt; name = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuCapability&gt; capabilities = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuZoneDetails ElasticSanSkuZoneDetails(class System.Collections.Generic.IEnumerable`1&lt;string&gt; name, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuCapability&gt; capabilities) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanSkuZoneDetails(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuCapability})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ElasticSanSkuZoneDetails (Optional name As IEnumerable(Of String) = Nothing, Optional capabilities As IEnumerable(Of ElasticSanSkuCapability) = Nothing) As ElasticSanSkuZoneDetails" />
+      <MemberSignature Language="F#" Value="static member ElasticSanSkuZoneDetails : seq&lt;string&gt; * seq&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuCapability&gt; -&gt; Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuZoneDetails" Usage="Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanSkuZoneDetails (name, capabilities)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuZoneDetails</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="capabilities" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuCapability&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="name"> The zone(s). </param>
+        <param name="capabilities"> The capabilities supported in the zone(s). </param>
+        <summary> Details of capabilities available in each zone. </summary>
+        <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.Models.ElasticSanSkuZoneDetails" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ElasticSanSnapshotData">
       <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.ElasticSanSnapshotData ElasticSanSnapshotData (Azure.Core.ResourceIdentifier id = default, string name = default, Azure.Core.ResourceType resourceType = default, Azure.ResourceManager.Models.SystemData systemData = default, Azure.Core.ResourceIdentifier creationDataSourceId = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState? provisioningState = default, long? sourceVolumeSizeGiB = default, string volumeName = default);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ElasticSan.ElasticSanSnapshotData ElasticSanSnapshotData(class Azure.Core.ResourceIdentifier id, string name, valuetype Azure.Core.ResourceType resourceType, class Azure.ResourceManager.Models.SystemData systemData, class Azure.Core.ResourceIdentifier creationDataSourceId, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt; provisioningState, valuetype System.Nullable`1&lt;int64&gt; sourceVolumeSizeGiB, string volumeName) cil managed" />
@@ -658,11 +893,11 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
-        <Attribute FrameworkAlternate="azure-dotnet">
+        <Attribute>
           <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
           <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
         </Attribute>
@@ -681,15 +916,15 @@
         <Parameter Name="volumeName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="id"> The id. </param>
-        <param name="name"> The name. </param>
-        <param name="resourceType"> The resourceType. </param>
-        <param name="systemData"> The systemData. </param>
-        <param name="creationDataSourceId"> Data used when creating a volume snapshot. </param>
+        <param name="id"> Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. </param>
+        <param name="name"> The name of the resource. </param>
+        <param name="resourceType"> The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts". </param>
+        <param name="systemData"> Azure Resource Manager metadata containing createdBy and modifiedBy information. </param>
+        <param name="creationDataSourceId"> Fully qualified resource ID of the volume. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}/volumegroups/{volumeGroupName}/volumes/{volumeName}". </param>
         <param name="provisioningState"> State of the operation on the resource. </param>
         <param name="sourceVolumeSizeGiB"> Size of Source Volume. </param>
         <param name="volumeName"> Source Volume Name of a snapshot. </param>
-        <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanSnapshotData" />. </summary>
+        <summary> Response for Volume Snapshot request. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanSnapshotData" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -704,19 +939,26 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.ElasticSanSnapshotData</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="id" Type="Azure.Core.ResourceIdentifier" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="name" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="resourceType" Type="Azure.Core.ResourceType" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="systemData" Type="Azure.ResourceManager.Models.SystemData" Index="3" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="provisioningState" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt;" Index="4" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="sourceVolumeSizeGiB" Type="System.Nullable&lt;System.Int64&gt;" Index="5" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="volumeName" Type="System.String" Index="6" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="creationDataSourceId" Type="Azure.Core.ResourceIdentifier" Index="7" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="id" Type="Azure.Core.ResourceIdentifier" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="resourceType" Type="Azure.Core.ResourceType" />
+        <Parameter Name="systemData" Type="Azure.ResourceManager.Models.SystemData" />
+        <Parameter Name="provisioningState" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt;" />
+        <Parameter Name="sourceVolumeSizeGiB" Type="System.Nullable&lt;System.Int64&gt;" />
+        <Parameter Name="volumeName" Type="System.String" />
+        <Parameter Name="creationDataSourceId" Type="Azure.Core.ResourceIdentifier" />
       </Parameters>
       <Docs>
         <param name="id"> Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. </param>
@@ -727,11 +969,53 @@
         <param name="sourceVolumeSizeGiB"> Size of Source Volume. </param>
         <param name="volumeName"> Source Volume Name of a snapshot. </param>
         <param name="creationDataSourceId"> Fully qualified resource ID of the volume. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}/volumegroups/{volumeGroupName}/volumes/{volumeName}". </param>
-        <summary>To be added.</summary>
+        <summary> Response for Volume Snapshot request. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanSnapshotData" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="creationDataSourceId" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="ElasticSanSnapshotData">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.ElasticSanSnapshotData ElasticSanSnapshotData (Azure.Core.ResourceIdentifier id, string name, Azure.Core.ResourceType resourceType, Azure.ResourceManager.Models.SystemData systemData, Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState? provisioningState, long? sourceVolumeSizeGiB, string volumeName, Azure.ResourceManager.ElasticSan.Models.SnapshotAccessState? snapshotAccessState, float? completionPercent, Azure.Core.ResourceIdentifier creationDataSourceId = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ElasticSan.ElasticSanSnapshotData ElasticSanSnapshotData(class Azure.Core.ResourceIdentifier id, string name, valuetype Azure.Core.ResourceType resourceType, class Azure.ResourceManager.Models.SystemData systemData, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt; provisioningState, valuetype System.Nullable`1&lt;int64&gt; sourceVolumeSizeGiB, string volumeName, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.SnapshotAccessState&gt; snapshotAccessState, valuetype System.Nullable`1&lt;float32&gt; completionPercent, class Azure.Core.ResourceIdentifier creationDataSourceId) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanSnapshotData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState},System.Nullable{System.Int64},System.String,System.Nullable{Azure.ResourceManager.ElasticSan.Models.SnapshotAccessState},System.Nullable{System.Single},Azure.Core.ResourceIdentifier)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ElasticSanSnapshotData (id As ResourceIdentifier, name As String, resourceType As ResourceType, systemData As SystemData, provisioningState As Nullable(Of ElasticSanProvisioningState), sourceVolumeSizeGiB As Nullable(Of Long), volumeName As String, snapshotAccessState As Nullable(Of SnapshotAccessState), completionPercent As Nullable(Of Single), Optional creationDataSourceId As ResourceIdentifier = Nothing) As ElasticSanSnapshotData" />
+      <MemberSignature Language="F#" Value="static member ElasticSanSnapshotData : Azure.Core.ResourceIdentifier * string * Azure.Core.ResourceType * Azure.ResourceManager.Models.SystemData * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt; * Nullable&lt;int64&gt; * string * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.SnapshotAccessState&gt; * Nullable&lt;single&gt; * Azure.Core.ResourceIdentifier -&gt; Azure.ResourceManager.ElasticSan.ElasticSanSnapshotData" Usage="Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanSnapshotData (id, name, resourceType, systemData, provisioningState, sourceVolumeSizeGiB, volumeName, snapshotAccessState, completionPercent, creationDataSourceId)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ElasticSan.ElasticSanSnapshotData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="Azure.Core.ResourceIdentifier" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="name" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="resourceType" Type="Azure.Core.ResourceType" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="systemData" Type="Azure.ResourceManager.Models.SystemData" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="provisioningState" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="sourceVolumeSizeGiB" Type="System.Nullable&lt;System.Int64&gt;" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="volumeName" Type="System.String" Index="6" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="snapshotAccessState" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.SnapshotAccessState&gt;" Index="7" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="completionPercent" Type="System.Nullable&lt;System.Single&gt;" Index="8" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="creationDataSourceId" Type="Azure.Core.ResourceIdentifier" Index="9" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="id"> Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. </param>
+        <param name="name"> The name of the resource. </param>
+        <param name="resourceType"> The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts". </param>
+        <param name="systemData"> Azure Resource Manager metadata containing createdBy and modifiedBy information. </param>
+        <param name="provisioningState"> State of the operation on the resource. </param>
+        <param name="sourceVolumeSizeGiB"> Size of Source Volume. </param>
+        <param name="volumeName"> Source Volume Name of a snapshot. </param>
+        <param name="snapshotAccessState"> The state of snapshot which determines the access availability of the snapshot. </param>
+        <param name="completionPercent"> Percentage complete for the background copy of the snapshot when a snapshot is in InstantAccess state. </param>
+        <param name="creationDataSourceId"> Fully qualified resource ID of the volume. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}/volumegroups/{volumeGroupName}/volumes/{volumeName}". </param>
+        <summary>To be added.</summary>
+        <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanSnapshotData" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ElasticSanVirtualNetworkRule">
@@ -744,20 +1028,66 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="virtualNetworkResourceId" Type="Azure.Core.ResourceIdentifier" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="action" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRuleAction&gt;" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="virtualNetworkResourceId" Type="Azure.Core.ResourceIdentifier" />
+        <Parameter Name="action" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRuleAction&gt;" />
       </Parameters>
       <Docs>
         <param name="virtualNetworkResourceId"> Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}. </param>
         <param name="action"> The action of virtual network rule. </param>
-        <summary>To be added.</summary>
+        <summary> Virtual Network rule. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ElasticSanVolumeData">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.ElasticSanVolumeData ElasticSanVolumeData (Azure.Core.ResourceIdentifier id, string name, Azure.Core.ResourceType resourceType, Azure.ResourceManager.Models.SystemData systemData, Guid? volumeId, Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeDataSourceInfo creationData, long sizeGiB, Azure.ResourceManager.ElasticSan.Models.IscsiTargetInfo storageTarget, Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState? provisioningState);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ElasticSan.ElasticSanVolumeData ElasticSanVolumeData(class Azure.Core.ResourceIdentifier id, string name, valuetype Azure.Core.ResourceType resourceType, class Azure.ResourceManager.Models.SystemData systemData, valuetype System.Nullable`1&lt;valuetype System.Guid&gt; volumeId, class Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeDataSourceInfo creationData, int64 sizeGiB, class Azure.ResourceManager.ElasticSan.Models.IscsiTargetInfo storageTarget, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt; provisioningState) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanVolumeData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,System.Nullable{System.Guid},Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeDataSourceInfo,System.Int64,Azure.ResourceManager.ElasticSan.Models.IscsiTargetInfo,System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ElasticSanVolumeData (id As ResourceIdentifier, name As String, resourceType As ResourceType, systemData As SystemData, volumeId As Nullable(Of Guid), creationData As ElasticSanVolumeDataSourceInfo, sizeGiB As Long, storageTarget As IscsiTargetInfo, provisioningState As Nullable(Of ElasticSanProvisioningState)) As ElasticSanVolumeData" />
+      <MemberSignature Language="F#" Value="static member ElasticSanVolumeData : Azure.Core.ResourceIdentifier * string * Azure.Core.ResourceType * Azure.ResourceManager.Models.SystemData * Nullable&lt;Guid&gt; * Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeDataSourceInfo * int64 * Azure.ResourceManager.ElasticSan.Models.IscsiTargetInfo * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt; -&gt; Azure.ResourceManager.ElasticSan.ElasticSanVolumeData" Usage="Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanVolumeData (id, name, resourceType, systemData, volumeId, creationData, sizeGiB, storageTarget, provisioningState)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ElasticSan.ElasticSanVolumeData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="Azure.Core.ResourceIdentifier" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="name" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="resourceType" Type="Azure.Core.ResourceType" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="systemData" Type="Azure.ResourceManager.Models.SystemData" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="volumeId" Type="System.Nullable&lt;System.Guid&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="creationData" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeDataSourceInfo" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="sizeGiB" Type="System.Int64" Index="6" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="storageTarget" Type="Azure.ResourceManager.ElasticSan.Models.IscsiTargetInfo" Index="7" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="provisioningState" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt;" Index="8" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="id"> Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. </param>
+        <param name="name"> The name of the resource. </param>
+        <param name="resourceType"> The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts". </param>
+        <param name="systemData"> Azure Resource Manager metadata containing createdBy and modifiedBy information. </param>
+        <param name="volumeId"> Unique Id of the volume in GUID format. </param>
+        <param name="creationData"> State of the operation on the resource. </param>
+        <param name="sizeGiB"> Volume size. </param>
+        <param name="storageTarget"> Storage target information. </param>
+        <param name="provisioningState"> State of the operation on the resource. </param>
+        <summary> Response for Volume request. </summary>
+        <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanVolumeData" /> instance for mocking. </returns>
+        <remarks>
+            This overload intentionally omits the ManagedBy collection. A parameter of that type would be
+            indistinguishable from the <c>managedByResourceId</c> parameter of the compatibility overloads below
+            whenever a caller passes an untyped <see langword="null" />. Add entries to
+            <see cref="P:Azure.ResourceManager.ElasticSan.ElasticSanVolumeData.ManagedBy" /> on the returned instance instead.
+            </remarks>
       </Docs>
     </Member>
     <Member MemberName="ElasticSanVolumeData">
@@ -769,11 +1099,11 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
-        <Attribute FrameworkAlternate="azure-dotnet">
+        <Attribute>
           <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
           <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
         </Attribute>
@@ -794,17 +1124,17 @@
         <Parameter Name="provisioningState" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt;" />
       </Parameters>
       <Docs>
-        <param name="id"> The id. </param>
-        <param name="name"> The name. </param>
-        <param name="resourceType"> The resourceType. </param>
-        <param name="systemData"> The systemData. </param>
+        <param name="id"> Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. </param>
+        <param name="name"> The name of the resource. </param>
+        <param name="resourceType"> The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts". </param>
+        <param name="systemData"> Azure Resource Manager metadata containing createdBy and modifiedBy information. </param>
         <param name="volumeId"> Unique Id of the volume in GUID format. </param>
         <param name="creationData"> State of the operation on the resource. </param>
         <param name="sizeGiB"> Volume size. </param>
         <param name="storageTarget"> Storage target information. </param>
-        <param name="managedByResourceId"> Parent resource information. </param>
+        <param name="managedByResourceId"> Resource ID of the resource managing the volume. </param>
         <param name="provisioningState"> State of the operation on the resource. </param>
-        <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanVolumeData" />. </summary>
+        <summary> Response for Volume request. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanVolumeData" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -819,21 +1149,28 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.ElasticSanVolumeData</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="id" Type="Azure.Core.ResourceIdentifier" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="name" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="resourceType" Type="Azure.Core.ResourceType" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="systemData" Type="Azure.ResourceManager.Models.SystemData" Index="3" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="volumeId" Type="System.Nullable&lt;System.Guid&gt;" Index="4" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="creationData" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeDataSourceInfo" Index="5" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="sizeGiB" Type="System.Int64" Index="6" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="storageTarget" Type="Azure.ResourceManager.ElasticSan.Models.IscsiTargetInfo" Index="7" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="provisioningState" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt;" Index="8" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="managedByResourceId" Type="Azure.Core.ResourceIdentifier" Index="9" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="id" Type="Azure.Core.ResourceIdentifier" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="resourceType" Type="Azure.Core.ResourceType" />
+        <Parameter Name="systemData" Type="Azure.ResourceManager.Models.SystemData" />
+        <Parameter Name="volumeId" Type="System.Nullable&lt;System.Guid&gt;" />
+        <Parameter Name="creationData" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeDataSourceInfo" />
+        <Parameter Name="sizeGiB" Type="System.Int64" />
+        <Parameter Name="storageTarget" Type="Azure.ResourceManager.ElasticSan.Models.IscsiTargetInfo" />
+        <Parameter Name="provisioningState" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt;" />
+        <Parameter Name="managedByResourceId" Type="Azure.Core.ResourceIdentifier" />
       </Parameters>
       <Docs>
         <param name="id"> Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. </param>
@@ -845,8 +1182,8 @@
         <param name="sizeGiB"> Volume size. </param>
         <param name="storageTarget"> Storage target information. </param>
         <param name="provisioningState"> State of the operation on the resource. </param>
-        <param name="managedByResourceId"> Resource ID of the resource managing the volume, this is a restricted field and can only be set for internal use. </param>
-        <summary>To be added.</summary>
+        <param name="managedByResourceId"> Resource ID of the resource managing the volume. </param>
+        <summary> Response for Volume request. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanVolumeData" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -861,18 +1198,19 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeDataSourceInfo</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="createSource" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeCreateOption&gt;" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="sourceId" Type="Azure.Core.ResourceIdentifier" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="createSource" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeCreateOption&gt;" />
+        <Parameter Name="sourceId" Type="Azure.Core.ResourceIdentifier" />
       </Parameters>
       <Docs>
         <param name="createSource"> This enumerates the possible sources of a volume creation. </param>
         <param name="sourceId"> Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}". </param>
-        <summary>To be added.</summary>
+        <summary> Data source used when creating the volume. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeDataSourceInfo" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -886,8 +1224,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -938,23 +1276,30 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="id" Type="Azure.Core.ResourceIdentifier" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="name" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="resourceType" Type="Azure.Core.ResourceType" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="systemData" Type="Azure.ResourceManager.Models.SystemData" Index="3" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="identity" Type="Azure.ResourceManager.Models.ManagedServiceIdentity" Index="4" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="provisioningState" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt;" Index="5" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="protocolType" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType&gt;" Index="6" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="encryption" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType&gt;" Index="7" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="encryptionProperties" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties" Index="8" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="privateEndpointConnections" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt;" Index="9" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="enforceDataIntegrityCheckForIscsi" Type="System.Nullable&lt;System.Boolean&gt;" Index="10" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="virtualNetworkRules" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt;" Index="11" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="id" Type="Azure.Core.ResourceIdentifier" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="resourceType" Type="Azure.Core.ResourceType" />
+        <Parameter Name="systemData" Type="Azure.ResourceManager.Models.SystemData" />
+        <Parameter Name="identity" Type="Azure.ResourceManager.Models.ManagedServiceIdentity" />
+        <Parameter Name="provisioningState" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt;" />
+        <Parameter Name="protocolType" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType&gt;" />
+        <Parameter Name="encryption" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType&gt;" />
+        <Parameter Name="encryptionProperties" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties" />
+        <Parameter Name="privateEndpointConnections" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt;" />
+        <Parameter Name="enforceDataIntegrityCheckForIscsi" Type="System.Nullable&lt;System.Boolean&gt;" />
+        <Parameter Name="virtualNetworkRules" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt;" />
       </Parameters>
       <Docs>
         <param name="id"> Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. </param>
@@ -969,24 +1314,22 @@
         <param name="privateEndpointConnections"> The list of Private Endpoint Connections. </param>
         <param name="enforceDataIntegrityCheckForIscsi"> A boolean indicating whether or not Data Integrity Check is enabled. </param>
         <param name="virtualNetworkRules"> The list of virtual network rules. </param>
-        <summary>To be added.</summary>
+        <summary> Response for Volume Group request. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ElasticSanVolumeGroupData">
-      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData ElasticSanVolumeGroupData (Azure.Core.ResourceIdentifier id = default, string name = default, Azure.Core.ResourceType resourceType = default, Azure.ResourceManager.Models.SystemData systemData = default, Azure.ResourceManager.Models.ManagedServiceIdentity identity = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState? provisioningState = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType? protocolType = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType? encryption = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties encryptionProperties = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt; virtualNetworkRules = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt; privateEndpointConnections = default, bool? enforceDataIntegrityCheckForIscsi = default);" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData ElasticSanVolumeGroupData (Azure.Core.ResourceIdentifier id = default, string name = default, Azure.Core.ResourceType resourceType = default, Azure.ResourceManager.Models.SystemData systemData = default, Azure.ResourceManager.Models.ManagedServiceIdentity identity = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState? provisioningState = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType? protocolType = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType? encryption = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties encryptionProperties = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt; virtualNetworkRules = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt; privateEndpointConnections = default, bool? enforceDataIntegrityCheckForIscsi = default);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData ElasticSanVolumeGroupData(class Azure.Core.ResourceIdentifier id, string name, valuetype Azure.Core.ResourceType resourceType, class Azure.ResourceManager.Models.SystemData systemData, class Azure.ResourceManager.Models.ManagedServiceIdentity identity, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt; provisioningState, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType&gt; protocolType, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType&gt; encryption, class Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties encryptionProperties, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt; virtualNetworkRules, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt; privateEndpointConnections, valuetype System.Nullable`1&lt;bool&gt; enforceDataIntegrityCheckForIscsi) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanVolumeGroupData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,Azure.ResourceManager.Models.ManagedServiceIdentity,System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState},System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType},System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType},Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule},System.Collections.Generic.IEnumerable{Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData},System.Nullable{System.Boolean})" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function ElasticSanVolumeGroupData (Optional id As ResourceIdentifier = Nothing, Optional name As String = Nothing, Optional resourceType As ResourceType = Nothing, Optional systemData As SystemData = Nothing, Optional identity As ManagedServiceIdentity = Nothing, Optional provisioningState As Nullable(Of ElasticSanProvisioningState) = Nothing, Optional protocolType As Nullable(Of ElasticSanStorageTargetType) = Nothing, Optional encryption As Nullable(Of ElasticSanEncryptionType) = Nothing, Optional encryptionProperties As ElasticSanEncryptionProperties = Nothing, Optional virtualNetworkRules As IEnumerable(Of ElasticSanVirtualNetworkRule) = Nothing, Optional privateEndpointConnections As IEnumerable(Of ElasticSanPrivateEndpointConnectionData) = Nothing, Optional enforceDataIntegrityCheckForIscsi As Nullable(Of Boolean) = Nothing) As ElasticSanVolumeGroupData" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ElasticSanVolumeGroupData (Optional id As ResourceIdentifier = Nothing, Optional name As String = Nothing, Optional resourceType As ResourceType = Nothing, Optional systemData As SystemData = Nothing, Optional identity As ManagedServiceIdentity = Nothing, Optional provisioningState As Nullable(Of ElasticSanProvisioningState) = Nothing, Optional protocolType As Nullable(Of ElasticSanStorageTargetType) = Nothing, Optional encryption As Nullable(Of ElasticSanEncryptionType) = Nothing, Optional encryptionProperties As ElasticSanEncryptionProperties = Nothing, Optional virtualNetworkRules As IEnumerable(Of ElasticSanVirtualNetworkRule) = Nothing, Optional privateEndpointConnections As IEnumerable(Of ElasticSanPrivateEndpointConnectionData) = Nothing, Optional enforceDataIntegrityCheckForIscsi As Nullable(Of Boolean) = Nothing) As ElasticSanVolumeGroupData" />
       <MemberSignature Language="F#" Value="static member ElasticSanVolumeGroupData : Azure.Core.ResourceIdentifier * string * Azure.Core.ResourceType * Azure.ResourceManager.Models.SystemData * Azure.ResourceManager.Models.ManagedServiceIdentity * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt; * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType&gt; * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType&gt; * Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties * seq&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt; * seq&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt; * Nullable&lt;bool&gt; -&gt; Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData" Usage="Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanVolumeGroupData (id, name, resourceType, systemData, identity, provisioningState, protocolType, encryption, encryptionProperties, virtualNetworkRules, privateEndpointConnections, enforceDataIntegrityCheckForIscsi)" />
-      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData ElasticSanVolumeGroupData (Azure.Core.ResourceIdentifier id, string name, Azure.Core.ResourceType resourceType, Azure.ResourceManager.Models.SystemData systemData, Azure.ResourceManager.Models.ManagedServiceIdentity identity, Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState? provisioningState, Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType? protocolType, Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType? encryption, Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties encryptionProperties, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt; virtualNetworkRules, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt; privateEndpointConnections, bool? enforceDataIntegrityCheckForIscsi);" FrameworkAlternate="azure-dotnet-preview" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function ElasticSanVolumeGroupData (id As ResourceIdentifier, name As String, resourceType As ResourceType, systemData As SystemData, identity As ManagedServiceIdentity, provisioningState As Nullable(Of ElasticSanProvisioningState), protocolType As Nullable(Of ElasticSanStorageTargetType), encryption As Nullable(Of ElasticSanEncryptionType), encryptionProperties As ElasticSanEncryptionProperties, virtualNetworkRules As IEnumerable(Of ElasticSanVirtualNetworkRule), privateEndpointConnections As IEnumerable(Of ElasticSanPrivateEndpointConnectionData), enforceDataIntegrityCheckForIscsi As Nullable(Of Boolean)) As ElasticSanVolumeGroupData" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -1012,33 +1355,33 @@
         <Parameter Name="enforceDataIntegrityCheckForIscsi" Type="System.Nullable&lt;System.Boolean&gt;" />
       </Parameters>
       <Docs>
-        <param name="id"> The id. </param>
-        <param name="name"> The name. </param>
-        <param name="resourceType"> The resourceType. </param>
-        <param name="systemData"> The systemData. </param>
-        <param name="identity"> The identity of the resource. Current supported identity types: None, SystemAssigned, UserAssigned. </param>
+        <param name="id"> Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. </param>
+        <param name="name"> The name of the resource. </param>
+        <param name="resourceType"> The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts". </param>
+        <param name="systemData"> Azure Resource Manager metadata containing createdBy and modifiedBy information. </param>
+        <param name="identity"> The identity of the resource. </param>
         <param name="provisioningState"> State of the operation on the resource. </param>
         <param name="protocolType"> Type of storage target. </param>
         <param name="encryption"> Type of encryption. </param>
         <param name="encryptionProperties"> Encryption Properties describing Key Vault and Identity information. </param>
-        <param name="virtualNetworkRules"> A collection of rules governing the accessibility from specific network locations. </param>
+        <param name="virtualNetworkRules"> The list of virtual network rules. </param>
         <param name="privateEndpointConnections"> The list of Private Endpoint Connections. </param>
         <param name="enforceDataIntegrityCheckForIscsi"> A boolean indicating whether or not Data Integrity Check is enabled. </param>
-        <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData" />. </summary>
+        <summary> Response for Volume Group request. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ElasticSanVolumeGroupData">
-      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData ElasticSanVolumeGroupData (Azure.Core.ResourceIdentifier id = default, string name = default, Azure.Core.ResourceType resourceType = default, Azure.ResourceManager.Models.SystemData systemData = default, Azure.ResourceManager.Models.ManagedServiceIdentity identity = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState? provisioningState = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType? protocolType = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType? encryption = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties encryptionProperties = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt; virtualNetworkRules = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt; privateEndpointConnections = default, bool? enforceDataIntegrityCheckForIscsi = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy deleteRetentionPolicy = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData ElasticSanVolumeGroupData(class Azure.Core.ResourceIdentifier id, string name, valuetype Azure.Core.ResourceType resourceType, class Azure.ResourceManager.Models.SystemData systemData, class Azure.ResourceManager.Models.ManagedServiceIdentity identity, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt; provisioningState, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType&gt; protocolType, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType&gt; encryption, class Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties encryptionProperties, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt; virtualNetworkRules, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt; privateEndpointConnections, valuetype System.Nullable`1&lt;bool&gt; enforceDataIntegrityCheckForIscsi, class Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy deleteRetentionPolicy) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanVolumeGroupData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,Azure.ResourceManager.Models.ManagedServiceIdentity,System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState},System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType},System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType},Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule},System.Collections.Generic.IEnumerable{Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData},System.Nullable{System.Boolean},Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function ElasticSanVolumeGroupData (Optional id As ResourceIdentifier = Nothing, Optional name As String = Nothing, Optional resourceType As ResourceType = Nothing, Optional systemData As SystemData = Nothing, Optional identity As ManagedServiceIdentity = Nothing, Optional provisioningState As Nullable(Of ElasticSanProvisioningState) = Nothing, Optional protocolType As Nullable(Of ElasticSanStorageTargetType) = Nothing, Optional encryption As Nullable(Of ElasticSanEncryptionType) = Nothing, Optional encryptionProperties As ElasticSanEncryptionProperties = Nothing, Optional virtualNetworkRules As IEnumerable(Of ElasticSanVirtualNetworkRule) = Nothing, Optional privateEndpointConnections As IEnumerable(Of ElasticSanPrivateEndpointConnectionData) = Nothing, Optional enforceDataIntegrityCheckForIscsi As Nullable(Of Boolean) = Nothing, Optional deleteRetentionPolicy As ElasticSanDeleteRetentionPolicy = Nothing) As ElasticSanVolumeGroupData" />
-      <MemberSignature Language="F#" Value="static member ElasticSanVolumeGroupData : Azure.Core.ResourceIdentifier * string * Azure.Core.ResourceType * Azure.ResourceManager.Models.SystemData * Azure.ResourceManager.Models.ManagedServiceIdentity * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt; * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType&gt; * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType&gt; * Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties * seq&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt; * seq&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt; * Nullable&lt;bool&gt; * Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy -&gt; Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData" Usage="Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanVolumeGroupData (id, name, resourceType, systemData, identity, provisioningState, protocolType, encryption, encryptionProperties, virtualNetworkRules, privateEndpointConnections, enforceDataIntegrityCheckForIscsi, deleteRetentionPolicy)" />
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData ElasticSanVolumeGroupData (Azure.Core.ResourceIdentifier id, string name, Azure.Core.ResourceType resourceType, Azure.ResourceManager.Models.SystemData systemData, Azure.ResourceManager.Models.ManagedServiceIdentity identity, Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState? provisioningState, Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType? protocolType, Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType? encryption, Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties encryptionProperties, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt; privateEndpointConnections, bool? enforceDataIntegrityCheckForIscsi, bool? isEncryptionInTransitEnabled, int? reservedIops, int? reservedMBps = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanQualityOfService? qualityOfService = default, Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy deleteRetentionPolicy = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt; virtualNetworkRules = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData ElasticSanVolumeGroupData(class Azure.Core.ResourceIdentifier id, string name, valuetype Azure.Core.ResourceType resourceType, class Azure.ResourceManager.Models.SystemData systemData, class Azure.ResourceManager.Models.ManagedServiceIdentity identity, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt; provisioningState, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType&gt; protocolType, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType&gt; encryption, class Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties encryptionProperties, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt; privateEndpointConnections, valuetype System.Nullable`1&lt;bool&gt; enforceDataIntegrityCheckForIscsi, valuetype System.Nullable`1&lt;bool&gt; isEncryptionInTransitEnabled, valuetype System.Nullable`1&lt;int32&gt; reservedIops, valuetype System.Nullable`1&lt;int32&gt; reservedMBps, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanQualityOfService&gt; qualityOfService, class Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy deleteRetentionPolicy, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt; virtualNetworkRules) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanVolumeGroupData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,Azure.ResourceManager.Models.ManagedServiceIdentity,System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState},System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType},System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType},Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanQualityOfService},Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ElasticSanVolumeGroupData (id As ResourceIdentifier, name As String, resourceType As ResourceType, systemData As SystemData, identity As ManagedServiceIdentity, provisioningState As Nullable(Of ElasticSanProvisioningState), protocolType As Nullable(Of ElasticSanStorageTargetType), encryption As Nullable(Of ElasticSanEncryptionType), encryptionProperties As ElasticSanEncryptionProperties, privateEndpointConnections As IEnumerable(Of ElasticSanPrivateEndpointConnectionData), enforceDataIntegrityCheckForIscsi As Nullable(Of Boolean), isEncryptionInTransitEnabled As Nullable(Of Boolean), reservedIops As Nullable(Of Integer), Optional reservedMBps As Nullable(Of Integer) = Nothing, Optional qualityOfService As Nullable(Of ElasticSanQualityOfService) = Nothing, Optional deleteRetentionPolicy As ElasticSanDeleteRetentionPolicy = Nothing, Optional virtualNetworkRules As IEnumerable(Of ElasticSanVirtualNetworkRule) = Nothing) As ElasticSanVolumeGroupData" />
+      <MemberSignature Language="F#" Value="static member ElasticSanVolumeGroupData : Azure.Core.ResourceIdentifier * string * Azure.Core.ResourceType * Azure.ResourceManager.Models.SystemData * Azure.ResourceManager.Models.ManagedServiceIdentity * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState&gt; * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType&gt; * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType&gt; * Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties * seq&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt; * Nullable&lt;bool&gt; * Nullable&lt;bool&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanQualityOfService&gt; * Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy * seq&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt; -&gt; Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData" Usage="Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanVolumeGroupData (id, name, resourceType, systemData, identity, provisioningState, protocolType, encryption, encryptionProperties, privateEndpointConnections, enforceDataIntegrityCheckForIscsi, isEncryptionInTransitEnabled, reservedIops, reservedMBps, qualityOfService, deleteRetentionPolicy, virtualNetworkRules)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData</ReturnType>
@@ -1053,26 +1396,34 @@
         <Parameter Name="protocolType" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType&gt;" Index="6" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="encryption" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType&gt;" Index="7" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="encryptionProperties" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties" Index="8" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="virtualNetworkRules" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt;" Index="9" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="privateEndpointConnections" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt;" Index="10" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="enforceDataIntegrityCheckForIscsi" Type="System.Nullable&lt;System.Boolean&gt;" Index="11" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="deleteRetentionPolicy" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy" Index="12" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="privateEndpointConnections" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.ElasticSanPrivateEndpointConnectionData&gt;" Index="9" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="enforceDataIntegrityCheckForIscsi" Type="System.Nullable&lt;System.Boolean&gt;" Index="10" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="isEncryptionInTransitEnabled" Type="System.Nullable&lt;System.Boolean&gt;" Index="11" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="reservedIops" Type="System.Nullable&lt;System.Int32&gt;" Index="12" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="reservedMBps" Type="System.Nullable&lt;System.Int32&gt;" Index="13" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="qualityOfService" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanQualityOfService&gt;" Index="14" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="deleteRetentionPolicy" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy" Index="15" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="virtualNetworkRules" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt;" Index="16" FrameworkAlternate="azure-dotnet-preview" />
       </Parameters>
       <Docs>
-        <param name="id"> The id. </param>
-        <param name="name"> The name. </param>
-        <param name="resourceType"> The resourceType. </param>
-        <param name="systemData"> The systemData. </param>
-        <param name="identity"> The identity of the resource. Current supported identity types: None, SystemAssigned, UserAssigned. </param>
+        <param name="id"> Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. </param>
+        <param name="name"> The name of the resource. </param>
+        <param name="resourceType"> The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts". </param>
+        <param name="systemData"> Azure Resource Manager metadata containing createdBy and modifiedBy information. </param>
+        <param name="identity"> The identity of the resource. </param>
         <param name="provisioningState"> State of the operation on the resource. </param>
         <param name="protocolType"> Type of storage target. </param>
         <param name="encryption"> Type of encryption. </param>
         <param name="encryptionProperties"> Encryption Properties describing Key Vault and Identity information. </param>
-        <param name="virtualNetworkRules"> A collection of rules governing the accessibility from specific network locations. </param>
         <param name="privateEndpointConnections"> The list of Private Endpoint Connections. </param>
         <param name="enforceDataIntegrityCheckForIscsi"> A boolean indicating whether or not Data Integrity Check is enabled. </param>
+        <param name="isEncryptionInTransitEnabled"> A boolean indicating whether or not Encryption in Transit is enabled, supported only for ISCSI protocol. </param>
+        <param name="reservedIops"> Reserved IOPS allocated for this volume group, applicable for QualityOfService PerformanceCritical only. </param>
+        <param name="reservedMBps"> Reserved MBps allocated for this volume group, applicable for QualityOfService PerformanceCritical only. </param>
+        <param name="qualityOfService"> Quality of Service tier for the volume group, applicable for ElasticSanVersion V2 only. </param>
         <param name="deleteRetentionPolicy"> The retention policy for the soft deleted volume group and its associated resources. </param>
-        <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData" />. </summary>
+        <param name="virtualNetworkRules"> The list of virtual network rules. </param>
+        <summary>To be added.</summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.ElasticSanVolumeGroupData" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1087,17 +1438,24 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeGroupPatch</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="identity" Type="Azure.ResourceManager.Models.ManagedServiceIdentity" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="protocolType" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType&gt;" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="encryption" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType&gt;" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="encryptionProperties" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties" Index="3" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="enforceDataIntegrityCheckForIscsi" Type="System.Nullable&lt;System.Boolean&gt;" Index="4" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="virtualNetworkRules" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt;" Index="5" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="identity" Type="Azure.ResourceManager.Models.ManagedServiceIdentity" />
+        <Parameter Name="protocolType" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType&gt;" />
+        <Parameter Name="encryption" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType&gt;" />
+        <Parameter Name="encryptionProperties" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties" />
+        <Parameter Name="enforceDataIntegrityCheckForIscsi" Type="System.Nullable&lt;System.Boolean&gt;" />
+        <Parameter Name="virtualNetworkRules" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt;" />
       </Parameters>
       <Docs>
         <param name="identity"> The identity of the resource. </param>
@@ -1105,6 +1463,46 @@
         <param name="encryption"> Type of encryption. </param>
         <param name="encryptionProperties"> Encryption Properties describing Key Vault and Identity information. </param>
         <param name="enforceDataIntegrityCheckForIscsi"> A boolean indicating whether or not Data Integrity Check is enabled. </param>
+        <param name="virtualNetworkRules"> The list of virtual network rules. </param>
+        <summary> Volume Group request. </summary>
+        <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeGroupPatch" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ElasticSanVolumeGroupPatch">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeGroupPatch ElasticSanVolumeGroupPatch (Azure.ResourceManager.Models.ManagedServiceIdentity identity, Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType? protocolType, Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType? encryption, Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties encryptionProperties, bool? enforceDataIntegrityCheckForIscsi, int? reservedIops, int? reservedMBps, Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy deleteRetentionPolicy = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt; virtualNetworkRules = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeGroupPatch ElasticSanVolumeGroupPatch(class Azure.ResourceManager.Models.ManagedServiceIdentity identity, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType&gt; protocolType, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType&gt; encryption, class Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties encryptionProperties, valuetype System.Nullable`1&lt;bool&gt; enforceDataIntegrityCheckForIscsi, valuetype System.Nullable`1&lt;int32&gt; reservedIops, valuetype System.Nullable`1&lt;int32&gt; reservedMBps, class Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy deleteRetentionPolicy, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt; virtualNetworkRules) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanVolumeGroupPatch(Azure.ResourceManager.Models.ManagedServiceIdentity,System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType},System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType},Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties,System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Int32},Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ElasticSanVolumeGroupPatch (identity As ManagedServiceIdentity, protocolType As Nullable(Of ElasticSanStorageTargetType), encryption As Nullable(Of ElasticSanEncryptionType), encryptionProperties As ElasticSanEncryptionProperties, enforceDataIntegrityCheckForIscsi As Nullable(Of Boolean), reservedIops As Nullable(Of Integer), reservedMBps As Nullable(Of Integer), Optional deleteRetentionPolicy As ElasticSanDeleteRetentionPolicy = Nothing, Optional virtualNetworkRules As IEnumerable(Of ElasticSanVirtualNetworkRule) = Nothing) As ElasticSanVolumeGroupPatch" />
+      <MemberSignature Language="F#" Value="static member ElasticSanVolumeGroupPatch : Azure.ResourceManager.Models.ManagedServiceIdentity * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType&gt; * Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType&gt; * Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties * Nullable&lt;bool&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy * seq&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt; -&gt; Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeGroupPatch" Usage="Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanVolumeGroupPatch (identity, protocolType, encryption, encryptionProperties, enforceDataIntegrityCheckForIscsi, reservedIops, reservedMBps, deleteRetentionPolicy, virtualNetworkRules)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeGroupPatch</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="identity" Type="Azure.ResourceManager.Models.ManagedServiceIdentity" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="protocolType" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanStorageTargetType&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="encryption" Type="System.Nullable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionType&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="encryptionProperties" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanEncryptionProperties" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="enforceDataIntegrityCheckForIscsi" Type="System.Nullable&lt;System.Boolean&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="reservedIops" Type="System.Nullable&lt;System.Int32&gt;" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="reservedMBps" Type="System.Nullable&lt;System.Int32&gt;" Index="6" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="deleteRetentionPolicy" Type="Azure.ResourceManager.ElasticSan.Models.ElasticSanDeleteRetentionPolicy" Index="7" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="virtualNetworkRules" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ElasticSan.Models.ElasticSanVirtualNetworkRule&gt;" Index="8" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="identity"> The identity of the resource. </param>
+        <param name="protocolType"> Type of storage target. </param>
+        <param name="encryption"> Type of encryption. </param>
+        <param name="encryptionProperties"> Encryption Properties describing Key Vault and Identity information. </param>
+        <param name="enforceDataIntegrityCheckForIscsi"> A boolean indicating whether or not Data Integrity Check is enabled. </param>
+        <param name="reservedIops"> Reserved IOPS allocated for this volume group, applicable for QualityOfService PerformanceCritical only. </param>
+        <param name="reservedMBps"> Reserved MBps allocated for this volume group, applicable for QualityOfService PerformanceCritical only. </param>
+        <param name="deleteRetentionPolicy"> The retention policy for the soft deleted volume group and its associated resources. </param>
         <param name="virtualNetworkRules"> The list of virtual network rules. </param>
         <summary>To be added.</summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeGroupPatch" /> instance for mocking. </returns>
@@ -1121,18 +1519,47 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeNameListContent</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="volumeNames" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="volumeNames" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" />
       </Parameters>
       <Docs>
         <param name="volumeNames"> array of volume names. </param>
         <summary> object to hold array of volume names. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeNameListContent" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ElasticSanVolumePatch">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumePatch ElasticSanVolumePatch (long? sizeGiB);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumePatch ElasticSanVolumePatch(valuetype System.Nullable`1&lt;int64&gt; sizeGiB) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanVolumePatch(System.Nullable{System.Int64})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ElasticSanVolumePatch (sizeGiB As Nullable(Of Long)) As ElasticSanVolumePatch" />
+      <MemberSignature Language="F#" Value="static member ElasticSanVolumePatch : Nullable&lt;int64&gt; -&gt; Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumePatch" Usage="Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanVolumePatch sizeGiB" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumePatch</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="sizeGiB" Type="System.Nullable&lt;System.Int64&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="sizeGiB"> Volume size. </param>
+        <summary> Response for Volume request. </summary>
+        <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumePatch" /> instance for mocking. </returns>
+        <remarks>
+            This overload intentionally omits the ManagedBy collection. See
+            <see cref="M:Azure.ResourceManager.ElasticSan.Models.ArmElasticSanModelFactory.ElasticSanVolumeData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,System.Nullable{System.Guid},Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumeDataSourceInfo,System.Int64,Azure.ResourceManager.ElasticSan.Models.IscsiTargetInfo,System.Nullable{Azure.ResourceManager.ElasticSan.Models.ElasticSanProvisioningState})" />.
+            Add entries to <see cref="P:Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumePatch.ManagedBy" /> on the returned instance instead.
+            </remarks>
       </Docs>
     </Member>
     <Member MemberName="ElasticSanVolumePatch">
@@ -1145,18 +1572,25 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumePatch</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="sizeGiB" Type="System.Nullable&lt;System.Int64&gt;" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="managedByResourceId" Type="Azure.Core.ResourceIdentifier" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="sizeGiB" Type="System.Nullable&lt;System.Int64&gt;" />
+        <Parameter Name="managedByResourceId" Type="Azure.Core.ResourceIdentifier" />
       </Parameters>
       <Docs>
         <param name="sizeGiB"> Volume size. </param>
-        <param name="managedByResourceId"> Resource ID of the resource managing the volume, this is a restricted field and can only be set for internal use. </param>
-        <summary>To be added.</summary>
+        <param name="managedByResourceId"> Resource ID of the resource managing the volume. </param>
+        <summary> Response for Volume request. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.Models.ElasticSanVolumePatch" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1170,8 +1604,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.IscsiTargetInfo</ReturnType>
@@ -1204,16 +1638,17 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ElasticSan</AssemblyName>
         <AssemblyVersion>1.2.1.0</AssemblyVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ElasticSan.Models.SnapshotCreationInfo</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="sourceId" Type="Azure.Core.ResourceIdentifier" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="sourceId" Type="Azure.Core.ResourceIdentifier" />
       </Parameters>
       <Docs>
         <param name="sourceId"> Fully qualified resource ID of the volume. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}/volumegroups/{volumeGroupName}/volumes/{volumeName}". </param>
-        <summary>To be added.</summary>
+        <summary> Data used when creating a volume snapshot. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ElasticSan.Models.SnapshotCreationInfo" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
