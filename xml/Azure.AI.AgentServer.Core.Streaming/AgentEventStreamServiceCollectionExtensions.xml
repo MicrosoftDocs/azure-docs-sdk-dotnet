@@ -12,6 +12,12 @@
     <BaseTypeName>System.Object</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(0)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(0)&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
     <summary>
             Registration entry point for the event-streaming feature. Replaces Python's
@@ -54,6 +60,110 @@
         <summary>
             Adds the event-stream registry, selecting and configuring the single backing
             for the process.
+            </summary>
+        <returns>The same service collection for chaining.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddAgentEventStreams">
+      <MemberSignature Language="C#" Value="public static Microsoft.Extensions.Hosting.IHostApplicationBuilder AddAgentEventStreams (this Microsoft.Extensions.Hosting.IHostApplicationBuilder builder, string sectionName);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.Extensions.Hosting.IHostApplicationBuilder AddAgentEventStreams(class Microsoft.Extensions.Hosting.IHostApplicationBuilder builder, string sectionName) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Streaming.AgentEventStreamServiceCollectionExtensions.AddAgentEventStreams(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddAgentEventStreams (builder As IHostApplicationBuilder, sectionName As String) As IHostApplicationBuilder" />
+      <MemberSignature Language="F#" Value="static member AddAgentEventStreams : Microsoft.Extensions.Hosting.IHostApplicationBuilder * string -&gt; Microsoft.Extensions.Hosting.IHostApplicationBuilder" Usage="Azure.AI.AgentServer.Core.Streaming.AgentEventStreamServiceCollectionExtensions.AddAgentEventStreams (builder, sectionName)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Extensions.Hosting.IHostApplicationBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="builder" Type="Microsoft.Extensions.Hosting.IHostApplicationBuilder" RefType="this" />
+        <Parameter Name="sectionName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="builder">The host application builder.</param>
+        <param name="sectionName">The configuration section name.</param>
+        <summary>
+            Adds the event-stream registry using a configuration section with <c>Backing</c>,
+            <c>StorageDirectory</c>, and <c>Ttl</c> values.
+            </summary>
+        <returns>The same host application builder for chaining.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddAgentEventStreamsDefault">
+      <MemberSignature Language="C#" Value="public static Microsoft.Extensions.DependencyInjection.IServiceCollection AddAgentEventStreamsDefault (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, string source, Action&lt;Azure.AI.AgentServer.Core.Streaming.AgentEventStreamOptions&gt; configure);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.Extensions.DependencyInjection.IServiceCollection AddAgentEventStreamsDefault(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, string source, class System.Action`1&lt;class Azure.AI.AgentServer.Core.Streaming.AgentEventStreamOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Streaming.AgentEventStreamServiceCollectionExtensions.AddAgentEventStreamsDefault(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Action{Azure.AI.AgentServer.Core.Streaming.AgentEventStreamOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddAgentEventStreamsDefault (services As IServiceCollection, source As String, configure As Action(Of AgentEventStreamOptions)) As IServiceCollection" />
+      <MemberSignature Language="F#" Value="static member AddAgentEventStreamsDefault : Microsoft.Extensions.DependencyInjection.IServiceCollection * string * Action&lt;Azure.AI.AgentServer.Core.Streaming.AgentEventStreamOptions&gt; -&gt; Microsoft.Extensions.DependencyInjection.IServiceCollection" Usage="Azure.AI.AgentServer.Core.Streaming.AgentEventStreamServiceCollectionExtensions.AddAgentEventStreamsDefault (services, source, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.Extensions.DependencyInjection.IServiceCollection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="source" Type="System.String" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Core.Streaming.AgentEventStreamOptions&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="services">The service collection.</param>
+        <param name="source">The protocol component requesting the default.</param>
+        <param name="configure">The default backing configuration.</param>
+        <summary>
+            Registers a protocol package's default stream backing. Application configuration registered
+            through <see cref="M:Azure.AI.AgentServer.Core.Streaming.AgentEventStreamServiceCollectionExtensions.AddAgentEventStreams(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Azure.AI.AgentServer.Core.Streaming.AgentEventStreamOptions})" />
+            takes precedence regardless of registration order.
+            </summary>
+        <returns>The same service collection for chaining.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddAgentEventStreamsDefault">
+      <MemberSignature Language="C#" Value="public static Microsoft.Extensions.DependencyInjection.IServiceCollection AddAgentEventStreamsDefault (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, string source, Func&lt;IServiceProvider,Azure.AI.AgentServer.Core.Streaming.AgentEventStreamOptions&gt; configure);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.Extensions.DependencyInjection.IServiceCollection AddAgentEventStreamsDefault(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, string source, class System.Func`2&lt;class System.IServiceProvider, class Azure.AI.AgentServer.Core.Streaming.AgentEventStreamOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Streaming.AgentEventStreamServiceCollectionExtensions.AddAgentEventStreamsDefault(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{System.IServiceProvider,Azure.AI.AgentServer.Core.Streaming.AgentEventStreamOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddAgentEventStreamsDefault (services As IServiceCollection, source As String, configure As Func(Of IServiceProvider, AgentEventStreamOptions)) As IServiceCollection" />
+      <MemberSignature Language="F#" Value="static member AddAgentEventStreamsDefault : Microsoft.Extensions.DependencyInjection.IServiceCollection * string * Func&lt;IServiceProvider, Azure.AI.AgentServer.Core.Streaming.AgentEventStreamOptions&gt; -&gt; Microsoft.Extensions.DependencyInjection.IServiceCollection" Usage="Azure.AI.AgentServer.Core.Streaming.AgentEventStreamServiceCollectionExtensions.AddAgentEventStreamsDefault (services, source, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.Extensions.DependencyInjection.IServiceCollection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="source" Type="System.String" />
+        <Parameter Name="configure" Type="System.Func&lt;System.IServiceProvider,Azure.AI.AgentServer.Core.Streaming.AgentEventStreamOptions&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="services">The service collection.</param>
+        <param name="source">The protocol component requesting the default.</param>
+        <param name="configure">Builds the default backing from effective service options.</param>
+        <summary>
+            Registers a protocol package's default stream backing using the final service provider.
+            Application configuration still takes precedence regardless of registration order.
             </summary>
         <returns>The same service collection for chaining.</returns>
         <remarks>To be added.</remarks>

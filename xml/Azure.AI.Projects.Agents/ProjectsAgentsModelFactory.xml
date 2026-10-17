@@ -393,7 +393,7 @@
         <param name="type"> The type of managed harness. </param>
         <summary>
             A managed runtime and agent loop used to execute a prompt agent.
-            Please note this is the abstract base class. The derived classes available for instantiation are: <see cref="T:Azure.AI.Projects.Agents.GitHubCopilotHarness" />.
+            Please note this is the abstract base class. The derived classes available for instantiation are: <see cref="T:Azure.AI.Projects.Agents.GitHubCopilotHarness" /> and <see cref="T:Azure.AI.Projects.Agents.MicrosoftCopilotHarness" />.
             </summary>
         <returns> A new <see cref="T:Azure.AI.Projects.Agents.AgentHarness" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
@@ -3117,7 +3117,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary> The GitHub Copilot managed harness for prompt agents. </summary>
+        <summary> The legacy GitHub Copilot managed harness retained for compatibility. Use `MicrosoftCopilotHarness` for new prompt agents. </summary>
         <returns> A new <see cref="T:Azure.AI.Projects.Agents.GitHubCopilotHarness" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -3190,11 +3190,11 @@
       </Docs>
     </Member>
     <Member MemberName="HostedAgentDefinition">
-      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.Agents.HostedAgentDefinition HostedAgentDefinition (Azure.AI.Projects.Agents.ContentFilterConfiguration contentFilterConfiguration = default, string cpu = default, string memory = default, System.Collections.Generic.IDictionary&lt;string,string&gt; environmentVariables = default, Azure.AI.Projects.Agents.ContainerConfiguration containerConfiguration = default, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.Agents.ProtocolVersionRecord&gt; versions = default, Azure.AI.Projects.Agents.CodeConfiguration codeConfiguration = default, Azure.AI.Projects.Agents.TelemetryConfig telemetryConfig = default, Azure.AI.Projects.Agents.SessionConfiguration sessionConfiguration = default, bool? enableMemorySnapshot = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.Agents.HostedAgentDefinition HostedAgentDefinition(class Azure.AI.Projects.Agents.ContentFilterConfiguration contentFilterConfiguration, string cpu, string memory, class System.Collections.Generic.IDictionary`2&lt;string, string&gt; environmentVariables, class Azure.AI.Projects.Agents.ContainerConfiguration containerConfiguration, class System.Collections.Generic.IEnumerable`1&lt;class Azure.AI.Projects.Agents.ProtocolVersionRecord&gt; versions, class Azure.AI.Projects.Agents.CodeConfiguration codeConfiguration, class Azure.AI.Projects.Agents.TelemetryConfig telemetryConfig, class Azure.AI.Projects.Agents.SessionConfiguration sessionConfiguration, valuetype System.Nullable`1&lt;bool&gt; enableMemorySnapshot) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.HostedAgentDefinition(Azure.AI.Projects.Agents.ContentFilterConfiguration,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},Azure.AI.Projects.Agents.ContainerConfiguration,System.Collections.Generic.IEnumerable{Azure.AI.Projects.Agents.ProtocolVersionRecord},Azure.AI.Projects.Agents.CodeConfiguration,Azure.AI.Projects.Agents.TelemetryConfig,Azure.AI.Projects.Agents.SessionConfiguration,System.Nullable{System.Boolean})" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function HostedAgentDefinition (Optional contentFilterConfiguration As ContentFilterConfiguration = Nothing, Optional cpu As String = Nothing, Optional memory As String = Nothing, Optional environmentVariables As IDictionary(Of String, String) = Nothing, Optional containerConfiguration As ContainerConfiguration = Nothing, Optional versions As IEnumerable(Of ProtocolVersionRecord) = Nothing, Optional codeConfiguration As CodeConfiguration = Nothing, Optional telemetryConfig As TelemetryConfig = Nothing, Optional sessionConfiguration As SessionConfiguration = Nothing, Optional enableMemorySnapshot As Nullable(Of Boolean) = Nothing) As HostedAgentDefinition" />
-      <MemberSignature Language="F#" Value="static member HostedAgentDefinition : Azure.AI.Projects.Agents.ContentFilterConfiguration * string * string * System.Collections.Generic.IDictionary&lt;string, string&gt; * Azure.AI.Projects.Agents.ContainerConfiguration * seq&lt;Azure.AI.Projects.Agents.ProtocolVersionRecord&gt; * Azure.AI.Projects.Agents.CodeConfiguration * Azure.AI.Projects.Agents.TelemetryConfig * Azure.AI.Projects.Agents.SessionConfiguration * Nullable&lt;bool&gt; -&gt; Azure.AI.Projects.Agents.HostedAgentDefinition" Usage="Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.HostedAgentDefinition (contentFilterConfiguration, cpu, memory, environmentVariables, containerConfiguration, versions, codeConfiguration, telemetryConfig, sessionConfiguration, enableMemorySnapshot)" />
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.Agents.HostedAgentDefinition HostedAgentDefinition (Azure.AI.Projects.Agents.ContentFilterConfiguration contentFilterConfiguration = default, string cpu = default, string memory = default, System.Collections.Generic.IDictionary&lt;string,string&gt; environmentVariables = default, Azure.AI.Projects.Agents.ContainerConfiguration containerConfiguration = default, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.Agents.ProtocolVersionRecord&gt; versions = default, Azure.AI.Projects.Agents.CodeConfiguration codeConfiguration = default, Azure.AI.Projects.Agents.TelemetryConfig telemetryConfig = default, Azure.AI.Projects.Agents.SessionConfiguration sessionConfiguration = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.Agents.HostedAgentDefinition HostedAgentDefinition(class Azure.AI.Projects.Agents.ContentFilterConfiguration contentFilterConfiguration, string cpu, string memory, class System.Collections.Generic.IDictionary`2&lt;string, string&gt; environmentVariables, class Azure.AI.Projects.Agents.ContainerConfiguration containerConfiguration, class System.Collections.Generic.IEnumerable`1&lt;class Azure.AI.Projects.Agents.ProtocolVersionRecord&gt; versions, class Azure.AI.Projects.Agents.CodeConfiguration codeConfiguration, class Azure.AI.Projects.Agents.TelemetryConfig telemetryConfig, class Azure.AI.Projects.Agents.SessionConfiguration sessionConfiguration) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.HostedAgentDefinition(Azure.AI.Projects.Agents.ContentFilterConfiguration,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},Azure.AI.Projects.Agents.ContainerConfiguration,System.Collections.Generic.IEnumerable{Azure.AI.Projects.Agents.ProtocolVersionRecord},Azure.AI.Projects.Agents.CodeConfiguration,Azure.AI.Projects.Agents.TelemetryConfig,Azure.AI.Projects.Agents.SessionConfiguration)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function HostedAgentDefinition (Optional contentFilterConfiguration As ContentFilterConfiguration = Nothing, Optional cpu As String = Nothing, Optional memory As String = Nothing, Optional environmentVariables As IDictionary(Of String, String) = Nothing, Optional containerConfiguration As ContainerConfiguration = Nothing, Optional versions As IEnumerable(Of ProtocolVersionRecord) = Nothing, Optional codeConfiguration As CodeConfiguration = Nothing, Optional telemetryConfig As TelemetryConfig = Nothing, Optional sessionConfiguration As SessionConfiguration = Nothing) As HostedAgentDefinition" />
+      <MemberSignature Language="F#" Value="static member HostedAgentDefinition : Azure.AI.Projects.Agents.ContentFilterConfiguration * string * string * System.Collections.Generic.IDictionary&lt;string, string&gt; * Azure.AI.Projects.Agents.ContainerConfiguration * seq&lt;Azure.AI.Projects.Agents.ProtocolVersionRecord&gt; * Azure.AI.Projects.Agents.CodeConfiguration * Azure.AI.Projects.Agents.TelemetryConfig * Azure.AI.Projects.Agents.SessionConfiguration -&gt; Azure.AI.Projects.Agents.HostedAgentDefinition" Usage="Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.HostedAgentDefinition (contentFilterConfiguration, cpu, memory, environmentVariables, containerConfiguration, versions, codeConfiguration, telemetryConfig, sessionConfiguration)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
@@ -3213,7 +3213,6 @@
         <Parameter Name="codeConfiguration" Type="Azure.AI.Projects.Agents.CodeConfiguration" Index="6" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="telemetryConfig" Type="Azure.AI.Projects.Agents.TelemetryConfig" Index="7" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="sessionConfiguration" Type="Azure.AI.Projects.Agents.SessionConfiguration" Index="8" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="enableMemorySnapshot" Type="System.Nullable&lt;System.Boolean&gt;" Index="9" FrameworkAlternate="azure-dotnet-preview" />
       </Parameters>
       <Docs>
         <param name="contentFilterConfiguration"> Configuration for Responsible AI (RAI) content filtering and safety features. </param>
@@ -3225,7 +3224,6 @@
         <param name="codeConfiguration"> Code-based deployment configuration. Provide this for code-based deployments. Mutually exclusive with container_configuration — the service validates that exactly one is set. </param>
         <param name="telemetryConfig"> Optional customer-supplied telemetry configuration for exporting container logs, traces, and metrics. </param>
         <param name="sessionConfiguration"> Optional session defaults (for example, the idle timeout) applied to sessions created for this agent version. </param>
-        <param name="enableMemorySnapshot"> Whether this agent version uses memory snapshots. Sessions for a snapshot-enabled version start from a snapshot of the agent's initialized process rather than starting the process from its image. Defaults to false. </param>
         <summary> The hosted agent definition. </summary>
         <returns> A new <see cref="T:Azure.AI.Projects.Agents.HostedAgentDefinition" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
@@ -3499,6 +3497,27 @@
         <param name="maxMemories"> Maximum number of memory items to return. </param>
         <summary> Memory search options. </summary>
         <returns> A new <see cref="T:Azure.AI.Projects.Agents.MemorySearchToolOptions" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MicrosoftCopilotHarness">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.Agents.MicrosoftCopilotHarness MicrosoftCopilotHarness ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.Agents.MicrosoftCopilotHarness MicrosoftCopilotHarness() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.MicrosoftCopilotHarness" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function MicrosoftCopilotHarness () As MicrosoftCopilotHarness" />
+      <MemberSignature Language="F#" Value="static member MicrosoftCopilotHarness : unit -&gt; Azure.AI.Projects.Agents.MicrosoftCopilotHarness" Usage="Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.MicrosoftCopilotHarness " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Projects.Agents.MicrosoftCopilotHarness</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary> The Microsoft Copilot managed harness for prompt agents. </summary>
+        <returns> A new <see cref="T:Azure.AI.Projects.Agents.MicrosoftCopilotHarness" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6800,11 +6819,11 @@
       </Docs>
     </Member>
     <Member MemberName="VoiceAgentAvatarVideoCrop">
-      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.Agents.VoiceAgentAvatarVideoCrop VoiceAgentAvatarVideoCrop (System.Collections.Generic.IEnumerable&lt;object&gt; bottomRight = default, System.Collections.Generic.IEnumerable&lt;object&gt; topLeft = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.Agents.VoiceAgentAvatarVideoCrop VoiceAgentAvatarVideoCrop(class System.Collections.Generic.IEnumerable`1&lt;object&gt; bottomRight, class System.Collections.Generic.IEnumerable`1&lt;object&gt; topLeft) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentAvatarVideoCrop(System.Collections.Generic.IEnumerable{System.Object},System.Collections.Generic.IEnumerable{System.Object})" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function VoiceAgentAvatarVideoCrop (Optional bottomRight As IEnumerable(Of Object) = Nothing, Optional topLeft As IEnumerable(Of Object) = Nothing) As VoiceAgentAvatarVideoCrop" />
-      <MemberSignature Language="F#" Value="static member VoiceAgentAvatarVideoCrop : seq&lt;obj&gt; * seq&lt;obj&gt; -&gt; Azure.AI.Projects.Agents.VoiceAgentAvatarVideoCrop" Usage="Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentAvatarVideoCrop (bottomRight, topLeft)" />
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.Agents.VoiceAgentAvatarVideoCrop VoiceAgentAvatarVideoCrop (System.Collections.Generic.IEnumerable&lt;uint&gt; bottomRight = default, System.Collections.Generic.IEnumerable&lt;uint&gt; topLeft = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.Agents.VoiceAgentAvatarVideoCrop VoiceAgentAvatarVideoCrop(class System.Collections.Generic.IEnumerable`1&lt;unsigned int32&gt; bottomRight, class System.Collections.Generic.IEnumerable`1&lt;unsigned int32&gt; topLeft) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentAvatarVideoCrop(System.Collections.Generic.IEnumerable{System.UInt32},System.Collections.Generic.IEnumerable{System.UInt32})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function VoiceAgentAvatarVideoCrop (Optional bottomRight As IEnumerable(Of UInteger) = Nothing, Optional topLeft As IEnumerable(Of UInteger) = Nothing) As VoiceAgentAvatarVideoCrop" />
+      <MemberSignature Language="F#" Value="static member VoiceAgentAvatarVideoCrop : seq&lt;uint32&gt; * seq&lt;uint32&gt; -&gt; Azure.AI.Projects.Agents.VoiceAgentAvatarVideoCrop" Usage="Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentAvatarVideoCrop (bottomRight, topLeft)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
@@ -6814,8 +6833,8 @@
         <ReturnType>Azure.AI.Projects.Agents.VoiceAgentAvatarVideoCrop</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="bottomRight" Type="System.Collections.Generic.IEnumerable&lt;System.Object&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="topLeft" Type="System.Collections.Generic.IEnumerable&lt;System.Object&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="bottomRight" Type="System.Collections.Generic.IEnumerable&lt;System.UInt32&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="topLeft" Type="System.Collections.Generic.IEnumerable&lt;System.UInt32&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
       </Parameters>
       <Docs>
         <param name="bottomRight" />
@@ -7014,11 +7033,11 @@
       </Docs>
     </Member>
     <Member MemberName="VoiceAgentDefinition">
-      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.Agents.VoiceAgentDefinition VoiceAgentDefinition (Azure.AI.Projects.Agents.ContentFilterConfiguration contentFilterConfiguration = default, Azure.AI.Projects.Agents.VoiceModelType? modelType = default, string model = default, Azure.AI.Projects.Agents.VoiceConversationEngine conversationEngine = default, string instructions = default, Azure.AI.Projects.Agents.VoiceAgentGreetingConfig greeting = default, Azure.AI.Projects.Agents.VoiceAgentAudioConfig audio = default, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.Agents.VoiceOutputModality&gt; outputModalities = default, BinaryData maxOutputTokens = default, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.Agents.VoiceAgentSessionIncludeOption&gt; include = default, Azure.AI.Projects.Agents.VoiceAgentInterimResponseConfig interimResponse = default, Azure.AI.Projects.Agents.VoiceAgentAvatarConfig avatar = default, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.Agents.VoiceAgentTool&gt; tools = default, BinaryData toolChoice = default, bool? parallelToolCalls = default, System.Collections.Generic.IDictionary&lt;string,Azure.AI.Projects.Agents.StructuredInputDefinition&gt; structuredInputs = default, Azure.AI.Projects.Agents.VoiceAgentSubagentConfig subagentConfig = default, bool? store = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.Agents.VoiceAgentDefinition VoiceAgentDefinition(class Azure.AI.Projects.Agents.ContentFilterConfiguration contentFilterConfiguration, valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.Agents.VoiceModelType&gt; modelType, string model, class Azure.AI.Projects.Agents.VoiceConversationEngine conversationEngine, string instructions, class Azure.AI.Projects.Agents.VoiceAgentGreetingConfig greeting, class Azure.AI.Projects.Agents.VoiceAgentAudioConfig audio, class System.Collections.Generic.IEnumerable`1&lt;valuetype Azure.AI.Projects.Agents.VoiceOutputModality&gt; outputModalities, class System.BinaryData maxOutputTokens, class System.Collections.Generic.IEnumerable`1&lt;valuetype Azure.AI.Projects.Agents.VoiceAgentSessionIncludeOption&gt; include, class Azure.AI.Projects.Agents.VoiceAgentInterimResponseConfig interimResponse, class Azure.AI.Projects.Agents.VoiceAgentAvatarConfig avatar, class System.Collections.Generic.IEnumerable`1&lt;class Azure.AI.Projects.Agents.VoiceAgentTool&gt; tools, class System.BinaryData toolChoice, valuetype System.Nullable`1&lt;bool&gt; parallelToolCalls, class System.Collections.Generic.IDictionary`2&lt;string, class Azure.AI.Projects.Agents.StructuredInputDefinition&gt; structuredInputs, class Azure.AI.Projects.Agents.VoiceAgentSubagentConfig subagentConfig, valuetype System.Nullable`1&lt;bool&gt; store) cil managed" />
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.Agents.VoiceAgentDefinition VoiceAgentDefinition (Azure.AI.Projects.Agents.ContentFilterConfiguration contentFilterConfiguration = default, Azure.AI.Projects.Agents.VoiceModelType? modelType = default, string model = default, Azure.AI.Projects.Agents.VoiceConversationEngine conversationEngine = default, string instructions = default, Azure.AI.Projects.Agents.VoiceAgentGreetingConfig greeting = default, Azure.AI.Projects.Agents.VoiceAgentAudioConfig audio = default, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.Agents.VoiceOutputModality&gt; outputModalities = default, BinaryData internalMaxOutputTokens = default, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.Agents.VoiceAgentSessionIncludeOption&gt; include = default, Azure.AI.Projects.Agents.VoiceAgentInterimResponseConfig interimResponse = default, Azure.AI.Projects.Agents.VoiceAgentAvatarConfig avatar = default, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.Agents.VoiceAgentTool&gt; tools = default, BinaryData internalToolChoice = default, bool? parallelToolCalls = default, System.Collections.Generic.IDictionary&lt;string,Azure.AI.Projects.Agents.StructuredInputDefinition&gt; structuredInputs = default, Azure.AI.Projects.Agents.VoiceAgentSubagentConfig subagentConfig = default, bool? store = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.Agents.VoiceAgentDefinition VoiceAgentDefinition(class Azure.AI.Projects.Agents.ContentFilterConfiguration contentFilterConfiguration, valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.Agents.VoiceModelType&gt; modelType, string model, class Azure.AI.Projects.Agents.VoiceConversationEngine conversationEngine, string instructions, class Azure.AI.Projects.Agents.VoiceAgentGreetingConfig greeting, class Azure.AI.Projects.Agents.VoiceAgentAudioConfig audio, class System.Collections.Generic.IEnumerable`1&lt;valuetype Azure.AI.Projects.Agents.VoiceOutputModality&gt; outputModalities, class System.BinaryData internalMaxOutputTokens, class System.Collections.Generic.IEnumerable`1&lt;valuetype Azure.AI.Projects.Agents.VoiceAgentSessionIncludeOption&gt; include, class Azure.AI.Projects.Agents.VoiceAgentInterimResponseConfig interimResponse, class Azure.AI.Projects.Agents.VoiceAgentAvatarConfig avatar, class System.Collections.Generic.IEnumerable`1&lt;class Azure.AI.Projects.Agents.VoiceAgentTool&gt; tools, class System.BinaryData internalToolChoice, valuetype System.Nullable`1&lt;bool&gt; parallelToolCalls, class System.Collections.Generic.IDictionary`2&lt;string, class Azure.AI.Projects.Agents.StructuredInputDefinition&gt; structuredInputs, class Azure.AI.Projects.Agents.VoiceAgentSubagentConfig subagentConfig, valuetype System.Nullable`1&lt;bool&gt; store) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentDefinition(Azure.AI.Projects.Agents.ContentFilterConfiguration,System.Nullable{Azure.AI.Projects.Agents.VoiceModelType},System.String,Azure.AI.Projects.Agents.VoiceConversationEngine,System.String,Azure.AI.Projects.Agents.VoiceAgentGreetingConfig,Azure.AI.Projects.Agents.VoiceAgentAudioConfig,System.Collections.Generic.IEnumerable{Azure.AI.Projects.Agents.VoiceOutputModality},System.BinaryData,System.Collections.Generic.IEnumerable{Azure.AI.Projects.Agents.VoiceAgentSessionIncludeOption},Azure.AI.Projects.Agents.VoiceAgentInterimResponseConfig,Azure.AI.Projects.Agents.VoiceAgentAvatarConfig,System.Collections.Generic.IEnumerable{Azure.AI.Projects.Agents.VoiceAgentTool},System.BinaryData,System.Nullable{System.Boolean},System.Collections.Generic.IDictionary{System.String,Azure.AI.Projects.Agents.StructuredInputDefinition},Azure.AI.Projects.Agents.VoiceAgentSubagentConfig,System.Nullable{System.Boolean})" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function VoiceAgentDefinition (Optional contentFilterConfiguration As ContentFilterConfiguration = Nothing, Optional modelType As Nullable(Of VoiceModelType) = Nothing, Optional model As String = Nothing, Optional conversationEngine As VoiceConversationEngine = Nothing, Optional instructions As String = Nothing, Optional greeting As VoiceAgentGreetingConfig = Nothing, Optional audio As VoiceAgentAudioConfig = Nothing, Optional outputModalities As IEnumerable(Of VoiceOutputModality) = Nothing, Optional maxOutputTokens As BinaryData = Nothing, Optional include As IEnumerable(Of VoiceAgentSessionIncludeOption) = Nothing, Optional interimResponse As VoiceAgentInterimResponseConfig = Nothing, Optional avatar As VoiceAgentAvatarConfig = Nothing, Optional tools As IEnumerable(Of VoiceAgentTool) = Nothing, Optional toolChoice As BinaryData = Nothing, Optional parallelToolCalls As Nullable(Of Boolean) = Nothing, Optional structuredInputs As IDictionary(Of String, StructuredInputDefinition) = Nothing, Optional subagentConfig As VoiceAgentSubagentConfig = Nothing, Optional store As Nullable(Of Boolean) = Nothing) As VoiceAgentDefinition" />
-      <MemberSignature Language="F#" Value="static member VoiceAgentDefinition : Azure.AI.Projects.Agents.ContentFilterConfiguration * Nullable&lt;Azure.AI.Projects.Agents.VoiceModelType&gt; * string * Azure.AI.Projects.Agents.VoiceConversationEngine * string * Azure.AI.Projects.Agents.VoiceAgentGreetingConfig * Azure.AI.Projects.Agents.VoiceAgentAudioConfig * seq&lt;Azure.AI.Projects.Agents.VoiceOutputModality&gt; * BinaryData * seq&lt;Azure.AI.Projects.Agents.VoiceAgentSessionIncludeOption&gt; * Azure.AI.Projects.Agents.VoiceAgentInterimResponseConfig * Azure.AI.Projects.Agents.VoiceAgentAvatarConfig * seq&lt;Azure.AI.Projects.Agents.VoiceAgentTool&gt; * BinaryData * Nullable&lt;bool&gt; * System.Collections.Generic.IDictionary&lt;string, Azure.AI.Projects.Agents.StructuredInputDefinition&gt; * Azure.AI.Projects.Agents.VoiceAgentSubagentConfig * Nullable&lt;bool&gt; -&gt; Azure.AI.Projects.Agents.VoiceAgentDefinition" Usage="Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentDefinition (contentFilterConfiguration, modelType, model, conversationEngine, instructions, greeting, audio, outputModalities, maxOutputTokens, include, interimResponse, avatar, tools, toolChoice, parallelToolCalls, structuredInputs, subagentConfig, store)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function VoiceAgentDefinition (Optional contentFilterConfiguration As ContentFilterConfiguration = Nothing, Optional modelType As Nullable(Of VoiceModelType) = Nothing, Optional model As String = Nothing, Optional conversationEngine As VoiceConversationEngine = Nothing, Optional instructions As String = Nothing, Optional greeting As VoiceAgentGreetingConfig = Nothing, Optional audio As VoiceAgentAudioConfig = Nothing, Optional outputModalities As IEnumerable(Of VoiceOutputModality) = Nothing, Optional internalMaxOutputTokens As BinaryData = Nothing, Optional include As IEnumerable(Of VoiceAgentSessionIncludeOption) = Nothing, Optional interimResponse As VoiceAgentInterimResponseConfig = Nothing, Optional avatar As VoiceAgentAvatarConfig = Nothing, Optional tools As IEnumerable(Of VoiceAgentTool) = Nothing, Optional internalToolChoice As BinaryData = Nothing, Optional parallelToolCalls As Nullable(Of Boolean) = Nothing, Optional structuredInputs As IDictionary(Of String, StructuredInputDefinition) = Nothing, Optional subagentConfig As VoiceAgentSubagentConfig = Nothing, Optional store As Nullable(Of Boolean) = Nothing) As VoiceAgentDefinition" />
+      <MemberSignature Language="F#" Value="static member VoiceAgentDefinition : Azure.AI.Projects.Agents.ContentFilterConfiguration * Nullable&lt;Azure.AI.Projects.Agents.VoiceModelType&gt; * string * Azure.AI.Projects.Agents.VoiceConversationEngine * string * Azure.AI.Projects.Agents.VoiceAgentGreetingConfig * Azure.AI.Projects.Agents.VoiceAgentAudioConfig * seq&lt;Azure.AI.Projects.Agents.VoiceOutputModality&gt; * BinaryData * seq&lt;Azure.AI.Projects.Agents.VoiceAgentSessionIncludeOption&gt; * Azure.AI.Projects.Agents.VoiceAgentInterimResponseConfig * Azure.AI.Projects.Agents.VoiceAgentAvatarConfig * seq&lt;Azure.AI.Projects.Agents.VoiceAgentTool&gt; * BinaryData * Nullable&lt;bool&gt; * System.Collections.Generic.IDictionary&lt;string, Azure.AI.Projects.Agents.StructuredInputDefinition&gt; * Azure.AI.Projects.Agents.VoiceAgentSubagentConfig * Nullable&lt;bool&gt; -&gt; Azure.AI.Projects.Agents.VoiceAgentDefinition" Usage="Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentDefinition (contentFilterConfiguration, modelType, model, conversationEngine, instructions, greeting, audio, outputModalities, internalMaxOutputTokens, include, interimResponse, avatar, tools, internalToolChoice, parallelToolCalls, structuredInputs, subagentConfig, store)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
@@ -7036,12 +7055,12 @@
         <Parameter Name="greeting" Type="Azure.AI.Projects.Agents.VoiceAgentGreetingConfig" Index="5" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="audio" Type="Azure.AI.Projects.Agents.VoiceAgentAudioConfig" Index="6" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="outputModalities" Type="System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.Agents.VoiceOutputModality&gt;" Index="7" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="maxOutputTokens" Type="System.BinaryData" Index="8" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="internalMaxOutputTokens" Type="System.BinaryData" Index="8" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="include" Type="System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.Agents.VoiceAgentSessionIncludeOption&gt;" Index="9" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="interimResponse" Type="Azure.AI.Projects.Agents.VoiceAgentInterimResponseConfig" Index="10" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="avatar" Type="Azure.AI.Projects.Agents.VoiceAgentAvatarConfig" Index="11" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="tools" Type="System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.Agents.VoiceAgentTool&gt;" Index="12" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="toolChoice" Type="System.BinaryData" Index="13" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="internalToolChoice" Type="System.BinaryData" Index="13" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="parallelToolCalls" Type="System.Nullable&lt;System.Boolean&gt;" Index="14" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="structuredInputs" Type="System.Collections.Generic.IDictionary&lt;System.String,Azure.AI.Projects.Agents.StructuredInputDefinition&gt;" Index="15" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="subagentConfig" Type="Azure.AI.Projects.Agents.VoiceAgentSubagentConfig" Index="16" FrameworkAlternate="azure-dotnet-preview" />
@@ -7062,7 +7081,7 @@
             The output modalities the agent produces. Defaults to `["audio"]`. `animation` and `avatar` are available
             when an avatar is configured.
             </param>
-        <param name="maxOutputTokens"> The maximum output-token count for one response. </param>
+        <param name="internalMaxOutputTokens"> The maximum output-token count for one response. </param>
         <param name="include"> Additional fields to include in service outputs. </param>
         <param name="interimResponse"> Interim-response settings for latency and tool execution. </param>
         <param name="avatar"> Optional avatar configuration. These values are session defaults and may be overridden when connecting. </param>
@@ -7071,7 +7090,7 @@
             `system` (service-managed session controls), and `toolbox`. Server-side tools such as `web_search`,
             `azure_ai_search`, and `openapi` are provided through a toolbox rather than declared directly.
             </param>
-        <param name="toolChoice">
+        <param name="internalToolChoice">
             How the model chooses tools for generated responses. `none` prevents tool calls, `auto` lets the model decide,
             `required` requires at least one tool call, and a specific function or MCP tool can be selected with an object.
             Defaults to `auto`.
@@ -7320,11 +7339,11 @@
       </Docs>
     </Member>
     <Member MemberName="VoiceAgentLlmGeneratedGreetingConfig">
-      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.Agents.VoiceAgentLlmGeneratedGreetingConfig VoiceAgentLlmGeneratedGreetingConfig (string prompt = default, BinaryData toolChoice = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.Agents.VoiceAgentLlmGeneratedGreetingConfig VoiceAgentLlmGeneratedGreetingConfig(string prompt, class System.BinaryData toolChoice) cil managed" />
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.Agents.VoiceAgentLlmGeneratedGreetingConfig VoiceAgentLlmGeneratedGreetingConfig (string prompt = default, BinaryData internalToolChoice = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.Agents.VoiceAgentLlmGeneratedGreetingConfig VoiceAgentLlmGeneratedGreetingConfig(string prompt, class System.BinaryData internalToolChoice) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentLlmGeneratedGreetingConfig(System.String,System.BinaryData)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function VoiceAgentLlmGeneratedGreetingConfig (Optional prompt As String = Nothing, Optional toolChoice As BinaryData = Nothing) As VoiceAgentLlmGeneratedGreetingConfig" />
-      <MemberSignature Language="F#" Value="static member VoiceAgentLlmGeneratedGreetingConfig : string * BinaryData -&gt; Azure.AI.Projects.Agents.VoiceAgentLlmGeneratedGreetingConfig" Usage="Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentLlmGeneratedGreetingConfig (prompt, toolChoice)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function VoiceAgentLlmGeneratedGreetingConfig (Optional prompt As String = Nothing, Optional internalToolChoice As BinaryData = Nothing) As VoiceAgentLlmGeneratedGreetingConfig" />
+      <MemberSignature Language="F#" Value="static member VoiceAgentLlmGeneratedGreetingConfig : string * BinaryData -&gt; Azure.AI.Projects.Agents.VoiceAgentLlmGeneratedGreetingConfig" Usage="Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentLlmGeneratedGreetingConfig (prompt, internalToolChoice)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
@@ -7335,11 +7354,11 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="prompt" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="toolChoice" Type="System.BinaryData" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="internalToolChoice" Type="System.BinaryData" Index="1" FrameworkAlternate="azure-dotnet-preview" />
       </Parameters>
       <Docs>
         <param name="prompt"> The Handlebars prompt that guides the opening turn. </param>
-        <param name="toolChoice"> The tool-selection policy for the opening response. Defaults to `none`. </param>
+        <param name="internalToolChoice"> The tool-selection policy for the opening response. Defaults to `none`. </param>
         <summary> A greeting authored by the session model from a scoped opening-turn prompt. </summary>
         <returns> A new <see cref="T:Azure.AI.Projects.Agents.VoiceAgentLlmGeneratedGreetingConfig" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
@@ -7378,11 +7397,11 @@
       </Docs>
     </Member>
     <Member MemberName="VoiceAgentMcpTool">
-      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.Agents.VoiceAgentMcpTool VoiceAgentMcpTool (string serverLabel = default, string authorization = default, string serverDescription = default, System.Collections.Generic.IDictionary&lt;string,string&gt; headers = default, BinaryData allowedTools = default, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.Agents.CallableToolAllowedCaller&gt; allowedCallers = default, BinaryData requireApproval = default, bool? deferLoading = default, string projectConnectionId = default, System.Collections.Generic.IDictionary&lt;string,Azure.AI.Extensions.OpenAI.ToolConfig&gt; toolConfigs = default, Uri serverUrl = default, Azure.AI.Projects.Agents.VoiceAgentToolResponseScheduling? responseScheduling = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.Agents.VoiceAgentMcpTool VoiceAgentMcpTool(string serverLabel, string authorization, string serverDescription, class System.Collections.Generic.IDictionary`2&lt;string, string&gt; headers, class System.BinaryData allowedTools, class System.Collections.Generic.IEnumerable`1&lt;valuetype Azure.AI.Projects.Agents.CallableToolAllowedCaller&gt; allowedCallers, class System.BinaryData requireApproval, valuetype System.Nullable`1&lt;bool&gt; deferLoading, string projectConnectionId, class System.Collections.Generic.IDictionary`2&lt;string, class Azure.AI.Extensions.OpenAI.ToolConfig&gt; toolConfigs, class System.Uri serverUrl, valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.Agents.VoiceAgentToolResponseScheduling&gt; responseScheduling) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentMcpTool(System.String,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.BinaryData,System.Collections.Generic.IEnumerable{Azure.AI.Projects.Agents.CallableToolAllowedCaller},System.BinaryData,System.Nullable{System.Boolean},System.String,System.Collections.Generic.IDictionary{System.String,Azure.AI.Extensions.OpenAI.ToolConfig},System.Uri,System.Nullable{Azure.AI.Projects.Agents.VoiceAgentToolResponseScheduling})" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function VoiceAgentMcpTool (Optional serverLabel As String = Nothing, Optional authorization As String = Nothing, Optional serverDescription As String = Nothing, Optional headers As IDictionary(Of String, String) = Nothing, Optional allowedTools As BinaryData = Nothing, Optional allowedCallers As IEnumerable(Of CallableToolAllowedCaller) = Nothing, Optional requireApproval As BinaryData = Nothing, Optional deferLoading As Nullable(Of Boolean) = Nothing, Optional projectConnectionId As String = Nothing, Optional toolConfigs As IDictionary(Of String, ToolConfig) = Nothing, Optional serverUrl As Uri = Nothing, Optional responseScheduling As Nullable(Of VoiceAgentToolResponseScheduling) = Nothing) As VoiceAgentMcpTool" />
-      <MemberSignature Language="F#" Value="static member VoiceAgentMcpTool : string * string * string * System.Collections.Generic.IDictionary&lt;string, string&gt; * BinaryData * seq&lt;Azure.AI.Projects.Agents.CallableToolAllowedCaller&gt; * BinaryData * Nullable&lt;bool&gt; * string * System.Collections.Generic.IDictionary&lt;string, Azure.AI.Extensions.OpenAI.ToolConfig&gt; * Uri * Nullable&lt;Azure.AI.Projects.Agents.VoiceAgentToolResponseScheduling&gt; -&gt; Azure.AI.Projects.Agents.VoiceAgentMcpTool" Usage="Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentMcpTool (serverLabel, authorization, serverDescription, headers, allowedTools, allowedCallers, requireApproval, deferLoading, projectConnectionId, toolConfigs, serverUrl, responseScheduling)" />
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.Agents.VoiceAgentMcpTool VoiceAgentMcpTool (string serverLabel = default, Uri serverUrl = default, string authorization = default, string serverDescription = default, System.Collections.Generic.IDictionary&lt;string,string&gt; headers = default, BinaryData allowedTools = default, System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.Agents.CallableToolAllowedCaller&gt; allowedCallers = default, BinaryData requireApprovalInternal = default, bool? deferLoading = default, string projectConnectionId = default, System.Collections.Generic.IDictionary&lt;string,Azure.AI.Extensions.OpenAI.ToolConfig&gt; toolConfigs = default, Azure.AI.Projects.Agents.VoiceAgentToolResponseScheduling? responseScheduling = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.Agents.VoiceAgentMcpTool VoiceAgentMcpTool(string serverLabel, class System.Uri serverUrl, string authorization, string serverDescription, class System.Collections.Generic.IDictionary`2&lt;string, string&gt; headers, class System.BinaryData allowedTools, class System.Collections.Generic.IEnumerable`1&lt;valuetype Azure.AI.Projects.Agents.CallableToolAllowedCaller&gt; allowedCallers, class System.BinaryData requireApprovalInternal, valuetype System.Nullable`1&lt;bool&gt; deferLoading, string projectConnectionId, class System.Collections.Generic.IDictionary`2&lt;string, class Azure.AI.Extensions.OpenAI.ToolConfig&gt; toolConfigs, valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.Agents.VoiceAgentToolResponseScheduling&gt; responseScheduling) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentMcpTool(System.String,System.Uri,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.BinaryData,System.Collections.Generic.IEnumerable{Azure.AI.Projects.Agents.CallableToolAllowedCaller},System.BinaryData,System.Nullable{System.Boolean},System.String,System.Collections.Generic.IDictionary{System.String,Azure.AI.Extensions.OpenAI.ToolConfig},System.Nullable{Azure.AI.Projects.Agents.VoiceAgentToolResponseScheduling})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function VoiceAgentMcpTool (Optional serverLabel As String = Nothing, Optional serverUrl As Uri = Nothing, Optional authorization As String = Nothing, Optional serverDescription As String = Nothing, Optional headers As IDictionary(Of String, String) = Nothing, Optional allowedTools As BinaryData = Nothing, Optional allowedCallers As IEnumerable(Of CallableToolAllowedCaller) = Nothing, Optional requireApprovalInternal As BinaryData = Nothing, Optional deferLoading As Nullable(Of Boolean) = Nothing, Optional projectConnectionId As String = Nothing, Optional toolConfigs As IDictionary(Of String, ToolConfig) = Nothing, Optional responseScheduling As Nullable(Of VoiceAgentToolResponseScheduling) = Nothing) As VoiceAgentMcpTool" />
+      <MemberSignature Language="F#" Value="static member VoiceAgentMcpTool : string * Uri * string * string * System.Collections.Generic.IDictionary&lt;string, string&gt; * BinaryData * seq&lt;Azure.AI.Projects.Agents.CallableToolAllowedCaller&gt; * BinaryData * Nullable&lt;bool&gt; * string * System.Collections.Generic.IDictionary&lt;string, Azure.AI.Extensions.OpenAI.ToolConfig&gt; * Nullable&lt;Azure.AI.Projects.Agents.VoiceAgentToolResponseScheduling&gt; -&gt; Azure.AI.Projects.Agents.VoiceAgentMcpTool" Usage="Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentMcpTool (serverLabel, serverUrl, authorization, serverDescription, headers, allowedTools, allowedCallers, requireApprovalInternal, deferLoading, projectConnectionId, toolConfigs, responseScheduling)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
@@ -7393,20 +7412,24 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="serverLabel" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="authorization" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="serverDescription" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="headers" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="allowedTools" Type="System.BinaryData" Index="4" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="allowedCallers" Type="System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.Agents.CallableToolAllowedCaller&gt;" Index="5" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="requireApproval" Type="System.BinaryData" Index="6" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="deferLoading" Type="System.Nullable&lt;System.Boolean&gt;" Index="7" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="projectConnectionId" Type="System.String" Index="8" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="toolConfigs" Type="System.Collections.Generic.IDictionary&lt;System.String,Azure.AI.Extensions.OpenAI.ToolConfig&gt;" Index="9" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="serverUrl" Type="System.Uri" Index="10" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="serverUrl" Type="System.Uri" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="authorization" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="serverDescription" Type="System.String" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="headers" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="allowedTools" Type="System.BinaryData" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="allowedCallers" Type="System.Collections.Generic.IEnumerable&lt;Azure.AI.Projects.Agents.CallableToolAllowedCaller&gt;" Index="6" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="requireApprovalInternal" Type="System.BinaryData" Index="7" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="deferLoading" Type="System.Nullable&lt;System.Boolean&gt;" Index="8" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="projectConnectionId" Type="System.String" Index="9" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="toolConfigs" Type="System.Collections.Generic.IDictionary&lt;System.String,Azure.AI.Extensions.OpenAI.ToolConfig&gt;" Index="10" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="responseScheduling" Type="System.Nullable&lt;Azure.AI.Projects.Agents.VoiceAgentToolResponseScheduling&gt;" Index="11" FrameworkAlternate="azure-dotnet-preview" />
       </Parameters>
       <Docs>
         <param name="serverLabel"> A label for this MCP server, used to identify it in tool calls. </param>
+        <param name="serverUrl">
+            The URL for the MCP server. One of `server_url`, `connector_id`, or
+              `tunnel_id` must be provided.
+            </param>
         <param name="authorization">
             An OAuth access token that can be used with a remote MCP server, either
               with a custom MCP server URL or a service connector. Your application
@@ -7416,13 +7439,12 @@
         <param name="headers" />
         <param name="allowedTools" />
         <param name="allowedCallers" />
-        <param name="requireApproval" />
+        <param name="requireApprovalInternal" />
         <param name="deferLoading"> Whether this MCP tool is deferred and discovered via tool search. </param>
         <param name="projectConnectionId"> The connection ID in the project for the MCP server. The connection stores authentication and other connection details needed to connect to the MCP server. </param>
         <param name="toolConfigs"> Deprecated. This property is deprecated and will be removed in a future version. </param>
-        <param name="serverUrl"> The URL for the MCP server. </param>
         <param name="responseScheduling"> When the MCP invocation creates a follow-up response. Defaults to `when_idle`. </param>
-        <summary> An MCP tool available to a voice agent. </summary>
+        <summary> An MCP tool available to a voice agent. Server endpoints use `server_url`; connector and tunnel identifiers are not supported. </summary>
         <returns> A new <see cref="T:Azure.AI.Projects.Agents.VoiceAgentMcpTool" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -8036,126 +8058,6 @@
         <param name="format"> The audio format used for the response's audio output. </param>
         <summary> The flat response audio-output projection, with optional `voice`, `voice_type`, `voice_locale`, and `format` fields. </summary>
         <returns> A new <see cref="T:Azure.AI.Projects.Agents.VoiceResponseAudioOutput" /> instance for mocking. </returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="VoiceResponseBase">
-      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.Agents.VoiceResponseBase VoiceResponseBase (Azure.AI.Projects.Agents.VoiceResponseBaseObject? object = default, OpenAI.Realtime.RealtimeResponseStatus? status = default, OpenAI.Realtime.RealtimeResponseStatusDetails statusDetails = default, OpenAI.Realtime.RealtimeResponseUsage usage = default, System.Collections.Generic.IEnumerable&lt;OpenAI.Realtime.RealtimeOutputModality&gt; outputModalities = default, BinaryData maxOutputTokens = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.Agents.VoiceResponseBase VoiceResponseBase(valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.Agents.VoiceResponseBaseObject&gt; object, valuetype System.Nullable`1&lt;valuetype OpenAI.Realtime.RealtimeResponseStatus&gt; status, class OpenAI.Realtime.RealtimeResponseStatusDetails statusDetails, class OpenAI.Realtime.RealtimeResponseUsage usage, class System.Collections.Generic.IEnumerable`1&lt;valuetype OpenAI.Realtime.RealtimeOutputModality&gt; outputModalities, class System.BinaryData maxOutputTokens) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceResponseBase(System.Nullable{Azure.AI.Projects.Agents.VoiceResponseBaseObject},System.Nullable{OpenAI.Realtime.RealtimeResponseStatus},OpenAI.Realtime.RealtimeResponseStatusDetails,OpenAI.Realtime.RealtimeResponseUsage,System.Collections.Generic.IEnumerable{OpenAI.Realtime.RealtimeOutputModality},System.BinaryData)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function VoiceResponseBase (Optional object As Nullable(Of VoiceResponseBaseObject) = Nothing, Optional status As Nullable(Of RealtimeResponseStatus) = Nothing, Optional statusDetails As RealtimeResponseStatusDetails = Nothing, Optional usage As RealtimeResponseUsage = Nothing, Optional outputModalities As IEnumerable(Of RealtimeOutputModality) = Nothing, Optional maxOutputTokens As BinaryData = Nothing) As VoiceResponseBase" />
-      <MemberSignature Language="F#" Value="static member VoiceResponseBase : Nullable&lt;Azure.AI.Projects.Agents.VoiceResponseBaseObject&gt; * Nullable&lt;OpenAI.Realtime.RealtimeResponseStatus&gt; * OpenAI.Realtime.RealtimeResponseStatusDetails * OpenAI.Realtime.RealtimeResponseUsage * seq&lt;OpenAI.Realtime.RealtimeOutputModality&gt; * BinaryData -&gt; Azure.AI.Projects.Agents.VoiceResponseBase" Usage="Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceResponseBase (object, status, statusDetails, usage, outputModalities, maxOutputTokens)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.AI.Projects.Agents.VoiceResponseBase</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="object" Type="System.Nullable&lt;Azure.AI.Projects.Agents.VoiceResponseBaseObject&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="status" Type="System.Nullable&lt;OpenAI.Realtime.RealtimeResponseStatus&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="statusDetails" Type="OpenAI.Realtime.RealtimeResponseStatusDetails" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="usage" Type="OpenAI.Realtime.RealtimeResponseUsage" Index="3" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="outputModalities" Type="System.Collections.Generic.IEnumerable&lt;OpenAI.Realtime.RealtimeOutputModality&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="maxOutputTokens" Type="System.BinaryData" Index="5" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="object"> The object type, must be `realtime.response`. </param>
-        <param name="status">
-            The final status of the response (`completed`, `cancelled`, `failed`, or
-              `incomplete`, `in_progress`).
-            </param>
-        <param name="statusDetails"> Additional details about the status. </param>
-        <param name="usage">
-            Usage statistics for the Response, this will correspond to billing. A
-              Realtime API session will maintain a conversation context and append new
-              Items to the Conversation, thus output from previous turns (text and
-              audio tokens) will become the input for later turns.
-            </param>
-        <param name="outputModalities">
-            The set of modalities the model used to respond, currently the only possible values are
-              `[\"audio\"]`, `[\"text\"]`. Audio output always include a text transcript. Setting the
-              output to mode `text` will disable audio output from the model.
-            </param>
-        <param name="maxOutputTokens">
-            Maximum number of output tokens for a single assistant response,
-              inclusive of tool calls, that was used in this response.
-            </param>
-        <summary> Properties shared by persisted voice responses. </summary>
-        <returns> A new <see cref="T:Azure.AI.Projects.Agents.VoiceResponseBase" /> instance for mocking. </returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="VoiceResult">
-      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.Agents.VoiceResult VoiceResult (Azure.AI.Projects.Agents.VoiceResponseBaseObject? object = default, OpenAI.Realtime.RealtimeResponseStatus? status = default, OpenAI.Realtime.RealtimeResponseStatusDetails statusDetails = default, OpenAI.Realtime.RealtimeResponseUsage usage = default, System.Collections.Generic.IEnumerable&lt;OpenAI.Realtime.RealtimeOutputModality&gt; outputModalities = default, BinaryData maxOutputTokens = default, string id = default, System.Collections.Generic.IEnumerable&lt;OpenAI.Realtime.RealtimeItem&gt; output = default, string conversationId = default, Azure.AI.Projects.Agents.VoiceResponseAudio audio = default, System.Collections.Generic.IDictionary&lt;string,string&gt; metadata = default, float? temperature = default, DateTimeOffset? createdOn = default, DateTimeOffset? completedOn = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.Agents.VoiceResult VoiceResult(valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.Agents.VoiceResponseBaseObject&gt; object, valuetype System.Nullable`1&lt;valuetype OpenAI.Realtime.RealtimeResponseStatus&gt; status, class OpenAI.Realtime.RealtimeResponseStatusDetails statusDetails, class OpenAI.Realtime.RealtimeResponseUsage usage, class System.Collections.Generic.IEnumerable`1&lt;valuetype OpenAI.Realtime.RealtimeOutputModality&gt; outputModalities, class System.BinaryData maxOutputTokens, string id, class System.Collections.Generic.IEnumerable`1&lt;class OpenAI.Realtime.RealtimeItem&gt; output, string conversationId, class Azure.AI.Projects.Agents.VoiceResponseAudio audio, class System.Collections.Generic.IDictionary`2&lt;string, string&gt; metadata, valuetype System.Nullable`1&lt;float32&gt; temperature, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; createdOn, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; completedOn) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceResult(System.Nullable{Azure.AI.Projects.Agents.VoiceResponseBaseObject},System.Nullable{OpenAI.Realtime.RealtimeResponseStatus},OpenAI.Realtime.RealtimeResponseStatusDetails,OpenAI.Realtime.RealtimeResponseUsage,System.Collections.Generic.IEnumerable{OpenAI.Realtime.RealtimeOutputModality},System.BinaryData,System.String,System.Collections.Generic.IEnumerable{OpenAI.Realtime.RealtimeItem},System.String,Azure.AI.Projects.Agents.VoiceResponseAudio,System.Collections.Generic.IDictionary{System.String,System.String},System.Nullable{System.Single},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function VoiceResult (Optional object As Nullable(Of VoiceResponseBaseObject) = Nothing, Optional status As Nullable(Of RealtimeResponseStatus) = Nothing, Optional statusDetails As RealtimeResponseStatusDetails = Nothing, Optional usage As RealtimeResponseUsage = Nothing, Optional outputModalities As IEnumerable(Of RealtimeOutputModality) = Nothing, Optional maxOutputTokens As BinaryData = Nothing, Optional id As String = Nothing, Optional output As IEnumerable(Of RealtimeItem) = Nothing, Optional conversationId As String = Nothing, Optional audio As VoiceResponseAudio = Nothing, Optional metadata As IDictionary(Of String, String) = Nothing, Optional temperature As Nullable(Of Single) = Nothing, Optional createdOn As Nullable(Of DateTimeOffset) = Nothing, Optional completedOn As Nullable(Of DateTimeOffset) = Nothing) As VoiceResult" />
-      <MemberSignature Language="F#" Value="static member VoiceResult : Nullable&lt;Azure.AI.Projects.Agents.VoiceResponseBaseObject&gt; * Nullable&lt;OpenAI.Realtime.RealtimeResponseStatus&gt; * OpenAI.Realtime.RealtimeResponseStatusDetails * OpenAI.Realtime.RealtimeResponseUsage * seq&lt;OpenAI.Realtime.RealtimeOutputModality&gt; * BinaryData * string * seq&lt;OpenAI.Realtime.RealtimeItem&gt; * string * Azure.AI.Projects.Agents.VoiceResponseAudio * System.Collections.Generic.IDictionary&lt;string, string&gt; * Nullable&lt;single&gt; * Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; -&gt; Azure.AI.Projects.Agents.VoiceResult" Usage="Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceResult (object, status, statusDetails, usage, outputModalities, maxOutputTokens, id, output, conversationId, audio, metadata, temperature, createdOn, completedOn)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.AI.Projects.Agents.VoiceResult</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="object" Type="System.Nullable&lt;Azure.AI.Projects.Agents.VoiceResponseBaseObject&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="status" Type="System.Nullable&lt;OpenAI.Realtime.RealtimeResponseStatus&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="statusDetails" Type="OpenAI.Realtime.RealtimeResponseStatusDetails" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="usage" Type="OpenAI.Realtime.RealtimeResponseUsage" Index="3" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="outputModalities" Type="System.Collections.Generic.IEnumerable&lt;OpenAI.Realtime.RealtimeOutputModality&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="maxOutputTokens" Type="System.BinaryData" Index="5" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="id" Type="System.String" Index="6" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="output" Type="System.Collections.Generic.IEnumerable&lt;OpenAI.Realtime.RealtimeItem&gt;" Index="7" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="conversationId" Type="System.String" Index="8" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="audio" Type="Azure.AI.Projects.Agents.VoiceResponseAudio" Index="9" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="metadata" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" Index="10" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="temperature" Type="System.Nullable&lt;System.Single&gt;" Index="11" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="createdOn" Type="System.Nullable&lt;System.DateTimeOffset&gt;" Index="12" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="completedOn" Type="System.Nullable&lt;System.DateTimeOffset&gt;" Index="13" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="object"> The object type, must be `realtime.response`. </param>
-        <param name="status">
-            The final status of the response (`completed`, `cancelled`, `failed`, or
-              `incomplete`, `in_progress`).
-            </param>
-        <param name="statusDetails"> Additional details about the status. </param>
-        <param name="usage">
-            Usage statistics for the Response, this will correspond to billing. A
-              Realtime API session will maintain a conversation context and append new
-              Items to the Conversation, thus output from previous turns (text and
-              audio tokens) will become the input for later turns.
-            </param>
-        <param name="outputModalities">
-            The set of modalities the model used to respond, currently the only possible values are
-              `[\"audio\"]`, `[\"text\"]`. Audio output always include a text transcript. Setting the
-              output to mode `text` will disable audio output from the model.
-            </param>
-        <param name="maxOutputTokens">
-            Maximum number of output tokens for a single assistant response,
-              inclusive of tool calls, that was used in this response.
-            </param>
-        <param name="id"> The unique id of the response. </param>
-        <param name="output"> The output items produced by the response. May be omitted in list results; retrieve the full response (GET .../responses/{response_id}) or use the paged response-items route (GET .../responses/{response_id}/items) for its output items. Each item's `response_id` also links it back to this response in the conversation-level items list. </param>
-        <param name="conversationId"> The id of the conversation this response belongs to. </param>
-        <param name="audio"> The audio configuration used for the response, including the voice and audio format used for output. </param>
-        <param name="metadata"> A set of key-value pairs attached to the response. </param>
-        <param name="temperature"> The sampling temperature used for the response. </param>
-        <param name="createdOn"> The Unix timestamp (in seconds) for when the response was created. </param>
-        <param name="completedOn"> The Unix timestamp (in seconds) for when the response completed. </param>
-        <summary>
-            A persisted voice response representing one model inference turn within a conversation. In list results the
-            `output` projection may be omitted; retrieve the
-            full response (`GET .../responses/{response_id}`) or the paged response-items route
-            (`GET .../responses/{response_id}/items`) for its output items. `created_at`/`completed_at` are Foundry
-            durable ordering extensions.
-            </summary>
-        <returns> A new <see cref="T:Azure.AI.Projects.Agents.VoiceResult" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

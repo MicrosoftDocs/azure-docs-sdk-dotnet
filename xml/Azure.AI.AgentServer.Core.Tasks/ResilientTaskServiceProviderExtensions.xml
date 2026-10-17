@@ -1,0 +1,77 @@
+<Type Name="ResilientTaskServiceProviderExtensions" FullName="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceProviderExtensions">
+  <TypeSignature Language="C#" Value="public static class ResilientTaskServiceProviderExtensions" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit ResilientTaskServiceProviderExtensions extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceProviderExtensions" />
+  <TypeSignature Language="VB.NET" Value="Public Module ResilientTaskServiceProviderExtensions" />
+  <TypeSignature Language="F#" Value="type ResilientTaskServiceProviderExtensions = class" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Resolves a registered resilient task's typed <see cref="T:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2" />
+            handle from a built <see cref="T:System.IServiceProvider" />. Every task registered with
+            <c>AddResilientTask</c>/<c>AddResilientMultiTurnTask</c> is also registered as a keyed singleton
+            service, keyed by its task name — this is the sanctioned way to resolve it. Resolution is always
+            by name (never ambiguous), because multiple tasks may share the same
+            <c>TInput</c>/<c>TOutput</c> pair.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="GetResilientTask&lt;TInput,TOutput&gt;">
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt; GetResilientTask&lt;TInput,TOutput&gt; (this IServiceProvider provider, string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2&lt;!!TInput, !!TOutput&gt; GetResilientTask&lt;TInput, TOutput&gt;(class System.IServiceProvider provider, string name) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceProviderExtensions.GetResilientTask``2(System.IServiceProvider,System.String)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetResilientTask(Of TInput, TOutput) (provider As IServiceProvider, name As String) As TaskDefinition(Of TInput, TOutput)" />
+      <MemberSignature Language="F#" Value="static member GetResilientTask : IServiceProvider * string -&gt; Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;'Input, 'Output&gt;" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceProviderExtensions.GetResilientTask (provider, name)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TInput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+        <TypeParameter Name="TOutput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="provider" Type="System.IServiceProvider" RefType="this" />
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TInput">The task input type.</typeparam>
+        <typeparam name="TOutput">The task output type.</typeparam>
+        <param name="provider">The service provider.</param>
+        <param name="name">The task name it was registered with.</param>
+        <summary>
+            Resolves the typed <see cref="T:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2" /> handle for the task
+            registered under <paramref name="name" />.
+            </summary>
+        <returns>The typed <see cref="T:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2" /> handle.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

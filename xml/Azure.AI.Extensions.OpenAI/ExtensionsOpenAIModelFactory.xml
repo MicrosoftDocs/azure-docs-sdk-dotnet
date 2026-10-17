@@ -1893,7 +1893,7 @@
       <Docs>
         <param name="name"> The built-in tool to configure. </param>
         <param name="enabled"> Whether the built-in tool is enabled. If omitted, the toolset default applies. </param>
-        <summary> An enablement override for a GitHub Copilot built-in tool. </summary>
+        <summary> The legacy per-tool enablement override retained for compatibility. Use `MicrosoftCopilotToolsetConfig` for new integrations. </summary>
         <returns> A new <see cref="T:Azure.AI.Extensions.OpenAI.GitHubCopilotToolsetConfig" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1917,7 +1917,7 @@
       </Parameters>
       <Docs>
         <param name="enabled"> Whether built-in tools are enabled by default. Defaults to true. </param>
-        <summary> The default enablement setting for GitHub Copilot built-in tools. </summary>
+        <summary> The legacy default enablement setting retained for compatibility. Use `MicrosoftCopilotToolsetDefaultConfig` for new integrations. </summary>
         <returns> A new <see cref="T:Azure.AI.Extensions.OpenAI.GitHubCopilotToolsetDefaultConfig" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1943,7 +1943,7 @@
       <Docs>
         <param name="defaultConfig"> The default configuration for built-in tools. If omitted, built-in tools are enabled by default. </param>
         <param name="configs"> Per-tool configuration overrides. Duplicate built-in tool names are not allowed. </param>
-        <summary> Configuration overrides for GitHub Copilot built-in tools. </summary>
+        <summary> The legacy GitHub Copilot toolset retained for compatibility. Use `MicrosoftCopilotToolsetPreview` for new integrations. </summary>
         <returns> A new <see cref="T:Azure.AI.Extensions.OpenAI.GitHubCopilotToolsetPreview" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2208,6 +2208,82 @@
         <param name="memoryItem"> Retrieved memory item. </param>
         <summary> A retrieved memory item from memory search. </summary>
         <returns> A new <see cref="T:Azure.AI.Extensions.OpenAI.MemoryToolSearchItem" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MicrosoftCopilotToolsetConfig">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig MicrosoftCopilotToolsetConfig (Azure.AI.Extensions.OpenAI.MicrosoftCopilotBuiltInTool name = Azure.AI.Extensions.OpenAI.MicrosoftCopilotBuiltInTool.FilesystemRead, bool? enabled = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig MicrosoftCopilotToolsetConfig(valuetype Azure.AI.Extensions.OpenAI.MicrosoftCopilotBuiltInTool name, valuetype System.Nullable`1&lt;bool&gt; enabled) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Extensions.OpenAI.ExtensionsOpenAIModelFactory.MicrosoftCopilotToolsetConfig(Azure.AI.Extensions.OpenAI.MicrosoftCopilotBuiltInTool,System.Nullable{System.Boolean})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function MicrosoftCopilotToolsetConfig (Optional name As MicrosoftCopilotBuiltInTool = Azure.AI.Extensions.OpenAI.MicrosoftCopilotBuiltInTool.FilesystemRead, Optional enabled As Nullable(Of Boolean) = Nothing) As MicrosoftCopilotToolsetConfig" />
+      <MemberSignature Language="F#" Value="static member MicrosoftCopilotToolsetConfig : Azure.AI.Extensions.OpenAI.MicrosoftCopilotBuiltInTool * Nullable&lt;bool&gt; -&gt; Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig" Usage="Azure.AI.Extensions.OpenAI.ExtensionsOpenAIModelFactory.MicrosoftCopilotToolsetConfig (name, enabled)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Extensions.OpenAI</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="Azure.AI.Extensions.OpenAI.MicrosoftCopilotBuiltInTool" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="enabled" Type="System.Nullable&lt;System.Boolean&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="name"> The built-in tool to configure. </param>
+        <param name="enabled"> Whether the built-in tool is enabled. If omitted, the toolset default applies. </param>
+        <summary> An enablement override for a Microsoft Copilot built-in tool. </summary>
+        <returns> A new <see cref="T:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MicrosoftCopilotToolsetDefaultConfig">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig MicrosoftCopilotToolsetDefaultConfig (bool? enabled = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig MicrosoftCopilotToolsetDefaultConfig(valuetype System.Nullable`1&lt;bool&gt; enabled) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Extensions.OpenAI.ExtensionsOpenAIModelFactory.MicrosoftCopilotToolsetDefaultConfig(System.Nullable{System.Boolean})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function MicrosoftCopilotToolsetDefaultConfig (Optional enabled As Nullable(Of Boolean) = Nothing) As MicrosoftCopilotToolsetDefaultConfig" />
+      <MemberSignature Language="F#" Value="static member MicrosoftCopilotToolsetDefaultConfig : Nullable&lt;bool&gt; -&gt; Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig" Usage="Azure.AI.Extensions.OpenAI.ExtensionsOpenAIModelFactory.MicrosoftCopilotToolsetDefaultConfig enabled" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Extensions.OpenAI</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="enabled" Type="System.Nullable&lt;System.Boolean&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="enabled"> Whether built-in tools are enabled by default. Defaults to true. </param>
+        <summary> The default enablement setting for Microsoft Copilot built-in tools. </summary>
+        <returns> A new <see cref="T:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MicrosoftCopilotToolsetPreview">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview MicrosoftCopilotToolsetPreview (Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig defaultConfig = default, System.Collections.Generic.IEnumerable&lt;Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig&gt; configs = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview MicrosoftCopilotToolsetPreview(class Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig defaultConfig, class System.Collections.Generic.IEnumerable`1&lt;class Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig&gt; configs) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Extensions.OpenAI.ExtensionsOpenAIModelFactory.MicrosoftCopilotToolsetPreview(Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig,System.Collections.Generic.IEnumerable{Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function MicrosoftCopilotToolsetPreview (Optional defaultConfig As MicrosoftCopilotToolsetDefaultConfig = Nothing, Optional configs As IEnumerable(Of MicrosoftCopilotToolsetConfig) = Nothing) As MicrosoftCopilotToolsetPreview" />
+      <MemberSignature Language="F#" Value="static member MicrosoftCopilotToolsetPreview : Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig * seq&lt;Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig&gt; -&gt; Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview" Usage="Azure.AI.Extensions.OpenAI.ExtensionsOpenAIModelFactory.MicrosoftCopilotToolsetPreview (defaultConfig, configs)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Extensions.OpenAI</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="defaultConfig" Type="Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="configs" Type="System.Collections.Generic.IEnumerable&lt;Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="defaultConfig"> The default configuration for built-in tools. If omitted, built-in tools are enabled by default. </param>
+        <param name="configs"> Per-tool configuration overrides. Duplicate built-in tool names are not allowed. </param>
+        <summary> Configuration overrides for Microsoft Copilot built-in tools. </summary>
+        <returns> A new <see cref="T:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -1,0 +1,119 @@
+<Type Name="ResponsesServerHostExtensions" FullName="Azure.AI.AgentServer.Responses.ResponsesServerHostExtensions">
+  <TypeSignature Language="C#" Value="public static class ResponsesServerHostExtensions" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit ResponsesServerHostExtensions extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Azure.AI.AgentServer.Responses.ResponsesServerHostExtensions" />
+  <TypeSignature Language="VB.NET" Value="Public Module ResponsesServerHostExtensions" />
+  <TypeSignature Language="F#" Value="type ResponsesServerHostExtensions = class" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.Experimental("SCME0002")]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.Experimental("SCME0002")&gt;]</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(0)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(0)&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+            Extension methods to register the Responses API server on an
+            <see cref="T:Microsoft.Extensions.Hosting.IHostApplicationBuilder" />, binding the Foundry credential and endpoint from a single
+            configuration section (the <see cref="T:System.ClientModel.Primitives.ClientSettings" /> pattern).
+            This is the required entry point in hosted Foundry environments: because response storage and
+            resilient-task storage bind the SAME <see cref="P:System.ClientModel.Primitives.ClientSettings.Credential" />
+            and <see cref="P:Azure.AI.AgentServer.Responses.ResponsesServerSettings.Endpoint" /> from one section, the two cannot diverge.
+            <para>
+            In a hosted Foundry environment, values the section does not provide fall back to the platform:
+            <c>Endpoint</c> defaults to <c>FOUNDRY_PROJECT_ENDPOINT</c>, and an absent <c>Credential</c> section
+            defaults to a <see cref="T:Azure.Identity.DefaultAzureCredential" /> limited by default to the production credentials
+            (environment, workload identity and managed identity; <c>AZURE_TOKEN_CREDENTIALS</c> overrides the
+            selection). The resolved credential and endpoint are
+            shared by response storage and resilient-task storage, and the credential is never published to
+            the service collection. Credential settings that are present (in configuration or set by the
+            <c>configureSettings</c> callback) but do not resolve are an error; they are never replaced by
+            the fallback.
+            </para></summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="AddResponsesServer">
+      <MemberSignature Language="C#" Value="public static Microsoft.Extensions.Hosting.IHostApplicationBuilder AddResponsesServer (this Microsoft.Extensions.Hosting.IHostApplicationBuilder host, string sectionName);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.Extensions.Hosting.IHostApplicationBuilder AddResponsesServer(class Microsoft.Extensions.Hosting.IHostApplicationBuilder host, string sectionName) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Responses.ResponsesServerHostExtensions.AddResponsesServer(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddResponsesServer (host As IHostApplicationBuilder, sectionName As String) As IHostApplicationBuilder" />
+      <MemberSignature Language="F#" Value="static member AddResponsesServer : Microsoft.Extensions.Hosting.IHostApplicationBuilder * string -&gt; Microsoft.Extensions.Hosting.IHostApplicationBuilder" Usage="Azure.AI.AgentServer.Responses.ResponsesServerHostExtensions.AddResponsesServer (host, sectionName)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Extensions.Hosting.IHostApplicationBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="host" Type="Microsoft.Extensions.Hosting.IHostApplicationBuilder" RefType="this" />
+        <Parameter Name="sectionName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="host">The host application builder.</param>
+        <param name="sectionName">The configuration section to bind settings from.</param>
+        <summary>
+            Registers the Responses API server SDK services, binding
+            <see cref="T:Azure.AI.AgentServer.Responses.ResponsesServerSettings" /> (including the Foundry credential and endpoint) from the
+            named configuration section.
+            </summary>
+        <returns>The host application builder for chaining.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddResponsesServer">
+      <MemberSignature Language="C#" Value="public static Microsoft.Extensions.Hosting.IHostApplicationBuilder AddResponsesServer (this Microsoft.Extensions.Hosting.IHostApplicationBuilder host, string sectionName, Action&lt;Azure.AI.AgentServer.Responses.ResponsesServerSettings&gt;? configureSettings);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.Extensions.Hosting.IHostApplicationBuilder AddResponsesServer(class Microsoft.Extensions.Hosting.IHostApplicationBuilder host, string sectionName, class System.Action`1&lt;class Azure.AI.AgentServer.Responses.ResponsesServerSettings&gt; configureSettings) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Responses.ResponsesServerHostExtensions.AddResponsesServer(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String,System.Action{Azure.AI.AgentServer.Responses.ResponsesServerSettings})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddResponsesServer (host As IHostApplicationBuilder, sectionName As String, configureSettings As Action(Of ResponsesServerSettings)) As IHostApplicationBuilder" />
+      <MemberSignature Language="F#" Value="static member AddResponsesServer : Microsoft.Extensions.Hosting.IHostApplicationBuilder * string * Action&lt;Azure.AI.AgentServer.Responses.ResponsesServerSettings&gt; -&gt; Microsoft.Extensions.Hosting.IHostApplicationBuilder" Usage="Azure.AI.AgentServer.Responses.ResponsesServerHostExtensions.AddResponsesServer (host, sectionName, configureSettings)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Extensions.Hosting.IHostApplicationBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="host" Type="Microsoft.Extensions.Hosting.IHostApplicationBuilder" RefType="this" />
+        <Parameter Name="sectionName" Type="System.String" />
+        <Parameter Name="configureSettings" Type="System.Action&lt;Azure.AI.AgentServer.Responses.ResponsesServerSettings&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="host">The host application builder.</param>
+        <param name="sectionName">The configuration section to bind settings from.</param>
+        <param name="configureSettings">Optional callback to modify the bound settings.</param>
+        <summary>
+            Registers the Responses API server SDK services, binding
+            <see cref="T:Azure.AI.AgentServer.Responses.ResponsesServerSettings" /> from the named configuration section and applying
+            <paramref name="configureSettings" /> afterward (so code-configured values, including a
+            hard-coded <see cref="P:System.ClientModel.Primitives.ClientSettings.CredentialProvider" />,
+            win over the section).
+            </summary>
+        <returns>The host application builder for chaining.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

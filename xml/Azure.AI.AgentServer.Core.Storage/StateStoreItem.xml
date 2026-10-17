@@ -23,7 +23,7 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> A single `key -&gt; value` record within a state store (spec §2, §4.2). </summary>
+    <summary> A single key-value record within a state store. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -42,27 +42,27 @@
         <ReturnType>System.Int64</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Gets the CreatedAt. </summary>
+        <summary> Creation time in Unix epoch seconds. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Etag">
-      <MemberSignature Language="C#" Value="public string Etag { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string Etag" />
+      <MemberSignature Language="C#" Value="public Azure.ETag Etag { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Azure.ETag Etag" />
       <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Core.Storage.StateStoreItem.Etag" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Etag As String" />
-      <MemberSignature Language="F#" Value="member this.Etag : string" Usage="Azure.AI.AgentServer.Core.Storage.StateStoreItem.Etag" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Etag As ETag" />
+      <MemberSignature Language="F#" Value="member this.Etag : Azure.ETag" Usage="Azure.AI.AgentServer.Core.Storage.StateStoreItem.Etag" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>Azure.ETag</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Optimistic-concurrency token for this item; also echoed in the `ETag` response header. </summary>
+        <summary> The optimistic-concurrency token. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -82,7 +82,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Server-assigned, read-only. Not used for addressing (the `key` is.). </summary>
+        <summary> The server-assigned identifier. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -153,7 +153,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Logical key, unique within the store. May contain `/`. </summary>
+        <summary> The logical item key. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -173,7 +173,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Always `"state_store.item"`. </summary>
+        <summary> The wire object type. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -196,7 +196,7 @@
         <Parameter Name="result" Type="System.ClientModel.ClientResult" />
       </Parameters>
       <Docs>
-        <param name="result"> The <see cref="T:System.ClientModel.ClientResult" /> to deserialize the <see cref="T:Azure.AI.AgentServer.Core.Storage.StateStoreItem" /> from. </param>
+        <param name="result">The <see cref="T:System.ClientModel.ClientResult" /> to deserialize.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
@@ -407,7 +407,7 @@
         <ReturnType>System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Optional labels used to filter `listKeys`. Replaced wholesale on write. </summary>
+        <summary> Optional labels for filtering item keys. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -427,7 +427,7 @@
         <ReturnType>System.Int64</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Gets the UpdatedAt. </summary>
+        <summary> Last update time in Unix epoch seconds. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -448,7 +448,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-            Opaque JSON object; stored and returned verbatim. &lt;= 1 MB serialized inline.
+            The opaque JSON object stored for the item.
             <para> To assign an object to the value of this property use <see cref="M:System.BinaryData.FromObjectAsJson``1(``0,System.Text.Json.JsonSerializerOptions)" />. </para><para> To assign an already formatted json string to this property use <see cref="M:System.BinaryData.FromString(System.String)" />. </para><para>
             Examples:
             <list type="bullet"><item><term> BinaryData.FromObjectAsJson("foo"). </term><description> Creates a payload of "foo". </description></item><item><term> BinaryData.FromString("\"foo\""). </term><description> Creates a payload of "foo". </description></item><item><term> BinaryData.FromObjectAsJson(new { key = "value" }). </term><description> Creates a payload of { "key": "value" }. </description></item><item><term> BinaryData.FromString("{\"key\": \"value\"}"). </term><description> Creates a payload of { "key": "value" }. </description></item></list></para></summary>

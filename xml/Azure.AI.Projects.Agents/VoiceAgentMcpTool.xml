@@ -23,7 +23,7 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> An MCP tool available to a voice agent. </summary>
+    <summary> An MCP tool available to a voice agent. Server endpoints use `server_url`; connector and tunnel identifiers are not supported. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -280,32 +280,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="RequireApproval">
-      <MemberSignature Language="C#" Value="public BinaryData RequireApproval { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class System.BinaryData RequireApproval" />
-      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.VoiceAgentMcpTool.RequireApproval" />
-      <MemberSignature Language="VB.NET" Value="Public Property RequireApproval As BinaryData" />
-      <MemberSignature Language="F#" Value="member this.RequireApproval : BinaryData with get, set" Usage="Azure.AI.Projects.Agents.VoiceAgentMcpTool.RequireApproval" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.BinaryData</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            Gets or sets the RequireApproval.
-            <para> To assign an object to this property use <see cref="M:System.BinaryData.FromObjectAsJson``1(``0,System.Text.Json.JsonSerializerOptions)" />. </para><para> To assign an already formatted json string to this property use <see cref="M:System.BinaryData.FromString(System.String)" />. </para><para><remarks>
-            Supported types:
-            <list type="bullet"><item><description><see cref="T:OpenAI.Responses.McpToolCallApprovalPolicy" />. </description></item><item><description> "always". </description></item><item><description> "never". </description></item></list></remarks></para><para>
-            Examples:
-            <list type="bullet"><item><term> BinaryData.FromObjectAsJson("foo"). </term><description> Creates a payload of "foo". </description></item><item><term> BinaryData.FromString("\"foo\""). </term><description> Creates a payload of "foo". </description></item><item><term> BinaryData.FromObjectAsJson(new { key = "value" }). </term><description> Creates a payload of { "key": "value" }. </description></item><item><term> BinaryData.FromString("{\"key\": \"value\"}"). </term><description> Creates a payload of { "key": "value" }. </description></item></list></para></summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="ResponseScheduling">
       <MemberSignature Language="C#" Value="public Azure.AI.Projects.Agents.VoiceAgentToolResponseScheduling? ResponseScheduling { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.Agents.VoiceAgentToolResponseScheduling&gt; ResponseScheduling" />
@@ -381,7 +355,10 @@
         <ReturnType>System.Uri</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The URL for the MCP server. </summary>
+        <summary>
+            The URL for the MCP server. One of `server_url`, `connector_id`, or
+              `tunnel_id` must be provided.
+            </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -523,6 +500,28 @@
         <param name="options"> The client options for reading and writing models. </param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToolCallApprovalPolicy">
+      <MemberSignature Language="C#" Value="public OpenAI.Responses.McpToolCallApprovalPolicy ToolCallApprovalPolicy { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class OpenAI.Responses.McpToolCallApprovalPolicy ToolCallApprovalPolicy" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.VoiceAgentMcpTool.ToolCallApprovalPolicy" />
+      <MemberSignature Language="VB.NET" Value="Public Property ToolCallApprovalPolicy As McpToolCallApprovalPolicy" />
+      <MemberSignature Language="F#" Value="member this.ToolCallApprovalPolicy : OpenAI.Responses.McpToolCallApprovalPolicy with get, set" Usage="Azure.AI.Projects.Agents.VoiceAgentMcpTool.ToolCallApprovalPolicy" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>OpenAI.Responses.McpToolCallApprovalPolicy</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The approval policy used by the tool.
+            </summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

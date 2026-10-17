@@ -52,25 +52,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="ClientCancelled">
-      <MemberSignature Language="C#" Value="public virtual bool ClientCancelled { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance bool ClientCancelled" />
-      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Responses.ResponseContext.ClientCancelled" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable ReadOnly Property ClientCancelled As Boolean" />
-      <MemberSignature Language="F#" Value="member this.ClientCancelled : bool" Usage="Azure.AI.AgentServer.Responses.ResponseContext.ClientCancelled" />
+    <Member MemberName="ClientCancellation">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.CancellationToken ClientCancellation { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Threading.CancellationToken ClientCancellation" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Responses.ResponseContext.ClientCancellation" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable ReadOnly Property ClientCancellation As CancellationToken" />
+      <MemberSignature Language="F#" Value="member this.ClientCancellation : System.Threading.CancellationToken" Usage="Azure.AI.AgentServer.Responses.ResponseContext.ClientCancellation" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
+        <ReturnType>System.Threading.CancellationToken</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
-            Gets whether the client has explicitly cancelled this response. Distinct from
-            <see cref="P:Azure.AI.AgentServer.Responses.ResponseContext.IsShutdownRequested" /> (server shutting down) and client disconnect;
-            handlers can use this to stop work in response to an explicit cancel request.
+            Gets a cancellation token that is signaled when the client explicitly cancels this
+            response. Kept separate from <see cref="P:Azure.AI.AgentServer.Responses.ResponseContext.Shutdown" /> (host shutting down), the handler's
+            primary cancellation token, and a raw client disconnect, so a handler can compose or
+            link it to react specifically to an explicit client cancel.
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
@@ -254,6 +255,32 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="IsClientCancelled">
+      <MemberSignature Language="C#" Value="public virtual bool IsClientCancelled { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsClientCancelled" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Responses.ResponseContext.IsClientCancelled" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable ReadOnly Property IsClientCancelled As Boolean" />
+      <MemberSignature Language="F#" Value="member this.IsClientCancelled : bool" Usage="Azure.AI.AgentServer.Responses.ResponseContext.IsClientCancelled" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets whether the client has explicitly cancelled this response. This is a get-only
+            virtual passthrough over <see cref="P:Azure.AI.AgentServer.Responses.ResponseContext.ClientCancellation" />
+            (<see cref="P:System.Threading.CancellationToken.IsCancellationRequested" />). Distinct from
+            <see cref="P:Azure.AI.AgentServer.Responses.ResponseContext.IsShutdownRequested" /> (server shutting down) and client disconnect;
+            handlers can use this to stop work in response to an explicit cancel request.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="IsRecovery">
       <MemberSignature Language="C#" Value="public virtual bool IsRecovery { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool IsRecovery" />
@@ -283,11 +310,11 @@
       </Docs>
     </Member>
     <Member MemberName="IsShutdownRequested">
-      <MemberSignature Language="C#" Value="public bool IsShutdownRequested { get; set; }" />
+      <MemberSignature Language="C#" Value="public virtual bool IsShutdownRequested { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool IsShutdownRequested" />
       <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Responses.ResponseContext.IsShutdownRequested" />
-      <MemberSignature Language="VB.NET" Value="Public Property IsShutdownRequested As Boolean" />
-      <MemberSignature Language="F#" Value="member this.IsShutdownRequested : bool with get, set" Usage="Azure.AI.AgentServer.Responses.ResponseContext.IsShutdownRequested" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable ReadOnly Property IsShutdownRequested As Boolean" />
+      <MemberSignature Language="F#" Value="member this.IsShutdownRequested : bool" Usage="Azure.AI.AgentServer.Responses.ResponseContext.IsShutdownRequested" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
@@ -298,9 +325,8 @@
       </ReturnValue>
       <Docs>
         <summary>
-            Gets or sets whether the host is gracefully shutting down. Setting this to
-            <see langword="true" /> also signals <see cref="P:Azure.AI.AgentServer.Responses.ResponseContext.Shutdown" />; setting it to
-            <see langword="false" /> has no effect (a shutdown signal cannot be withdrawn).
+            Gets whether the host is gracefully shutting down. This is a get-only virtual
+            passthrough over <see cref="P:Azure.AI.AgentServer.Responses.ResponseContext.Shutdown" /> (<see cref="P:System.Threading.CancellationToken.IsCancellationRequested" />).
             Handlers can use this (or the awaitable <see cref="P:Azure.AI.AgentServer.Responses.ResponseContext.Shutdown" /> token) to distinguish
             graceful shutdown from an explicit client cancel or a client disconnect.
             </summary>

@@ -721,12 +721,12 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Checkpoint">
-      <MemberSignature Language="C#" Value="public Azure.AI.AgentServer.Responses.Models.ResponseStreamEvent Checkpoint ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Azure.AI.AgentServer.Responses.Models.ResponseStreamEvent Checkpoint() cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Responses.ResponseEventStream.Checkpoint" />
-      <MemberSignature Language="VB.NET" Value="Public Function Checkpoint () As ResponseStreamEvent" />
-      <MemberSignature Language="F#" Value="member this.Checkpoint : unit -&gt; Azure.AI.AgentServer.Responses.Models.ResponseStreamEvent" Usage="responseEventStream.Checkpoint " />
+    <Member MemberName="CreateCheckpointEvent">
+      <MemberSignature Language="C#" Value="public virtual Azure.AI.AgentServer.Responses.Models.ResponseStreamEvent CreateCheckpointEvent ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AI.AgentServer.Responses.Models.ResponseStreamEvent CreateCheckpointEvent() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Responses.ResponseEventStream.CreateCheckpointEvent" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateCheckpointEvent () As ResponseStreamEvent" />
+      <MemberSignature Language="F#" Value="abstract member CreateCheckpointEvent : unit -&gt; Azure.AI.AgentServer.Responses.Models.ResponseStreamEvent&#xA;override this.CreateCheckpointEvent : unit -&gt; Azure.AI.AgentServer.Responses.Models.ResponseStreamEvent" Usage="responseEventStream.CreateCheckpointEvent " />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
@@ -741,7 +741,8 @@
             Produces a checkpoint control signal to <c>yield</c> at a phase boundary so the framework
             persists the current <see cref="P:Azure.AI.AgentServer.Responses.ResponseEventStream.Response" /> snapshot as a resume watermark.
             <para>
-            Usage inside a handler: <c>yield return stream.Checkpoint();</c>. The <c>yield</c> is
+            It is a pure factory: the returned event has no effect until the handler <c>yield</c>s it —
+            <c>yield return stream.CreateCheckpointEvent();</c>. The <c>yield</c> is
             <b>backpressured</b> — control does not return to the handler until the persist completes.
             The checkpoint is a <b>no-op</b> unless the response is a resilient background response
             (<c>ResilientBackground=true</c> + <c>store=true</c> + <c>background=true</c>). On recovery,
@@ -977,38 +978,6 @@
             Sets <c>Status = Queued</c> before creating the event.
             </summary>
         <returns>A <see cref="T:Azure.AI.AgentServer.Responses.Models.ResponseQueuedEvent" /> with the current response snapshot.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="InternalMetadata">
-      <MemberSignature Language="C#" Value="public virtual System.Collections.Generic.IDictionary&lt;string,string&gt; InternalMetadata { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IDictionary`2&lt;string, string&gt; InternalMetadata" />
-      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Responses.ResponseEventStream.InternalMetadata" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable ReadOnly Property InternalMetadata As IDictionary(Of String, String)" />
-      <MemberSignature Language="F#" Value="member this.InternalMetadata : System.Collections.Generic.IDictionary&lt;string, string&gt;" Usage="Azure.AI.AgentServer.Responses.ResponseEventStream.InternalMetadata" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            Gets the internal metadata map for this response — the .NET equivalent of Python's
-            <c>stream.internal_metadata</c>. Unlike <see cref="P:Azure.AI.AgentServer.Responses.Models.ResponseObject.Metadata" /> (the
-            client's own metadata, which is never stripped), internal metadata is framework-reserved:
-            every mutation is folded into the response snapshot as a compact JSON string under the
-            reserved key <c>_internal_metadata</c> inside <see cref="P:Azure.AI.AgentServer.Responses.Models.ResponseObject.Metadata" />,
-            so it is persisted <em>with</em> the response on every snapshot the orchestrator writes and
-            survives crash/recovery (read back on recovery via
-            <see cref="P:Azure.AI.AgentServer.Responses.ResponseContext.PersistedResponse" />). It is stripped from every client-facing
-            ingress/egress payload by <see cref="T:Azure.AI.AgentServer.Responses.Internal.Resilience.InternalMetadataEgress" />. Keys are
-            free-form; values are strings. On a mock-constructed stream (no backing response) the map is
-            purely in-memory.
-            </summary>
-        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1862,6 +1831,38 @@
             form data, or any custom JSON payload.
             </summary>
         <returns>An enumerable of events: <c>output_item.added</c> → <c>output_item.done</c>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PersistedMetadata">
+      <MemberSignature Language="C#" Value="public virtual System.Collections.Generic.IDictionary&lt;string,string&gt; PersistedMetadata { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IDictionary`2&lt;string, string&gt; PersistedMetadata" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Responses.ResponseEventStream.PersistedMetadata" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable ReadOnly Property PersistedMetadata As IDictionary(Of String, String)" />
+      <MemberSignature Language="F#" Value="member this.PersistedMetadata : System.Collections.Generic.IDictionary&lt;string, string&gt;" Usage="Azure.AI.AgentServer.Responses.ResponseEventStream.PersistedMetadata" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets the framework-reserved metadata map that is persisted with the response for recovery and
+            stripped on egress — the .NET equivalent of Python's <c>stream.internal_metadata</c>. Unlike
+            <see cref="P:Azure.AI.AgentServer.Responses.Models.ResponseObject.Metadata" /> (the client's own metadata, which is never
+            stripped), every mutation here is folded into the response snapshot as a compact JSON string
+            under the reserved key <c>_internal_metadata</c> inside <see cref="P:Azure.AI.AgentServer.Responses.Models.ResponseObject.Metadata" />,
+            so it is persisted <em>with</em> the response on every snapshot the orchestrator writes and
+            survives crash/recovery (read back on recovery via
+            <see cref="P:Azure.AI.AgentServer.Responses.ResponseContext.PersistedResponse" />). It is stripped from every client-facing
+            ingress/egress payload by <see cref="T:Azure.AI.AgentServer.Responses.Internal.Resilience.InternalMetadataEgress" />. Keys are
+            free-form; values are strings. On a mock-constructed stream (no backing response) the map is
+            purely in-memory.
+            </summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

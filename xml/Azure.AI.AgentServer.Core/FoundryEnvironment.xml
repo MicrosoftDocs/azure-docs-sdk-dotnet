@@ -22,8 +22,8 @@
     <summary>
             Provides strongly-typed access to Foundry platform environment variables
             injected by the Azure AI Foundry hosting infrastructure.
-            All values are read once in the static constructor and cached for the
-            lifetime of the process.
+            Values are cached when first accessed and refreshed after the platform
+            applies snapshot restore environment overrides.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>
@@ -375,10 +375,40 @@
       </ReturnValue>
       <Docs>
         <summary>
-            The session ID. Sourced from the <c>FOUNDRY_AGENT_SESSION_ID</c> environment variable.
+            The session ID. Sourced from the <c>FOUNDRY_AGENT_SESSION_ID</c> environment variable
+            and refreshed after snapshot restoration.
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SessionInstanceId">
+      <MemberSignature Language="C#" Value="public static Guid? SessionInstanceId { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype System.Nullable`1&lt;valuetype System.Guid&gt; SessionInstanceId" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Core.FoundryEnvironment.SessionInstanceId" />
+      <MemberSignature Language="VB.NET" Value="Public Shared ReadOnly Property SessionInstanceId As Nullable(Of Guid)" />
+      <MemberSignature Language="F#" Value="static member SessionInstanceId : Nullable&lt;Guid&gt;" Usage="Azure.AI.AgentServer.Core.FoundryEnvironment.SessionInstanceId" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;System.Guid&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The system-generated session incarnation identifier. Sourced from the
+            <c>FOUNDRY_AGENT_SESSION_GUID</c> environment variable.
+            </summary>
+        <value>To be added.</value>
+        <remarks>
+            Unlike <see cref="P:Azure.AI.AgentServer.Core.FoundryEnvironment.SessionId" />, which is the logical public session identity, this value
+            is an internal identifier unique to one hosted session incarnation, independent of the
+            session name. It changes when a session is recreated. Responses uses it to avoid reusing a
+            durable task ID whose prior session was deleted and tombstoned by the service. In hosted
+            environments, a non-empty value must be exactly 32 lowercase hexadecimal characters.
+            </remarks>
       </Docs>
     </Member>
     <Member MemberName="SseKeepAliveInterval">

@@ -1,0 +1,233 @@
+<Type Name="ResponsesServerSettings" FullName="Azure.AI.AgentServer.Responses.ResponsesServerSettings">
+  <TypeSignature Language="C#" Value="public class ResponsesServerSettings : System.ClientModel.Primitives.ClientSettings" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ResponsesServerSettings extends System.ClientModel.Primitives.ClientSettings" />
+  <TypeSignature Language="DocId" Value="T:Azure.AI.AgentServer.Responses.ResponsesServerSettings" />
+  <TypeSignature Language="VB.NET" Value="Public Class ResponsesServerSettings&#xA;Inherits ClientSettings" />
+  <TypeSignature Language="F#" Value="type ResponsesServerSettings = class&#xA;    inherit ClientSettings" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ClientModel.Primitives.ClientSettings</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.Experimental("SCME0002")]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.Experimental("SCME0002")&gt;]</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(0)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(0)&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+            Configuration-bindable settings for the Responses API server, loaded from an
+            <see cref="T:Microsoft.Extensions.Configuration.IConfigurationSection" /> via
+            <see cref="M:Azure.AI.AgentServer.Responses.ResponsesServerHostExtensions.AddResponsesServer(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String)" />.
+            <para>
+            The inherited <see cref="P:System.ClientModel.Primitives.ClientSettings.Credential" /> / <see cref="P:System.ClientModel.Primitives.ClientSettings.CredentialProvider" />
+            bind the identity used for BOTH Foundry response storage and resilient-task storage from the same
+            section, so the two can never diverge. <see cref="P:Azure.AI.AgentServer.Responses.ResponsesServerSettings.Endpoint" /> overrides the platform's
+            <c>FOUNDRY_PROJECT_ENDPOINT</c> environment variable, and the option flags below replace the
+            <see cref="T:Azure.AI.AgentServer.Responses.ResponsesServerOptions" /> shape when the host binds from configuration.
+            </para></summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ResponsesServerSettings ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Responses.ResponsesServerSettings.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BindCore">
+      <MemberSignature Language="C#" Value="protected override void BindCore (Microsoft.Extensions.Configuration.IConfigurationSection section);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void BindCore(class Microsoft.Extensions.Configuration.IConfigurationSection section) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Responses.ResponsesServerSettings.BindCore(Microsoft.Extensions.Configuration.IConfigurationSection)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Sub BindCore (section As IConfigurationSection)" />
+      <MemberSignature Language="F#" Value="abstract member BindCore : Microsoft.Extensions.Configuration.IConfigurationSection -&gt; unit&#xA;override this.BindCore : Microsoft.Extensions.Configuration.IConfigurationSection -&gt; unit" Usage="responsesServerSettings.BindCore section" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="section" Type="Microsoft.Extensions.Configuration.IConfigurationSection" />
+      </Parameters>
+      <Docs>
+        <param name="section">The configuration section.</param>
+        <summary>
+            Binds the configuration values above from the given section. The inherited credential
+            binding is applied by the base <see cref="M:System.ClientModel.Primitives.ClientSettings.Bind(Microsoft.Extensions.Configuration.IConfigurationSection)" />.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultFetchHistoryCount">
+      <MemberSignature Language="C#" Value="public int DefaultFetchHistoryCount { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 DefaultFetchHistoryCount" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Responses.ResponsesServerSettings.DefaultFetchHistoryCount" />
+      <MemberSignature Language="VB.NET" Value="Public Property DefaultFetchHistoryCount As Integer" />
+      <MemberSignature Language="F#" Value="member this.DefaultFetchHistoryCount : int with get, set" Usage="Azure.AI.AgentServer.Responses.ResponsesServerSettings.DefaultFetchHistoryCount" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the maximum number of conversation history items fetched by
+            <see cref="M:Azure.AI.AgentServer.Responses.ResponseContext.GetHistoryAsync(System.Threading.CancellationToken)" />, or <c>-1</c> to fetch all available
+            history. Replaces the <c>DEFAULT_FETCH_HISTORY_ITEM_COUNT</c> environment variable.
+            Default: <c>-1</c>.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultModel">
+      <MemberSignature Language="C#" Value="public string? DefaultModel { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string DefaultModel" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Responses.ResponsesServerSettings.DefaultModel" />
+      <MemberSignature Language="VB.NET" Value="Public Property DefaultModel As String" />
+      <MemberSignature Language="F#" Value="member this.DefaultModel : string with get, set" Usage="Azure.AI.AgentServer.Responses.ResponsesServerSettings.DefaultModel" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the default model to use when <c>model</c> is omitted from a
+            <c>CreateResponse</c> request. Mirrors <see cref="P:Azure.AI.AgentServer.Responses.ResponsesServerOptions.DefaultModel" />.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Endpoint">
+      <MemberSignature Language="C#" Value="public Uri? Endpoint { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Uri Endpoint" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Responses.ResponsesServerSettings.Endpoint" />
+      <MemberSignature Language="VB.NET" Value="Public Property Endpoint As Uri" />
+      <MemberSignature Language="F#" Value="member this.Endpoint : Uri with get, set" Usage="Azure.AI.AgentServer.Responses.ResponsesServerSettings.Endpoint" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Uri</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the Azure AI Foundry project endpoint used for response and task storage.
+            Overrides the platform's <c>FOUNDRY_PROJECT_ENDPOINT</c> environment variable. In hosted
+            environments it defaults to that variable when not configured.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResilientBackground">
+      <MemberSignature Language="C#" Value="public bool ResilientBackground { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ResilientBackground" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Responses.ResponsesServerSettings.ResilientBackground" />
+      <MemberSignature Language="VB.NET" Value="Public Property ResilientBackground As Boolean" />
+      <MemberSignature Language="F#" Value="member this.ResilientBackground : bool with get, set" Usage="Azure.AI.AgentServer.Responses.ResponsesServerSettings.ResilientBackground" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets whether background responses are resilient to process crashes and graceful
+            shutdown. Mirrors <see cref="P:Azure.AI.AgentServer.Responses.ResponsesServerOptions.ResilientBackground" />.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResponseAcceptor">
+      <MemberSignature Language="C#" Value="public Func&lt;Azure.AI.AgentServer.Responses.Models.CreateResponse,Azure.AI.AgentServer.Responses.ResponseContext,Azure.AI.AgentServer.Responses.Models.ResponseObject&gt;? ResponseAcceptor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Func`3&lt;class Azure.AI.AgentServer.Responses.Models.CreateResponse, class Azure.AI.AgentServer.Responses.ResponseContext, class Azure.AI.AgentServer.Responses.Models.ResponseObject&gt; ResponseAcceptor" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Responses.ResponsesServerSettings.ResponseAcceptor" />
+      <MemberSignature Language="VB.NET" Value="Public Property ResponseAcceptor As Func(Of CreateResponse, ResponseContext, ResponseObject)" />
+      <MemberSignature Language="F#" Value="member this.ResponseAcceptor : Func&lt;Azure.AI.AgentServer.Responses.Models.CreateResponse, Azure.AI.AgentServer.Responses.ResponseContext, Azure.AI.AgentServer.Responses.Models.ResponseObject&gt; with get, set" Usage="Azure.AI.AgentServer.Responses.ResponsesServerSettings.ResponseAcceptor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1, 1, 1 })]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1, 1, 1 })&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Func&lt;Azure.AI.AgentServer.Responses.Models.CreateResponse,Azure.AI.AgentServer.Responses.ResponseContext,Azure.AI.AgentServer.Responses.Models.ResponseObject&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets an optional hook that customizes the <c>queued</c> envelope returned to the
+            caller when a new turn is queued behind an active steerable conversation. Mirrors
+            <see cref="P:Azure.AI.AgentServer.Responses.ResponsesServerOptions.ResponseAcceptor" />. Not configuration-bindable; set it
+            via the <c>configureSettings</c> callback.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SteerableConversations">
+      <MemberSignature Language="C#" Value="public bool SteerableConversations { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool SteerableConversations" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Responses.ResponsesServerSettings.SteerableConversations" />
+      <MemberSignature Language="VB.NET" Value="Public Property SteerableConversations As Boolean" />
+      <MemberSignature Language="F#" Value="member this.SteerableConversations : bool with get, set" Usage="Azure.AI.AgentServer.Responses.ResponsesServerSettings.SteerableConversations" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Responses</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets whether in-flight conversations accept steering (mid-turn additional input).
+            Mirrors <see cref="P:Azure.AI.AgentServer.Responses.ResponsesServerOptions.SteerableConversations" />. Steering requires
+            resilient tasks to be enabled explicitly or through <see cref="P:Azure.AI.AgentServer.Responses.ResponsesServerSettings.ResilientBackground" />.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

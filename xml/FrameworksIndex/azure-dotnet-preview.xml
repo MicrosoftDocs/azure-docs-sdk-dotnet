@@ -210,6 +210,7 @@
     <Assembly Name="Azure.ResourceManager.Compute.BulkActions" Version="1.2.0.0" />
     <Assembly Name="Azure.ResourceManager.Compute" Version="1.15.0.0" />
     <Assembly Name="Azure.ResourceManager.Compute.Recommender" Version="1.1.0.0" />
+    <Assembly Name="Azure.ResourceManager.Compute.WorkloadManager" Version="1.0.0.0" />
     <Assembly Name="Azure.ResourceManager.ComputeFleet" Version="1.1.0.0" />
     <Assembly Name="Azure.ResourceManager.ComputeLimit" Version="1.0.0.0" />
     <Assembly Name="Azure.ResourceManager.ComputeSchedule" Version="1.2.0.0" />
@@ -9380,6 +9381,12 @@
       <Member Id="P:Azure.AI.AgentServer.Core.AgentHostOptions.AdditionalServerIdentity" />
       <Member Id="P:Azure.AI.AgentServer.Core.AgentHostOptions.ShutdownTimeout" />
     </Type>
+    <Type Name="Azure.AI.AgentServer.Core.AgentRestoreContext" Id="T:Azure.AI.AgentServer.Core.AgentRestoreContext">
+      <Member Id="M:Azure.AI.AgentServer.Core.AgentRestoreContext.#ctor(System.String,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})" />
+      <Member Id="P:Azure.AI.AgentServer.Core.AgentRestoreContext.RestoreId" />
+      <Member Id="P:Azure.AI.AgentServer.Core.AgentRestoreContext.SessionEnvironmentOverrides" />
+      <Member Id="P:Azure.AI.AgentServer.Core.AgentRestoreContext.SessionId" />
+    </Type>
     <Type Name="Azure.AI.AgentServer.Core.FoundryAgentRequestContext" Id="T:Azure.AI.AgentServer.Core.FoundryAgentRequestContext">
       <Member Id="M:Azure.AI.AgentServer.Core.FoundryAgentRequestContext.#ctor" />
       <Member Id="M:Azure.AI.AgentServer.Core.FoundryAgentRequestContext.PlatformHeaders" />
@@ -9411,8 +9418,13 @@
       <Member Id="P:Azure.AI.AgentServer.Core.FoundryEnvironment.ProjectArmId" />
       <Member Id="P:Azure.AI.AgentServer.Core.FoundryEnvironment.ProjectEndpoint" />
       <Member Id="P:Azure.AI.AgentServer.Core.FoundryEnvironment.SessionId" />
+      <Member Id="P:Azure.AI.AgentServer.Core.FoundryEnvironment.SessionInstanceId" />
       <Member Id="P:Azure.AI.AgentServer.Core.FoundryEnvironment.SseKeepAliveInterval" />
       <Member Id="P:Azure.AI.AgentServer.Core.FoundryEnvironment.WebSocketKeepAliveInterval" />
+    </Type>
+    <Type Name="Azure.AI.AgentServer.Core.IAgentSnapshotLifecycle" Id="T:Azure.AI.AgentServer.Core.IAgentSnapshotLifecycle">
+      <Member Id="M:Azure.AI.AgentServer.Core.IAgentSnapshotLifecycle.AfterRestoreAsync(Azure.AI.AgentServer.Core.AgentRestoreContext,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.IAgentSnapshotLifecycle.BeforeSnapshotAsync(System.Threading.CancellationToken)" />
     </Type>
     <Type Name="Azure.AI.AgentServer.Core.PlatformContext" Id="T:Azure.AI.AgentServer.Core.PlatformContext">
       <Member Id="M:Azure.AI.AgentServer.Core.PlatformContext.#ctor" />
@@ -9461,9 +9473,9 @@
       <Member Id="M:Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.DeletedStateStore(System.String,System.String,System.Boolean)" />
       <Member Id="M:Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.DeletedStateStoreItem(System.String,System.String,System.Boolean)" />
       <Member Id="M:Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStore(System.String,System.String,System.Boolean,System.Int32,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Int64,System.Int64)" />
-      <Member Id="M:Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItem(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.BinaryData},System.Collections.Generic.IDictionary{System.String,System.String},System.String,System.Int64,System.Int64)" />
-      <Member Id="M:Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItemKey(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.String,System.Int64,System.Int64)" />
-      <Member Id="M:Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItemRef(System.String,System.String,System.String,System.Int64,System.Int64)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItem(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.BinaryData},System.Collections.Generic.IDictionary{System.String,System.String},Azure.ETag,System.Int64,System.Int64)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItemKey(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},Azure.ETag,System.Int64,System.Int64)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItemRef(System.String,System.String,Azure.ETag,System.Int64,System.Int64)" />
     </Type>
     <Type Name="Azure.AI.AgentServer.Core.Storage.DeletedStateStore" Id="T:Azure.AI.AgentServer.Core.Storage.DeletedStateStore">
       <Member Id="M:Azure.AI.AgentServer.Core.Storage.DeletedStateStore.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
@@ -9503,16 +9515,16 @@
       <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.CreateItemAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.BinaryData},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.String,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.CreateItemAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.BinaryData},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Threading.CancellationToken)" />
       <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.DeleteAsync(System.Threading.CancellationToken)" />
-      <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.DeleteItemAsync(System.String,System.String,System.String,System.Threading.CancellationToken)" />
-      <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.DeleteItemAsync(System.String,System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.DeleteItemAsync(System.String,Azure.ETag,System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.DeleteItemAsync(System.String,Azure.ETag,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.GetAsync(System.Threading.CancellationToken)" />
       <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.GetItemAsync(System.String,System.String,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.GetItemAsync(System.String,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.GetOrCreateAsync(System.String,Azure.Core.TokenCredential,System.Uri,System.Boolean,System.Int32,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.String,System.String,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.ListKeysAsync(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Nullable{System.Int32},System.String,System.String,Azure.AI.AgentServer.Core.Storage.ListRequestOrder,System.String,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.ListKeysAsync(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Nullable{System.Int32},System.String,System.String,Azure.AI.AgentServer.Core.Storage.ListRequestOrder,System.Threading.CancellationToken)" />
-      <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.SetItemAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.BinaryData},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.String,System.Boolean,System.String,System.Threading.CancellationToken)" />
-      <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.SetItemAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.BinaryData},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.String,System.Boolean,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.SetItemAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.BinaryData},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},Azure.ETag,System.Boolean,System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.SetItemAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.BinaryData},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},Azure.ETag,System.Boolean,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.UpdateAsync(Azure.AI.AgentServer.Core.Storage.StateStoreUpdateOptions,System.Threading.CancellationToken)" />
       <Member Id="P:Azure.AI.AgentServer.Core.Storage.FoundryStateStore.Name" />
     </Type>
@@ -9533,7 +9545,7 @@
       <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStorageNotFoundException.#ctor(System.String,System.String)" />
     </Type>
     <Type Name="Azure.AI.AgentServer.Core.Storage.FoundryStoragePreconditionException" Id="T:Azure.AI.AgentServer.Core.Storage.FoundryStoragePreconditionException">
-      <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStoragePreconditionException.#ctor(System.String,System.String,System.String)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Storage.FoundryStoragePreconditionException.#ctor(System.String,Azure.ETag,System.String)" />
       <Member Id="P:Azure.AI.AgentServer.Core.Storage.FoundryStoragePreconditionException.CurrentETag" />
     </Type>
     <Type Name="Azure.AI.AgentServer.Core.Storage.ListRequestOrder" Id="T:Azure.AI.AgentServer.Core.Storage.ListRequestOrder">
@@ -9666,6 +9678,9 @@
     </Type>
     <Type Name="Azure.AI.AgentServer.Core.Streaming.AgentEventStreamServiceCollectionExtensions" Id="T:Azure.AI.AgentServer.Core.Streaming.AgentEventStreamServiceCollectionExtensions">
       <Member Id="M:Azure.AI.AgentServer.Core.Streaming.AgentEventStreamServiceCollectionExtensions.AddAgentEventStreams(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Azure.AI.AgentServer.Core.Streaming.AgentEventStreamOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Streaming.AgentEventStreamServiceCollectionExtensions.AddAgentEventStreams(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Streaming.AgentEventStreamServiceCollectionExtensions.AddAgentEventStreamsDefault(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Action{Azure.AI.AgentServer.Core.Streaming.AgentEventStreamOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Streaming.AgentEventStreamServiceCollectionExtensions.AddAgentEventStreamsDefault(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{System.IServiceProvider,Azure.AI.AgentServer.Core.Streaming.AgentEventStreamOptions})" />
     </Type>
   </Namespace>
   <Namespace Name="Azure.AI.AgentServer.Core.Tasks">
@@ -9674,21 +9689,13 @@
       <Member Id="F:Azure.AI.AgentServer.Core.Tasks.EntryMode.Recovered" />
       <Member Id="F:Azure.AI.AgentServer.Core.Tasks.EntryMode.Resumed" />
     </Type>
-    <Type Name="Azure.AI.AgentServer.Core.Tasks.IMultiTurnTask" Id="T:Azure.AI.AgentServer.Core.Tasks.IMultiTurnTask">
-      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.IMultiTurnTask.DeleteAsync(System.String,System.Threading.CancellationToken)" />
+    <Type Name="Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler`2" Id="T:Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler`2">
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler`2.RunAsync(Azure.AI.AgentServer.Core.Tasks.TaskContext{`0},System.Threading.CancellationToken)" />
     </Type>
-    <Type Name="Azure.AI.AgentServer.Core.Tasks.ITaskInvoker" Id="T:Azure.AI.AgentServer.Core.Tasks.ITaskInvoker">
-      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ITaskInvoker.GetActiveRunAsync``1(System.String,System.String,System.String,System.Threading.CancellationToken)" />
-      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ITaskInvoker.GetActiveRunAsync``1(System.String,System.String,System.Threading.CancellationToken)" />
-      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ITaskInvoker.RunAsync``2(System.String,``0,Azure.AI.AgentServer.Core.Tasks.RunOptions,System.Threading.CancellationToken)" />
-      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ITaskInvoker.StartAsync``2(System.String,``0,Azure.AI.AgentServer.Core.Tasks.RunOptions,System.Threading.CancellationToken)" />
-    </Type>
-    <Type Name="Azure.AI.AgentServer.Core.Tasks.ResilientTaskBuilder" Id="T:Azure.AI.AgentServer.Core.Tasks.ResilientTaskBuilder">
-      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskBuilder.#ctor" />
-      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskBuilder.AddMultiTurnTask``2(System.String,System.Func{Azure.AI.AgentServer.Core.Tasks.TaskContext{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},System.Boolean,System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
-      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskBuilder.AddMultiTurnTask``2(System.String,System.Func{Azure.AI.AgentServer.Core.Tasks.TaskContext{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},System.Text.Json.Serialization.Metadata.JsonTypeInfo{``0},System.Boolean,System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
-      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskBuilder.AddTask``2(System.String,System.Func{Azure.AI.AgentServer.Core.Tasks.TaskContext{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
-      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskBuilder.AddTask``2(System.String,System.Func{Azure.AI.AgentServer.Core.Tasks.TaskContext{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},System.Text.Json.Serialization.Metadata.JsonTypeInfo{``0},System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+    <Type Name="Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions" Id="T:Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions">
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions.SetResilientTasksEnabled(Azure.AI.AgentServer.Core.AgentHostBuilder,System.Boolean)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions.SetResilientTasksEnabled(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions.SetResilientTasksEnabled(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.Boolean)" />
     </Type>
     <Type Name="Azure.AI.AgentServer.Core.Tasks.ResilientTaskErrorCode" Id="T:Azure.AI.AgentServer.Core.Tasks.ResilientTaskErrorCode">
       <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskErrorCode.#ctor(System.String)" />
@@ -9702,6 +9709,7 @@
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.ResilientTaskErrorCode.Conflict" />
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.ResilientTaskErrorCode.ExhaustedRetries" />
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.ResilientTaskErrorCode.HandlerError" />
+      <Member Id="P:Azure.AI.AgentServer.Core.Tasks.ResilientTaskErrorCode.NotEnabled" />
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.ResilientTaskErrorCode.PreconditionFailed" />
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.ResilientTaskErrorCode.QueueFull" />
     </Type>
@@ -9712,8 +9720,36 @@
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.ResilientTaskException.ErrorCode" />
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.ResilientTaskException.Failure" />
     </Type>
+    <Type Name="Azure.AI.AgentServer.Core.Tasks.ResilientTaskHostExtensions" Id="T:Azure.AI.AgentServer.Core.Tasks.ResilientTaskHostExtensions">
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskHostExtensions.AddResilientTasks(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskHostExtensions.AddResilientTasks(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String,System.Action{Azure.AI.AgentServer.Core.Tasks.ResilientTaskSettings})" />
+    </Type>
+    <Type Name="Azure.AI.AgentServer.Core.Tasks.ResilientTaskOptions" Id="T:Azure.AI.AgentServer.Core.Tasks.ResilientTaskOptions">
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskOptions.#ctor" />
+      <Member Id="P:Azure.AI.AgentServer.Core.Tasks.ResilientTaskOptions.Enabled" />
+    </Type>
     <Type Name="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions" Id="T:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions">
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{Azure.AI.AgentServer.Core.Tasks.TaskContext{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},System.Boolean,System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{Azure.AI.AgentServer.Core.Tasks.TaskContext{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},System.Func{System.Boolean},System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{Azure.AI.AgentServer.Core.Tasks.TaskContext{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},System.Text.Json.Serialization.Metadata.JsonTypeInfo{``0},System.Boolean,System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask``3(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Boolean,System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask``3(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{System.Boolean},System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask``3(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Text.Json.Serialization.Metadata.JsonTypeInfo{``0},System.Boolean,System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTask``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{Azure.AI.AgentServer.Core.Tasks.TaskContext{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTask``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{Azure.AI.AgentServer.Core.Tasks.TaskContext{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},System.Text.Json.Serialization.Metadata.JsonTypeInfo{``0},System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTask``3(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTask``3(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Text.Json.Serialization.Metadata.JsonTypeInfo{``0},System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTaskCredentialDefault(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{System.IServiceProvider,Azure.Core.TokenCredential})" />
       <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTasks(Microsoft.Extensions.DependencyInjection.IServiceCollection,Azure.Core.TokenCredential)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTasks(Microsoft.Extensions.DependencyInjection.IServiceCollection,Azure.Core.TokenCredential,System.Uri)" />
+    </Type>
+    <Type Name="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceProviderExtensions" Id="T:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceProviderExtensions">
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceProviderExtensions.GetResilientTask``2(System.IServiceProvider,System.String)" />
+    </Type>
+    <Type Name="Azure.AI.AgentServer.Core.Tasks.ResilientTaskSettings" Id="T:Azure.AI.AgentServer.Core.Tasks.ResilientTaskSettings">
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskSettings.#ctor" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskSettings.BindCore(Microsoft.Extensions.Configuration.IConfigurationSection)" />
+      <Member Id="P:Azure.AI.AgentServer.Core.Tasks.ResilientTaskSettings.Endpoint" />
     </Type>
     <Type Name="Azure.AI.AgentServer.Core.Tasks.RunOptions" Id="T:Azure.AI.AgentServer.Core.Tasks.RunOptions">
       <Member Id="M:Azure.AI.AgentServer.Core.Tasks.RunOptions.#ctor" />
@@ -9734,8 +9770,20 @@
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.TaskContext`1.RecoveryCount" />
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.TaskContext`1.RetryAttempt" />
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.TaskContext`1.Shutdown" />
+      <Member Id="P:Azure.AI.AgentServer.Core.Tasks.TaskContext`1.Stream" />
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.TaskContext`1.TaskId" />
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.TaskContext`1.TimeoutExceeded" />
+    </Type>
+    <Type Name="Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2" Id="T:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2">
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.#ctor" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.DeleteAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.GetActiveRunAsync(System.String,System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.GetActiveRunAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.GetStatusAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.RunAsync(`0,Azure.AI.AgentServer.Core.Tasks.RunOptions,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.StartAsync(`0,Azure.AI.AgentServer.Core.Tasks.RunOptions,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.TryStartExistingAsync(`0,Azure.AI.AgentServer.Core.Tasks.RunOptions,System.Threading.CancellationToken)" />
+      <Member Id="P:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.Name" />
     </Type>
     <Type Name="Azure.AI.AgentServer.Core.Tasks.TaskFailureDetail" Id="T:Azure.AI.AgentServer.Core.Tasks.TaskFailureDetail">
       <Member Id="M:Azure.AI.AgentServer.Core.Tasks.TaskFailureDetail.#ctor(Azure.AI.AgentServer.Core.Tasks.TaskFailureKind,System.String,System.String,System.Nullable{System.Int32},System.String,System.String,System.String)" />
@@ -9769,6 +9817,7 @@
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.TaskRun`1.Completion" />
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.TaskRun`1.InputId" />
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.TaskRun`1.IsQueued" />
+      <Member Id="P:Azure.AI.AgentServer.Core.Tasks.TaskRun`1.Stream" />
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.TaskRun`1.TaskId" />
     </Type>
     <Type Name="Azure.AI.AgentServer.Core.Tasks.TaskRunStatus" Id="T:Azure.AI.AgentServer.Core.Tasks.TaskRunStatus">
@@ -9776,6 +9825,16 @@
       <Member Id="F:Azure.AI.AgentServer.Core.Tasks.TaskRunStatus.InProgress" />
       <Member Id="F:Azure.AI.AgentServer.Core.Tasks.TaskRunStatus.Pending" />
       <Member Id="F:Azure.AI.AgentServer.Core.Tasks.TaskRunStatus.Suspended" />
+    </Type>
+    <Type Name="Azure.AI.AgentServer.Core.Tasks.TaskStream" Id="T:Azure.AI.AgentServer.Core.Tasks.TaskStream">
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.TaskStream.#ctor" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.TaskStream.GetLastEventIdAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.TaskStream.Subscribe(System.String,System.Threading.CancellationToken)" />
+    </Type>
+    <Type Name="Azure.AI.AgentServer.Core.Tasks.TaskStreamWriter" Id="T:Azure.AI.AgentServer.Core.Tasks.TaskStreamWriter">
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.TaskStreamWriter.#ctor" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.TaskStreamWriter.EmitAsync(System.Net.ServerSentEvents.SseItem{System.String},System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.TaskStreamWriter.GetLastEventIdAsync(System.Threading.CancellationToken)" />
     </Type>
   </Namespace>
   <Namespace Name="Azure.AI.AgentServer.Invocations">
@@ -10254,9 +10313,10 @@
       <Member Id="M:Azure.AI.AgentServer.Responses.ResponseContext.GetHistoryAsync(System.Threading.CancellationToken)" />
       <Member Id="M:Azure.AI.AgentServer.Responses.ResponseContext.GetInputItemsAsync(System.Boolean,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.AI.AgentServer.Responses.ResponseContext.GetInputTextAsync(System.Boolean,System.Threading.CancellationToken)" />
-      <Member Id="P:Azure.AI.AgentServer.Responses.ResponseContext.ClientCancelled" />
+      <Member Id="P:Azure.AI.AgentServer.Responses.ResponseContext.ClientCancellation" />
       <Member Id="P:Azure.AI.AgentServer.Responses.ResponseContext.ClientHeaders" />
       <Member Id="P:Azure.AI.AgentServer.Responses.ResponseContext.ConversationChainId" />
+      <Member Id="P:Azure.AI.AgentServer.Responses.ResponseContext.IsClientCancelled" />
       <Member Id="P:Azure.AI.AgentServer.Responses.ResponseContext.IsRecovery" />
       <Member Id="P:Azure.AI.AgentServer.Responses.ResponseContext.IsShutdownRequested" />
       <Member Id="P:Azure.AI.AgentServer.Responses.ResponseContext.IsSteeredTurn" />
@@ -10325,7 +10385,7 @@
       <Member Id="M:Azure.AI.AgentServer.Responses.ResponseEventStream.AddOutputItemReasoningItem" />
       <Member Id="M:Azure.AI.AgentServer.Responses.ResponseEventStream.AddOutputItemStructuredOutputs" />
       <Member Id="M:Azure.AI.AgentServer.Responses.ResponseEventStream.AddOutputItemWebSearchCall" />
-      <Member Id="M:Azure.AI.AgentServer.Responses.ResponseEventStream.Checkpoint" />
+      <Member Id="M:Azure.AI.AgentServer.Responses.ResponseEventStream.CreateCheckpointEvent" />
       <Member Id="M:Azure.AI.AgentServer.Responses.ResponseEventStream.EmitCompleted(Azure.AI.AgentServer.Responses.Models.ResponseUsage)" />
       <Member Id="M:Azure.AI.AgentServer.Responses.ResponseEventStream.EmitCreated(Azure.AI.AgentServer.Responses.Models.ResponseStatus)" />
       <Member Id="M:Azure.AI.AgentServer.Responses.ResponseEventStream.EmitFailed(Azure.AI.AgentServer.Responses.Models.ResponseErrorCode,System.String,Azure.AI.AgentServer.Responses.Models.ResponseUsage)" />
@@ -10356,7 +10416,7 @@
       <Member Id="M:Azure.AI.AgentServer.Responses.ResponseEventStream.OutputItemReasoningItem(System.Collections.Generic.IAsyncEnumerable{System.String},System.Threading.CancellationToken)" />
       <Member Id="M:Azure.AI.AgentServer.Responses.ResponseEventStream.OutputItemReasoningItem(System.String)" />
       <Member Id="M:Azure.AI.AgentServer.Responses.ResponseEventStream.OutputItemStructuredOutputs(System.BinaryData)" />
-      <Member Id="P:Azure.AI.AgentServer.Responses.ResponseEventStream.InternalMetadata" />
+      <Member Id="P:Azure.AI.AgentServer.Responses.ResponseEventStream.PersistedMetadata" />
       <Member Id="P:Azure.AI.AgentServer.Responses.ResponseEventStream.Response" />
     </Type>
     <Type Name="Azure.AI.AgentServer.Responses.ResponseHandler" Id="T:Azure.AI.AgentServer.Responses.ResponseHandler">
@@ -10396,6 +10456,10 @@
     <Type Name="Azure.AI.AgentServer.Responses.ResponsesServerEndpointRouteBuilderExtensions" Id="T:Azure.AI.AgentServer.Responses.ResponsesServerEndpointRouteBuilderExtensions">
       <Member Id="M:Azure.AI.AgentServer.Responses.ResponsesServerEndpointRouteBuilderExtensions.MapResponsesServer(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)" />
     </Type>
+    <Type Name="Azure.AI.AgentServer.Responses.ResponsesServerHostExtensions" Id="T:Azure.AI.AgentServer.Responses.ResponsesServerHostExtensions">
+      <Member Id="M:Azure.AI.AgentServer.Responses.ResponsesServerHostExtensions.AddResponsesServer(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String)" />
+      <Member Id="M:Azure.AI.AgentServer.Responses.ResponsesServerHostExtensions.AddResponsesServer(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String,System.Action{Azure.AI.AgentServer.Responses.ResponsesServerSettings})" />
+    </Type>
     <Type Name="Azure.AI.AgentServer.Responses.ResponsesServerOptions" Id="T:Azure.AI.AgentServer.Responses.ResponsesServerOptions">
       <Member Id="M:Azure.AI.AgentServer.Responses.ResponsesServerOptions.#ctor" />
       <Member Id="P:Azure.AI.AgentServer.Responses.ResponsesServerOptions.DefaultFetchHistoryCount" />
@@ -10406,6 +10470,16 @@
     </Type>
     <Type Name="Azure.AI.AgentServer.Responses.ResponsesServerServiceCollectionExtensions" Id="T:Azure.AI.AgentServer.Responses.ResponsesServerServiceCollectionExtensions">
       <Member Id="M:Azure.AI.AgentServer.Responses.ResponsesServerServiceCollectionExtensions.AddResponsesServer(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Azure.AI.AgentServer.Responses.ResponsesServerOptions})" />
+    </Type>
+    <Type Name="Azure.AI.AgentServer.Responses.ResponsesServerSettings" Id="T:Azure.AI.AgentServer.Responses.ResponsesServerSettings">
+      <Member Id="M:Azure.AI.AgentServer.Responses.ResponsesServerSettings.#ctor" />
+      <Member Id="M:Azure.AI.AgentServer.Responses.ResponsesServerSettings.BindCore(Microsoft.Extensions.Configuration.IConfigurationSection)" />
+      <Member Id="P:Azure.AI.AgentServer.Responses.ResponsesServerSettings.DefaultFetchHistoryCount" />
+      <Member Id="P:Azure.AI.AgentServer.Responses.ResponsesServerSettings.DefaultModel" />
+      <Member Id="P:Azure.AI.AgentServer.Responses.ResponsesServerSettings.Endpoint" />
+      <Member Id="P:Azure.AI.AgentServer.Responses.ResponsesServerSettings.ResilientBackground" />
+      <Member Id="P:Azure.AI.AgentServer.Responses.ResponsesServerSettings.ResponseAcceptor" />
+      <Member Id="P:Azure.AI.AgentServer.Responses.ResponsesServerSettings.SteerableConversations" />
     </Type>
     <Type Name="Azure.AI.AgentServer.Responses.TextContentBuilder" Id="T:Azure.AI.AgentServer.Responses.TextContentBuilder">
       <Member Id="M:Azure.AI.AgentServer.Responses.TextContentBuilder.#ctor" />
@@ -22570,6 +22644,9 @@
       <Member Id="M:Azure.AI.Extensions.OpenAI.ExtensionsOpenAIModelFactory.MemorySearchPreviewTool(System.String,System.String,Azure.AI.Extensions.OpenAI.MemorySearchResultOptions,System.Nullable{System.Int32})" />
       <Member Id="M:Azure.AI.Extensions.OpenAI.ExtensionsOpenAIModelFactory.MemorySearchResultOptions(System.Nullable{System.Int32})" />
       <Member Id="M:Azure.AI.Extensions.OpenAI.ExtensionsOpenAIModelFactory.MemorySearchToolCall(OpenAI.Responses.ResponseItemKind,System.String,Azure.AI.Extensions.OpenAI.AgentReference,System.String,Azure.AI.Extensions.OpenAI.ToolCallStatus,System.Collections.Generic.IEnumerable{Azure.AI.Extensions.OpenAI.MemoryOutputItem})" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.ExtensionsOpenAIModelFactory.MicrosoftCopilotToolsetConfig(Azure.AI.Extensions.OpenAI.MicrosoftCopilotBuiltInTool,System.Nullable{System.Boolean})" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.ExtensionsOpenAIModelFactory.MicrosoftCopilotToolsetDefaultConfig(System.Nullable{System.Boolean})" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.ExtensionsOpenAIModelFactory.MicrosoftCopilotToolsetPreview(Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig,System.Collections.Generic.IEnumerable{Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig})" />
       <Member Id="M:Azure.AI.Extensions.OpenAI.ExtensionsOpenAIModelFactory.MicrosoftFabricPreviewTool(Azure.AI.Extensions.OpenAI.FabricDataAgentToolOptions)" />
       <Member Id="M:Azure.AI.Extensions.OpenAI.ExtensionsOpenAIModelFactory.OAuthConsentRequestResponseItem(OpenAI.Responses.ResponseItemKind,System.String,Azure.AI.Extensions.OpenAI.AgentReference,System.String,System.Uri,System.String)" />
       <Member Id="M:Azure.AI.Extensions.OpenAI.ExtensionsOpenAIModelFactory.OpenApiAnonymousAuthenticationDetails" />
@@ -22799,6 +22876,51 @@
       <Member Id="M:Azure.AI.Extensions.OpenAI.MemorySearchToolCall.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Extensions#OpenAI#MemorySearchToolCall&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="P:Azure.AI.Extensions.OpenAI.MemorySearchToolCall.Memories" />
       <Member Id="P:Azure.AI.Extensions.OpenAI.MemorySearchToolCall.Status" />
+    </Type>
+    <Type Name="Azure.AI.Extensions.OpenAI.MicrosoftCopilotBuiltInTool" Id="T:Azure.AI.Extensions.OpenAI.MicrosoftCopilotBuiltInTool">
+      <Member Id="F:Azure.AI.Extensions.OpenAI.MicrosoftCopilotBuiltInTool.FilesystemRead" />
+      <Member Id="F:Azure.AI.Extensions.OpenAI.MicrosoftCopilotBuiltInTool.FilesystemWrite" />
+      <Member Id="F:Azure.AI.Extensions.OpenAI.MicrosoftCopilotBuiltInTool.Shell" />
+      <Member Id="F:Azure.AI.Extensions.OpenAI.MicrosoftCopilotBuiltInTool.Subagents" />
+      <Member Id="F:Azure.AI.Extensions.OpenAI.MicrosoftCopilotBuiltInTool.Web" />
+    </Type>
+    <Type Name="Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig" Id="T:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig">
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig.System#ClientModel#Primitives#IJsonModel&lt;Azure#AI#Extensions#OpenAI#MicrosoftCopilotToolsetConfig&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig.System#ClientModel#Primitives#IJsonModel&lt;Azure#AI#Extensions#OpenAI#MicrosoftCopilotToolsetConfig&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Extensions#OpenAI#MicrosoftCopilotToolsetConfig&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Extensions#OpenAI#MicrosoftCopilotToolsetConfig&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Extensions#OpenAI#MicrosoftCopilotToolsetConfig&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig.Enabled" />
+      <Member Id="P:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetConfig.Name" />
+    </Type>
+    <Type Name="Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig" Id="T:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig">
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig.System#ClientModel#Primitives#IJsonModel&lt;Azure#AI#Extensions#OpenAI#MicrosoftCopilotToolsetDefaultConfig&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig.System#ClientModel#Primitives#IJsonModel&lt;Azure#AI#Extensions#OpenAI#MicrosoftCopilotToolsetDefaultConfig&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Extensions#OpenAI#MicrosoftCopilotToolsetDefaultConfig&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Extensions#OpenAI#MicrosoftCopilotToolsetDefaultConfig&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Extensions#OpenAI#MicrosoftCopilotToolsetDefaultConfig&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetDefaultConfig.Enabled" />
+    </Type>
+    <Type Name="Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview" Id="T:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview">
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview.System#ClientModel#Primitives#IJsonModel&lt;Azure#AI#Extensions#OpenAI#MicrosoftCopilotToolsetPreview&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview.System#ClientModel#Primitives#IJsonModel&lt;Azure#AI#Extensions#OpenAI#MicrosoftCopilotToolsetPreview&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Extensions#OpenAI#MicrosoftCopilotToolsetPreview&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Extensions#OpenAI#MicrosoftCopilotToolsetPreview&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Extensions#OpenAI#MicrosoftCopilotToolsetPreview&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview.Configs" />
+      <Member Id="P:Azure.AI.Extensions.OpenAI.MicrosoftCopilotToolsetPreview.DefaultConfig" />
     </Type>
     <Type Name="Azure.AI.Extensions.OpenAI.MicrosoftFabricPreviewTool" Id="T:Azure.AI.Extensions.OpenAI.MicrosoftFabricPreviewTool">
       <Member Id="M:Azure.AI.Extensions.OpenAI.MicrosoftFabricPreviewTool.#ctor(Azure.AI.Extensions.OpenAI.FabricDataAgentToolOptions)" />
@@ -23194,6 +23316,7 @@
       <Member Id="M:Azure.AI.Extensions.OpenAI.ResponseToolKindExtensions.get_FabricIQPreview" />
       <Member Id="M:Azure.AI.Extensions.OpenAI.ResponseToolKindExtensions.get_GitHubCopilotToolsetPreviewValue" />
       <Member Id="M:Azure.AI.Extensions.OpenAI.ResponseToolKindExtensions.get_MemorySearchPreview" />
+      <Member Id="M:Azure.AI.Extensions.OpenAI.ResponseToolKindExtensions.get_MicrosoftCopilotToolsetPreview" />
       <Member Id="M:Azure.AI.Extensions.OpenAI.ResponseToolKindExtensions.get_Namespace" />
       <Member Id="M:Azure.AI.Extensions.OpenAI.ResponseToolKindExtensions.get_OpenAPI" />
       <Member Id="M:Azure.AI.Extensions.OpenAI.ResponseToolKindExtensions.get_SharePointGroundingPreview" />
@@ -23215,6 +23338,7 @@
       <Member Id="P:Azure.AI.Extensions.OpenAI.ResponseToolKindExtensions.&lt;G&gt;$E0CE0E82775707DA8AF18B421221DEF9.FabricIQPreview" />
       <Member Id="P:Azure.AI.Extensions.OpenAI.ResponseToolKindExtensions.&lt;G&gt;$E0CE0E82775707DA8AF18B421221DEF9.GitHubCopilotToolsetPreviewValue" />
       <Member Id="P:Azure.AI.Extensions.OpenAI.ResponseToolKindExtensions.&lt;G&gt;$E0CE0E82775707DA8AF18B421221DEF9.MemorySearchPreview" />
+      <Member Id="P:Azure.AI.Extensions.OpenAI.ResponseToolKindExtensions.&lt;G&gt;$E0CE0E82775707DA8AF18B421221DEF9.MicrosoftCopilotToolsetPreview" />
       <Member Id="P:Azure.AI.Extensions.OpenAI.ResponseToolKindExtensions.&lt;G&gt;$E0CE0E82775707DA8AF18B421221DEF9.Namespace" />
       <Member Id="P:Azure.AI.Extensions.OpenAI.ResponseToolKindExtensions.&lt;G&gt;$E0CE0E82775707DA8AF18B421221DEF9.OpenAPI" />
       <Member Id="P:Azure.AI.Extensions.OpenAI.ResponseToolKindExtensions.&lt;G&gt;$E0CE0E82775707DA8AF18B421221DEF9.SharePointGroundingPreview" />
@@ -36469,6 +36593,10 @@
       <Member Id="M:Azure.AI.Projects.ProjectsRealtimeSessionClient.#ctor" />
       <Member Id="M:Azure.AI.Projects.ProjectsRealtimeSessionClient.ConnectAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)" />
     </Type>
+    <Type Name="Azure.AI.Projects.ProjectsRealtimeSessionClientOptions" Id="T:Azure.AI.Projects.ProjectsRealtimeSessionClientOptions">
+      <Member Id="M:Azure.AI.Projects.ProjectsRealtimeSessionClientOptions.#ctor" />
+      <Member Id="P:Azure.AI.Projects.ProjectsRealtimeSessionClientOptions.Transport" />
+    </Type>
     <Type Name="Azure.AI.Projects.ProjectsRoutine" Id="T:Azure.AI.Projects.ProjectsRoutine">
       <Member Id="M:Azure.AI.Projects.ProjectsRoutine.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="M:Azure.AI.Projects.ProjectsRoutine.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
@@ -38826,7 +38954,6 @@
       <Member Id="P:Azure.AI.Projects.Agents.HostedAgentDefinition.CodeConfiguration" />
       <Member Id="P:Azure.AI.Projects.Agents.HostedAgentDefinition.ContainerConfiguration" />
       <Member Id="P:Azure.AI.Projects.Agents.HostedAgentDefinition.Cpu" />
-      <Member Id="P:Azure.AI.Projects.Agents.HostedAgentDefinition.EnableMemorySnapshot" />
       <Member Id="P:Azure.AI.Projects.Agents.HostedAgentDefinition.EnvironmentVariables" />
       <Member Id="P:Azure.AI.Projects.Agents.HostedAgentDefinition.Image" />
       <Member Id="P:Azure.AI.Projects.Agents.HostedAgentDefinition.Memory" />
@@ -38947,6 +39074,18 @@
     </Type>
     <Type Name="Azure.AI.Projects.Agents.McpToolExtensions/&lt;G&gt;$35DCA4819B43CF3F6CAB343048615A7E/&lt;M&gt;$057BAEB40536DD92FB57E20F2D1CDCDE" Id="T:Azure.AI.Projects.Agents.McpToolExtensions.&lt;G&gt;$35DCA4819B43CF3F6CAB343048615A7E.&lt;M&gt;$057BAEB40536DD92FB57E20F2D1CDCDE">
       <Member Id="M:Azure.AI.Projects.Agents.McpToolExtensions.&lt;G&gt;$35DCA4819B43CF3F6CAB343048615A7E.&lt;M&gt;$057BAEB40536DD92FB57E20F2D1CDCDE.&lt;Extension&gt;$(OpenAI.Responses.McpTool)" />
+    </Type>
+    <Type Name="Azure.AI.Projects.Agents.MicrosoftCopilotHarness" Id="T:Azure.AI.Projects.Agents.MicrosoftCopilotHarness">
+      <Member Id="M:Azure.AI.Projects.Agents.MicrosoftCopilotHarness.#ctor" />
+      <Member Id="M:Azure.AI.Projects.Agents.MicrosoftCopilotHarness.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Projects.Agents.MicrosoftCopilotHarness.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Projects.Agents.MicrosoftCopilotHarness.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Projects.Agents.MicrosoftCopilotHarness.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Projects.Agents.MicrosoftCopilotHarness.System#ClientModel#Primitives#IJsonModel&lt;Azure#AI#Projects#Agents#MicrosoftCopilotHarness&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Projects.Agents.MicrosoftCopilotHarness.System#ClientModel#Primitives#IJsonModel&lt;Azure#AI#Projects#Agents#MicrosoftCopilotHarness&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Projects.Agents.MicrosoftCopilotHarness.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Projects#Agents#MicrosoftCopilotHarness&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Projects.Agents.MicrosoftCopilotHarness.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Projects#Agents#MicrosoftCopilotHarness&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Projects.Agents.MicrosoftCopilotHarness.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Projects#Agents#MicrosoftCopilotHarness&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
     </Type>
     <Type Name="Azure.AI.Projects.Agents.ModelSamplingParams" Id="T:Azure.AI.Projects.Agents.ModelSamplingParams">
       <Member Id="M:Azure.AI.Projects.Agents.ModelSamplingParams.#ctor" />
@@ -39245,7 +39384,7 @@
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.GenerateVoiceAgentRequest(System.String,System.Nullable{Azure.AI.Projects.Agents.VoiceModelType},System.String,System.String,System.String,System.String,System.Collections.Generic.IEnumerable{Azure.AI.Projects.Agents.VoiceAgentTool},System.Nullable{System.Boolean})" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.GitHubCopilotHarness" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.HeaderTelemetryEndpointAuth(System.String,System.String,System.String)" />
-      <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.HostedAgentDefinition(Azure.AI.Projects.Agents.ContentFilterConfiguration,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},Azure.AI.Projects.Agents.ContainerConfiguration,System.Collections.Generic.IEnumerable{Azure.AI.Projects.Agents.ProtocolVersionRecord},Azure.AI.Projects.Agents.CodeConfiguration,Azure.AI.Projects.Agents.TelemetryConfig,Azure.AI.Projects.Agents.SessionConfiguration,System.Nullable{System.Boolean})" />
+      <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.HostedAgentDefinition(Azure.AI.Projects.Agents.ContentFilterConfiguration,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},Azure.AI.Projects.Agents.ContainerConfiguration,System.Collections.Generic.IEnumerable{Azure.AI.Projects.Agents.ProtocolVersionRecord},Azure.AI.Projects.Agents.CodeConfiguration,Azure.AI.Projects.Agents.TelemetryConfig,Azure.AI.Projects.Agents.SessionConfiguration)" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.InlineSkillParam(System.String,System.String,Azure.AI.Projects.Agents.InlineSkillSourceParam)" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.InlineSkillSourceParam(System.String)" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.InvocationsProtocolConfiguration" />
@@ -39253,6 +39392,7 @@
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.ManagedAgentIdentityBlueprintReference(System.String)" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.McpProtocolConfiguration" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.MCPToolboxTool(System.String,System.String,System.Collections.Generic.IDictionary{System.String,Azure.AI.Extensions.OpenAI.ToolConfig},System.String,System.Uri,System.Nullable{OpenAI.Responses.McpToolConnectorId},System.String,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.BinaryData,System.Collections.Generic.IEnumerable{Azure.AI.Projects.Agents.CallableToolAllowedCaller},System.BinaryData,System.Nullable{System.Boolean},System.String)" />
+      <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.MicrosoftCopilotHarness" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.ModelSamplingParams(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Int32},System.Nullable{System.Int32})" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.OpenApiToolboxTool(System.String,System.String,System.Collections.Generic.IDictionary{System.String,Azure.AI.Extensions.OpenAI.ToolConfig},Azure.AI.Extensions.OpenAI.OpenApiFunctionDefinition)" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.OptimizationContext(System.String)" />
@@ -39344,7 +39484,7 @@
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentAvatarConfig(Azure.AI.Projects.Agents.VoiceAgentAvatarType,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{Azure.AI.Projects.Agents.VoiceAgentAvatarOutputProtocol},System.String,Azure.AI.Projects.Agents.VoiceAgentAvatarVideoParams,Azure.AI.Projects.Agents.VoiceAgentAvatarScene,System.Nullable{System.Boolean})" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentAvatarScene(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentAvatarVideoBackground(System.Uri,System.String)" />
-      <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentAvatarVideoCrop(System.Collections.Generic.IEnumerable{System.Object},System.Collections.Generic.IEnumerable{System.Object})" />
+      <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentAvatarVideoCrop(System.Collections.Generic.IEnumerable{System.UInt32},System.Collections.Generic.IEnumerable{System.UInt32})" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentAvatarVideoParams(System.Nullable{System.Int32},Azure.AI.Projects.Agents.VoiceAgentAvatarVideoCrop,Azure.AI.Projects.Agents.VoiceAgentAvatarVideoResolution,Azure.AI.Projects.Agents.VoiceAgentAvatarVideoBackground,System.Nullable{System.Int32})" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentAvatarVideoResolution(System.Int32,System.Int32)" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentAzureSemanticVadEnTurnDetection(System.Nullable{System.Boolean},System.Nullable{System.Single},System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan},Azure.AI.Projects.Agents.VoiceAgentEndOfUtteranceDetection,System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})" />
@@ -39360,7 +39500,7 @@
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentInterimResponseConfig(System.String,System.Collections.Generic.IEnumerable{Azure.AI.Projects.Agents.VoiceAgentInterimResponseTrigger},System.Nullable{System.TimeSpan})" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentLlmGeneratedGreetingConfig(System.String,System.BinaryData)" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentLlmInterimResponseConfig(System.Collections.Generic.IEnumerable{Azure.AI.Projects.Agents.VoiceAgentInterimResponseTrigger},System.Nullable{System.TimeSpan},System.String,System.String,System.Nullable{System.Int32})" />
-      <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentMcpTool(System.String,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.BinaryData,System.Collections.Generic.IEnumerable{Azure.AI.Projects.Agents.CallableToolAllowedCaller},System.BinaryData,System.Nullable{System.Boolean},System.String,System.Collections.Generic.IDictionary{System.String,Azure.AI.Extensions.OpenAI.ToolConfig},System.Uri,System.Nullable{Azure.AI.Projects.Agents.VoiceAgentToolResponseScheduling})" />
+      <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentMcpTool(System.String,System.Uri,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.BinaryData,System.Collections.Generic.IEnumerable{Azure.AI.Projects.Agents.CallableToolAllowedCaller},System.BinaryData,System.Nullable{System.Boolean},System.String,System.Collections.Generic.IDictionary{System.String,Azure.AI.Extensions.OpenAI.ToolConfig},System.Nullable{Azure.AI.Projects.Agents.VoiceAgentToolResponseScheduling})" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentNoiseReduction(Azure.AI.Projects.Agents.VoiceAgentNoiseReductionType)" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentSemanticVadTurnDetection(System.Nullable{System.Boolean},System.Nullable{OpenAI.Realtime.RealtimeSemanticVadEagernessLevel},System.Nullable{System.Boolean},System.Nullable{System.Boolean})" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceAgentServerVadTurnDetection(System.Nullable{System.Boolean},System.Nullable{System.Double},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Int64},System.Nullable{System.TimeSpan},Azure.AI.Projects.Agents.VoiceAgentEndOfUtteranceDetection)" />
@@ -39381,8 +39521,6 @@
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceRecordingChannelLayout" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceResponseAudio(Azure.AI.Projects.Agents.VoiceResponseAudioOutput)" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceResponseAudioOutput(System.String,System.Nullable{Azure.AI.Projects.Agents.VoiceType},System.String,OpenAI.Realtime.RealtimeAudioFormat)" />
-      <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceResponseBase(System.Nullable{Azure.AI.Projects.Agents.VoiceResponseBaseObject},System.Nullable{OpenAI.Realtime.RealtimeResponseStatus},OpenAI.Realtime.RealtimeResponseStatusDetails,OpenAI.Realtime.RealtimeResponseUsage,System.Collections.Generic.IEnumerable{OpenAI.Realtime.RealtimeOutputModality},System.BinaryData)" />
-      <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.VoiceResult(System.Nullable{Azure.AI.Projects.Agents.VoiceResponseBaseObject},System.Nullable{OpenAI.Realtime.RealtimeResponseStatus},OpenAI.Realtime.RealtimeResponseStatusDetails,OpenAI.Realtime.RealtimeResponseUsage,System.Collections.Generic.IEnumerable{OpenAI.Realtime.RealtimeOutputModality},System.BinaryData,System.String,System.Collections.Generic.IEnumerable{OpenAI.Realtime.RealtimeItem},System.String,Azure.AI.Projects.Agents.VoiceResponseAudio,System.Collections.Generic.IDictionary{System.String,System.String},System.Nullable{System.Single},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.WebIQPreviewToolboxTool(System.String,System.String,System.Collections.Generic.IDictionary{System.String,Azure.AI.Extensions.OpenAI.ToolConfig},System.String,System.String,System.BinaryData)" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.WebSearchToolboxTool(System.String,System.String,System.Collections.Generic.IDictionary{System.String,Azure.AI.Extensions.OpenAI.ToolConfig},System.Nullable{System.Boolean},OpenAI.Responses.WebSearchToolFilters,OpenAI.Responses.WebSearchToolApproximateLocation,System.Nullable{OpenAI.Responses.WebSearchToolContextSize},Azure.AI.Extensions.OpenAI.WebSearchConfiguration)" />
       <Member Id="M:Azure.AI.Projects.Agents.ProjectsAgentsModelFactory.WorkflowAgentDefinition(Azure.AI.Projects.Agents.ContentFilterConfiguration,System.String)" />
@@ -40717,6 +40855,33 @@
       <Member Id="M:Azure.AI.Projects.Agents.ToolboxVersions.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Projects#Agents#ToolboxVersions&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="P:Azure.AI.Projects.Agents.ToolboxVersions.Latest" />
     </Type>
+    <Type Name="Azure.AI.Projects.Agents.ToolChoiceLiteral" Id="T:Azure.AI.Projects.Agents.ToolChoiceLiteral">
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceLiteral.#ctor(System.String)" />
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceLiteral.Equals(Azure.AI.Projects.Agents.ToolChoiceLiteral)" />
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceLiteral.Equals(System.Object)" />
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceLiteral.GetHashCode" />
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceLiteral.op_Equality(Azure.AI.Projects.Agents.ToolChoiceLiteral,Azure.AI.Projects.Agents.ToolChoiceLiteral)" />
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceLiteral.op_Implicit(System.String)~Azure.AI.Projects.Agents.ToolChoiceLiteral" />
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceLiteral.op_Implicit(System.String)~System.Nullable{Azure.AI.Projects.Agents.ToolChoiceLiteral}" />
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceLiteral.op_Inequality(Azure.AI.Projects.Agents.ToolChoiceLiteral,Azure.AI.Projects.Agents.ToolChoiceLiteral)" />
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceLiteral.ToString" />
+      <Member Id="P:Azure.AI.Projects.Agents.ToolChoiceLiteral.Auto" />
+      <Member Id="P:Azure.AI.Projects.Agents.ToolChoiceLiteral.None" />
+      <Member Id="P:Azure.AI.Projects.Agents.ToolChoiceLiteral.Required" />
+    </Type>
+    <Type Name="Azure.AI.Projects.Agents.ToolChoiceOption" Id="T:Azure.AI.Projects.Agents.ToolChoiceOption">
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceOption.#ctor(Azure.AI.Projects.Agents.ToolChoiceLiteral)" />
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceOption.#ctor(System.String)" />
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceOption.op_Implicit(Azure.AI.Projects.Agents.ToolChoiceLiteral)~Azure.AI.Projects.Agents.ToolChoiceOption" />
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceOption.op_Implicit(System.String)~Azure.AI.Projects.Agents.ToolChoiceOption" />
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceOption.System#ClientModel#Primitives#IJsonModel&lt;Azure#AI#Projects#Agents#ToolChoiceOption&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceOption.System#ClientModel#Primitives#IJsonModel&lt;Azure#AI#Projects#Agents#ToolChoiceOption&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceOption.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Projects#Agents#ToolChoiceOption&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceOption.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Projects#Agents#ToolChoiceOption&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Projects.Agents.ToolChoiceOption.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Projects#Agents#ToolChoiceOption&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.AI.Projects.Agents.ToolChoiceOption.FunctionName" />
+      <Member Id="P:Azure.AI.Projects.Agents.ToolChoiceOption.ToolCallConstraint" />
+    </Type>
     <Type Name="Azure.AI.Projects.Agents.ToolSearchToolboxTool" Id="T:Azure.AI.Projects.Agents.ToolSearchToolboxTool">
       <Member Id="M:Azure.AI.Projects.Agents.ToolSearchToolboxTool.#ctor" />
       <Member Id="M:Azure.AI.Projects.Agents.ToolSearchToolboxTool.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
@@ -41064,7 +41229,7 @@
       <Member Id="P:Azure.AI.Projects.Agents.VoiceAgentAvatarVideoBackground.ImageUrl" />
     </Type>
     <Type Name="Azure.AI.Projects.Agents.VoiceAgentAvatarVideoCrop" Id="T:Azure.AI.Projects.Agents.VoiceAgentAvatarVideoCrop">
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentAvatarVideoCrop.#ctor(System.Collections.Generic.IEnumerable{System.Object},System.Collections.Generic.IEnumerable{System.Object})" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentAvatarVideoCrop.#ctor(System.Collections.Generic.IEnumerable{System.UInt32},System.Collections.Generic.IEnumerable{System.UInt32})" />
       <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentAvatarVideoCrop.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentAvatarVideoCrop.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentAvatarVideoCrop.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
@@ -41399,6 +41564,22 @@
       <Member Id="P:Azure.AI.Projects.Agents.VoiceAgentLlmInterimResponseConfig.MaxCompletionTokens" />
       <Member Id="P:Azure.AI.Projects.Agents.VoiceAgentLlmInterimResponseConfig.Model" />
     </Type>
+    <Type Name="Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens" Id="T:Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens">
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens.#ctor(System.Int32)" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens.CreateDefaultMaxTokensOption" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens.CreateInfiniteMaxTokensOption" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens.CreateNumericMaxTokensOption(System.Int32)" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens.Equals(System.Object)" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens.GetHashCode" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens.op_Implicit(System.Int32)~Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens.System#ClientModel#Primitives#IJsonModel&lt;Azure#AI#Projects#Agents#VoiceAgentMaxOutputTokens&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens.System#ClientModel#Primitives#IJsonModel&lt;Azure#AI#Projects#Agents#VoiceAgentMaxOutputTokens&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Projects#Agents#VoiceAgentMaxOutputTokens&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Projects#Agents#VoiceAgentMaxOutputTokens&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Projects#Agents#VoiceAgentMaxOutputTokens&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens.Infinity" />
+      <Member Id="P:Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens.NumericValue" />
+    </Type>
     <Type Name="Azure.AI.Projects.Agents.VoiceAgentMcpTool" Id="T:Azure.AI.Projects.Agents.VoiceAgentMcpTool">
       <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentMcpTool.#ctor(System.String)" />
       <Member Id="M:Azure.AI.Projects.Agents.VoiceAgentMcpTool.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
@@ -41416,11 +41597,11 @@
       <Member Id="P:Azure.AI.Projects.Agents.VoiceAgentMcpTool.DeferLoading" />
       <Member Id="P:Azure.AI.Projects.Agents.VoiceAgentMcpTool.Headers" />
       <Member Id="P:Azure.AI.Projects.Agents.VoiceAgentMcpTool.ProjectConnectionId" />
-      <Member Id="P:Azure.AI.Projects.Agents.VoiceAgentMcpTool.RequireApproval" />
       <Member Id="P:Azure.AI.Projects.Agents.VoiceAgentMcpTool.ResponseScheduling" />
       <Member Id="P:Azure.AI.Projects.Agents.VoiceAgentMcpTool.ServerDescription" />
       <Member Id="P:Azure.AI.Projects.Agents.VoiceAgentMcpTool.ServerLabel" />
       <Member Id="P:Azure.AI.Projects.Agents.VoiceAgentMcpTool.ServerUrl" />
+      <Member Id="P:Azure.AI.Projects.Agents.VoiceAgentMcpTool.ToolCallApprovalPolicy" />
       <Member Id="P:Azure.AI.Projects.Agents.VoiceAgentMcpTool.ToolConfigs" />
     </Type>
     <Type Name="Azure.AI.Projects.Agents.VoiceAgentNoiseReduction" Id="T:Azure.AI.Projects.Agents.VoiceAgentNoiseReduction">
@@ -41886,34 +42067,17 @@
       <Member Id="P:Azure.AI.Projects.Agents.VoiceResponseAudioOutput.VoiceLocale" />
       <Member Id="P:Azure.AI.Projects.Agents.VoiceResponseAudioOutput.VoiceType" />
     </Type>
-    <Type Name="Azure.AI.Projects.Agents.VoiceResponseBase" Id="T:Azure.AI.Projects.Agents.VoiceResponseBase">
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBase.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBase.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBase.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBase.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBase.System#ClientModel#Primitives#IJsonModel&lt;Azure#AI#Projects#Agents#VoiceResponseBase&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBase.System#ClientModel#Primitives#IJsonModel&lt;Azure#AI#Projects#Agents#VoiceResponseBase&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBase.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Projects#Agents#VoiceResponseBase&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBase.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Projects#Agents#VoiceResponseBase&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBase.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Projects#Agents#VoiceResponseBase&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="P:Azure.AI.Projects.Agents.VoiceResponseBase.MaxOutputTokens" />
-      <Member Id="P:Azure.AI.Projects.Agents.VoiceResponseBase.Object" />
-      <Member Id="P:Azure.AI.Projects.Agents.VoiceResponseBase.OutputModalities" />
-      <Member Id="P:Azure.AI.Projects.Agents.VoiceResponseBase.Status" />
-      <Member Id="P:Azure.AI.Projects.Agents.VoiceResponseBase.StatusDetails" />
-      <Member Id="P:Azure.AI.Projects.Agents.VoiceResponseBase.Usage" />
-    </Type>
-    <Type Name="Azure.AI.Projects.Agents.VoiceResponseBaseObject" Id="T:Azure.AI.Projects.Agents.VoiceResponseBaseObject">
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBaseObject.#ctor(System.String)" />
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBaseObject.Equals(Azure.AI.Projects.Agents.VoiceResponseBaseObject)" />
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBaseObject.Equals(System.Object)" />
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBaseObject.GetHashCode" />
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBaseObject.op_Equality(Azure.AI.Projects.Agents.VoiceResponseBaseObject,Azure.AI.Projects.Agents.VoiceResponseBaseObject)" />
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBaseObject.op_Implicit(System.String)~Azure.AI.Projects.Agents.VoiceResponseBaseObject" />
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBaseObject.op_Implicit(System.String)~System.Nullable{Azure.AI.Projects.Agents.VoiceResponseBaseObject}" />
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBaseObject.op_Inequality(Azure.AI.Projects.Agents.VoiceResponseBaseObject,Azure.AI.Projects.Agents.VoiceResponseBaseObject)" />
-      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseBaseObject.ToString" />
-      <Member Id="P:Azure.AI.Projects.Agents.VoiceResponseBaseObject.RealtimeResponse" />
+    <Type Name="Azure.AI.Projects.Agents.VoiceResponseObject" Id="T:Azure.AI.Projects.Agents.VoiceResponseObject">
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseObject.#ctor(System.String)" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseObject.Equals(Azure.AI.Projects.Agents.VoiceResponseObject)" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseObject.Equals(System.Object)" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseObject.GetHashCode" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseObject.op_Equality(Azure.AI.Projects.Agents.VoiceResponseObject,Azure.AI.Projects.Agents.VoiceResponseObject)" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseObject.op_Implicit(System.String)~Azure.AI.Projects.Agents.VoiceResponseObject" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseObject.op_Implicit(System.String)~System.Nullable{Azure.AI.Projects.Agents.VoiceResponseObject}" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseObject.op_Inequality(Azure.AI.Projects.Agents.VoiceResponseObject,Azure.AI.Projects.Agents.VoiceResponseObject)" />
+      <Member Id="M:Azure.AI.Projects.Agents.VoiceResponseObject.ToString" />
+      <Member Id="P:Azure.AI.Projects.Agents.VoiceResponseObject.RealtimeResponse" />
     </Type>
     <Type Name="Azure.AI.Projects.Agents.VoiceResult" Id="T:Azure.AI.Projects.Agents.VoiceResult">
       <Member Id="M:Azure.AI.Projects.Agents.VoiceResult.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
@@ -41931,9 +42095,15 @@
       <Member Id="P:Azure.AI.Projects.Agents.VoiceResult.ConversationId" />
       <Member Id="P:Azure.AI.Projects.Agents.VoiceResult.CreatedOn" />
       <Member Id="P:Azure.AI.Projects.Agents.VoiceResult.Id" />
+      <Member Id="P:Azure.AI.Projects.Agents.VoiceResult.MaxOutputTokens" />
       <Member Id="P:Azure.AI.Projects.Agents.VoiceResult.Metadata" />
+      <Member Id="P:Azure.AI.Projects.Agents.VoiceResult.Object" />
       <Member Id="P:Azure.AI.Projects.Agents.VoiceResult.Output" />
+      <Member Id="P:Azure.AI.Projects.Agents.VoiceResult.OutputModalities" />
+      <Member Id="P:Azure.AI.Projects.Agents.VoiceResult.Status" />
+      <Member Id="P:Azure.AI.Projects.Agents.VoiceResult.StatusDetails" />
       <Member Id="P:Azure.AI.Projects.Agents.VoiceResult.Temperature" />
+      <Member Id="P:Azure.AI.Projects.Agents.VoiceResult.Usage" />
     </Type>
     <Type Name="Azure.AI.Projects.Agents.VoiceType" Id="T:Azure.AI.Projects.Agents.VoiceType">
       <Member Id="M:Azure.AI.Projects.Agents.VoiceType.#ctor(System.String)" />
@@ -43405,11 +43575,9 @@
       <Member Id="M:Azure.AI.Projects.Memory.AIProjectMemoryStores.UpdateMemories(System.Boolean,System.String,Azure.AI.Projects.Memory.MemoryUpdateOptions,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.AI.Projects.Memory.AIProjectMemoryStores.UpdateMemories(System.Boolean,System.String,System.ClientModel.BinaryContent,System.ClientModel.Primitives.RequestOptions)" />
       <Member Id="M:Azure.AI.Projects.Memory.AIProjectMemoryStores.UpdateMemories(System.String,Azure.AI.Projects.Memory.MemoryUpdateOptions,System.Threading.CancellationToken)" />
-      <Member Id="M:Azure.AI.Projects.Memory.AIProjectMemoryStores.UpdateMemories(System.String,System.ClientModel.BinaryContent,System.ClientModel.Primitives.RequestOptions)" />
       <Member Id="M:Azure.AI.Projects.Memory.AIProjectMemoryStores.UpdateMemoriesAsync(System.Boolean,System.String,Azure.AI.Projects.Memory.MemoryUpdateOptions,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.AI.Projects.Memory.AIProjectMemoryStores.UpdateMemoriesAsync(System.Boolean,System.String,System.ClientModel.BinaryContent,System.ClientModel.Primitives.RequestOptions)" />
       <Member Id="M:Azure.AI.Projects.Memory.AIProjectMemoryStores.UpdateMemoriesAsync(System.String,Azure.AI.Projects.Memory.MemoryUpdateOptions,System.Threading.CancellationToken)" />
-      <Member Id="M:Azure.AI.Projects.Memory.AIProjectMemoryStores.UpdateMemoriesAsync(System.String,System.ClientModel.BinaryContent,System.ClientModel.Primitives.RequestOptions)" />
       <Member Id="M:Azure.AI.Projects.Memory.AIProjectMemoryStores.UpdateMemory(System.String,System.String,System.ClientModel.BinaryContent,System.ClientModel.Primitives.RequestOptions)" />
       <Member Id="M:Azure.AI.Projects.Memory.AIProjectMemoryStores.UpdateMemory(System.String,System.String,System.String,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.AI.Projects.Memory.AIProjectMemoryStores.UpdateMemoryAsync(System.String,System.String,System.ClientModel.BinaryContent,System.ClientModel.Primitives.RequestOptions)" />
@@ -268849,6 +269017,607 @@
       <Member Id="P:Azure.ResourceManager.Compute.Recommender.Models.SkuMixPlacementZonePreference.Rank" />
       <Member Id="P:Azure.ResourceManager.Compute.Recommender.Models.SkuMixPlacementZonePreference.TargetMaxCapacity" />
       <Member Id="P:Azure.ResourceManager.Compute.Recommender.Models.SkuMixPlacementZonePreference.Zone" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Azure.ResourceManager.Compute.WorkloadManager">
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.AzureResourceManagerComputeWorkloadManagerContext" Id="T:Azure.ResourceManager.Compute.WorkloadManager.AzureResourceManagerComputeWorkloadManagerContext">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.AzureResourceManagerComputeWorkloadManagerContext.TryGetTypeBuilderCore(System.Type,System.ClientModel.Primitives.ModelReaderWriterTypeBuilder@)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.AzureResourceManagerComputeWorkloadManagerContext.Default" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.ComputeWorkloadManagerExtensions" Id="T:Azure.ResourceManager.Compute.WorkloadManager.ComputeWorkloadManagerExtensions">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.ComputeWorkloadManagerExtensions.GetRuntimeBindingResource(Azure.ResourceManager.ArmClient,Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.ComputeWorkloadManagerExtensions.GetRuntimeLinkResource(Azure.ResourceManager.ArmClient,Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.ComputeWorkloadManagerExtensions.GetWorkloadCapabilityResource(Azure.ResourceManager.ArmClient,Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.ComputeWorkloadManagerExtensions.GetWorkloadSpace(Azure.ResourceManager.Resources.ResourceGroupResource,System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.ComputeWorkloadManagerExtensions.GetWorkloadSpaceAsync(Azure.ResourceManager.Resources.ResourceGroupResource,System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.ComputeWorkloadManagerExtensions.GetWorkloadSpaceResource(Azure.ResourceManager.ArmClient,Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.ComputeWorkloadManagerExtensions.GetWorkloadSpaces(Azure.ResourceManager.Resources.ResourceGroupResource)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.ComputeWorkloadManagerExtensions.GetWorkloadSpaces(Azure.ResourceManager.Resources.SubscriptionResource,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.ComputeWorkloadManagerExtensions.GetWorkloadSpacesAsync(Azure.ResourceManager.Resources.SubscriptionResource,System.Threading.CancellationToken)" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingCollection" Id="T:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingCollection">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingCollection.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingCollection.CreateOrUpdate(Azure.WaitUntil,System.String,Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingCollection.CreateOrUpdateAsync(Azure.WaitUntil,System.String,Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingCollection.Exists(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingCollection.ExistsAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingCollection.Get(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingCollection.GetAll(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingCollection.GetAllAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingCollection.GetAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingCollection.GetIfExists(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingCollection.GetIfExistsAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingCollection.System#Collections#Generic#IAsyncEnumerable&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeBindingResource&gt;#GetAsyncEnumerator(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingCollection.System#Collections#Generic#IEnumerable&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeBindingResource&gt;#GetEnumerator" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingCollection.System#Collections#IEnumerable#GetEnumerator" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingData" Id="T:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingData">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingData.#ctor(Azure.Core.AzureLocation)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingData.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingData.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingData.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingData.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingData.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeBindingData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingData.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeBindingData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeBindingData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeBindingData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeBindingData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingData.Kind" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingData.Properties" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource" Id="T:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource">
+      <Member Id="F:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.ResourceType" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.AddTag(System.String,System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.AddTagAsync(System.String,System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.CreateResourceIdentifier(System.String,System.String,System.String,System.String)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.Delete(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.DeleteAsync(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.Get(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.GetAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.RemoveTag(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.RemoveTagAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.SetTags(System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.SetTagsAsync(System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeBindingData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeBindingData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeBindingData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeBindingData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeBindingData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.Update(Azure.WaitUntil,Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingPatch,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.UpdateAsync(Azure.WaitUntil,Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingPatch,System.Threading.CancellationToken)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.Data" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.RuntimeBindingResource.HasData" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkCollection" Id="T:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkCollection">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkCollection.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkCollection.CreateOrUpdate(Azure.WaitUntil,System.String,Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkCollection.CreateOrUpdateAsync(Azure.WaitUntil,System.String,Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkCollection.Exists(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkCollection.ExistsAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkCollection.Get(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkCollection.GetAll(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkCollection.GetAllAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkCollection.GetAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkCollection.GetIfExists(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkCollection.GetIfExistsAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkCollection.System#Collections#Generic#IAsyncEnumerable&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeLinkResource&gt;#GetAsyncEnumerator(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkCollection.System#Collections#Generic#IEnumerable&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeLinkResource&gt;#GetEnumerator" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkCollection.System#Collections#IEnumerable#GetEnumerator" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkData" Id="T:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkData">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkData.#ctor(Azure.Core.AzureLocation)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkData.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkData.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkData.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkData.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkData.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeLinkData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkData.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeLinkData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeLinkData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeLinkData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeLinkData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkData.Properties" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource" Id="T:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource">
+      <Member Id="F:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.ResourceType" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.AddTag(System.String,System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.AddTagAsync(System.String,System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.CreateResourceIdentifier(System.String,System.String,System.String,System.String)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.Delete(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.DeleteAsync(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.Get(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.GetAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.RemoveTag(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.RemoveTagAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.SetTags(System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.SetTagsAsync(System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeLinkData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeLinkData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeLinkData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeLinkData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#RuntimeLinkData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.Update(Azure.WaitUntil,Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkPatch,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.UpdateAsync(Azure.WaitUntil,Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkPatch,System.Threading.CancellationToken)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.Data" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.RuntimeLinkResource.HasData" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityCollection" Id="T:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityCollection">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityCollection.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityCollection.CreateOrUpdate(Azure.WaitUntil,System.String,Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityCollection.CreateOrUpdateAsync(Azure.WaitUntil,System.String,Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityCollection.Exists(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityCollection.ExistsAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityCollection.Get(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityCollection.GetAll(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityCollection.GetAllAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityCollection.GetAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityCollection.GetIfExists(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityCollection.GetIfExistsAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityCollection.System#Collections#Generic#IAsyncEnumerable&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadCapabilityResource&gt;#GetAsyncEnumerator(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityCollection.System#Collections#Generic#IEnumerable&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadCapabilityResource&gt;#GetEnumerator" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityCollection.System#Collections#IEnumerable#GetEnumerator" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityData" Id="T:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityData">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityData.#ctor(Azure.Core.AzureLocation)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityData.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityData.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityData.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityData.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityData.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadCapabilityData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityData.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadCapabilityData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadCapabilityData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadCapabilityData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadCapabilityData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityData.Kind" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityData.Properties" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource" Id="T:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource">
+      <Member Id="F:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.ResourceType" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.AddTag(System.String,System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.AddTagAsync(System.String,System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.CreateResourceIdentifier(System.String,System.String,System.String,System.String)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.Delete(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.DeleteAsync(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.Get(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.GetAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.RemoveTag(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.RemoveTagAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.SetTags(System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.SetTagsAsync(System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadCapabilityData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadCapabilityData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadCapabilityData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadCapabilityData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadCapabilityData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.Update(Azure.WaitUntil,Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityPatch,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.UpdateAsync(Azure.WaitUntil,Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityPatch,System.Threading.CancellationToken)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.Data" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.WorkloadCapabilityResource.HasData" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceCollection" Id="T:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceCollection">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceCollection.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceCollection.CreateOrUpdate(Azure.WaitUntil,System.String,Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceCollection.CreateOrUpdateAsync(Azure.WaitUntil,System.String,Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceCollection.Exists(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceCollection.ExistsAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceCollection.Get(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceCollection.GetAll(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceCollection.GetAllAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceCollection.GetAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceCollection.GetIfExists(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceCollection.GetIfExistsAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceCollection.System#Collections#Generic#IAsyncEnumerable&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadSpaceResource&gt;#GetAsyncEnumerator(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceCollection.System#Collections#Generic#IEnumerable&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadSpaceResource&gt;#GetEnumerator" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceCollection.System#Collections#IEnumerable#GetEnumerator" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceData" Id="T:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceData">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceData.#ctor(Azure.Core.AzureLocation)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceData.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceData.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceData.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceData.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceData.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadSpaceData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceData.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadSpaceData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadSpaceData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadSpaceData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadSpaceData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceData.WorkloadSpaceProvisioningState" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource" Id="T:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource">
+      <Member Id="F:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.ResourceType" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.AddTag(System.String,System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.AddTagAsync(System.String,System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.CreateResourceIdentifier(System.String,System.String,System.String)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.Delete(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.DeleteAsync(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.Get(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.GetAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.GetRuntimeBinding(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.GetRuntimeBindingAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.GetRuntimeBindings" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.GetRuntimeLink(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.GetRuntimeLinkAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.GetRuntimeLinks" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.GetWorkloadCapabilities" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.GetWorkloadCapability(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.GetWorkloadCapabilityAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.RemoveTag(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.RemoveTagAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.SetTags(System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.SetTagsAsync(System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadSpaceData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadSpaceData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadSpaceData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadSpaceData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#WorkloadSpaceData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.Update(Azure.WaitUntil,Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadSpacePatch,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.UpdateAsync(Azure.WaitUntil,Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadSpacePatch,System.Threading.CancellationToken)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.Data" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.WorkloadSpaceResource.HasData" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Azure.ResourceManager.Compute.WorkloadManager.Mocking">
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerArmClient" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerArmClient">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerArmClient.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerArmClient.GetRuntimeBindingResource(Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerArmClient.GetRuntimeLinkResource(Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerArmClient.GetWorkloadCapabilityResource(Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerArmClient.GetWorkloadSpaceResource(Azure.Core.ResourceIdentifier)" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerResourceGroupResource" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerResourceGroupResource">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerResourceGroupResource.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerResourceGroupResource.GetWorkloadSpace(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerResourceGroupResource.GetWorkloadSpaceAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerResourceGroupResource.GetWorkloadSpaces" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerSubscriptionResource" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerSubscriptionResource">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerSubscriptionResource.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerSubscriptionResource.GetWorkloadSpaces(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Mocking.MockableComputeWorkloadManagerSubscriptionResource.GetWorkloadSpacesAsync(System.Threading.CancellationToken)" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Azure.ResourceManager.Compute.WorkloadManager.Models">
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.ExecutionIdentity(System.String,Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.ManagedRuntimeBindingProperties(System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState},Azure.Core.ResourceIdentifier,Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentity,Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile,Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeProfile)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.ManagedRuntimeProfile(System.String,System.String)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.ReferencedExecutionIdentity(Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope,Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.ReferencedRuntimeBindingProperties(System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState},Azure.Core.ResourceIdentifier,Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentity,Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile,Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.RuntimeBindingData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,System.Collections.Generic.IDictionary{System.String,System.String},Azure.Core.AzureLocation,Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingProperties,System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind})" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.RuntimeBindingPatch(System.Collections.Generic.IDictionary{System.String,System.String},Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingUpdateProperties)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.RuntimeBindingProperties(System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState},Azure.Core.ResourceIdentifier,System.String,Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentity,Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.RuntimeBindingUpdateProperties(System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope},Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.RuntimeLinkCapacityProfile(System.Int32,System.Int32)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.RuntimeLinkCapacityProfilePatch(System.Nullable{System.Int32},System.Nullable{System.Int32})" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.RuntimeLinkData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,System.Collections.Generic.IDictionary{System.String,System.String},Azure.Core.AzureLocation,Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.RuntimeLinkPatch(System.Collections.Generic.IDictionary{System.String,System.String},Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfilePatch)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.RuntimeLinkProperties(Azure.Core.ResourceIdentifier,Azure.Core.ResourceIdentifier,Azure.Core.ResourceIdentifier,Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfile,System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState},Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.RuntimeNetworkProfile(Azure.Core.ResourceIdentifier,System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode})" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.ServiceManagedExecutionIdentity(Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope,Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.WorkloadCapabilityData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,System.Collections.Generic.IDictionary{System.String,System.String},Azure.Core.AzureLocation,Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityProperties,System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind})" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.WorkloadCapabilityPatch(System.Collections.Generic.IDictionary{System.String,System.String},System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy})" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.WorkloadCapabilityProperties(Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy,System.String,System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState})" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.WorkloadSpaceData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,System.Collections.Generic.IDictionary{System.String,System.String},Azure.Core.AzureLocation,System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState})" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ArmComputeWorkloadManagerModelFactory.WorkloadSpacePatch(System.Collections.Generic.IDictionary{System.String,System.String})" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentity" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentity">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentity.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentity.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentity.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentity.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentity.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ExecutionIdentity&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentity.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ExecutionIdentity&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentity.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ExecutionIdentity&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentity.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ExecutionIdentity&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentity.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ExecutionIdentity&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentity.Scope" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope.Equals(Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope.op_Equality(Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope,Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope.op_Implicit(System.String)~Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope}" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope.op_Inequality(Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope,Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope.ToString" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope.SandboxGroup" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeBindingProperties" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeBindingProperties">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeBindingProperties.#ctor(Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeProfile)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeBindingProperties.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeBindingProperties.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeBindingProperties.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeBindingProperties.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeBindingProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ManagedRuntimeBindingProperties&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeBindingProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ManagedRuntimeBindingProperties&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeBindingProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ManagedRuntimeBindingProperties&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeBindingProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ManagedRuntimeBindingProperties&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeBindingProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ManagedRuntimeBindingProperties&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeBindingProperties.ManagedProfile" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeProfile" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeProfile">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeProfile.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeProfile.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeProfile.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeProfile.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeProfile.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeProfile.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ManagedRuntimeProfile&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeProfile.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ManagedRuntimeProfile&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeProfile.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ManagedRuntimeProfile&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeProfile.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ManagedRuntimeProfile&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeProfile.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ManagedRuntimeProfile&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeProfile.Offering" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.ManagedRuntimeProfile.Provider" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedExecutionIdentity" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedExecutionIdentity">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedExecutionIdentity.#ctor(Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope,Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedExecutionIdentity.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedExecutionIdentity.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedExecutionIdentity.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedExecutionIdentity.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedExecutionIdentity.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ReferencedExecutionIdentity&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedExecutionIdentity.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ReferencedExecutionIdentity&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedExecutionIdentity.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ReferencedExecutionIdentity&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedExecutionIdentity.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ReferencedExecutionIdentity&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedExecutionIdentity.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ReferencedExecutionIdentity&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedExecutionIdentity.UserAssignedIdentityResourceId" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedRuntimeBindingProperties" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedRuntimeBindingProperties">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedRuntimeBindingProperties.#ctor(Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedRuntimeBindingProperties.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedRuntimeBindingProperties.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedRuntimeBindingProperties.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedRuntimeBindingProperties.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedRuntimeBindingProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ReferencedRuntimeBindingProperties&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedRuntimeBindingProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ReferencedRuntimeBindingProperties&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedRuntimeBindingProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ReferencedRuntimeBindingProperties&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedRuntimeBindingProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ReferencedRuntimeBindingProperties&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedRuntimeBindingProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ReferencedRuntimeBindingProperties&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.ReferencedRuntimeBindingProperties.ResourceId" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind.Equals(Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind.op_Equality(Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind,Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind.op_Implicit(System.String)~Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind}" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind.op_Inequality(Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind,Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind.ToString" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind.Kubernetes" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingKind.ServerlessContainers" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingPatch" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingPatch">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingPatch.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingPatch.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingPatch.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingPatch.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingPatch.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingPatch.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeBindingPatch&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingPatch.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeBindingPatch&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingPatch.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeBindingPatch&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingPatch.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeBindingPatch&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingPatch.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeBindingPatch&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingPatch.Properties" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingPatch.Tags" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingProperties" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingProperties">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingProperties.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingProperties.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingProperties.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingProperties.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeBindingProperties&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeBindingProperties&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeBindingProperties&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeBindingProperties&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeBindingProperties&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingProperties.ExecutionIdentity" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingProperties.NetworkProfile" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingProperties.ProviderResourceId" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingProperties.ProvisioningState" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingUpdateProperties" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingUpdateProperties">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingUpdateProperties.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingUpdateProperties.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingUpdateProperties.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingUpdateProperties.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingUpdateProperties.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingUpdateProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeBindingUpdateProperties&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingUpdateProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeBindingUpdateProperties&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingUpdateProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeBindingUpdateProperties&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingUpdateProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeBindingUpdateProperties&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingUpdateProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeBindingUpdateProperties&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingUpdateProperties.ExecutionIdentityScope" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeBindingUpdateProperties.NetworkProfile" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode.Equals(Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode.op_Equality(Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode,Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode.op_Implicit(System.String)~Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode}" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode.op_Inequality(Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode,Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode.ToString" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeEgressMode.CustomerManaged" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfile" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfile">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfile.#ctor(System.Int32,System.Int32)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfile.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfile.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfile.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfile.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfile.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkCapacityProfile&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfile.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkCapacityProfile&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfile.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkCapacityProfile&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfile.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkCapacityProfile&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfile.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkCapacityProfile&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfile.MaximumNodes" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfile.MinimumNodes" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfilePatch" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfilePatch">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfilePatch.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfilePatch.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfilePatch.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfilePatch.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfilePatch.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfilePatch.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkCapacityProfilePatch&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfilePatch.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkCapacityProfilePatch&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfilePatch.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkCapacityProfilePatch&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfilePatch.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkCapacityProfilePatch&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfilePatch.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkCapacityProfilePatch&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfilePatch.MaximumNodes" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkCapacityProfilePatch.MinimumNodes" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkPatch" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkPatch">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkPatch.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkPatch.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkPatch.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkPatch.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkPatch.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkPatch.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkPatch&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkPatch.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkPatch&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkPatch.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkPatch&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkPatch.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkPatch&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkPatch.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkPatch&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkPatch.RuntimeLinkUpdateCapacityProfile" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkPatch.Tags" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties.#ctor(Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkProperties&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkProperties&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkProperties&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkProperties&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeLinkProperties&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties.CapacityProfile" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties.ExecutionBindingResourceId" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties.IntegrationManagedIdentityResourceId" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties.OrchestratorBindingResourceId" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties.ProviderResourceId" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeLinkProperties.ProvisioningState" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeNetworkProfile&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeNetworkProfile&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeNetworkProfile&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeNetworkProfile&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#RuntimeNetworkProfile&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile.EgressMode" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.RuntimeNetworkProfile.SubnetResourceId" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.ServiceManagedExecutionIdentity" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.ServiceManagedExecutionIdentity">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ServiceManagedExecutionIdentity.#ctor(Azure.ResourceManager.Compute.WorkloadManager.Models.ExecutionIdentityScope)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ServiceManagedExecutionIdentity.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ServiceManagedExecutionIdentity.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ServiceManagedExecutionIdentity.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ServiceManagedExecutionIdentity.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ServiceManagedExecutionIdentity.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ServiceManagedExecutionIdentity&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ServiceManagedExecutionIdentity.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ServiceManagedExecutionIdentity&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ServiceManagedExecutionIdentity.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ServiceManagedExecutionIdentity&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ServiceManagedExecutionIdentity.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ServiceManagedExecutionIdentity&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.ServiceManagedExecutionIdentity.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#ServiceManagedExecutionIdentity&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.ServiceManagedExecutionIdentity.UserAssignedIdentityResourceId" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind.Equals(Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind.op_Equality(Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind,Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind.op_Implicit(System.String)~Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind}" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind.op_Inequality(Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind,Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind.ToString" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityKind.AgentSandbox" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityPatch" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityPatch">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityPatch.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityPatch.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityPatch.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityPatch.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityPatch.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityPatch.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#WorkloadCapabilityPatch&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityPatch.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#WorkloadCapabilityPatch&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityPatch.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#WorkloadCapabilityPatch&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityPatch.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#WorkloadCapabilityPatch&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityPatch.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#WorkloadCapabilityPatch&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityPatch.CapabilityUpdateVersionPolicy" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityPatch.Tags" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityProperties" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityProperties">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityProperties.#ctor(Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityProperties.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityProperties.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityProperties.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityProperties.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#WorkloadCapabilityProperties&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#WorkloadCapabilityProperties&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#WorkloadCapabilityProperties&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#WorkloadCapabilityProperties&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#WorkloadCapabilityProperties&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityProperties.EffectiveVersion" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityProperties.ProvisioningState" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityProperties.VersionPolicy" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy.Equals(Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy.op_Equality(Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy,Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy.op_Implicit(System.String)~Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy}" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy.op_Inequality(Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy,Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy.ToString" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadCapabilityVersionPolicy.ServiceManaged" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState.Equals(Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState.op_Equality(Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState,Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState.op_Implicit(System.String)~Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState}" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState.op_Inequality(Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState,Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState.ToString" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState.Accepted" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState.Canceled" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState.Deleting" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState.Failed" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState.Provisioning" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState.Succeeded" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadManagerProvisioningState.Updating" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadSpacePatch" Id="T:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadSpacePatch">
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadSpacePatch.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadSpacePatch.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadSpacePatch.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadSpacePatch.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadSpacePatch.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadSpacePatch.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#WorkloadSpacePatch&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadSpacePatch.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#WorkloadSpacePatch&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadSpacePatch.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#WorkloadSpacePatch&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadSpacePatch.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#WorkloadSpacePatch&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadSpacePatch.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Compute#WorkloadManager#Models#WorkloadSpacePatch&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Compute.WorkloadManager.Models.WorkloadSpacePatch.Tags" />
     </Type>
   </Namespace>
   <Namespace Name="Azure.ResourceManager.ComputeFleet">
@@ -609107,6 +609876,21 @@
       <Member Id="P:Microsoft.WCF.Azure.StorageQueues.Channels.AzureQueueStorageTransportBindingElement.ClientCredentialType" />
       <Member Id="P:Microsoft.WCF.Azure.StorageQueues.Channels.AzureQueueStorageTransportBindingElement.QueueMessageEncoding" />
       <Member Id="P:Microsoft.WCF.Azure.StorageQueues.Channels.AzureQueueStorageTransportBindingElement.Scheme" />
+    </Type>
+  </Namespace>
+  <Namespace Name="OpenAI">
+    <Type Name="OpenAI.InternalMetadataContainer" Id="T:OpenAI.InternalMetadataContainer">
+      <Member Id="M:OpenAI.InternalMetadataContainer.#ctor" />
+      <Member Id="M:OpenAI.InternalMetadataContainer.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:OpenAI.InternalMetadataContainer.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:OpenAI.InternalMetadataContainer.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:OpenAI.InternalMetadataContainer.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:OpenAI.InternalMetadataContainer.System#ClientModel#Primitives#IJsonModel&lt;OpenAI#InternalMetadataContainer&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:OpenAI.InternalMetadataContainer.System#ClientModel#Primitives#IJsonModel&lt;OpenAI#InternalMetadataContainer&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:OpenAI.InternalMetadataContainer.System#ClientModel#Primitives#IPersistableModel&lt;OpenAI#InternalMetadataContainer&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:OpenAI.InternalMetadataContainer.System#ClientModel#Primitives#IPersistableModel&lt;OpenAI#InternalMetadataContainer&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:OpenAI.InternalMetadataContainer.System#ClientModel#Primitives#IPersistableModel&lt;OpenAI#InternalMetadataContainer&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:OpenAI.InternalMetadataContainer.AdditionalProperties" />
     </Type>
   </Namespace>
   <Namespace Name="System.ClientModel">

@@ -1,0 +1,83 @@
+<Type Name="IAgentSnapshotLifecycle" FullName="Azure.AI.AgentServer.Core.IAgentSnapshotLifecycle">
+  <TypeSignature Language="C#" Value="public interface IAgentSnapshotLifecycle" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract beforefieldinit IAgentSnapshotLifecycle" />
+  <TypeSignature Language="DocId" Value="T:Azure.AI.AgentServer.Core.IAgentSnapshotLifecycle" />
+  <TypeSignature Language="VB.NET" Value="Public Interface IAgentSnapshotLifecycle" />
+  <TypeSignature Language="F#" Value="type IAgentSnapshotLifecycle = interface" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.Experimental("AAAS002")]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.Experimental("AAAS002")&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+            Defines callbacks that prepare an agent process for snapshot capture and restore it for a session.
+            </summary>
+    <remarks>
+            Implementations are registered as singletons and must be thread-safe. The library serializes callback
+            execution and handles platform retries, but implementations should keep their completed work idempotent.
+            </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="AfterRestoreAsync">
+      <MemberSignature Language="C#" Value="public System.Threading.Tasks.Task AfterRestoreAsync (Azure.AI.AgentServer.Core.AgentRestoreContext context, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task AfterRestoreAsync(class Azure.AI.AgentServer.Core.AgentRestoreContext context, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.IAgentSnapshotLifecycle.AfterRestoreAsync(Azure.AI.AgentServer.Core.AgentRestoreContext,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Function AfterRestoreAsync (context As AgentRestoreContext, Optional cancellationToken As CancellationToken = Nothing) As Task" />
+      <MemberSignature Language="F#" Value="abstract member AfterRestoreAsync : Azure.AI.AgentServer.Core.AgentRestoreContext * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task" Usage="iAgentSnapshotLifecycle.AfterRestoreAsync (context, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="Azure.AI.AgentServer.Core.AgentRestoreContext" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="context">The restored session context.</param>
+        <param name="cancellationToken">A token that is canceled when the host is stopping.</param>
+        <summary>
+            Rebuilds process state for the restored session.
+            </summary>
+        <returns>A task that completes when the process is ready to serve the session.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeforeSnapshotAsync">
+      <MemberSignature Language="C#" Value="public System.Threading.Tasks.Task BeforeSnapshotAsync (System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task BeforeSnapshotAsync(valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.IAgentSnapshotLifecycle.BeforeSnapshotAsync(System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Function BeforeSnapshotAsync (Optional cancellationToken As CancellationToken = Nothing) As Task" />
+      <MemberSignature Language="F#" Value="abstract member BeforeSnapshotAsync : System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task" Usage="iAgentSnapshotLifecycle.BeforeSnapshotAsync cancellationToken" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="cancellationToken">A token that is canceled when the host is stopping.</param>
+        <summary>
+            Releases process state that must not be inherited by restored sessions.
+            </summary>
+        <returns>A task that completes when the process is ready to be captured.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
