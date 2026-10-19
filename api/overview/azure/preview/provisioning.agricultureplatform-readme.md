@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: agricultureplatform
 ---
-# Azure Provisioning Agriculture Platform client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning Agriculture Platform client library for .NET - version 1.0.0-alpha.20261019.2 
 
 
 Azure.Provisioning.AgriculturePlatform simplifies declarative resource provisioning for Azure Agriculture Platform in .NET.
@@ -62,7 +62,7 @@ infra.Add(new ProvisioningOutput("serviceId", typeof(string)) { Value = service.
 
 ## Next steps
 
-Learn more about [Azure Data Manager for Agriculture](https://learn.microsoft.com/azure/data-manager-for-agri/) and [Azure provisioning libraries](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.AgriculturePlatform_1.0.0-beta.1/sdk/provisioning).
+Learn more about [Azure Data Manager for Agriculture](https://learn.microsoft.com/azure/data-manager-for-agri/) and [Azure provisioning libraries](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning).
 
 ## Contributing
 
@@ -75,7 +75,7 @@ When you submit a pull request, a CLA bot will automatically determine whether y
 This project has adopted the [Microsoft Open Source Code of Conduct][coc]. For more information, see the [Code of Conduct FAQ][coc_faq] or contact <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.AgriculturePlatform_1.0.0-beta.1/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
