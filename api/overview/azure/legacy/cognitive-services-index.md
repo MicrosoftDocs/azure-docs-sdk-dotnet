@@ -1,5 +1,6 @@
 | Reference | Package | Source |
 |---|---|---|
+|[Anomaly Detector](ai.anomalydetector-readme.md)|[Azure.AI.AnomalyDetector](https://www.nuget.org/packages/Azure.AI.AnomalyDetector)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/anomalydetector/Azure.AI.AnomalyDetector)|
 |Anomaly Detector|[Microsoft.Azure.CognitiveServices.AnomalyDetector](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/)|
 |Content Safety|[Microsoft.Azure.CognitiveServices.ContentModerator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/)|
 |Form Recognizer|[Microsoft.Azure.CognitiveServices.FormRecognizer](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/)|

@@ -1,10 +1,10 @@
 ---
 title: Azure Cognitive Services SDK for .NET
 description: Reference for Azure Cognitive Services SDK for .NET
-ms.date: 10/16/2026
+ms.date: 10/19/2026
 ms.topic: reference
 ms.devlang: dotnet
-ms.service: cognitiveservices
+ms.service: azure-ai-face
 ---
 # Azure Cognitive Services SDK for .NET - preview
 ## Packages - preview
