@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: apicenter
 ---
-# Azure Provisioning ApiCenter client library for .NET - version 1.0.0-alpha.20261019.1 
+# Azure Provisioning ApiCenter client library for .NET - version 1.0.0-alpha.20261020.1 
 
 
 Azure.Provisioning.ApiCenter simplifies declarative resource provisioning in .NET.
