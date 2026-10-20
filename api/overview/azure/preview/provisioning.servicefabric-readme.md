@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: servicefabric
 ---
-# Azure Provisioning ServiceFabric client library for .NET - version 1.0.0-alpha.20261019.1 
+# Azure Provisioning ServiceFabric client library for .NET - version 1.0.0-alpha.20261020.1 
 
 
 Azure.Provisioning.ServiceFabric simplifies declarative resource provisioning in .NET.
