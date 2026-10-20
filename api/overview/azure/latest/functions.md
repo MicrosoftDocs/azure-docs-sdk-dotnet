@@ -12,6 +12,10 @@ ms.service: functions
 
 [Azure Functions](/azure/azure-functions/functions-overview) is a solution for easily running small pieces of code, or _functions_, in Azure. Azure Functions supports a [serverless](https://azure.microsoft.com/solutions/serverless/) execution model.
 
+## In-process and isolated worker process
+
+Azure Functions supports two process models for running .NET functions. Read more about [differences between in-process and isolated worker process](https://learn.microsoft.com/azure/azure-functions/dotnet-isolated-in-process-differences).
+
 ## Durable Functions extension
 
 *Durable Functions* is an extension of [Azure Functions](/azure/azure-functions/functions-overview) that lets you write stateful functions in a serverless compute environment. The extension lets you define stateful workflows by writing [*orchestrator functions*](/azure/azure-functions/durable/durable-functions-orchestrations) and stateful entities by writing [*entity functions*](/azure/azure-functions/durable/durable-functions-entities) using the Azure Functions programming model. Behind the scenes, the extension manages state, checkpoints, and restarts for you, allowing you to focus on your business logic.
@@ -19,6 +23,9 @@ ms.service: functions
 Install the extension [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) directly from the Visual Studio [Package Manager console][PackageManager] or with the [.NET Core CLI][DotNetCLI].
 
 The Azure API reference documentation supports [version 2.x of the Durable Functions extension](/dotnet/api/overview/azure/functions/runtime). 
+
+
+## In-process 
 
 ### Visual Studio package manager
 
@@ -30,6 +37,19 @@ Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask
 
 ```dotnetcli
 dotnet add package Microsoft.Azure.WebJobs.Extensions.DurableTask
+```
+## Isolated worker process
+
+### Visual Studio package manager
+
+```powershell
+Install-Package Microsoft.Azure.Functions.Worker.Extensions.DurableTask
+```
+
+### .NET Core CLI
+
+```dotnetcli
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.DurableTask
 ```
 
 ### Getting started
