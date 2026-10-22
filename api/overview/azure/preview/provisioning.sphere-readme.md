@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning Sphere client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.Sphere, sphere
-ms.date: 10/14/2026
+ms.date: 10/22/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: sphere
 ---
-# Azure Provisioning Sphere client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning Sphere client library for .NET - version 1.0.0-alpha.20261022.1 
 
 
 Azure.Provisioning.Sphere simplifies declarative resource provisioning for Azure Sphere in .NET.
@@ -71,7 +71,7 @@ When you submit a pull request, a CLA bot will automatically determine whether y
 This project has adopted the [Microsoft Open Source Code of Conduct][coc]. For more information, see the [Code of Conduct FAQ][coc_faq] or contact <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.Sphere_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
