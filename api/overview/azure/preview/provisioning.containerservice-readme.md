@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning ContainerService client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.ContainerService, containerservice
-ms.date: 10/15/2026
+ms.date: 10/22/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: containerservice
 ---
-# Azure Provisioning ContainerService client library for .NET - version 1.0.0-beta.7 
+# Azure Provisioning ContainerService client library for .NET - version 1.1.0-alpha.20261022.2 
 
 
 Azure.Provisioning.ContainerService simplifies declarative resource provisioning in .NET.
@@ -18,7 +18,7 @@ Azure.Provisioning.ContainerService simplifies declarative resource provisioning
 Install the client library for .NET with [NuGet](https://www.nuget.org/ ):
 
 ```dotnetcli
-dotnet add package Azure.Provisioning.ContainerService --prerelease
+dotnet add package Azure.Provisioning.ContainerService
 ```
 
 ### Prerequisites
@@ -107,7 +107,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.ContainerService_1.0.0-beta.7/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
