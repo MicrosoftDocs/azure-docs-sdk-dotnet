@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning ApiCenter client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.ApiCenter, apicenter
-ms.date: 10/14/2026
+ms.date: 10/22/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: apicenter
 ---
-# Azure Provisioning ApiCenter client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning ApiCenter client library for .NET - version 1.0.0-alpha.20261022.1 
 
 
 Azure.Provisioning.ApiCenter simplifies declarative resource provisioning in .NET.
@@ -64,5 +64,5 @@ infra.Add(workspace);
 
 ## Contributing
 
-For details on contributing to the Azure SDK for .NET, see the [contributing guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.ApiCenter_1.0.0-beta.1/CONTRIBUTING.md).
+For details on contributing to the Azure SDK for .NET, see the [contributing guide](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md).
 
