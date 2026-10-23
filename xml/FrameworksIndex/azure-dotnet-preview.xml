@@ -129,6 +129,7 @@
     <Assembly Name="Azure.Provisioning.EventHubs" Version="1.2.0.0" />
     <Assembly Name="Azure.Provisioning.Fabric" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.FrontDoor" Version="1.0.0.0" />
+    <Assembly Name="Azure.Provisioning.HealthBot" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.IotHub" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.KeyVault" Version="1.2.0.0" />
     <Assembly Name="Azure.Provisioning.Kubernetes" Version="1.0.0.0" />
@@ -155,11 +156,13 @@
     <Assembly Name="Azure.Provisioning.ResourceHealth" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.Search" Version="1.1.0.0" />
     <Assembly Name="Azure.Provisioning.SecurityCenter" Version="1.0.0.0" />
+    <Assembly Name="Azure.Provisioning.SerialConsole" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.ServiceBus" Version="1.2.0.0" />
     <Assembly Name="Azure.Provisioning.ServiceFabric" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.ServiceFabricManagedClusters" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.ServiceNetworking" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.SignalR" Version="1.2.0.0" />
+    <Assembly Name="Azure.Provisioning.SiteManager" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.Sphere" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.Sql" Version="1.2.0.0" />
     <Assembly Name="Azure.Provisioning.StandbyPool" Version="1.0.0.0" />
@@ -149127,6 +149130,48 @@
       <Member Id="F:Azure.Provisioning.FrontDoor.WebApplicationRuleType.RateLimitRule" />
     </Type>
   </Namespace>
+  <Namespace Name="Azure.Provisioning.HealthBot">
+    <Type Name="Azure.Provisioning.HealthBot.HealthBot" Id="T:Azure.Provisioning.HealthBot.HealthBot">
+      <Member Id="M:Azure.Provisioning.HealthBot.HealthBot.#ctor(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.HealthBot.HealthBot.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.HealthBot.HealthBot.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.HealthBot.HealthBot.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.HealthBot.HealthBot.Id" />
+      <Member Id="P:Azure.Provisioning.HealthBot.HealthBot.Identity" />
+      <Member Id="P:Azure.Provisioning.HealthBot.HealthBot.Location" />
+      <Member Id="P:Azure.Provisioning.HealthBot.HealthBot.Name" />
+      <Member Id="P:Azure.Provisioning.HealthBot.HealthBot.Properties" />
+      <Member Id="P:Azure.Provisioning.HealthBot.HealthBot.SkuName" />
+      <Member Id="P:Azure.Provisioning.HealthBot.HealthBot.SystemData" />
+      <Member Id="P:Azure.Provisioning.HealthBot.HealthBot.Tags" />
+    </Type>
+    <Type Name="Azure.Provisioning.HealthBot.HealthBot/ResourceVersions" Id="T:Azure.Provisioning.HealthBot.HealthBot.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.HealthBot.HealthBot.ResourceVersions.V2025_05_25" />
+      <Member Id="F:Azure.Provisioning.HealthBot.HealthBot.ResourceVersions.V2025_11_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.HealthBot.HealthBotKeyVaultProperties" Id="T:Azure.Provisioning.HealthBot.HealthBotKeyVaultProperties">
+      <Member Id="M:Azure.Provisioning.HealthBot.HealthBotKeyVaultProperties.#ctor" />
+      <Member Id="M:Azure.Provisioning.HealthBot.HealthBotKeyVaultProperties.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.HealthBot.HealthBotKeyVaultProperties.KeyName" />
+      <Member Id="P:Azure.Provisioning.HealthBot.HealthBotKeyVaultProperties.KeyVaultUri" />
+      <Member Id="P:Azure.Provisioning.HealthBot.HealthBotKeyVaultProperties.KeyVersion" />
+      <Member Id="P:Azure.Provisioning.HealthBot.HealthBotKeyVaultProperties.UserIdentity" />
+    </Type>
+    <Type Name="Azure.Provisioning.HealthBot.HealthBotProperties" Id="T:Azure.Provisioning.HealthBot.HealthBotProperties">
+      <Member Id="M:Azure.Provisioning.HealthBot.HealthBotProperties.#ctor" />
+      <Member Id="M:Azure.Provisioning.HealthBot.HealthBotProperties.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.HealthBot.HealthBotProperties.AccessControlMethod" />
+      <Member Id="P:Azure.Provisioning.HealthBot.HealthBotProperties.BotManagementPortalLink" />
+      <Member Id="P:Azure.Provisioning.HealthBot.HealthBotProperties.KeyVaultProperties" />
+      <Member Id="P:Azure.Provisioning.HealthBot.HealthBotProperties.ProvisioningState" />
+    </Type>
+    <Type Name="Azure.Provisioning.HealthBot.HealthBotSkuName" Id="T:Azure.Provisioning.HealthBot.HealthBotSkuName">
+      <Member Id="F:Azure.Provisioning.HealthBot.HealthBotSkuName.C0" />
+      <Member Id="F:Azure.Provisioning.HealthBot.HealthBotSkuName.C1" />
+      <Member Id="F:Azure.Provisioning.HealthBot.HealthBotSkuName.F0" />
+      <Member Id="F:Azure.Provisioning.HealthBot.HealthBotSkuName.PES" />
+    </Type>
+  </Namespace>
   <Namespace Name="Azure.Provisioning.IotHub">
     <Type Name="Azure.Provisioning.IotHub.CloudToDeviceFeedbackQueueProperties" Id="T:Azure.Provisioning.IotHub.CloudToDeviceFeedbackQueueProperties">
       <Member Id="M:Azure.Provisioning.IotHub.CloudToDeviceFeedbackQueueProperties.#ctor" />
@@ -172336,6 +172381,30 @@
       <Member Id="F:Azure.Provisioning.SecurityCenter.VulnerabilityAssessmentAutoProvisioningType.TVM" />
     </Type>
   </Namespace>
+  <Namespace Name="Azure.Provisioning.SerialConsole">
+    <Type Name="Azure.Provisioning.SerialConsole.SerialPort" Id="T:Azure.Provisioning.SerialConsole.SerialPort">
+      <Member Id="M:Azure.Provisioning.SerialConsole.SerialPort.#ctor(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.SerialConsole.SerialPort.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.SerialConsole.SerialPort.FromExisting(System.String,System.String)" />
+      <Member Id="P:Azure.Provisioning.SerialConsole.SerialPort.ConnectionState" />
+      <Member Id="P:Azure.Provisioning.SerialConsole.SerialPort.Id" />
+      <Member Id="P:Azure.Provisioning.SerialConsole.SerialPort.Name" />
+      <Member Id="P:Azure.Provisioning.SerialConsole.SerialPort.Scope" />
+      <Member Id="P:Azure.Provisioning.SerialConsole.SerialPort.State" />
+      <Member Id="P:Azure.Provisioning.SerialConsole.SerialPort.SystemData" />
+    </Type>
+    <Type Name="Azure.Provisioning.SerialConsole.SerialPort/ResourceVersions" Id="T:Azure.Provisioning.SerialConsole.SerialPort.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.SerialConsole.SerialPort.ResourceVersions.V2024_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.SerialConsole.SerialPortConnectionState" Id="T:Azure.Provisioning.SerialConsole.SerialPortConnectionState">
+      <Member Id="F:Azure.Provisioning.SerialConsole.SerialPortConnectionState.Active" />
+      <Member Id="F:Azure.Provisioning.SerialConsole.SerialPortConnectionState.Inactive" />
+    </Type>
+    <Type Name="Azure.Provisioning.SerialConsole.SerialPortState" Id="T:Azure.Provisioning.SerialConsole.SerialPortState">
+      <Member Id="F:Azure.Provisioning.SerialConsole.SerialPortState.Disabled" />
+      <Member Id="F:Azure.Provisioning.SerialConsole.SerialPortState.Enabled" />
+    </Type>
+  </Namespace>
   <Namespace Name="Azure.Provisioning.ServiceBus">
     <Type Name="Azure.Provisioning.ServiceBus.GeoDataReplicationProperties" Id="T:Azure.Provisioning.ServiceBus.GeoDataReplicationProperties">
       <Member Id="M:Azure.Provisioning.ServiceBus.GeoDataReplicationProperties.#ctor" />
@@ -174808,6 +174877,46 @@
       <Member Id="P:Azure.Provisioning.SignalR.SignalRUpstreamTemplate.EventPattern" />
       <Member Id="P:Azure.Provisioning.SignalR.SignalRUpstreamTemplate.HubPattern" />
       <Member Id="P:Azure.Provisioning.SignalR.SignalRUpstreamTemplate.UrlTemplate" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Azure.Provisioning.SiteManager">
+    <Type Name="Azure.Provisioning.SiteManager.EdgeSite" Id="T:Azure.Provisioning.SiteManager.EdgeSite">
+      <Member Id="M:Azure.Provisioning.SiteManager.EdgeSite.#ctor(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.SiteManager.EdgeSite.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.SiteManager.EdgeSite.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.SiteManager.EdgeSite.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.SiteManager.EdgeSite.Id" />
+      <Member Id="P:Azure.Provisioning.SiteManager.EdgeSite.Name" />
+      <Member Id="P:Azure.Provisioning.SiteManager.EdgeSite.Properties" />
+      <Member Id="P:Azure.Provisioning.SiteManager.EdgeSite.Scope" />
+      <Member Id="P:Azure.Provisioning.SiteManager.EdgeSite.SystemData" />
+    </Type>
+    <Type Name="Azure.Provisioning.SiteManager.EdgeSite/ResourceVersions" Id="T:Azure.Provisioning.SiteManager.EdgeSite.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.SiteManager.EdgeSite.ResourceVersions.V2025_06_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.SiteManager.EdgeSiteAddressProperties" Id="T:Azure.Provisioning.SiteManager.EdgeSiteAddressProperties">
+      <Member Id="M:Azure.Provisioning.SiteManager.EdgeSiteAddressProperties.#ctor" />
+      <Member Id="M:Azure.Provisioning.SiteManager.EdgeSiteAddressProperties.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.SiteManager.EdgeSiteAddressProperties.City" />
+      <Member Id="P:Azure.Provisioning.SiteManager.EdgeSiteAddressProperties.Country" />
+      <Member Id="P:Azure.Provisioning.SiteManager.EdgeSiteAddressProperties.PostalCode" />
+      <Member Id="P:Azure.Provisioning.SiteManager.EdgeSiteAddressProperties.StateOrProvince" />
+      <Member Id="P:Azure.Provisioning.SiteManager.EdgeSiteAddressProperties.StreetAddress1" />
+      <Member Id="P:Azure.Provisioning.SiteManager.EdgeSiteAddressProperties.StreetAddress2" />
+    </Type>
+    <Type Name="Azure.Provisioning.SiteManager.EdgeSiteProperties" Id="T:Azure.Provisioning.SiteManager.EdgeSiteProperties">
+      <Member Id="M:Azure.Provisioning.SiteManager.EdgeSiteProperties.#ctor" />
+      <Member Id="M:Azure.Provisioning.SiteManager.EdgeSiteProperties.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.SiteManager.EdgeSiteProperties.Description" />
+      <Member Id="P:Azure.Provisioning.SiteManager.EdgeSiteProperties.DisplayName" />
+      <Member Id="P:Azure.Provisioning.SiteManager.EdgeSiteProperties.Labels" />
+      <Member Id="P:Azure.Provisioning.SiteManager.EdgeSiteProperties.ProvisioningState" />
+      <Member Id="P:Azure.Provisioning.SiteManager.EdgeSiteProperties.SiteAddress" />
+    </Type>
+    <Type Name="Azure.Provisioning.SiteManager.EdgeSiteProvisioningState" Id="T:Azure.Provisioning.SiteManager.EdgeSiteProvisioningState">
+      <Member Id="F:Azure.Provisioning.SiteManager.EdgeSiteProvisioningState.Canceled" />
+      <Member Id="F:Azure.Provisioning.SiteManager.EdgeSiteProvisioningState.Failed" />
+      <Member Id="F:Azure.Provisioning.SiteManager.EdgeSiteProvisioningState.Succeeded" />
     </Type>
   </Namespace>
   <Namespace Name="Azure.Provisioning.Sphere">

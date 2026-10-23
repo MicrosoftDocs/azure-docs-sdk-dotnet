@@ -34,6 +34,7 @@
     <AssemblyVersion>1.48.1.28</AssemblyVersion>
     <AssemblyVersion>1.50.0.28</AssemblyVersion>
     <AssemblyVersion>1.51.0.28</AssemblyVersion>
+    <AssemblyVersion>1.52.0.28</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>Microsoft.CognitiveServices.Speech.Audio.AudioInputStream</BaseTypeName>
@@ -54,7 +55,7 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
-        <AssemblyVersion>1.51.0.28</AssemblyVersion>
+        <AssemblyVersion>1.52.0.28</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
@@ -73,7 +74,7 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
-        <AssemblyVersion>1.51.0.28</AssemblyVersion>
+        <AssemblyVersion>1.52.0.28</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="format" Type="Microsoft.CognitiveServices.Speech.Audio.AudioStreamFormat" />
@@ -95,7 +96,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
-        <AssemblyVersion>1.51.0.28</AssemblyVersion>
+        <AssemblyVersion>1.52.0.28</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
@@ -108,6 +109,68 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Commit">
+      <MemberSignature Language="C#" Value="public uint Commit ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 Commit() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioInputStream.Commit" />
+      <MemberSignature Language="VB.NET" Value="Public Function Commit () As UInteger" />
+      <MemberSignature Language="F#" Value="member this.Commit : unit -&gt; uint32" Usage="pushAudioInputStream.Commit " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.52.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+             Requests that the audio written so far be committed as a completed
+             segment. Non-blocking; returns immediately with a correlation token.
+            
+             The request is advisory. A token is issued as soon as the request is recorded, but there
+             is no guarantee that it will be acknowledged: the service may not support inline commit,
+             or the session may end first. Applications must tolerate a token that is never echoed.
+             </summary>
+        <returns>
+             A token greater than 0 that can be matched against the commit token
+             value on a subsequent Recognized event, or 0 if the call was rejected
+             outright e.g. based on the SDK-local rate limit (at most one successful
+             commit per 100 ms per push stream).
+             </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Commit">
+      <MemberSignature Language="C#" Value="public uint Commit (uint channelId);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 Commit(unsigned int32 channelId) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.CognitiveServices.Speech.Audio.PushAudioInputStream.Commit(System.UInt32)" />
+      <MemberSignature Language="VB.NET" Value="Public Function Commit (channelId As UInteger) As UInteger" />
+      <MemberSignature Language="F#" Value="member this.Commit : uint32 -&gt; uint32" Usage="pushAudioInputStream.Commit channelId" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
+        <AssemblyVersion>1.52.0.28</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="channelId" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="channelId">0-indexed channel identifier.</param>
+        <summary>
+            Same as Commit() but scoped to a single channel of a multichannel
+            input. The service acknowledges the commit on the named channel only.
+            </summary>
+        <returns>
+            A token greater than 0, or 0 if the call was rejected.
+            </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Dispose">
       <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
       <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
@@ -117,7 +180,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
-        <AssemblyVersion>1.51.0.28</AssemblyVersion>
+        <AssemblyVersion>1.52.0.28</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
@@ -145,7 +208,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
-        <AssemblyVersion>1.51.0.28</AssemblyVersion>
+        <AssemblyVersion>1.52.0.28</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
@@ -174,7 +237,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
-        <AssemblyVersion>1.51.0.28</AssemblyVersion>
+        <AssemblyVersion>1.52.0.28</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
@@ -203,7 +266,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
-        <AssemblyVersion>1.51.0.28</AssemblyVersion>
+        <AssemblyVersion>1.52.0.28</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
@@ -229,7 +292,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Microsoft.CognitiveServices.Speech.csharp</AssemblyName>
-        <AssemblyVersion>1.51.0.28</AssemblyVersion>
+        <AssemblyVersion>1.52.0.28</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
