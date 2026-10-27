@@ -1,7 +1,7 @@
 ---
 title: Azure Video Analyzer SDK for .NET
 description: Reference for Azure Video Analyzer SDK for .NET
-ms.date: 10/26/2026
+ms.date: 10/27/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: videoanalyzer
