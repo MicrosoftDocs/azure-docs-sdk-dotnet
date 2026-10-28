@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: storage
 ---
-# Azure Storage Files Shares Change Feed client library for .NET - version 12.0.0-alpha.20261027.2 
+# Azure Storage Files Shares Change Feed client library for .NET - version 12.0.0-alpha.20261028.1 
 
 
 > Server Version: 2026-02-06
