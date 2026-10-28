@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning Fabric client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.Fabric, fabric
-ms.date: 10/09/2026
+ms.date: 10/28/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: fabric
 ---
-# Azure Provisioning Fabric client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning Fabric client library for .NET - version 1.0.0-alpha.20261028.1 
 
 
 Azure.Provisioning.Fabric simplifies declarative resource provisioning in .NET.
@@ -67,5 +67,5 @@ infra.Add(capacity);
 
 ## Contributing
 
-For details on contributing to this repository, see the [contributing guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.Fabric_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md).
+For details on contributing to this repository, see the [contributing guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md).
 
