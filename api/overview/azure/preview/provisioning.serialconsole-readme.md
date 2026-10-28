@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning Serial Console client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.SerialConsole, serialconsole
-ms.date: 10/22/2026
+ms.date: 10/28/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: serialconsole
 ---
-# Azure Provisioning Serial Console client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning Serial Console client library for .NET - version 1.0.0-alpha.20261028.1 
 
 
 Azure.Provisioning.SerialConsole simplifies declarative resource provisioning for Azure Serial Console in .NET.
@@ -72,11 +72,11 @@ infra.Add(port);
 
 ## Next steps
 
-See the [Azure Provisioning documentation](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.SerialConsole_1.0.0-beta.1/sdk/provisioning) for building and deploying infrastructure.
+See the [Azure Provisioning documentation](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning) for building and deploying infrastructure.
 
 ## Contributing
 
-For details on contributing to this repository, see the [contributing guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.SerialConsole_1.0.0-beta.1/CONTRIBUTING.md).
+For details on contributing to this repository, see the [contributing guide](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md).
 
 This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit <https://cla.microsoft.com>.
 
