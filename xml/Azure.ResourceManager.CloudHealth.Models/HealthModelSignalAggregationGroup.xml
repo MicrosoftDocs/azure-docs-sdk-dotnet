@@ -1,0 +1,496 @@
+<Type Name="HealthModelSignalAggregationGroup" FullName="Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup">
+  <TypeSignature Language="C#" Value="public class HealthModelSignalAggregationGroup : System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;, System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit HealthModelSignalAggregationGroup extends System.Object implements class System.ClientModel.Primitives.IJsonModel`1&lt;class Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;, class System.ClientModel.Primitives.IPersistableModel`1&lt;class Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;" />
+  <TypeSignature Language="DocId" Value="T:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup" />
+  <TypeSignature Language="VB.NET" Value="Public Class HealthModelSignalAggregationGroup&#xA;Implements IJsonModel(Of HealthModelSignalAggregationGroup), IPersistableModel(Of HealthModelSignalAggregationGroup)" />
+  <TypeSignature Language="F#" Value="type HealthModelSignalAggregationGroup = class&#xA;    interface IJsonModel&lt;HealthModelSignalAggregationGroup&gt;&#xA;    interface IPersistableModel&lt;HealthModelSignalAggregationGroup&gt;" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.ClientModel.Primitives.IPersistableModel&lt;T&gt;</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary> A logical group of signals on an entity, evaluated under a configurable aggregation strategy. Groups are independent even when they share members. Each group's aggregated state is one of the inputs to the entity's composite health computation alongside any signals not declared in any group's members[]. </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public HealthModelSignalAggregationGroup (string name, System.Collections.Generic.IEnumerable&lt;string&gt; members);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string name, class System.Collections.Generic.IEnumerable`1&lt;string&gt; members) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (name As String, members As IEnumerable(Of String))" />
+      <MemberSignature Language="F#" Value="new Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup : string * seq&lt;string&gt; -&gt; Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup" Usage="new Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup (name, members)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="members" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="name"> Name of the aggregation group. Unique within the entity. </param>
+        <param name="members"> Names of signals on this entity which are members of the group. Members are matched by name; references to signals that do not currently exist on the entity are accepted (typically for pre-declared external signals) and surfaced via 'unresolvedMembers'. A signal may be listed in multiple groups; no duplicates within this list. </param>
+        <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup" />. </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="name" /> or <paramref name="members" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="AggregatedHealthState">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CloudHealth.Models.EntityHealthState? AggregatedHealthState { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.CloudHealth.Models.EntityHealthState&gt; AggregatedHealthState" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.AggregatedHealthState" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property AggregatedHealthState As Nullable(Of EntityHealthState)" />
+      <MemberSignature Language="F#" Value="member this.AggregatedHealthState : Nullable&lt;Azure.ResourceManager.CloudHealth.Models.EntityHealthState&gt;" Usage="Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.AggregatedHealthState" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;Azure.ResourceManager.CloudHealth.Models.EntityHealthState&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Computed aggregated health state of the group as of the last entity evaluation. Unknown if no resolvable members or all members filtered out. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AggregationType">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CloudHealth.Models.HealthStateAggregationType? AggregationType { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.CloudHealth.Models.HealthStateAggregationType&gt; AggregationType" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.AggregationType" />
+      <MemberSignature Language="VB.NET" Value="Public Property AggregationType As Nullable(Of HealthStateAggregationType)" />
+      <MemberSignature Language="F#" Value="member this.AggregationType : Nullable&lt;Azure.ResourceManager.CloudHealth.Models.HealthStateAggregationType&gt; with get, set" Usage="Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.AggregationType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;Azure.ResourceManager.CloudHealth.Models.HealthStateAggregationType&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Aggregation strategy applied across the members of this group. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DegradedThreshold">
+      <MemberSignature Language="C#" Value="public double? DegradedThreshold { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;float64&gt; DegradedThreshold" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.DegradedThreshold" />
+      <MemberSignature Language="VB.NET" Value="Public Property DegradedThreshold As Nullable(Of Double)" />
+      <MemberSignature Language="F#" Value="member this.DegradedThreshold : Nullable&lt;double&gt; with get, set" Usage="Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.DegradedThreshold" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;System.Double&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Degraded threshold for threshold-bearing strategies (MinHealthy, MaxNotHealthy). For MinHealthy: group is degraded when the healthy member count/percentage falls to or below this value. For MaxNotHealthy: group is degraded when the not-healthy member count/percentage reaches or exceeds this value. Optional — if not set, the group transitions directly between Healthy and Unhealthy. MUST NOT be set when aggregationType is WorstOf or BestOf. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DisplayName">
+      <MemberSignature Language="C#" Value="public string DisplayName { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string DisplayName" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.DisplayName" />
+      <MemberSignature Language="VB.NET" Value="Public Property DisplayName As String" />
+      <MemberSignature Language="F#" Value="member this.DisplayName : string with get, set" Usage="Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.DisplayName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Display name. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="JsonModelCreateCore">
+      <MemberSignature Language="C#" Value="protected virtual Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup JsonModelCreateCore (ref System.Text.Json.Utf8JsonReader reader, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance class Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup JsonModelCreateCore(valuetype System.Text.Json.Utf8JsonReader&amp; reader, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Function JsonModelCreateCore (ByRef reader As Utf8JsonReader, options As ModelReaderWriterOptions) As HealthModelSignalAggregationGroup" />
+      <MemberSignature Language="F#" Value="abstract member JsonModelCreateCore : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&#xA;override this.JsonModelCreateCore : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup" Usage="healthModelSignalAggregationGroup.JsonModelCreateCore (reader, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="reader" Type="System.Text.Json.Utf8JsonReader" RefType="ref" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="reader"> The JSON reader. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="JsonModelWriteCore">
+      <MemberSignature Language="C#" Value="protected virtual void JsonModelWriteCore (System.Text.Json.Utf8JsonWriter writer, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance void JsonModelWriteCore(class System.Text.Json.Utf8JsonWriter writer, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Sub JsonModelWriteCore (writer As Utf8JsonWriter, options As ModelReaderWriterOptions)" />
+      <MemberSignature Language="F#" Value="abstract member JsonModelWriteCore : System.Text.Json.Utf8JsonWriter * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; unit&#xA;override this.JsonModelWriteCore : System.Text.Json.Utf8JsonWriter * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; unit" Usage="healthModelSignalAggregationGroup.JsonModelWriteCore (writer, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="writer" Type="System.Text.Json.Utf8JsonWriter" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="writer"> The JSON writer. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Members">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;string&gt; Members { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;string&gt; Members" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.Members" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Members As IList(Of String)" />
+      <MemberSignature Language="F#" Value="member this.Members : System.Collections.Generic.IList&lt;string&gt;" Usage="Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.Members" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Names of signals on this entity which are members of the group. Members are matched by name; references to signals that do not currently exist on the entity are accepted (typically for pre-declared external signals) and surfaced via 'unresolvedMembers'. A signal may be listed in multiple groups; no duplicates within this list. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Name">
+      <MemberSignature Language="C#" Value="public string Name { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Name" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.Name" />
+      <MemberSignature Language="VB.NET" Value="Public Property Name As String" />
+      <MemberSignature Language="F#" Value="member this.Name : string with get, set" Usage="Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.Name" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Name of the aggregation group. Unique within the entity. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PersistableModelCreateCore">
+      <MemberSignature Language="C#" Value="protected virtual Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup PersistableModelCreateCore (BinaryData data, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance class Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup PersistableModelCreateCore(class System.BinaryData data, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Function PersistableModelCreateCore (data As BinaryData, options As ModelReaderWriterOptions) As HealthModelSignalAggregationGroup" />
+      <MemberSignature Language="F#" Value="abstract member PersistableModelCreateCore : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&#xA;override this.PersistableModelCreateCore : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup" Usage="healthModelSignalAggregationGroup.PersistableModelCreateCore (data, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="data" Type="System.BinaryData" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="data"> The data to parse. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PersistableModelWriteCore">
+      <MemberSignature Language="C#" Value="protected virtual BinaryData PersistableModelWriteCore (System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance class System.BinaryData PersistableModelWriteCore(class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Function PersistableModelWriteCore (options As ModelReaderWriterOptions) As BinaryData" />
+      <MemberSignature Language="F#" Value="abstract member PersistableModelWriteCore : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; BinaryData&#xA;override this.PersistableModelWriteCore : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; BinaryData" Usage="healthModelSignalAggregationGroup.PersistableModelWriteCore options" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.BinaryData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldIgnoreUnknown">
+      <MemberSignature Language="C#" Value="public bool? ShouldIgnoreUnknown { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;bool&gt; ShouldIgnoreUnknown" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.ShouldIgnoreUnknown" />
+      <MemberSignature Language="VB.NET" Value="Public Property ShouldIgnoreUnknown As Nullable(Of Boolean)" />
+      <MemberSignature Language="F#" Value="member this.ShouldIgnoreUnknown : Nullable&lt;bool&gt; with get, set" Usage="Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.ShouldIgnoreUnknown" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;System.Boolean&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> If true (default), members reporting Unknown are excluded from the aggregation. For MinHealthy and MaxNotHealthy this flag affects the denominator/count and is meaningful. For WorstOf and BestOf the flag has no observable effect: under WorstOf, Unknown=0 is the lowest severity and can never beat any non-Unknown member in a Max() so filtering it changes nothing observable; under BestOf, Unknown is unconditionally excluded by the strategy itself irrespective of the flag. The flag is retained on the contract for vocabulary symmetry across all four strategies. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Create">
+      <MemberSignature Language="C#" Value="Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup IJsonModel&lt;HealthModelSignalAggregationGroup&gt;.Create (ref System.Text.Json.Utf8JsonReader reader, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance class Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Create(valuetype System.Text.Json.Utf8JsonReader&amp; reader, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#CloudHealth#Models#HealthModelSignalAggregationGroup&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Function Create (ByRef reader As Utf8JsonReader, options As ModelReaderWriterOptions) As HealthModelSignalAggregationGroup Implements IJsonModel(Of HealthModelSignalAggregationGroup).Create" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Create : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&#xA;override this.System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Create : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup" Usage="healthModelSignalAggregationGroup.System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Create (reader, options)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IJsonModel`1.Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="reader" Type="System.Text.Json.Utf8JsonReader" RefType="ref" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="reader"> The JSON reader. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Write">
+      <MemberSignature Language="C#" Value="void IJsonModel&lt;HealthModelSignalAggregationGroup&gt;.Write (System.Text.Json.Utf8JsonWriter writer, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance void System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Write(class System.Text.Json.Utf8JsonWriter writer, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#CloudHealth#Models#HealthModelSignalAggregationGroup&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Sub Write (writer As Utf8JsonWriter, options As ModelReaderWriterOptions) Implements IJsonModel(Of HealthModelSignalAggregationGroup).Write" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Write : System.Text.Json.Utf8JsonWriter * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; unit&#xA;override this.System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Write : System.Text.Json.Utf8JsonWriter * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; unit" Usage="healthModelSignalAggregationGroup.System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Write (writer, options)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IJsonModel`1.Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="writer" Type="System.Text.Json.Utf8JsonWriter" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="writer"> The JSON writer. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Create">
+      <MemberSignature Language="C#" Value="Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup IPersistableModel&lt;HealthModelSignalAggregationGroup&gt;.Create (BinaryData data, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance class Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Create(class System.BinaryData data, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#CloudHealth#Models#HealthModelSignalAggregationGroup&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Function Create (data As BinaryData, options As ModelReaderWriterOptions) As HealthModelSignalAggregationGroup Implements IPersistableModel(Of HealthModelSignalAggregationGroup).Create" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Create : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&#xA;override this.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Create : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup" Usage="healthModelSignalAggregationGroup.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Create (data, options)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IPersistableModel`1.Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="data" Type="System.BinaryData" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="data"> The data to parse. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.GetFormatFromOptions">
+      <MemberSignature Language="C#" Value="string IPersistableModel&lt;HealthModelSignalAggregationGroup&gt;.GetFormatFromOptions (System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance string System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.GetFormatFromOptions(class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#CloudHealth#Models#HealthModelSignalAggregationGroup&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Function GetFormatFromOptions (options As ModelReaderWriterOptions) As String Implements IPersistableModel(Of HealthModelSignalAggregationGroup).GetFormatFromOptions" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.GetFormatFromOptions : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; string&#xA;override this.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.GetFormatFromOptions : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; string" Usage="healthModelSignalAggregationGroup.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.GetFormatFromOptions options" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IPersistableModel`1.GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Write">
+      <MemberSignature Language="C#" Value="BinaryData IPersistableModel&lt;HealthModelSignalAggregationGroup&gt;.Write (System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance class System.BinaryData System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Write(class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#CloudHealth#Models#HealthModelSignalAggregationGroup&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Function Write (options As ModelReaderWriterOptions) As BinaryData Implements IPersistableModel(Of HealthModelSignalAggregationGroup).Write" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Write : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; BinaryData&#xA;override this.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Write : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; BinaryData" Usage="healthModelSignalAggregationGroup.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup&gt;.Write options" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IPersistableModel`1.Write(System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.BinaryData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnhealthyThreshold">
+      <MemberSignature Language="C#" Value="public double? UnhealthyThreshold { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;float64&gt; UnhealthyThreshold" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.UnhealthyThreshold" />
+      <MemberSignature Language="VB.NET" Value="Public Property UnhealthyThreshold As Nullable(Of Double)" />
+      <MemberSignature Language="F#" Value="member this.UnhealthyThreshold : Nullable&lt;double&gt; with get, set" Usage="Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.UnhealthyThreshold" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;System.Double&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Unhealthy threshold for threshold-bearing strategies. Required when aggregationType is MinHealthy or MaxNotHealthy; MUST NOT be set otherwise. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Unit">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CloudHealth.Models.HealthStateAggregationUnit? Unit { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.CloudHealth.Models.HealthStateAggregationUnit&gt; Unit" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.Unit" />
+      <MemberSignature Language="VB.NET" Value="Public Property Unit As Nullable(Of HealthStateAggregationUnit)" />
+      <MemberSignature Language="F#" Value="member this.Unit : Nullable&lt;Azure.ResourceManager.CloudHealth.Models.HealthStateAggregationUnit&gt; with get, set" Usage="Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.Unit" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;Azure.ResourceManager.CloudHealth.Models.HealthStateAggregationUnit&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Unit type for the thresholds. Required when aggregationType is MinHealthy or MaxNotHealthy; MUST NOT be set otherwise. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnresolvedMembers">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IReadOnlyList&lt;string&gt; UnresolvedMembers { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IReadOnlyList`1&lt;string&gt; UnresolvedMembers" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.UnresolvedMembers" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property UnresolvedMembers As IReadOnlyList(Of String)" />
+      <MemberSignature Language="F#" Value="member this.UnresolvedMembers : System.Collections.Generic.IReadOnlyList&lt;string&gt;" Usage="Azure.ResourceManager.CloudHealth.Models.HealthModelSignalAggregationGroup.UnresolvedMembers" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CloudHealth</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IReadOnlyList&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Members listed in 'members' that do not currently resolve to a signal on this entity at the time of the last entity evaluation. Treated as Unknown during aggregation. Empty/omitted when every member resolves. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
