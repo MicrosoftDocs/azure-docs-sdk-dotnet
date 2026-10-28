@@ -1,12 +1,12 @@
 ---
 title: Azure AI Extensions OpenAI client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Extensions.OpenAI, ai
-ms.date: 10/16/2026
+ms.date: 10/28/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: ai
 ---
-# Azure AI Extensions OpenAI client library for .NET - version 3.0.0-beta.5 
+# Azure AI Extensions OpenAI client library for .NET - version 3.0.0-alpha.20261028.1 
 
 
 Develop Agents using the Azure AI Foundry platform, leveraging an extensive ecosystem of models, tools, and capabilities from OpenAI, Microsoft, and other LLM providers.
@@ -1552,7 +1552,7 @@ ProjectsAgentVersion agentVersion = await projectClient.AgentAdministrationClien
     options: new(agentDefinition));
 ```
 
-Create a streaming response. Require the agent to use a tool by setting `ToolChoice = ResponseToolChoice.CreateRequiredChoice()` on `CreateResponseOptions`. The [browser automation sample](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Extensions.OpenAI_3.0.0-beta.5/sdk/ai/Azure.AI.Extensions.OpenAI/samples/Sample23_BrowserAutomationTool.md) includes the `ParseResponse` helper and synchronous equivalent.
+Create a streaming response. Require the agent to use a tool by setting `ToolChoice = ResponseToolChoice.CreateRequiredChoice()` on `CreateResponseOptions`. The [browser automation sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/ai/Azure.AI.Extensions.OpenAI/samples/Sample23_BrowserAutomationTool.md) includes the `ParseResponse` helper and synchronous equivalent.
 
 **Warning:** Streaming text and complete messages may contain sensitive browser live-view URLs. Use these only in a trusted local terminal and redact them from saved logs or shared output.
 
@@ -1588,7 +1588,7 @@ await projectClient.AgentAdministrationClient.DeleteAgentVersionAsync(agentName:
 #### Browser automation preview tool
 
 Along with `BrowserAutomationTool`, Azure.AI.Extensions.OpenAI contain `BrowserAutomationPreviewTool`, which has the same functionality as `BrowserAutomationTool`.
-This tool was released to preview the functionality, please use the stable version of the tool.
+This tool was released to preview the functionality and is now deprecated, please use the stable version of the tool.
 
 `BrowserAutomationPreviewTool` uses a Serverless Model connection as opposed to the Browser Automation connection used by `BrowserAutomationTool`. Please follow the steps below to create it.
 
@@ -2037,7 +2037,7 @@ For tracing to Azure Monitor from your application, the preferred option is to u
 dotnet add package Azure.Monitor.OpenTelemetry.AspNetCore
 ```
 
-More information about using the Azure.Monitor.OpenTelemetry.AspNetCore package can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Extensions.OpenAI_3.0.0-beta.5/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/README.md).
+More information about using the Azure.Monitor.OpenTelemetry.AspNetCore package can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/README.md).
 
 Another option is to use Azure.Monitor.OpenTelemetry.Exporter package. Install the package with [NuGet](https://www.nuget.org/ ):
 ```dotnetcli
@@ -2125,7 +2125,7 @@ See the [Azure SDK CONTRIBUTING.md][aiprojects_contrib] for details on building,
 [product_doc]: https://aka.ms/azsdk/azure-ai-projects-v2/product-doc
 [azure_identity]: https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet
 [azure_identity_dac]: https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
-[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Extensions.OpenAI_3.0.0-beta.5/CONTRIBUTING.md
+[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
