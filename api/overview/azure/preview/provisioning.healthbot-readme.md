@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning HealthBot client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.HealthBot, healthbot
-ms.date: 10/22/2026
+ms.date: 10/28/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: healthbot
 ---
-# Azure Provisioning HealthBot client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning HealthBot client library for .NET - version 1.0.0-alpha.20261028.1 
 
 
 Azure.Provisioning.HealthBot simplifies declarative resource provisioning for Azure Health Bot in .NET.
@@ -62,7 +62,7 @@ infra.Add(new ProvisioningOutput("resourceId", typeof(string)) { Value = bot.Id 
 ## Next steps
 
 Learn more about [Azure Health Bot](https://learn.microsoft.com/azure/health-bot/overview)
-and the [Azure Provisioning libraries](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.HealthBot_1.0.0-beta.1/sdk/provisioning).
+and the [Azure Provisioning libraries](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning).
 
 ## Contributing
 
@@ -84,7 +84,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.HealthBot_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
