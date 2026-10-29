@@ -47,7 +47,7 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> Compatibility declaration for the TroubleshootingContent type. </summary>
+    <summary> Parameters that define the resource to troubleshoot. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -79,27 +79,39 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public TroubleshootingContent (Azure.Core.ResourceIdentifier targetResourceId, Azure.Core.ResourceIdentifier storageId, Uri storagePath);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Core.ResourceIdentifier targetResourceId, class Azure.Core.ResourceIdentifier storageId, class System.Uri storagePath) cil managed" />
+      <MemberSignature Language="C#" Value="public TroubleshootingContent (Azure.Core.ResourceIdentifier targetResourceId, Azure.Core.ResourceIdentifier storageId, Uri storagePath);" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Core.ResourceIdentifier targetResourceId, class Azure.Core.ResourceIdentifier storageId, class System.Uri storagePath) cil managed" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.Models.TroubleshootingContent.#ctor(Azure.Core.ResourceIdentifier,Azure.Core.ResourceIdentifier,System.Uri)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (targetResourceId As ResourceIdentifier, storageId As ResourceIdentifier, storagePath As Uri)" />
-      <MemberSignature Language="F#" Value="new Azure.ResourceManager.Network.Models.TroubleshootingContent : Azure.Core.ResourceIdentifier * Azure.Core.ResourceIdentifier * Uri -&gt; Azure.ResourceManager.Network.Models.TroubleshootingContent" Usage="new Azure.ResourceManager.Network.Models.TroubleshootingContent (targetResourceId, storageId, storagePath)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (targetResourceId As ResourceIdentifier, storageId As ResourceIdentifier, storagePath As Uri)" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="F#" Value="new Azure.ResourceManager.Network.Models.TroubleshootingContent : Azure.Core.ResourceIdentifier * Azure.Core.ResourceIdentifier * Uri -&gt; Azure.ResourceManager.Network.Models.TroubleshootingContent" Usage="new Azure.ResourceManager.Network.Models.TroubleshootingContent (targetResourceId, storageId, storagePath)" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public TroubleshootingContent (Azure.Core.ResourceIdentifier targetResourceId, Azure.Core.ResourceIdentifier storageId, Uri storageUri);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Core.ResourceIdentifier targetResourceId, class Azure.Core.ResourceIdentifier storageId, class System.Uri storageUri) cil managed" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (targetResourceId As ResourceIdentifier, storageId As ResourceIdentifier, storageUri As Uri)" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="F#" Value="new Azure.ResourceManager.Network.Models.TroubleshootingContent : Azure.Core.ResourceIdentifier * Azure.Core.ResourceIdentifier * Uri -&gt; Azure.ResourceManager.Network.Models.TroubleshootingContent" Usage="new Azure.ResourceManager.Network.Models.TroubleshootingContent (targetResourceId, storageId, storageUri)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
         <AssemblyVersion>1.17.0.0</AssemblyVersion>
         <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
-        <Parameter Name="targetResourceId" Type="Azure.Core.ResourceIdentifier" />
-        <Parameter Name="storageId" Type="Azure.Core.ResourceIdentifier" />
-        <Parameter Name="storagePath" Type="System.Uri" />
+        <Parameter Name="targetResourceId" Type="Azure.Core.ResourceIdentifier" Index="0" />
+        <Parameter Name="storageId" Type="Azure.Core.ResourceIdentifier" Index="1" />
+        <Parameter Name="storagePath" Type="System.Uri" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="storageUri" Type="System.Uri" Index="2" FrameworkAlternate="azure-dotnet-preview" />
       </Parameters>
       <Docs>
-        <param name="targetResourceId"> The target resource to troubleshoot. </param>
-        <param name="storageId"> The ID for the storage account to save the troubleshoot result. </param>
         <param name="storagePath">To be added.</param>
-        <summary> Invokes the this compatibility operation. </summary>
+        <param name="targetResourceId"> The target resource to troubleshoot. </param>
+        <param name="storageId"> The storage account for troubleshooting output. </param>
+        <param name="storageUri"> The absolute storage URI. </param>
+        <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.Network.Models.TroubleshootingContent" />. </summary>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="targetResourceId" />, <paramref name="storageId" /> or <paramref name="storageUri" /> is null. </exception>
@@ -264,11 +276,21 @@
         <AssemblyVersion>1.17.0.0</AssemblyVersion>
         <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.Obsolete("This property is obsolete and might be removed in a future version, use StoragePath instead", false)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Obsolete("This property is obsolete and might be removed in a future version, use StoragePath instead", false)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>System.Uri</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Compatibility member. </summary>
+        <summary> Gets the storage path as an absolute or relative URI. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

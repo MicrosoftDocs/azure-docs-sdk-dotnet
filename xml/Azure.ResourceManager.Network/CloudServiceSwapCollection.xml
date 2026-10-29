@@ -43,7 +43,11 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> Compatibility declaration for the CloudServiceSwapCollection type. </summary>
+    <summary>
+            A class representing a collection of <see cref="T:Azure.ResourceManager.Network.CloudServiceSwapResource" /> and their operations.
+            Each <see cref="T:Azure.ResourceManager.Network.CloudServiceSwapResource" /> in the collection will belong to the same instance of <see cref="T:Azure.ResourceManager.ArmResource" />.
+            To get a <see cref="T:Azure.ResourceManager.Network.CloudServiceSwapCollection" /> instance call the GetCloudServiceSwaps method from an instance of <see cref="T:Azure.ResourceManager.ArmResource" />.
+            </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -214,11 +218,13 @@
       </Docs>
     </Member>
     <Member MemberName="GetAll">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;Azure.ResourceManager.Network.CloudServiceSwapResource&gt; GetAll (System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;Azure.ResourceManager.Network.CloudServiceSwapResource&gt; GetAll (System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class Azure.ResourceManager.Network.CloudServiceSwapResource&gt; GetAll(valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.CloudServiceSwapCollection.GetAll(System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAll (cancellationToken As CancellationToken) As Pageable(Of CloudServiceSwapResource)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAll (cancellationToken As CancellationToken) As Pageable(Of CloudServiceSwapResource)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetAll : System.Threading.CancellationToken -&gt; Azure.Pageable&lt;Azure.ResourceManager.Network.CloudServiceSwapResource&gt;&#xA;override this.GetAll : System.Threading.CancellationToken -&gt; Azure.Pageable&lt;Azure.ResourceManager.Network.CloudServiceSwapResource&gt;" Usage="cloudServiceSwapCollection.GetAll cancellationToken" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;Azure.ResourceManager.Network.CloudServiceSwapResource&gt; GetAll (System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAll (Optional cancellationToken As CancellationToken = Nothing) As Pageable(Of CloudServiceSwapResource)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -233,17 +239,21 @@
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the GetAll compatibility operation. </summary>
+        <summary>
+            Gets the list of SwapResource which identifies the slot type for the specified cloud service. The slot type on a cloud service can either be Staging or Production
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/microsoft.Compute/cloudServices/{resourceName}/providers/Microsoft.Network/cloudServiceSlots. </description></item><item><term> Operation Id. </term><description> SwapResources_List. </description></item><item><term> Default Api Version. </term><description> 2026-01-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.Network.CloudServiceSwapResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetAllAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;Azure.ResourceManager.Network.CloudServiceSwapResource&gt; GetAllAsync (System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;Azure.ResourceManager.Network.CloudServiceSwapResource&gt; GetAllAsync (System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class Azure.ResourceManager.Network.CloudServiceSwapResource&gt; GetAllAsync(valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.CloudServiceSwapCollection.GetAllAsync(System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllAsync (cancellationToken As CancellationToken) As AsyncPageable(Of CloudServiceSwapResource)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllAsync (cancellationToken As CancellationToken) As AsyncPageable(Of CloudServiceSwapResource)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetAllAsync : System.Threading.CancellationToken -&gt; Azure.AsyncPageable&lt;Azure.ResourceManager.Network.CloudServiceSwapResource&gt;&#xA;override this.GetAllAsync : System.Threading.CancellationToken -&gt; Azure.AsyncPageable&lt;Azure.ResourceManager.Network.CloudServiceSwapResource&gt;" Usage="cloudServiceSwapCollection.GetAllAsync cancellationToken" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;Azure.ResourceManager.Network.CloudServiceSwapResource&gt; GetAllAsync (System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetAllAsync (Optional cancellationToken As CancellationToken = Nothing) As AsyncPageable(Of CloudServiceSwapResource)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -258,8 +268,10 @@
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the GetAllAsync compatibility operation. </summary>
-        <returns> An async collection of <see cref="T:Azure.ResourceManager.Network.CloudServiceSwapResource" /> that may take multiple service requests to iterate over. </returns>
+        <summary>
+            Gets the list of SwapResource which identifies the slot type for the specified cloud service. The slot type on a cloud service can either be Staging or Production
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/microsoft.Compute/cloudServices/{resourceName}/providers/Microsoft.Network/cloudServiceSlots. </description></item><item><term> Operation Id. </term><description> SwapResources_List. </description></item><item><term> Default Api Version. </term><description> 2026-01-01. </description></item></list></summary>
+        <returns> A collection of <see cref="T:Azure.ResourceManager.Network.CloudServiceSwapResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -366,7 +378,7 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> that may be used to cancel the asynchronous iteration.</param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>Returns an enumerator that iterates asynchronously through the collection.</summary>
         <returns>An enumerator that can be used to iterate asynchronously through the collection.</returns>
         <remarks>To be added.</remarks>

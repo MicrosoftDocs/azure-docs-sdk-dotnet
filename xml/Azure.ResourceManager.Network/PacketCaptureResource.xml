@@ -47,7 +47,11 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> Compatibility declaration for the PacketCaptureResource type. </summary>
+    <summary>
+            A class representing a PacketCapture along with the instance operations that can be performed on it.
+            If you have a <see cref="T:Azure.Core.ResourceIdentifier" /> you can construct a <see cref="T:Azure.ResourceManager.Network.PacketCaptureResource" /> from an instance of <see cref="T:Azure.ResourceManager.ArmClient" /> using the GetResource method.
+            Otherwise you can get one from its parent resource <see cref="T:Azure.ResourceManager.Network.NetworkWatcherResource" /> using the GetPacketCaptures method.
+            </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -565,15 +569,14 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
         <AssemblyVersion>1.17.0.0</AssemblyVersion>
-        <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.PacketCaptureResource&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
-        <Parameter Name="content" Type="Azure.ResourceManager.Network.Models.PacketCaptureContent" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="content" Type="Azure.ResourceManager.Network.Models.PacketCaptureContent" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="2" FrameworkAlternate="azure-dotnet" />
       </Parameters>
       <Docs>
         <param name="waitUntil">
@@ -590,11 +593,13 @@
       </Docs>
     </Member>
     <Member MemberName="Update">
-      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.PacketCaptureResource&gt; Update (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.PacketCaptureCreateOrUpdateContent content, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.PacketCaptureResource&gt; Update (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.PacketCaptureCreateOrUpdateContent content, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Network.PacketCaptureResource&gt; Update(valuetype Azure.WaitUntil waitUntil, class Azure.ResourceManager.Network.Models.PacketCaptureCreateOrUpdateContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.PacketCaptureResource.Update(Azure.WaitUntil,Azure.ResourceManager.Network.Models.PacketCaptureCreateOrUpdateContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function Update (waitUntil As WaitUntil, content As PacketCaptureCreateOrUpdateContent, cancellationToken As CancellationToken) As ArmOperation(Of PacketCaptureResource)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Update (waitUntil As WaitUntil, content As PacketCaptureCreateOrUpdateContent, cancellationToken As CancellationToken) As ArmOperation(Of PacketCaptureResource)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member Update : Azure.WaitUntil * Azure.ResourceManager.Network.Models.PacketCaptureCreateOrUpdateContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.PacketCaptureResource&gt;&#xA;override this.Update : Azure.WaitUntil * Azure.ResourceManager.Network.Models.PacketCaptureCreateOrUpdateContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.PacketCaptureResource&gt;" Usage="packetCaptureResource.Update (waitUntil, content, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.PacketCaptureResource&gt; Update (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.PacketCaptureCreateOrUpdateContent content, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Update (waitUntil As WaitUntil, content As PacketCaptureCreateOrUpdateContent, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation(Of PacketCaptureResource)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -614,7 +619,9 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="content"> Parameters that define the create packet capture operation. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the Update compatibility operation. </summary>
+        <summary>
+            Update a PacketCapture.
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/packetCaptures/{packetCaptureName}. </description></item><item><term> Operation Id. </term><description> NetworkWatchers_Create. </description></item><item><term> Default Api Version. </term><description> 2026-01-01. </description></item><item><term> Resource. </term><description><see cref="T:Azure.ResourceManager.Network.PacketCaptureResource" />. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -631,15 +638,14 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
         <AssemblyVersion>1.17.0.0</AssemblyVersion>
-        <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.PacketCaptureResource&gt;&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
-        <Parameter Name="content" Type="Azure.ResourceManager.Network.Models.PacketCaptureContent" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="content" Type="Azure.ResourceManager.Network.Models.PacketCaptureContent" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="2" FrameworkAlternate="azure-dotnet" />
       </Parameters>
       <Docs>
         <param name="waitUntil">
@@ -656,11 +662,13 @@
       </Docs>
     </Member>
     <Member MemberName="UpdateAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.PacketCaptureResource&gt;&gt; UpdateAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.PacketCaptureCreateOrUpdateContent content, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.PacketCaptureResource&gt;&gt; UpdateAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.PacketCaptureCreateOrUpdateContent content, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Network.PacketCaptureResource&gt;&gt; UpdateAsync(valuetype Azure.WaitUntil waitUntil, class Azure.ResourceManager.Network.Models.PacketCaptureCreateOrUpdateContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.PacketCaptureResource.UpdateAsync(Azure.WaitUntil,Azure.ResourceManager.Network.Models.PacketCaptureCreateOrUpdateContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function UpdateAsync (waitUntil As WaitUntil, content As PacketCaptureCreateOrUpdateContent, cancellationToken As CancellationToken) As Task(Of ArmOperation(Of PacketCaptureResource))" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function UpdateAsync (waitUntil As WaitUntil, content As PacketCaptureCreateOrUpdateContent, cancellationToken As CancellationToken) As Task(Of ArmOperation(Of PacketCaptureResource))" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member UpdateAsync : Azure.WaitUntil * Azure.ResourceManager.Network.Models.PacketCaptureCreateOrUpdateContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.PacketCaptureResource&gt;&gt;&#xA;override this.UpdateAsync : Azure.WaitUntil * Azure.ResourceManager.Network.Models.PacketCaptureCreateOrUpdateContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.PacketCaptureResource&gt;&gt;" Usage="packetCaptureResource.UpdateAsync (waitUntil, content, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.PacketCaptureResource&gt;&gt; UpdateAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.PacketCaptureCreateOrUpdateContent content, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function UpdateAsync (waitUntil As WaitUntil, content As PacketCaptureCreateOrUpdateContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation(Of PacketCaptureResource))" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -680,7 +688,9 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="content"> Parameters that define the create packet capture operation. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the UpdateAsync compatibility operation. </summary>
+        <summary>
+            Update a PacketCapture.
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/packetCaptures/{packetCaptureName}. </description></item><item><term> Operation Id. </term><description> NetworkWatchers_Create. </description></item><item><term> Default Api Version. </term><description> 2026-01-01. </description></item><item><term> Resource. </term><description><see cref="T:Azure.ResourceManager.Network.PacketCaptureResource" />. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">

@@ -47,7 +47,11 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> Compatibility declaration for the VpnSiteLinkConnectionResource type. </summary>
+    <summary>
+            A class representing a VpnSiteLinkConnection along with the instance operations that can be performed on it.
+            If you have a <see cref="T:Azure.Core.ResourceIdentifier" /> you can construct a <see cref="T:Azure.ResourceManager.Network.VpnSiteLinkConnectionResource" /> from an instance of <see cref="T:Azure.ResourceManager.ArmClient" /> using the GetResource method.
+            Otherwise you can get one from its parent resource <see cref="T:Azure.ResourceManager.Network.VpnConnectionResource" /> using the GetVpnSiteLinkConnections method.
+            </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -187,14 +191,13 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
         <AssemblyVersion>1.17.0.0</AssemblyVersion>
-        <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ArmOperation&lt;System.String&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet" />
       </Parameters>
       <Docs>
         <param name="waitUntil">
@@ -217,14 +220,13 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
         <AssemblyVersion>1.17.0.0</AssemblyVersion>
-        <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;System.String&gt;&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet" />
       </Parameters>
       <Docs>
         <param name="waitUntil">
@@ -238,11 +240,13 @@
       </Docs>
     </Member>
     <Member MemberName="GetIkeSasVpnLinkConnection">
-      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;string&gt; GetIkeSasVpnLinkConnection (Azure.WaitUntil waitUntil, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;string&gt; GetIkeSasVpnLinkConnection (Azure.WaitUntil waitUntil, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.ResourceManager.ArmOperation`1&lt;string&gt; GetIkeSasVpnLinkConnection(valuetype Azure.WaitUntil waitUntil, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.VpnSiteLinkConnectionResource.GetIkeSasVpnLinkConnection(Azure.WaitUntil,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetIkeSasVpnLinkConnection (waitUntil As WaitUntil, cancellationToken As CancellationToken) As ArmOperation(Of String)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetIkeSasVpnLinkConnection (waitUntil As WaitUntil, cancellationToken As CancellationToken) As ArmOperation(Of String)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetIkeSasVpnLinkConnection : Azure.WaitUntil * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;string&gt;&#xA;override this.GetIkeSasVpnLinkConnection : Azure.WaitUntil * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;string&gt;" Usage="vpnSiteLinkConnectionResource.GetIkeSasVpnLinkConnection (waitUntil, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;string&gt; GetIkeSasVpnLinkConnection (Azure.WaitUntil waitUntil, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetIkeSasVpnLinkConnection (waitUntil As WaitUntil, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation(Of String)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -260,17 +264,21 @@
         <param name="waitUntil">
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the GetIkeSasVpnLinkConnection compatibility operation. </summary>
+        <summary>
+            Lists IKE Security Associations for Vpn Site Link Connection in the specified resource group.
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnGateways/{gatewayName}/vpnConnections/{connectionName}/vpnLinkConnections/{linkConnectionName}/getikesas. </description></item><item><term> Operation Id. </term><description> VpnSiteLinkConnections_GetIkeSas. </description></item><item><term> Default Api Version. </term><description> 2026-01-01. </description></item><item><term> Resource. </term><description><see cref="T:Azure.ResourceManager.Network.VpnSiteLinkConnectionResource" />. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetIkeSasVpnLinkConnectionAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;string&gt;&gt; GetIkeSasVpnLinkConnectionAsync (Azure.WaitUntil waitUntil, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;string&gt;&gt; GetIkeSasVpnLinkConnectionAsync (Azure.WaitUntil waitUntil, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation`1&lt;string&gt;&gt; GetIkeSasVpnLinkConnectionAsync(valuetype Azure.WaitUntil waitUntil, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.VpnSiteLinkConnectionResource.GetIkeSasVpnLinkConnectionAsync(Azure.WaitUntil,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetIkeSasVpnLinkConnectionAsync (waitUntil As WaitUntil, cancellationToken As CancellationToken) As Task(Of ArmOperation(Of String))" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetIkeSasVpnLinkConnectionAsync (waitUntil As WaitUntil, cancellationToken As CancellationToken) As Task(Of ArmOperation(Of String))" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetIkeSasVpnLinkConnectionAsync : Azure.WaitUntil * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;string&gt;&gt;&#xA;override this.GetIkeSasVpnLinkConnectionAsync : Azure.WaitUntil * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;string&gt;&gt;" Usage="vpnSiteLinkConnectionResource.GetIkeSasVpnLinkConnectionAsync (waitUntil, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;string&gt;&gt; GetIkeSasVpnLinkConnectionAsync (Azure.WaitUntil waitUntil, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetIkeSasVpnLinkConnectionAsync (waitUntil As WaitUntil, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation(Of String))" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -288,7 +296,9 @@
         <param name="waitUntil">
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the GetIkeSasVpnLinkConnectionAsync compatibility operation. </summary>
+        <summary>
+            Lists IKE Security Associations for Vpn Site Link Connection in the specified resource group.
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnGateways/{gatewayName}/vpnConnections/{connectionName}/vpnLinkConnections/{linkConnectionName}/getikesas. </description></item><item><term> Operation Id. </term><description> VpnSiteLinkConnections_GetIkeSas. </description></item><item><term> Default Api Version. </term><description> 2026-01-01. </description></item><item><term> Resource. </term><description><see cref="T:Azure.ResourceManager.Network.VpnSiteLinkConnectionResource" />. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -346,14 +356,13 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
         <AssemblyVersion>1.17.0.0</AssemblyVersion>
-        <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ArmOperation</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet" />
       </Parameters>
       <Docs>
         <param name="waitUntil">
@@ -376,14 +385,13 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
         <AssemblyVersion>1.17.0.0</AssemblyVersion>
-        <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet" />
       </Parameters>
       <Docs>
         <param name="waitUntil">
@@ -397,11 +405,13 @@
       </Docs>
     </Member>
     <Member MemberName="ResetConnectionVpnLinkConnection">
-      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation ResetConnectionVpnLinkConnection (Azure.WaitUntil waitUntil, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation ResetConnectionVpnLinkConnection (Azure.WaitUntil waitUntil, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.ResourceManager.ArmOperation ResetConnectionVpnLinkConnection(valuetype Azure.WaitUntil waitUntil, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.VpnSiteLinkConnectionResource.ResetConnectionVpnLinkConnection(Azure.WaitUntil,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function ResetConnectionVpnLinkConnection (waitUntil As WaitUntil, cancellationToken As CancellationToken) As ArmOperation" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function ResetConnectionVpnLinkConnection (waitUntil As WaitUntil, cancellationToken As CancellationToken) As ArmOperation" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member ResetConnectionVpnLinkConnection : Azure.WaitUntil * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&#xA;override this.ResetConnectionVpnLinkConnection : Azure.WaitUntil * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation" Usage="vpnSiteLinkConnectionResource.ResetConnectionVpnLinkConnection (waitUntil, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation ResetConnectionVpnLinkConnection (Azure.WaitUntil waitUntil, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function ResetConnectionVpnLinkConnection (waitUntil As WaitUntil, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -419,17 +429,21 @@
         <param name="waitUntil">
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the ResetConnectionVpnLinkConnection compatibility operation. </summary>
+        <summary>
+            Resets the VpnLink connection specified.
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnGateways/{gatewayName}/vpnConnections/{connectionName}/vpnLinkConnections/{linkConnectionName}/resetconnection. </description></item><item><term> Operation Id. </term><description> VpnSiteLinkConnections_ResetConnection. </description></item><item><term> Default Api Version. </term><description> 2026-01-01. </description></item><item><term> Resource. </term><description><see cref="T:Azure.ResourceManager.Network.VpnSiteLinkConnectionResource" />. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ResetConnectionVpnLinkConnectionAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt; ResetConnectionVpnLinkConnectionAsync (Azure.WaitUntil waitUntil, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt; ResetConnectionVpnLinkConnectionAsync (Azure.WaitUntil waitUntil, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation&gt; ResetConnectionVpnLinkConnectionAsync(valuetype Azure.WaitUntil waitUntil, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.VpnSiteLinkConnectionResource.ResetConnectionVpnLinkConnectionAsync(Azure.WaitUntil,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function ResetConnectionVpnLinkConnectionAsync (waitUntil As WaitUntil, cancellationToken As CancellationToken) As Task(Of ArmOperation)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function ResetConnectionVpnLinkConnectionAsync (waitUntil As WaitUntil, cancellationToken As CancellationToken) As Task(Of ArmOperation)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member ResetConnectionVpnLinkConnectionAsync : Azure.WaitUntil * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt;&#xA;override this.ResetConnectionVpnLinkConnectionAsync : Azure.WaitUntil * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt;" Usage="vpnSiteLinkConnectionResource.ResetConnectionVpnLinkConnectionAsync (waitUntil, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt; ResetConnectionVpnLinkConnectionAsync (Azure.WaitUntil waitUntil, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function ResetConnectionVpnLinkConnectionAsync (waitUntil As WaitUntil, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -447,7 +461,9 @@
         <param name="waitUntil">
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the ResetConnectionVpnLinkConnectionAsync compatibility operation. </summary>
+        <summary>
+            Resets the VpnLink connection specified.
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnGateways/{gatewayName}/vpnConnections/{connectionName}/vpnLinkConnections/{linkConnectionName}/resetconnection. </description></item><item><term> Operation Id. </term><description> VpnSiteLinkConnections_ResetConnection. </description></item><item><term> Default Api Version. </term><description> 2026-01-01. </description></item><item><term> Resource. </term><description><see cref="T:Azure.ResourceManager.Network.VpnSiteLinkConnectionResource" />. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

@@ -47,7 +47,11 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> Compatibility declaration for the VirtualHubResource type. </summary>
+    <summary>
+            A class representing a VirtualHub along with the instance operations that can be performed on it.
+            If you have a <see cref="T:Azure.Core.ResourceIdentifier" /> you can construct a <see cref="T:Azure.ResourceManager.Network.VirtualHubResource" /> from an instance of <see cref="T:Azure.ResourceManager.ArmClient" /> using the GetResource method.
+            Otherwise you can get one from its parent resource <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" /> using the GetVirtualHubs method.
+            </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -464,11 +468,13 @@
       </Docs>
     </Member>
     <Member MemberName="GetEffectiveVirtualHubRoutes">
-      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation GetEffectiveVirtualHubRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.EffectiveRoutesContent content, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation GetEffectiveVirtualHubRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.EffectiveRoutesContent content, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.ResourceManager.ArmOperation GetEffectiveVirtualHubRoutes(valuetype Azure.WaitUntil waitUntil, class Azure.ResourceManager.Network.Models.EffectiveRoutesContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.VirtualHubResource.GetEffectiveVirtualHubRoutes(Azure.WaitUntil,Azure.ResourceManager.Network.Models.EffectiveRoutesContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetEffectiveVirtualHubRoutes (waitUntil As WaitUntil, content As EffectiveRoutesContent, cancellationToken As CancellationToken) As ArmOperation" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetEffectiveVirtualHubRoutes (waitUntil As WaitUntil, content As EffectiveRoutesContent, cancellationToken As CancellationToken) As ArmOperation" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetEffectiveVirtualHubRoutes : Azure.WaitUntil * Azure.ResourceManager.Network.Models.EffectiveRoutesContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&#xA;override this.GetEffectiveVirtualHubRoutes : Azure.WaitUntil * Azure.ResourceManager.Network.Models.EffectiveRoutesContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation" Usage="virtualHubResource.GetEffectiveVirtualHubRoutes (waitUntil, content, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation GetEffectiveVirtualHubRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.EffectiveRoutesContent content = default, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetEffectiveVirtualHubRoutes (waitUntil As WaitUntil, Optional content As EffectiveRoutesContent = Nothing, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -476,9 +482,17 @@
         <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
-        <Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet">
           <AttributeName Language="C#">[System.Obsolete("This method is obsolete and will be removed in a future release, please use `GetVirtualHubEffectiveRoutes` instead.", false)]</AttributeName>
           <AttributeName Language="F#">[&lt;System.Obsolete("This method is obsolete and will be removed in a future release, please use `GetVirtualHubEffectiveRoutes` instead.", false)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.Obsolete("This method is obsolete and will be removed in a future release", false)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Obsolete("This method is obsolete and will be removed in a future release", false)&gt;]</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -494,17 +508,19 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="content"> Parameters supplied to get the effective routes for a specific resource. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the GetEffectiveVirtualHubRoutes compatibility operation. </summary>
+        <summary> Gets the effective routes configured for the virtual hub. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetEffectiveVirtualHubRoutesAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt; GetEffectiveVirtualHubRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.EffectiveRoutesContent content, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt; GetEffectiveVirtualHubRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.EffectiveRoutesContent content, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation&gt; GetEffectiveVirtualHubRoutesAsync(valuetype Azure.WaitUntil waitUntil, class Azure.ResourceManager.Network.Models.EffectiveRoutesContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.VirtualHubResource.GetEffectiveVirtualHubRoutesAsync(Azure.WaitUntil,Azure.ResourceManager.Network.Models.EffectiveRoutesContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetEffectiveVirtualHubRoutesAsync (waitUntil As WaitUntil, content As EffectiveRoutesContent, cancellationToken As CancellationToken) As Task(Of ArmOperation)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetEffectiveVirtualHubRoutesAsync (waitUntil As WaitUntil, content As EffectiveRoutesContent, cancellationToken As CancellationToken) As Task(Of ArmOperation)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetEffectiveVirtualHubRoutesAsync : Azure.WaitUntil * Azure.ResourceManager.Network.Models.EffectiveRoutesContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt;&#xA;override this.GetEffectiveVirtualHubRoutesAsync : Azure.WaitUntil * Azure.ResourceManager.Network.Models.EffectiveRoutesContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt;" Usage="virtualHubResource.GetEffectiveVirtualHubRoutesAsync (waitUntil, content, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt; GetEffectiveVirtualHubRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.EffectiveRoutesContent content = default, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetEffectiveVirtualHubRoutesAsync (waitUntil As WaitUntil, Optional content As EffectiveRoutesContent = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -512,9 +528,17 @@
         <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
-        <Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet">
           <AttributeName Language="C#">[System.Obsolete("This method is obsolete and will be removed in a future release, please use `GetVirtualHubEffectiveRoutesAsync` instead.", false)]</AttributeName>
           <AttributeName Language="F#">[&lt;System.Obsolete("This method is obsolete and will be removed in a future release, please use `GetVirtualHubEffectiveRoutesAsync` instead.", false)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.Obsolete("This method is obsolete and will be removed in a future release", false)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Obsolete("This method is obsolete and will be removed in a future release", false)&gt;]</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -530,7 +554,7 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="content"> Parameters supplied to get the effective routes for a specific resource. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the GetEffectiveVirtualHubRoutesAsync compatibility operation. </summary>
+        <summary> Gets the effective routes configured for the virtual hub. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -788,11 +812,13 @@
       </Docs>
     </Member>
     <Member MemberName="GetInboundRoutes">
-      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation GetInboundRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent content, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation GetInboundRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent content, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.ResourceManager.ArmOperation GetInboundRoutes(valuetype Azure.WaitUntil waitUntil, class Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.VirtualHubResource.GetInboundRoutes(Azure.WaitUntil,Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetInboundRoutes (waitUntil As WaitUntil, content As VirtualHubInboundRoutesContent, cancellationToken As CancellationToken) As ArmOperation" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetInboundRoutes (waitUntil As WaitUntil, content As VirtualHubInboundRoutesContent, cancellationToken As CancellationToken) As ArmOperation" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetInboundRoutes : Azure.WaitUntil * Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&#xA;override this.GetInboundRoutes : Azure.WaitUntil * Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation" Usage="virtualHubResource.GetInboundRoutes (waitUntil, content, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation GetInboundRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent content, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetInboundRoutes (waitUntil As WaitUntil, content As VirtualHubInboundRoutesContent, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -800,9 +826,17 @@
         <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
-        <Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet">
           <AttributeName Language="C#">[System.Obsolete("This method is obsolete and will be removed in a future release, please use `GetVirtualHubInboundRoutes` instead.", false)]</AttributeName>
           <AttributeName Language="F#">[&lt;System.Obsolete("This method is obsolete and will be removed in a future release, please use `GetVirtualHubInboundRoutes` instead.", false)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.Obsolete("This method is obsolete and will be removed in a future release", false)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Obsolete("This method is obsolete and will be removed in a future release", false)&gt;]</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -818,7 +852,7 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="content"> Parameters supplied to get the inbound routes for a connection resource. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the GetInboundRoutes compatibility operation. </summary>
+        <summary> Gets the inbound routes on a connection to the virtual hub. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -826,11 +860,13 @@
       </Docs>
     </Member>
     <Member MemberName="GetInboundRoutesAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt; GetInboundRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent content, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt; GetInboundRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent content, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation&gt; GetInboundRoutesAsync(valuetype Azure.WaitUntil waitUntil, class Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.VirtualHubResource.GetInboundRoutesAsync(Azure.WaitUntil,Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetInboundRoutesAsync (waitUntil As WaitUntil, content As VirtualHubInboundRoutesContent, cancellationToken As CancellationToken) As Task(Of ArmOperation)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetInboundRoutesAsync (waitUntil As WaitUntil, content As VirtualHubInboundRoutesContent, cancellationToken As CancellationToken) As Task(Of ArmOperation)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetInboundRoutesAsync : Azure.WaitUntil * Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt;&#xA;override this.GetInboundRoutesAsync : Azure.WaitUntil * Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt;" Usage="virtualHubResource.GetInboundRoutesAsync (waitUntil, content, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt; GetInboundRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent content, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetInboundRoutesAsync (waitUntil As WaitUntil, content As VirtualHubInboundRoutesContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -838,9 +874,17 @@
         <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
-        <Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet">
           <AttributeName Language="C#">[System.Obsolete("This method is obsolete and will be removed in a future release, please use `GetVirtualHubInboundRoutesAsync` instead.", false)]</AttributeName>
           <AttributeName Language="F#">[&lt;System.Obsolete("This method is obsolete and will be removed in a future release, please use `GetVirtualHubInboundRoutesAsync` instead.", false)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.Obsolete("This method is obsolete and will be removed in a future release", false)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Obsolete("This method is obsolete and will be removed in a future release", false)&gt;]</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -856,7 +900,7 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="content"> Parameters supplied to get the inbound routes for a connection resource. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the GetInboundRoutesAsync compatibility operation. </summary>
+        <summary> Gets the inbound routes on a connection to the virtual hub. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -864,11 +908,13 @@
       </Docs>
     </Member>
     <Member MemberName="GetOutboundRoutes">
-      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation GetOutboundRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent content, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation GetOutboundRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent content, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.ResourceManager.ArmOperation GetOutboundRoutes(valuetype Azure.WaitUntil waitUntil, class Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.VirtualHubResource.GetOutboundRoutes(Azure.WaitUntil,Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetOutboundRoutes (waitUntil As WaitUntil, content As VirtualHubOutboundRoutesContent, cancellationToken As CancellationToken) As ArmOperation" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetOutboundRoutes (waitUntil As WaitUntil, content As VirtualHubOutboundRoutesContent, cancellationToken As CancellationToken) As ArmOperation" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetOutboundRoutes : Azure.WaitUntil * Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&#xA;override this.GetOutboundRoutes : Azure.WaitUntil * Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation" Usage="virtualHubResource.GetOutboundRoutes (waitUntil, content, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation GetOutboundRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent content, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetOutboundRoutes (waitUntil As WaitUntil, content As VirtualHubOutboundRoutesContent, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -876,9 +922,17 @@
         <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
-        <Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet">
           <AttributeName Language="C#">[System.Obsolete("This method is obsolete and will be removed in a future release, please use `GetVirtualHubOutboundRoutes` instead.", false)]</AttributeName>
           <AttributeName Language="F#">[&lt;System.Obsolete("This method is obsolete and will be removed in a future release, please use `GetVirtualHubOutboundRoutes` instead.", false)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.Obsolete("This method is obsolete and will be removed in a future release", false)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Obsolete("This method is obsolete and will be removed in a future release", false)&gt;]</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -894,7 +948,7 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="content"> Parameters supplied to get the outbound routes for a connection resource. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the GetOutboundRoutes compatibility operation. </summary>
+        <summary> Gets the outbound routes on a connection to the virtual hub. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -902,11 +956,13 @@
       </Docs>
     </Member>
     <Member MemberName="GetOutboundRoutesAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt; GetOutboundRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent content, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt; GetOutboundRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent content, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation&gt; GetOutboundRoutesAsync(valuetype Azure.WaitUntil waitUntil, class Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.VirtualHubResource.GetOutboundRoutesAsync(Azure.WaitUntil,Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetOutboundRoutesAsync (waitUntil As WaitUntil, content As VirtualHubOutboundRoutesContent, cancellationToken As CancellationToken) As Task(Of ArmOperation)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetOutboundRoutesAsync (waitUntil As WaitUntil, content As VirtualHubOutboundRoutesContent, cancellationToken As CancellationToken) As Task(Of ArmOperation)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetOutboundRoutesAsync : Azure.WaitUntil * Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt;&#xA;override this.GetOutboundRoutesAsync : Azure.WaitUntil * Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt;" Usage="virtualHubResource.GetOutboundRoutesAsync (waitUntil, content, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&gt; GetOutboundRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent content, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetOutboundRoutesAsync (waitUntil As WaitUntil, content As VirtualHubOutboundRoutesContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -914,9 +970,17 @@
         <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
-        <Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet">
           <AttributeName Language="C#">[System.Obsolete("This method is obsolete and will be removed in a future release, please use `GetVirtualHubOutboundRoutesAsync` instead.", false)]</AttributeName>
           <AttributeName Language="F#">[&lt;System.Obsolete("This method is obsolete and will be removed in a future release, please use `GetVirtualHubOutboundRoutesAsync` instead.", false)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.Obsolete("This method is obsolete and will be removed in a future release", false)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Obsolete("This method is obsolete and will be removed in a future release", false)&gt;]</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -932,7 +996,7 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="content"> Parameters supplied to get the outbound routes for a connection resource. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the GetOutboundRoutesAsync compatibility operation. </summary>
+        <summary> Gets the outbound routes on a connection to the virtual hub. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -1108,11 +1172,13 @@
       </Docs>
     </Member>
     <Member MemberName="GetVirtualHubEffectiveRoutes">
-      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.VirtualHubEffectiveRouteList&gt; GetVirtualHubEffectiveRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.EffectiveRoutesContent content, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.VirtualHubEffectiveRouteList&gt; GetVirtualHubEffectiveRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.EffectiveRoutesContent content, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Network.Models.VirtualHubEffectiveRouteList&gt; GetVirtualHubEffectiveRoutes(valuetype Azure.WaitUntil waitUntil, class Azure.ResourceManager.Network.Models.EffectiveRoutesContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.VirtualHubResource.GetVirtualHubEffectiveRoutes(Azure.WaitUntil,Azure.ResourceManager.Network.Models.EffectiveRoutesContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubEffectiveRoutes (waitUntil As WaitUntil, content As EffectiveRoutesContent, cancellationToken As CancellationToken) As ArmOperation(Of VirtualHubEffectiveRouteList)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubEffectiveRoutes (waitUntil As WaitUntil, content As EffectiveRoutesContent, cancellationToken As CancellationToken) As ArmOperation(Of VirtualHubEffectiveRouteList)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetVirtualHubEffectiveRoutes : Azure.WaitUntil * Azure.ResourceManager.Network.Models.EffectiveRoutesContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.VirtualHubEffectiveRouteList&gt;&#xA;override this.GetVirtualHubEffectiveRoutes : Azure.WaitUntil * Azure.ResourceManager.Network.Models.EffectiveRoutesContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.VirtualHubEffectiveRouteList&gt;" Usage="virtualHubResource.GetVirtualHubEffectiveRoutes (waitUntil, content, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.VirtualHubEffectiveRouteList&gt; GetVirtualHubEffectiveRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.EffectiveRoutesContent content = default, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubEffectiveRoutes (waitUntil As WaitUntil, Optional content As EffectiveRoutesContent = Nothing, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation(Of VirtualHubEffectiveRouteList)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -1132,17 +1198,21 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="content"> Parameters supplied to get the effective routes for a specific resource. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the GetVirtualHubEffectiveRoutes compatibility operation. </summary>
+        <summary>
+            Gets the effective routes configured for the Virtual Hub resource or the specified resource .
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/effectiveRoutes. </description></item><item><term> Operation Id. </term><description> VirtualHubs_GetEffectiveVirtualHubRoutes. </description></item><item><term> Default Api Version. </term><description> 2026-01-01. </description></item><item><term> Resource. </term><description><see cref="T:Azure.ResourceManager.Network.VirtualHubResource" />. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetVirtualHubEffectiveRoutesAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.VirtualHubEffectiveRouteList&gt;&gt; GetVirtualHubEffectiveRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.EffectiveRoutesContent content, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.VirtualHubEffectiveRouteList&gt;&gt; GetVirtualHubEffectiveRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.EffectiveRoutesContent content, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Network.Models.VirtualHubEffectiveRouteList&gt;&gt; GetVirtualHubEffectiveRoutesAsync(valuetype Azure.WaitUntil waitUntil, class Azure.ResourceManager.Network.Models.EffectiveRoutesContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.VirtualHubResource.GetVirtualHubEffectiveRoutesAsync(Azure.WaitUntil,Azure.ResourceManager.Network.Models.EffectiveRoutesContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubEffectiveRoutesAsync (waitUntil As WaitUntil, content As EffectiveRoutesContent, cancellationToken As CancellationToken) As Task(Of ArmOperation(Of VirtualHubEffectiveRouteList))" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubEffectiveRoutesAsync (waitUntil As WaitUntil, content As EffectiveRoutesContent, cancellationToken As CancellationToken) As Task(Of ArmOperation(Of VirtualHubEffectiveRouteList))" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetVirtualHubEffectiveRoutesAsync : Azure.WaitUntil * Azure.ResourceManager.Network.Models.EffectiveRoutesContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.VirtualHubEffectiveRouteList&gt;&gt;&#xA;override this.GetVirtualHubEffectiveRoutesAsync : Azure.WaitUntil * Azure.ResourceManager.Network.Models.EffectiveRoutesContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.VirtualHubEffectiveRouteList&gt;&gt;" Usage="virtualHubResource.GetVirtualHubEffectiveRoutesAsync (waitUntil, content, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.VirtualHubEffectiveRouteList&gt;&gt; GetVirtualHubEffectiveRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.EffectiveRoutesContent content = default, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubEffectiveRoutesAsync (waitUntil As WaitUntil, Optional content As EffectiveRoutesContent = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation(Of VirtualHubEffectiveRouteList))" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -1162,17 +1232,21 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="content"> Parameters supplied to get the effective routes for a specific resource. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the GetVirtualHubEffectiveRoutesAsync compatibility operation. </summary>
+        <summary>
+            Gets the effective routes configured for the Virtual Hub resource or the specified resource .
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/effectiveRoutes. </description></item><item><term> Operation Id. </term><description> VirtualHubs_GetEffectiveVirtualHubRoutes. </description></item><item><term> Default Api Version. </term><description> 2026-01-01. </description></item><item><term> Resource. </term><description><see cref="T:Azure.ResourceManager.Network.VirtualHubResource" />. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetVirtualHubInboundRoutes">
-      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt; GetVirtualHubInboundRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent content, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt; GetVirtualHubInboundRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent content, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt; GetVirtualHubInboundRoutes(valuetype Azure.WaitUntil waitUntil, class Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.VirtualHubResource.GetVirtualHubInboundRoutes(Azure.WaitUntil,Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubInboundRoutes (waitUntil As WaitUntil, content As VirtualHubInboundRoutesContent, cancellationToken As CancellationToken) As ArmOperation(Of EffectiveRouteMapRouteList)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubInboundRoutes (waitUntil As WaitUntil, content As VirtualHubInboundRoutesContent, cancellationToken As CancellationToken) As ArmOperation(Of EffectiveRouteMapRouteList)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetVirtualHubInboundRoutes : Azure.WaitUntil * Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt;&#xA;override this.GetVirtualHubInboundRoutes : Azure.WaitUntil * Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt;" Usage="virtualHubResource.GetVirtualHubInboundRoutes (waitUntil, content, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt; GetVirtualHubInboundRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent content, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubInboundRoutes (waitUntil As WaitUntil, content As VirtualHubInboundRoutesContent, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation(Of EffectiveRouteMapRouteList)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -1192,7 +1266,9 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="content"> Parameters supplied to get the inbound routes for a connection resource. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the GetVirtualHubInboundRoutes compatibility operation. </summary>
+        <summary>
+            Gets the inbound routes configured for the Virtual Hub on a particular connection.
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/inboundRoutes. </description></item><item><term> Operation Id. </term><description> VirtualHubs_GetInboundRoutes. </description></item><item><term> Default Api Version. </term><description> 2026-01-01. </description></item><item><term> Resource. </term><description><see cref="T:Azure.ResourceManager.Network.VirtualHubResource" />. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -1200,11 +1276,13 @@
       </Docs>
     </Member>
     <Member MemberName="GetVirtualHubInboundRoutesAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt;&gt; GetVirtualHubInboundRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent content, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt;&gt; GetVirtualHubInboundRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent content, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt;&gt; GetVirtualHubInboundRoutesAsync(valuetype Azure.WaitUntil waitUntil, class Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.VirtualHubResource.GetVirtualHubInboundRoutesAsync(Azure.WaitUntil,Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubInboundRoutesAsync (waitUntil As WaitUntil, content As VirtualHubInboundRoutesContent, cancellationToken As CancellationToken) As Task(Of ArmOperation(Of EffectiveRouteMapRouteList))" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubInboundRoutesAsync (waitUntil As WaitUntil, content As VirtualHubInboundRoutesContent, cancellationToken As CancellationToken) As Task(Of ArmOperation(Of EffectiveRouteMapRouteList))" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetVirtualHubInboundRoutesAsync : Azure.WaitUntil * Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt;&gt;&#xA;override this.GetVirtualHubInboundRoutesAsync : Azure.WaitUntil * Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt;&gt;" Usage="virtualHubResource.GetVirtualHubInboundRoutesAsync (waitUntil, content, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt;&gt; GetVirtualHubInboundRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubInboundRoutesContent content, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubInboundRoutesAsync (waitUntil As WaitUntil, content As VirtualHubInboundRoutesContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation(Of EffectiveRouteMapRouteList))" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -1224,7 +1302,9 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="content"> Parameters supplied to get the inbound routes for a connection resource. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the GetVirtualHubInboundRoutesAsync compatibility operation. </summary>
+        <summary>
+            Gets the inbound routes configured for the Virtual Hub on a particular connection.
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/inboundRoutes. </description></item><item><term> Operation Id. </term><description> VirtualHubs_GetInboundRoutes. </description></item><item><term> Default Api Version. </term><description> 2026-01-01. </description></item><item><term> Resource. </term><description><see cref="T:Azure.ResourceManager.Network.VirtualHubResource" />. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -1232,11 +1312,13 @@
       </Docs>
     </Member>
     <Member MemberName="GetVirtualHubOutboundRoutes">
-      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt; GetVirtualHubOutboundRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent content, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt; GetVirtualHubOutboundRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent content, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt; GetVirtualHubOutboundRoutes(valuetype Azure.WaitUntil waitUntil, class Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.VirtualHubResource.GetVirtualHubOutboundRoutes(Azure.WaitUntil,Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubOutboundRoutes (waitUntil As WaitUntil, content As VirtualHubOutboundRoutesContent, cancellationToken As CancellationToken) As ArmOperation(Of EffectiveRouteMapRouteList)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubOutboundRoutes (waitUntil As WaitUntil, content As VirtualHubOutboundRoutesContent, cancellationToken As CancellationToken) As ArmOperation(Of EffectiveRouteMapRouteList)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetVirtualHubOutboundRoutes : Azure.WaitUntil * Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt;&#xA;override this.GetVirtualHubOutboundRoutes : Azure.WaitUntil * Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt;" Usage="virtualHubResource.GetVirtualHubOutboundRoutes (waitUntil, content, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt; GetVirtualHubOutboundRoutes (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent content, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubOutboundRoutes (waitUntil As WaitUntil, content As VirtualHubOutboundRoutesContent, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation(Of EffectiveRouteMapRouteList)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -1256,7 +1338,9 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="content"> Parameters supplied to get the outbound routes for a connection resource. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the GetVirtualHubOutboundRoutes compatibility operation. </summary>
+        <summary>
+            Gets the outbound routes configured for the Virtual Hub on a particular connection.
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/outboundRoutes. </description></item><item><term> Operation Id. </term><description> VirtualHubs_GetOutboundRoutes. </description></item><item><term> Default Api Version. </term><description> 2026-01-01. </description></item><item><term> Resource. </term><description><see cref="T:Azure.ResourceManager.Network.VirtualHubResource" />. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -1264,11 +1348,13 @@
       </Docs>
     </Member>
     <Member MemberName="GetVirtualHubOutboundRoutesAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt;&gt; GetVirtualHubOutboundRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent content, System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt;&gt; GetVirtualHubOutboundRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent content, System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt;&gt; GetVirtualHubOutboundRoutesAsync(valuetype Azure.WaitUntil waitUntil, class Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.VirtualHubResource.GetVirtualHubOutboundRoutesAsync(Azure.WaitUntil,Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubOutboundRoutesAsync (waitUntil As WaitUntil, content As VirtualHubOutboundRoutesContent, cancellationToken As CancellationToken) As Task(Of ArmOperation(Of EffectiveRouteMapRouteList))" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubOutboundRoutesAsync (waitUntil As WaitUntil, content As VirtualHubOutboundRoutesContent, cancellationToken As CancellationToken) As Task(Of ArmOperation(Of EffectiveRouteMapRouteList))" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetVirtualHubOutboundRoutesAsync : Azure.WaitUntil * Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt;&gt;&#xA;override this.GetVirtualHubOutboundRoutesAsync : Azure.WaitUntil * Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt;&gt;" Usage="virtualHubResource.GetVirtualHubOutboundRoutesAsync (waitUntil, content, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Network.Models.EffectiveRouteMapRouteList&gt;&gt; GetVirtualHubOutboundRoutesAsync (Azure.WaitUntil waitUntil, Azure.ResourceManager.Network.Models.VirtualHubOutboundRoutesContent content, System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetVirtualHubOutboundRoutesAsync (waitUntil As WaitUntil, content As VirtualHubOutboundRoutesContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation(Of EffectiveRouteMapRouteList))" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -1288,7 +1374,9 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="content"> Parameters supplied to get the outbound routes for a connection resource. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> Invokes the GetVirtualHubOutboundRoutesAsync compatibility operation. </summary>
+        <summary>
+            Gets the outbound routes configured for the Virtual Hub on a particular connection.
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/outboundRoutes. </description></item><item><term> Operation Id. </term><description> VirtualHubs_GetOutboundRoutes. </description></item><item><term> Default Api Version. </term><description> 2026-01-01. </description></item><item><term> Resource. </term><description><see cref="T:Azure.ResourceManager.Network.VirtualHubResource" />. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">

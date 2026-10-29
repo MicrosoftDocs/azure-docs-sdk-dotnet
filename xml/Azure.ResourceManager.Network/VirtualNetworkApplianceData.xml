@@ -27,7 +27,7 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> Compatibility declaration for the VirtualNetworkApplianceData type. </summary>
+    <summary> A virtual network appliance in a resource group. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -48,6 +48,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="BandwidthGbps">
+      <MemberSignature Language="C#" Value="public double? BandwidthGbps { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;float64&gt; BandwidthGbps" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Network.VirtualNetworkApplianceData.BandwidthGbps" />
+      <MemberSignature Language="VB.NET" Value="Public Property BandwidthGbps As Nullable(Of Double)" />
+      <MemberSignature Language="F#" Value="member this.BandwidthGbps : Nullable&lt;double&gt; with get, set" Usage="Azure.ResourceManager.Network.VirtualNetworkApplianceData.BandwidthGbps" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
+        <AssemblyVersion>1.18.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;System.Double&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Bandwidth of the VirtualNetworkAppliance resource in Gbps. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="BandwidthInGbps">
       <MemberSignature Language="C#" Value="public string BandwidthInGbps { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string BandwidthInGbps" />
@@ -64,9 +84,11 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Gets or sets the BandwidthInGbps compatibility property. </summary>
+        <summary> Gets or sets the bandwidth in gigabits per second as an invariant-culture string. </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks> For numeric access, use <see cref="P:Azure.ResourceManager.Network.VirtualNetworkApplianceData.BandwidthGbps" />. Setting this property to null clears the bandwidth. Values are normalized to their numeric representation rather than preserving the original string formatting. </remarks>
+        <exception cref="T:System.FormatException"> The value is not a valid invariant-culture floating-point number. </exception>
+        <exception cref="T:System.OverflowException"> The value is outside the supported range on frameworks that throw for floating-point overflow. </exception>
       </Docs>
     </Member>
     <Member MemberName="ETag">
@@ -217,11 +239,15 @@
       </Docs>
     </Member>
     <Member MemberName="PrivateIPAddressVersion">
-      <MemberSignature Language="C#" Value="public Azure.ResourceManager.Network.Models.VirtualNetworkApplianceIpVersionType? PrivateIPAddressVersion { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.Network.Models.VirtualNetworkApplianceIpVersionType&gt; PrivateIPAddressVersion" />
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.Network.Models.VirtualNetworkApplianceIpVersionType? PrivateIPAddressVersion { get; set; }" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.Network.Models.VirtualNetworkApplianceIpVersionType&gt; PrivateIPAddressVersion" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Network.VirtualNetworkApplianceData.PrivateIPAddressVersion" />
-      <MemberSignature Language="VB.NET" Value="Public Property PrivateIPAddressVersion As Nullable(Of VirtualNetworkApplianceIpVersionType)" />
-      <MemberSignature Language="F#" Value="member this.PrivateIPAddressVersion : Nullable&lt;Azure.ResourceManager.Network.Models.VirtualNetworkApplianceIpVersionType&gt; with get, set" Usage="Azure.ResourceManager.Network.VirtualNetworkApplianceData.PrivateIPAddressVersion" />
+      <MemberSignature Language="VB.NET" Value="Public Property PrivateIPAddressVersion As Nullable(Of VirtualNetworkApplianceIpVersionType)" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="F#" Value="member this.PrivateIPAddressVersion : Nullable&lt;Azure.ResourceManager.Network.Models.VirtualNetworkApplianceIpVersionType&gt; with get, set" Usage="Azure.ResourceManager.Network.VirtualNetworkApplianceData.PrivateIPAddressVersion" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.Network.Models.VirtualNetworkApplianceIPVersionType? PrivateIPAddressVersion { get; set; }" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.Network.Models.VirtualNetworkApplianceIPVersionType&gt; PrivateIPAddressVersion" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Property PrivateIPAddressVersion As Nullable(Of VirtualNetworkApplianceIPVersionType)" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="F#" Value="member this.PrivateIPAddressVersion : Nullable&lt;Azure.ResourceManager.Network.Models.VirtualNetworkApplianceIPVersionType&gt; with get, set" Usage="Azure.ResourceManager.Network.VirtualNetworkApplianceData.PrivateIPAddressVersion" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -229,7 +255,8 @@
         <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Nullable&lt;Azure.ResourceManager.Network.Models.VirtualNetworkApplianceIpVersionType&gt;</ReturnType>
+        <ReturnType FrameworkAlternate="azure-dotnet">System.Nullable&lt;Azure.ResourceManager.Network.Models.VirtualNetworkApplianceIpVersionType&gt;</ReturnType>
+        <ReturnType FrameworkAlternate="azure-dotnet-preview">System.Nullable&lt;Azure.ResourceManager.Network.Models.VirtualNetworkApplianceIPVersionType&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> Whether the specific virtual network appliance is IPv4 or Dual Stack. Default is IPv4. </summary>
@@ -274,7 +301,7 @@
         <ReturnType>System.Nullable&lt;System.Guid&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Gets the ResourceGuid compatibility property. </summary>
+        <summary> The resource GUID property of the virtual network appliance resource. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

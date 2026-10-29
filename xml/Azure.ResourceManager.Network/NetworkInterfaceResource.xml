@@ -47,7 +47,11 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> Compatibility declaration for the NetworkInterfaceResource type. </summary>
+    <summary>
+            A class representing a NetworkInterface along with the instance operations that can be performed on it.
+            If you have a <see cref="T:Azure.Core.ResourceIdentifier" /> you can construct a <see cref="T:Azure.ResourceManager.Network.NetworkInterfaceResource" /> from an instance of <see cref="T:Azure.ResourceManager.ArmClient" /> using the GetResource method.
+            Otherwise you can get one from its parent resource <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" /> using the GetNetworkInterfaces method.
+            </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -280,13 +284,12 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
         <AssemblyVersion>1.17.0.0</AssemblyVersion>
-        <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.Network.LoadBalancerResource&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="0" FrameworkAlternate="azure-dotnet" />
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
@@ -307,13 +310,12 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
         <AssemblyVersion>1.17.0.0</AssemblyVersion>
-        <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.Network.LoadBalancerResource&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="0" FrameworkAlternate="azure-dotnet" />
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
@@ -558,11 +560,13 @@
       </Docs>
     </Member>
     <Member MemberName="GetNetworkInterfaceLoadBalancers">
-      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;Azure.ResourceManager.Network.LoadBalancerResource&gt; GetNetworkInterfaceLoadBalancers (System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;Azure.ResourceManager.Network.LoadBalancerResource&gt; GetNetworkInterfaceLoadBalancers (System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class Azure.ResourceManager.Network.LoadBalancerResource&gt; GetNetworkInterfaceLoadBalancers(valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.NetworkInterfaceResource.GetNetworkInterfaceLoadBalancers(System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNetworkInterfaceLoadBalancers (cancellationToken As CancellationToken) As Pageable(Of LoadBalancerResource)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNetworkInterfaceLoadBalancers (cancellationToken As CancellationToken) As Pageable(Of LoadBalancerResource)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetNetworkInterfaceLoadBalancers : System.Threading.CancellationToken -&gt; Azure.Pageable&lt;Azure.ResourceManager.Network.LoadBalancerResource&gt;&#xA;override this.GetNetworkInterfaceLoadBalancers : System.Threading.CancellationToken -&gt; Azure.Pageable&lt;Azure.ResourceManager.Network.LoadBalancerResource&gt;" Usage="networkInterfaceResource.GetNetworkInterfaceLoadBalancers cancellationToken" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;Azure.ResourceManager.Network.LoadBalancerResource&gt; GetNetworkInterfaceLoadBalancers (System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNetworkInterfaceLoadBalancers (Optional cancellationToken As CancellationToken = Nothing) As Pageable(Of LoadBalancerResource)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -577,17 +581,21 @@
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> List all load balancers in a network interface. </summary>
+        <summary>
+            List all load balancers in a network interface.
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}/loadBalancers. </description></item><item><term> Operation Id. </term><description> NetworkInterfaceOperationGroup_NetworkInterfaceLoadBalancersList. </description></item><item><term> Default Api Version. </term><description> 2026-01-01. </description></item><item><term> Resource. </term><description><see cref="T:Azure.ResourceManager.Network.NetworkInterfaceResource" />. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.Network.LoadBalancerResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetNetworkInterfaceLoadBalancersAsync">
-      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;Azure.ResourceManager.Network.LoadBalancerResource&gt; GetNetworkInterfaceLoadBalancersAsync (System.Threading.CancellationToken cancellationToken);" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;Azure.ResourceManager.Network.LoadBalancerResource&gt; GetNetworkInterfaceLoadBalancersAsync (System.Threading.CancellationToken cancellationToken);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class Azure.ResourceManager.Network.LoadBalancerResource&gt; GetNetworkInterfaceLoadBalancersAsync(valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.NetworkInterfaceResource.GetNetworkInterfaceLoadBalancersAsync(System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNetworkInterfaceLoadBalancersAsync (cancellationToken As CancellationToken) As AsyncPageable(Of LoadBalancerResource)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNetworkInterfaceLoadBalancersAsync (cancellationToken As CancellationToken) As AsyncPageable(Of LoadBalancerResource)" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="abstract member GetNetworkInterfaceLoadBalancersAsync : System.Threading.CancellationToken -&gt; Azure.AsyncPageable&lt;Azure.ResourceManager.Network.LoadBalancerResource&gt;&#xA;override this.GetNetworkInterfaceLoadBalancersAsync : System.Threading.CancellationToken -&gt; Azure.AsyncPageable&lt;Azure.ResourceManager.Network.LoadBalancerResource&gt;" Usage="networkInterfaceResource.GetNetworkInterfaceLoadBalancersAsync cancellationToken" />
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;Azure.ResourceManager.Network.LoadBalancerResource&gt; GetNetworkInterfaceLoadBalancersAsync (System.Threading.CancellationToken cancellationToken = default);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetNetworkInterfaceLoadBalancersAsync (Optional cancellationToken As CancellationToken = Nothing) As AsyncPageable(Of LoadBalancerResource)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -602,7 +610,9 @@
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary> List all load balancers in a network interface. </summary>
+        <summary>
+            List all load balancers in a network interface.
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}/loadBalancers. </description></item><item><term> Operation Id. </term><description> NetworkInterfaceOperationGroup_NetworkInterfaceLoadBalancersList. </description></item><item><term> Default Api Version. </term><description> 2026-01-01. </description></item><item><term> Resource. </term><description><see cref="T:Azure.ResourceManager.Network.NetworkInterfaceResource" />. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.Network.LoadBalancerResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
       </Docs>
