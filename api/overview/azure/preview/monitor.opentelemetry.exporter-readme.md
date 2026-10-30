@@ -1,12 +1,12 @@
 ---
 title: Azure Monitor Exporter client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Monitor.OpenTelemetry.Exporter, monitor
-ms.date: 09/16/2026
+ms.date: 10/30/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: monitor
 ---
-# Azure Monitor Exporter client library for .NET - version 1.10.0-beta.1 
+# Azure Monitor Exporter client library for .NET - version 1.11.0-alpha.20261030.1 
 
 
 The [OpenTelemetry .NET](https://github.com/open-telemetry/opentelemetry-dotnet) exporters which send [telemetry data](https://learn.microsoft.com/azure/azure-monitor/app/data-model) to [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview) following the [OpenTelemetry Specification](https://github.com/open-telemetry/opentelemetry-specification).
@@ -37,7 +37,7 @@ dotnet add package Azure.Monitor.OpenTelemetry.Exporter
 
 #### Nightly builds
 
-Nightly builds are available from this repo's [dev feed](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.10.0-beta.1/CONTRIBUTING.md#nuget-package-dev-feed).
+Nightly builds are available from this repo's [dev feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
 These are provided without support and are not intended for production workloads.
 
 ### Add the Exporter (per signal)
@@ -53,7 +53,7 @@ It's important to keep the `TracerProvider`, `MeterProvider`, and `LoggerFactory
         .Build();
     ```
 
-  For a complete example see [TraceDemo.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.10.0-beta.1/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/Traces/TraceDemo.cs).
+  For a complete example see [TraceDemo.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/Traces/TraceDemo.cs).
 
 - Metrics
     ```csharp
@@ -62,7 +62,7 @@ It's important to keep the `TracerProvider`, `MeterProvider`, and `LoggerFactory
         .Build();
     ```
 
-  For a complete example see [MetricDemo.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.10.0-beta.1/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/Metrics/MetricDemo.cs).
+  For a complete example see [MetricDemo.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/Metrics/MetricDemo.cs).
 
 - Logs
     ```csharp
@@ -75,7 +75,7 @@ It's important to keep the `TracerProvider`, `MeterProvider`, and `LoggerFactory
     });
     ```
 
-  For a complete example see [LogDemo.cs](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.10.0-beta.1/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/Logs/LogDemo.cs).
+  For a complete example see [LogDemo.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/Logs/LogDemo.cs).
 
 ### Add the Exporter for all signals
 
@@ -100,7 +100,7 @@ appBuilder.Services.AddOpenTelemetry()
 ### Authenticate the client
 
 Azure Active Directory (AAD) authentication is an optional feature that can be used with the Azure Monitor Exporter.
-This is made easy with the [Azure Identity library](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.10.0-beta.1/sdk/identity/Azure.Identity/README.md), which provides support for authenticating Azure SDK clients with their corresponding Azure services.
+This is made easy with the [Azure Identity library](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/README.md), which provides support for authenticating Azure SDK clients with their corresponding Azure services.
 
 There are two options to enable AAD authentication. Note that if both have been set AzureMonitorExporterOptions will take precedence.
 
@@ -200,6 +200,50 @@ Some key concepts for OpenTelemetry include:
 
 For more information on the OpenTelemetry project, please review the [OpenTelemetry Specifications](https://github.com/open-telemetry/opentelemetry-specification).
 
+### Custom property truncation
+
+Span, span event, log record, and log scope attributes are exported as custom properties. Keys longer than 150 characters are dropped, and values are truncated to the following lengths (in characters):
+
+| Attributes | Max length |
+| --- | --- |
+| `gen_ai.input.messages`, `gen_ai.output.messages` | 256 KiB (`256 * 1024`); 4 MiB (`4 * 1024 * 1024`) when the `gen_ai_input_output_limit_increase` experimental switch is enabled |
+| `gen_ai.system_instructions`, `gen_ai.tool.definitions`, `gen_ai.tool.call.arguments`, `gen_ai.tool.call.result`, `gen_ai.evaluation.explanation` | 256 KiB (`256 * 1024`) |
+| All other attributes | 8 KiB (`8 * 1024`) |
+
+Values truncated at these limits are cut at the character boundary, so a truncated JSON value is no longer valid JSON.
+
+#### Larger GenAI input and output messages (experimental)
+
+GenAI input and output messages can carry multimodal content, such as base64-encoded images or audio, that exceeds 256 KiB. To keep `gen_ai.input.messages` and `gen_ai.output.messages` up to 4 MiB, enable the `Azure.Monitor.OpenTelemetry.Exporter.Experimental.gen_ai_input_output_limit_increase` `AppContext` switch. It is read once, so set it before building your providers:
+
+```csharp
+AppContext.SetSwitch("Azure.Monitor.OpenTelemetry.Exporter.Experimental.gen_ai_input_output_limit_increase", true);
+```
+
+Or declare it in `runtimeconfig.template.json` so that it is baked into the application:
+
+```json
+{
+  "configProperties": {
+    "Azure.Monitor.OpenTelemetry.Exporter.Experimental.gen_ai_input_output_limit_increase": true
+  }
+}
+```
+
+The same setting can be declared in the project file with `<RuntimeHostConfigurationOption Include="Azure.Monitor.OpenTelemetry.Exporter.Experimental.gen_ai_input_output_limit_increase" Value="true" />`.
+
+On .NET Framework, which does not use `runtimeconfig.json`, declare it in `app.config` or `web.config` instead:
+
+```xml
+<configuration>
+  <runtime>
+    <AppContextSwitchOverrides value="Azure.Monitor.OpenTelemetry.Exporter.Experimental.gen_ai_input_output_limit_increase=true" />
+  </runtime>
+</configuration>
+```
+
+With the switch enabled, multimodal messages can produce large telemetry items. Telemetry is sent uncompressed, up to 512 items per request, and the offline storage cap (50 MiB) is not configurable. If you capture such content, consider limiting content capture in your GenAI instrumentation, or increasing `AzureMonitorExporterOptions.Retry.NetworkTimeout` for slow networks.
+
 ## Telemetry delivery on shutdown
 
 Uploading telemetry takes an ingestion round trip, which can take several seconds. A process that
@@ -289,9 +333,24 @@ graceful shutdown window and delivers the final batch without leaving it for a r
 Concurrent processes may share a directory safely, but separate directories keep one application's
 backlog from filling another's storage quota.
 
+**One application made of several processes or entry points** may find its telemetry split across
+several storage directories, because the directory name is derived from the process name and
+application base directory. A component that runs rarely then never drains its own backlog. Give
+each component the same `Azure.Monitor.OpenTelemetry.Exporter.StorageSubDirectory` value so they
+share one directory:
+
+```json
+{ "configProperties": { "Azure.Monitor.OpenTelemetry.Exporter.StorageSubDirectory": "my-app" } }
+```
+
+The value replaces only the process name and base directory in the name. The instrumentation key
+and user name still contribute, so different users and Application Insights resources stay
+isolated. Setting or changing the value moves storage to a new directory, and any backlog left in
+the previous one is not delivered.
+
 ## Examples
 
-Refer to [`Program.cs`](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.10.0-beta.1/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/Program.cs) for a complete demo.
+Refer to [`Program.cs`](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/Program.cs) for a complete demo.
 
 ### Log Scopes
 
@@ -380,7 +439,7 @@ This example generates a CustomEvent structured like this:
 The Azure Monitor exporter uses EventSource for its own internal logging. The exporter logs are available to any EventListener by opting into the source named "OpenTelemetry-AzureMonitor-Exporter".
 
 OpenTelemetry also provides it's own [self-diagnostics feature](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry/README.md#troubleshooting) to collect internal logs.
-An example of this is available in our demo project [here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.10.0-beta.1/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/OTEL_DIAGNOSTICS.json).
+An example of this is available in our demo project [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo/OTEL_DIAGNOSTICS.json).
 
 ## Next steps
 
@@ -388,7 +447,7 @@ For more information on Azure SDK, please refer to [this website](https://azure.
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.10.0-beta.1/CONTRIBUTING.md) for details on contribution process.
+See [CONTRIBUTING.md](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md) for details on contribution process.
 
 ## AOT (Ahead-of-Time) Support
 
@@ -412,5 +471,17 @@ In AOT scenarios, you can configure the Azure Monitor Exporter using one of the 
             options.ConnectionString = "<your-connection-string>";
             // Set other options as needed
         });
+    ```
+
+## Multi-endpoint routing with Microsoft Entra ID
+
+With multi-endpoint routing enabled (the `Azure.Monitor.OpenTelemetry.EnableMultiEndpointRouting` AppContext switch), each telemetry item names its destination with the `microsoft.instrumentation_key` and `microsoft.ingestion_endpoint` attributes. To send to a resource that uses Microsoft Entra ID authentication:
+
+- Add `microsoft.ingestion_auth = "aad"` to that resource's telemetry. Resources with local authentication disabled require it; telemetry without it is sent without a token.
+- Set the same `AzureMonitorExporterOptions.Credential` on every exporter. One identity is used for all destinations and needs the Monitoring Metrics Publisher role on each resource that receives `"aad"` telemetry. Without a credential, `"aad"` telemetry is dropped.
+- Outside the public cloud, set the audience:
+
+    ```csharp
+    AppDomain.CurrentDomain.SetData("Azure.Monitor.OpenTelemetry.Exporter.MultiEndpointAadAudience", "https://monitor.azure.cn/");
     ```
 
