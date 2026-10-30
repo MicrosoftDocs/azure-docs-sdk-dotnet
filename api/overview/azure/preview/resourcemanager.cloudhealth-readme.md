@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.CloudHealth, cloudhealth
-ms.date: 10/15/2026
+ms.date: 10/30/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: cloudhealth
@@ -25,16 +25,18 @@ This library follows the [new Azure SDK guidelines](https://azure.github.io/azur
 Install the Microsoft Azure Cloud Health management library for .NET with [NuGet](https://www.nuget.org/):
 
 ```dotnetcli
-dotnet add package Azure.ResourceManager.CloudHealth --prerelease
+dotnet add package Azure.ResourceManager.CloudHealth
 ```
 
 ### Prerequisites
 
 * You must have an [Microsoft Azure subscription](https://azure.microsoft.com/free/dotnet/).
+* The samples require an existing resource group, the `Microsoft.CloudHealth` resource provider registered at subscription scope, and a region where the service is available.
+* Creating health models, entities, relationships, and submitting health reports requires write/action permissions, such as Contributor on the resource group. Reading health requires read access, such as Reader on the entity or a containing scope. Resource provider registration requires separate subscription-scoped permissions. See the [sample prerequisites](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/cloudhealth/Azure.ResourceManager.CloudHealth/samples/Sample1_HealthModels.md#prerequisites).
 
 ### Authenticate the Client
 
-To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.CloudHealth_1.0.0-beta.6/doc/dev/mgmt_quickstart.md).
+To create an authenticated client and start interacting with Microsoft Azure resources, see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/main/doc/dev/mgmt_quickstart.md).
 
 ## Key concepts
 
@@ -44,11 +46,47 @@ Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://azu
 
 Documentation is available to help you learn how to use this package:
 
-- [Quickstart](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.CloudHealth_1.0.0-beta.6/doc/dev/mgmt_quickstart.md).
-- [API References](/dotnet/api/?view=azure-dotnet).
-- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.CloudHealth_1.0.0-beta.6/sdk/identity/Azure.Identity/README.md).
+
+- [API References](https://learn.microsoft.com/rest/api/health-models/operation-groups?view=rest-health-models-2026-11-01).
+- [Authentication](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
 
 ## Examples
+
+### Create a health model
+
+Create a health model in an existing resource group. Follow the [sample setup instructions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/cloudhealth/Azure.ResourceManager.CloudHealth/samples/Sample1_HealthModels.md#getting-started) to install Azure Identity and authenticate, then replace the placeholders below with your resource details.
+
+```csharp
+using System;
+using Azure;
+using Azure.Core;
+using Azure.Identity;
+using Azure.ResourceManager;
+using Azure.ResourceManager.CloudHealth;
+using Azure.ResourceManager.Resources;
+
+var client = new ArmClient(new DefaultAzureCredential());
+var resourceGroup = client.GetResourceGroupResource(
+    ResourceGroupResource.CreateResourceIdentifier("<subscription-id>", "<resource-group>"));
+
+var model = (await resourceGroup.GetHealthModels().CreateOrUpdateAsync(
+    WaitUntil.Completed,
+    "<health-model-name>",
+    new HealthModelData(new AzureLocation("<enabled-region>")))).Value;
+
+Console.WriteLine($"Health model ID: {model.Id}");
+```
+
+`WaitUntil.Completed` waits for resource provisioning, not health evaluation. `Unknown` or unavailable health must not be treated as `Healthy`.
+
+### Full scenario
+
+Continue with the [full health models walkthrough](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/cloudhealth/Azure.ResourceManager.CloudHealth/samples/Sample1_HealthModels.md) for setup and all four scenarios:
+
+- [Create a health model](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/cloudhealth/Azure.ResourceManager.CloudHealth/samples/Sample1_HealthModels.md#create-a-health-model).
+- [Create an entity in a health model and connect it to the root entity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/cloudhealth/Azure.ResourceManager.CloudHealth/samples/Sample1_HealthModels.md#create-an-entity-in-a-health-model).
+- [Push health status to an entity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/cloudhealth/Azure.ResourceManager.CloudHealth/samples/Sample1_HealthModels.md#push-health-status-to-an-entity).
+- [Get an entity's health](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/cloudhealth/Azure.ResourceManager.CloudHealth/samples/Sample1_HealthModels.md#get-an-entitys-health).
 
 Code samples for using the management library for .NET can be found in the following locations
 - [.NET Management Library Code Samples](https://aka.ms/azuresdk-net-mgmt-samples)
@@ -83,6 +121,6 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.CloudHealth_1.0.0-beta.6/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
