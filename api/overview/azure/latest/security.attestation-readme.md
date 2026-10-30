@@ -1,15 +1,16 @@
 ---
 title: Azure Attestation client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Security.Attestation, attestation
-ms.date: 05/08/2021
+ms.date: 10/30/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: attestation
 ---
-# Azure Attestation client library for .NET - version 1.0.0 
+# Azure Attestation client library for .NET - version 2.0.0 
 
 
-The Microsoft Azure Attestation (MAA) service is a unified solution for remotely verifying the trustworthiness of a platform and integrity of the binaries running inside it. The service supports attestation of the platforms backed by Trusted Platform Modules (TPMs) alongside the ability to attest to the state of Trusted Execution Environments (TEEs) such as Intel® Software Guard Extensions (SGX) enclaves and Virtualization-based Security (VBS) enclaves.
+<!-- cspell:ignore mrtd sevsnpvm vcek -->
+The Microsoft Azure Attestation (MAA) service is a unified solution for remotely verifying the trustworthiness of a platform and integrity of the binaries running inside it. The service supports attestation of the platforms backed by Trusted Platform Modules (TPMs) alongside the ability to attest to the state of Trusted Execution Environments (TEEs) such as Intel® Software Guard Extensions (SGX) enclaves, Virtualization-based Security (VBS) enclaves, and Intel® TDX and AMD SEV-SNP confidential virtual machines.
 
 Attestation is a process for demonstrating that software binaries were properly instantiated on a trusted platform. Remote relying parties can then gain confidence that only such intended software is running on trusted hardware. Azure Attestation is a unified customer-facing service and framework for attestation.
 
@@ -19,7 +20,7 @@ Azure Attestation receives evidence from compute entities, turns them into a set
 
 > NOTE: This is a preview SDK for the Microsoft Azure Attestation service. It provides all the essential functionality to access the Azure Attestation service, it should be considered 'as-is" and is subject to changes in the future which may break compatibility with previous versions.
 
-  [Source code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.Attestation_1.0.0/sdk/attestation/Azure.Security.Attestation) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Security.Attestation) | [API reference documentation][API_reference] | [Product documentation](https://docs.microsoft.com/azure/attestation/)
+  [Source code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.Attestation_2.0.0/sdk/attestation/Azure.Security.Attestation) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Security.Attestation) | [API reference documentation][API_reference] | [Product documentation](https://learn.microsoft.com/azure/attestation/)
 
 ## Getting started
 
@@ -32,9 +33,11 @@ Azure Attestation receives evidence from compute entities, turns them into a set
 
 Install the Microsoft Azure Attestation client library for .NET with [NuGet][nuget]:
 
-```PowerShell
+```dotnetcli
 dotnet add package Azure.Security.Attestation --prerelease
 ```
+
+If you're upgrading from version 1.0.0, see the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_2.0.0/sdk/attestation/Azure.Security.Attestation/MigrationGuide.md): version 2.0.0 changes how attestation tokens are validated.
 
 ### Authenticate the client
 
@@ -44,7 +47,7 @@ In order to interact with the Microsoft Azure Attestation service, you'll need t
 Client secret credential authentication is being used in this getting started section but you can find more ways to authenticate with [Azure identity][azure_identity]. To use the [DefaultAzureCredential][DefaultAzureCredential] provider shown below,
 or other credential providers provided with the Azure SDK, you should install the Azure.Identity package:
 
-```PowerShell
+```dotnetcli
 dotnet add package Azure.Identity
 ```
 
@@ -90,14 +93,14 @@ Use the [Azure CLI][azure_cli] snippet below to create/get client secret credent
     $Env:AZURE_TENANT_ID="tenant-ID"
     ```
 
-For more information about the Azure Identity APIs and how to use them, see [Azure Identity client library](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.Attestation_1.0.0/sdk/identity/Azure.Identity)
+For more information about the Azure Identity APIs and how to use them, see [Azure Identity client library](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.Attestation_2.0.0/sdk/identity/Azure.Identity)
 
 ## Key concepts
 
 There are four major families of functionality provided in this preview SDK:
 
-* [SGX and TPM enclave attestation.](#attestation)
-* [MAA Attestation Token signing certificate discovery and validation.](#attestation-token-signing-certificate-discovery-and-validation)  
+* [Attestation of SGX enclaves, TDX and SEV-SNP confidential VMs, and TPMs.](#attestation)
+* [MAA Attestation Token signing certificate discovery and validation.](#attestation-token-signing-certificate-discovery-and-validation)
 * [Attestation Policy management.](#policy-management)
 * [Attestation policy management certificate management](#policy-management-certificate-management) (yes, policy management management).
 
@@ -105,13 +108,13 @@ The Microsoft Azure Attestation service runs in two separate modes: "Isolated" a
 provide additional information beyond their authentication credentials to verify that they are authorized to modify the state of an attestation instance.
 
 Finally, each region in which the Microsoft Azure Attestation service is available supports a "shared" instance, which
-can be used to attest SGX enclaves which only need verification against the azure baseline (there are no policies applied to the shared instance). TPM attestation is not available in the shared instance.
+can be used to attest SGX enclaves and TDX and SEV-SNP confidential VMs which only need verification against the azure baseline (there are no policies applied to the shared instance). TPM attestation is not available in the shared instance.
 While the shared instance requires AAD authentication, it does not have any RBAC policies - any customer with a valid AAD bearer token can attest using the shared instance.
 
 ### Attestation
 
-SGX or TPM attestation is the process of validating evidence collected from
-a trusted execution environment to ensure that it meets both the Azure baseline for that environment and customer defined policies applied to that environment.
+Attestation is the process of validating evidence collected from
+a trusted execution environment (an SGX enclave, a TDX or SEV-SNP confidential VM, or a TPM) to ensure that it meets both the Azure baseline for that environment and customer defined policies applied to that environment.
 
 ### Attestation service token signing certificate discovery and validation
 
@@ -126,11 +129,13 @@ the certificate issued by the server can be verified using the [oe_verify_attest
 
 The [`AttestationResponse`][attestation_response] object contains two main properties: [`Token`][attestation_response_token] and [`Value`][attestation_response_value]. The `Token` property contains the complete token returned by the attestation service, the `Value` property contains the body of the JSON Web Token response.
 
+By default, the clients validate every token the service returns, including that it was issued by the client's endpoint. The exception is `AttestAzureGuest`: the service encrypts its token to the virtual machine's TPM, so the client can't decrypt or validate it, and you must validate the token yourself after decrypting it inside the virtual machine. When you validate a token yourself, for example in a relying party, with `AttestationToken.ValidateToken`, pass the signing certificates retrieved with `GetSigningCertificates` from the attestation provider the token must come from, and set `AttestationTokenValidationOptions.ExpectedIssuer` to that provider's base URI. A token is never trusted because of certificates it carries itself. See [Validate an attestation token in a relying party](#validate-an-attestation-token-in-a-relying-party).
+
 ### Policy Management
 
 Each attestation service instance has a policy applied to it which defines additional criteria which the customer has defined.
 
-For more information on attestation policies, see [Attestation Policy](https://docs.microsoft.com/azure/attestation/author-sign-policy)
+For more information on attestation policies, see [Attestation Policy](https://learn.microsoft.com/azure/attestation/author-sign-policy)
 
 ### Policy Management certificate management
 
@@ -141,7 +146,7 @@ clients to "roll" the policy management certificates.
 
 ### Isolated Mode and AAD Mode
 
-Each Microsoft Azure Attestation service instance operates in either "AAD" mode or "Isolated" mode. When an MAA instance is operating in AAD mode, it means that the customer which created the attestation instance allows Azure Active Directory and Azure Role Based Access control policies to verify access to the attestation instance.  
+Each Microsoft Azure Attestation service instance operates in either "AAD" mode or "Isolated" mode. When an MAA instance is operating in AAD mode, it means that the customer which created the attestation instance allows Azure Active Directory and Azure Role Based Access control policies to verify access to the attestation instance.
 
 ### *AttestationType*
 
@@ -151,14 +156,19 @@ Currently, MAA supports the following Trusted Execution environments:
 * OpenEnclave - An Intel(tm) Processor running code in an SGX Enclave where the attestation evidence was collected using the OpenEnclave [`oe_get_report`](https://openenclave.io/apidocs/v0.14/enclave_8h_aefcb89c91a9078d595e255bd7901ac71.html#aefcb89c91a9078d595e255bd7901ac71) or [`oe_get_evidence`](https://openenclave.io/apidocs/v0.14/attester_8h_a7d197e42468636e95a6ab97b8e74c451.html#a7d197e42468636e95a6ab97b8e74c451) API.
 * SgxEnclave - An Intel(tm) Processor running code in an SGX Enclave where the attestation evidence was collected using the Intel SGX SDK.
 * Tpm - A Virtualization Based Security environment where the Trusted Platform Module of the processor is used to provide the attestation evidence.
+* SevSnpVm - A confidential virtual machine protected by AMD SEV-SNP. Attested with `AttestSevSnpVm`.
+* TdxVm - A confidential virtual machine protected by Intel(tm) TDX. Attested with `AttestTdxVm`, which requires service version `V2025_06_01` (the default) or later.
+* AzureGuest - An Azure confidential or Trusted Launch virtual machine. Attested with `AttestAzureGuest`, which sends the attestation information collected inside the virtual machine, for example by the [guest attestation library](https://github.com/Azure/confidential-computing-cvm-guest-attestation), and returns the token sealed to the virtual machine's TPM. Only that virtual machine can decrypt the token; the decrypted token must then be validated with `AttestationToken.ValidateToken`, and can be read with `AttestationToken`.
 
 ### Runtime Data and Inittime Data
 
 RuntimeData refers to data which is presented to the Intel SGX Quote generation logic or the `oe_get_report`/`oe_get_evidence` APIs. The Azure Attestation service will validate that the first 32 bytes of the `report_data` field in the SGX Quote/OE Report/OE Evidence matches the SHA256 hash of the RuntimeData.
 
+TDX and SEV-SNP evidence must likewise bind the RuntimeData through its report data; the service rejects RuntimeData that the evidence does not bind. RuntimeData supplied as JSON is returned as claims in `AttestationResult.RuntimeClaims`.
+
 InitTime data refers to data which is used to configure the SGX enclave being attested.
 
-> Note that InitTime data is not supported on Azure [DCsv2-Series](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) virtual machines.
+> Note that InitTime data is not supported on Azure [DCsv2-Series](https://learn.microsoft.com/azure/virtual-machines/dcv2-series) virtual machines.
 
 ### Thread safety
 
@@ -166,22 +176,25 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_1.0.0/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_1.0.0/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_1.0.0/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_1.0.0/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_1.0.0/sdk/core/Azure.Core/samples/Diagnostics.md) |
-[Mocking](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_1.0.0/sdk/core/Azure.Core/README.md#mocking) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_2.0.0/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_2.0.0/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_2.0.0/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_2.0.0/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_2.0.0/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
 
 ## Examples
 
 * [Create an attestation client instance](#create-client-instance)
-* [Attest an SGX enclave](#attest-sgx-enclave)
 * [Get attestation policy](#get-attestation-policy)
+* [Set an attestation policy](#set-an-attestation-policy-for-a-specified-attestation-type)
+* [Attest an SGX enclave](#attest-sgx-enclave)
+* [Validate an attestation token in a relying party](#validate-an-attestation-token-in-a-relying-party)
+* [Attest a TDX confidential VM](#attest-a-tdx-confidential-vm)
+* [Attest an SEV-SNP confidential VM](#attest-an-sev-snp-confidential-vm)
 * [Retrieve token validation certificates](#retrieve-token-certificates)
-* [Create an attestation client instance](#create-client-instance)
 
 ### Create client instance
 
@@ -221,10 +234,10 @@ var setResult = client.SetPolicy(AttestationType.SgxEnclave, attestationPolicy, 
 
 Clients need to be able to verify that the attestation policy document was not modified before the policy document was received by the attestation service's enclave.
 
-There are two properties provided in the [PolicyResult][attestation_policy_result] that can be used to verify that the service received the policy document:
+There are two properties provided in the [PolicyModificationResult][attestation_policy_modification_result] that can be used to verify that the service received the policy document:
 
-* [`PolicySigner`][attestation_policy_result_signer] - if the `SetPolicy` call included a signing certificate, this will be the certificate provided at the time of the `SetPolicy` call. If no policy signer was set, this will be null.
-* [`PolicyTokenHash`][attestation_policy_result_token_hash] - this is the hash of the [JSON Web Token][json_web_token] sent to the service.
+* [`PolicySigner`][attestation_policy_modification_result_signer] - if the `SetPolicy` call included a signing certificate, this will be the certificate provided at the time of the `SetPolicy` call. If no policy signer was set, this will be null.
+* [`PolicyTokenHash`][attestation_policy_modification_result_token_hash] - this is the hash of the [JSON Web Token][json_web_token] sent to the service.
 
 To verify the hash, clients can generate an attestation token and verify the hash generated from that token:
 
@@ -238,7 +251,7 @@ var policySetToken = new AttestationToken(
     BinaryData.FromObjectAsJson(new StoredAttestationPolicy { AttestationPolicy = attestationPolicy }),
     signingKey);
 
-using var shaHasher = SHA256Managed.Create();
+using var shaHasher = SHA256.Create();
 byte[] attestationPolicyHash = shaHasher.ComputeHash(Encoding.UTF8.GetBytes(policySetToken.Serialize()));
 
 Debug.Assert(attestationPolicyHash.SequenceEqual(setResult.Value.PolicyTokenHash.ToArray()));
@@ -293,7 +306,68 @@ var encryptedData = SendTokenToRelyingParty(attestationResult.Token);
 // Now the encrypted data can be passed into the enclave which can decrypt that data.
 ```
 
+### Validate an attestation token in a relying party
+
+A relying party that receives an attestation token, for example in the "Secure Key Release" pattern above, must validate it before trusting its claims. Validate the token against the signing certificates of the attestation provider you trust, and require that provider as the token's issuer:
+
+```C# Snippet:ValidateAttestationTokenInRelyingParty
+// The attestation provider the relying party trusts to have issued the token.
+string attestationEndpoint = "https://myprovider.attest.azure.net";
+
+// Retrieve the provider's signing certificates. Only these certificates are trusted to have signed the
+// token; certificates carried in the token itself are not.
+var certificateClient = new AttestationClient(new Uri(attestationEndpoint), new DefaultAzureCredential());
+IReadOnlyList<AttestationSigner> signers = (await certificateClient.GetSigningCertificatesAsync()).Value;
+
+AttestationToken token = AttestationToken.Deserialize(serializedToken);
+var validationOptions = new AttestationTokenValidationOptions { ExpectedIssuer = attestationEndpoint };
+if (!await token.ValidateTokenAsync(validationOptions, signers))
+{
+    throw new InvalidOperationException("The attestation token is not valid.");
+}
+
+// The token's claims can now be trusted, for example the EnclaveHeldData with the enclave's key.
+AttestationResult attestedResult = token.GetBody<AttestationResult>();
+```
+
 Additional information on how to perform attestation token validation can be found in the [MAA Service Attestation Sample](https://github.com/gkostal/attestation/tree/d6a216cd6af5a509e20ac0a752197fdb242fabc3/sgx.attest.sample).
+
+### Attest a TDX confidential VM
+
+Use the `AttestTdxVm` method to attest an Intel(tm) TDX confidential virtual machine. The evidence is a TDX quote generated inside the virtual machine. TDX attestation requires service version `V2025_06_01` (the default) or later.
+
+Claims specific to TDX, such as `tdx_mrtd`, have no dedicated property on `AttestationResult`; read them from `AdditionalClaims`, whose values are the claims' JSON values.
+
+```C# Snippet:AttestTdxVm
+AttestationResponse<AttestationResult> tdxResult = await client.AttestTdxVmAsync(new AttestationRequest
+{
+    Evidence = BinaryData.FromBytes(tdxQuote),
+    RuntimeData = new AttestationData(BinaryData.FromBytes(runtimeData), dataIsJson: true),
+    Nonce = nonce,
+});
+
+// TDX claims have no dedicated properties; read them from AdditionalClaims.
+string mrtd = tdxResult.Value.AdditionalClaims["tdx_mrtd"].ToObjectFromJson<string>();
+bool tdxIsDebuggable = tdxResult.Value.AdditionalClaims["tdx_td_attributes_debug"].ToObjectFromJson<bool>();
+```
+
+### Attest an SEV-SNP confidential VM
+
+Use the `AttestSevSnpVm` method to attest an AMD SEV-SNP confidential virtual machine. The evidence is the JSON evidence document produced inside the virtual machine.
+
+```C# Snippet:AttestSevSnpVm
+// The evidence is the JSON document containing SnpReport, VcekCertChain and, optionally, Endorsements.
+AttestationResponse<AttestationResult> snpResult = await client.AttestSevSnpVmAsync(new AttestationRequest
+{
+    Evidence = BinaryData.FromBytes(snpEvidence),
+    RuntimeData = new AttestationData(BinaryData.FromBytes(runtimeData), dataIsJson: true),
+    Nonce = nonce,
+});
+
+// SEV-SNP claims have no dedicated properties; read them from AdditionalClaims.
+string launchMeasurement = snpResult.Value.AdditionalClaims["x-ms-sevsnpvm-launchmeasurement"].ToObjectFromJson<string>();
+bool snpIsDebuggable = snpResult.Value.AdditionalClaims["x-ms-sevsnpvm-is-debuggable"].ToObjectFromJson<bool>();
+```
 
 ### Retrieve Token Certificates
 
@@ -307,7 +381,7 @@ IReadOnlyList<AttestationSigner> signingCertificates = (await client.GetSigningC
 
 ## Troubleshooting
 
-Most Attestation service operations will throw a [RequestFailedException](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.Attestation_1.0.0/sdk/core/Azure.Core/src/RequestFailedException.cs) on failure with helpful ErrorCodes. Many of these errors are recoverable.
+Most Attestation service operations will throw a [RequestFailedException](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.Attestation_2.0.0/sdk/core/Azure.Core/src/RequestFailedException.cs) on failure with helpful ErrorCodes. Many of these errors are recoverable.
 
 ```C# Snippet:AttestSgxEnclaveWithException
 try
@@ -325,11 +399,11 @@ catch (RequestFailedException ex)
     }
 ```
 
-Additional troubleshooting information for the MAA service can be found [here](https://docs.microsoft.com/azure/attestation/troubleshoot-guide)
+Additional troubleshooting information for the MAA service can be found [here](https://learn.microsoft.com/azure/attestation/troubleshoot-guide)
 
 ## Next steps
 
-For more information about the Microsoft Azure Attestation service, please see our [documentation page](https://docs.microsoft.com/azure/attestation/).
+For more information about the Microsoft Azure Attestation service, please see our [documentation page](https://learn.microsoft.com/azure/attestation/).
 
 ## Contributing
 
@@ -342,29 +416,27 @@ This project has adopted the [Microsoft Open Source Code of Conduct][microsoft_c
 See [CONTRIBUTING.md][contributing] for details on building, testing, and contributing to these libraries.
 
 <!-- LINKS -->
-[style-guide-msft]: https://docs.microsoft.com/style-guide/capitalization
+[style-guide-msft]: https://learn.microsoft.com/style-guide/capitalization
 [style-guide-cloud]: https://aka.ms/azsdk/cloud-style-guide
 [microsoft_code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
-[API_reference]: https://docs.microsoft.com/dotnet/api/azure.security.attestation?view=azure-dotnet-preview
-[attestation_admin_client]: https://docs.microsoft.com/dotnet/api/azure.security.attestation.attestationadministrationclient
-[attestation_client]: https://docs.microsoft.com/dotnet/api/azure.security.attestation.attestationclient
-[attestation_response]: https://docs.microsoft.com/dotnet/api/azure.security.attestation.attestationresponse-1
-[attestation_response_token]: https://docs.microsoft.com/dotnet/api/azure.security.attestation.attestationresponse-1.token
-[attestation_response_value]: https://docs.microsoft.com/dotnet/api/azure.security.attestation.attestationresponse-1.value
-[attestation_policy_result]: https://docs.microsoft.com/dotnet/api/azure.security.attestation.policyresult
-[attestation_policy_result_signer]: https://docs.microsoft.com/dotnet/api/azure.security.attestation.policyresult.policysigner
-[attestation_policy_result_token_hash]: https://docs.microsoft.com/dotnet/api/azure.security.attestation.policyresult.policytokenhash
-[azure_cli]: https://docs.microsoft.com/cli/azure
-[azure_identity]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.Attestation_1.0.0/sdk/identity/Azure.Identity
-[azure_sub]: https://azure.microsoft.com/free/
+[API_reference]: https://learn.microsoft.com/dotnet/api/azure.security.attestation?view=azure-dotnet-preview
+[attestation_admin_client]: https://learn.microsoft.com/dotnet/api/azure.security.attestation.attestationadministrationclient
+[attestation_client]: https://learn.microsoft.com/dotnet/api/azure.security.attestation.attestationclient
+[attestation_response]: https://learn.microsoft.com/dotnet/api/azure.security.attestation.attestationresponse-1
+[attestation_response_token]: https://learn.microsoft.com/dotnet/api/azure.security.attestation.attestationresponse-1.token
+[attestation_response_value]: https://learn.microsoft.com/dotnet/api/azure.security.attestation.attestationresponse-1.value
+[attestation_policy_modification_result]: https://learn.microsoft.com/dotnet/api/azure.security.attestation.policymodificationresult
+[attestation_policy_modification_result_signer]: https://learn.microsoft.com/dotnet/api/azure.security.attestation.policymodificationresult.policysigner
+[attestation_policy_modification_result_token_hash]: https://learn.microsoft.com/dotnet/api/azure.security.attestation.policymodificationresult.policytokenhash
+[azure_cli]: https://learn.microsoft.com/cli/azure
+[azure_identity]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.Attestation_2.0.0/sdk/identity/Azure.Identity
+[azure_sub]: https://azure.microsoft.com/free/dotnet/
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [json_web_token]: https://tools.ietf.org/html/rfc7519
 [JWK]: https://tools.ietf.org/html/rfc7517
 [base64url_encoding]: https://tools.ietf.org/html/rfc4648#section-5
 [nuget]: https://www.nuget.org/
-[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_1.0.0/sdk/identity/Azure.Identity/README.md#defaultazurecredential
-[contributing]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_1.0.0/CONTRIBUTING.md
+[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_2.0.0/sdk/identity/Azure.Identity/README.md#defaultazurecredential
+[contributing]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_2.0.0/CONTRIBUTING.md
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
-
-
 
