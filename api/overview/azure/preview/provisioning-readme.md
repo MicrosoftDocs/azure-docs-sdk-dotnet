@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning, provisioning
-ms.date: 10/29/2026
+ms.date: 10/30/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: provisioning
 ---
-# Azure Provisioning client library for .NET - version 1.7.0-beta.2 
+# Azure Provisioning client library for .NET - version 1.7.0-alpha.20261029.2 
 
 
 `Azure.Provisioning` makes it easy to declaratively specify Azure infrastructure natively in .NET.
@@ -153,7 +153,7 @@ BicepDictionary<string> dynamicTags = parameter;
 
 Properties typed as `BicepValue<BinaryData>` accept free-form JSON or an
 explicitly tagged raw Bicep expression. See
-[BinaryData provisioning values](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning_1.7.0-beta.2/sdk/provisioning/Azure.Provisioning/docs/BinaryDataValues.md)
+[BinaryData provisioning values](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/provisioning/Azure.Provisioning/docs/BinaryDataValues.md)
 for supported media types, executable examples, parsing behavior, and security
 guidance.
 
@@ -521,7 +521,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning_1.7.0-beta.2/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
