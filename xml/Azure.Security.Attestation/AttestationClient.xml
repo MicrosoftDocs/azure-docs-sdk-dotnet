@@ -7,6 +7,7 @@
   <AssemblyInfo>
     <AssemblyName>Azure.Security.Attestation</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
@@ -29,7 +30,7 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
@@ -48,19 +49,21 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="endpoint" Type="System.Uri" />
         <Parameter Name="credential" Type="Azure.Core.TokenCredential" />
       </Parameters>
       <Docs>
-        <param name="endpoint">Uri for the Microsoft Azure Attestation Service Instance to use.</param>
+        <param name="endpoint">Uri for the Microsoft Azure Attestation Service Instance to use. It must use https.</param>
         <param name="credential">Credentials to be used in the Client.</param>
         <summary>
             Initializes a new instance of the <see cref="T:Azure.Security.Attestation.AttestationClient" /> class.
             </summary>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="endpoint" /> does not use https.</exception>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -72,7 +75,7 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="endpoint" Type="System.Uri" />
@@ -80,7 +83,7 @@
         <Parameter Name="options" Type="Azure.Security.Attestation.AttestationClientOptions" />
       </Parameters>
       <Docs>
-        <param name="endpoint">Uri for the Microsoft Azure Attestation Service Instance to use.</param>
+        <param name="endpoint">Uri for the Microsoft Azure Attestation Service Instance to use. It must use https.</param>
         <param name="credential">Credentials to be used in the Client.</param>
         <param name="options">
           <see cref="T:Azure.Security.Attestation.AttestationClientOptions" /> used to configure the API client.</param>
@@ -88,6 +91,68 @@
             Initializes a new instance of the <see cref="T:Azure.Security.Attestation.AttestationClient" /> class.
             </summary>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="endpoint" /> does not use https.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="AttestAzureGuest">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Security.Attestation.SealedAttestationResult&gt; AttestAzureGuest (BinaryData attestationInfo, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Security.Attestation.SealedAttestationResult&gt; AttestAzureGuest(class System.BinaryData attestationInfo, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.Attestation.AttestationClient.AttestAzureGuest(System.BinaryData,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function AttestAzureGuest (attestationInfo As BinaryData, Optional cancellationToken As CancellationToken = Nothing) As Response(Of SealedAttestationResult)" />
+      <MemberSignature Language="F#" Value="abstract member AttestAzureGuest : BinaryData * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Security.Attestation.SealedAttestationResult&gt;&#xA;override this.AttestAzureGuest : BinaryData * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Security.Attestation.SealedAttestationResult&gt;" Usage="attestationClient.AttestAzureGuest (attestationInfo, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.Attestation</AssemblyName>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.Security.Attestation.SealedAttestationResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="attestationInfo" Type="System.BinaryData" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="attestationInfo">The attestation information collected inside the virtual machine, such as by the guest attestation library.</param>
+        <param name="cancellationToken">Cancellation token used to cancel the request.</param>
+        <summary>
+            Attest an Azure confidential or Trusted Launch virtual machine.
+            </summary>
+        <returns>A <see cref="T:Azure.Security.Attestation.SealedAttestationResult" /> whose token is encrypted to the virtual machine's TPM.</returns>
+        <remarks>
+            The client cannot decrypt the token, so it does not validate it; see <see cref="T:Azure.Security.Attestation.SealedAttestationResult" /> for how to use it.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AttestAzureGuestAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.Attestation.SealedAttestationResult&gt;&gt; AttestAzureGuestAsync (BinaryData attestationInfo, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Security.Attestation.SealedAttestationResult&gt;&gt; AttestAzureGuestAsync(class System.BinaryData attestationInfo, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.Attestation.AttestationClient.AttestAzureGuestAsync(System.BinaryData,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function AttestAzureGuestAsync (attestationInfo As BinaryData, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of SealedAttestationResult))" />
+      <MemberSignature Language="F#" Value="abstract member AttestAzureGuestAsync : BinaryData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.Attestation.SealedAttestationResult&gt;&gt;&#xA;override this.AttestAzureGuestAsync : BinaryData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.Attestation.SealedAttestationResult&gt;&gt;" Usage="attestationClient.AttestAzureGuestAsync (attestationInfo, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.Attestation</AssemblyName>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.Attestation.SealedAttestationResult&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="attestationInfo" Type="System.BinaryData" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="attestationInfo">The attestation information collected inside the virtual machine, such as by the guest attestation library.</param>
+        <param name="cancellationToken">Cancellation token used to cancel the request.</param>
+        <summary>
+            Attest an Azure confidential or Trusted Launch virtual machine.
+            </summary>
+        <returns>A <see cref="T:Azure.Security.Attestation.SealedAttestationResult" /> whose token is encrypted to the virtual machine's TPM.</returns>
+        <remarks>
+            The client cannot decrypt the token, so it does not validate it; see <see cref="T:Azure.Security.Attestation.SealedAttestationResult" /> for how to use it.
+            </remarks>
       </Docs>
     </Member>
     <Member MemberName="AttestOpenEnclave">
@@ -99,7 +164,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;</ReturnType>
@@ -127,7 +192,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;&gt;</ReturnType>
@@ -146,6 +211,68 @@
         <remarks>The <see cref="P:Azure.Security.Attestation.AttestationRequest.Evidence" /> must be an OpenEnclave Report or OpenEnclave Evidence.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="AttestSevSnpVm">
+      <MemberSignature Language="C#" Value="public virtual Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt; AttestSevSnpVm (Azure.Security.Attestation.AttestationRequest request, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Security.Attestation.AttestationResponse`1&lt;class Azure.Security.Attestation.AttestationResult&gt; AttestSevSnpVm(class Azure.Security.Attestation.AttestationRequest request, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.Attestation.AttestationClient.AttestSevSnpVm(Azure.Security.Attestation.AttestationRequest,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function AttestSevSnpVm (request As AttestationRequest, Optional cancellationToken As CancellationToken = Nothing) As AttestationResponse(Of AttestationResult)" />
+      <MemberSignature Language="F#" Value="abstract member AttestSevSnpVm : Azure.Security.Attestation.AttestationRequest * System.Threading.CancellationToken -&gt; Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;&#xA;override this.AttestSevSnpVm : Azure.Security.Attestation.AttestationRequest * System.Threading.CancellationToken -&gt; Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;" Usage="attestationClient.AttestSevSnpVm (request, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.Attestation</AssemblyName>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="request" Type="Azure.Security.Attestation.AttestationRequest" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="request">Aggregate type containing the information needed to perform an attestation operation.</param>
+        <param name="cancellationToken">Cancellation token used to cancel the request.</param>
+        <summary>
+            Attest an AMD SEV-SNP confidential virtual machine.
+            </summary>
+        <returns>An <see cref="T:Azure.Security.Attestation.AttestationResponse`1" /> which contains the validated claims for the supplied <paramref name="request" />.</returns>
+        <remarks>
+            The <see cref="P:Azure.Security.Attestation.AttestationRequest.Evidence" /> must be the SEV-SNP evidence document: JSON containing the <c>SnpReport</c>,
+            <c>VcekCertChain</c> and, optionally, <c>Endorsements</c> values produced by the guest attestation tooling.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AttestSevSnpVmAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;&gt; AttestSevSnpVmAsync (Azure.Security.Attestation.AttestationRequest request, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Security.Attestation.AttestationResponse`1&lt;class Azure.Security.Attestation.AttestationResult&gt;&gt; AttestSevSnpVmAsync(class Azure.Security.Attestation.AttestationRequest request, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.Attestation.AttestationClient.AttestSevSnpVmAsync(Azure.Security.Attestation.AttestationRequest,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function AttestSevSnpVmAsync (request As AttestationRequest, Optional cancellationToken As CancellationToken = Nothing) As Task(Of AttestationResponse(Of AttestationResult))" />
+      <MemberSignature Language="F#" Value="abstract member AttestSevSnpVmAsync : Azure.Security.Attestation.AttestationRequest * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;&gt;&#xA;override this.AttestSevSnpVmAsync : Azure.Security.Attestation.AttestationRequest * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;&gt;" Usage="attestationClient.AttestSevSnpVmAsync (request, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.Attestation</AssemblyName>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="request" Type="Azure.Security.Attestation.AttestationRequest" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="request">Aggregate type containing the information needed to perform an attestation operation.</param>
+        <param name="cancellationToken">Cancellation token used to cancel the request.</param>
+        <summary>
+            Attest an AMD SEV-SNP confidential virtual machine.
+            </summary>
+        <returns>An <see cref="T:Azure.Security.Attestation.AttestationResponse`1" /> which contains the validated claims for the supplied <paramref name="request" />.</returns>
+        <remarks>
+            The <see cref="P:Azure.Security.Attestation.AttestationRequest.Evidence" /> must be the SEV-SNP evidence document: JSON containing the <c>SnpReport</c>,
+            <c>VcekCertChain</c> and, optionally, <c>Endorsements</c> values produced by the guest attestation tooling.
+            </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="AttestSgxEnclave">
       <MemberSignature Language="C#" Value="public virtual Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt; AttestSgxEnclave (Azure.Security.Attestation.AttestationRequest request, System.Threading.CancellationToken cancellationToken = default);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Security.Attestation.AttestationResponse`1&lt;class Azure.Security.Attestation.AttestationResult&gt; AttestSgxEnclave(class Azure.Security.Attestation.AttestationRequest request, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
@@ -155,7 +282,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;</ReturnType>
@@ -185,7 +312,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;&gt;</ReturnType>
@@ -206,6 +333,74 @@
             </remarks>
       </Docs>
     </Member>
+    <Member MemberName="AttestTdxVm">
+      <MemberSignature Language="C#" Value="public virtual Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt; AttestTdxVm (Azure.Security.Attestation.AttestationRequest request, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Security.Attestation.AttestationResponse`1&lt;class Azure.Security.Attestation.AttestationResult&gt; AttestTdxVm(class Azure.Security.Attestation.AttestationRequest request, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.Attestation.AttestationClient.AttestTdxVm(Azure.Security.Attestation.AttestationRequest,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function AttestTdxVm (request As AttestationRequest, Optional cancellationToken As CancellationToken = Nothing) As AttestationResponse(Of AttestationResult)" />
+      <MemberSignature Language="F#" Value="abstract member AttestTdxVm : Azure.Security.Attestation.AttestationRequest * System.Threading.CancellationToken -&gt; Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;&#xA;override this.AttestTdxVm : Azure.Security.Attestation.AttestationRequest * System.Threading.CancellationToken -&gt; Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;" Usage="attestationClient.AttestTdxVm (request, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.Attestation</AssemblyName>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="request" Type="Azure.Security.Attestation.AttestationRequest" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="request">Aggregate type containing the information needed to perform an attestation operation.</param>
+        <param name="cancellationToken">Cancellation token used to cancel the request.</param>
+        <summary>
+            Attest an Intel TDX confidential virtual machine.
+            </summary>
+        <returns>An <see cref="T:Azure.Security.Attestation.AttestationResponse`1" /> which contains the validated claims for the supplied <paramref name="request" />.</returns>
+        <remarks>
+            The <see cref="P:Azure.Security.Attestation.AttestationRequest.Evidence" /> must be a TDX quote. TDX attestation requires
+            <see cref="F:Azure.Security.Attestation.AttestationClientOptions.ServiceVersion.V2025_06_01" /> or later, and does not support <see cref="P:Azure.Security.Attestation.AttestationRequest.DraftPolicyForAttestation" />.
+            </remarks>
+        <exception cref="T:System.NotSupportedException">The client targets a service version that does not support TDX attestation; see <see cref="P:Azure.Security.Attestation.AttestationClient.CanAttestTdxVm" />.</exception>
+        <exception cref="T:System.ArgumentException">
+          <see cref="P:Azure.Security.Attestation.AttestationRequest.DraftPolicyForAttestation" /> is set.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="AttestTdxVmAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;&gt; AttestTdxVmAsync (Azure.Security.Attestation.AttestationRequest request, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Security.Attestation.AttestationResponse`1&lt;class Azure.Security.Attestation.AttestationResult&gt;&gt; AttestTdxVmAsync(class Azure.Security.Attestation.AttestationRequest request, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.Attestation.AttestationClient.AttestTdxVmAsync(Azure.Security.Attestation.AttestationRequest,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function AttestTdxVmAsync (request As AttestationRequest, Optional cancellationToken As CancellationToken = Nothing) As Task(Of AttestationResponse(Of AttestationResult))" />
+      <MemberSignature Language="F#" Value="abstract member AttestTdxVmAsync : Azure.Security.Attestation.AttestationRequest * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;&gt;&#xA;override this.AttestTdxVmAsync : Azure.Security.Attestation.AttestationRequest * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;&gt;" Usage="attestationClient.AttestTdxVmAsync (request, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.Attestation</AssemblyName>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.AttestationResult&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="request" Type="Azure.Security.Attestation.AttestationRequest" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="request">Aggregate type containing the information needed to perform an attestation operation.</param>
+        <param name="cancellationToken">Cancellation token used to cancel the request.</param>
+        <summary>
+            Attest an Intel TDX confidential virtual machine.
+            </summary>
+        <returns>An <see cref="T:Azure.Security.Attestation.AttestationResponse`1" /> which contains the validated claims for the supplied <paramref name="request" />.</returns>
+        <remarks>
+            The <see cref="P:Azure.Security.Attestation.AttestationRequest.Evidence" /> must be a TDX quote. TDX attestation requires
+            <see cref="F:Azure.Security.Attestation.AttestationClientOptions.ServiceVersion.V2025_06_01" /> or later, and does not support <see cref="P:Azure.Security.Attestation.AttestationRequest.DraftPolicyForAttestation" />.
+            </remarks>
+        <exception cref="T:System.NotSupportedException">The client targets a service version that does not support TDX attestation; see <see cref="P:Azure.Security.Attestation.AttestationClient.CanAttestTdxVm" />.</exception>
+        <exception cref="T:System.ArgumentException">
+          <see cref="P:Azure.Security.Attestation.AttestationRequest.DraftPolicyForAttestation" /> is set.</exception>
+      </Docs>
+    </Member>
     <Member MemberName="AttestTpm">
       <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Security.Attestation.TpmAttestationResponse&gt; AttestTpm (Azure.Security.Attestation.TpmAttestationRequest request, System.Threading.CancellationToken cancellationToken = default);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Security.Attestation.TpmAttestationResponse&gt; AttestTpm(class Azure.Security.Attestation.TpmAttestationRequest request, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
@@ -215,7 +410,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.Security.Attestation.TpmAttestationResponse&gt;</ReturnType>
@@ -244,7 +439,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.Attestation.TpmAttestationResponse&gt;&gt;</ReturnType>
@@ -264,16 +459,40 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="CanAttestTdxVm">
+      <MemberSignature Language="C#" Value="public virtual bool CanAttestTdxVm { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool CanAttestTdxVm" />
+      <MemberSignature Language="DocId" Value="P:Azure.Security.Attestation.AttestationClient.CanAttestTdxVm" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable ReadOnly Property CanAttestTdxVm As Boolean" />
+      <MemberSignature Language="F#" Value="member this.CanAttestTdxVm : bool" Usage="Azure.Security.Attestation.AttestationClient.CanAttestTdxVm" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.Attestation</AssemblyName>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets whether this client can call <see cref="M:Azure.Security.Attestation.AttestationClient.AttestTdxVm(Azure.Security.Attestation.AttestationRequest,System.Threading.CancellationToken)" /> and
+            <see cref="M:Azure.Security.Attestation.AttestationClient.AttestTdxVmAsync(Azure.Security.Attestation.AttestationRequest,System.Threading.CancellationToken)" />: <c>true</c> when it targets
+            <see cref="F:Azure.Security.Attestation.AttestationClientOptions.ServiceVersion.V2025_06_01" /> or later. When <c>false</c>, those methods throw <see cref="T:System.NotSupportedException" />.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Endpoint">
-      <MemberSignature Language="C#" Value="public Uri Endpoint { get; }" />
+      <MemberSignature Language="C#" Value="public virtual Uri Endpoint { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class System.Uri Endpoint" />
       <MemberSignature Language="DocId" Value="P:Azure.Security.Attestation.AttestationClient.Endpoint" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Endpoint As Uri" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable ReadOnly Property Endpoint As Uri" />
       <MemberSignature Language="F#" Value="member this.Endpoint : Uri" Usage="Azure.Security.Attestation.AttestationClient.Endpoint" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Uri</ReturnType>
@@ -286,6 +505,60 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetOpenIdMetadata">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Security.Attestation.AttestationOpenIdMetadata&gt; GetOpenIdMetadata (System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Security.Attestation.AttestationOpenIdMetadata&gt; GetOpenIdMetadata(valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.Attestation.AttestationClient.GetOpenIdMetadata(System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetOpenIdMetadata (Optional cancellationToken As CancellationToken = Nothing) As Response(Of AttestationOpenIdMetadata)" />
+      <MemberSignature Language="F#" Value="abstract member GetOpenIdMetadata : System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Security.Attestation.AttestationOpenIdMetadata&gt;&#xA;override this.GetOpenIdMetadata : System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Security.Attestation.AttestationOpenIdMetadata&gt;" Usage="attestationClient.GetOpenIdMetadata cancellationToken" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.Attestation</AssemblyName>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.Security.Attestation.AttestationOpenIdMetadata&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="cancellationToken">Cancellation token used to cancel this operation.</param>
+        <summary>
+            Retrieves the attestation provider's <see href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect discovery document</see>,
+            which relying parties can use to discover the provider's token issuer and signing keys.
+            </summary>
+        <returns>The provider's OpenID Connect metadata.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetOpenIdMetadataAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.Attestation.AttestationOpenIdMetadata&gt;&gt; GetOpenIdMetadataAsync (System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Security.Attestation.AttestationOpenIdMetadata&gt;&gt; GetOpenIdMetadataAsync(valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.Attestation.AttestationClient.GetOpenIdMetadataAsync(System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetOpenIdMetadataAsync (Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of AttestationOpenIdMetadata))" />
+      <MemberSignature Language="F#" Value="abstract member GetOpenIdMetadataAsync : System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.Attestation.AttestationOpenIdMetadata&gt;&gt;&#xA;override this.GetOpenIdMetadataAsync : System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.Attestation.AttestationOpenIdMetadata&gt;&gt;" Usage="attestationClient.GetOpenIdMetadataAsync cancellationToken" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.Attestation</AssemblyName>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.Attestation.AttestationOpenIdMetadata&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="cancellationToken">Cancellation token used to cancel this operation.</param>
+        <summary>
+            Retrieves the attestation provider's <see href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect discovery document</see>,
+            which relying parties can use to discover the provider's token issuer and signing keys.
+            </summary>
+        <returns>The provider's OpenID Connect metadata.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetSigningCertificates">
       <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;Azure.Security.Attestation.AttestationSigner&gt;&gt; GetSigningCertificates (System.Threading.CancellationToken cancellationToken = default);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class System.Collections.Generic.IReadOnlyList`1&lt;class Azure.Security.Attestation.AttestationSigner&gt;&gt; GetSigningCertificates(valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
@@ -295,7 +568,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;Azure.Security.Attestation.AttestationSigner&gt;&gt;</ReturnType>
@@ -321,7 +594,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;System.Collections.Generic.IReadOnlyList&lt;Azure.Security.Attestation.AttestationSigner&gt;&gt;&gt;</ReturnType>

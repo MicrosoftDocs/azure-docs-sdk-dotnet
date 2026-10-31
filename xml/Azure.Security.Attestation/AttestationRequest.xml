@@ -7,6 +7,7 @@
   <AssemblyInfo>
     <AssemblyName>Azure.Security.Attestation</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
@@ -14,7 +15,8 @@
   <Interfaces />
   <Docs>
     <summary>
-             Represents the data sent to the Attestation Service for a call to the <see cref="M:Azure.Security.Attestation.AttestationClient.AttestOpenEnclave(Azure.Security.Attestation.AttestationRequest,System.Threading.CancellationToken)" /> or <see cref="M:Azure.Security.Attestation.AttestationClient.AttestSgxEnclave(Azure.Security.Attestation.AttestationRequest,System.Threading.CancellationToken)" /> APIs.
+             Represents the data sent to the Attestation Service for a call to the <see cref="M:Azure.Security.Attestation.AttestationClient.AttestOpenEnclave(Azure.Security.Attestation.AttestationRequest,System.Threading.CancellationToken)" />, <see cref="M:Azure.Security.Attestation.AttestationClient.AttestSgxEnclave(Azure.Security.Attestation.AttestationRequest,System.Threading.CancellationToken)" />,
+             <see cref="M:Azure.Security.Attestation.AttestationClient.AttestTdxVm(Azure.Security.Attestation.AttestationRequest,System.Threading.CancellationToken)" />, or <see cref="M:Azure.Security.Attestation.AttestationClient.AttestSevSnpVm(Azure.Security.Attestation.AttestationRequest,System.Threading.CancellationToken)" /> APIs.
             
              An Attestation Request has three elements:
              <list type="bullet"><item><term>Evidence</term><description>The attestation evidence generated from inside the target environment (often an Intel SGX or OpenEnclave enclave).
@@ -33,7 +35,7 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
@@ -52,7 +54,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
@@ -61,6 +63,7 @@
         <summary>
             Optional 'draft' policy for attestation. If this field is provided, then this policy document will be used for the attestation request.
             This allows a caller to test various policy documents against actual data before applying the policy document via the <see cref="M:Azure.Security.Attestation.AttestationAdministrationClient.SetPolicy(Azure.Security.Attestation.AttestationType,System.String,Azure.Security.Attestation.AttestationTokenSigningKey,System.Threading.CancellationToken)" /> API.
+            The service does not sign the resulting token, so its signature cannot be validated: use it only to evaluate the policy, never as proof of attestation.
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
@@ -75,15 +78,16 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.BinaryData</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
-            The attestation evidence generated from inside the target environment (often an Intel SGX or OpenEnclave enclave).
-            The 'Evidence' is normally an SGX Quote, an OpenEnclave Report, or OpenEnclave Evidence.
+            The attestation evidence generated from inside the target environment.
+            The 'Evidence' is an SGX Quote, an OpenEnclave Report or OpenEnclave Evidence, a TDX quote, or SEV-SNP evidence,
+            depending on the attestation API being called.
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
@@ -98,7 +102,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Security.Attestation.AttestationData</ReturnType>
@@ -112,6 +116,28 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Nonce">
+      <MemberSignature Language="C#" Value="public string Nonce { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Nonce" />
+      <MemberSignature Language="DocId" Value="P:Azure.Security.Attestation.AttestationRequest.Nonce" />
+      <MemberSignature Language="VB.NET" Value="Public Property Nonce As String" />
+      <MemberSignature Language="F#" Value="member this.Nonce : string with get, set" Usage="Azure.Security.Attestation.AttestationRequest.Nonce" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.Attestation</AssemblyName>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Optional nonce for the request. The service returns it in the <c>nonce</c> claim of the attestation token.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="RuntimeData">
       <MemberSignature Language="C#" Value="public Azure.Security.Attestation.AttestationData RuntimeData { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Azure.Security.Attestation.AttestationData RuntimeData" />
@@ -121,7 +147,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Security.Attestation.AttestationData</ReturnType>

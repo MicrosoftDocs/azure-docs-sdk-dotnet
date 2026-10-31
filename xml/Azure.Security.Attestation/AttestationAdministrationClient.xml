@@ -7,6 +7,7 @@
   <AssemblyInfo>
     <AssemblyName>Azure.Security.Attestation</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
@@ -29,7 +30,7 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
@@ -48,19 +49,21 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="endpoint" Type="System.Uri" />
         <Parameter Name="credential" Type="Azure.Core.TokenCredential" />
       </Parameters>
       <Docs>
-        <param name="endpoint">Uri for the Microsoft Azure Attestation Service Instance to use.</param>
+        <param name="endpoint">Uri for the Microsoft Azure Attestation Service Instance to use. It must use https.</param>
         <param name="credential">Credentials to be used in the Client.</param>
         <summary>
             Initializes a new instance of the <see cref="T:Azure.Security.Attestation.AttestationClient" /> class.
             </summary>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="endpoint" /> does not use https.</exception>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -72,7 +75,7 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="endpoint" Type="System.Uri" />
@@ -80,7 +83,7 @@
         <Parameter Name="options" Type="Azure.Security.Attestation.AttestationClientOptions" />
       </Parameters>
       <Docs>
-        <param name="endpoint">Uri for the Microsoft Azure Attestation Service Instance to use.</param>
+        <param name="endpoint">Uri for the Microsoft Azure Attestation Service Instance to use. It must use https.</param>
         <param name="credential">Credentials to be used in the Client.</param>
         <param name="options">
           <see cref="T:Azure.Security.Attestation.AttestationClientOptions" /> used to configure the API client.</param>
@@ -88,6 +91,8 @@
             Initializes a new instance of the <see cref="T:Azure.Security.Attestation.AttestationClient" /> class.
             </summary>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="endpoint" /> does not use https.</exception>
       </Docs>
     </Member>
     <Member MemberName="AddPolicyManagementCertificate">
@@ -99,7 +104,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.PolicyCertificatesModificationResult&gt;</ReturnType>
@@ -129,7 +134,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.PolicyCertificatesModificationResult&gt;&gt;</ReturnType>
@@ -150,16 +155,40 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="CanGetTcbBaselines">
+      <MemberSignature Language="C#" Value="public virtual bool CanGetTcbBaselines { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool CanGetTcbBaselines" />
+      <MemberSignature Language="DocId" Value="P:Azure.Security.Attestation.AttestationAdministrationClient.CanGetTcbBaselines" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable ReadOnly Property CanGetTcbBaselines As Boolean" />
+      <MemberSignature Language="F#" Value="member this.CanGetTcbBaselines : bool" Usage="Azure.Security.Attestation.AttestationAdministrationClient.CanGetTcbBaselines" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.Attestation</AssemblyName>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets whether this client can call <see cref="M:Azure.Security.Attestation.AttestationAdministrationClient.GetTcbBaselines(Azure.Security.Attestation.AttestationType,System.Threading.CancellationToken)" /> and
+            <see cref="M:Azure.Security.Attestation.AttestationAdministrationClient.GetTcbBaselinesAsync(Azure.Security.Attestation.AttestationType,System.Threading.CancellationToken)" />: <c>true</c> when it targets
+            <see cref="F:Azure.Security.Attestation.AttestationClientOptions.ServiceVersion.V2025_06_01" /> or later. When <c>false</c>, those methods throw <see cref="T:System.NotSupportedException" />.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Endpoint">
-      <MemberSignature Language="C#" Value="public Uri Endpoint { get; }" />
+      <MemberSignature Language="C#" Value="public virtual Uri Endpoint { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class System.Uri Endpoint" />
       <MemberSignature Language="DocId" Value="P:Azure.Security.Attestation.AttestationAdministrationClient.Endpoint" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Endpoint As Uri" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable ReadOnly Property Endpoint As Uri" />
       <MemberSignature Language="F#" Value="member this.Endpoint : Uri" Usage="Azure.Security.Attestation.AttestationAdministrationClient.Endpoint" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Uri</ReturnType>
@@ -181,7 +210,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Security.Attestation.AttestationResponse&lt;System.String&gt;</ReturnType>
@@ -192,7 +221,7 @@
       </Parameters>
       <Docs>
         <param name="attestationType">
-          <see cref="T:Azure.Security.Attestation.AttestationType" /> to retrive.</param>
+          <see cref="T:Azure.Security.Attestation.AttestationType" /> to retrieve.</param>
         <param name="cancellationToken">Cancellation token used to cancel this operation.</param>
         <summary>
              Retrieves the attesttion policy for the specified <see cref="T:Azure.Security.Attestation.AttestationType" />.
@@ -215,7 +244,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Security.Attestation.AttestationResponse&lt;System.String&gt;&gt;</ReturnType>
@@ -225,7 +254,7 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="attestationType">Attestation Type to retrive.</param>
+        <param name="attestationType">Attestation Type to retrieve.</param>
         <param name="cancellationToken">Cancellation token used to cancel this operation.</param>
         <summary>
              Retrieves the attesttion policy for the specified <see cref="T:Azure.Security.Attestation.AttestationType" />.
@@ -248,7 +277,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Security.Attestation.AttestationResponse&lt;System.Collections.Generic.IReadOnlyList&lt;System.Security.Cryptography.X509Certificates.X509Certificate2&gt;&gt;</ReturnType>
@@ -276,7 +305,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Security.Attestation.AttestationResponse&lt;System.Collections.Generic.IReadOnlyList&lt;System.Security.Cryptography.X509Certificates.X509Certificate2&gt;&gt;&gt;</ReturnType>
@@ -295,6 +324,72 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetTcbBaselines">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Security.Attestation.TcbBaselineResult&gt; GetTcbBaselines (Azure.Security.Attestation.AttestationType attestationType, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Security.Attestation.TcbBaselineResult&gt; GetTcbBaselines(valuetype Azure.Security.Attestation.AttestationType attestationType, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.Attestation.AttestationAdministrationClient.GetTcbBaselines(Azure.Security.Attestation.AttestationType,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTcbBaselines (attestationType As AttestationType, Optional cancellationToken As CancellationToken = Nothing) As Response(Of TcbBaselineResult)" />
+      <MemberSignature Language="F#" Value="abstract member GetTcbBaselines : Azure.Security.Attestation.AttestationType * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Security.Attestation.TcbBaselineResult&gt;&#xA;override this.GetTcbBaselines : Azure.Security.Attestation.AttestationType * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Security.Attestation.TcbBaselineResult&gt;" Usage="attestationAdministrationClient.GetTcbBaselines (attestationType, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.Attestation</AssemblyName>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.Security.Attestation.TcbBaselineResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="attestationType" Type="Azure.Security.Attestation.AttestationType" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="attestationType">The <see cref="T:Azure.Security.Attestation.AttestationType" /> whose baselines to retrieve.</param>
+        <param name="cancellationToken">Cancellation token used to cancel this operation.</param>
+        <summary>
+            Retrieves the trusted computing base (TCB) baselines available to the attestation provider for the specified <see cref="T:Azure.Security.Attestation.AttestationType" />.
+            </summary>
+        <returns>The available baselines, including which one the provider's current policy selects.</returns>
+        <remarks>
+            TCB baselines apply to SGX attestation; the service supports this operation for <see cref="P:Azure.Security.Attestation.AttestationType.SgxEnclave" /> and <see cref="P:Azure.Security.Attestation.AttestationType.OpenEnclave" />.
+            A policy selects a baseline by setting the <c>x-ms-sgx-tcbidentifier</c> claim to its <see cref="P:Azure.Security.Attestation.TcbBaseline.TcbIdentifier" />.
+            Requires <see cref="F:Azure.Security.Attestation.AttestationClientOptions.ServiceVersion.V2025_06_01" /> or later.
+            </remarks>
+        <exception cref="T:System.NotSupportedException">The client targets a service version that does not support TCB baselines; see <see cref="P:Azure.Security.Attestation.AttestationAdministrationClient.CanGetTcbBaselines" />.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTcbBaselinesAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.Attestation.TcbBaselineResult&gt;&gt; GetTcbBaselinesAsync (Azure.Security.Attestation.AttestationType attestationType, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Security.Attestation.TcbBaselineResult&gt;&gt; GetTcbBaselinesAsync(valuetype Azure.Security.Attestation.AttestationType attestationType, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Security.Attestation.AttestationAdministrationClient.GetTcbBaselinesAsync(Azure.Security.Attestation.AttestationType,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetTcbBaselinesAsync (attestationType As AttestationType, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of TcbBaselineResult))" />
+      <MemberSignature Language="F#" Value="abstract member GetTcbBaselinesAsync : Azure.Security.Attestation.AttestationType * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.Attestation.TcbBaselineResult&gt;&gt;&#xA;override this.GetTcbBaselinesAsync : Azure.Security.Attestation.AttestationType * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.Attestation.TcbBaselineResult&gt;&gt;" Usage="attestationAdministrationClient.GetTcbBaselinesAsync (attestationType, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Security.Attestation</AssemblyName>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Security.Attestation.TcbBaselineResult&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="attestationType" Type="Azure.Security.Attestation.AttestationType" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="attestationType">The <see cref="T:Azure.Security.Attestation.AttestationType" /> whose baselines to retrieve.</param>
+        <param name="cancellationToken">Cancellation token used to cancel this operation.</param>
+        <summary>
+            Retrieves the trusted computing base (TCB) baselines available to the attestation provider for the specified <see cref="T:Azure.Security.Attestation.AttestationType" />.
+            </summary>
+        <returns>The available baselines, including which one the provider's current policy selects.</returns>
+        <remarks>
+            TCB baselines apply to SGX attestation; the service supports this operation for <see cref="P:Azure.Security.Attestation.AttestationType.SgxEnclave" /> and <see cref="P:Azure.Security.Attestation.AttestationType.OpenEnclave" />.
+            A policy selects a baseline by setting the <c>x-ms-sgx-tcbidentifier</c> claim to its <see cref="P:Azure.Security.Attestation.TcbBaseline.TcbIdentifier" />.
+            Requires <see cref="F:Azure.Security.Attestation.AttestationClientOptions.ServiceVersion.V2025_06_01" /> or later.
+            </remarks>
+        <exception cref="T:System.NotSupportedException">The client targets a service version that does not support TCB baselines; see <see cref="P:Azure.Security.Attestation.AttestationAdministrationClient.CanGetTcbBaselines" />.</exception>
+      </Docs>
+    </Member>
     <Member MemberName="RemovePolicyManagementCertificate">
       <MemberSignature Language="C#" Value="public virtual Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.PolicyCertificatesModificationResult&gt; RemovePolicyManagementCertificate (System.Security.Cryptography.X509Certificates.X509Certificate2 certificateToRemove, Azure.Security.Attestation.AttestationTokenSigningKey existingSigningKey, System.Threading.CancellationToken cancellationToken = default);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Security.Attestation.AttestationResponse`1&lt;class Azure.Security.Attestation.PolicyCertificatesModificationResult&gt; RemovePolicyManagementCertificate(class System.Security.Cryptography.X509Certificates.X509Certificate2 certificateToRemove, class Azure.Security.Attestation.AttestationTokenSigningKey existingSigningKey, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
@@ -304,7 +399,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.PolicyCertificatesModificationResult&gt;</ReturnType>
@@ -319,7 +414,7 @@
         <param name="existingSigningKey">An existing key corresponding to the existing certificate.</param>
         <param name="cancellationToken">Cancellation token used to cancel this operation.</param>
         <summary>
-            Retrieves the attesttion policy for the specified <see cref="T:Azure.Security.Attestation.AttestationType" />.
+            Removes one of the attestation policy management certificates.
             </summary>
         <returns>An <see cref="T:Azure.Security.Attestation.AttestationResponse`1" /> with the policy for the specified attestation type.</returns>
         <remarks>To be added.</remarks>
@@ -334,7 +429,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.PolicyCertificatesModificationResult&gt;&gt;</ReturnType>
@@ -364,7 +459,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.PolicyModificationResult&gt;</ReturnType>
@@ -400,7 +495,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.PolicyModificationResult&gt;&gt;</ReturnType>
@@ -436,7 +531,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.PolicyModificationResult&gt;</ReturnType>
@@ -467,7 +562,7 @@
              There are two properties provided in the [PolicyResult][attestation_policy_result] that can be used to verify that the service received the policy document:
              <list type="bullet"><item><description><see cref="P:Azure.Security.Attestation.PolicyModificationResult.PolicySigner" /> - if the <see cref="M:Azure.Security.Attestation.AttestationAdministrationClient.SetPolicy(Azure.Security.Attestation.AttestationType,System.String,Azure.Security.Attestation.AttestationTokenSigningKey,System.Threading.CancellationToken)" /> call included a signing certificate, this will be the certificate provided at the time of the `SetPolicy` call. If no policy signer was set, this will be null. </description></item><item><description><see cref="P:Azure.Security.Attestation.PolicyModificationResult.PolicyTokenHash" /> - this is the hash of the [JSON Web Token][json_web_token] sent to the service</description></item></list>
              To verify the hash, clients can generate an attestation token and verify the hash generated from that token:
-             <code snippet="Snippet:VerifySigningHash">
+             <code snippet="Snippet:VerifySigningHash" language="csharp">
              // The SetPolicyAsync API will create an AttestationToken signed with the TokenSigningKey to transmit the policy.
              // To verify that the policy specified by the caller was received by the service inside the enclave, we
              // verify that the hash of the policy document returned from the Attestation Service matches the hash
@@ -477,7 +572,7 @@
                  BinaryData.FromObjectAsJson(new StoredAttestationPolicy { AttestationPolicy = attestationPolicy }),
                  signingKey);
             
-             using var shaHasher = SHA256Managed.Create();
+             using var shaHasher = SHA256.Create();
              byte[] attestationPolicyHash = shaHasher.ComputeHash(Encoding.UTF8.GetBytes(policySetToken.Serialize()));
             
              Debug.Assert(attestationPolicyHash.SequenceEqual(setResult.Value.PolicyTokenHash.ToArray()));
@@ -502,7 +597,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Security.Attestation.AttestationResponse&lt;Azure.Security.Attestation.PolicyModificationResult&gt;&gt;</ReturnType>
@@ -533,7 +628,7 @@
              There are two properties provided in the [PolicyResult][attestation_policy_result] that can be used to verify that the service received the policy document:
              <list type="bullet"><item><description><see cref="P:Azure.Security.Attestation.PolicyModificationResult.PolicySigner" /> - if the <see cref="M:Azure.Security.Attestation.AttestationAdministrationClient.SetPolicy(Azure.Security.Attestation.AttestationType,System.String,Azure.Security.Attestation.AttestationTokenSigningKey,System.Threading.CancellationToken)" /> call included a signing certificate, this will be the certificate provided at the time of the `SetPolicy` call. If no policy signer was set, this will be null. </description></item><item><description><see cref="P:Azure.Security.Attestation.PolicyModificationResult.PolicyTokenHash" /> - this is the hash of the [JSON Web Token][json_web_token] sent to the service</description></item></list>
              To verify the hash, clients can generate an attestation token and verify the hash generated from that token:
-             <code snippet="Snippet:VerifySigningHash">
+             <code snippet="Snippet:VerifySigningHash" language="csharp">
              // The SetPolicyAsync API will create an AttestationToken signed with the TokenSigningKey to transmit the policy.
              // To verify that the policy specified by the caller was received by the service inside the enclave, we
              // verify that the hash of the policy document returned from the Attestation Service matches the hash
@@ -543,7 +638,7 @@
                  BinaryData.FromObjectAsJson(new StoredAttestationPolicy { AttestationPolicy = attestationPolicy }),
                  signingKey);
             
-             using var shaHasher = SHA256Managed.Create();
+             using var shaHasher = SHA256.Create();
              byte[] attestationPolicyHash = shaHasher.ComputeHash(Encoding.UTF8.GetBytes(policySetToken.Serialize()));
             
              Debug.Assert(attestationPolicyHash.SequenceEqual(setResult.Value.PolicyTokenHash.ToArray()));

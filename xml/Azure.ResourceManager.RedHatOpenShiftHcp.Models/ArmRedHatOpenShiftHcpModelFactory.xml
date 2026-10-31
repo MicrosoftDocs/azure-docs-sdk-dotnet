@@ -17,6 +17,30 @@
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
+    <Member MemberName="HcpOpenShiftClusterActiveVersion">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterActiveVersion HcpOpenShiftClusterActiveVersion (string version = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterActiveVersion HcpOpenShiftClusterActiveVersion(string version) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterActiveVersion(System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function HcpOpenShiftClusterActiveVersion (Optional version As String = Nothing) As HcpOpenShiftClusterActiveVersion" />
+      <MemberSignature Language="F#" Value="static member HcpOpenShiftClusterActiveVersion : string -&gt; Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterActiveVersion" Usage="Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterActiveVersion version" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.RedHatOpenShiftHcp</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterActiveVersion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="version" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="version"> The version of the resource. Specified in major.minor, same as the input. </param>
+        <summary> ClusterActiveVersion represents a version of a resource. </summary>
+        <returns> A new <see cref="T:Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterActiveVersion" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="HcpOpenShiftClusterAdminCredential">
       <MemberSignature Language="C#" Value="public static Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterAdminCredential HcpOpenShiftClusterAdminCredential (string kubeconfig = default, DateTimeOffset expirationTimestampOn = default);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterAdminCredential HcpOpenShiftClusterAdminCredential(string kubeconfig, valuetype System.DateTimeOffset expirationTimestampOn) cil managed" />
@@ -117,11 +141,11 @@
       </Parameters>
       <Docs>
         <param name="maxNodesTotal">
-            maxNodesTotal is the maximum allowable number of nodes for the Autoscaler scale out to be operational.
-            The autoscaler will not grow the cluster beyond this number. If omitted, the autoscaler will not have a maximum limit.
+            maxNodesTotal is the maximum allowable number of nodes. The autoscaler will not grow the cluster beyond this number.
+            If omitted, the autoscaler will not have a maximum limit.
             </param>
         <param name="maxPodGracePeriodSeconds">
-            maxPodGracePeriod is the maximum seconds to wait for graceful pod termination before scaling down a NodePool.
+            maxPodGracePeriodSeconds is the maximum amount of time in seconds to wait for graceful pod termination before scaling down a NodePool.
             The default is 600 seconds.
             </param>
         <param name="maxNodeProvisionTimeSeconds">
@@ -274,8 +298,8 @@
       <Docs>
         <param name="baseDomain"> BaseDomain is the base DNS domain of the cluster. </param>
         <param name="baseDomainPrefix">
-            BaseDomainPrefix is the unique name of the cluster representing the OpenShift's cluster name.
-            BaseDomainPrefix is the name that will appear in the cluster's DNS, provisioned cloud providers resources
+            BaseDomainPrefix is the base domain prefix for the cluster ingress. It will be used to
+            configure ingress in the cluster through the subdomain "BaseDomainPrefix.BaseDomain".
             </param>
         <summary> DNS contains the DNS settings of the cluster. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterDnsProfile" /> instance for mocking. </returns>
@@ -470,8 +494,8 @@
       <Docs>
         <param name="claim"> Claim name of the external profile. </param>
         <param name="prefix">
-            Prefix for the claim external profile
-            If this is specified prefixPolicy will be set to "Prefix" by default
+            Prefix for the claim external profile.
+            If this is specified, prefixPolicy will be set to "Prefix" by default.
             </param>
         <summary>
             External Auth claim profile
@@ -608,13 +632,12 @@
             issuerURL must use the 'https' scheme.
             </param>
         <param name="audiences">
-            This configures the acceptable audiences the JWT token, issued by the identity
-            provider, must be issued to. At least one of the entries must match the
-            'aud' claim in the JWT token.
-            audiences must contain at least one entry and must not exceed ten entries.
+            This configures the acceptable audiences for JWT tokens issued by the identity provider.
+            At least one of the entries must match the 'aud' claim in the JWT token.
+            Audiences must contain at least one entry and must not exceed ten entries.
             </param>
         <param name="ca">
-            The issuer of the token
+            The issuer of the token.
             Certificate bundle to use to validate server certificates for the configured URL.
             It must be PEM encoded and when not specified, the system trust is used.
             </param>
@@ -684,7 +707,7 @@
       <Docs>
         <param name="claim"> Claim name of the external profile. </param>
         <param name="prefix">
-            Prefix for the claim external profile
+            Prefix for the claim external profile.
             Must be set when the prefixPolicy field is set to 'Prefix' and must be unset
             otherwise.
             </param>
@@ -777,11 +800,11 @@
       </Docs>
     </Member>
     <Member MemberName="HcpOpenShiftClusterKmsEncryptionProfile">
-      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsEncryptionProfile HcpOpenShiftClusterKmsEncryptionProfile (string vaultName = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKeyVaultVisibility visibility = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsKey activeKey = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsEncryptionProfile HcpOpenShiftClusterKmsEncryptionProfile(string vaultName, valuetype Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKeyVaultVisibility visibility, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsKey activeKey) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterKmsEncryptionProfile(System.String,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKeyVaultVisibility,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsKey)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function HcpOpenShiftClusterKmsEncryptionProfile (Optional vaultName As String = Nothing, Optional visibility As HcpOpenShiftClusterKeyVaultVisibility = Nothing, Optional activeKey As HcpOpenShiftClusterKmsKey = Nothing) As HcpOpenShiftClusterKmsEncryptionProfile" />
-      <MemberSignature Language="F#" Value="static member HcpOpenShiftClusterKmsEncryptionProfile : string * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKeyVaultVisibility * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsKey -&gt; Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsEncryptionProfile" Usage="Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterKmsEncryptionProfile (vaultName, visibility, activeKey)" />
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsEncryptionProfile HcpOpenShiftClusterKmsEncryptionProfile (string vaultName = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKeyVaultVisibility visibility = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsKey activeKey = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsKeyVaultType? keyVaultType = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsEncryptionProfile HcpOpenShiftClusterKmsEncryptionProfile(string vaultName, valuetype Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKeyVaultVisibility visibility, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsKey activeKey, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsKeyVaultType&gt; keyVaultType) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterKmsEncryptionProfile(System.String,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKeyVaultVisibility,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsKey,System.Nullable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsKeyVaultType})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function HcpOpenShiftClusterKmsEncryptionProfile (Optional vaultName As String = Nothing, Optional visibility As HcpOpenShiftClusterKeyVaultVisibility = Nothing, Optional activeKey As HcpOpenShiftClusterKmsKey = Nothing, Optional keyVaultType As Nullable(Of HcpOpenShiftClusterKmsKeyVaultType) = Nothing) As HcpOpenShiftClusterKmsEncryptionProfile" />
+      <MemberSignature Language="F#" Value="static member HcpOpenShiftClusterKmsEncryptionProfile : string * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKeyVaultVisibility * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsKey * Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsKeyVaultType&gt; -&gt; Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsEncryptionProfile" Usage="Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterKmsEncryptionProfile (vaultName, visibility, activeKey, keyVaultType)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RedHatOpenShiftHcp</AssemblyName>
@@ -794,11 +817,13 @@
         <Parameter Name="vaultName" Type="System.String" />
         <Parameter Name="visibility" Type="Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKeyVaultVisibility" />
         <Parameter Name="activeKey" Type="Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsKey" />
+        <Parameter Name="keyVaultType" Type="System.Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterKmsKeyVaultType&gt;" />
       </Parameters>
       <Docs>
         <param name="vaultName"> vaultName is the name of the keyvault that contains the secret. </param>
         <param name="visibility"> visibility of the keyvault that contains the secret. </param>
         <param name="activeKey"> The details of the active key. </param>
+        <param name="keyVaultType"> The type of keyvault used for KMS encryption. Defaults to KeyVault when absent. </param>
         <summary>
             Configure etcd encryption Key Management Service (KMS) key.
             Your Microsoft Entra application used to create the cluster must be authorized to access this keyvault,
@@ -863,6 +888,30 @@
         <param name="hostPrefix"> Network host prefix. </param>
         <summary> OpenShift networking configuration. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNetworkProfile" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HcpOpenShiftClusterNodePoolActiveVersion">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolActiveVersion HcpOpenShiftClusterNodePoolActiveVersion (string version = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolActiveVersion HcpOpenShiftClusterNodePoolActiveVersion(string version) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterNodePoolActiveVersion(System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function HcpOpenShiftClusterNodePoolActiveVersion (Optional version As String = Nothing) As HcpOpenShiftClusterNodePoolActiveVersion" />
+      <MemberSignature Language="F#" Value="static member HcpOpenShiftClusterNodePoolActiveVersion : string -&gt; Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolActiveVersion" Usage="Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterNodePoolActiveVersion version" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.RedHatOpenShiftHcp</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolActiveVersion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="version" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="version"> The version of the resource. Specified in major.minor.patch, same as the input. </param>
+        <summary> NodePoolActiveVersion represents a version of a resource. </summary>
+        <returns> A new <see cref="T:Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolActiveVersion" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1030,7 +1079,7 @@
       </Parameters>
       <Docs>
         <param name="subnetId">
-            The Azure resource ID of the worker subnet
+            The Azure resource ID of the worker subnet.
             Note that a subnet cannot be reused between ARO-HCP Clusters, however the
             same subnet can be used for NodePools of the same cluster.
             </param>
@@ -1051,11 +1100,11 @@
       </Docs>
     </Member>
     <Member MemberName="HcpOpenShiftClusterNodePoolProperties">
-      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolProperties HcpOpenShiftClusterNodePoolProperties (Azure.ResourceManager.RedHatOpenShiftHcp.Models.ProvisioningState? provisioningState = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolVersionProfile version = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolPlatformProfile platform = default, int? replicas = default, bool? canAutoRepair = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolAutoScaling autoScaling = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolLabel&gt; labels = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolTaint&gt; taints = default, int? nodeDrainTimeoutMinutes = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt; statusConditions = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolProperties HcpOpenShiftClusterNodePoolProperties(valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.RedHatOpenShiftHcp.Models.ProvisioningState&gt; provisioningState, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolVersionProfile version, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolPlatformProfile platform, valuetype System.Nullable`1&lt;int32&gt; replicas, valuetype System.Nullable`1&lt;bool&gt; canAutoRepair, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolAutoScaling autoScaling, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolLabel&gt; labels, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolTaint&gt; taints, valuetype System.Nullable`1&lt;int32&gt; nodeDrainTimeoutMinutes, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt; statusConditions) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterNodePoolProperties(System.Nullable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.ProvisioningState},Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolVersionProfile,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolPlatformProfile,System.Nullable{System.Int32},System.Nullable{System.Boolean},Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolAutoScaling,System.Collections.Generic.IEnumerable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolLabel},System.Collections.Generic.IEnumerable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolTaint},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition})" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function HcpOpenShiftClusterNodePoolProperties (Optional provisioningState As Nullable(Of ProvisioningState) = Nothing, Optional version As HcpOpenShiftClusterNodePoolVersionProfile = Nothing, Optional platform As HcpOpenShiftClusterNodePoolPlatformProfile = Nothing, Optional replicas As Nullable(Of Integer) = Nothing, Optional canAutoRepair As Nullable(Of Boolean) = Nothing, Optional autoScaling As HcpOpenShiftClusterNodePoolAutoScaling = Nothing, Optional labels As IEnumerable(Of HcpOpenShiftClusterNodePoolLabel) = Nothing, Optional taints As IEnumerable(Of HcpOpenShiftClusterNodePoolTaint) = Nothing, Optional nodeDrainTimeoutMinutes As Nullable(Of Integer) = Nothing, Optional statusConditions As IEnumerable(Of HcpOpenShiftClusterCondition) = Nothing) As HcpOpenShiftClusterNodePoolProperties" />
-      <MemberSignature Language="F#" Value="static member HcpOpenShiftClusterNodePoolProperties : Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.ProvisioningState&gt; * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolVersionProfile * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolPlatformProfile * Nullable&lt;int&gt; * Nullable&lt;bool&gt; * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolAutoScaling * seq&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolLabel&gt; * seq&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolTaint&gt; * Nullable&lt;int&gt; * seq&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt; -&gt; Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolProperties" Usage="Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterNodePoolProperties (provisioningState, version, platform, replicas, canAutoRepair, autoScaling, labels, taints, nodeDrainTimeoutMinutes, statusConditions)" />
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolProperties HcpOpenShiftClusterNodePoolProperties (Azure.ResourceManager.RedHatOpenShiftHcp.Models.ProvisioningState? provisioningState = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolVersionProfile version = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolPlatformProfile platform = default, int? replicas = default, bool? canAutoRepair = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolAutoScaling autoScaling = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolLabel&gt; labels = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolTaint&gt; taints = default, int? nodeDrainTimeoutMinutes = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolResourceStatus status = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolProperties HcpOpenShiftClusterNodePoolProperties(valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.RedHatOpenShiftHcp.Models.ProvisioningState&gt; provisioningState, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolVersionProfile version, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolPlatformProfile platform, valuetype System.Nullable`1&lt;int32&gt; replicas, valuetype System.Nullable`1&lt;bool&gt; canAutoRepair, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolAutoScaling autoScaling, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolLabel&gt; labels, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolTaint&gt; taints, valuetype System.Nullable`1&lt;int32&gt; nodeDrainTimeoutMinutes, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolResourceStatus status) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterNodePoolProperties(System.Nullable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.ProvisioningState},Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolVersionProfile,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolPlatformProfile,System.Nullable{System.Int32},System.Nullable{System.Boolean},Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolAutoScaling,System.Collections.Generic.IEnumerable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolLabel},System.Collections.Generic.IEnumerable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolTaint},System.Nullable{System.Int32},Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolResourceStatus)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function HcpOpenShiftClusterNodePoolProperties (Optional provisioningState As Nullable(Of ProvisioningState) = Nothing, Optional version As HcpOpenShiftClusterNodePoolVersionProfile = Nothing, Optional platform As HcpOpenShiftClusterNodePoolPlatformProfile = Nothing, Optional replicas As Nullable(Of Integer) = Nothing, Optional canAutoRepair As Nullable(Of Boolean) = Nothing, Optional autoScaling As HcpOpenShiftClusterNodePoolAutoScaling = Nothing, Optional labels As IEnumerable(Of HcpOpenShiftClusterNodePoolLabel) = Nothing, Optional taints As IEnumerable(Of HcpOpenShiftClusterNodePoolTaint) = Nothing, Optional nodeDrainTimeoutMinutes As Nullable(Of Integer) = Nothing, Optional status As HcpOpenShiftClusterNodePoolResourceStatus = Nothing) As HcpOpenShiftClusterNodePoolProperties" />
+      <MemberSignature Language="F#" Value="static member HcpOpenShiftClusterNodePoolProperties : Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.ProvisioningState&gt; * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolVersionProfile * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolPlatformProfile * Nullable&lt;int&gt; * Nullable&lt;bool&gt; * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolAutoScaling * seq&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolLabel&gt; * seq&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolTaint&gt; * Nullable&lt;int&gt; * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolResourceStatus -&gt; Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolProperties" Usage="Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterNodePoolProperties (provisioningState, version, platform, replicas, canAutoRepair, autoScaling, labels, taints, nodeDrainTimeoutMinutes, status)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RedHatOpenShiftHcp</AssemblyName>
@@ -1074,7 +1123,7 @@
         <Parameter Name="labels" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolLabel&gt;" />
         <Parameter Name="taints" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolTaint&gt;" />
         <Parameter Name="nodeDrainTimeoutMinutes" Type="System.Nullable&lt;System.Int32&gt;" />
-        <Parameter Name="statusConditions" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt;" />
+        <Parameter Name="status" Type="Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolResourceStatus" />
       </Parameters>
       <Docs>
         <param name="provisioningState"> Provisioning state. </param>
@@ -1084,12 +1133,20 @@
             The number of worker nodes, it cannot be used together with autoscaling.
             Validation:
             <list type="bullet"><item><description>Minimum: 0</description></item><item><description>Maximum: 200 (only when availabilityZone is not specified)</description></item><item><description>No maximum when availabilityZone is specified</description></item></list></param>
-        <param name="canAutoRepair"> Auto-repair. </param>
+        <param name="canAutoRepair">
+            autoRepair specifies whether health checks should be enabled for machines
+            in the NodePool. Enabling this feature will cause the controller to
+            automatically delete unhealthy machines. The unhealthy criteria are
+            determined by checking the Node Ready condition and a timeout that might
+            vary depending on the platform provider. autoRepair will not take action
+            when more than 2 Nodes are unhealthy at the same time, giving time for
+            the cluster to stabilize or for the user to manually intervene.
+            </param>
         <param name="autoScaling"> Representation of a autoscaling in a node pool. </param>
         <param name="labels">
-            Kubernetes labels to propagate to the NodePool Nodes
+            Kubernetes labels to propagate to the NodePool Nodes.
             Note that when the labels are updated this is only applied to newly
-            create nodes in the Nodepool, existing node labels remain unchanged.
+            created nodes in the NodePool, existing node labels remain unchanged.
             </param>
         <param name="taints"> Taints for the nodes. </param>
         <param name="nodeDrainTimeoutMinutes">
@@ -1101,9 +1158,39 @@
             0 means that the NodePool can be drained without any time limitation.
             If unset the cluster nodeDrainTimeoutMinutes value is used as a default.
             </param>
-        <param name="statusConditions"> The conditions on the resource. </param>
-        <summary>To be added.</summary>
+        <param name="status"> Status of the node pool resource. </param>
+        <summary> Represents the node pool properties. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolProperties" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HcpOpenShiftClusterNodePoolResourceStatus">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolResourceStatus HcpOpenShiftClusterNodePoolResourceStatus (System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt; conditions = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolActiveVersion&gt; activeVersions = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolResourceStatus HcpOpenShiftClusterNodePoolResourceStatus(class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt; conditions, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolActiveVersion&gt; activeVersions) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterNodePoolResourceStatus(System.Collections.Generic.IEnumerable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition},System.Collections.Generic.IEnumerable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolActiveVersion})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function HcpOpenShiftClusterNodePoolResourceStatus (Optional conditions As IEnumerable(Of HcpOpenShiftClusterCondition) = Nothing, Optional activeVersions As IEnumerable(Of HcpOpenShiftClusterNodePoolActiveVersion) = Nothing) As HcpOpenShiftClusterNodePoolResourceStatus" />
+      <MemberSignature Language="F#" Value="static member HcpOpenShiftClusterNodePoolResourceStatus : seq&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt; * seq&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolActiveVersion&gt; -&gt; Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolResourceStatus" Usage="Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterNodePoolResourceStatus (conditions, activeVersions)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.RedHatOpenShiftHcp</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolResourceStatus</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="conditions" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt;" />
+        <Parameter Name="activeVersions" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolActiveVersion&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="conditions"> The conditions on the resource. </param>
+        <param name="activeVersions">
+            The observed active versions of the node pool.
+            During upgrades, it is common for multiple versions to be active at the same time
+            while old nodes are drained and replaced. The ordering of entries has no meaning.
+            </param>
+        <summary> NodePoolResourceStatus represents the observed status of the nodepool resource. </summary>
+        <returns> A new <see cref="T:Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolResourceStatus" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1159,6 +1246,8 @@
             ChannelGroup is the name of the set to which this version belongs.
             Each version belongs to only a single set.
             If not specified, the default value is 'stable'.
+            This property is intended to be updateable, but that support is not yet
+            complete. Until then, changing this value after node pool creation is rejected.
             </param>
         <summary> Versions represents an OpenShift version. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolVersionProfile" /> instance for mocking. </returns>
@@ -1166,11 +1255,11 @@
       </Docs>
     </Member>
     <Member MemberName="HcpOpenShiftClusterPlatformProfile">
-      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterPlatformProfile HcpOpenShiftClusterPlatformProfile (string managedResourceGroup = default, Azure.Core.ResourceIdentifier subnetId = default, Azure.Core.ResourceIdentifier vnetIntegrationSubnetId = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterOutboundType? outboundType = default, Azure.Core.ResourceIdentifier networkSecurityGroupId = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterUserAssignedIdentitiesProfile operatorsAuthenticationUserAssignedIdentities = default, Uri issuerUri = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterPlatformProfile HcpOpenShiftClusterPlatformProfile(string managedResourceGroup, class Azure.Core.ResourceIdentifier subnetId, class Azure.Core.ResourceIdentifier vnetIntegrationSubnetId, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterOutboundType&gt; outboundType, class Azure.Core.ResourceIdentifier networkSecurityGroupId, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterUserAssignedIdentitiesProfile operatorsAuthenticationUserAssignedIdentities, class System.Uri issuerUri) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterPlatformProfile(System.String,Azure.Core.ResourceIdentifier,Azure.Core.ResourceIdentifier,System.Nullable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterOutboundType},Azure.Core.ResourceIdentifier,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterUserAssignedIdentitiesProfile,System.Uri)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function HcpOpenShiftClusterPlatformProfile (Optional managedResourceGroup As String = Nothing, Optional subnetId As ResourceIdentifier = Nothing, Optional vnetIntegrationSubnetId As ResourceIdentifier = Nothing, Optional outboundType As Nullable(Of HcpOpenShiftClusterOutboundType) = Nothing, Optional networkSecurityGroupId As ResourceIdentifier = Nothing, Optional operatorsAuthenticationUserAssignedIdentities As HcpOpenShiftClusterUserAssignedIdentitiesProfile = Nothing, Optional issuerUri As Uri = Nothing) As HcpOpenShiftClusterPlatformProfile" />
-      <MemberSignature Language="F#" Value="static member HcpOpenShiftClusterPlatformProfile : string * Azure.Core.ResourceIdentifier * Azure.Core.ResourceIdentifier * Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterOutboundType&gt; * Azure.Core.ResourceIdentifier * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterUserAssignedIdentitiesProfile * Uri -&gt; Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterPlatformProfile" Usage="Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterPlatformProfile (managedResourceGroup, subnetId, vnetIntegrationSubnetId, outboundType, networkSecurityGroupId, operatorsAuthenticationUserAssignedIdentities, issuerUri)" />
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterPlatformProfile HcpOpenShiftClusterPlatformProfile (string managedResourceGroup = default, Azure.Core.ResourceIdentifier subnetId = default, Azure.Core.ResourceIdentifier vnetIntegrationSubnetId = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterOutboundType? outboundType = default, Azure.Core.ResourceIdentifier networkSecurityGroupId = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterUserAssignedIdentitiesProfile operatorsAuthenticationUserAssignedIdentities = default, Azure.Core.ResourceIdentifier containerRegistryManagedIdentity = default, Uri issuerUri = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterPlatformProfile HcpOpenShiftClusterPlatformProfile(string managedResourceGroup, class Azure.Core.ResourceIdentifier subnetId, class Azure.Core.ResourceIdentifier vnetIntegrationSubnetId, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterOutboundType&gt; outboundType, class Azure.Core.ResourceIdentifier networkSecurityGroupId, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterUserAssignedIdentitiesProfile operatorsAuthenticationUserAssignedIdentities, class Azure.Core.ResourceIdentifier containerRegistryManagedIdentity, class System.Uri issuerUri) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterPlatformProfile(System.String,Azure.Core.ResourceIdentifier,Azure.Core.ResourceIdentifier,System.Nullable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterOutboundType},Azure.Core.ResourceIdentifier,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterUserAssignedIdentitiesProfile,Azure.Core.ResourceIdentifier,System.Uri)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function HcpOpenShiftClusterPlatformProfile (Optional managedResourceGroup As String = Nothing, Optional subnetId As ResourceIdentifier = Nothing, Optional vnetIntegrationSubnetId As ResourceIdentifier = Nothing, Optional outboundType As Nullable(Of HcpOpenShiftClusterOutboundType) = Nothing, Optional networkSecurityGroupId As ResourceIdentifier = Nothing, Optional operatorsAuthenticationUserAssignedIdentities As HcpOpenShiftClusterUserAssignedIdentitiesProfile = Nothing, Optional containerRegistryManagedIdentity As ResourceIdentifier = Nothing, Optional issuerUri As Uri = Nothing) As HcpOpenShiftClusterPlatformProfile" />
+      <MemberSignature Language="F#" Value="static member HcpOpenShiftClusterPlatformProfile : string * Azure.Core.ResourceIdentifier * Azure.Core.ResourceIdentifier * Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterOutboundType&gt; * Azure.Core.ResourceIdentifier * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterUserAssignedIdentitiesProfile * Azure.Core.ResourceIdentifier * Uri -&gt; Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterPlatformProfile" Usage="Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterPlatformProfile (managedResourceGroup, subnetId, vnetIntegrationSubnetId, outboundType, networkSecurityGroupId, operatorsAuthenticationUserAssignedIdentities, containerRegistryManagedIdentity, issuerUri)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RedHatOpenShiftHcp</AssemblyName>
@@ -1186,11 +1275,12 @@
         <Parameter Name="outboundType" Type="System.Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterOutboundType&gt;" />
         <Parameter Name="networkSecurityGroupId" Type="Azure.Core.ResourceIdentifier" />
         <Parameter Name="operatorsAuthenticationUserAssignedIdentities" Type="Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterUserAssignedIdentitiesProfile" />
+        <Parameter Name="containerRegistryManagedIdentity" Type="Azure.Core.ResourceIdentifier" />
         <Parameter Name="issuerUri" Type="System.Uri" />
       </Parameters>
       <Docs>
         <param name="managedResourceGroup">
-            Resource group name to put cluster resources
+            The name of the resource group to put cluster resources in.
             If not specified then a unique name is generated from the
             following pattern
             "aro-hcp-" + clusterName + "-" + UUID
@@ -1199,7 +1289,7 @@
             identifier per RFC 4122.
             </param>
         <param name="subnetId">
-            The Azure resource ID of the worker subnet
+            The Azure resource ID of the worker subnet.
             Note that a subnet cannot be reused between ARO-HCP Clusters.
             </param>
         <param name="vnetIntegrationSubnetId">
@@ -1217,6 +1307,7 @@
             Represents the information related to Azure User-Assigned managed identities needed
             to perform Operators authentication based on Azure User-Assigned Managed Identities
             </param>
+        <param name="containerRegistryManagedIdentity"> The user-assigned managed identity used for container registry image pulls. </param>
         <param name="issuerUri">
             URL for the OIDC provider to be used for authentication
             to authenticate against user Azure cloud account
@@ -1227,11 +1318,11 @@
       </Docs>
     </Member>
     <Member MemberName="HcpOpenShiftClusterProperties">
-      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterProperties HcpOpenShiftClusterProperties (Azure.ResourceManager.RedHatOpenShiftHcp.Models.ProvisioningState? provisioningState = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterVersionProfile version = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterDnsProfile dns = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNetworkProfile network = default, Uri consoleUri = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterApiProfile api = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterIngressType? ingressType = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterPlatformProfile platform = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterAutoscalingProfile autoscaling = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterEtcdDataEncryptionProfile etcdDataEncryption = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageDigestMirror&gt; imageDigestMirrors = default, int? nodeDrainTimeoutMinutes = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageRegistryState? clusterImageRegistryState = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt; statusConditions = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.CryptoRestrictions? cryptoRestrictions = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterProperties HcpOpenShiftClusterProperties(valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.RedHatOpenShiftHcp.Models.ProvisioningState&gt; provisioningState, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterVersionProfile version, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterDnsProfile dns, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNetworkProfile network, class System.Uri consoleUri, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterApiProfile api, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterIngressType&gt; ingressType, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterPlatformProfile platform, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterAutoscalingProfile autoscaling, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterEtcdDataEncryptionProfile etcdDataEncryption, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageDigestMirror&gt; imageDigestMirrors, valuetype System.Nullable`1&lt;int32&gt; nodeDrainTimeoutMinutes, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageRegistryState&gt; clusterImageRegistryState, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt; statusConditions, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.RedHatOpenShiftHcp.Models.CryptoRestrictions&gt; cryptoRestrictions) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterProperties(System.Nullable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.ProvisioningState},Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterVersionProfile,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterDnsProfile,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNetworkProfile,System.Uri,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterApiProfile,System.Nullable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterIngressType},Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterPlatformProfile,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterAutoscalingProfile,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterEtcdDataEncryptionProfile,System.Collections.Generic.IEnumerable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageDigestMirror},System.Nullable{System.Int32},System.Nullable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageRegistryState},System.Collections.Generic.IEnumerable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition},System.Nullable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.CryptoRestrictions})" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function HcpOpenShiftClusterProperties (Optional provisioningState As Nullable(Of ProvisioningState) = Nothing, Optional version As HcpOpenShiftClusterVersionProfile = Nothing, Optional dns As HcpOpenShiftClusterDnsProfile = Nothing, Optional network As HcpOpenShiftClusterNetworkProfile = Nothing, Optional consoleUri As Uri = Nothing, Optional api As HcpOpenShiftClusterApiProfile = Nothing, Optional ingressType As Nullable(Of HcpOpenShiftClusterIngressType) = Nothing, Optional platform As HcpOpenShiftClusterPlatformProfile = Nothing, Optional autoscaling As HcpOpenShiftClusterAutoscalingProfile = Nothing, Optional etcdDataEncryption As HcpOpenShiftClusterEtcdDataEncryptionProfile = Nothing, Optional imageDigestMirrors As IEnumerable(Of HcpOpenShiftClusterImageDigestMirror) = Nothing, Optional nodeDrainTimeoutMinutes As Nullable(Of Integer) = Nothing, Optional clusterImageRegistryState As Nullable(Of HcpOpenShiftClusterImageRegistryState) = Nothing, Optional statusConditions As IEnumerable(Of HcpOpenShiftClusterCondition) = Nothing, Optional cryptoRestrictions As Nullable(Of CryptoRestrictions) = Nothing) As HcpOpenShiftClusterProperties" />
-      <MemberSignature Language="F#" Value="static member HcpOpenShiftClusterProperties : Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.ProvisioningState&gt; * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterVersionProfile * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterDnsProfile * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNetworkProfile * Uri * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterApiProfile * Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterIngressType&gt; * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterPlatformProfile * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterAutoscalingProfile * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterEtcdDataEncryptionProfile * seq&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageDigestMirror&gt; * Nullable&lt;int&gt; * Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageRegistryState&gt; * seq&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt; * Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.CryptoRestrictions&gt; -&gt; Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterProperties" Usage="Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterProperties (provisioningState, version, dns, network, consoleUri, api, ingressType, platform, autoscaling, etcdDataEncryption, imageDigestMirrors, nodeDrainTimeoutMinutes, clusterImageRegistryState, statusConditions, cryptoRestrictions)" />
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterProperties HcpOpenShiftClusterProperties (Azure.ResourceManager.RedHatOpenShiftHcp.Models.ProvisioningState? provisioningState = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterVersionProfile version = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterDnsProfile dns = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNetworkProfile network = default, Uri consoleUri = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterApiProfile api = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterIngressType? ingressType = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterPlatformProfile platform = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterAutoscalingProfile autoscaling = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterEtcdDataEncryptionProfile etcdDataEncryption = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageDigestMirror&gt; imageDigestMirrors = default, int? nodeDrainTimeoutMinutes = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageRegistryState? clusterImageRegistryState = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterResourceStatus status = default, Azure.ResourceManager.RedHatOpenShiftHcp.Models.CryptoRestrictions? cryptoRestrictions = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterProperties HcpOpenShiftClusterProperties(valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.RedHatOpenShiftHcp.Models.ProvisioningState&gt; provisioningState, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterVersionProfile version, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterDnsProfile dns, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNetworkProfile network, class System.Uri consoleUri, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterApiProfile api, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterIngressType&gt; ingressType, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterPlatformProfile platform, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterAutoscalingProfile autoscaling, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterEtcdDataEncryptionProfile etcdDataEncryption, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageDigestMirror&gt; imageDigestMirrors, valuetype System.Nullable`1&lt;int32&gt; nodeDrainTimeoutMinutes, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageRegistryState&gt; clusterImageRegistryState, class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterResourceStatus status, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.RedHatOpenShiftHcp.Models.CryptoRestrictions&gt; cryptoRestrictions) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterProperties(System.Nullable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.ProvisioningState},Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterVersionProfile,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterDnsProfile,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNetworkProfile,System.Uri,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterApiProfile,System.Nullable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterIngressType},Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterPlatformProfile,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterAutoscalingProfile,Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterEtcdDataEncryptionProfile,System.Collections.Generic.IEnumerable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageDigestMirror},System.Nullable{System.Int32},System.Nullable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageRegistryState},Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterResourceStatus,System.Nullable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.CryptoRestrictions})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function HcpOpenShiftClusterProperties (Optional provisioningState As Nullable(Of ProvisioningState) = Nothing, Optional version As HcpOpenShiftClusterVersionProfile = Nothing, Optional dns As HcpOpenShiftClusterDnsProfile = Nothing, Optional network As HcpOpenShiftClusterNetworkProfile = Nothing, Optional consoleUri As Uri = Nothing, Optional api As HcpOpenShiftClusterApiProfile = Nothing, Optional ingressType As Nullable(Of HcpOpenShiftClusterIngressType) = Nothing, Optional platform As HcpOpenShiftClusterPlatformProfile = Nothing, Optional autoscaling As HcpOpenShiftClusterAutoscalingProfile = Nothing, Optional etcdDataEncryption As HcpOpenShiftClusterEtcdDataEncryptionProfile = Nothing, Optional imageDigestMirrors As IEnumerable(Of HcpOpenShiftClusterImageDigestMirror) = Nothing, Optional nodeDrainTimeoutMinutes As Nullable(Of Integer) = Nothing, Optional clusterImageRegistryState As Nullable(Of HcpOpenShiftClusterImageRegistryState) = Nothing, Optional status As HcpOpenShiftClusterResourceStatus = Nothing, Optional cryptoRestrictions As Nullable(Of CryptoRestrictions) = Nothing) As HcpOpenShiftClusterProperties" />
+      <MemberSignature Language="F#" Value="static member HcpOpenShiftClusterProperties : Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.ProvisioningState&gt; * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterVersionProfile * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterDnsProfile * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNetworkProfile * Uri * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterApiProfile * Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterIngressType&gt; * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterPlatformProfile * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterAutoscalingProfile * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterEtcdDataEncryptionProfile * seq&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageDigestMirror&gt; * Nullable&lt;int&gt; * Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageRegistryState&gt; * Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterResourceStatus * Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.CryptoRestrictions&gt; -&gt; Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterProperties" Usage="Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterProperties (provisioningState, version, dns, network, consoleUri, api, ingressType, platform, autoscaling, etcdDataEncryption, imageDigestMirrors, nodeDrainTimeoutMinutes, clusterImageRegistryState, status, cryptoRestrictions)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RedHatOpenShiftHcp</AssemblyName>
@@ -1254,7 +1345,7 @@
         <Parameter Name="imageDigestMirrors" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageDigestMirror&gt;" />
         <Parameter Name="nodeDrainTimeoutMinutes" Type="System.Nullable&lt;System.Int32&gt;" />
         <Parameter Name="clusterImageRegistryState" Type="System.Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterImageRegistryState&gt;" />
-        <Parameter Name="statusConditions" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt;" />
+        <Parameter Name="status" Type="Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterResourceStatus" />
         <Parameter Name="cryptoRestrictions" Type="System.Nullable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.CryptoRestrictions&gt;" />
       </Parameters>
       <Docs>
@@ -1283,7 +1374,7 @@
             especially relevant to cluster upgrades.
             Valid values are in minutes and from 0 to 10080 minutes (1 week).
             0 means that the MachinePool can be drained without any time limitation.
-            This is the value is used a default for all NodePools. It can be overridden
+            This value is used as a default for all NodePools. It can be overridden
             by specifying nodeDrainTimeoutMinutes for a given NodePool
             </param>
         <param name="clusterImageRegistryState">
@@ -1293,10 +1384,42 @@
             the cluster. Disabled means the ImageStream-backed image registry will not be present in
             the cluster. The default is Enabled.
             </param>
-        <param name="statusConditions"> The conditions on the resource. </param>
+        <param name="status"> Status of the cluster resource. </param>
         <param name="cryptoRestrictions"> Cryptographic restrictions for kernel and userspace libraries. </param>
         <summary>To be added.</summary>
         <returns> A new <see cref="T:Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterProperties" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HcpOpenShiftClusterResourceStatus">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterResourceStatus HcpOpenShiftClusterResourceStatus (System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt; conditions = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterActiveVersion&gt; activeVersions = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterResourceStatus HcpOpenShiftClusterResourceStatus(class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt; conditions, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterActiveVersion&gt; activeVersions) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterResourceStatus(System.Collections.Generic.IEnumerable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition},System.Collections.Generic.IEnumerable{Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterActiveVersion})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function HcpOpenShiftClusterResourceStatus (Optional conditions As IEnumerable(Of HcpOpenShiftClusterCondition) = Nothing, Optional activeVersions As IEnumerable(Of HcpOpenShiftClusterActiveVersion) = Nothing) As HcpOpenShiftClusterResourceStatus" />
+      <MemberSignature Language="F#" Value="static member HcpOpenShiftClusterResourceStatus : seq&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt; * seq&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterActiveVersion&gt; -&gt; Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterResourceStatus" Usage="Azure.ResourceManager.RedHatOpenShiftHcp.Models.ArmRedHatOpenShiftHcpModelFactory.HcpOpenShiftClusterResourceStatus (conditions, activeVersions)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.RedHatOpenShiftHcp</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterResourceStatus</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="conditions" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt;" />
+        <Parameter Name="activeVersions" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterActiveVersion&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="conditions"> The conditions on the resource. </param>
+        <param name="activeVersions">
+            The observed active versions of the cluster.
+            During upgrades, both the previous and target versions may be
+            active simultaneously until the rollout completes, so this
+            array can contain more than one entry. The ordering of entries
+            has no meaning.
+            </param>
+        <summary> ClusterResourceStatus represents the observed status of the cluster resource. </summary>
+        <returns> A new <see cref="T:Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterResourceStatus" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1366,6 +1489,8 @@
             ChannelGroup is the name of the set to which this version belongs.
             Each version belongs to only a single set.
             If not specified, the default value is 'stable'.
+            This property is intended to be updateable, but that support is not yet
+            complete. Until then, changing this value after cluster creation is rejected.
             </param>
         <summary> Versions represents an OpenShift version. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterVersionProfile" /> instance for mocking. </returns>
