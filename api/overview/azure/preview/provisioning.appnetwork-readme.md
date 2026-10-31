@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning AppNetwork client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.AppNetwork, appnetwork
-ms.date: 10/10/2026
+ms.date: 10/31/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: appnetwork
 ---
-# Azure Provisioning AppNetwork client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning AppNetwork client library for .NET - version 1.0.0-alpha.20261030.1 
 
 
 Azure.Provisioning.AppNetwork simplifies declarative provisioning for Azure App Network in .NET.
@@ -98,5 +98,5 @@ infra.Add(metricsEndpoint);
 
 ## Contributing
 
-For details on contributing to this repository, see the [contributing guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.AppNetwork_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md).
+For details on contributing to this repository, see the [contributing guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md).
 
