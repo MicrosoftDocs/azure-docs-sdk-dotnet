@@ -48,7 +48,6 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Cdn</AssemblyName>
-        <AssemblyVersion>1.5.1.0</AssemblyVersion>
         <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
@@ -66,9 +65,14 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Cdn</AssemblyName>
-        <AssemblyVersion>1.5.1.0</AssemblyVersion>
         <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute FrameworkAlternate="azure-dotnet">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Cdn.FrontDoorRuleSetResource&gt;</ReturnType>
       </ReturnValue>
@@ -82,9 +86,44 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="ruleSetName"> Name of the rule set under the profile which is unique globally. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> Creates a new rule set within the specified profile. </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="ruleSetName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="ruleSetName" /> is an empty string, and was expected to be non-empty. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateOrUpdate">
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Cdn.FrontDoorRuleSetResource&gt; CreateOrUpdate (Azure.WaitUntil waitUntil, string ruleSetName, Azure.ResourceManager.Cdn.FrontDoorRuleSetData data, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Cdn.FrontDoorRuleSetResource&gt; CreateOrUpdate(valuetype Azure.WaitUntil waitUntil, string ruleSetName, class Azure.ResourceManager.Cdn.FrontDoorRuleSetData data, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Cdn.FrontDoorRuleSetCollection.CreateOrUpdate(Azure.WaitUntil,System.String,Azure.ResourceManager.Cdn.FrontDoorRuleSetData,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdate (waitUntil As WaitUntil, ruleSetName As String, data As FrontDoorRuleSetData, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation(Of FrontDoorRuleSetResource)" />
+      <MemberSignature Language="F#" Value="abstract member CreateOrUpdate : Azure.WaitUntil * string * Azure.ResourceManager.Cdn.FrontDoorRuleSetData * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Cdn.FrontDoorRuleSetResource&gt;&#xA;override this.CreateOrUpdate : Azure.WaitUntil * string * Azure.ResourceManager.Cdn.FrontDoorRuleSetData * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Cdn.FrontDoorRuleSetResource&gt;" Usage="frontDoorRuleSetCollection.CreateOrUpdate (waitUntil, ruleSetName, data, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Cdn</AssemblyName>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Cdn.FrontDoorRuleSetResource&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="ruleSetName" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="data" Type="Azure.ResourceManager.Cdn.FrontDoorRuleSetData" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="3" FrameworkAlternate="azure-dotnet" />
+      </Parameters>
+      <Docs>
+        <param name="waitUntil">
+          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
+        <param name="ruleSetName"> Name of the rule set under the profile which is unique globally. </param>
+        <param name="data"> Resource create parameters. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
-            Creates a new rule set within the specified profile.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets/{ruleSetName}. </description></item><item><term> Operation Id. </term><description> RuleSets_Create. </description></item><item><term> Default Api Version. </term><description> 2025-09-01-preview. </description></item></list></summary>
+            Creates or update a batch rule set within the specified profile along with the rules associate to it.
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets/{ruleSetName}. </description></item><item><term> Operation Id. </term><description> RuleSets_Create. </description></item><item><term> Default Api Version. </term><description> 2026-10-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -102,9 +141,14 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Cdn</AssemblyName>
-        <AssemblyVersion>1.5.1.0</AssemblyVersion>
         <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute FrameworkAlternate="azure-dotnet">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Cdn.FrontDoorRuleSetResource&gt;&gt;</ReturnType>
       </ReturnValue>
@@ -118,9 +162,44 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="ruleSetName"> Name of the rule set under the profile which is unique globally. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> Creates a new rule set within the specified profile. </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="ruleSetName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="ruleSetName" /> is an empty string, and was expected to be non-empty. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateOrUpdateAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Cdn.FrontDoorRuleSetResource&gt;&gt; CreateOrUpdateAsync (Azure.WaitUntil waitUntil, string ruleSetName, Azure.ResourceManager.Cdn.FrontDoorRuleSetData data, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Cdn.FrontDoorRuleSetResource&gt;&gt; CreateOrUpdateAsync(valuetype Azure.WaitUntil waitUntil, string ruleSetName, class Azure.ResourceManager.Cdn.FrontDoorRuleSetData data, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Cdn.FrontDoorRuleSetCollection.CreateOrUpdateAsync(Azure.WaitUntil,System.String,Azure.ResourceManager.Cdn.FrontDoorRuleSetData,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateAsync (waitUntil As WaitUntil, ruleSetName As String, data As FrontDoorRuleSetData, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation(Of FrontDoorRuleSetResource))" />
+      <MemberSignature Language="F#" Value="abstract member CreateOrUpdateAsync : Azure.WaitUntil * string * Azure.ResourceManager.Cdn.FrontDoorRuleSetData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Cdn.FrontDoorRuleSetResource&gt;&gt;&#xA;override this.CreateOrUpdateAsync : Azure.WaitUntil * string * Azure.ResourceManager.Cdn.FrontDoorRuleSetData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Cdn.FrontDoorRuleSetResource&gt;&gt;" Usage="frontDoorRuleSetCollection.CreateOrUpdateAsync (waitUntil, ruleSetName, data, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Cdn</AssemblyName>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Cdn.FrontDoorRuleSetResource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="ruleSetName" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="data" Type="Azure.ResourceManager.Cdn.FrontDoorRuleSetData" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="3" FrameworkAlternate="azure-dotnet" />
+      </Parameters>
+      <Docs>
+        <param name="waitUntil">
+          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
+        <param name="ruleSetName"> Name of the rule set under the profile which is unique globally. </param>
+        <param name="data"> Resource create parameters. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
-            Creates a new rule set within the specified profile.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets/{ruleSetName}. </description></item><item><term> Operation Id. </term><description> RuleSets_Create. </description></item><item><term> Default Api Version. </term><description> 2025-09-01-preview. </description></item></list></summary>
+            Creates or update a batch rule set within the specified profile along with the rules associate to it.
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets/{ruleSetName}. </description></item><item><term> Operation Id. </term><description> RuleSets_Create. </description></item><item><term> Default Api Version. </term><description> 2026-10-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -138,7 +217,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Cdn</AssemblyName>
-        <AssemblyVersion>1.5.1.0</AssemblyVersion>
         <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -153,7 +231,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Checks to see if the resource exists in azure.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets/{ruleSetName}. </description></item><item><term> Operation Id. </term><description> RuleSets_Get. </description></item><item><term> Default Api Version. </term><description> 2025-09-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets/{ruleSetName}. </description></item><item><term> Operation Id. </term><description> RuleSets_Get. </description></item><item><term> Default Api Version. </term><description> 2026-10-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -171,7 +249,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Cdn</AssemblyName>
-        <AssemblyVersion>1.5.1.0</AssemblyVersion>
         <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -186,7 +263,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Checks to see if the resource exists in azure.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets/{ruleSetName}. </description></item><item><term> Operation Id. </term><description> RuleSets_Get. </description></item><item><term> Default Api Version. </term><description> 2025-09-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets/{ruleSetName}. </description></item><item><term> Operation Id. </term><description> RuleSets_Get. </description></item><item><term> Default Api Version. </term><description> 2026-10-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -204,7 +281,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Cdn</AssemblyName>
-        <AssemblyVersion>1.5.1.0</AssemblyVersion>
         <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -219,7 +295,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets/{ruleSetName}. </description></item><item><term> Operation Id. </term><description> RuleSets_Get. </description></item><item><term> Default Api Version. </term><description> 2025-09-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets/{ruleSetName}. </description></item><item><term> Operation Id. </term><description> RuleSets_Get. </description></item><item><term> Default Api Version. </term><description> 2026-10-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -237,7 +313,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Cdn</AssemblyName>
-        <AssemblyVersion>1.5.1.0</AssemblyVersion>
         <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -250,7 +325,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists existing AzureFrontDoor rule sets within a profile.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets. </description></item><item><term> Operation Id. </term><description> RuleSets_ListByProfile. </description></item><item><term> Default Api Version. </term><description> 2025-09-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets. </description></item><item><term> Operation Id. </term><description> RuleSets_ListByProfile. </description></item><item><term> Default Api Version. </term><description> 2026-10-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.Cdn.FrontDoorRuleSetResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -264,7 +339,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Cdn</AssemblyName>
-        <AssemblyVersion>1.5.1.0</AssemblyVersion>
         <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -277,7 +351,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists existing AzureFrontDoor rule sets within a profile.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets. </description></item><item><term> Operation Id. </term><description> RuleSets_ListByProfile. </description></item><item><term> Default Api Version. </term><description> 2025-09-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets. </description></item><item><term> Operation Id. </term><description> RuleSets_ListByProfile. </description></item><item><term> Default Api Version. </term><description> 2026-10-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.Cdn.FrontDoorRuleSetResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -291,7 +365,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Cdn</AssemblyName>
-        <AssemblyVersion>1.5.1.0</AssemblyVersion>
         <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -306,7 +379,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets/{ruleSetName}. </description></item><item><term> Operation Id. </term><description> RuleSets_Get. </description></item><item><term> Default Api Version. </term><description> 2025-09-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets/{ruleSetName}. </description></item><item><term> Operation Id. </term><description> RuleSets_Get. </description></item><item><term> Default Api Version. </term><description> 2026-10-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -324,7 +397,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Cdn</AssemblyName>
-        <AssemblyVersion>1.5.1.0</AssemblyVersion>
         <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -339,7 +411,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Tries to get details for this resource from the service.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets/{ruleSetName}. </description></item><item><term> Operation Id. </term><description> RuleSets_Get. </description></item><item><term> Default Api Version. </term><description> 2025-09-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets/{ruleSetName}. </description></item><item><term> Operation Id. </term><description> RuleSets_Get. </description></item><item><term> Default Api Version. </term><description> 2026-10-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -357,7 +429,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Cdn</AssemblyName>
-        <AssemblyVersion>1.5.1.0</AssemblyVersion>
         <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -372,7 +443,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Tries to get details for this resource from the service.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets/{ruleSetName}. </description></item><item><term> Operation Id. </term><description> RuleSets_Get. </description></item><item><term> Default Api Version. </term><description> 2025-09-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/ruleSets/{ruleSetName}. </description></item><item><term> Operation Id. </term><description> RuleSets_Get. </description></item><item><term> Default Api Version. </term><description> 2026-10-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -393,7 +464,6 @@
       </Implements>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Cdn</AssemblyName>
-        <AssemblyVersion>1.5.1.0</AssemblyVersion>
         <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -421,7 +491,6 @@
       </Implements>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Cdn</AssemblyName>
-        <AssemblyVersion>1.5.1.0</AssemblyVersion>
         <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -446,7 +515,6 @@
       </Implements>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Cdn</AssemblyName>
-        <AssemblyVersion>1.5.1.0</AssemblyVersion>
         <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
