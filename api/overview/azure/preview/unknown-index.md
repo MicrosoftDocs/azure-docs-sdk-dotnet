@@ -1,5 +1,6 @@
 | Reference | Package | Source |
 |---|---|---|
+|[Planetary Computer](analytics.planetarycomputer-readme.md)|[Azure.Analytics.PlanetaryComputer](https://www.nuget.org/packages/Azure.Analytics.PlanetaryComputer)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/planetarycomputer/Azure.Analytics.PlanetaryComputer)|
 |[unknown](data.ai-readme.md)|[Azure.Data.AI](https://www.nuget.org/packages/Azure.Data.AI)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/dataai/Azure.Data.AI)|
 |[unknown](provisioning.agricultureplatform-readme.md)|[Azure.Provisioning.AgriculturePlatform](https://www.nuget.org/packages/Azure.Provisioning.AgriculturePlatform)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/agricultureplatform/Azure.Provisioning.AgriculturePlatform)|
 |[unknown](provisioning.apicenter-readme.md)|[Azure.Provisioning.ApiCenter](https://www.nuget.org/packages/Azure.Provisioning.ApiCenter)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/apicenter/Azure.Provisioning.ApiCenter)|

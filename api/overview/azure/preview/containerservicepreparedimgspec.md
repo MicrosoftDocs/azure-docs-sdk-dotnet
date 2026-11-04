@@ -1,7 +1,7 @@
 ---
 title: Azure Containerservicepreparedimgspec SDK for .NET
 description: Reference for Azure Containerservicepreparedimgspec SDK for .NET
-ms.date: 11/03/2026
+ms.date: 11/04/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: containerservicepreparedimgspec
