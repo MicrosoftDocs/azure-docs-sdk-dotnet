@@ -148,14 +148,17 @@
     <Assembly Name="Azure.Provisioning.OperationalInsights" Version="1.2.0.0" />
     <Assembly Name="Azure.Provisioning.PostgreSql" Version="1.2.0.0" />
     <Assembly Name="Azure.Provisioning.PrivateDns" Version="1.0.0.0" />
+    <Assembly Name="Azure.Provisioning.Qumulo" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.RecoveryServices" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.RecoveryServicesBackup" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.Redis" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.RedisEnterprise" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.Relationships" Version="1.0.0.0" />
+    <Assembly Name="Azure.Provisioning.ResourceConnector" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.ResourceGraph" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.ResourceHealth" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.Search" Version="1.1.0.0" />
+    <Assembly Name="Azure.Provisioning.SecretsStoreExtension" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.SecurityCenter" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.SelfHelp" Version="1.0.0.0" />
     <Assembly Name="Azure.Provisioning.SerialConsole" Version="1.0.0.0" />
@@ -179,6 +182,7 @@
     <Assembly Name="Azure.ResourceManager.Advisor" Version="1.0.0.0" />
     <Assembly Name="Azure.ResourceManager.AgFoodPlatform" Version="1.0.0.0" />
     <Assembly Name="Azure.ResourceManager.AgriculturePlatform" Version="1.0.0.0" />
+    <Assembly Name="Azure.ResourceManager.AIInfraOptimization" Version="1.0.0.0" />
     <Assembly Name="Azure.ResourceManager.AlertsManagement" Version="1.1.0.0" />
     <Assembly Name="Azure.ResourceManager.Analysis" Version="1.1.0.0" />
     <Assembly Name="Azure.ResourceManager.ApiCenter" Version="1.1.0.0" />
@@ -167395,6 +167399,60 @@
       <Member Id="F:Azure.Provisioning.PrivateDns.VirtualNetworkLinkState.InProgress" />
     </Type>
   </Namespace>
+  <Namespace Name="Azure.Provisioning.Qumulo">
+    <Type Name="Azure.Provisioning.Qumulo.MarketplaceDetails" Id="T:Azure.Provisioning.Qumulo.MarketplaceDetails">
+      <Member Id="M:Azure.Provisioning.Qumulo.MarketplaceDetails.#ctor" />
+      <Member Id="M:Azure.Provisioning.Qumulo.MarketplaceDetails.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.Qumulo.MarketplaceDetails.MarketplaceSubscriptionId" />
+      <Member Id="P:Azure.Provisioning.Qumulo.MarketplaceDetails.OfferId" />
+      <Member Id="P:Azure.Provisioning.Qumulo.MarketplaceDetails.PlanId" />
+      <Member Id="P:Azure.Provisioning.Qumulo.MarketplaceDetails.PublisherId" />
+      <Member Id="P:Azure.Provisioning.Qumulo.MarketplaceDetails.QumuloMarketplaceSubscriptionStatus" />
+      <Member Id="P:Azure.Provisioning.Qumulo.MarketplaceDetails.TermUnit" />
+    </Type>
+    <Type Name="Azure.Provisioning.Qumulo.QumuloArmProvisioningState" Id="T:Azure.Provisioning.Qumulo.QumuloArmProvisioningState">
+      <Member Id="F:Azure.Provisioning.Qumulo.QumuloArmProvisioningState.Accepted" />
+      <Member Id="F:Azure.Provisioning.Qumulo.QumuloArmProvisioningState.Canceled" />
+      <Member Id="F:Azure.Provisioning.Qumulo.QumuloArmProvisioningState.Creating" />
+      <Member Id="F:Azure.Provisioning.Qumulo.QumuloArmProvisioningState.Deleted" />
+      <Member Id="F:Azure.Provisioning.Qumulo.QumuloArmProvisioningState.Deleting" />
+      <Member Id="F:Azure.Provisioning.Qumulo.QumuloArmProvisioningState.Failed" />
+      <Member Id="F:Azure.Provisioning.Qumulo.QumuloArmProvisioningState.Succeeded" />
+      <Member Id="F:Azure.Provisioning.Qumulo.QumuloArmProvisioningState.Updating" />
+    </Type>
+    <Type Name="Azure.Provisioning.Qumulo.QumuloFileSystemResource" Id="T:Azure.Provisioning.Qumulo.QumuloFileSystemResource">
+      <Member Id="M:Azure.Provisioning.Qumulo.QumuloFileSystemResource.#ctor(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.Qumulo.QumuloFileSystemResource.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.Qumulo.QumuloFileSystemResource.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.Qumulo.QumuloFileSystemResource.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.Qumulo.QumuloFileSystemResource.AdminPassword" />
+      <Member Id="P:Azure.Provisioning.Qumulo.QumuloFileSystemResource.ArmProvisioningState" />
+      <Member Id="P:Azure.Provisioning.Qumulo.QumuloFileSystemResource.AvailabilityZone" />
+      <Member Id="P:Azure.Provisioning.Qumulo.QumuloFileSystemResource.ClusterLoginUri" />
+      <Member Id="P:Azure.Provisioning.Qumulo.QumuloFileSystemResource.DelegatedSubnetId" />
+      <Member Id="P:Azure.Provisioning.Qumulo.QumuloFileSystemResource.Id" />
+      <Member Id="P:Azure.Provisioning.Qumulo.QumuloFileSystemResource.Identity" />
+      <Member Id="P:Azure.Provisioning.Qumulo.QumuloFileSystemResource.Location" />
+      <Member Id="P:Azure.Provisioning.Qumulo.QumuloFileSystemResource.MarketplaceDetails" />
+      <Member Id="P:Azure.Provisioning.Qumulo.QumuloFileSystemResource.Name" />
+      <Member Id="P:Azure.Provisioning.Qumulo.QumuloFileSystemResource.PerformanceTier" />
+      <Member Id="P:Azure.Provisioning.Qumulo.QumuloFileSystemResource.PrivateIPs" />
+      <Member Id="P:Azure.Provisioning.Qumulo.QumuloFileSystemResource.StorageSkuName" />
+      <Member Id="P:Azure.Provisioning.Qumulo.QumuloFileSystemResource.SystemData" />
+      <Member Id="P:Azure.Provisioning.Qumulo.QumuloFileSystemResource.Tags" />
+      <Member Id="P:Azure.Provisioning.Qumulo.QumuloFileSystemResource.UserDetailsEmail" />
+    </Type>
+    <Type Name="Azure.Provisioning.Qumulo.QumuloFileSystemResource/ResourceVersions" Id="T:Azure.Provisioning.Qumulo.QumuloFileSystemResource.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.Qumulo.QumuloFileSystemResource.ResourceVersions.V2024_06_19" />
+      <Member Id="F:Azure.Provisioning.Qumulo.QumuloFileSystemResource.ResourceVersions.V2026_04_16" />
+    </Type>
+    <Type Name="Azure.Provisioning.Qumulo.QumuloMarketplaceSubscriptionStatus" Id="T:Azure.Provisioning.Qumulo.QumuloMarketplaceSubscriptionStatus">
+      <Member Id="F:Azure.Provisioning.Qumulo.QumuloMarketplaceSubscriptionStatus.PendingFulfillmentStart" />
+      <Member Id="F:Azure.Provisioning.Qumulo.QumuloMarketplaceSubscriptionStatus.Subscribed" />
+      <Member Id="F:Azure.Provisioning.Qumulo.QumuloMarketplaceSubscriptionStatus.Suspended" />
+      <Member Id="F:Azure.Provisioning.Qumulo.QumuloMarketplaceSubscriptionStatus.Unsubscribed" />
+    </Type>
+  </Namespace>
   <Namespace Name="Azure.Provisioning.RecoveryServices">
     <Type Name="Azure.Provisioning.RecoveryServices.BackupStorageVersion" Id="T:Azure.Provisioning.RecoveryServices.BackupStorageVersion">
       <Member Id="F:Azure.Provisioning.RecoveryServices.BackupStorageVersion.Unassigned" />
@@ -170218,6 +170276,103 @@
       <Member Id="P:Azure.Provisioning.Relationships.ServiceGroupMemberRelationshipProperties.TargetId" />
     </Type>
   </Namespace>
+  <Namespace Name="Azure.Provisioning.ResourceConnector">
+    <Type Name="Azure.Provisioning.ResourceConnector.ApplianceDistro" Id="T:Azure.Provisioning.ResourceConnector.ApplianceDistro">
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceDistro.AksEdge" />
+    </Type>
+    <Type Name="Azure.Provisioning.ResourceConnector.ApplianceEvent" Id="T:Azure.Provisioning.ResourceConnector.ApplianceEvent">
+      <Member Id="M:Azure.Provisioning.ResourceConnector.ApplianceEvent.#ctor" />
+      <Member Id="M:Azure.Provisioning.ResourceConnector.ApplianceEvent.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ApplianceEvent.Code" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ApplianceEvent.Message" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ApplianceEvent.Severity" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ApplianceEvent.Status" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ApplianceEvent.Timestamp" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ApplianceEvent.Type" />
+    </Type>
+    <Type Name="Azure.Provisioning.ResourceConnector.ApplianceNetworkProfile" Id="T:Azure.Provisioning.ResourceConnector.ApplianceNetworkProfile">
+      <Member Id="M:Azure.Provisioning.ResourceConnector.ApplianceNetworkProfile.#ctor" />
+      <Member Id="M:Azure.Provisioning.ResourceConnector.ApplianceNetworkProfile.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ApplianceNetworkProfile.DnsVersion" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ApplianceNetworkProfile.GatewayVersion" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ApplianceNetworkProfile.ProxyVersion" />
+    </Type>
+    <Type Name="Azure.Provisioning.ResourceConnector.ApplianceProvider" Id="T:Azure.Provisioning.ResourceConnector.ApplianceProvider">
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceProvider.Hci" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceProvider.Scvmm" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceProvider.VMware" />
+    </Type>
+    <Type Name="Azure.Provisioning.ResourceConnector.ApplianceStatus" Id="T:Azure.Provisioning.ResourceConnector.ApplianceStatus">
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.ArcGatewayUpdateComplete" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.ArcGatewayUpdateFailed" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.ArcGatewayUpdatePreparing" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.ArcGatewayUpdating" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.Connected" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.Connecting" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.EtcdSnapshotFailed" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.ImageDeprovisioning" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.ImageDownloaded" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.ImageDownloading" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.ImagePending" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.ImageProvisioned" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.ImageProvisioning" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.ImageUnknown" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.NetworkDnsUpdateComplete" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.NetworkDnsUpdateFailed" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.NetworkDnsUpdatePreparing" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.NetworkDnsUpdating" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.NetworkProxyUpdateComplete" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.NetworkProxyUpdateFailed" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.NetworkProxyUpdatePreparing" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.NetworkProxyUpdating" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.None" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.Offline" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.PostUpgrade" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.PreparingForUpgrade" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.PreUpgrade" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.Running" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.UpdatingCapi" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.UpdatingCloudOperator" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.UpdatingCluster" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.UpgradeClusterExtensionFailedToDelete" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.UpgradeComplete" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.UpgradeFailed" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.UpgradePrerequisitesCompleted" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.UpgradingKvaio" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.Validating" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.ValidatingEtcdHealth" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.ValidatingImageDownload" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.ValidatingImageUpload" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.ValidatingSFSConnectivity" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.WaitingForCloudOperator" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.WaitingForHeartbeat" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ApplianceStatus.WaitingForKvaio" />
+    </Type>
+    <Type Name="Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance" Id="T:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance">
+      <Member Id="M:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.#ctor(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.Distro" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.Events" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.Id" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.Identity" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.InfrastructureConfigProvider" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.Location" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.Name" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.NetworkProfile" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.ProvisioningState" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.PublicKey" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.Status" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.SystemData" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.Tags" />
+      <Member Id="P:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.Version" />
+    </Type>
+    <Type Name="Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance/ResourceVersions" Id="T:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.ResourceVersions.V2022_10_27" />
+      <Member Id="F:Azure.Provisioning.ResourceConnector.ResourceConnectorAppliance.ResourceVersions.V2025_03_01_PREVIEW" />
+    </Type>
+  </Namespace>
   <Namespace Name="Azure.Provisioning.ResourceGraph">
     <Type Name="Azure.Provisioning.ResourceGraph.ResourceGraphQuery" Id="T:Azure.Provisioning.ResourceGraph.ResourceGraphQuery">
       <Member Id="M:Azure.Provisioning.ResourceGraph.ResourceGraphQuery.#ctor(System.String,System.String)" />
@@ -172585,6 +172740,106 @@
       <Member Id="F:Azure.Provisioning.Search.SharedSearchServicePrivateLinkResourceStatus.Disconnected" />
       <Member Id="F:Azure.Provisioning.Search.SharedSearchServicePrivateLinkResourceStatus.Pending" />
       <Member Id="F:Azure.Provisioning.Search.SharedSearchServicePrivateLinkResourceStatus.Rejected" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Azure.Provisioning.SecretsStoreExtension">
+    <Type Name="Azure.Provisioning.SecretsStoreExtension.AzureCloudName" Id="T:Azure.Provisioning.SecretsStoreExtension.AzureCloudName">
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.AzureCloudName.AzureChinaCloud" />
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.AzureCloudName.AzureGermanCloud" />
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.AzureCloudName.AzurePublicCloud" />
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.AzureCloudName.AzureStackCloud" />
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.AzureCloudName.AzureUSGovernmentCloud" />
+    </Type>
+    <Type Name="Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass" Id="T:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass">
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass.#ctor(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass.ExtendedLocation" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass.Id" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass.Location" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass.Name" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass.Properties" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass.SystemData" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass.Tags" />
+    </Type>
+    <Type Name="Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass/ResourceVersions" Id="T:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass.ResourceVersions.V2024_08_21_PREVIEW" />
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClass.ResourceVersions.V2026_09_25_PREVIEW" />
+    </Type>
+    <Type Name="Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClassProperties" Id="T:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClassProperties">
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClassProperties.#ctor" />
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClassProperties.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClassProperties.ClientId" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClassProperties.CloudName" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClassProperties.KeyvaultName" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClassProperties.Objects" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClassProperties.ProvisioningState" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.KeyVaultSecretProviderClassProperties.TenantId" />
+    </Type>
+    <Type Name="Azure.Provisioning.SecretsStoreExtension.KubernetesSecretObjectMapping" Id="T:Azure.Provisioning.SecretsStoreExtension.KubernetesSecretObjectMapping">
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.KubernetesSecretObjectMapping.#ctor" />
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.KubernetesSecretObjectMapping.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.KubernetesSecretObjectMapping.SourcePath" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.KubernetesSecretObjectMapping.TargetKey" />
+    </Type>
+    <Type Name="Azure.Provisioning.SecretsStoreExtension.KubernetesSecretType" Id="T:Azure.Provisioning.SecretsStoreExtension.KubernetesSecretType">
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.KubernetesSecretType.Opaque" />
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.KubernetesSecretType.Tls" />
+    </Type>
+    <Type Name="Azure.Provisioning.SecretsStoreExtension.SecretsStoreExtensionProvisioningState" Id="T:Azure.Provisioning.SecretsStoreExtension.SecretsStoreExtensionProvisioningState">
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.SecretsStoreExtensionProvisioningState.Canceled" />
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.SecretsStoreExtensionProvisioningState.Failed" />
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.SecretsStoreExtensionProvisioningState.Succeeded" />
+    </Type>
+    <Type Name="Azure.Provisioning.SecretsStoreExtension.SecretSync" Id="T:Azure.Provisioning.SecretsStoreExtension.SecretSync">
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.SecretSync.#ctor(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.SecretSync.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.SecretSync.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.SecretSync.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSync.ExtendedLocation" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSync.Id" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSync.Location" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSync.Name" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSync.Properties" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSync.SystemData" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSync.Tags" />
+    </Type>
+    <Type Name="Azure.Provisioning.SecretsStoreExtension.SecretSync/ResourceVersions" Id="T:Azure.Provisioning.SecretsStoreExtension.SecretSync.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.SecretSync.ResourceVersions.V2024_08_21_PREVIEW" />
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.SecretSync.ResourceVersions.V2026_09_25_PREVIEW" />
+    </Type>
+    <Type Name="Azure.Provisioning.SecretsStoreExtension.SecretSyncCondition" Id="T:Azure.Provisioning.SecretsStoreExtension.SecretSyncCondition">
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.SecretSyncCondition.#ctor" />
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.SecretSyncCondition.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSyncCondition.LastTransitionOn" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSyncCondition.Message" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSyncCondition.ObservedGeneration" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSyncCondition.Reason" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSyncCondition.Status" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSyncCondition.Type" />
+    </Type>
+    <Type Name="Azure.Provisioning.SecretsStoreExtension.SecretSyncConditionStatusType" Id="T:Azure.Provisioning.SecretsStoreExtension.SecretSyncConditionStatusType">
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.SecretSyncConditionStatusType.False" />
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.SecretSyncConditionStatusType.True" />
+      <Member Id="F:Azure.Provisioning.SecretsStoreExtension.SecretSyncConditionStatusType.Unknown" />
+    </Type>
+    <Type Name="Azure.Provisioning.SecretsStoreExtension.SecretSyncProperties" Id="T:Azure.Provisioning.SecretsStoreExtension.SecretSyncProperties">
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.SecretSyncProperties.#ctor" />
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.SecretSyncProperties.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSyncProperties.ForceSynchronization" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSyncProperties.KubernetesSecretType" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSyncProperties.ObjectSecretMapping" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSyncProperties.ProvisioningState" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSyncProperties.SecretProviderClassName" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSyncProperties.ServiceAccountName" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSyncProperties.Status" />
+    </Type>
+    <Type Name="Azure.Provisioning.SecretsStoreExtension.SecretSyncStatus" Id="T:Azure.Provisioning.SecretsStoreExtension.SecretSyncStatus">
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.SecretSyncStatus.#ctor" />
+      <Member Id="M:Azure.Provisioning.SecretsStoreExtension.SecretSyncStatus.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSyncStatus.Conditions" />
+      <Member Id="P:Azure.Provisioning.SecretsStoreExtension.SecretSyncStatus.LastSuccessfulSyncOn" />
     </Type>
   </Namespace>
   <Namespace Name="Azure.Provisioning.SecurityCenter">
@@ -187106,6 +187361,621 @@
       <Member Id="M:Azure.ResourceManager.AgriculturePlatform.Models.MarketPlaceOfferDetails.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AgriculturePlatform#Models#MarketPlaceOfferDetails&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="P:Azure.ResourceManager.AgriculturePlatform.Models.MarketPlaceOfferDetails.PublisherId" />
       <Member Id="P:Azure.ResourceManager.AgriculturePlatform.Models.MarketPlaceOfferDetails.SaasOfferId" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Azure.ResourceManager.AIInfraOptimization">
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.AIInfraOptimizationExtensions" Id="T:Azure.ResourceManager.AIInfraOptimization.AIInfraOptimizationExtensions">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.AIInfraOptimizationExtensions.RecommendVmSku(Azure.ResourceManager.Resources.SubscriptionResource,Azure.Core.AzureLocation,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.AIInfraOptimizationExtensions.RecommendVmSkuAsync(Azure.ResourceManager.Resources.SubscriptionResource,Azure.Core.AzureLocation,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent,System.Threading.CancellationToken)" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.AzureResourceManagerAIInfraOptimizationContext" Id="T:Azure.ResourceManager.AIInfraOptimization.AzureResourceManagerAIInfraOptimizationContext">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.AzureResourceManagerAIInfraOptimizationContext.TryGetTypeBuilderCore(System.Type,System.ClientModel.Primitives.ModelReaderWriterTypeBuilder@)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.AzureResourceManagerAIInfraOptimizationContext.Default" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Azure.ResourceManager.AIInfraOptimization.Mocking">
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Mocking.MockableAIInfraOptimizationSubscriptionResource" Id="T:Azure.ResourceManager.AIInfraOptimization.Mocking.MockableAIInfraOptimizationSubscriptionResource">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Mocking.MockableAIInfraOptimizationSubscriptionResource.#ctor" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Mocking.MockableAIInfraOptimizationSubscriptionResource.RecommendVmSku(Azure.Core.AzureLocation,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Mocking.MockableAIInfraOptimizationSubscriptionResource.RecommendVmSkuAsync(Azure.Core.AzureLocation,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent,System.Threading.CancellationToken)" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Azure.ResourceManager.AIInfraOptimization.Models">
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#AIInfraOptimizationRecommendVmSkuOptionConfig&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#AIInfraOptimizationRecommendVmSkuOptionConfig&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#AIInfraOptimizationRecommendVmSkuOptionConfig&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#AIInfraOptimizationRecommendVmSkuOptionConfig&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#AIInfraOptimizationRecommendVmSkuOptionConfig&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.Benchmark" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.Cost" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.DocumentationUri" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.IsAzureMlRecommended" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.PerformanceEstimate" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.Placement" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.Quota" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.Readiness" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.RecommendationRank" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.Topology" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig.VmSize" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.AIInfraOptimizationRecommendVmSkuOptionConfig(System.String,System.Int32,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadiness,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTopology,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacement,System.Nullable{System.Boolean},Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark,System.Uri,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPerformanceEstimate)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuAccelerator(System.String,System.Int32,System.Int32)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuBenchmark(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.Nullable{System.Double},System.String,System.String,System.String,System.String,System.Nullable{System.Double},System.Nullable{System.Double})" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuContent(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuWorkload,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuDeployment,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuOptimization,System.Collections.Generic.IEnumerable{System.String},Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSubscriptionConfig)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuCost(System.String,System.Double,System.Double,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource,System.Nullable{System.DateTimeOffset},Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageError)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuDeployment(System.Nullable{System.Int32},System.Nullable{Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption})" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuHourlyCost(System.Nullable{System.Double},System.String)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuMemory(System.Double,System.Double,System.Double,System.Double)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuModel(System.String,System.Nullable{System.Int64},System.Nullable{Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuOptimization(System.Nullable{Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference},Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuHourlyCost)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuPerformanceEstimate(System.Double,System.Double)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuPlacement(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus,System.String,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageError,System.Collections.Generic.IEnumerable{System.String})" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuQuota(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus,System.String,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageError,System.Nullable{System.Int32},Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaIncrease)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuQuotaIncrease(System.Collections.Generic.IEnumerable{Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaLimit},System.Uri)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuQuotaLimit(System.String,System.Int64,System.Int64,System.Int64)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuReadiness(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus,System.String)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuResult(System.Collections.Generic.IEnumerable{Azure.ResourceManager.AIInfraOptimization.Models.AIInfraOptimizationRecommendVmSkuOptionConfig},Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizing)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuSizing(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingModel,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingWorkload,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuMemory,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingBasis)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuSizingBasis(Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource,Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation,Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuSizingModel(System.Int64,Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision,System.String)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuSizingWorkload(System.Int32,System.Int32)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuStageError(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode,System.String)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuSubscriptionConfig(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuTokenBudget(System.Nullable{System.Int32},System.Nullable{System.Int32})" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuTopology(System.Int32,System.Int64,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuAccelerator)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ArmAIInfraOptimizationModelFactory.RecommendVmSkuWorkload(System.Nullable{System.Int32},Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTokenBudget)" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource.Equals(Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource.op_Equality(Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource,Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource.op_Implicit(System.String)~Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource}" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource.op_Inequality(Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource,Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource.ToString" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource.Default" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.ContextLengthSource.Request" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation.Equals(Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation.op_Equality(Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation,Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation.op_Implicit(System.String)~Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation}" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation.op_Inequality(Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation,Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation.ToString" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation.ArtifactSize" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.ModelWeightsCalculation.EstimatedFromParameterCount" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource.Equals(Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource.op_Equality(Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource,Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource.op_Implicit(System.String)~Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource}" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource.op_Inequality(Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource,Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource.ToString" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource.HuggingFace" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.ParameterCountSource.Request" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuAccelerator" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuAccelerator">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuAccelerator.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuAccelerator.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuAccelerator.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuAccelerator.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuAccelerator.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuAccelerator&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuAccelerator.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuAccelerator&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuAccelerator.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuAccelerator&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuAccelerator.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuAccelerator&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuAccelerator.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuAccelerator&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuAccelerator.CountPerVm" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuAccelerator.MemoryGiBPerAccelerator" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuAccelerator.Model" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuBenchmark&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuBenchmark&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuBenchmark&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuBenchmark&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuBenchmark&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.BenchmarkModel" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.Level" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.ModelClass" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.OperatingSystem" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.P99TpotMs" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.P99TtftMs" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.Scenario" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.Software" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.SubmissionId" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.Submitter" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.SubmitterCount" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.System" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.Throughput" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.ThroughputUnit" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmark.WeightDataTypes" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel.Equals(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel.op_Equality(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel.op_Implicit(System.String)~Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel}" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel.op_Inequality(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel.ToString" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel.Benchmarked" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuBenchmarkLevel.TopologyMatched" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent.#ctor" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuContent&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuContent&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuContent&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuContent&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuContent&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent.Deployment" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent.Model" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent.Optimization" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent.SubscriptionOptions" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent.TargetVmSizes" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuContent.Workload" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuCost&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuCost&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuCost&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuCost&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuCost&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost.CurrencyCode" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost.DeploymentHourly" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost.Error" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost.PriceObservedOn" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost.Source" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCost.VmHourly" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource.Equals(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource.op_Equality(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource.op_Implicit(System.String)~Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource}" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource.op_Inequality(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource.ToString" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource.AzureRetail" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource.AzureSubscription" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuCostSource.StaticPreview" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuDeployment" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuDeployment">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuDeployment.#ctor" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuDeployment.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuDeployment.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuDeployment.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuDeployment.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuDeployment.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuDeployment&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuDeployment.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuDeployment&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuDeployment.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuDeployment&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuDeployment.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuDeployment&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuDeployment.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuDeployment&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuDeployment.ProcurementOption" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuDeployment.ReplicaCount" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuHourlyCost" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuHourlyCost">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuHourlyCost.#ctor" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuHourlyCost.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuHourlyCost.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuHourlyCost.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuHourlyCost.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuHourlyCost.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuHourlyCost&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuHourlyCost.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuHourlyCost&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuHourlyCost.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuHourlyCost&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuHourlyCost.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuHourlyCost&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuHourlyCost.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuHourlyCost&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuHourlyCost.Amount" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuHourlyCost.CurrencyCode" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuMemory" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuMemory">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuMemory.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuMemory.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuMemory.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuMemory.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuMemory.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuMemory&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuMemory.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuMemory&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuMemory.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuMemory&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuMemory.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuMemory&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuMemory.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuMemory&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuMemory.KvCacheGiBPerRequest" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuMemory.KvCacheGiBTotal" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuMemory.ModelAndKvCacheGiB" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuMemory.ModelWeightsGiB" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.#ctor" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuModel&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuModel&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuModel&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuModel&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuModel&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.HeadDim" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.HuggingFaceModelId" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.MaxContextLength" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.NumKeyValueHeads" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.NumLayers" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.ParameterCount" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuModel.WeightPrecision" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuOptimization" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuOptimization">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuOptimization.#ctor" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuOptimization.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuOptimization.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuOptimization.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuOptimization.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuOptimization.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuOptimization&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuOptimization.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuOptimization&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuOptimization.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuOptimization&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuOptimization.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuOptimization&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuOptimization.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuOptimization&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuOptimization.MaxDeploymentCostPerHour" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuOptimization.RankingPreference" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPerformanceEstimate" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPerformanceEstimate">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPerformanceEstimate.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPerformanceEstimate.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPerformanceEstimate.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPerformanceEstimate.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPerformanceEstimate.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuPerformanceEstimate&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPerformanceEstimate.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuPerformanceEstimate&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPerformanceEstimate.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuPerformanceEstimate&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPerformanceEstimate.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuPerformanceEstimate&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPerformanceEstimate.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuPerformanceEstimate&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPerformanceEstimate.DeploymentOutputTokensPerSecond" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPerformanceEstimate.TtftMs" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacement" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacement">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacement.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacement.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacement.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacement.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacement.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuPlacement&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacement.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuPlacement&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacement.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuPlacement&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacement.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuPlacement&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacement.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuPlacement&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacement.Error" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacement.Reason" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacement.RecommendedAvailabilityZones" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacement.Status" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus.Equals(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus.op_Equality(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus.op_Implicit(System.String)~Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus}" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus.op_Inequality(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus.ToString" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus.Evaluated" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus.Failed" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus.NotEvaluated" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuPlacementStatus.Unsupported" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption.Equals(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption.op_Equality(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption.op_Implicit(System.String)~Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption}" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption.op_Inequality(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption.ToString" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption.OnDemand" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuProcurementOption.Spot" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuQuota&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuQuota&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuQuota&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuQuota&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuQuota&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota.Error" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota.Increase" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota.MaxAvailableReplicaCount" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota.Reason" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuota.Status" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaIncrease" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaIncrease">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaIncrease.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaIncrease.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaIncrease.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaIncrease.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaIncrease.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuQuotaIncrease&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaIncrease.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuQuotaIncrease&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaIncrease.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuQuotaIncrease&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaIncrease.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuQuotaIncrease&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaIncrease.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuQuotaIncrease&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaIncrease.Limits" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaIncrease.PortalUri" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaLimit" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaLimit">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaLimit.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaLimit.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaLimit.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaLimit.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaLimit.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuQuotaLimit&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaLimit.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuQuotaLimit&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaLimit.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuQuotaLimit&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaLimit.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuQuotaLimit&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaLimit.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuQuotaLimit&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaLimit.CurrentLimit" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaLimit.CurrentUsage" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaLimit.Name" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaLimit.RequiredLimit" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus.Equals(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus.op_Equality(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus.op_Implicit(System.String)~Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus}" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus.op_Inequality(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus.ToString" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus.Available" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus.Unavailable" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuQuotaStatus.Unknown" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference.Equals(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference.op_Equality(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference.op_Implicit(System.String)~Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference}" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference.op_Inequality(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference.ToString" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference.Cost" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuRankingPreference.Latency" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadiness" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadiness">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadiness.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadiness.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadiness.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadiness.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadiness.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuReadiness&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadiness.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuReadiness&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadiness.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuReadiness&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadiness.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuReadiness&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadiness.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuReadiness&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadiness.Reason" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadiness.Status" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus.Equals(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus.op_Equality(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus.op_Implicit(System.String)~Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus}" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus.op_Inequality(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus.ToString" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus.QuotaIncreaseRequired" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus.ReadyToAttempt" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus.Unavailable" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuReadinessStatus.VerificationRequired" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuResult" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuResult">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuResult.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuResult.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuResult.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuResult.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuResult.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuResult&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuResult.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuResult&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuResult.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuResult&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuResult.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuResult&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuResult.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuResult&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuResult.Options" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuResult.Sizing" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizing" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizing">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizing.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizing.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizing.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizing.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizing.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizing&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizing.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizing&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizing.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizing&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizing.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizing&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizing.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizing&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizing.Basis" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizing.Memory" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizing.Model" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizing.Workload" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingBasis" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingBasis">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingBasis.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingBasis.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingBasis.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingBasis.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingBasis.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizingBasis&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingBasis.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizingBasis&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingBasis.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizingBasis&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingBasis.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizingBasis&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingBasis.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizingBasis&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingBasis.ContextLengthSource" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingBasis.ModelWeightsCalculation" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingBasis.ParameterCountSource" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingModel" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingModel">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingModel.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingModel.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingModel.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingModel.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingModel.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizingModel&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingModel.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizingModel&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingModel.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizingModel&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingModel.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizingModel&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingModel.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizingModel&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingModel.HuggingFaceModelId" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingModel.ParameterCount" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingModel.WeightPrecision" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingWorkload" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingWorkload">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingWorkload.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingWorkload.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingWorkload.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingWorkload.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingWorkload.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizingWorkload&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingWorkload.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizingWorkload&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingWorkload.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizingWorkload&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingWorkload.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizingWorkload&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingWorkload.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSizingWorkload&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingWorkload.ContextLength" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSizingWorkload.MaxConcurrentRequestsPerReplica" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageError" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageError">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageError.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageError.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageError.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageError.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageError.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuStageError&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageError.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuStageError&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageError.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuStageError&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageError.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuStageError&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageError.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuStageError&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageError.Code" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageError.Message" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode.Equals(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode.op_Equality(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode.op_Implicit(System.String)~Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode}" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode.op_Inequality(Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode,Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode.ToString" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode.DataUnavailable" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode.DependencyError" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode.EvaluationBudgetExceeded" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode.PartitionCapacityExceeded" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode.Throttled" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuStageErrorCode.TimedOut" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSubscriptionConfig" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSubscriptionConfig">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSubscriptionConfig.#ctor" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSubscriptionConfig.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSubscriptionConfig.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSubscriptionConfig.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSubscriptionConfig.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSubscriptionConfig.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSubscriptionConfig&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSubscriptionConfig.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSubscriptionConfig&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSubscriptionConfig.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSubscriptionConfig&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSubscriptionConfig.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSubscriptionConfig&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSubscriptionConfig.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuSubscriptionConfig&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSubscriptionConfig.ShouldIncludePlacement" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSubscriptionConfig.ShouldIncludePricing" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuSubscriptionConfig.ShouldIncludeQuota" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTokenBudget" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTokenBudget">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTokenBudget.#ctor" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTokenBudget.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTokenBudget.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTokenBudget.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTokenBudget.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTokenBudget.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuTokenBudget&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTokenBudget.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuTokenBudget&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTokenBudget.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuTokenBudget&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTokenBudget.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuTokenBudget&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTokenBudget.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuTokenBudget&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTokenBudget.MaxOutputTokens" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTokenBudget.PromptTokens" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTopology" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTopology">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTopology.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTopology.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTopology.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTopology.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTopology.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuTopology&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTopology.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuTopology&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTopology.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuTopology&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTopology.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuTopology&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTopology.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuTopology&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTopology.Accelerator" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTopology.EstimatedNodeCountPerReplica" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuTopology.EstimatedTotalNodeCount" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuWorkload" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuWorkload">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuWorkload.#ctor" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuWorkload.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuWorkload.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuWorkload.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuWorkload.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuWorkload.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuWorkload&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuWorkload.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuWorkload&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuWorkload.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuWorkload&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuWorkload.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuWorkload&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuWorkload.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#AIInfraOptimization#Models#RecommendVmSkuWorkload&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuWorkload.MaxConcurrentRequestsPerReplica" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.RecommendVmSkuWorkload.TokenBudget" />
+    </Type>
+    <Type Name="Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision" Id="T:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision">
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision.Equals(Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision.op_Equality(Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision,Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision.op_Implicit(System.String)~Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision}" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision.op_Inequality(Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision,Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision)" />
+      <Member Id="M:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision.ToString" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision.BF16" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision.FP16" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision.FP32" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision.FP4" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision.FP8" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision.Int4" />
+      <Member Id="P:Azure.ResourceManager.AIInfraOptimization.Models.WeightPrecision.Int8" />
     </Type>
   </Namespace>
   <Namespace Name="Azure.ResourceManager.AlertsManagement">
@@ -520788,15 +521658,33 @@
   </Namespace>
   <Namespace Name="Azure.ResourceManager.SecretsStoreExtension.Models">
     <Type Name="Azure.ResourceManager.SecretsStoreExtension.Models.ArmSecretsStoreExtensionModelFactory" Id="T:Azure.ResourceManager.SecretsStoreExtension.Models.ArmSecretsStoreExtensionModelFactory">
+      <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.ArmSecretsStoreExtensionModelFactory.AzureKeyVaultSecretProviderClassUpdateProperties(System.String,System.Nullable{Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String)" />
       <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.ArmSecretsStoreExtensionModelFactory.KeyVaultSecretProviderClassData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,System.Collections.Generic.IDictionary{System.String,System.String},Azure.Core.AzureLocation,Azure.ResourceManager.SecretsStoreExtension.Models.KeyVaultSecretProviderClassProperties,Azure.ResourceManager.Resources.Models.ExtendedLocation)" />
       <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.ArmSecretsStoreExtensionModelFactory.KeyVaultSecretProviderClassPatch(System.Collections.Generic.IDictionary{System.String,System.String},Azure.ResourceManager.SecretsStoreExtension.Models.AzureKeyVaultSecretProviderClassUpdateProperties)" />
-      <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.ArmSecretsStoreExtensionModelFactory.KeyVaultSecretProviderClassProperties(System.String,System.Guid,System.Guid,System.String,System.Nullable{Azure.ResourceManager.SecretsStoreExtension.Models.SecretsStoreExtensionProvisioningState})" />
+      <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.ArmSecretsStoreExtensionModelFactory.KeyVaultSecretProviderClassProperties(System.String,System.Nullable{Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName},System.Guid,System.Guid,System.String,System.Nullable{Azure.ResourceManager.SecretsStoreExtension.Models.SecretsStoreExtensionProvisioningState})" />
+      <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.ArmSecretsStoreExtensionModelFactory.KubernetesSecretObjectMapping(System.String,System.String)" />
       <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.ArmSecretsStoreExtensionModelFactory.SecretSyncCondition(System.Nullable{System.DateTimeOffset},System.String,System.Nullable{System.Int64},System.String,Azure.ResourceManager.SecretsStoreExtension.Models.SecretSyncConditionStatusType,System.String)" />
       <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.ArmSecretsStoreExtensionModelFactory.SecretSyncData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,System.Collections.Generic.IDictionary{System.String,System.String},Azure.Core.AzureLocation,Azure.ResourceManager.SecretsStoreExtension.Models.SecretSyncProperties,Azure.ResourceManager.Resources.Models.ExtendedLocation)" />
       <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.ArmSecretsStoreExtensionModelFactory.SecretSyncPatch(System.Collections.Generic.IDictionary{System.String,System.String},Azure.ResourceManager.SecretsStoreExtension.Models.SecretSyncUpdateProperties)" />
       <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.ArmSecretsStoreExtensionModelFactory.SecretSyncProperties(System.String,System.String,Azure.ResourceManager.SecretsStoreExtension.Models.KubernetesSecretType,System.String,System.Collections.Generic.IEnumerable{Azure.ResourceManager.SecretsStoreExtension.Models.KubernetesSecretObjectMapping},Azure.ResourceManager.SecretsStoreExtension.Models.SecretSyncStatus,System.Nullable{Azure.ResourceManager.SecretsStoreExtension.Models.SecretsStoreExtensionProvisioningState})" />
       <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.ArmSecretsStoreExtensionModelFactory.SecretSyncStatus(System.Nullable{System.DateTimeOffset},System.Collections.Generic.IEnumerable{Azure.ResourceManager.SecretsStoreExtension.Models.SecretSyncCondition})" />
       <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.ArmSecretsStoreExtensionModelFactory.SecretSyncUpdateProperties(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{Azure.ResourceManager.SecretsStoreExtension.Models.KubernetesSecretObjectMapping})" />
+    </Type>
+    <Type Name="Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName" Id="T:Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName">
+      <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName.Equals(Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName)" />
+      <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName.op_Equality(Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName,Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName)" />
+      <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName.op_Implicit(System.String)~Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName" />
+      <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName}" />
+      <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName.op_Inequality(Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName,Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName)" />
+      <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName.ToString" />
+      <Member Id="P:Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName.AzureChinaCloud" />
+      <Member Id="P:Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName.AzureGermanCloud" />
+      <Member Id="P:Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName.AzurePublicCloud" />
+      <Member Id="P:Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName.AzureStackCloud" />
+      <Member Id="P:Azure.ResourceManager.SecretsStoreExtension.Models.AzureCloudName.AzureUSGovernmentCloud" />
     </Type>
     <Type Name="Azure.ResourceManager.SecretsStoreExtension.Models.AzureKeyVaultSecretProviderClassUpdateProperties" Id="T:Azure.ResourceManager.SecretsStoreExtension.Models.AzureKeyVaultSecretProviderClassUpdateProperties">
       <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.AzureKeyVaultSecretProviderClassUpdateProperties.#ctor" />
@@ -520810,6 +521698,7 @@
       <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.AzureKeyVaultSecretProviderClassUpdateProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#SecretsStoreExtension#Models#AzureKeyVaultSecretProviderClassUpdateProperties&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.AzureKeyVaultSecretProviderClassUpdateProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#SecretsStoreExtension#Models#AzureKeyVaultSecretProviderClassUpdateProperties&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="P:Azure.ResourceManager.SecretsStoreExtension.Models.AzureKeyVaultSecretProviderClassUpdateProperties.ClientId" />
+      <Member Id="P:Azure.ResourceManager.SecretsStoreExtension.Models.AzureKeyVaultSecretProviderClassUpdateProperties.CloudName" />
       <Member Id="P:Azure.ResourceManager.SecretsStoreExtension.Models.AzureKeyVaultSecretProviderClassUpdateProperties.KeyvaultName" />
       <Member Id="P:Azure.ResourceManager.SecretsStoreExtension.Models.AzureKeyVaultSecretProviderClassUpdateProperties.Objects" />
       <Member Id="P:Azure.ResourceManager.SecretsStoreExtension.Models.AzureKeyVaultSecretProviderClassUpdateProperties.TenantId" />
@@ -520840,6 +521729,7 @@
       <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.KeyVaultSecretProviderClassProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#SecretsStoreExtension#Models#KeyVaultSecretProviderClassProperties&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="M:Azure.ResourceManager.SecretsStoreExtension.Models.KeyVaultSecretProviderClassProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#SecretsStoreExtension#Models#KeyVaultSecretProviderClassProperties&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="P:Azure.ResourceManager.SecretsStoreExtension.Models.KeyVaultSecretProviderClassProperties.ClientId" />
+      <Member Id="P:Azure.ResourceManager.SecretsStoreExtension.Models.KeyVaultSecretProviderClassProperties.CloudName" />
       <Member Id="P:Azure.ResourceManager.SecretsStoreExtension.Models.KeyVaultSecretProviderClassProperties.KeyvaultName" />
       <Member Id="P:Azure.ResourceManager.SecretsStoreExtension.Models.KeyVaultSecretProviderClassProperties.Objects" />
       <Member Id="P:Azure.ResourceManager.SecretsStoreExtension.Models.KeyVaultSecretProviderClassProperties.ProvisioningState" />
