@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning Relationships client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.Relationships, relationships
-ms.date: 11/03/2026
+ms.date: 11/06/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: relationships
 ---
-# Azure Provisioning Relationships client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning Relationships client library for .NET - version 1.0.0-alpha.20261105.2 
 
 
 Azure.Provisioning.Relationships simplifies declarative resource provisioning for Azure resource relationships in .NET.
@@ -74,7 +74,7 @@ infra.Add(relationship);
 
 ## Next steps
 
-See the [Azure.Provisioning documentation](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Relationships_1.0.0-beta.1/sdk/provisioning/Azure.Provisioning) for more information about defining and deploying infrastructure.
+See the [Azure.Provisioning documentation](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning/Azure.Provisioning) for more information about defining and deploying infrastructure.
 
 ## Contributing
 
@@ -87,7 +87,7 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 This project has adopted the [Microsoft Open Source Code of Conduct][coc]. For more information, see the [Code of Conduct FAQ][coc_faq] or contact <opencode@microsoft.com> with any additional questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.Relationships_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
