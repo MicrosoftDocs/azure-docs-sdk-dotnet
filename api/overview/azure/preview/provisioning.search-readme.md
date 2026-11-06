@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: search
 ---
-# Azure Provisioning Search client library for .NET - version 1.1.0-alpha.20261104.1 
+# Azure Provisioning Search client library for .NET - version 1.1.0-alpha.20261105.1 
 
 
 Azure.Provisioning.Search simplifies declarative resource provisioning in .NET.
