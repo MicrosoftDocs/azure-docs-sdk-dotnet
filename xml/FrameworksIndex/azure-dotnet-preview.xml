@@ -2,6 +2,7 @@
 <Framework Name="azure-dotnet-preview">
   <Assemblies>
     <Assembly Name="Azure.AI.Agents.Persistent" Version="1.2.0.0" />
+    <Assembly Name="Azure.AI.AgentServer.Activity" Version="1.0.0.0" />
     <Assembly Name="Azure.AI.AgentServer.AgentFramework" Version="1.0.0.0" />
     <Assembly Name="Azure.AI.AgentServer.Contracts" Version="1.0.0.0" />
     <Assembly Name="Azure.AI.AgentServer.Core" Version="1.0.0.0" />
@@ -337,7 +338,7 @@
     <Assembly Name="Azure.ResourceManager.Monitor" Version="1.4.0.0" />
     <Assembly Name="Azure.ResourceManager.Monitor.PipelineGroups" Version="1.0.0.0" />
     <Assembly Name="Azure.ResourceManager.Monitor.Slis" Version="1.0.0.0" />
-    <Assembly Name="Azure.ResourceManager.Monitor.Workspaces" Version="1.0.0.0" />
+    <Assembly Name="Azure.ResourceManager.Monitor.Workspaces" Version="1.1.0.0" />
     <Assembly Name="Azure.ResourceManager.MySql" Version="1.1.0.0" />
     <Assembly Name="Azure.ResourceManager.NapsterOmniagentApi" Version="1.0.0.0" />
     <Assembly Name="Azure.ResourceManager.NeonPostgres" Version="1.0.0.0" />
@@ -3793,6 +3794,45 @@
       <Member Id="M:Azure.AI.Agents.Persistent.WaitAction.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Agents#Persistent#WaitAction&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="M:Azure.AI.Agents.Persistent.WaitAction.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Agents#Persistent#WaitAction&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="M:Azure.AI.Agents.Persistent.WaitAction.System#ClientModel#Primitives#IPersistableModel&lt;Azure#AI#Agents#Persistent#WaitAction&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Azure.AI.AgentServer.Activity">
+    <Type Name="Azure.AI.AgentServer.Activity.ActivityBuilderExtensions" Id="T:Azure.AI.AgentServer.Activity.ActivityBuilderExtensions">
+      <Member Id="M:Azure.AI.AgentServer.Activity.ActivityBuilderExtensions.AddActivity(Azure.AI.AgentServer.Core.AgentHostBuilder,Microsoft.Agents.Builder.App.AgentApplication,System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Activity.ActivityBuilderExtensions.AddActivity(Azure.AI.AgentServer.Core.AgentHostBuilder,System.Func{System.IServiceProvider,Microsoft.Agents.Builder.App.AgentApplication},System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Activity.ActivityBuilderExtensions.AddActivity``1(Azure.AI.AgentServer.Core.AgentHostBuilder,System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />
+    </Type>
+    <Type Name="Azure.AI.AgentServer.Activity.ActivityEnvironment" Id="T:Azure.AI.AgentServer.Activity.ActivityEnvironment">
+      <Member Id="M:Azure.AI.AgentServer.Activity.ActivityEnvironment.GetHostedAgentConfiguration(System.Boolean)" />
+    </Type>
+    <Type Name="Azure.AI.AgentServer.Activity.ActivityServer" Id="T:Azure.AI.AgentServer.Activity.ActivityServer">
+      <Member Id="M:Azure.AI.AgentServer.Activity.ActivityServer.Run(Microsoft.Agents.Builder.App.AgentApplication,System.String[],System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions},System.Action{Azure.AI.AgentServer.Core.AgentHostBuilder})" />
+      <Member Id="M:Azure.AI.AgentServer.Activity.ActivityServer.Run(Microsoft.AspNetCore.Http.RequestDelegate,System.String[],System.Action{Azure.AI.AgentServer.Core.AgentHostBuilder})" />
+      <Member Id="M:Azure.AI.AgentServer.Activity.ActivityServer.Run(System.Action{Microsoft.Agents.Builder.App.AgentApplication},System.String[],System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions},System.Action{Azure.AI.AgentServer.Core.AgentHostBuilder})" />
+      <Member Id="M:Azure.AI.AgentServer.Activity.ActivityServer.Run(System.Func{System.IServiceProvider,Microsoft.Agents.Builder.App.AgentApplication},System.String[],System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions},System.Action{Azure.AI.AgentServer.Core.AgentHostBuilder})" />
+      <Member Id="M:Azure.AI.AgentServer.Activity.ActivityServer.Run``1(System.String[],System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions},System.Action{Azure.AI.AgentServer.Core.AgentHostBuilder})" />
+    </Type>
+    <Type Name="Azure.AI.AgentServer.Activity.ActivityServerOptions" Id="T:Azure.AI.AgentServer.Activity.ActivityServerOptions">
+      <Member Id="M:Azure.AI.AgentServer.Activity.ActivityServerOptions.#ctor" />
+      <Member Id="P:Azure.AI.AgentServer.Activity.ActivityServerOptions.ConfigureServices" />
+      <Member Id="P:Azure.AI.AgentServer.Activity.ActivityServerOptions.ConnectionConfiguration" />
+      <Member Id="P:Azure.AI.AgentServer.Activity.ActivityServerOptions.Connections" />
+      <Member Id="P:Azure.AI.AgentServer.Activity.ActivityServerOptions.DigitalWorker" />
+      <Member Id="P:Azure.AI.AgentServer.Activity.ActivityServerOptions.Storage" />
+    </Type>
+    <Type Name="Azure.AI.AgentServer.Activity.FoundryActivityEndpointRouteBuilderExtensions" Id="T:Azure.AI.AgentServer.Activity.FoundryActivityEndpointRouteBuilderExtensions">
+      <Member Id="M:Azure.AI.AgentServer.Activity.FoundryActivityEndpointRouteBuilderExtensions.MapActivityServer(Microsoft.AspNetCore.Builder.WebApplication)" />
+      <Member Id="M:Azure.AI.AgentServer.Activity.FoundryActivityEndpointRouteBuilderExtensions.MapActivityServer(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)" />
+      <Member Id="M:Azure.AI.AgentServer.Activity.FoundryActivityEndpointRouteBuilderExtensions.MapActivityServer(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,Microsoft.AspNetCore.Http.RequestDelegate)" />
+      <Member Id="M:Azure.AI.AgentServer.Activity.FoundryActivityEndpointRouteBuilderExtensions.MapFoundryActivity(Microsoft.AspNetCore.Builder.WebApplication)" />
+      <Member Id="M:Azure.AI.AgentServer.Activity.FoundryActivityEndpointRouteBuilderExtensions.MapFoundryActivity(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)" />
+      <Member Id="M:Azure.AI.AgentServer.Activity.FoundryActivityEndpointRouteBuilderExtensions.MapFoundryActivity(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,Microsoft.AspNetCore.Http.RequestDelegate)" />
+    </Type>
+    <Type Name="Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions" Id="T:Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions">
+      <Member Id="M:Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions.AddActivityServer(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions.AddActivityServer(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions.AddFoundryActivity(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />
+      <Member Id="M:Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions.AddFoundryActivity(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />
     </Type>
   </Namespace>
   <Namespace Name="Azure.AI.AgentServer.AgentFramework">
@@ -9704,6 +9744,8 @@
       <Member Id="M:Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler`2.RunAsync(Azure.AI.AgentServer.Core.Tasks.TaskContext{`0},System.Threading.CancellationToken)" />
     </Type>
     <Type Name="Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions" Id="T:Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions">
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions.EnterResilientTaskScope(System.IServiceProvider,System.String,System.Nullable{System.Boolean})" />
+      <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions.RegisterResilientTaskProtocol(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{System.Boolean})" />
       <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions.SetResilientTasksEnabled(Azure.AI.AgentServer.Core.AgentHostBuilder,System.Boolean)" />
       <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions.SetResilientTasksEnabled(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean)" />
       <Member Id="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions.SetResilientTasksEnabled(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.Boolean)" />
@@ -9812,6 +9854,7 @@
     </Type>
     <Type Name="Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions" Id="T:Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions">
       <Member Id="M:Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions.#ctor" />
+      <Member Id="P:Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions.IsEnabled" />
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions.Retry" />
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions.Timeout" />
       <Member Id="P:Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions.Title" />
@@ -273920,7 +273963,7 @@
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetOSImageNotificationProfile(System.String,System.Nullable{System.Boolean})" />
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetPatch(System.Collections.Generic.IDictionary{System.String,System.String},Azure.ResourceManager.Models.ManagedServiceIdentity,Azure.ResourceManager.Models.ArmPlan,Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties)" />
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetProperties(System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState},Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile,Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile},Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ComputeFleet.Models.LocationProfile},Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile,System.Nullable{System.DateTimeOffset},System.String)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetProperties(System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState},Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile,Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile},Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ComputeFleet.Models.LocationProfile},Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetMode},System.String,System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetCapacityType},Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy)" />
+      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetProperties(System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState},Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile,Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile},Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ComputeFleet.Models.LocationProfile},Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetMode},System.String,System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetCapacityType})" />
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetProxyAgentSettings(System.Nullable{System.Boolean},System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ProxyAgentExecuteMode},System.Nullable{System.Int32})" />
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetPublicIPAddressSku(System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetPublicIPAddressSkuName},System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetPublicIPAddressSkuTier})" />
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetScheduledEventsProfile(Azure.ResourceManager.ComputeFleet.Models.ComputeFleetTerminateNotificationProfile,Azure.ResourceManager.ComputeFleet.Models.ComputeFleetOSImageNotificationProfile)" />
@@ -273963,12 +274006,10 @@
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetWindowsConfiguration(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ComputeFleet.Models.WindowsSetupAdditionalInformation},Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmGuestPatchSettings,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetWinRMListener},System.Nullable{System.Boolean})" />
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetWindowsVmGuestPatchAutomaticByPlatformSettings(System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetWindowsVmGuestPatchAutomaticByPlatformRebootSetting},System.Nullable{System.Boolean})" />
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetWinRMListener(System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProtocolType},System.Uri)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetZoneAllocationPolicy(Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ComputeFleet.Models.ZonePreference})" />
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.LocationProfile(Azure.Core.AzureLocation,Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmProfile)" />
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.RegularPriorityProfile(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{Azure.ResourceManager.ComputeFleet.Models.RegularPriorityAllocationStrategy})" />
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.SpotPriorityProfile(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Single},System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetEvictionPolicy},System.Nullable{Azure.ResourceManager.ComputeFleet.Models.SpotAllocationStrategy},System.Nullable{System.Boolean})" />
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.WindowsSetupAdditionalInformation(System.Nullable{Azure.ResourceManager.ComputeFleet.Models.WindowsSetupAdditionalInformationPassName},System.Nullable{Azure.ResourceManager.ComputeFleet.Models.WindowsSetupAdditionalInformationComponentName},System.Nullable{Azure.ResourceManager.ComputeFleet.Models.AdditionalInformationSettingName},System.String)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ZonePreference(System.String,System.Nullable{System.Int32})" />
     </Type>
     <Type Name="Azure.ResourceManager.ComputeFleet.Models.ComputeFleetApiError" Id="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetApiError">
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetApiError.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
@@ -274436,7 +274477,6 @@
       <Member Id="P:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties.VmAttributes" />
       <Member Id="P:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties.VmNamePrefix" />
       <Member Id="P:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties.VmSizesProfile" />
-      <Member Id="P:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties.ZoneAllocationPolicy" />
     </Type>
     <Type Name="Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProtocolType" Id="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProtocolType">
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProtocolType.#ctor(System.String)" />
@@ -275325,33 +275365,6 @@
       <Member Id="P:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetWinRMListener.CertificateUri" />
       <Member Id="P:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetWinRMListener.Protocol" />
     </Type>
-    <Type Name="Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy" Id="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy">
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy.#ctor(Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#ComputeFleet#Models#ComputeFleetZoneAllocationPolicy&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#ComputeFleet#Models#ComputeFleetZoneAllocationPolicy&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#ComputeFleet#Models#ComputeFleetZoneAllocationPolicy&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#ComputeFleet#Models#ComputeFleetZoneAllocationPolicy&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#ComputeFleet#Models#ComputeFleetZoneAllocationPolicy&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="P:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy.DistributionStrategy" />
-      <Member Id="P:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy.ZonePreferences" />
-    </Type>
-    <Type Name="Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy" Id="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy">
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy.#ctor(System.String)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy.Equals(Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy.Equals(System.Object)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy.GetHashCode" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy.op_Equality(Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy,Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy.op_Implicit(System.String)~Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy}" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy.op_Inequality(Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy,Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy.ToString" />
-      <Member Id="P:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy.BestEffortSingleZone" />
-      <Member Id="P:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy.Prioritized" />
-    </Type>
     <Type Name="Azure.ResourceManager.ComputeFleet.Models.CpuManufacturer" Id="T:Azure.ResourceManager.ComputeFleet.Models.CpuManufacturer">
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.CpuManufacturer.#ctor(System.String)" />
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.CpuManufacturer.Equals(Azure.ResourceManager.ComputeFleet.Models.CpuManufacturer)" />
@@ -275506,20 +275519,6 @@
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.WindowsSetupAdditionalInformationPassName.op_Inequality(Azure.ResourceManager.ComputeFleet.Models.WindowsSetupAdditionalInformationPassName,Azure.ResourceManager.ComputeFleet.Models.WindowsSetupAdditionalInformationPassName)" />
       <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.WindowsSetupAdditionalInformationPassName.ToString" />
       <Member Id="P:Azure.ResourceManager.ComputeFleet.Models.WindowsSetupAdditionalInformationPassName.OobeSystem" />
-    </Type>
-    <Type Name="Azure.ResourceManager.ComputeFleet.Models.ZonePreference" Id="T:Azure.ResourceManager.ComputeFleet.Models.ZonePreference">
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ZonePreference.#ctor(System.String)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ZonePreference.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ZonePreference.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ZonePreference.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ZonePreference.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ZonePreference.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#ComputeFleet#Models#ZonePreference&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ZonePreference.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#ComputeFleet#Models#ZonePreference&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ZonePreference.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#ComputeFleet#Models#ZonePreference&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ZonePreference.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#ComputeFleet#Models#ZonePreference&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="M:Azure.ResourceManager.ComputeFleet.Models.ZonePreference.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#ComputeFleet#Models#ZonePreference&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <Member Id="P:Azure.ResourceManager.ComputeFleet.Models.ZonePreference.Rank" />
-      <Member Id="P:Azure.ResourceManager.ComputeFleet.Models.ZonePreference.Zone" />
     </Type>
   </Namespace>
   <Namespace Name="Azure.ResourceManager.ComputeLimit">
@@ -427937,6 +427936,96 @@
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.AzureResourceManagerMonitorWorkspacesContext.TryGetTypeBuilderCore(System.Type,System.ClientModel.Primitives.ModelReaderWriterTypeBuilder@)" />
       <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.AzureResourceManagerMonitorWorkspacesContext.Default" />
     </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationCollection" Id="T:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationCollection">
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationCollection.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationCollection.CreateOrUpdate(Azure.WaitUntil,System.String,Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationCollection.CreateOrUpdateAsync(Azure.WaitUntil,System.String,Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationCollection.Exists(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationCollection.ExistsAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationCollection.Get(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationCollection.GetAll(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationCollection.GetAllAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationCollection.GetAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationCollection.GetIfExists(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationCollection.GetIfExistsAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationCollection.System#Collections#Generic#IAsyncEnumerable&lt;Azure#ResourceManager#Monitor#Workspaces#MetricConfigurationResource&gt;#GetAsyncEnumerator(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationCollection.System#Collections#Generic#IEnumerable&lt;Azure#ResourceManager#Monitor#Workspaces#MetricConfigurationResource&gt;#GetEnumerator" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationCollection.System#Collections#IEnumerable#GetEnumerator" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData" Id="T:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData">
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricConfigurationData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricConfigurationData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricConfigurationData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricConfigurationData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricConfigurationData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData.Properties" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource" Id="T:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource">
+      <Member Id="F:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource.ResourceType" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource.CreateResourceIdentifier(System.String,System.String,System.String,System.String,System.String,System.String)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource.Delete(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource.DeleteAsync(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource.Get(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource.GetAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricConfigurationData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricConfigurationData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricConfigurationData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricConfigurationData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricConfigurationData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource.Update(Azure.WaitUntil,Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource.UpdateAsync(Azure.WaitUntil,Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationData,System.Threading.CancellationToken)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource.Data" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.MetricConfigurationResource.HasData" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceCollection" Id="T:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceCollection">
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceCollection.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceCollection.Exists(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceCollection.ExistsAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceCollection.Get(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceCollection.GetAll(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceCollection.GetAllAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceCollection.GetAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceCollection.GetIfExists(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceCollection.GetIfExistsAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceCollection.System#Collections#Generic#IAsyncEnumerable&lt;Azure#ResourceManager#Monitor#Workspaces#MetricNamespaceResource&gt;#GetAsyncEnumerator(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceCollection.System#Collections#Generic#IEnumerable&lt;Azure#ResourceManager#Monitor#Workspaces#MetricNamespaceResource&gt;#GetEnumerator" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceCollection.System#Collections#IEnumerable#GetEnumerator" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceData" Id="T:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceData">
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceData.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceData.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceData.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceData.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceData.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricNamespaceData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceData.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricNamespaceData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricNamespaceData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricNamespaceData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricNamespaceData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceData.MetricNamespaceProvisioningState" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource" Id="T:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource">
+      <Member Id="F:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource.ResourceType" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource.CreateResourceIdentifier(System.String,System.String,System.String,System.String,System.String)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource.Get(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource.GetAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource.GetMetricConfiguration(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource.GetMetricConfigurationAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource.GetMetricConfigurations" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricNamespaceData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricNamespaceData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricNamespaceData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricNamespaceData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#MetricNamespaceData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource.Data" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.MetricNamespaceResource.HasData" />
+    </Type>
     <Type Name="Azure.ResourceManager.Monitor.Workspaces.MonitorIssueCollection" Id="T:Azure.ResourceManager.Monitor.Workspaces.MonitorIssueCollection">
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorIssueCollection.#ctor" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorIssueCollection.CreateOrUpdate(Azure.WaitUntil,System.String,Azure.ResourceManager.Monitor.Workspaces.MonitorIssueData,System.String,System.Threading.CancellationToken)" />
@@ -428035,6 +428124,11 @@
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorMetricsContainerResource.CreateResourceIdentifier(System.String,System.String,System.String,System.String)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorMetricsContainerResource.Get(System.Threading.CancellationToken)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorMetricsContainerResource.GetAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorMetricsContainerResource.GetByMetricsContainer(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorMetricsContainerResource.GetByMetricsContainerAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorMetricsContainerResource.GetMetricNamespace(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorMetricsContainerResource.GetMetricNamespaceAsync(System.String,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorMetricsContainerResource.GetMetricNamespaces" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorMetricsContainerResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#MonitorMetricsContainerData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorMetricsContainerResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#MonitorMetricsContainerData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorMetricsContainerResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#MonitorMetricsContainerData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
@@ -428092,6 +428186,7 @@
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspaceResource.GetMonitorMetricsContainer(System.String,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspaceResource.GetMonitorMetricsContainerAsync(System.String,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspaceResource.GetMonitorMetricsContainers" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspaceResource.GetTraceContainer" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspaceResource.RemoveTag(System.String,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspaceResource.RemoveTagAsync(System.String,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspaceResource.SetTags(System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)" />
@@ -428107,6 +428202,8 @@
       <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspaceResource.HasData" />
     </Type>
     <Type Name="Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions" Id="T:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions">
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions.GetMetricConfigurationResource(Azure.ResourceManager.ArmClient,Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions.GetMetricNamespaceResource(Azure.ResourceManager.ArmClient,Azure.Core.ResourceIdentifier)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions.GetMonitorIssueResource(Azure.ResourceManager.ArmClient,Azure.Core.ResourceIdentifier)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions.GetMonitorMetricsContainerResource(Azure.ResourceManager.ArmClient,Azure.Core.ResourceIdentifier)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions.GetMonitorWorkspace(Azure.ResourceManager.Resources.ResourceGroupResource,System.String,System.Threading.CancellationToken)" />
@@ -428115,29 +428212,144 @@
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions.GetMonitorWorkspaces(Azure.ResourceManager.Resources.ResourceGroupResource)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions.GetMonitorWorkspaces(Azure.ResourceManager.Resources.SubscriptionResource,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions.GetMonitorWorkspacesAsync(Azure.ResourceManager.Resources.SubscriptionResource,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions.GetTraceAssociation(Azure.ResourceManager.ArmClient,Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions.GetTraceAssociationAtResourceGroup(Azure.ResourceManager.Resources.ResourceGroupResource)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions.GetTraceAssociationAtResourceGroupResource(Azure.ResourceManager.ArmClient,Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions.GetTraceAssociationAtSubscription(Azure.ResourceManager.Resources.SubscriptionResource)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions.GetTraceAssociationAtSubscriptionResource(Azure.ResourceManager.ArmClient,Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions.GetTraceAssociationResource(Azure.ResourceManager.ArmClient,Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspacesExtensions.GetTraceContainerResource(Azure.ResourceManager.ArmClient,Azure.Core.ResourceIdentifier)" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource" Id="T:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource">
+      <Member Id="F:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource.ResourceType" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource.CreateOrUpdate(Azure.WaitUntil,Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource.CreateOrUpdateAsync(Azure.WaitUntil,Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource.CreateResourceIdentifier(System.String,System.String)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource.Delete(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource.DeleteAsync(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource.Get(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource.GetAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource.Data" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtResourceGroupResource.HasData" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource" Id="T:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource">
+      <Member Id="F:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource.ResourceType" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource.CreateOrUpdate(Azure.WaitUntil,Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource.CreateOrUpdateAsync(Azure.WaitUntil,Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource.CreateResourceIdentifier(System.String)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource.Delete(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource.DeleteAsync(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource.Get(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource.GetAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource.Data" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationAtSubscriptionResource.HasData" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData" Id="T:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData">
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData.TraceAssociationAzureMonitorWorkspaceResourceId" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource" Id="T:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource">
+      <Member Id="F:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource.ResourceType" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource.CreateOrUpdate(Azure.WaitUntil,Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource.CreateOrUpdateAsync(Azure.WaitUntil,Azure.ResourceManager.Monitor.Workspaces.TraceAssociationData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource.CreateResourceIdentifier(System.String,System.String,System.String,System.String,System.String)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource.Delete(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource.DeleteAsync(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource.Get(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource.GetAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceAssociationData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource.Data" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.TraceAssociationResource.HasData" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.TraceContainerData" Id="T:Azure.ResourceManager.Monitor.Workspaces.TraceContainerData">
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerData.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerData.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerData.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerData.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerData.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerData.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceContainerData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerData.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceContainerData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceContainerData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceContainerData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerData.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceContainerData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.TraceContainerData.Properties" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource" Id="T:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource">
+      <Member Id="F:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource.ResourceType" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource.CreateOrUpdate(Azure.WaitUntil,Azure.ResourceManager.Monitor.Workspaces.TraceContainerData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource.CreateOrUpdateAsync(Azure.WaitUntil,Azure.ResourceManager.Monitor.Workspaces.TraceContainerData,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource.CreateResourceIdentifier(System.String,System.String,System.String)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource.Delete(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource.DeleteAsync(Azure.WaitUntil,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource.Get(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource.GetAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceContainerData&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceContainerData&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceContainerData&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceContainerData&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#TraceContainerData&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource.Data" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.TraceContainerResource.HasData" />
     </Type>
   </Namespace>
   <Namespace Name="Azure.ResourceManager.Monitor.Workspaces.Mocking">
     <Type Name="Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesArmClient" Id="T:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesArmClient">
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesArmClient.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesArmClient.GetMetricConfigurationResource(Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesArmClient.GetMetricNamespaceResource(Azure.Core.ResourceIdentifier)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesArmClient.GetMonitorIssueResource(Azure.Core.ResourceIdentifier)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesArmClient.GetMonitorMetricsContainerResource(Azure.Core.ResourceIdentifier)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesArmClient.GetMonitorWorkspaceResource(Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesArmClient.GetTraceAssociation(Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesArmClient.GetTraceAssociationAtResourceGroupResource(Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesArmClient.GetTraceAssociationAtSubscriptionResource(Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesArmClient.GetTraceAssociationResource(Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesArmClient.GetTraceContainerResource(Azure.Core.ResourceIdentifier)" />
     </Type>
     <Type Name="Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesResourceGroupResource" Id="T:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesResourceGroupResource">
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesResourceGroupResource.#ctor" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesResourceGroupResource.GetMonitorWorkspace(System.String,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesResourceGroupResource.GetMonitorWorkspaceAsync(System.String,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesResourceGroupResource.GetMonitorWorkspaces" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesResourceGroupResource.GetTraceAssociationAtResourceGroup" />
     </Type>
     <Type Name="Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesSubscriptionResource" Id="T:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesSubscriptionResource">
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesSubscriptionResource.#ctor" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesSubscriptionResource.GetMonitorWorkspaces(System.Threading.CancellationToken)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesSubscriptionResource.GetMonitorWorkspacesAsync(System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Mocking.MockableMonitorWorkspacesSubscriptionResource.GetTraceAssociationAtSubscription" />
     </Type>
   </Namespace>
   <Namespace Name="Azure.ResourceManager.Monitor.Workspaces.Models">
     <Type Name="Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory" Id="T:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory">
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.DefaultActionGroupReference(Azure.Core.ResourceIdentifier)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.FetchInvestigationResultContent(System.Guid)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.IssueCreationNotificationType" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.IssueInvestigationMetadata(System.Guid,System.DateTimeOffset)" />
@@ -428149,6 +428361,12 @@
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.IssueRelatedAlertInfoList(System.Collections.Generic.IEnumerable{Azure.ResourceManager.Monitor.Workspaces.Models.IssueRelatedAlertInfo})" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.IssueRelatedResourceInfo(Azure.Core.ResourceIdentifier,Azure.ResourceManager.Monitor.Workspaces.Models.MonitorRelevanceStatus,Azure.ResourceManager.Monitor.Workspaces.Models.MonitorEntityOrigin,System.DateTimeOffset,System.DateTimeOffset)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.IssueRelatedResourceInfoList(System.Collections.Generic.IEnumerable{Azure.ResourceManager.Monitor.Workspaces.Models.IssueRelatedResourceInfo})" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MetricAggregationConfiguration(System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{System.String},Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationFunctions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MetricAggregationFunctions(System.Boolean,System.Boolean)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MetricConfigurationData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MetricConfigurationProperties(System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProvisioningState},System.String,System.String,System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationConfiguration},Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MetricNamespaceData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProvisioningState})" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MetricsLimits(System.Nullable{System.Boolean},System.Nullable{System.Int64},System.Nullable{System.Int64})" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MonitorEntityOrigin(System.String,Azure.ResourceManager.Monitor.Workspaces.Models.MonitorEntityType)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MonitorIssueBackground(System.String,System.String,System.Collections.Generic.IEnumerable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorIssueBackgroundDetails})" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MonitorIssueBackgroundDetails(System.String,System.String)" />
@@ -428158,6 +428376,7 @@
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MonitorIssuePatchProperties(System.String,System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorIssueStatus},System.String,System.Nullable{System.DateTimeOffset},Azure.ResourceManager.Monitor.Workspaces.Models.MonitorIssueBackground,Azure.ResourceManager.Monitor.Workspaces.Models.IssueNotifications)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MonitorIssueProperties(System.String,Azure.ResourceManager.Monitor.Workspaces.Models.MonitorIssueStatus,System.String,System.Collections.Generic.IEnumerable{Azure.ResourceManager.Monitor.Workspaces.Models.IssueInvestigationMetadata},System.DateTimeOffset,System.Int32,Azure.ResourceManager.Monitor.Workspaces.Models.MonitorIssueBackground,Azure.ResourceManager.Monitor.Workspaces.Models.IssueNotifications,System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProvisioningState})" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MonitorMetricsContainerData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,Azure.ResourceManager.Monitor.Workspaces.Models.MonitorMetricsContainerProperties)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MonitorMetricsContainerProperties(System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProvisioningState},Azure.ResourceManager.Monitor.Workspaces.Models.MetricsLimits,System.String)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MonitorMetricsContainerProperties(System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProvisioningState},System.String)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MonitorWorkspaceData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,System.Collections.Generic.IDictionary{System.String,System.String},Azure.Core.AzureLocation,Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProperties,Azure.ResourceManager.Models.ManagedServiceIdentity,System.Nullable{Azure.ETag})" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MonitorWorkspaceDefaultIngestionSettings(Azure.Core.ResourceIdentifier,Azure.Core.ResourceIdentifier,System.String,System.String)" />
@@ -428167,8 +428386,26 @@
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MonitorWorkspacePrivateEndpointConnectionProperties(System.Collections.Generic.IEnumerable{System.String},Azure.Core.ResourceIdentifier,Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspacePrivateLinkServiceConnectionState,System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspacePrivateEndpointConnectionProvisioningState})" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MonitorWorkspacePrivateLinkServiceConnectionState(System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspacePrivateEndpointServiceConnectionStatus},System.String,System.String)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MonitorWorkspaceProperties(System.String,Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceMetrics,System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProvisioningState},Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceDefaultIngestionSettings,System.Collections.Generic.IEnumerable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspacePrivateEndpointConnection},System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspacePublicNetworkAccess})" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MonitorWorkspaceProperties(System.String,Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceMetrics,System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProvisioningState},Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceDefaultIngestionSettings,System.Uri,System.Collections.Generic.IEnumerable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspacePrivateEndpointConnection},System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspacePublicNetworkAccess},System.Collections.Generic.IEnumerable{Azure.ResourceManager.Monitor.Workspaces.Models.DefaultActionGroupReference})" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.MonitorWorkspaceProperties``1(System.String,Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceMetrics,System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProvisioningState},Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceDefaultIngestionSettings,``0)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.OnChangeNotificationType" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.TimeBasedUpdatesNotificationType(System.String)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.TraceAssociationData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,Azure.Core.ResourceIdentifier)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.TraceContainerData(Azure.Core.ResourceIdentifier,System.String,Azure.Core.ResourceType,Azure.ResourceManager.Models.SystemData,Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.ArmMonitorWorkspacesModelFactory.TraceContainerProperties(System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProvisioningState},System.Int32,System.Int32,Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState)" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.Models.DefaultActionGroupReference" Id="T:Azure.ResourceManager.Monitor.Workspaces.Models.DefaultActionGroupReference">
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.DefaultActionGroupReference.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.DefaultActionGroupReference.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.DefaultActionGroupReference.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.DefaultActionGroupReference.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.DefaultActionGroupReference.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.DefaultActionGroupReference.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#DefaultActionGroupReference&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.DefaultActionGroupReference.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#DefaultActionGroupReference&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.DefaultActionGroupReference.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#DefaultActionGroupReference&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.DefaultActionGroupReference.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#DefaultActionGroupReference&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.DefaultActionGroupReference.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#DefaultActionGroupReference&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.DefaultActionGroupReference.Id" />
     </Type>
     <Type Name="Azure.ResourceManager.Monitor.Workspaces.Models.FetchInvestigationResultContent" Id="T:Azure.ResourceManager.Monitor.Workspaces.Models.FetchInvestigationResultContent">
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.FetchInvestigationResultContent.#ctor(System.Guid)" />
@@ -428324,6 +428561,83 @@
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.IssueRelatedResourceInfoList.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#IssueRelatedResourceInfoList&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.IssueRelatedResourceInfoList.Value" />
     </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationConfiguration" Id="T:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationConfiguration">
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationConfiguration.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationConfiguration.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationConfiguration.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationConfiguration.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationConfiguration.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationConfiguration.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricAggregationConfiguration&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationConfiguration.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricAggregationConfiguration&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationConfiguration.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricAggregationConfiguration&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationConfiguration.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricAggregationConfiguration&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationConfiguration.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricAggregationConfiguration&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationConfiguration.AggregationFunctions" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationConfiguration.Dimensions" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationConfiguration.ShouldStoreAggregatedData" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationFunctions" Id="T:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationFunctions">
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationFunctions.#ctor(System.Boolean,System.Boolean)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationFunctions.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationFunctions.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationFunctions.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationFunctions.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationFunctions.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricAggregationFunctions&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationFunctions.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricAggregationFunctions&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationFunctions.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricAggregationFunctions&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationFunctions.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricAggregationFunctions&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationFunctions.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricAggregationFunctions&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationFunctions.EnableMinMax" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricAggregationFunctions.EnablePercentiles" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties" Id="T:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties">
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricConfigurationProperties&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricConfigurationProperties&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricConfigurationProperties&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricConfigurationProperties&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricConfigurationProperties&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.AggregationConfigurations" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.Dimensions" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.MetricName" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.MetricType" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.Namespace" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.ProvisioningState" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.ShouldStoreRawData" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationProperties.SourceMetricResourceId" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType" Id="T:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType">
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType.Equals(Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType.op_Equality(Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType,Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType.op_Implicit(System.String)~Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType}" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType.op_Inequality(Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType,Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType.ToString" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType.Aggregated" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricConfigurationType.Raw" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.Models.MetricsLimits" Id="T:Azure.ResourceManager.Monitor.Workspaces.Models.MetricsLimits">
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricsLimits.#ctor" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricsLimits.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricsLimits.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricsLimits.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricsLimits.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricsLimits.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricsLimits&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricsLimits.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricsLimits&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricsLimits.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricsLimits&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricsLimits.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricsLimits&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MetricsLimits.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MetricsLimits&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricsLimits.EnableAutoScale" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricsLimits.MaxActiveTimeSeries" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MetricsLimits.MaxEventsPerMinute" />
+    </Type>
     <Type Name="Azure.ResourceManager.Monitor.Workspaces.Models.MonitorEntityOrigin" Id="T:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorEntityOrigin">
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorEntityOrigin.#ctor(System.String,Azure.ResourceManager.Monitor.Workspaces.Models.MonitorEntityType)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorEntityOrigin.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
@@ -428473,6 +428787,7 @@
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorMetricsContainerProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MonitorMetricsContainerProperties&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorMetricsContainerProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MonitorMetricsContainerProperties&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorMetricsContainerProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MonitorMetricsContainerProperties&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorMetricsContainerProperties.Limits" />
       <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorMetricsContainerProperties.ProvisioningState" />
       <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorMetricsContainerProperties.Version" />
     </Type>
@@ -428617,11 +428932,13 @@
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MonitorWorkspaceProperties&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#MonitorWorkspaceProperties&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProperties.AccountId" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProperties.ActionsDefaultActionGroups" />
       <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProperties.DefaultIngestionSettings" />
       <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProperties.Metrics" />
       <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProperties.PrivateEndpointConnections" />
       <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProperties.ProvisioningState" />
       <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProperties.PublicNetworkAccess" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProperties.QueryEndpoint" />
     </Type>
     <Type Name="Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProvisioningState" Id="T:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProvisioningState">
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.MonitorWorkspaceProvisioningState.#ctor(System.String)" />
@@ -428674,6 +428991,35 @@
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TimeBasedUpdatesNotificationType.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#TimeBasedUpdatesNotificationType&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TimeBasedUpdatesNotificationType.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#TimeBasedUpdatesNotificationType&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
       <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.TimeBasedUpdatesNotificationType.UpdateInterval" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties" Id="T:Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties">
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties.#ctor(System.Int32,System.Int32,Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#TraceContainerProperties&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#TraceContainerProperties&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#TraceContainerProperties&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#TraceContainerProperties&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Monitor#Workspaces#Models#TraceContainerProperties&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties.ProvisioningState" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties.TraceDurationWindowInSeconds" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties.TraceMetricsState" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.TraceContainerProperties.TraceRetentionInDays" />
+    </Type>
+    <Type Name="Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState" Id="T:Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState">
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState.#ctor(System.String)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState.Equals(Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState.Equals(System.Object)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState.GetHashCode" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState.op_Equality(Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState,Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState.op_Implicit(System.String)~Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState.op_Implicit(System.String)~System.Nullable{Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState}" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState.op_Inequality(Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState,Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState)" />
+      <Member Id="M:Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState.ToString" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState.Disabled" />
+      <Member Id="P:Azure.ResourceManager.Monitor.Workspaces.Models.TraceMetricsState.Enabled" />
     </Type>
   </Namespace>
   <Namespace Name="Azure.ResourceManager.MySql.FlexibleServers">

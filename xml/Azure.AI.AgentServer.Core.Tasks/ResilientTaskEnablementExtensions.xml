@@ -23,6 +23,86 @@
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
+    <Member MemberName="EnterResilientTaskScope">
+      <MemberSignature Language="C#" Value="public static IDisposable EnterResilientTaskScope (this IServiceProvider provider, string protocol, bool? enabled = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.IDisposable EnterResilientTaskScope(class System.IServiceProvider provider, string protocol, valuetype System.Nullable`1&lt;bool&gt; enabled) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions.EnterResilientTaskScope(System.IServiceProvider,System.String,System.Nullable{System.Boolean})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function EnterResilientTaskScope (provider As IServiceProvider, protocol As String, Optional enabled As Nullable(Of Boolean) = Nothing) As IDisposable" />
+      <MemberSignature Language="F#" Value="static member EnterResilientTaskScope : IServiceProvider * string * Nullable&lt;bool&gt; -&gt; IDisposable" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions.EnterResilientTaskScope (provider, protocol, enabled)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.Experimental("AAAS003")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.Experimental("AAAS003")&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.IDisposable</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="provider" Type="System.IServiceProvider" RefType="this" />
+        <Parameter Name="protocol" Type="System.String" />
+        <Parameter Name="enabled" Type="System.Nullable&lt;System.Boolean&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="provider">The owning application's service provider.</param>
+        <param name="protocol">The owning protocol's stable identity.</param>
+        <param name="enabled">Whether the protocol has enabled task execution, or
+            <see langword="null" /> to use the explicit Core opt-in.</param>
+        <summary>
+            Scopes task access to the current protocol and stamps that owner on newly created tasks.
+            Without an explicit value, access follows the protocol's registered activation.
+            </summary>
+        <returns>A scope that restores the prior protocol's task access when disposed.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegisterResilientTaskProtocol">
+      <MemberSignature Language="C#" Value="public static Microsoft.Extensions.DependencyInjection.IServiceCollection RegisterResilientTaskProtocol (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, string protocol, Func&lt;bool&gt; enabled);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.Extensions.DependencyInjection.IServiceCollection RegisterResilientTaskProtocol(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, string protocol, class System.Func`1&lt;bool&gt; enabled) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions.RegisterResilientTaskProtocol(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{System.Boolean})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function RegisterResilientTaskProtocol (services As IServiceCollection, protocol As String, enabled As Func(Of Boolean)) As IServiceCollection" />
+      <MemberSignature Language="F#" Value="static member RegisterResilientTaskProtocol : Microsoft.Extensions.DependencyInjection.IServiceCollection * string * Func&lt;bool&gt; -&gt; Microsoft.Extensions.DependencyInjection.IServiceCollection" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions.RegisterResilientTaskProtocol (services, protocol, enabled)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.Experimental("AAAS003")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.Experimental("AAAS003")&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.Extensions.DependencyInjection.IServiceCollection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="protocol" Type="System.String" />
+        <Parameter Name="enabled" Type="System.Func&lt;System.Boolean&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="services">The application services.</param>
+        <param name="protocol">The same stable identity used for the protocol's task scopes.</param>
+        <param name="enabled">Resolve whether this host has enabled the protocol's task execution.</param>
+        <summary>Registers a host-owned protocol's task activation for recovery after restart.</summary>
+        <returns>The same service collection for chaining.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetResilientTasksEnabled">
       <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.AgentHostBuilder SetResilientTasksEnabled (this Azure.AI.AgentServer.Core.AgentHostBuilder builder, bool enabled = true);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.AgentHostBuilder SetResilientTasksEnabled(class Azure.AI.AgentServer.Core.AgentHostBuilder builder, bool enabled) cil managed" />

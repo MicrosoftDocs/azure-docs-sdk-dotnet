@@ -1,0 +1,192 @@
+<Type Name="FoundryActivityHostingExtensions" FullName="Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions">
+  <TypeSignature Language="C#" Value="public static class FoundryActivityHostingExtensions" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit FoundryActivityHostingExtensions extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions" />
+  <TypeSignature Language="VB.NET" Value="Public Module FoundryActivityHostingExtensions" />
+  <TypeSignature Language="F#" Value="type FoundryActivityHostingExtensions = class" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(0)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(0)&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+             Host-builder extensions that turn a native Microsoft 365 Agents SDK application into a Foundry
+             hosted agent. This is the Foundry counterpart to the SDK's
+             <c>AddAgentAspNetAuthentication(...)</c>: an existing Microsoft 365 agent converts to Foundry by
+             keeping its <c>builder.AddAgent&lt;TAgent&gt;()</c> registration and swapping the authentication
+             call for <see cref="M:Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions.AddFoundryActivity(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />.
+             </summary>
+    <remarks>
+             Minimal conversion of a Microsoft 365 Agents SDK <c>Program.cs</c>:
+             <code>
+             var builder = WebApplication.CreateBuilder(args);
+             builder.AddAgent&lt;MyAgent&gt;();                          // unchanged (MyAgent : AgentApplication)
+             builder.Services.AddSingleton&lt;IStorage, MemoryStorage&gt;(); // unchanged
+             builder.AddFoundryActivity();                          // was: AddAgentAspNetAuthentication(Configuration)
+            
+             var app = builder.Build();
+             app.MapFoundryActivity();                              // was: UseAuthentication/Authorization + MapAgentApplicationEndpoints
+             app.Run();
+             </code></remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="AddActivityServer">
+      <MemberSignature Language="C#" Value="public static Microsoft.Extensions.DependencyInjection.IServiceCollection AddActivityServer (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;? configure = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.Extensions.DependencyInjection.IServiceCollection AddActivityServer(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, class System.Action`1&lt;class Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions.AddActivityServer(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddActivityServer (services As IServiceCollection, Optional configure As Action(Of ActivityServerOptions) = Nothing) As IServiceCollection" />
+      <MemberSignature Language="F#" Value="static member AddActivityServer : Microsoft.Extensions.DependencyInjection.IServiceCollection * Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; -&gt; Microsoft.Extensions.DependencyInjection.IServiceCollection" Usage="Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions.AddActivityServer (services, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Extensions.DependencyInjection.IServiceCollection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="services">The service collection.</param>
+        <param name="configure">Optional callback to configure <see cref="T:Azure.AI.AgentServer.Activity.ActivityServerOptions" />.</param>
+        <summary>
+            Registers the Foundry Activity protocol services directly onto a service collection.
+            </summary>
+        <returns>The service collection, for chaining.</returns>
+        <remarks>This is an alias for
+            <see cref="M:Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions.AddFoundryActivity(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddActivityServer">
+      <MemberSignature Language="C#" Value="public static Microsoft.Extensions.Hosting.IHostApplicationBuilder AddActivityServer (this Microsoft.Extensions.Hosting.IHostApplicationBuilder builder, Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;? configure = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.Extensions.Hosting.IHostApplicationBuilder AddActivityServer(class Microsoft.Extensions.Hosting.IHostApplicationBuilder builder, class System.Action`1&lt;class Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions.AddActivityServer(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddActivityServer (builder As IHostApplicationBuilder, Optional configure As Action(Of ActivityServerOptions) = Nothing) As IHostApplicationBuilder" />
+      <MemberSignature Language="F#" Value="static member AddActivityServer : Microsoft.Extensions.Hosting.IHostApplicationBuilder * Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; -&gt; Microsoft.Extensions.Hosting.IHostApplicationBuilder" Usage="Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions.AddActivityServer (builder, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Extensions.Hosting.IHostApplicationBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="builder" Type="Microsoft.Extensions.Hosting.IHostApplicationBuilder" RefType="this" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="builder">The host application builder.</param>
+        <param name="configure">Optional callback to configure <see cref="T:Azure.AI.AgentServer.Activity.ActivityServerOptions" />.</param>
+        <summary>
+            Registers the Foundry Activity protocol services onto a host application builder.
+            </summary>
+        <returns>The builder, for chaining.</returns>
+        <remarks>This is an alias for
+            <see cref="M:Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions.AddFoundryActivity(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddFoundryActivity">
+      <MemberSignature Language="C#" Value="public static Microsoft.Extensions.DependencyInjection.IServiceCollection AddFoundryActivity (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;? configure = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.Extensions.DependencyInjection.IServiceCollection AddFoundryActivity(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, class System.Action`1&lt;class Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions.AddFoundryActivity(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddFoundryActivity (services As IServiceCollection, Optional configure As Action(Of ActivityServerOptions) = Nothing) As IServiceCollection" />
+      <MemberSignature Language="F#" Value="static member AddFoundryActivity : Microsoft.Extensions.DependencyInjection.IServiceCollection * Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; -&gt; Microsoft.Extensions.DependencyInjection.IServiceCollection" Usage="Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions.AddFoundryActivity (services, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Extensions.DependencyInjection.IServiceCollection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="services">The service collection.</param>
+        <param name="configure">Optional callback to configure <see cref="T:Azure.AI.AgentServer.Activity.ActivityServerOptions" />.</param>
+        <summary>
+            Registers the Foundry Activity protocol services directly onto a service collection. Prefer
+            <see cref="M:Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions.AddFoundryActivity(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />,
+            which also overlays the derived connection configuration; use this overload only when you
+            manage configuration yourself and have already ensured the <c>Connections:*</c> settings are
+            present in the application configuration.
+            </summary>
+        <returns>The service collection, for chaining.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddFoundryActivity">
+      <MemberSignature Language="C#" Value="public static Microsoft.Extensions.Hosting.IHostApplicationBuilder AddFoundryActivity (this Microsoft.Extensions.Hosting.IHostApplicationBuilder builder, Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;? configure = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.Extensions.Hosting.IHostApplicationBuilder AddFoundryActivity(class Microsoft.Extensions.Hosting.IHostApplicationBuilder builder, class System.Action`1&lt;class Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions.AddFoundryActivity(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddFoundryActivity (builder As IHostApplicationBuilder, Optional configure As Action(Of ActivityServerOptions) = Nothing) As IHostApplicationBuilder" />
+      <MemberSignature Language="F#" Value="static member AddFoundryActivity : Microsoft.Extensions.Hosting.IHostApplicationBuilder * Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; -&gt; Microsoft.Extensions.Hosting.IHostApplicationBuilder" Usage="Azure.AI.AgentServer.Activity.FoundryActivityHostingExtensions.AddFoundryActivity (builder, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Extensions.Hosting.IHostApplicationBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="builder" Type="Microsoft.Extensions.Hosting.IHostApplicationBuilder" RefType="this" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="builder">The host application builder (for example a <c>WebApplicationBuilder</c>).</param>
+        <param name="configure">Optional callback to configure <see cref="T:Azure.AI.AgentServer.Activity.ActivityServerOptions" />.</param>
+        <summary>
+            Registers the Foundry Activity protocol services onto a host application builder: the
+            SDK-native outbound-auth connection provider, the derived connection configuration overlay, the
+            platform middleware services, health checks, and the shared endpoint handler.
+            </summary>
+        <returns>The builder, for chaining.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

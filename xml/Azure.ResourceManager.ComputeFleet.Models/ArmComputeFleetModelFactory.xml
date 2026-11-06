@@ -42,7 +42,7 @@
             Managed disks with storage account type UltraSSD_LRS can be added to a virtual machine or virtual machine scale set only if this property is enabled.
             </param>
         <param name="isHibernationEnabled"> The flag that enables or disables hibernation capability on the VM. </param>
-        <summary>To be added.</summary>
+        <summary> AdditionalCapabilities for VM. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.AdditionalCapabilities" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -134,7 +134,12 @@
             screenshot. If storageUri is not specified while enabling boot diagnostics,
             managed storage will be used.
             </param>
-        <summary>To be added.</summary>
+        <summary>
+            Boot Diagnostics is a debugging feature which allows you to view Console Output
+            and Screenshot to diagnose VM status. You can easily view the output of your
+            console log. Azure also enables you to see a screenshot of the VM from the
+            hypervisor.
+            </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetBootDiagnostics" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -178,7 +183,7 @@
             hibernationEnabled: Enables the hibernation capability on the VMSS VMs.
             Default value is null if not specified. This property cannot be updated once set.
             </param>
-        <summary>To be added.</summary>
+        <summary> Compute Profile to use for running user's workloads. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -255,7 +260,11 @@
             https://learn.microsoft.com/azure/virtual-machines/linux/sizes to check which VM
             sizes exposes a cache disk.
             </param>
-        <summary>To be added.</summary>
+        <summary>
+            Describes the parameters of ephemeral disk settings that can be specified for
+            operating system disk. <b>Note:</b> The ephemeral disk settings can only be
+            specified for managed disk.
+            </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetDiffDiskSettings" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -461,7 +470,7 @@
             Specifies additional settings for patch mode AutomaticByPlatform in VM Guest
             Patching on Linux.
             </param>
-        <summary>To be added.</summary>
+        <summary> Specifies settings related to VM Guest Patching on Linux. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetLinuxPatchSettings" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -490,7 +499,10 @@
             operations.
             </param>
         <param name="isBypassPlatformSafetyChecksOnUserScheduleEnabled"> Enables customer to schedule patching without accidental upgrades. </param>
-        <summary>To be added.</summary>
+        <summary>
+            Specifies additional settings to be applied when patch mode AutomaticByPlatform
+            is selected in Linux patch settings.
+            </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetLinuxVmGuestPatchAutomaticByPlatformSettings" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -521,7 +533,7 @@
             and the value must not exceed 15 minutes (PT15M)
             </param>
         <param name="isEnabled"> Specifies whether the OS Image Scheduled event is enabled or disabled. </param>
-        <summary>To be added.</summary>
+        <summary> Specifies OS Image Scheduled Event related configurations. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetOSImageNotificationProfile" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -557,11 +569,13 @@
       </Docs>
     </Member>
     <Member MemberName="ComputeFleetProperties">
-      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties ComputeFleetProperties (Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState? provisioningState = default, Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile spotPriorityProfile = default, Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile regularPriorityProfile = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile&gt; vmSizesProfile = default, Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes vmAttributes = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ComputeFleet.Models.LocationProfile&gt; additionalLocationsLocationProfiles = default, Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile computeProfile = default, DateTimeOffset? createdOn = default, string uniqueId = default);" />
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties ComputeFleetProperties (Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState? provisioningState = default, Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile spotPriorityProfile = default, Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile regularPriorityProfile = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile&gt; vmSizesProfile = default, Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes vmAttributes = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ComputeFleet.Models.LocationProfile&gt; additionalLocationsLocationProfiles = default, Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile computeProfile = default, DateTimeOffset? createdOn = default, string uniqueId = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties ComputeFleetProperties(valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState&gt; provisioningState, class Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile spotPriorityProfile, class Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile regularPriorityProfile, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile&gt; vmSizesProfile, class Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes vmAttributes, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ComputeFleet.Models.LocationProfile&gt; additionalLocationsLocationProfiles, class Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile computeProfile, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; createdOn, string uniqueId) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetProperties(System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState},Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile,Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile},Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ComputeFleet.Models.LocationProfile},Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile,System.Nullable{System.DateTimeOffset},System.String)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function ComputeFleetProperties (Optional provisioningState As Nullable(Of ComputeFleetProvisioningState) = Nothing, Optional spotPriorityProfile As SpotPriorityProfile = Nothing, Optional regularPriorityProfile As RegularPriorityProfile = Nothing, Optional vmSizesProfile As IEnumerable(Of ComputeFleetVmSizeProfile) = Nothing, Optional vmAttributes As ComputeFleetVmAttributes = Nothing, Optional additionalLocationsLocationProfiles As IEnumerable(Of LocationProfile) = Nothing, Optional computeProfile As ComputeFleetComputeProfile = Nothing, Optional createdOn As Nullable(Of DateTimeOffset) = Nothing, Optional uniqueId As String = Nothing) As ComputeFleetProperties" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ComputeFleetProperties (Optional provisioningState As Nullable(Of ComputeFleetProvisioningState) = Nothing, Optional spotPriorityProfile As SpotPriorityProfile = Nothing, Optional regularPriorityProfile As RegularPriorityProfile = Nothing, Optional vmSizesProfile As IEnumerable(Of ComputeFleetVmSizeProfile) = Nothing, Optional vmAttributes As ComputeFleetVmAttributes = Nothing, Optional additionalLocationsLocationProfiles As IEnumerable(Of LocationProfile) = Nothing, Optional computeProfile As ComputeFleetComputeProfile = Nothing, Optional createdOn As Nullable(Of DateTimeOffset) = Nothing, Optional uniqueId As String = Nothing) As ComputeFleetProperties" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="F#" Value="static member ComputeFleetProperties : Nullable&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState&gt; * Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile * Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile * seq&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile&gt; * Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes * seq&lt;Azure.ResourceManager.ComputeFleet.Models.LocationProfile&gt; * Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile * Nullable&lt;DateTimeOffset&gt; * string -&gt; Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties" Usage="Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetProperties (provisioningState, spotPriorityProfile, regularPriorityProfile, vmSizesProfile, vmAttributes, additionalLocationsLocationProfiles, computeProfile, createdOn, uniqueId)" />
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties ComputeFleetProperties (Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState? provisioningState, Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile spotPriorityProfile, Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile regularPriorityProfile, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile&gt; vmSizesProfile, Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes vmAttributes, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ComputeFleet.Models.LocationProfile&gt; additionalLocationsLocationProfiles, Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile computeProfile, DateTimeOffset? createdOn, string uniqueId);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ComputeFleetProperties (provisioningState As Nullable(Of ComputeFleetProvisioningState), spotPriorityProfile As SpotPriorityProfile, regularPriorityProfile As RegularPriorityProfile, vmSizesProfile As IEnumerable(Of ComputeFleetVmSizeProfile), vmAttributes As ComputeFleetVmAttributes, additionalLocationsLocationProfiles As IEnumerable(Of LocationProfile), computeProfile As ComputeFleetComputeProfile, createdOn As Nullable(Of DateTimeOffset), uniqueId As String) As ComputeFleetProperties" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ComputeFleet</AssemblyName>
@@ -594,21 +608,21 @@
         <param name="regularPriorityProfile"> Configuration Options for Regular instances in Compute Fleet. </param>
         <param name="vmSizesProfile"> List of VM sizes supported for Compute Fleet. </param>
         <param name="vmAttributes"> Attribute based Fleet. </param>
-        <param name="additionalLocationsLocationProfiles"> Represents the configuration for additional locations where Fleet resources may be deployed. </param>
+        <param name="additionalLocationsLocationProfiles"> The list of location profiles. </param>
         <param name="computeProfile"> Compute Profile to use for running user's workloads. </param>
         <param name="createdOn"> Specifies the time at which the Compute Fleet is created. </param>
         <param name="uniqueId"> Specifies the ID which uniquely identifies a Compute Fleet. </param>
-        <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties" />. </summary>
+        <summary> Details of the Compute Fleet. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ComputeFleetProperties">
-      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties ComputeFleetProperties (Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState? provisioningState = default, Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile spotPriorityProfile = default, Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile regularPriorityProfile = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile&gt; vmSizesProfile = default, Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes vmAttributes = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ComputeFleet.Models.LocationProfile&gt; additionalLocationsLocationProfiles = default, Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile computeProfile = default, DateTimeOffset? createdOn = default, string uniqueId = default, Azure.ResourceManager.ComputeFleet.Models.ComputeFleetMode? mode = default, string vmNamePrefix = default, Azure.ResourceManager.ComputeFleet.Models.ComputeFleetCapacityType? capacityType = default, Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy zoneAllocationPolicy = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties ComputeFleetProperties(valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState&gt; provisioningState, class Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile spotPriorityProfile, class Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile regularPriorityProfile, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile&gt; vmSizesProfile, class Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes vmAttributes, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ComputeFleet.Models.LocationProfile&gt; additionalLocationsLocationProfiles, class Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile computeProfile, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; createdOn, string uniqueId, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ComputeFleet.Models.ComputeFleetMode&gt; mode, string vmNamePrefix, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ComputeFleet.Models.ComputeFleetCapacityType&gt; capacityType, class Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy zoneAllocationPolicy) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetProperties(System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState},Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile,Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile},Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ComputeFleet.Models.LocationProfile},Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetMode},System.String,System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetCapacityType},Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function ComputeFleetProperties (Optional provisioningState As Nullable(Of ComputeFleetProvisioningState) = Nothing, Optional spotPriorityProfile As SpotPriorityProfile = Nothing, Optional regularPriorityProfile As RegularPriorityProfile = Nothing, Optional vmSizesProfile As IEnumerable(Of ComputeFleetVmSizeProfile) = Nothing, Optional vmAttributes As ComputeFleetVmAttributes = Nothing, Optional additionalLocationsLocationProfiles As IEnumerable(Of LocationProfile) = Nothing, Optional computeProfile As ComputeFleetComputeProfile = Nothing, Optional createdOn As Nullable(Of DateTimeOffset) = Nothing, Optional uniqueId As String = Nothing, Optional mode As Nullable(Of ComputeFleetMode) = Nothing, Optional vmNamePrefix As String = Nothing, Optional capacityType As Nullable(Of ComputeFleetCapacityType) = Nothing, Optional zoneAllocationPolicy As ComputeFleetZoneAllocationPolicy = Nothing) As ComputeFleetProperties" />
-      <MemberSignature Language="F#" Value="static member ComputeFleetProperties : Nullable&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState&gt; * Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile * Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile * seq&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile&gt; * Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes * seq&lt;Azure.ResourceManager.ComputeFleet.Models.LocationProfile&gt; * Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile * Nullable&lt;DateTimeOffset&gt; * string * Nullable&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetMode&gt; * string * Nullable&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetCapacityType&gt; * Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy -&gt; Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties" Usage="Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetProperties (provisioningState, spotPriorityProfile, regularPriorityProfile, vmSizesProfile, vmAttributes, additionalLocationsLocationProfiles, computeProfile, createdOn, uniqueId, mode, vmNamePrefix, capacityType, zoneAllocationPolicy)" />
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties ComputeFleetProperties (Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState? provisioningState = default, Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile spotPriorityProfile = default, Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile regularPriorityProfile = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile&gt; vmSizesProfile = default, Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes vmAttributes = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ComputeFleet.Models.LocationProfile&gt; additionalLocationsLocationProfiles = default, Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile computeProfile = default, DateTimeOffset? createdOn = default, string uniqueId = default, Azure.ResourceManager.ComputeFleet.Models.ComputeFleetMode? mode = default, string vmNamePrefix = default, Azure.ResourceManager.ComputeFleet.Models.ComputeFleetCapacityType? capacityType = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties ComputeFleetProperties(valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState&gt; provisioningState, class Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile spotPriorityProfile, class Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile regularPriorityProfile, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile&gt; vmSizesProfile, class Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes vmAttributes, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ComputeFleet.Models.LocationProfile&gt; additionalLocationsLocationProfiles, class Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile computeProfile, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; createdOn, string uniqueId, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ComputeFleet.Models.ComputeFleetMode&gt; mode, string vmNamePrefix, valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.ComputeFleet.Models.ComputeFleetCapacityType&gt; capacityType) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetProperties(System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState},Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile,Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile},Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ComputeFleet.Models.LocationProfile},Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetMode},System.String,System.Nullable{Azure.ResourceManager.ComputeFleet.Models.ComputeFleetCapacityType})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ComputeFleetProperties (Optional provisioningState As Nullable(Of ComputeFleetProvisioningState) = Nothing, Optional spotPriorityProfile As SpotPriorityProfile = Nothing, Optional regularPriorityProfile As RegularPriorityProfile = Nothing, Optional vmSizesProfile As IEnumerable(Of ComputeFleetVmSizeProfile) = Nothing, Optional vmAttributes As ComputeFleetVmAttributes = Nothing, Optional additionalLocationsLocationProfiles As IEnumerable(Of LocationProfile) = Nothing, Optional computeProfile As ComputeFleetComputeProfile = Nothing, Optional createdOn As Nullable(Of DateTimeOffset) = Nothing, Optional uniqueId As String = Nothing, Optional mode As Nullable(Of ComputeFleetMode) = Nothing, Optional vmNamePrefix As String = Nothing, Optional capacityType As Nullable(Of ComputeFleetCapacityType) = Nothing) As ComputeFleetProperties" />
+      <MemberSignature Language="F#" Value="static member ComputeFleetProperties : Nullable&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProvisioningState&gt; * Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile * Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile * seq&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile&gt; * Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributes * seq&lt;Azure.ResourceManager.ComputeFleet.Models.LocationProfile&gt; * Azure.ResourceManager.ComputeFleet.Models.ComputeFleetComputeProfile * Nullable&lt;DateTimeOffset&gt; * string * Nullable&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetMode&gt; * string * Nullable&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetCapacityType&gt; -&gt; Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties" Usage="Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetProperties (provisioningState, spotPriorityProfile, regularPriorityProfile, vmSizesProfile, vmAttributes, additionalLocationsLocationProfiles, computeProfile, createdOn, uniqueId, mode, vmNamePrefix, capacityType)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.ComputeFleet</AssemblyName>
@@ -630,7 +644,6 @@
         <Parameter Name="mode" Type="System.Nullable&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetMode&gt;" Index="9" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="vmNamePrefix" Type="System.String" Index="10" FrameworkAlternate="azure-dotnet-preview" />
         <Parameter Name="capacityType" Type="System.Nullable&lt;Azure.ResourceManager.ComputeFleet.Models.ComputeFleetCapacityType&gt;" Index="11" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="zoneAllocationPolicy" Type="Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy" Index="12" FrameworkAlternate="azure-dotnet-preview" />
       </Parameters>
       <Docs>
         <param name="provisioningState"> The status of the last operation. </param>
@@ -649,7 +662,6 @@
             capacityType is an immutable property. Once set during Fleet creation, it cannot be updated.
             Specifying different capacity type for Fleet Regular and Spot priority profiles is not allowed.
             </param>
-        <param name="zoneAllocationPolicy"> Zone Allocation Policy for Fleet. </param>
         <summary>To be added.</summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProperties" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
@@ -689,7 +701,10 @@
             Increase the value of this property allows user to reset the key used for
             securing communication channel between guest and host.
             </param>
-        <summary>To be added.</summary>
+        <summary>
+            Specifies ProxyAgent settings while creating the virtual machine. Minimum
+            api-version: 2023-09-01.
+            </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetProxyAgentSettings" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -715,7 +730,10 @@
       <Docs>
         <param name="name"> Specify public IP sku name. </param>
         <param name="tier"> Specify public IP sku tier. </param>
-        <summary>To be added.</summary>
+        <summary>
+            Describes the public IP Sku. It can only be set with OrchestrationMode as
+            Flexible.
+            </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetPublicIPAddressSku" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -741,7 +759,7 @@
       <Docs>
         <param name="terminateNotificationProfile"> Specifies Terminate Scheduled Event related configurations. </param>
         <param name="osImageNotificationProfile"> Specifies OS Image Scheduled Event related configurations. </param>
-        <summary>To be added.</summary>
+        <summary> Specifies Scheduled Event related configurations. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetScheduledEventsProfile" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -861,7 +879,10 @@
             see [Create SSH keys on Linux and Mac for Linux VMs in
             Azure]https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
             </param>
-        <summary>To be added.</summary>
+        <summary>
+            Contains information about SSH certificate public key and the path on the Linux
+            VM where the public key is placed.
+            </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetSshPublicKey" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -892,7 +913,7 @@
             the default value is 5 minutes (PT5M)
             </param>
         <param name="isEnabled"> Specifies whether the Terminate Scheduled event is enabled or disabled. </param>
-        <summary>To be added.</summary>
+        <summary> Specifies Terminate Scheduled Event related configurations. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetTerminateNotificationProfile" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -924,7 +945,10 @@
             Specifies whether vTPM should be enabled on the virtual machine. Minimum
             api-version: 2020-12-01.
             </param>
-        <summary>To be added.</summary>
+        <summary>
+            Specifies the security settings like secure boot and vTPM used while creating
+            the virtual machine. Minimum api-version: 2020-12-01.
+            </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetUefiSettings" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -972,7 +996,10 @@
             &lt;UppercaseThumbprint&gt;.prv for private key. Both of these files are .pem
             formatted.
             </param>
-        <summary>To be added.</summary>
+        <summary>
+            Describes a single certificate reference in a Key Vault, and where the
+            certificate should reside on the VM.
+            </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVaultCertificate" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1038,7 +1065,7 @@
         <param name="vmSize"> The VM size of the virtual machine. </param>
         <param name="zone"> The availability zone of the virtual machine. </param>
         <param name="priority"> The priority of the virtual machine. </param>
-        <summary>To be added.</summary>
+        <summary> A Launch mode Fleet's virtual machine. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVirtualMachine" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1064,7 +1091,7 @@
       <Docs>
         <param name="min"> Minimum value. default 0. Double.MinValue(). </param>
         <param name="max"> Maximum value. Double.MaxValue(1.7976931348623157E+308). </param>
-        <summary>To be added.</summary>
+        <summary> VMAttributes using double values. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributeMinMaxDouble" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1090,7 +1117,7 @@
       <Docs>
         <param name="min"> Min VMSize from CRS, Min = 0 (uint.MinValue) if not specified. </param>
         <param name="max"> Max VMSize from CRS, Max = 4294967295 (uint.MaxValue) if not specified. </param>
-        <summary>To be added.</summary>
+        <summary> While retrieving VMSizes from CRS, Min = 0 (uint.MinValue) if not specified, Max = 4294967295 (uint.MaxValue) if not specified. This allows to filter VMAttributes on all available VMSizes. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmAttributeMinMaxInteger" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1258,7 +1285,10 @@
             If set to true, when a new Gallery Application version is available in PIR/SIG,
             it will be automatically updated for the VM/VMSS
             </param>
-        <summary>To be added.</summary>
+        <summary>
+            Specifies the required information to reference a compute gallery application
+            version
+            </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmGalleryApplication" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1313,7 +1343,7 @@
             Specifies additional settings for patch mode AutomaticByPlatform in VM Guest
             Patching on Windows.
             </param>
-        <summary>To be added.</summary>
+        <summary> Specifies settings related to VM Guest Patching on Windows. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmGuestPatchSettings" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1443,7 +1473,7 @@
             The rank of the VM size. This is used with 'RegularPriorityAllocationStrategy.Prioritized'
             The lower the number, the higher the priority. Starting with 0.
             </param>
-        <summary>To be added.</summary>
+        <summary> Specifications about a VM Size. This will also contain the corresponding rank and weight in future. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProfile" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1481,7 +1511,7 @@
             sizes in a
             region](https://learn.microsoft.com/en-us/rest/api/compute/resource-skus/list).
             <b>Setting this property to 1 also means that hyper-threading is disabled.</b></param>
-        <summary>To be added.</summary>
+        <summary> Specifies VM Size Property settings on the virtual machine. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmSizeProperties" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1626,7 +1656,7 @@
             this value is used, the data disk is retained after VMSS Flex VM is
             deleted.&lt;br&gt;&lt;br&gt; The default value is set to <b>Delete</b>.
             </param>
-        <summary>To be added.</summary>
+        <summary> Describes a virtual machine scale set data disk. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmssDataDisk" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1788,7 +1818,7 @@
             Describes a virtual machine scale set network profile's IP configuration
             properties.
             </param>
-        <summary>To be added.</summary>
+        <summary> Describes a virtual machine scale set network profile's IP configuration. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmssIPConfiguration" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1875,7 +1905,7 @@
       <Docs>
         <param name="ipTagType"> IP tag type. Example: FirstPartyUsage. </param>
         <param name="tag"> IP tag associated with the public IP. Example: SQL, Storage etc. </param>
-        <summary>To be added.</summary>
+        <summary> Contains the IP tag associated with the public IP address. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmssIPTag" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1932,7 +1962,7 @@
       <Docs>
         <param name="name"> The network configuration name. </param>
         <param name="properties"> Describes a virtual machine scale set network profile's IP configuration. </param>
-        <summary>To be added.</summary>
+        <summary> Describes a virtual machine scale set network profile's network configurations. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmssNetworkConfiguration" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2218,7 +2248,10 @@
             Describes the public IP Sku. It can only be set with OrchestrationMode as
             Flexible.
             </param>
-        <summary>To be added.</summary>
+        <summary>
+            Describes a virtual machines scale set IP Configuration's PublicIPAddress
+            configuration
+            </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmssPublicIPAddressConfiguration" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2291,7 +2324,7 @@
             index will be the domain name labels of the PublicIPAddress resources that will
             be created
             </param>
-        <summary>To be added.</summary>
+        <summary> Describes a virtual machines scale sets network configuration's DNS settings. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetVmssPublicIPAddressDnsSettings" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2422,7 +2455,10 @@
             operations.
             </param>
         <param name="isBypassPlatformSafetyChecksOnUserScheduleEnabled"> Enables customer to schedule patching without accidental upgrades. </param>
-        <summary>To be added.</summary>
+        <summary>
+            Specifies additional settings to be applied when patch mode AutomaticByPlatform
+            is selected in Windows patch settings.
+            </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetWindowsVmGuestPatchAutomaticByPlatformSettings" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2463,34 +2499,8 @@
             or the [Azure Key Vault virtual machine extension for
             Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
             </param>
-        <summary>To be added.</summary>
+        <summary> Describes Protocol and thumbprint of Windows Remote Management listener. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetWinRMListener" /> instance for mocking. </returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="ComputeFleetZoneAllocationPolicy">
-      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy ComputeFleetZoneAllocationPolicy (Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy distributionStrategy = default, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ComputeFleet.Models.ZonePreference&gt; zonePreferences = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy ComputeFleetZoneAllocationPolicy(valuetype Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy distributionStrategy, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.ComputeFleet.Models.ZonePreference&gt; zonePreferences) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetZoneAllocationPolicy(Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy,System.Collections.Generic.IEnumerable{Azure.ResourceManager.ComputeFleet.Models.ZonePreference})" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function ComputeFleetZoneAllocationPolicy (Optional distributionStrategy As ComputeFleetZoneDistributionStrategy = Nothing, Optional zonePreferences As IEnumerable(Of ZonePreference) = Nothing) As ComputeFleetZoneAllocationPolicy" />
-      <MemberSignature Language="F#" Value="static member ComputeFleetZoneAllocationPolicy : Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy * seq&lt;Azure.ResourceManager.ComputeFleet.Models.ZonePreference&gt; -&gt; Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy" Usage="Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ComputeFleetZoneAllocationPolicy (distributionStrategy, zonePreferences)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.ResourceManager.ComputeFleet</AssemblyName>
-        <AssemblyVersion>1.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="distributionStrategy" Type="Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneDistributionStrategy" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="zonePreferences" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.ComputeFleet.Models.ZonePreference&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="distributionStrategy"> Distribution strategy used for zone allocation policy. </param>
-        <param name="zonePreferences"> Zone preferences, required when zone distribution strategy is Prioritized. </param>
-        <summary> ZoneAllocationPolicy for Compute Fleet. </summary>
-        <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ComputeFleetZoneAllocationPolicy" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2518,7 +2528,7 @@
             An override for computeProfile.baseVirtualMachineProfile specific to this region. 
             This override is merged with the base virtual machine profile to define the final virtual machine profile for the resources deployed in this location.
             </param>
-        <summary>To be added.</summary>
+        <summary> Represents the profile for a single additional location in the Fleet. The location and the virtualMachineProfileOverride (optional). </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.LocationProfile" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2546,7 +2556,7 @@
         <param name="capacity"> Total capacity to achieve. It is currently in terms of number of VMs. </param>
         <param name="minCapacity"> Minimum capacity to achieve which cannot be updated. If we will not be able to "guarantee" minimum capacity, we will reject the request in the sync path itself. </param>
         <param name="allocationStrategy"> Allocation strategy to follow when determining the VM sizes distribution for Regular VMs. </param>
-        <summary>To be added.</summary>
+        <summary> Configuration Options for Regular instances in Compute Fleet. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.RegularPriorityProfile" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2585,7 +2595,7 @@
             or update existing VMs with new VM sizes (if VMs are evicted deallocated or failed to allocate due to capacity constraint) in order to achieve the desired capacity.
             Maintain is enabled by default.
             </param>
-        <summary>To be added.</summary>
+        <summary> Configuration Options for Spot instances in Compute Fleet. </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.SpotPriorityProfile" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2625,38 +2635,12 @@
             the specified path and component. The XML must be less than 4KB and must
             include the root element for the setting or feature that is being inserted.
             </param>
-        <summary>To be added.</summary>
+        <summary>
+            Specifies additional XML formatted information that can be included in the
+            Unattend.xml file, which is used by Windows Setup. Contents are defined by
+            setting name, component name, and the pass in which the content is applied.
+            </summary>
         <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.WindowsSetupAdditionalInformation" /> instance for mocking. </returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="ZonePreference">
-      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ComputeFleet.Models.ZonePreference ZonePreference (string zone = default, int? rank = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ComputeFleet.Models.ZonePreference ZonePreference(string zone, valuetype System.Nullable`1&lt;int32&gt; rank) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ZonePreference(System.String,System.Nullable{System.Int32})" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function ZonePreference (Optional zone As String = Nothing, Optional rank As Nullable(Of Integer) = Nothing) As ZonePreference" />
-      <MemberSignature Language="F#" Value="static member ZonePreference : string * Nullable&lt;int&gt; -&gt; Azure.ResourceManager.ComputeFleet.Models.ZonePreference" Usage="Azure.ResourceManager.ComputeFleet.Models.ArmComputeFleetModelFactory.ZonePreference (zone, rank)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.ResourceManager.ComputeFleet</AssemblyName>
-        <AssemblyVersion>1.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.ResourceManager.ComputeFleet.Models.ZonePreference</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="zone" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="rank" Type="System.Nullable&lt;System.Int32&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="zone"> Name of the zone. </param>
-        <param name="rank">
-            The rank of the zone. This is used with 'Prioritized' ZoneDistributionStrategy.
-            The lower the number, the higher the priority, starting with 0.
-            0 is the highest rank. If not specified, defaults to lowest rank.
-            </param>
-        <summary>To be added.</summary>
-        <returns> A new <see cref="T:Azure.ResourceManager.ComputeFleet.Models.ZonePreference" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
