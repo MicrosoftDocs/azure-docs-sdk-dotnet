@@ -15,6 +15,7 @@
     <AssemblyVersion>1.3.1.0</AssemblyVersion>
     <AssemblyVersion>1.4.0.0</AssemblyVersion>
     <AssemblyVersion>1.5.0.0</AssemblyVersion>
+    <AssemblyVersion>1.6.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
@@ -35,7 +36,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response</ReturnType>
@@ -72,7 +73,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
@@ -99,6 +100,84 @@
           <paramref name="resourceGroupResource" /> is null. </exception>
       </Docs>
     </Member>
+    <Member MemberName="Get">
+      <MemberSignature Language="C#" Value="public static Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.BackupOperationStatus&gt; Get (this Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, string vaultName, string fabricName, string operationId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Response`1&lt;class Azure.ResourceManager.RecoveryServicesBackup.Models.BackupOperationStatus&gt; Get(class Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, string vaultName, string fabricName, string operationId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RecoveryServicesBackup.RecoveryServicesBackupExtensions.Get(Azure.ResourceManager.Resources.ResourceGroupResource,System.String,System.String,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function Get (resourceGroupResource As ResourceGroupResource, vaultName As String, fabricName As String, operationId As String, Optional cancellationToken As CancellationToken = Nothing) As Response(Of BackupOperationStatus)" />
+      <MemberSignature Language="F#" Value="static member Get : Azure.ResourceManager.Resources.ResourceGroupResource * string * string * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.BackupOperationStatus&gt;" Usage="Azure.ResourceManager.RecoveryServicesBackup.RecoveryServicesBackupExtensions.Get (resourceGroupResource, vaultName, fabricName, operationId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.BackupOperationStatus&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resourceGroupResource" Type="Azure.ResourceManager.Resources.ResourceGroupResource" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
+        <Parameter Name="vaultName" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="fabricName" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="operationId" Type="System.String" Index="3" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="4" FrameworkAlternate="azure-dotnet" />
+      </Parameters>
+      <Docs>
+        <param name="resourceGroupResource"> The <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" /> the method will execute against. </param>
+        <param name="vaultName"> The name of the recovery services vault. </param>
+        <param name="fabricName"> Fabric name associated with the operation. </param>
+        <param name="operationId"> OperationID which represents the operation whose status needs to be fetched. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Fetches the status of the fabric level asynchronous operation identified by the given operation id. The status
+            can be in progress, completed or failed. You can refer to the OperationStatus enum for all the possible states of
+            an operation. This is the endpoint reported in the Azure-AsyncOperation header of the fabric level operations
+            that start one, such as RefreshContainers and GetRPExtendedInfo.
+            <item><term> Mocking. </term><description> To mock this method, please mock <see cref="M:Azure.ResourceManager.RecoveryServicesBackup.Mocking.MockableRecoveryServicesBackupResourceGroupResource.Get(System.String,System.String,System.String,System.Threading.CancellationToken)" /> instead. </description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="resourceGroupResource" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetAsync">
+      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.BackupOperationStatus&gt;&gt; GetAsync (this Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, string vaultName, string fabricName, string operationId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.ResourceManager.RecoveryServicesBackup.Models.BackupOperationStatus&gt;&gt; GetAsync(class Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, string vaultName, string fabricName, string operationId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RecoveryServicesBackup.RecoveryServicesBackupExtensions.GetAsync(Azure.ResourceManager.Resources.ResourceGroupResource,System.String,System.String,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetAsync (resourceGroupResource As ResourceGroupResource, vaultName As String, fabricName As String, operationId As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of BackupOperationStatus))" />
+      <MemberSignature Language="F#" Value="static member GetAsync : Azure.ResourceManager.Resources.ResourceGroupResource * string * string * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.BackupOperationStatus&gt;&gt;" Usage="Azure.ResourceManager.RecoveryServicesBackup.RecoveryServicesBackupExtensions.GetAsync (resourceGroupResource, vaultName, fabricName, operationId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.BackupOperationStatus&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resourceGroupResource" Type="Azure.ResourceManager.Resources.ResourceGroupResource" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
+        <Parameter Name="vaultName" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="fabricName" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="operationId" Type="System.String" Index="3" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="4" FrameworkAlternate="azure-dotnet" />
+      </Parameters>
+      <Docs>
+        <param name="resourceGroupResource"> The <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" /> the method will execute against. </param>
+        <param name="vaultName"> The name of the recovery services vault. </param>
+        <param name="fabricName"> Fabric name associated with the operation. </param>
+        <param name="operationId"> OperationID which represents the operation whose status needs to be fetched. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Fetches the status of the fabric level asynchronous operation identified by the given operation id. The status
+            can be in progress, completed or failed. You can refer to the OperationStatus enum for all the possible states of
+            an operation. This is the endpoint reported in the Azure-AsyncOperation header of the fabric level operations
+            that start one, such as RefreshContainers and GetRPExtendedInfo.
+            <item><term> Mocking. </term><description> To mock this method, please mock <see cref="M:Azure.ResourceManager.RecoveryServicesBackup.Mocking.MockableRecoveryServicesBackupResourceGroupResource.GetAsync(System.String,System.String,System.String,System.Threading.CancellationToken)" /> instead. </description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="resourceGroupResource" /> is null. </exception>
+      </Docs>
+    </Member>
     <Member MemberName="GetBackupEngine">
       <MemberSignature Language="C#" Value="public static Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupEngineResource&gt; GetBackupEngine (this Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, string vaultName, string backupEngineName, string filter = default, string skipToken = default, System.Threading.CancellationToken cancellationToken = default);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Response`1&lt;class Azure.ResourceManager.RecoveryServicesBackup.BackupEngineResource&gt; GetBackupEngine(class Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, string vaultName, string backupEngineName, string filter, string skipToken, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
@@ -109,7 +188,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupEngineResource&gt;</ReturnType>
@@ -150,7 +229,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupEngineResource&gt;&gt;</ReturnType>
@@ -191,7 +270,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupEngineResource</ReturnType>
@@ -222,7 +301,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupEngineCollection</ReturnType>
@@ -254,7 +333,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupJobResource&gt;</ReturnType>
@@ -291,7 +370,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupJobResource&gt;&gt;</ReturnType>
@@ -328,7 +407,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupJobResource</ReturnType>
@@ -359,7 +438,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupJobCollection</ReturnType>
@@ -391,7 +470,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupPrivateEndpointConnectionResource&gt;</ReturnType>
@@ -428,7 +507,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupPrivateEndpointConnectionResource&gt;&gt;</ReturnType>
@@ -465,7 +544,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupPrivateEndpointConnectionResource</ReturnType>
@@ -496,7 +575,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupPrivateEndpointConnectionCollection</ReturnType>
@@ -524,7 +603,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.WorkloadProtectableItemResource&gt;</ReturnType>
@@ -564,7 +643,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.WorkloadProtectableItemResource&gt;</ReturnType>
@@ -604,7 +683,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupProtectedItemResource</ReturnType>
@@ -635,7 +714,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupProtectedItemResource&gt;</ReturnType>
@@ -674,7 +753,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupProtectedItemResource&gt;</ReturnType>
@@ -713,7 +792,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionContainerResource&gt;</ReturnType>
@@ -752,7 +831,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionContainerResource&gt;&gt;</ReturnType>
@@ -791,7 +870,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionContainerResource</ReturnType>
@@ -822,7 +901,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionContainerCollection</ReturnType>
@@ -850,7 +929,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionContainerResource&gt;</ReturnType>
@@ -887,7 +966,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionContainerResource&gt;</ReturnType>
@@ -924,7 +1003,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionIntentResource&gt;</ReturnType>
@@ -964,7 +1043,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionIntentResource&gt;&gt;</ReturnType>
@@ -1004,7 +1083,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionIntentResource</ReturnType>
@@ -1035,7 +1114,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionIntentCollection</ReturnType>
@@ -1063,7 +1142,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionIntentResource&gt;</ReturnType>
@@ -1102,7 +1181,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionIntentResource&gt;</ReturnType>
@@ -1141,7 +1220,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionPolicyCollection</ReturnType>
@@ -1173,7 +1252,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionPolicyResource&gt;</ReturnType>
@@ -1211,7 +1290,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionPolicyResource&gt;&gt;</ReturnType>
@@ -1249,7 +1328,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionPolicyResource</ReturnType>
@@ -1280,7 +1359,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupRecoveryPointResource</ReturnType>
@@ -1311,7 +1390,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupResourceConfigResource</ReturnType>
@@ -1340,7 +1419,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -1381,7 +1460,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -1422,7 +1501,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupResourceConfigResource</ReturnType>
@@ -1453,7 +1532,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -1492,7 +1571,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupResourceEncryptionConfigExtendedResource</ReturnType>
@@ -1521,7 +1600,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -1562,7 +1641,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -1603,7 +1682,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupResourceEncryptionConfigExtendedResource</ReturnType>
@@ -1634,7 +1713,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -1673,7 +1752,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupResourceVaultConfigResource</ReturnType>
@@ -1702,7 +1781,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -1743,7 +1822,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -1784,7 +1863,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.BackupResourceVaultConfigResource</ReturnType>
@@ -1815,7 +1894,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -1854,7 +1933,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.BackupStatusResult&gt;</ReturnType>
@@ -1889,7 +1968,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.BackupStatusResult&gt;&gt;</ReturnType>
@@ -1924,7 +2003,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.BackupManagementUsage&gt;</ReturnType>
@@ -1963,7 +2042,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.BackupManagementUsage&gt;</ReturnType>
@@ -2002,7 +2081,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.TieringCostInfo&gt;</ReturnType>
@@ -2039,7 +2118,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.TieringCostInfo&gt;&gt;</ReturnType>
@@ -2076,7 +2155,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.ProtectableContainerResource&gt;</ReturnType>
@@ -2115,7 +2194,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.ProtectableContainerResource&gt;</ReturnType>
@@ -2154,7 +2233,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.ResourceGuardProxyCollection</ReturnType>
@@ -2186,7 +2265,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.ResourceGuardProxyResource&gt;</ReturnType>
@@ -2223,7 +2302,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.ResourceGuardProxyResource&gt;&gt;</ReturnType>
@@ -2260,7 +2339,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesBackup.ResourceGuardProxyResource</ReturnType>
@@ -2281,6 +2360,162 @@
           <paramref name="client" /> is null. </exception>
       </Docs>
     </Member>
+    <Member MemberName="GetRPExtendedInfo">
+      <MemberSignature Language="C#" Value="public static Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.RPExtendedInfoResourceList&gt; GetRPExtendedInfo (this Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, Azure.WaitUntil waitUntil, string vaultName, string fabricName, Azure.ResourceManager.RecoveryServicesBackup.Models.RecoveryPointExtendedInfoContent content, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.RecoveryServicesBackup.Models.RPExtendedInfoResourceList&gt; GetRPExtendedInfo(class Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, valuetype Azure.WaitUntil waitUntil, string vaultName, string fabricName, class Azure.ResourceManager.RecoveryServicesBackup.Models.RecoveryPointExtendedInfoContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RecoveryServicesBackup.RecoveryServicesBackupExtensions.GetRPExtendedInfo(Azure.ResourceManager.Resources.ResourceGroupResource,Azure.WaitUntil,System.String,System.String,Azure.ResourceManager.RecoveryServicesBackup.Models.RecoveryPointExtendedInfoContent,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetRPExtendedInfo (resourceGroupResource As ResourceGroupResource, waitUntil As WaitUntil, vaultName As String, fabricName As String, content As RecoveryPointExtendedInfoContent, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation(Of RPExtendedInfoResourceList)" />
+      <MemberSignature Language="F#" Value="static member GetRPExtendedInfo : Azure.ResourceManager.Resources.ResourceGroupResource * Azure.WaitUntil * string * string * Azure.ResourceManager.RecoveryServicesBackup.Models.RecoveryPointExtendedInfoContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.RPExtendedInfoResourceList&gt;" Usage="Azure.ResourceManager.RecoveryServicesBackup.RecoveryServicesBackupExtensions.GetRPExtendedInfo (resourceGroupResource, waitUntil, vaultName, fabricName, content, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.RPExtendedInfoResourceList&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resourceGroupResource" Type="Azure.ResourceManager.Resources.ResourceGroupResource" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="vaultName" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="fabricName" Type="System.String" Index="3" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="content" Type="Azure.ResourceManager.RecoveryServicesBackup.Models.RecoveryPointExtendedInfoContent" Index="4" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="5" FrameworkAlternate="azure-dotnet" />
+      </Parameters>
+      <Docs>
+        <param name="resourceGroupResource"> The <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" /> the method will execute against. </param>
+        <param name="waitUntil">
+          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
+        <param name="vaultName"> The name of the recovery services vault. </param>
+        <param name="fabricName"> Fabric name associated with the backed up items. </param>
+        <param name="content"> Request payload containing the ARM id of the recovery point whose additional details are to be fetched. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Triggers fetching the additional details of a recovery point, which are not returned by the recovery point GET
+            API. This is an asynchronous operation. Returns tracking headers which can be tracked using the
+            GetRPExtendedInfoOperationResult API.
+            <item><term> Mocking. </term><description> To mock this method, please mock <see cref="M:Azure.ResourceManager.RecoveryServicesBackup.Mocking.MockableRecoveryServicesBackupResourceGroupResource.GetRPExtendedInfo(Azure.WaitUntil,System.String,System.String,Azure.ResourceManager.RecoveryServicesBackup.Models.RecoveryPointExtendedInfoContent,System.Threading.CancellationToken)" /> instead. </description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="resourceGroupResource" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRPExtendedInfoAsync">
+      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.RPExtendedInfoResourceList&gt;&gt; GetRPExtendedInfoAsync (this Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, Azure.WaitUntil waitUntil, string vaultName, string fabricName, Azure.ResourceManager.RecoveryServicesBackup.Models.RecoveryPointExtendedInfoContent content, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.RecoveryServicesBackup.Models.RPExtendedInfoResourceList&gt;&gt; GetRPExtendedInfoAsync(class Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, valuetype Azure.WaitUntil waitUntil, string vaultName, string fabricName, class Azure.ResourceManager.RecoveryServicesBackup.Models.RecoveryPointExtendedInfoContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RecoveryServicesBackup.RecoveryServicesBackupExtensions.GetRPExtendedInfoAsync(Azure.ResourceManager.Resources.ResourceGroupResource,Azure.WaitUntil,System.String,System.String,Azure.ResourceManager.RecoveryServicesBackup.Models.RecoveryPointExtendedInfoContent,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetRPExtendedInfoAsync (resourceGroupResource As ResourceGroupResource, waitUntil As WaitUntil, vaultName As String, fabricName As String, content As RecoveryPointExtendedInfoContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation(Of RPExtendedInfoResourceList))" />
+      <MemberSignature Language="F#" Value="static member GetRPExtendedInfoAsync : Azure.ResourceManager.Resources.ResourceGroupResource * Azure.WaitUntil * string * string * Azure.ResourceManager.RecoveryServicesBackup.Models.RecoveryPointExtendedInfoContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.RPExtendedInfoResourceList&gt;&gt;" Usage="Azure.ResourceManager.RecoveryServicesBackup.RecoveryServicesBackupExtensions.GetRPExtendedInfoAsync (resourceGroupResource, waitUntil, vaultName, fabricName, content, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.RPExtendedInfoResourceList&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resourceGroupResource" Type="Azure.ResourceManager.Resources.ResourceGroupResource" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="vaultName" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="fabricName" Type="System.String" Index="3" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="content" Type="Azure.ResourceManager.RecoveryServicesBackup.Models.RecoveryPointExtendedInfoContent" Index="4" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="5" FrameworkAlternate="azure-dotnet" />
+      </Parameters>
+      <Docs>
+        <param name="resourceGroupResource"> The <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" /> the method will execute against. </param>
+        <param name="waitUntil">
+          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
+        <param name="vaultName"> The name of the recovery services vault. </param>
+        <param name="fabricName"> Fabric name associated with the backed up items. </param>
+        <param name="content"> Request payload containing the ARM id of the recovery point whose additional details are to be fetched. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Triggers fetching the additional details of a recovery point, which are not returned by the recovery point GET
+            API. This is an asynchronous operation. Returns tracking headers which can be tracked using the
+            GetRPExtendedInfoOperationResult API.
+            <item><term> Mocking. </term><description> To mock this method, please mock <see cref="M:Azure.ResourceManager.RecoveryServicesBackup.Mocking.MockableRecoveryServicesBackupResourceGroupResource.GetRPExtendedInfoAsync(Azure.WaitUntil,System.String,System.String,Azure.ResourceManager.RecoveryServicesBackup.Models.RecoveryPointExtendedInfoContent,System.Threading.CancellationToken)" /> instead. </description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="resourceGroupResource" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRPExtendedInfoOperationResult">
+      <MemberSignature Language="C#" Value="public static Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.RPExtendedInfoResourceList&gt; GetRPExtendedInfoOperationResult (this Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, string vaultName, string fabricName, string operationId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Response`1&lt;class Azure.ResourceManager.RecoveryServicesBackup.Models.RPExtendedInfoResourceList&gt; GetRPExtendedInfoOperationResult(class Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, string vaultName, string fabricName, string operationId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RecoveryServicesBackup.RecoveryServicesBackupExtensions.GetRPExtendedInfoOperationResult(Azure.ResourceManager.Resources.ResourceGroupResource,System.String,System.String,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetRPExtendedInfoOperationResult (resourceGroupResource As ResourceGroupResource, vaultName As String, fabricName As String, operationId As String, Optional cancellationToken As CancellationToken = Nothing) As Response(Of RPExtendedInfoResourceList)" />
+      <MemberSignature Language="F#" Value="static member GetRPExtendedInfoOperationResult : Azure.ResourceManager.Resources.ResourceGroupResource * string * string * string * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.RPExtendedInfoResourceList&gt;" Usage="Azure.ResourceManager.RecoveryServicesBackup.RecoveryServicesBackupExtensions.GetRPExtendedInfoOperationResult (resourceGroupResource, vaultName, fabricName, operationId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.RPExtendedInfoResourceList&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resourceGroupResource" Type="Azure.ResourceManager.Resources.ResourceGroupResource" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
+        <Parameter Name="vaultName" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="fabricName" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="operationId" Type="System.String" Index="3" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="4" FrameworkAlternate="azure-dotnet" />
+      </Parameters>
+      <Docs>
+        <param name="resourceGroupResource"> The <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" /> the method will execute against. </param>
+        <param name="vaultName"> The name of the recovery services vault. </param>
+        <param name="fabricName"> Fabric name associated with the backed up items. </param>
+        <param name="operationId"> OperationID which represents the prior getRPExtendedInfo operation whose result needs to be fetched. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Returns the additional details of the recovery points fetched by a prior getRPExtendedInfo operation. Returns
+            202 Accepted while the operation is still running.
+            <item><term> Mocking. </term><description> To mock this method, please mock <see cref="M:Azure.ResourceManager.RecoveryServicesBackup.Mocking.MockableRecoveryServicesBackupResourceGroupResource.GetRPExtendedInfoOperationResult(System.String,System.String,System.String,System.Threading.CancellationToken)" /> instead. </description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="resourceGroupResource" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRPExtendedInfoOperationResultAsync">
+      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.RPExtendedInfoResourceList&gt;&gt; GetRPExtendedInfoOperationResultAsync (this Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, string vaultName, string fabricName, string operationId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.ResourceManager.RecoveryServicesBackup.Models.RPExtendedInfoResourceList&gt;&gt; GetRPExtendedInfoOperationResultAsync(class Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, string vaultName, string fabricName, string operationId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RecoveryServicesBackup.RecoveryServicesBackupExtensions.GetRPExtendedInfoOperationResultAsync(Azure.ResourceManager.Resources.ResourceGroupResource,System.String,System.String,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function GetRPExtendedInfoOperationResultAsync (resourceGroupResource As ResourceGroupResource, vaultName As String, fabricName As String, operationId As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of RPExtendedInfoResourceList))" />
+      <MemberSignature Language="F#" Value="static member GetRPExtendedInfoOperationResultAsync : Azure.ResourceManager.Resources.ResourceGroupResource * string * string * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.RPExtendedInfoResourceList&gt;&gt;" Usage="Azure.ResourceManager.RecoveryServicesBackup.RecoveryServicesBackupExtensions.GetRPExtendedInfoOperationResultAsync (resourceGroupResource, vaultName, fabricName, operationId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.RPExtendedInfoResourceList&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resourceGroupResource" Type="Azure.ResourceManager.Resources.ResourceGroupResource" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
+        <Parameter Name="vaultName" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="fabricName" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="operationId" Type="System.String" Index="3" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="4" FrameworkAlternate="azure-dotnet" />
+      </Parameters>
+      <Docs>
+        <param name="resourceGroupResource"> The <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" /> the method will execute against. </param>
+        <param name="vaultName"> The name of the recovery services vault. </param>
+        <param name="fabricName"> Fabric name associated with the backed up items. </param>
+        <param name="operationId"> OperationID which represents the prior getRPExtendedInfo operation whose result needs to be fetched. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            Returns the additional details of the recovery points fetched by a prior getRPExtendedInfo operation. Returns
+            202 Accepted while the operation is still running.
+            <item><term> Mocking. </term><description> To mock this method, please mock <see cref="M:Azure.ResourceManager.RecoveryServicesBackup.Mocking.MockableRecoveryServicesBackupResourceGroupResource.GetRPExtendedInfoOperationResultAsync(System.String,System.String,System.String,System.Threading.CancellationToken)" /> instead. </description></item></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="resourceGroupResource" /> is null. </exception>
+      </Docs>
+    </Member>
     <Member MemberName="GetSecurityPin">
       <MemberSignature Language="C#" Value="public static Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.TokenInformation&gt; GetSecurityPin (this Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, string vaultName, Azure.ResourceManager.RecoveryServicesBackup.Models.SecurityPinContent content, System.Threading.CancellationToken cancellationToken);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Response`1&lt;class Azure.ResourceManager.RecoveryServicesBackup.Models.TokenInformation&gt; GetSecurityPin(class Azure.ResourceManager.Resources.ResourceGroupResource resourceGroupResource, string vaultName, class Azure.ResourceManager.RecoveryServicesBackup.Models.SecurityPinContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
@@ -2291,7 +2526,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -2334,7 +2569,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.TokenInformation&gt;</ReturnType>
@@ -2373,7 +2608,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -2416,7 +2651,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.TokenInformation&gt;&gt;</ReturnType>
@@ -2455,7 +2690,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionContainerResource&gt;</ReturnType>
@@ -2492,7 +2727,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesBackup.BackupProtectionContainerResource&gt;</ReturnType>
@@ -2529,7 +2764,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.TieringCostInfo&gt;</ReturnType>
@@ -2570,7 +2805,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.TieringCostInfo&gt;&gt;</ReturnType>
@@ -2611,7 +2846,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response</ReturnType>
@@ -2651,7 +2886,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
@@ -2691,7 +2926,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.VmResourceFeatureSupportResult&gt;</ReturnType>
@@ -2726,7 +2961,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.VmResourceFeatureSupportResult&gt;&gt;</ReturnType>
@@ -2761,7 +2996,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.PreValidateEnableBackupResult&gt;</ReturnType>
@@ -2796,7 +3031,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesBackup</AssemblyName>
         <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <AssemblyVersion>1.6.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesBackup.Models.PreValidateEnableBackupResult&gt;&gt;</ReturnType>

@@ -46,6 +46,7 @@
     <AssemblyVersion>12.29.2.0</AssemblyVersion>
     <AssemblyVersion>12.30.0.0</AssemblyVersion>
     <AssemblyVersion>12.30.1.0</AssemblyVersion>
+    <AssemblyVersion>12.31.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>Azure.Storage.Blobs.Specialized.BlobBaseClient</BaseTypeName>
@@ -67,8 +68,8 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
@@ -76,6 +77,26 @@
             Initializes a new instance of the <see cref="T:Azure.Storage.Blobs.BlobClient" />
             class for mocking.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BlobClient (Azure.Storage.Blobs.BlobClientSettings settings);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Storage.Blobs.BlobClientSettings settings) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Blobs.BlobClient.#ctor(Azure.Storage.Blobs.BlobClientSettings)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (settings As BlobClientSettings)" />
+      <MemberSignature Language="F#" Value="new Azure.Storage.Blobs.BlobClient : Azure.Storage.Blobs.BlobClientSettings -&gt; Azure.Storage.Blobs.BlobClient" Usage="new Azure.Storage.Blobs.BlobClient settings" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Blobs</AssemblyName>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="settings" Type="Azure.Storage.Blobs.BlobClientSettings" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="settings"> The settings for BlobClient. </param>
+        <summary> Initializes a new instance of BlobClient from a <see cref="T:Azure.Storage.Blobs.BlobClientSettings" />. </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -88,8 +109,8 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="blobUri" Type="System.Uri" />
@@ -123,8 +144,8 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="connectionString" Type="System.String" />
@@ -163,8 +184,8 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="blobUri" Type="System.Uri" />
@@ -205,8 +226,8 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="blobUri" Type="System.Uri" />
@@ -232,7 +253,15 @@
             Initializes a new instance of the <see cref="T:Azure.Storage.Blobs.BlobClient" />
             class.
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+            Session authentication requires the storage account name, which is derived from
+            <paramref name="blobUri" /> when possible. Set <see cref="P:Azure.Storage.Blobs.Models.SessionOptions.AccountName" />
+            when using a custom endpoint URL from which the account name cannot be derived.
+            If the account name cannot be determined, this constructor throws when
+            <see cref="P:Azure.Storage.Blobs.Models.SessionOptions.SessionMode" /> was explicitly set to
+            <see cref="F:Azure.Storage.Blobs.Models.SessionMode.Enabled" />; otherwise session authentication is
+            disabled and bearer token authentication is used.
+            </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -244,8 +273,8 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="blobUri" Type="System.Uri" />
@@ -283,8 +312,8 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="connectionString" Type="System.String" />
@@ -329,8 +358,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.IO.Stream</ReturnType>
@@ -376,8 +405,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;System.IO.Stream&gt;</ReturnType>
@@ -423,8 +452,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;</ReturnType>
@@ -470,8 +499,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;</ReturnType>
@@ -517,8 +546,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;</ReturnType>
@@ -564,8 +593,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;</ReturnType>
@@ -616,8 +645,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;</ReturnType>
@@ -668,8 +697,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;</ReturnType>
@@ -720,8 +749,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;</ReturnType>
@@ -782,8 +811,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;</ReturnType>
@@ -842,8 +871,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;</ReturnType>
@@ -904,8 +933,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;</ReturnType>
@@ -961,8 +990,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;</ReturnType>
@@ -1023,8 +1052,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;</ReturnType>
@@ -1080,8 +1109,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -1173,8 +1202,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -1266,8 +1295,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;&gt;</ReturnType>
@@ -1314,8 +1343,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;&gt;</ReturnType>
@@ -1362,8 +1391,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;&gt;</ReturnType>
@@ -1409,8 +1438,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;&gt;</ReturnType>
@@ -1461,8 +1490,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;&gt;</ReturnType>
@@ -1513,8 +1542,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;&gt;</ReturnType>
@@ -1565,8 +1594,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;&gt;</ReturnType>
@@ -1627,8 +1656,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;&gt;</ReturnType>
@@ -1687,8 +1716,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;&gt;</ReturnType>
@@ -1749,8 +1778,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;&gt;</ReturnType>
@@ -1809,8 +1838,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;&gt;</ReturnType>
@@ -1871,8 +1900,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Storage.Blobs.Models.BlobContentInfo&gt;&gt;</ReturnType>
@@ -1931,8 +1960,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -1968,6 +1997,10 @@
              Optional <see cref="T:Azure.Storage.Blobs.Models.BlobRequestConditions" /> to add conditions on
              the creation of this new block blob.
              </param>
+        <param name="transferOptions">
+             Optional <see cref="T:Azure.Storage.StorageTransferOptions" /> to configure
+             parallel transfer behavior.
+             </param>
         <param name="progressHandler">
              Optional <see cref="T:System.IProgress`1" /> to provide
              progress updates about data transfers.
@@ -1975,10 +2008,6 @@
         <param name="accessTier">
              Optional <see cref="T:Azure.Storage.Blobs.Models.AccessTier" />
              Indicates the tier to be set on the blob.
-             </param>
-        <param name="transferOptions">
-             Optional <see cref="T:Azure.Storage.StorageTransferOptions" /> to configure
-             parallel transfer behavior.
              </param>
         <param name="cancellationToken">
              Optional <see cref="T:System.Threading.CancellationToken" /> to propagate
@@ -2024,8 +2053,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -2117,8 +2146,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Storage.Blobs.BlobClient</ReturnType>
@@ -2145,8 +2174,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Storage.Blobs.BlobClient</ReturnType>
@@ -2177,8 +2206,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Storage.Blobs.BlobClient</ReturnType>
@@ -2209,8 +2238,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Storage.Blobs.BlobClient</ReturnType>
@@ -2244,8 +2273,8 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Storage.Blobs</AssemblyName>
-        <AssemblyVersion>12.30.0.0</AssemblyVersion>
         <AssemblyVersion>12.30.1.0</AssemblyVersion>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Storage.Blobs.BlobClient</ReturnType>

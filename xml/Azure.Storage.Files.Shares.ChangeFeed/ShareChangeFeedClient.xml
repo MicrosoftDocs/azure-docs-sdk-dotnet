@@ -1,0 +1,691 @@
+<Type Name="ShareChangeFeedClient" FullName="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient">
+  <TypeSignature Language="C#" Value="public class ShareChangeFeedClient" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ShareChangeFeedClient extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient" />
+  <TypeSignature Language="VB.NET" Value="Public Class ShareChangeFeedClient" />
+  <TypeSignature Language="F#" Value="type ShareChangeFeedClient = class" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+    <AssemblyVersion>12.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+      <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient" /> provides operations to read the
+            Azure Files Change Feed for a specific file share. The change feed records
+            all file and directory mutations (creates, renames, deletes, writes, etc.)
+            and is backed by Avro log segments stored in a blob container whose name
+            is discovered via the share properties REST API.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected ShareChangeFeedClient ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>
+            Constructor for mocking.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ShareChangeFeedClient (string connectionString, string shareName, Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions changeFeedOptions = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string connectionString, string shareName, class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions changeFeedOptions) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.#ctor(System.String,System.String,Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (connectionString As String, shareName As String, Optional changeFeedOptions As ShareChangeFeedClientOptions = Nothing)" />
+      <MemberSignature Language="F#" Value="new Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient : string * string * Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions -&gt; Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient" Usage="new Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient (connectionString, shareName, changeFeedOptions)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="connectionString" Type="System.String" />
+        <Parameter Name="shareName" Type="System.String" />
+        <Parameter Name="changeFeedOptions" Type="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions" />
+      </Parameters>
+      <Docs>
+        <param name="connectionString">To be added.</param>
+        <param name="shareName">To be added.</param>
+        <param name="changeFeedOptions">To be added.</param>
+        <summary>
+            Initializes a new instance of <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient" />
+            using a storage connection string.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ShareChangeFeedClient (Uri fileServiceUri, string shareName, Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions changeFeedOptions = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Uri fileServiceUri, string shareName, class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions changeFeedOptions) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.#ctor(System.Uri,System.String,Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (fileServiceUri As Uri, shareName As String, Optional changeFeedOptions As ShareChangeFeedClientOptions = Nothing)" />
+      <MemberSignature Language="F#" Value="new Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient : Uri * string * Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions -&gt; Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient" Usage="new Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient (fileServiceUri, shareName, changeFeedOptions)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="fileServiceUri" Type="System.Uri" />
+        <Parameter Name="shareName" Type="System.String" />
+        <Parameter Name="changeFeedOptions" Type="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions" />
+      </Parameters>
+      <Docs>
+        <param name="fileServiceUri">To be added.</param>
+        <param name="shareName">To be added.</param>
+        <param name="changeFeedOptions">To be added.</param>
+        <summary>
+            Initializes a new instance of <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient" />
+            using a file service URI with SAS token.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ShareChangeFeedClient (Uri fileServiceUri, string shareName, Azure.Core.TokenCredential credential, Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions changeFeedOptions = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Uri fileServiceUri, string shareName, class Azure.Core.TokenCredential credential, class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions changeFeedOptions) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.#ctor(System.Uri,System.String,Azure.Core.TokenCredential,Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (fileServiceUri As Uri, shareName As String, credential As TokenCredential, Optional changeFeedOptions As ShareChangeFeedClientOptions = Nothing)" />
+      <MemberSignature Language="F#" Value="new Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient : Uri * string * Azure.Core.TokenCredential * Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions -&gt; Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient" Usage="new Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient (fileServiceUri, shareName, credential, changeFeedOptions)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="fileServiceUri" Type="System.Uri" />
+        <Parameter Name="shareName" Type="System.String" />
+        <Parameter Name="credential" Type="Azure.Core.TokenCredential" />
+        <Parameter Name="changeFeedOptions" Type="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions" />
+      </Parameters>
+      <Docs>
+        <param name="fileServiceUri">To be added.</param>
+        <param name="shareName">To be added.</param>
+        <param name="credential">To be added.</param>
+        <param name="changeFeedOptions">To be added.</param>
+        <summary>
+            Initializes a new instance of <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient" />
+            using a file service URI and token credential.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ShareChangeFeedClient (Uri fileServiceUri, string shareName, Azure.Storage.StorageSharedKeyCredential credential, Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions changeFeedOptions = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Uri fileServiceUri, string shareName, class Azure.Storage.StorageSharedKeyCredential credential, class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions changeFeedOptions) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.#ctor(System.Uri,System.String,Azure.Storage.StorageSharedKeyCredential,Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (fileServiceUri As Uri, shareName As String, credential As StorageSharedKeyCredential, Optional changeFeedOptions As ShareChangeFeedClientOptions = Nothing)" />
+      <MemberSignature Language="F#" Value="new Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient : Uri * string * Azure.Storage.StorageSharedKeyCredential * Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions -&gt; Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient" Usage="new Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient (fileServiceUri, shareName, credential, changeFeedOptions)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="fileServiceUri" Type="System.Uri" />
+        <Parameter Name="shareName" Type="System.String" />
+        <Parameter Name="credential" Type="Azure.Storage.StorageSharedKeyCredential" />
+        <Parameter Name="changeFeedOptions" Type="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions" />
+      </Parameters>
+      <Docs>
+        <param name="fileServiceUri">To be added.</param>
+        <param name="shareName">To be added.</param>
+        <param name="credential">To be added.</param>
+        <param name="changeFeedOptions">To be added.</param>
+        <summary>
+            Initializes a new instance of <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient" />
+            using a file service URI and shared key credential.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChanges">
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChanges ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChanges() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChanges" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetChanges () As Pageable(Of ShareChangeFeedEvent)" />
+      <MemberSignature Language="F#" Value="abstract member GetChanges : unit -&gt; Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;&#xA;override this.GetChanges : unit -&gt; Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;" Usage="shareChangeFeedClient.GetChanges " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Returns all change feed events for the file share.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>
+            When a reset marker is discovered on the change feed, this streaming API defaults to
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ContinueOnReset" />: the reset is yielded in-band
+            as a <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent" /> at its position in the ordered stream.
+            Explicitly setting <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions.ResetPolicy" /> overrides
+            this default; when configured with <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />
+            the enumeration throws <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException" /> at the reset
+            boundary.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChanges">
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChanges (string continuationToken);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChanges(string continuationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChanges(System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetChanges (continuationToken As String) As Pageable(Of ShareChangeFeedEvent)" />
+      <MemberSignature Language="F#" Value="abstract member GetChanges : string -&gt; Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;&#xA;override this.GetChanges : string -&gt; Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;" Usage="shareChangeFeedClient.GetChanges continuationToken" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="continuationToken" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="continuationToken">
+            A continuation token previously captured from a <see cref="P:Azure.Page`1.ContinuationToken" />.
+            </param>
+        <summary>
+            Resumes reading change feed events from a continuation token previously produced
+            by a <see cref="P:Azure.Page`1.ContinuationToken" /> on a page returned by this client.
+            </summary>
+        <returns>A pageable of change feed events resuming from the saved position.</returns>
+        <remarks>
+            To resume from a saved position, the client must be configured with
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions.IncludeNonFinalizedEvents" /> set to <c>false</c>.
+            </remarks>
+        <exception cref="T:System.ArgumentException">
+            Thrown when <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions.IncludeNonFinalizedEvents" />
+            is enabled. Resumption is not supported in non-finalized mode because pages
+            produced in that mode never carry a continuation token.
+            </exception>
+        <exception cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException">
+            Thrown at the start of enumeration when a reset marker that is newer than the one
+            captured on the token is discovered and the effective policy is
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />. Streaming APIs default to
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ContinueOnReset" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChanges">
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChanges (DateTimeOffset? start, DateTimeOffset? end);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChanges(valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; start, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; end) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChanges(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetChanges (start As Nullable(Of DateTimeOffset), end As Nullable(Of DateTimeOffset)) As Pageable(Of ShareChangeFeedEvent)" />
+      <MemberSignature Language="F#" Value="abstract member GetChanges : Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; -&gt; Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;&#xA;override this.GetChanges : Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; -&gt; Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;" Usage="shareChangeFeedClient.GetChanges (start, end)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="start" Type="System.Nullable&lt;System.DateTimeOffset&gt;" />
+        <Parameter Name="end" Type="System.Nullable&lt;System.DateTimeOffset&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="start">To be added.</param>
+        <param name="end">To be added.</param>
+        <summary>
+             Returns change feed events within the specified time range.
+             </summary>
+        <returns>To be added.</returns>
+        <remarks>
+             Events near the <paramref name="start" /> and <paramref name="end" /> boundaries
+             may be missing or unexpectedly included due to clock skew between the storage
+             service and the client.
+            
+             This batched API defaults to <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />:
+             if a reset marker falls inside the requested range, the enumeration throws
+             <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException" /> before yielding any events.
+             </remarks>
+        <exception cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException">
+             Thrown at the start of enumeration when a reset marker is discovered inside the
+             requested range and the effective policy is
+             <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />.
+             </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChangesAsync">
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChangesAsync ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChangesAsync() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChangesAsync" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetChangesAsync () As AsyncPageable(Of ShareChangeFeedEvent)" />
+      <MemberSignature Language="F#" Value="abstract member GetChangesAsync : unit -&gt; Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;&#xA;override this.GetChangesAsync : unit -&gt; Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;" Usage="shareChangeFeedClient.GetChangesAsync " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Returns all change feed events for the file share.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>
+            When a reset marker is discovered on the change feed, this streaming API defaults to
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ContinueOnReset" />: the reset is yielded in-band
+            as a <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent" /> at its position in the ordered stream.
+            Explicitly setting <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions.ResetPolicy" /> overrides
+            this default; when configured with <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />
+            the enumeration throws <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException" /> at the reset
+            boundary.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChangesAsync">
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChangesAsync (string continuationToken);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChangesAsync(string continuationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChangesAsync(System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetChangesAsync (continuationToken As String) As AsyncPageable(Of ShareChangeFeedEvent)" />
+      <MemberSignature Language="F#" Value="abstract member GetChangesAsync : string -&gt; Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;&#xA;override this.GetChangesAsync : string -&gt; Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;" Usage="shareChangeFeedClient.GetChangesAsync continuationToken" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="continuationToken" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="continuationToken">
+            A continuation token previously captured from a <see cref="P:Azure.Page`1.ContinuationToken" />.
+            </param>
+        <summary>
+            Resumes reading change feed events from a continuation token previously produced
+            by a <see cref="P:Azure.Page`1.ContinuationToken" /> on a page returned by this client.
+            </summary>
+        <returns>An async pageable of change feed events resuming from the saved position.</returns>
+        <remarks>
+            To resume from a saved position, the client must be configured with
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions.IncludeNonFinalizedEvents" /> set to <c>false</c>.
+            </remarks>
+        <exception cref="T:System.ArgumentException">
+            Thrown when <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions.IncludeNonFinalizedEvents" />
+            is enabled. Resumption is not supported in non-finalized mode because pages
+            produced in that mode never carry a continuation token.
+            </exception>
+        <exception cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException">
+            Thrown at the start of enumeration when a reset marker that is newer than the one
+            captured on the token is discovered and the effective policy is
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />. Streaming APIs default to
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ContinueOnReset" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChangesAsync">
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChangesAsync (DateTimeOffset? start, DateTimeOffset? end);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChangesAsync(valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; start, valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; end) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChangesAsync(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetChangesAsync (start As Nullable(Of DateTimeOffset), end As Nullable(Of DateTimeOffset)) As AsyncPageable(Of ShareChangeFeedEvent)" />
+      <MemberSignature Language="F#" Value="abstract member GetChangesAsync : Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; -&gt; Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;&#xA;override this.GetChangesAsync : Nullable&lt;DateTimeOffset&gt; * Nullable&lt;DateTimeOffset&gt; -&gt; Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;" Usage="shareChangeFeedClient.GetChangesAsync (start, end)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="start" Type="System.Nullable&lt;System.DateTimeOffset&gt;" />
+        <Parameter Name="end" Type="System.Nullable&lt;System.DateTimeOffset&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="start">To be added.</param>
+        <param name="end">To be added.</param>
+        <summary>
+             Returns change feed events within the specified time range.
+             </summary>
+        <returns>To be added.</returns>
+        <remarks>
+             Events near the <paramref name="start" /> and <paramref name="end" /> boundaries
+             may be missing or unexpectedly included due to clock skew between the storage
+             service and the client.
+            
+             This batched API defaults to <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />:
+             if a reset marker falls inside the requested range, the enumeration throws
+             <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException" /> before yielding any events.
+             </remarks>
+        <exception cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException">
+             Thrown at the start of enumeration when a reset marker is discovered inside the
+             requested range and the effective policy is
+             <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />.
+             </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChangesBetweenSnapshots">
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChangesBetweenSnapshots (string continuationToken);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChangesBetweenSnapshots(string continuationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChangesBetweenSnapshots(System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetChangesBetweenSnapshots (continuationToken As String) As Pageable(Of ShareChangeFeedEvent)" />
+      <MemberSignature Language="F#" Value="abstract member GetChangesBetweenSnapshots : string -&gt; Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;&#xA;override this.GetChangesBetweenSnapshots : string -&gt; Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;" Usage="shareChangeFeedClient.GetChangesBetweenSnapshots continuationToken" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="continuationToken" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="continuationToken">
+            A continuation token previously emitted by a between-snapshots query. The
+            begin and end snapshot identifiers and their container version ids are carried
+            on the token, so the original snapshot strings do not need to be supplied again.
+            </param>
+        <summary>
+            Resumes reading change feed events between two snapshots from a continuation
+            token previously captured from <see cref="P:Azure.Page`1.ContinuationToken" /> on a
+            page returned by <see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChangesBetweenSnapshots(System.String,System.String)" />.
+            </summary>
+        <returns>A pageable resuming from the saved position.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+            Thrown when the token is malformed, was issued against a different storage
+            account, or uses an unsupported cursor version.
+            </exception>
+        <exception cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException">
+            Thrown at the start of enumeration when a reset marker that is newer than the one
+            captured on the token is discovered and the effective policy is
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />. Batched APIs default to
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChangesBetweenSnapshots">
+      <MemberSignature Language="C#" Value="public virtual Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChangesBetweenSnapshots (string beginSnapshot, string endSnapshot);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Pageable`1&lt;class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChangesBetweenSnapshots(string beginSnapshot, string endSnapshot) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChangesBetweenSnapshots(System.String,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetChangesBetweenSnapshots (beginSnapshot As String, endSnapshot As String) As Pageable(Of ShareChangeFeedEvent)" />
+      <MemberSignature Language="F#" Value="abstract member GetChangesBetweenSnapshots : string * string -&gt; Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;&#xA;override this.GetChangesBetweenSnapshots : string * string -&gt; Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;" Usage="shareChangeFeedClient.GetChangesBetweenSnapshots (beginSnapshot, endSnapshot)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Pageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="beginSnapshot" Type="System.String" />
+        <Parameter Name="endSnapshot" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="beginSnapshot">To be added.</param>
+        <param name="endSnapshot">To be added.</param>
+        <summary>
+            Returns change feed events between two snapshots, filtered by container version ID.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>
+            This batched API defaults to <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />:
+            if a reset marker falls between the two snapshot timestamps, the enumeration throws
+            <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException" /> before yielding any events. Consumers
+            receiving this exception must treat the snapshot diff as unreliable and re-baseline.
+            </remarks>
+        <exception cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException">
+            Thrown at the start of enumeration when a reset marker falls between
+            <paramref name="beginSnapshot" /> and <paramref name="endSnapshot" /> and the effective
+            policy is <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChangesBetweenSnapshotsAsync">
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChangesBetweenSnapshotsAsync (string continuationToken);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChangesBetweenSnapshotsAsync(string continuationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChangesBetweenSnapshotsAsync(System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetChangesBetweenSnapshotsAsync (continuationToken As String) As AsyncPageable(Of ShareChangeFeedEvent)" />
+      <MemberSignature Language="F#" Value="abstract member GetChangesBetweenSnapshotsAsync : string -&gt; Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;&#xA;override this.GetChangesBetweenSnapshotsAsync : string -&gt; Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;" Usage="shareChangeFeedClient.GetChangesBetweenSnapshotsAsync continuationToken" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="continuationToken" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="continuationToken">
+            A continuation token previously emitted by a between-snapshots query. The
+            begin and end snapshot identifiers and their container version ids are carried
+            on the token, so the original snapshot strings do not need to be supplied again.
+            </param>
+        <summary>
+            Resumes reading change feed events between two snapshots from a continuation
+            token previously captured from <see cref="P:Azure.Page`1.ContinuationToken" /> on a
+            page returned by <see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChangesBetweenSnapshotsAsync(System.String,System.String)" />.
+            </summary>
+        <returns>An async pageable resuming from the saved position.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+            Thrown when the token is malformed, was issued against a different storage
+            account, or uses an unsupported cursor version.
+            </exception>
+        <exception cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException">
+            Thrown at the start of enumeration when a reset marker that is newer than the one
+            captured on the token is discovered and the effective policy is
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />. Batched APIs default to
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChangesBetweenSnapshotsAsync">
+      <MemberSignature Language="C#" Value="public virtual Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChangesBetweenSnapshotsAsync (string beginSnapshot, string endSnapshot);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.AsyncPageable`1&lt;class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt; GetChangesBetweenSnapshotsAsync(string beginSnapshot, string endSnapshot) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChangesBetweenSnapshotsAsync(System.String,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetChangesBetweenSnapshotsAsync (beginSnapshot As String, endSnapshot As String) As AsyncPageable(Of ShareChangeFeedEvent)" />
+      <MemberSignature Language="F#" Value="abstract member GetChangesBetweenSnapshotsAsync : string * string -&gt; Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;&#xA;override this.GetChangesBetweenSnapshotsAsync : string * string -&gt; Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;" Usage="shareChangeFeedClient.GetChangesBetweenSnapshotsAsync (beginSnapshot, endSnapshot)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AsyncPageable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="beginSnapshot" Type="System.String" />
+        <Parameter Name="endSnapshot" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="beginSnapshot">To be added.</param>
+        <param name="endSnapshot">To be added.</param>
+        <summary>
+            Returns change feed events between two snapshots, filtered by container version ID.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>
+            This batched API defaults to <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />:
+            if a reset marker falls between the two snapshot timestamps, the enumeration throws
+            <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException" /> before yielding any events. Consumers
+            receiving this exception must treat the snapshot diff as unreliable and re-baseline.
+            </remarks>
+        <exception cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException">
+            Thrown at the start of enumeration when a reset marker falls between
+            <paramref name="beginSnapshot" /> and <paramref name="endSnapshot" /> and the effective
+            policy is <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetLastConsumable">
+      <MemberSignature Language="C#" Value="public virtual DateTimeOffset? GetLastConsumable (System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; GetLastConsumable(valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetLastConsumable(System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetLastConsumable (Optional cancellationToken As CancellationToken = Nothing) As Nullable(Of DateTimeOffset)" />
+      <MemberSignature Language="F#" Value="abstract member GetLastConsumable : System.Threading.CancellationToken -&gt; Nullable&lt;DateTimeOffset&gt;&#xA;override this.GetLastConsumable : System.Threading.CancellationToken -&gt; Nullable&lt;DateTimeOffset&gt;" Usage="shareChangeFeedClient.GetLastConsumable cancellationToken" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;System.DateTimeOffset&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="cancellationToken">To be added.</param>
+        <summary>
+            Gets the last consumable timestamp from the change feed.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetLastConsumableAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;DateTimeOffset?&gt; GetLastConsumableAsync (System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt;&gt; GetLastConsumableAsync(valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetLastConsumableAsync(System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetLastConsumableAsync (Optional cancellationToken As CancellationToken = Nothing) As Task(Of Nullable(Of DateTimeOffset))" />
+      <MemberSignature Language="F#" Value="abstract member GetLastConsumableAsync : System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Nullable&lt;DateTimeOffset&gt;&gt;&#xA;override this.GetLastConsumableAsync : System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Nullable&lt;DateTimeOffset&gt;&gt;" Usage="shareChangeFeedClient.GetLastConsumableAsync cancellationToken" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;System.Nullable&lt;System.DateTimeOffset&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="cancellationToken">To be added.</param>
+        <summary>
+            Gets the last consumable timestamp from the change feed.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSnapshotStatus">
+      <MemberSignature Language="C#" Value="public virtual Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedSnapshotStatus GetSnapshotStatus (string snapshotTimestamp, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedSnapshotStatus GetSnapshotStatus(string snapshotTimestamp, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetSnapshotStatus(System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetSnapshotStatus (snapshotTimestamp As String, Optional cancellationToken As CancellationToken = Nothing) As ShareChangeFeedSnapshotStatus" />
+      <MemberSignature Language="F#" Value="abstract member GetSnapshotStatus : string * System.Threading.CancellationToken -&gt; Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedSnapshotStatus&#xA;override this.GetSnapshotStatus : string * System.Threading.CancellationToken -&gt; Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedSnapshotStatus" Usage="shareChangeFeedClient.GetSnapshotStatus (snapshotTimestamp, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedSnapshotStatus</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="snapshotTimestamp" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="snapshotTimestamp">
+            The ISO 8601 UTC timestamp identifying the share snapshot (for example,
+            <c>"2024-01-15T08:00:00.000Z"</c>). Must end with <c>'Z'</c>.
+            </param>
+        <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+        <summary>
+            Reports whether a share snapshot is recorded in the change feed and, if so,
+            whether it has been finalized.
+            </summary>
+        <returns>
+          <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedSnapshotStatus.NotFound" /> when the change feed has no
+            metadata for the supplied timestamp, <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedSnapshotStatus.Pending" />
+            when metadata exists but the snapshot has not yet been finalized, or
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedSnapshotStatus.Finalized" /> when the snapshot is fully
+            recorded and can be used with
+            <see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChangesBetweenSnapshots(System.String,System.String)" />.
+            </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+            Thrown when <paramref name="snapshotTimestamp" /> is null or empty.
+            </exception>
+        <exception cref="T:System.ArgumentException">
+            Thrown when <paramref name="snapshotTimestamp" /> is not a valid UTC ISO 8601 timestamp
+            ending with <c>'Z'</c>.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSnapshotStatusAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedSnapshotStatus&gt; GetSnapshotStatusAsync (string snapshotTimestamp, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;valuetype Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedSnapshotStatus&gt; GetSnapshotStatusAsync(string snapshotTimestamp, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetSnapshotStatusAsync(System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetSnapshotStatusAsync (snapshotTimestamp As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ShareChangeFeedSnapshotStatus)" />
+      <MemberSignature Language="F#" Value="abstract member GetSnapshotStatusAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedSnapshotStatus&gt;&#xA;override this.GetSnapshotStatusAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedSnapshotStatus&gt;" Usage="shareChangeFeedClient.GetSnapshotStatusAsync (snapshotTimestamp, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedSnapshotStatus&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="snapshotTimestamp" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="snapshotTimestamp">
+            The ISO 8601 UTC timestamp identifying the share snapshot (for example,
+            <c>"2024-01-15T08:00:00.000Z"</c>). Must end with <c>'Z'</c>.
+            </param>
+        <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+        <summary>
+            Reports whether a share snapshot is recorded in the change feed and, if so,
+            whether it has been finalized.
+            </summary>
+        <returns>
+          <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedSnapshotStatus.NotFound" /> when the change feed has no
+            metadata for the supplied timestamp, <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedSnapshotStatus.Pending" />
+            when metadata exists but the snapshot has not yet been finalized, or
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedSnapshotStatus.Finalized" /> when the snapshot is fully
+            recorded and can be used with
+            <see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChangesBetweenSnapshotsAsync(System.String,System.String)" />.
+            </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+            Thrown when <paramref name="snapshotTimestamp" /> is null or empty.
+            </exception>
+        <exception cref="T:System.ArgumentException">
+            Thrown when <paramref name="snapshotTimestamp" /> is not a valid UTC ISO 8601 timestamp
+            ending with <c>'Z'</c>.
+            </exception>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

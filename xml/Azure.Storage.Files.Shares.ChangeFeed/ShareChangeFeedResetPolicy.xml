@@ -1,0 +1,324 @@
+<Type Name="ShareChangeFeedResetPolicy" FullName="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy">
+  <TypeSignature Language="C#" Value="public readonly struct ShareChangeFeedResetPolicy : IEquatable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit ShareChangeFeedResetPolicy extends System.ValueType implements class System.IEquatable`1&lt;valuetype Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy&gt;" />
+  <TypeSignature Language="DocId" Value="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy" />
+  <TypeSignature Language="VB.NET" Value="Public Structure ShareChangeFeedResetPolicy&#xA;Implements IEquatable(Of ShareChangeFeedResetPolicy)" />
+  <TypeSignature Language="F#" Value="type ShareChangeFeedResetPolicy = struct" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+    <AssemblyVersion>12.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.IEquatable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy&gt;</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>
+             Controls how <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient" /> reacts when a change feed reset marker
+             is discovered during enumeration.
+             </summary>
+    <remarks>
+             Azure Files emits a reset marker on events such as HardFailover or classic account
+             migration. A reset breaks log-sequence continuity, so consumers must decide whether to
+             stop and re-baseline or observe the reset in the ordered stream and continue reading.
+            
+             If <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions.ResetPolicy" /> is <c>null</c>, the client
+             applies a per-API default:
+             <list type="bullet"><item><description>
+                 Batched APIs (<see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChanges(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})" />,
+                 <see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChangesBetweenSnapshots(System.String,System.String)" />, and their
+                 continuation-token / async counterparts) default to <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" /> so
+                 correctness-sensitive consumers fail fast when a reset falls inside the requested range.
+                 </description></item><item><description>
+                 Streaming APIs (<see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChanges" /> and
+                 <see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChanges(System.String)" /> plus their async counterparts)
+                 default to <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ContinueOnReset" /> so consumers receive the reset event in-band
+                 at its ordered position.
+                 </description></item></list>
+             Explicitly setting <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions.ResetPolicy" /> overrides the
+             per-API default for every method on the client.
+             </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ShareChangeFeedResetPolicy (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string value) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.#ctor(System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (value As String)" />
+      <MemberSignature Language="F#" Value="new Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy : string -&gt; Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy" Usage="new Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy value" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="value" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="value">The reset policy string.</param>
+        <summary>
+            Initializes a new <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy" /> with a custom string value.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ContinueOnReset">
+      <MemberSignature Language="C#" Value="public static Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy ContinueOnReset { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy ContinueOnReset" />
+      <MemberSignature Language="DocId" Value="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ContinueOnReset" />
+      <MemberSignature Language="VB.NET" Value="Public Shared ReadOnly Property ContinueOnReset As ShareChangeFeedResetPolicy" />
+      <MemberSignature Language="F#" Value="static member ContinueOnReset : Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy" Usage="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ContinueOnReset" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            When a reset marker is detected, surface it in-band as a
+            <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent" /> at its position in the ordered stream and
+            continue enumeration. Consumers must decide whether to stop, re-baseline, or keep
+            reading past the marker.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public bool Equals (Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy other);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Equals(valuetype Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy other) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.Equals(Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy)" />
+      <MemberSignature Language="VB.NET" Value="Public Function Equals (other As ShareChangeFeedResetPolicy) As Boolean" />
+      <MemberSignature Language="F#" Value="override this.Equals : Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy -&gt; bool" Usage="shareChangeFeedResetPolicy.Equals other" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.IEquatable`1.Equals(`0)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="other" Type="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy" />
+      </Parameters>
+      <Docs>
+        <param name="other">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public override bool Equals (object obj);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Equals(object obj) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.Equals(System.Object)" />
+      <MemberSignature Language="VB.NET" Value="Public Overrides Function Equals (obj As Object) As Boolean" />
+      <MemberSignature Language="F#" Value="override this.Equals : obj -&gt; bool" Usage="shareChangeFeedResetPolicy.Equals obj" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="obj" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="obj">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetHashCode">
+      <MemberSignature Language="C#" Value="public override int GetHashCode ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance int32 GetHashCode() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.GetHashCode" />
+      <MemberSignature Language="VB.NET" Value="Public Overrides Function GetHashCode () As Integer" />
+      <MemberSignature Language="F#" Value="override this.GetHashCode : unit -&gt; int" Usage="shareChangeFeedResetPolicy.GetHashCode " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Equality">
+      <MemberSignature Language="C#" Value="public static bool operator == (Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy left, Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname bool op_Equality(valuetype Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy left, valuetype Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy right) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.op_Equality(Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy,Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Operator == (left As ShareChangeFeedResetPolicy, right As ShareChangeFeedResetPolicy) As Boolean" />
+      <MemberSignature Language="F#" Value="static member ( = ) : Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy * Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy -&gt; bool" Usage="left = right" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy" />
+        <Parameter Name="right" Type="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy" />
+      </Parameters>
+      <Docs>
+        <param name="left">To be added.</param>
+        <param name="right">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Implicit">
+      <MemberSignature Language="C#" Value="public static implicit operator Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy op_Implicit(string value) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.op_Implicit(System.String)~Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Widening Operator CType (value As String) As ShareChangeFeedResetPolicy" />
+      <MemberSignature Language="F#" Value="static member op_Implicit : string -&gt; Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy" Usage="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.op_Implicit value" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Implicit">
+      <MemberSignature Language="C#" Value="public static implicit operator Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy? (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype System.Nullable`1&lt;valuetype Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy&gt; op_Implicit(string value) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.op_Implicit(System.String)~System.Nullable{Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy}" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Widening Operator CType (value As String) As Nullable(Of ShareChangeFeedResetPolicy)" />
+      <MemberSignature Language="F#" Value="static member op_Implicit : string -&gt; Nullable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy&gt;" Usage="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.op_Implicit value" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Inequality">
+      <MemberSignature Language="C#" Value="public static bool operator != (Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy left, Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname bool op_Inequality(valuetype Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy left, valuetype Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy right) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.op_Inequality(Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy,Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Operator != (left As ShareChangeFeedResetPolicy, right As ShareChangeFeedResetPolicy) As Boolean" />
+      <MemberSignature Language="F#" Value="static member op_Inequality : Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy * Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy -&gt; bool" Usage="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.op_Inequality (left, right)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy" />
+        <Parameter Name="right" Type="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy" />
+      </Parameters>
+      <Docs>
+        <param name="left">To be added.</param>
+        <param name="right">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ThrowOnReset">
+      <MemberSignature Language="C#" Value="public static Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy ThrowOnReset { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy ThrowOnReset" />
+      <MemberSignature Language="DocId" Value="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />
+      <MemberSignature Language="VB.NET" Value="Public Shared ReadOnly Property ThrowOnReset As ShareChangeFeedResetPolicy" />
+      <MemberSignature Language="F#" Value="static member ThrowOnReset : Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy" Usage="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            When a reset marker is detected, throw <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException" />.
+            Batched APIs fail before yielding any events when the requested range crosses a reset
+            boundary; streaming APIs stop at the reset boundary.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToString">
+      <MemberSignature Language="C#" Value="public override string ToString ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance string ToString() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ToString" />
+      <MemberSignature Language="VB.NET" Value="Public Overrides Function ToString () As String" />
+      <MemberSignature Language="F#" Value="override this.ToString : unit -&gt; string" Usage="shareChangeFeedResetPolicy.ToString " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

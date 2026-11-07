@@ -1,0 +1,132 @@
+<Type Name="ShareChangeFeedResetException" FullName="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException">
+  <TypeSignature Language="C#" Value="public class ShareChangeFeedResetException : Exception" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ShareChangeFeedResetException extends System.Exception" />
+  <TypeSignature Language="DocId" Value="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException" />
+  <TypeSignature Language="VB.NET" Value="Public Class ShareChangeFeedResetException&#xA;Inherits Exception" />
+  <TypeSignature Language="F#" Value="type ShareChangeFeedResetException = class&#xA;    inherit Exception" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+    <AssemblyVersion>12.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Exception</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Thrown by <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient" /> when a reset marker is discovered on
+            the change feed and the effective reset policy is
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />.
+            </summary>
+    <remarks>
+            A reset marker signals that log-sequence continuity has been broken (for example, by a
+            HardFailover or classic account migration). Batched APIs
+            (<see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChanges(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})" />
+            and <see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChangesBetweenSnapshots(System.String,System.String)" />) fail
+            fast before yielding any events when the requested range crosses a reset boundary; the
+            streaming <see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChanges" /> overloads stop at the reset
+            boundary. Inspect <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException.ResetEvent" /> to recover reset context (id, time, account,
+            share, reason) and drive the appropriate recovery path (typically a full re-baseline).
+            </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ShareChangeFeedResetException (Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent resetEvent);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent resetEvent) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException.#ctor(Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (resetEvent As ShareChangeFeedResetEvent)" />
+      <MemberSignature Language="F#" Value="new Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException : Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent -&gt; Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException" Usage="new Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException resetEvent" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="resetEvent" Type="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent" />
+      </Parameters>
+      <Docs>
+        <param name="resetEvent">The reset event that triggered the exception.</param>
+        <summary>
+            Initializes a new <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException" /> around the supplied
+            reset event, using a generated default message.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ShareChangeFeedResetException (Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent resetEvent, string message);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent resetEvent, string message) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException.#ctor(Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (resetEvent As ShareChangeFeedResetEvent, message As String)" />
+      <MemberSignature Language="F#" Value="new Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException : Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent * string -&gt; Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException" Usage="new Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException (resetEvent, message)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="resetEvent" Type="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent" />
+        <Parameter Name="message" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="resetEvent">The reset event that triggered the exception.</param>
+        <param name="message">A descriptive error message.</param>
+        <summary>
+            Initializes a new <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException" /> with a caller-supplied
+            message.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ShareChangeFeedResetException (Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent resetEvent, string message, Exception innerException);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent resetEvent, string message, class System.Exception innerException) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException.#ctor(Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent,System.String,System.Exception)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (resetEvent As ShareChangeFeedResetEvent, message As String, innerException As Exception)" />
+      <MemberSignature Language="F#" Value="new Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException : Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent * string * Exception -&gt; Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException" Usage="new Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException (resetEvent, message, innerException)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="resetEvent" Type="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent" />
+        <Parameter Name="message" Type="System.String" />
+        <Parameter Name="innerException" Type="System.Exception" />
+      </Parameters>
+      <Docs>
+        <param name="resetEvent">The reset event that triggered the exception.</param>
+        <param name="message">A descriptive error message.</param>
+        <param name="innerException">The exception that caused the current exception.</param>
+        <summary>
+            Initializes a new <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException" /> with a caller-supplied
+            message and inner exception.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResetEvent">
+      <MemberSignature Language="C#" Value="public Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent ResetEvent { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent ResetEvent" />
+      <MemberSignature Language="DocId" Value="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException.ResetEvent" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ResetEvent As ShareChangeFeedResetEvent" />
+      <MemberSignature Language="F#" Value="member this.ResetEvent : Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent" Usage="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException.ResetEvent" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The reset marker discovered on the change feed. Never <c>null</c> for exceptions
+            produced by the SDK; the property is nullable only to support serialization.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
