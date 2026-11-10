@@ -89,7 +89,7 @@ catch (Exception ex)
 
 if (authResult != null)
 {
-    System.Diagnostics.Debug.WriteLine($"Access token:{System.Environment.NewLine}{authResult.AccessToken}");
+    System.Diagnostics.Debug.WriteLine($"Signed in as {authResult.Account?.Username}. Token expires on: {authResult.ExpiresOn}");
 }
 ```
 
