@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.AI.AgentServer.Activity, agentserver
-ms.date: 11/05/2026
+ms.date: 11/10/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: agentserver
@@ -173,7 +173,7 @@ acknowledged with **HTTP 202 Accepted**; the reply is delivered asynchronously t
 
 ## Examples
 
-Compiled walkthroughs live in the [samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Activity_1.0.0-beta.1/sdk/agentserver/Azure.AI.AgentServer.Activity/samples)
+Compiled walkthroughs live in the [samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agentserver/Azure.AI.AgentServer.Activity/samples)
 directory (getting started, welcome/commands, digital worker, customizing the build, custom request
 handler, injected application, M365-native hosting, the three hosting tiers, Adaptive Cards, and
 invoke activities). Deployable projects are in the Foundry hosted-agents sample gallery.
@@ -190,17 +190,17 @@ invoke activities). Deployable projects are in the Foundry hosted-agents sample 
 
 ## Next steps
 
-- Read the [hosting & handler guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AgentServer.Activity_1.0.0-beta.1/sdk/agentserver/Azure.AI.AgentServer.Activity/docs/hosting-guide.md) for the full hosting-tier and handler reference.
-- Review the [activity protocol samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Activity_1.0.0-beta.1/sdk/agentserver/Azure.AI.AgentServer.Activity/samples).
-- Learn about the shared host in [`Azure.AI.AgentServer.Core`](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Activity_1.0.0-beta.1/sdk/agentserver/Azure.AI.AgentServer.Core).
+- Read the [hosting & handler guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/agentserver/Azure.AI.AgentServer.Activity/docs/hosting-guide.md) for the full hosting-tier and handler reference.
+- Review the [activity protocol samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agentserver/Azure.AI.AgentServer.Activity/samples).
+- Learn about the shared host in [`Azure.AI.AgentServer.Core`](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agentserver/Azure.AI.AgentServer.Core).
 
 ## Contributing
 
 This project welcomes contributions and suggestions. See the repository
-[CONTRIBUTING.md](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AgentServer.Activity_1.0.0-beta.1/CONTRIBUTING.md) for details.
+[CONTRIBUTING.md](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md) for details.
 
 <!-- LINKS -->
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Activity_1.0.0-beta.1/sdk/agentserver/Azure.AI.AgentServer.Activity/src
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agentserver/Azure.AI.AgentServer.Activity/src
 [nuget]: https://www.nuget.org/packages/Azure.AI.AgentServer.Activity
 [product_doc]: https://learn.microsoft.com/azure/ai-foundry/
 
