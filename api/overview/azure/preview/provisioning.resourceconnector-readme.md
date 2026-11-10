@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning Resource Connector client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.ResourceConnector, resourceconnector
-ms.date: 11/04/2026
+ms.date: 11/10/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: resourceconnector
 ---
-# Azure Provisioning Resource Connector client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning Resource Connector client library for .NET - version 1.0.0-alpha.20261109.1 
 
 
 Azure.Provisioning.ResourceConnector simplifies declarative resource provisioning for Azure Resource Connector in .NET.
@@ -64,7 +64,7 @@ infra.Add(new ProvisioningOutput("applianceId", typeof(string)) { Value = applia
 
 ## Next steps
 
-See the [Azure.Provisioning documentation](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.ResourceConnector_1.0.0-beta.1/sdk/provisioning/Azure.Provisioning) for more information about building and deploying infrastructure.
+See the [Azure.Provisioning documentation](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning/Azure.Provisioning) for more information about building and deploying infrastructure.
 
 ## Contributing
 
@@ -86,7 +86,7 @@ For more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.ResourceConnector_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
