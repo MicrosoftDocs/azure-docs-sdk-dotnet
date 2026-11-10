@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: ai
 ---
-# Azure AI Extensions OpenAI client library for .NET - version 3.0.0-alpha.20261109.2 
+# Azure AI Extensions OpenAI client library for .NET - version 3.0.0-alpha.20261110.1 
 
 
 Develop Agents using the Azure AI Foundry platform, leveraging an extensive ecosystem of models, tools, and capabilities from OpenAI, Microsoft, and other LLM providers.
@@ -212,7 +212,7 @@ Console.WriteLine(response.GetOutputText());
 
 Alternatively, we can stream the response.
 ```C# Snippet:Sample_WriteOutput_ResponseStreaming_Async
-await foreach (StreamingResponseUpdate streamResponse in await responsesClient.CreateResponseStreamingAsync("What is the size of France in square miles?"))
+await foreach (StreamingResponseUpdate streamResponse in responsesClient.CreateResponseStreamingAsync("What is the size of France in square miles?"))
 {
     if (streamResponse is StreamingResponseCreatedUpdate createUpdate)
     {
@@ -833,7 +833,7 @@ do
         if (responseItem is ComputerCallResponseItem computerCall)
         {
             currentScreenshot = ProcessComputerUseCall(computerCall, currentScreenshot);
-            responseOptions.InputItems.Add(ResponseItem.CreateComputerCallOutputItem(callId: computerCall.CallId, output: ComputerCallOutput.CreateComputerScreenshotOutput(screenshotImageFileId: screenshots[currentScreenshot])));
+            responseOptions.InputItems.Add(ResponseItem.CreateComputerCallOutputItem(callId: computerCall.CallId, output: ComputerCallOutput.CreateScreenshotOutput(screenshotImageFileId: screenshots[currentScreenshot])));
         }
     }
     limitIteration--;
@@ -1231,7 +1231,7 @@ ProjectResponsesClient responseClient = projectClient.ProjectOpenAIClient.GetPro
 
 string annotation = "";
 string text = "";
-await foreach (StreamingResponseUpdate streamResponse in await responseClient.CreateResponseStreamingAsync("What is the temperature rating of the cozynights sleeping bag?"))
+await foreach (StreamingResponseUpdate streamResponse in responseClient.CreateResponseStreamingAsync("What is the temperature rating of the cozynights sleeping bag?"))
 {
     if (streamResponse is StreamingResponseCreatedUpdate createUpdate)
     {
@@ -1297,7 +1297,7 @@ ProjectResponsesClient responseClient = projectClient.ProjectOpenAIClient.GetPro
 
 string annotation = "";
 string text = "";
-await foreach (StreamingResponseUpdate streamResponse in await responseClient.CreateResponseStreamingAsync("How does wikipedia explain Euler's Identity?"))
+await foreach (StreamingResponseUpdate streamResponse in responseClient.CreateResponseStreamingAsync("How does wikipedia explain Euler's Identity?"))
 {
     if (streamResponse is StreamingResponseCreatedUpdate createUpdate)
     {
@@ -1609,7 +1609,7 @@ CreateResponseOptions responseOptions = new()
             "Click on 'YTD' at the top of that chart, and report the percent value that shows up just below it.")
     }
 };
-await foreach (StreamingResponseUpdate update in await responseClient.CreateResponseStreamingAsync(responseOptions))
+await foreach (StreamingResponseUpdate update in responseClient.CreateResponseStreamingAsync(responseOptions))
 {
     ParseResponse(update);
 }

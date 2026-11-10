@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: ai
 ---
-# Azure AI Projects Agents client library for .NET - version 3.0.0-alpha.20261109.2 
+# Azure AI Projects Agents client library for .NET - version 3.0.0-alpha.20261110.1 
 
 
 Develop Agents using the Azure AI Foundry platform, leveraging an extensive ecosystem of models, tools, and capabilities from OpenAI, Microsoft, and other LLM providers.
