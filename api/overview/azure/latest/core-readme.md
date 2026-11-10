@@ -1,12 +1,12 @@
 ---
 title: Azure Core shared client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Core, core
-ms.date: 10/26/2026
+ms.date: 11/10/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: core
 ---
-# Azure Core shared client library for .NET - version 1.64.0 
+# Azure Core shared client library for .NET - version 1.65.0 
 
 
 Azure.Core provides shared primitives, abstractions, and helpers for modern .NET Azure SDK client libraries.
@@ -47,11 +47,11 @@ We guarantee that all client instance methods are thread-safe and independent of
 
 ### Additional concepts
 <!-- CLIENT COMMON BAR -->
-[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.64.0/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
-[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.64.0/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
-[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.64.0/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
-[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.64.0/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
-[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.64.0/sdk/core/Azure.Core/samples/Diagnostics.md) |
+[Client options](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.65.0/sdk/core/Azure.Core/README.md#configuring-service-clients-using-clientoptions) |
+[Accessing the response](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.65.0/sdk/core/Azure.Core/README.md#accessing-http-response-details-using-responset) |
+[Long-running operations](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.65.0/sdk/core/Azure.Core/README.md#consuming-long-running-operations-using-operationt) |
+[Handling failures](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.65.0/sdk/core/Azure.Core/README.md#reporting-errors-requestfailedexception) |
+[Diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.65.0/sdk/core/Azure.Core/samples/Diagnostics.md) |
 [Mocking](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking) |
 [Client lifetime](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/)
 <!-- CLIENT COMMON BAR -->
@@ -80,7 +80,7 @@ to configure the binding, service-account permissions, and workload identity
 webhook settings. Enabling the SDK option does not create resources or grant
 permission to use the managed identity. Use `WorkloadIdentityCredential` directly;
 this mode is not supported by `DefaultAzureCredential` or `ManagedIdentityCredential`.
-The [Azure.Core live tests](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.64.0/sdk/core/Azure.Core/tests/IdentityBinding/WorkloadIdentityBindingTests.md) describe validation
+The [Azure.Core live tests](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.65.0/sdk/core/Azure.Core/tests/IdentityBinding/WorkloadIdentityBindingTests.md) describe validation
 against real AKS resources.
 
 ### Configuring Service Clients Using `ClientOptions`
@@ -116,7 +116,7 @@ SecretClientOptions options = new SecretClientOptions()
 SecretClient client = new SecretClient(new Uri("http://example.com"), new DefaultAzureCredential(), options);
 ```
 
-More on client configuration in [client configuration samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.64.0/sdk/core/Azure.Core/samples/Configuration.md).
+More on client configuration in [client configuration samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.65.0/sdk/core/Azure.Core/samples/Configuration.md).
 
 ### Accessing HTTP Response Details Using `Response<T>`
 
@@ -149,7 +149,7 @@ foreach (HttpHeader header in http.Headers)
 }
 ```
 
-More on response types in [response samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.64.0/sdk/core/Azure.Core/samples/Response.md).
+More on response types in [response samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.65.0/sdk/core/Azure.Core/samples/Response.md).
 
 ### Setting up console logging
 
@@ -160,7 +160,7 @@ To create an Azure SDK log listener that outputs messages to console use `AzureE
 using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsoleLogger();
 ```
 
-More on logging in [diagnostics samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.64.0/sdk/core/Azure.Core/samples/Diagnostics.md).
+More on logging in [diagnostics samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.65.0/sdk/core/Azure.Core/samples/Diagnostics.md).
 
 ### Reporting Errors `RequestFailedException`
 
@@ -179,7 +179,7 @@ catch (RequestFailedException e) when (e.Status == 404)
 }
 ```
 
-More on handling responses in [response samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.64.0/sdk/core/Azure.Core/samples/Response.md).
+More on handling responses in [response samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.65.0/sdk/core/Azure.Core/samples/Response.md).
 
 ### Consuming Service Methods Returning `AsyncPageable<T>`
 
@@ -217,7 +217,7 @@ Console.WriteLine(value.Name);
 Console.WriteLine(value.ScheduledPurgeDate);
 ```
 
-More on long-running operations in [long-running operation samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.64.0/sdk/core/Azure.Core/samples/LongRunningOperations.md).
+More on long-running operations in [long-running operation samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.65.0/sdk/core/Azure.Core/samples/LongRunningOperations.md).
 
 ### Customizing Requests Using `RequestContext`
 
@@ -231,7 +231,7 @@ context.AddClassifier(404, isError: false);
 Response response = await client.GetPetAsync("pet1", context);
 ```
 
-More on request customization in [RequestContext samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.64.0/sdk/core/Azure.Core/samples/RequestContext.md).
+More on request customization in [RequestContext samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.65.0/sdk/core/Azure.Core/samples/RequestContext.md).
 
 ### Mocking
 
@@ -277,17 +277,25 @@ var credential = new DefaultAzureCredential();
 var client = new SecretClient(new Uri("https://myvault.vault.azure.net/"), credential);
 ```
 
+#### Managed identities on Azure Arc
+
+On [Azure Arc-enabled servers](https://learn.microsoft.com/azure/azure-arc/servers/managed-identity-authentication) with user-assigned managed identity support, `ManagedIdentityCredential` supports both system-assigned and user-assigned identities. Select an attached user-assigned identity with `ManagedIdentityId.FromUserAssignedClientId`, `ManagedIdentityId.FromUserAssignedResourceId`, or `ManagedIdentityId.FromUserAssignedObjectId`.
+
+`DefaultAzureCredential` supports selecting an Arc user-assigned identity through `DefaultAzureCredentialOptions.ManagedIdentityClientId` (also defaulted from `AZURE_CLIENT_ID`) or `ManagedIdentityResourceId`. Configure only one selector. Without a selector, the system-assigned identity is used.
+
+These credentials remain in the `Azure.Identity` namespace and are included in `Azure.Core`; no separate Azure.Identity package is required. User-assigned authentication requires a compatible Arc agent and an identity assigned to the host. If the host does not honor the selected identity or the identity is not assigned, authentication fails rather than silently falling back to the system-assigned identity.
+
 ## Distributed tracing with OpenTelemetry
 
 Azure SDKs are instrumented for distributed tracing using [OpenTelemetry](https://opentelemetry.io/). Distributed tracing allows to follow request through multiple services, record how long network or logical call take along with structured properties describing such operations.
 
-More on diagnostics in [diagnostics samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.64.0/sdk/core/Azure.Core/samples/Diagnostics.md).
+More on diagnostics in [diagnostics samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.65.0/sdk/core/Azure.Core/samples/Diagnostics.md).
 
 To setup distributed tracing for your application follow your observability vendor documentation. If you use Azure Monitor, follow the [Start Monitoring Application](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-enable?tabs=aspnetcore) guide.
 
 ## Troubleshooting
 
-Three main ways of troubleshooting failures are [inspecting exceptions](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.64.0/sdk/core/Azure.Core/samples/Response.md#handling-exceptions), enabling [logging](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.64.0/sdk/core/Azure.Core/samples/Diagnostics.md#Logging), and [distributed tracing](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.64.0/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing)
+Three main ways of troubleshooting failures are [inspecting exceptions](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.65.0/sdk/core/Azure.Core/samples/Response.md#handling-exceptions), enabling [logging](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.65.0/sdk/core/Azure.Core/samples/Diagnostics.md#Logging), and [distributed tracing](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.65.0/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing)
 
 ## Next steps
 
@@ -301,7 +309,7 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 
 This project has adopted the [Microsoft Open Source Code of Conduct][code_of_conduct]. For more information see the [Code of Conduct FAQ][code_of_conduct_faq] or contact opencode@microsoft.com with any additional questions or comments.
 
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.64.0/sdk/core/Azure.Core/src
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.65.0/sdk/core/Azure.Core/src
 [package]: https://www.nuget.org/packages/Azure.Core/
 [docs]: https://learn.microsoft.com/dotnet/api/azure.core
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct
