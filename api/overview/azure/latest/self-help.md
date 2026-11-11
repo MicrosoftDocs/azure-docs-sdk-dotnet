@@ -1,7 +1,7 @@
 ---
 title: Azure Self Help SDK for .NET
 description: Reference for Azure Self Help SDK for .NET
-ms.date: 11/10/2026
+ms.date: 11/11/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: selfhelp

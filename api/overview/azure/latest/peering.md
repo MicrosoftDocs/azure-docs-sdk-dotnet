@@ -1,7 +1,7 @@
 ---
 title: Azure Peering SDK for .NET
 description: Reference for Azure Peering SDK for .NET
-ms.date: 11/10/2026
+ms.date: 11/11/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: peering
