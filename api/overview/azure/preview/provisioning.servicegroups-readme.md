@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning ServiceGroups client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.ServiceGroups, servicegroups
-ms.date: 11/03/2026
+ms.date: 11/12/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: servicegroups
 ---
-# Azure Provisioning ServiceGroups client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning ServiceGroups client library for .NET - version 1.0.0-alpha.20261111.1 
 
 
 Azure.Provisioning.ServiceGroups simplifies declarative resource provisioning in .NET.
@@ -70,7 +70,7 @@ infra.Add(group);
 
 ## Next steps
 
-See the [Azure.Provisioning documentation](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.ServiceGroups_1.0.0-beta.1/sdk/provisioning/Azure.Provisioning)
+See the [Azure.Provisioning documentation](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning/Azure.Provisioning)
 for details about compiling and deploying infrastructure.
 
 ## Contributing
@@ -92,7 +92,7 @@ For more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any additional questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.ServiceGroups_1.0.0-beta.1/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 
