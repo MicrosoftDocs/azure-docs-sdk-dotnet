@@ -1,12 +1,12 @@
 ---
 title: Azure AI Projects client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Projects, ai
-ms.date: 10/31/2026
+ms.date: 11/12/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: ai
 ---
-# Azure AI Projects client library for .NET - version 3.0.0-beta.6 
+# Azure AI Projects client library for .NET - version 3.0.0-alpha.20261112.1 
 
 The AI Projects client library is part of the Azure AI Foundry SDK and provides easy access to resources in your Azure AI Foundry Project. Use it to:
 
@@ -135,9 +135,9 @@ Use `Transport` to select the connection transport; the SDK handles the connecti
 Setting `VoiceAgentTransport.Webrtc` selects WebRTC signaling over the WebSocket; your application
 must also handle the peer connection, media, and SDP exchange.
 
-See the [runnable WebSocket transport sample](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Projects_3.0.0-beta.6/sdk/ai/Azure.AI.Projects/samples/Sample_VoiceAgent_WebSocketTransport.md)
+See the [runnable WebSocket transport sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/ai/Azure.AI.Projects/samples/Sample_VoiceAgent_WebSocketTransport.md)
 for a complete text exchange using the typed transport with `store=true` and a REST read of the
-persisted conversation. The [WebSocket audio sample](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Projects_3.0.0-beta.6/sdk/ai/Azure.AI.Projects/samples/Sample_VoiceAgent_WebSocketAudio.md)
+persisted conversation. The [WebSocket audio sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/ai/Azure.AI.Projects/samples/Sample_VoiceAgent_WebSocketAudio.md)
 demonstrates streaming PCM input and output while logging actual byte counts.
 
 ### Performing Agent operations
@@ -1970,7 +1970,7 @@ For tracing to Azure Monitor from your application, the preferred option is to u
 dotnet add package Azure.Monitor.OpenTelemetry.AspNetCore
 ```
 
-More information about using the Azure.Monitor.OpenTelemetry.AspNetCore package can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Projects_3.0.0-beta.6/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/README.md).
+More information about using the Azure.Monitor.OpenTelemetry.AspNetCore package can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/README.md).
 
 Another option is to use Azure.Monitor.OpenTelemetry.Exporter package. Install the package with [NuGet](https://www.nuget.org/ ):
 ```dotnetcli
@@ -2043,9 +2043,9 @@ Enriched Voice Agent creation traces do not record request or response bodies. O
 diagnostic scopes are unchanged.
 
 For complete runnable examples, see the
-[Voice Agent REST telemetry sample](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Projects_3.0.0-beta.6/sdk/ai/Azure.AI.Projects/samples/Sample_VoiceAgent_Telemetry_Rest.md)
+[Voice Agent REST telemetry sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/ai/Azure.AI.Projects/samples/Sample_VoiceAgent_Telemetry_Rest.md)
 and the
-[Voice Agent realtime telemetry sample](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Projects_3.0.0-beta.6/sdk/ai/Azure.AI.Projects/samples/Sample_VoiceAgent_Telemetry_Realtime.md).
+[Voice Agent realtime telemetry sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/ai/Azure.AI.Projects/samples/Sample_VoiceAgent_Telemetry_Realtime.md).
 Both use the existing Foundry enablement settings and OpenTelemetry console exporter.
 
 ### Enabling content recording
@@ -2185,7 +2185,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 [product_doc]: https://aka.ms/azsdk/azure-ai-projects-v2/product-doc
 [azure_identity]: https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet
 [azure_identity_dac]: https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
-[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Projects_3.0.0-beta.6/CONTRIBUTING.md
+[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
