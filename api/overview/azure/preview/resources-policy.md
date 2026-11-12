@@ -1,7 +1,7 @@
 ---
 title: Azure Resources Policy SDK for .NET
 description: Reference for Azure Resources Policy SDK for .NET
-ms.date: 11/11/2026
+ms.date: 11/12/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: resourcespolicy
