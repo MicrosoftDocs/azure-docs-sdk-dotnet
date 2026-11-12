@@ -1,12 +1,12 @@
 ---
 title: Azure Provisioning Self Help client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Provisioning.SelfHelp, selfhelp
-ms.date: 11/03/2026
+ms.date: 11/12/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: selfhelp
 ---
-# Azure Provisioning Self Help client library for .NET - version 1.0.0-beta.1 
+# Azure Provisioning Self Help client library for .NET - version 1.0.0-alpha.20261111.1 
 
 
 Azure.Provisioning.SelfHelp simplifies declarative resource provisioning for Azure Self Help in .NET.
@@ -75,5 +75,5 @@ See the [Azure Self Help documentation](https://learn.microsoft.com/rest/api/hel
 
 ## Contributing
 
-See the [contributing guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Provisioning.SelfHelp_1.0.0-beta.1/CONTRIBUTING.md).
+See the [contributing guide](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md).
 
