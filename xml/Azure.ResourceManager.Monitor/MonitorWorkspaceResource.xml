@@ -24,13 +24,18 @@
       <InterfaceName>System.ClientModel.Primitives.IPersistableModel&lt;T&gt;</InterfaceName>
     </Interface>
   </Interfaces>
+  <Attributes>
+    <Attribute FrameworkAlternate="azure-dotnet-preview">
+      <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+    </Attribute>
+    <Attribute FrameworkAlternate="azure-dotnet-preview">
+      <AttributeName Language="C#">[System.Obsolete("This type has moved to Azure.ResourceManager.Monitor.Workspaces. Use Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspaceResource, Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspaceCollection, or Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspaceData instead.", false)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Obsolete("This type has moved to Azure.ResourceManager.Monitor.Workspaces. Use Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspaceResource, Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspaceCollection, or Azure.ResourceManager.Monitor.Workspaces.MonitorWorkspaceData instead.", false)&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>
-            A Class representing a MonitorWorkspaceResource along with the instance operations that can be performed on it.
-            If you have a <see cref="T:Azure.Core.ResourceIdentifier" /> you can construct a <see cref="T:Azure.ResourceManager.Monitor.MonitorWorkspaceResource" />
-            from an instance of <see cref="T:Azure.ResourceManager.ArmClient" /> using the GetMonitorWorkspaceResource method.
-            Otherwise you can get one from its parent resource <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" /> using the GetMonitorWorkspaceResource method.
-            </summary>
+    <summary> A class representing a MonitorWorkspace resource and its operations. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -75,9 +80,7 @@
         <param name="key"> The key for the tag. </param>
         <param name="value"> The value for the tag. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Add a tag to the current resource.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}</description></item><item><term>Operation Id</term><description>AzureMonitorWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2023-10-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.MonitorWorkspaceResource" /></description></item></list></summary>
+        <summary> Adds a tag to the MonitorWorkspace resource. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -108,9 +111,7 @@
         <param name="key"> The key for the tag. </param>
         <param name="value"> The value for the tag. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Add a tag to the current resource.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}</description></item><item><term>Operation Id</term><description>AzureMonitorWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2023-10-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.MonitorWorkspaceResource" /></description></item></list></summary>
+        <summary> Adds a tag to the MonitorWorkspace resource. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -138,11 +139,11 @@
         <Parameter Name="azureMonitorWorkspaceName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="subscriptionId"> The subscriptionId. </param>
-        <param name="resourceGroupName"> The resourceGroupName. </param>
-        <param name="azureMonitorWorkspaceName"> The azureMonitorWorkspaceName. </param>
-        <summary> Generate the resource identifier of a <see cref="T:Azure.ResourceManager.Monitor.MonitorWorkspaceResource" /> instance. </summary>
-        <returns>To be added.</returns>
+        <param name="subscriptionId"> The subscription id. </param>
+        <param name="resourceGroupName"> The resource group name. </param>
+        <param name="azureMonitorWorkspaceName"> The Azure Monitor workspace name. </param>
+        <summary> Creates a resource identifier for a MonitorWorkspace resource. </summary>
+        <returns> A resource identifier. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -162,7 +163,7 @@
         <ReturnType>Azure.ResourceManager.Monitor.MonitorWorkspaceResourceData</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Gets the data representing this Feature. </summary>
+        <summary> Gets the resource data. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
         <exception cref="T:System.InvalidOperationException"> Throws if there is no data loaded in the current instance. </exception>
@@ -188,13 +189,10 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="waitUntil">
-          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
+        <param name="waitUntil"> Completion behavior for the operation. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Delete a workspace
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}</description></item><item><term>Operation Id</term><description>AzureMonitorWorkspaces_Delete</description></item><item><term>Default Api Version</term><description>2023-10-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.MonitorWorkspaceResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Deletes the MonitorWorkspace resource. </summary>
+        <returns> The delete operation. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -218,13 +216,10 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="waitUntil">
-          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
+        <param name="waitUntil"> Completion behavior for the operation. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Delete a workspace
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}</description></item><item><term>Operation Id</term><description>AzureMonitorWorkspaces_Delete</description></item><item><term>Default Api Version</term><description>2023-10-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.MonitorWorkspaceResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Deletes the MonitorWorkspace resource. </summary>
+        <returns> The delete operation. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -248,10 +243,8 @@
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Returns the specific Azure Monitor workspace
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}</description></item><item><term>Operation Id</term><description>AzureMonitorWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2023-10-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.MonitorWorkspaceResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Gets the MonitorWorkspace resource. </summary>
+        <returns> The MonitorWorkspace resource. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -275,10 +268,8 @@
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Returns the specific Azure Monitor workspace
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}</description></item><item><term>Operation Id</term><description>AzureMonitorWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2023-10-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.MonitorWorkspaceResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Gets the MonitorWorkspace resource. </summary>
+        <returns> The MonitorWorkspace resource. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -298,7 +289,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Gets whether or not the current instance has data. </summary>
+        <summary> Gets whether the resource has data. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -325,9 +316,7 @@
       <Docs>
         <param name="key"> The key for the tag. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Removes a tag by key from the resource.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}</description></item><item><term>Operation Id</term><description>AzureMonitorWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2023-10-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.MonitorWorkspaceResource" /></description></item></list></summary>
+        <summary> Removes a tag from the MonitorWorkspace resource. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -356,9 +345,7 @@
       <Docs>
         <param name="key"> The key for the tag. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Removes a tag by key from the resource.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}</description></item><item><term>Operation Id</term><description>AzureMonitorWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2023-10-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.MonitorWorkspaceResource" /></description></item></list></summary>
+        <summary> Removes a tag from the MonitorWorkspace resource. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -381,7 +368,7 @@
         <ReturnType>Azure.Core.ResourceType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Gets the resource type for the operations. </summary>
+        <summary> The resource type for MonitorWorkspace resources. </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -407,9 +394,7 @@
       <Docs>
         <param name="tags"> The set of tags to use as replacement. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Replace the tags on the resource with the given set.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}</description></item><item><term>Operation Id</term><description>AzureMonitorWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2023-10-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.MonitorWorkspaceResource" /></description></item></list></summary>
+        <summary> Replaces tags on the MonitorWorkspace resource. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -438,9 +423,7 @@
       <Docs>
         <param name="tags"> The set of tags to use as replacement. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Replace the tags on the resource with the given set.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}</description></item><item><term>Operation Id</term><description>AzureMonitorWorkspaces_Get</description></item><item><term>Default Api Version</term><description>2023-10-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.MonitorWorkspaceResource" /></description></item></list></summary>
+        <summary> Replaces tags on the MonitorWorkspace resource. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -628,13 +611,37 @@
       <Docs>
         <param name="patch"> The resource properties to be updated. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Updates part of a workspace
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}</description></item><item><term>Operation Id</term><description>AzureMonitorWorkspaces_Update</description></item><item><term>Default Api Version</term><description>2023-10-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.MonitorWorkspaceResource" /></description></item></list></summary>
+        <summary> Updates the MonitorWorkspace resource. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="patch" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Update">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.ResourceManager.Monitor.MonitorWorkspaceResource&gt; Update (BinaryData patch, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.ResourceManager.Monitor.MonitorWorkspaceResource&gt; Update(class System.BinaryData patch, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Monitor.MonitorWorkspaceResource.Update(System.BinaryData,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Update (patch As BinaryData, Optional cancellationToken As CancellationToken = Nothing) As Response(Of MonitorWorkspaceResource)" />
+      <MemberSignature Language="F#" Value="abstract member Update : BinaryData * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.ResourceManager.Monitor.MonitorWorkspaceResource&gt;&#xA;override this.Update : BinaryData * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.ResourceManager.Monitor.MonitorWorkspaceResource&gt;" Usage="monitorWorkspaceResource.Update (patch, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Monitor</AssemblyName>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.ResourceManager.Monitor.MonitorWorkspaceResource&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="patch" Type="System.BinaryData" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="patch"> The MonitorWorkspace patch. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> Updates the MonitorWorkspace resource. </summary>
+        <returns> The updated MonitorWorkspace resource. </returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateAsync">
@@ -659,13 +666,37 @@
       <Docs>
         <param name="patch"> The resource properties to be updated. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Updates part of a workspace
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}</description></item><item><term>Operation Id</term><description>AzureMonitorWorkspaces_Update</description></item><item><term>Default Api Version</term><description>2023-10-01-preview</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.MonitorWorkspaceResource" /></description></item></list></summary>
+        <summary> Updates the MonitorWorkspace resource. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="patch" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.Monitor.MonitorWorkspaceResource&gt;&gt; UpdateAsync (BinaryData patch, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.ResourceManager.Monitor.MonitorWorkspaceResource&gt;&gt; UpdateAsync(class System.BinaryData patch, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Monitor.MonitorWorkspaceResource.UpdateAsync(System.BinaryData,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function UpdateAsync (patch As BinaryData, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of MonitorWorkspaceResource))" />
+      <MemberSignature Language="F#" Value="abstract member UpdateAsync : BinaryData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.Monitor.MonitorWorkspaceResource&gt;&gt;&#xA;override this.UpdateAsync : BinaryData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.Monitor.MonitorWorkspaceResource&gt;&gt;" Usage="monitorWorkspaceResource.UpdateAsync (patch, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Monitor</AssemblyName>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.Monitor.MonitorWorkspaceResource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="patch" Type="System.BinaryData" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="patch"> The MonitorWorkspace patch. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> Updates the MonitorWorkspace resource. </summary>
+        <returns> The updated MonitorWorkspace resource. </returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
   </Members>

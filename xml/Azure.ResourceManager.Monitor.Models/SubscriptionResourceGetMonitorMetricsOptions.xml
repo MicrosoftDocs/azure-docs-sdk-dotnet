@@ -16,8 +16,18 @@
     <BaseTypeName>System.Object</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute FrameworkAlternate="azure-dotnet-preview">
+      <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+    </Attribute>
+    <Attribute FrameworkAlternate="azure-dotnet-preview">
+      <AttributeName Language="C#">[System.Obsolete("This type is no longer supported.", false)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Obsolete("This type is no longer supported.", false)&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary> The SubscriptionResourceGetMonitorMetricsOptions. </summary>
+    <summary> Legacy options for getting monitor metrics for a subscription. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -37,7 +47,7 @@
         <Parameter Name="region" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="region"> The region where the metrics you want reside. </param>
+        <param name="region"> The region to query. </param>
         <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.Monitor.Models.SubscriptionResourceGetMonitorMetricsOptions" />. </summary>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -60,7 +70,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The list of aggregation types (comma separated) to retrieve. </summary>
+        <summary> The aggregation to use. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -81,7 +91,7 @@
         <ReturnType>System.Nullable&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> When set to true, if the timespan passed in is not supported by this metric, the API will return the result using the closest supported timespan. When set to false, an error is returned for invalid timespan parameters. Defaults to false. </summary>
+        <summary> Whether to auto-adjust the time grain. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -102,7 +112,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The **$filter** is used to reduce the set of metric data returned.&lt;br&gt;Example:&lt;br&gt;Metric contains metadata A, B and C.&lt;br&gt;- Return all time series of C where A = a1 and B = b1 or b2&lt;br&gt;**$filter=A eq ‘a1’ and B eq ‘b1’ or B eq ‘b2’ and C eq ‘*’**&lt;br&gt;- Invalid variant:&lt;br&gt;**$filter=A eq ‘a1’ and B eq ‘b1’ and C eq ‘*’ or B = ‘b2’**&lt;br&gt;This is invalid because the logical or operator cannot separate two different metadata names.&lt;br&gt;- Return all time series where A = a1, B = b1 and C = c1:&lt;br&gt;**$filter=A eq ‘a1’ and B eq ‘b1’ and C eq ‘c1’**&lt;br&gt;- Return all time series where A = a1&lt;br&gt;**$filter=A eq ‘a1’ and B eq ‘*’ and C eq ‘*’**. </summary>
+        <summary> The filter to apply. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -123,7 +133,7 @@
         <ReturnType>System.Nullable&lt;System.TimeSpan&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The interval (i.e. timegrain) of the query. </summary>
+        <summary> The interval to use. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -144,7 +154,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The names of the metrics (comma separated) to retrieve. Limit 20 metrics. </summary>
+        <summary> The metric names. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -165,7 +175,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Metric namespace where the metrics you want reside. </summary>
+        <summary> The metric namespace. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -186,11 +196,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The aggregation to use for sorting results and the direction of the sort.
-            Only one order can be specified.
-            Examples: sum asc.
-            </summary>
+        <summary> The order by expression. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -211,7 +217,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The region where the metrics you want reside. </summary>
+        <summary> The region to query. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -232,7 +238,7 @@
         <ReturnType>System.Nullable&lt;Azure.ResourceManager.Monitor.Models.MonitorMetricResultType&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Reduces the set of data collected. The syntax allowed depends on the operation. See the operation's description for details. </summary>
+        <summary> The result type. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -253,7 +259,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The timespan of the query. It is a string with the following format 'startDateTime_ISO/endDateTime_ISO'. </summary>
+        <summary> The timespan to query. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -274,11 +280,7 @@
         <ReturnType>System.Nullable&lt;System.Int32&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The maximum number of records to retrieve.
-            Valid only if $filter is specified.
-            Defaults to 10.
-            </summary>
+        <summary> The maximum number of records. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -299,7 +301,7 @@
         <ReturnType>System.Nullable&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> When set to false, invalid filter parameter values will be ignored. When set to true, an error is returned for invalid filter parameters. Defaults to true. </summary>
+        <summary> Whether to validate dimensions. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

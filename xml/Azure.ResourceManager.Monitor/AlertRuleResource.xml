@@ -28,13 +28,18 @@
       <InterfaceName>System.ClientModel.Primitives.IPersistableModel&lt;T&gt;</InterfaceName>
     </Interface>
   </Interfaces>
+  <Attributes>
+    <Attribute FrameworkAlternate="azure-dotnet-preview">
+      <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+    </Attribute>
+    <Attribute FrameworkAlternate="azure-dotnet-preview">
+      <AttributeName Language="C#">[System.Obsolete("This type is no longer supported.", false)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Obsolete("This type is no longer supported.", false)&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>
-            A Class representing an AlertRule along with the instance operations that can be performed on it.
-            If you have a <see cref="T:Azure.Core.ResourceIdentifier" /> you can construct an <see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" />
-            from an instance of <see cref="T:Azure.ResourceManager.ArmClient" /> using the GetAlertRuleResource method.
-            Otherwise you can get one from its parent resource <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" /> using the GetAlertRule method.
-            </summary>
+    <summary> A class representing an AlertRule resource and its operations. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -76,13 +81,11 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="key"> The key for the tag. </param>
-        <param name="value"> The value for the tag. </param>
+        <param name="key"> The tag key. </param>
+        <param name="value"> The tag value. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Add a tag to the current resource.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Get</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Adds a tag to the alert rule. </summary>
+        <returns> The updated alert rule resource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="key" /> or <paramref name="value" /> is null. </exception>
@@ -109,13 +112,11 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="key"> The key for the tag. </param>
-        <param name="value"> The value for the tag. </param>
+        <param name="key"> The tag key. </param>
+        <param name="value"> The tag value. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Add a tag to the current resource.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Get</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Adds a tag to the alert rule. </summary>
+        <returns> The updated alert rule resource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="key" /> or <paramref name="value" /> is null. </exception>
@@ -142,11 +143,11 @@
         <Parameter Name="ruleName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="subscriptionId"> The subscriptionId. </param>
-        <param name="resourceGroupName"> The resourceGroupName. </param>
-        <param name="ruleName"> The ruleName. </param>
-        <summary> Generate the resource identifier of a <see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /> instance. </summary>
-        <returns>To be added.</returns>
+        <param name="subscriptionId"> The subscription id. </param>
+        <param name="resourceGroupName"> The resource group name. </param>
+        <param name="ruleName"> The rule name. </param>
+        <summary> Creates a resource identifier for an AlertRule resource. </summary>
+        <returns> A resource identifier. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -166,7 +167,7 @@
         <ReturnType>Azure.ResourceManager.Monitor.AlertRuleData</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Gets the data representing this Feature. </summary>
+        <summary> Gets the resource data. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
         <exception cref="T:System.InvalidOperationException"> Throws if there is no data loaded in the current instance. </exception>
@@ -192,13 +193,10 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="waitUntil">
-          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
+        <param name="waitUntil"> Completion behavior for the operation. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Deletes a classic metric alert rule
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Delete</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Deletes the alert rule. </summary>
+        <returns> The delete operation. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -222,13 +220,10 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="waitUntil">
-          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
+        <param name="waitUntil"> Completion behavior for the operation. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Deletes a classic metric alert rule
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Delete</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Deletes the alert rule. </summary>
+        <returns> The delete operation. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -252,10 +247,8 @@
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Gets a classic metric alert rule
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Get</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Gets the alert rule. </summary>
+        <returns> The alert rule resource. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -279,12 +272,10 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="incidentName"> The name of the incident to retrieve. </param>
+        <param name="incidentName"> The incident name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Gets an incident associated to an alert rule
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.insights/alertrules/{ruleName}/incidents/{incidentName}</description></item><item><term>Operation Id</term><description>AlertRuleIncidents_Get</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Gets an alert rule incident. </summary>
+        <returns> The monitor incident. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
           <paramref name="incidentName" /> is an empty string, and was expected to be non-empty. </exception>
@@ -312,12 +303,10 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="incidentName"> The name of the incident to retrieve. </param>
+        <param name="incidentName"> The incident name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Gets an incident associated to an alert rule
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.insights/alertrules/{ruleName}/incidents/{incidentName}</description></item><item><term>Operation Id</term><description>AlertRuleIncidents_Get</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Gets an alert rule incident. </summary>
+        <returns> The monitor incident. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
           <paramref name="incidentName" /> is an empty string, and was expected to be non-empty. </exception>
@@ -345,10 +334,8 @@
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Gets a list of incidents associated to an alert rule
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.insights/alertrules/{ruleName}/incidents</description></item><item><term>Operation Id</term><description>AlertRuleIncidents_ListByAlertRule</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item></list></summary>
-        <returns> A collection of <see cref="T:Azure.ResourceManager.Monitor.Models.MonitorIncident" /> that may take multiple service requests to iterate over. </returns>
+        <summary> Gets alert rule incidents. </summary>
+        <returns> A collection of monitor incidents. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -372,10 +359,8 @@
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Gets a list of incidents associated to an alert rule
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.insights/alertrules/{ruleName}/incidents</description></item><item><term>Operation Id</term><description>AlertRuleIncidents_ListByAlertRule</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item></list></summary>
-        <returns> An async collection of <see cref="T:Azure.ResourceManager.Monitor.Models.MonitorIncident" /> that may take multiple service requests to iterate over. </returns>
+        <summary> Gets alert rule incidents. </summary>
+        <returns> A collection of monitor incidents. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -399,10 +384,8 @@
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Gets a classic metric alert rule
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Get</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Gets the alert rule. </summary>
+        <returns> The alert rule resource. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -422,7 +405,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Gets whether or not the current instance has data. </summary>
+        <summary> Gets whether the resource has data. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -447,12 +430,10 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="key"> The key for the tag. </param>
+        <param name="key"> The tag key. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Removes a tag by key from the resource.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Get</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Removes a tag from the alert rule. </summary>
+        <returns> The updated alert rule resource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="key" /> is null. </exception>
@@ -478,12 +459,10 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="key"> The key for the tag. </param>
+        <param name="key"> The tag key. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Removes a tag by key from the resource.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Get</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Removes a tag from the alert rule. </summary>
+        <returns> The updated alert rule resource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="key" /> is null. </exception>
@@ -505,7 +484,7 @@
         <ReturnType>Azure.Core.ResourceType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Gets the resource type for the operations. </summary>
+        <summary> The resource type for AlertRule resources. </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -529,12 +508,10 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="tags"> The set of tags to use as replacement. </param>
+        <param name="tags"> The tags. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Replace the tags on the resource with the given set.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Get</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Replaces alert rule tags. </summary>
+        <returns> The updated alert rule resource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="tags" /> is null. </exception>
@@ -560,12 +537,10 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="tags"> The set of tags to use as replacement. </param>
+        <param name="tags"> The tags. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Replace the tags on the resource with the given set.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Get</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Replaces alert rule tags. </summary>
+        <returns> The updated alert rule resource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="tags" /> is null. </exception>
@@ -750,15 +725,39 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="patch"> Parameters supplied to the operation. </param>
+        <param name="patch"> The alert rule patch. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Updates an existing classic metric AlertRuleResource. To update other fields use the CreateOrUpdate method.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Update</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Updates the alert rule. </summary>
+        <returns> The updated alert rule resource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="patch" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Update">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.ResourceManager.Monitor.AlertRuleResource&gt; Update (BinaryData patch, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.ResourceManager.Monitor.AlertRuleResource&gt; Update(class System.BinaryData patch, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Monitor.AlertRuleResource.Update(System.BinaryData,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function Update (patch As BinaryData, Optional cancellationToken As CancellationToken = Nothing) As Response(Of AlertRuleResource)" />
+      <MemberSignature Language="F#" Value="abstract member Update : BinaryData * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.ResourceManager.Monitor.AlertRuleResource&gt;&#xA;override this.Update : BinaryData * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.ResourceManager.Monitor.AlertRuleResource&gt;" Usage="alertRuleResource.Update (patch, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Monitor</AssemblyName>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.ResourceManager.Monitor.AlertRuleResource&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="patch" Type="System.BinaryData" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="patch"> The alert rule patch. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> Updates the alert rule. </summary>
+        <returns> The updated alert rule resource. </returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateAsync">
@@ -781,15 +780,39 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="patch"> Parameters supplied to the operation. </param>
+        <param name="patch"> The alert rule patch. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Updates an existing classic metric AlertRuleResource. To update other fields use the CreateOrUpdate method.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Update</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Updates the alert rule. </summary>
+        <returns> The updated alert rule resource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="patch" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.Monitor.AlertRuleResource&gt;&gt; UpdateAsync (BinaryData patch, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.ResourceManager.Monitor.AlertRuleResource&gt;&gt; UpdateAsync(class System.BinaryData patch, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Monitor.AlertRuleResource.UpdateAsync(System.BinaryData,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function UpdateAsync (patch As BinaryData, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of AlertRuleResource))" />
+      <MemberSignature Language="F#" Value="abstract member UpdateAsync : BinaryData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.Monitor.AlertRuleResource&gt;&gt;&#xA;override this.UpdateAsync : BinaryData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.Monitor.AlertRuleResource&gt;&gt;" Usage="alertRuleResource.UpdateAsync (patch, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Monitor</AssemblyName>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.Monitor.AlertRuleResource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="patch" Type="System.BinaryData" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="patch"> The alert rule patch. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary> Updates the alert rule. </summary>
+        <returns> The updated alert rule resource. </returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
   </Members>

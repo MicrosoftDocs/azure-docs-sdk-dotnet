@@ -35,6 +35,7 @@
     <Assembly Name="Azure.Core.Amqp" Version="1.3.1.0" />
     <Assembly Name="Azure.Core" Version="1.65.0.0" />
     <Assembly Name="Azure.Core.Expressions.DataFactory" Version="1.0.0.0" />
+    <Assembly Name="Azure.Data.AI" Version="1.0.0.0" />
     <Assembly Name="Azure.Data.AppConfiguration" Version="1.11.1.0" />
     <Assembly Name="Azure.Data.SchemaRegistry" Version="1.4.0.0" />
     <Assembly Name="Azure.Data.Tables" Version="12.13.0.0" />
@@ -32866,6 +32867,171 @@
       <Member Id="M:Azure.Core.Serialization.ObjectSerializer.Serialize(System.Object,System.Type,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.Core.Serialization.ObjectSerializer.SerializeAsync(System.IO.Stream,System.Object,System.Type,System.Threading.CancellationToken)" />
       <Member Id="M:Azure.Core.Serialization.ObjectSerializer.SerializeAsync(System.Object,System.Type,System.Threading.CancellationToken)" />
+    </Type>
+  </Namespace>
+  <Namespace Name="Azure.Data.AI">
+    <Type Name="Azure.Data.AI.AzureDataAIContext" Id="T:Azure.Data.AI.AzureDataAIContext">
+      <Member Id="M:Azure.Data.AI.AzureDataAIContext.TryGetTypeBuilderCore(System.Type,System.ClientModel.Primitives.ModelReaderWriterTypeBuilder@)" />
+      <Member Id="P:Azure.Data.AI.AzureDataAIContext.Default" />
+    </Type>
+    <Type Name="Azure.Data.AI.InferenceClient" Id="T:Azure.Data.AI.InferenceClient">
+      <Member Id="M:Azure.Data.AI.InferenceClient.#ctor" />
+      <Member Id="M:Azure.Data.AI.InferenceClient.#ctor(Azure.Data.AI.InferenceClientSettings)" />
+      <Member Id="M:Azure.Data.AI.InferenceClient.#ctor(System.Uri,Azure.AzureKeyCredential)" />
+      <Member Id="M:Azure.Data.AI.InferenceClient.#ctor(System.Uri,Azure.AzureKeyCredential,Azure.Data.AI.InferenceClientOptions)" />
+      <Member Id="M:Azure.Data.AI.InferenceClient.#ctor(System.Uri,Azure.Core.TokenCredential)" />
+      <Member Id="M:Azure.Data.AI.InferenceClient.#ctor(System.Uri,Azure.Core.TokenCredential,Azure.Data.AI.InferenceClientOptions)" />
+      <Member Id="M:Azure.Data.AI.InferenceClient.SemanticRerank(Azure.Core.RequestContent,Azure.RequestContext)" />
+      <Member Id="M:Azure.Data.AI.InferenceClient.SemanticRerank(Azure.Data.AI.SemanticRerankingContent,System.Threading.CancellationToken)" />
+      <Member Id="M:Azure.Data.AI.InferenceClient.SemanticRerankAsync(Azure.Core.RequestContent,Azure.RequestContext)" />
+      <Member Id="M:Azure.Data.AI.InferenceClient.SemanticRerankAsync(Azure.Data.AI.SemanticRerankingContent,System.Threading.CancellationToken)" />
+      <Member Id="P:Azure.Data.AI.InferenceClient.Pipeline" />
+    </Type>
+    <Type Name="Azure.Data.AI.InferenceClientHostExtensions" Id="T:Azure.Data.AI.InferenceClientHostExtensions">
+      <Member Id="M:Azure.Data.AI.InferenceClientHostExtensions.AddInferenceClient(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String)" />
+      <Member Id="M:Azure.Data.AI.InferenceClientHostExtensions.AddInferenceClient(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String,System.Action{Azure.Data.AI.InferenceClientSettings})" />
+      <Member Id="M:Azure.Data.AI.InferenceClientHostExtensions.AddKeyedInferenceClient(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String,System.String)" />
+      <Member Id="M:Azure.Data.AI.InferenceClientHostExtensions.AddKeyedInferenceClient(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String,System.String,System.Action{Azure.Data.AI.InferenceClientSettings})" />
+    </Type>
+    <Type Name="Azure.Data.AI.InferenceClientOptions" Id="T:Azure.Data.AI.InferenceClientOptions">
+      <Member Id="M:Azure.Data.AI.InferenceClientOptions.#ctor(Azure.Data.AI.InferenceClientOptions.ServiceVersion)" />
+    </Type>
+    <Type Name="Azure.Data.AI.InferenceClientOptions/ServiceVersion" Id="T:Azure.Data.AI.InferenceClientOptions.ServiceVersion">
+      <Member Id="F:Azure.Data.AI.InferenceClientOptions.ServiceVersion.V2026_10_30" />
+    </Type>
+    <Type Name="Azure.Data.AI.InferenceClientSettings" Id="T:Azure.Data.AI.InferenceClientSettings">
+      <Member Id="M:Azure.Data.AI.InferenceClientSettings.#ctor" />
+      <Member Id="M:Azure.Data.AI.InferenceClientSettings.BindCore(Microsoft.Extensions.Configuration.IConfigurationSection)" />
+      <Member Id="P:Azure.Data.AI.InferenceClientSettings.Endpoint" />
+      <Member Id="P:Azure.Data.AI.InferenceClientSettings.Options" />
+    </Type>
+    <Type Name="Azure.Data.AI.InferenceModelFactory" Id="T:Azure.Data.AI.InferenceModelFactory">
+      <Member Id="M:Azure.Data.AI.InferenceModelFactory.LatencyResult(System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan})" />
+      <Member Id="M:Azure.Data.AI.InferenceModelFactory.SemanticRerankingContent(System.String,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{Azure.Data.AI.SemanticRerankingDocumentType},System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.Boolean})" />
+      <Member Id="M:Azure.Data.AI.InferenceModelFactory.SemanticRerankingMetadata(Azure.Data.AI.TokenUsageResult,Azure.Data.AI.LatencyResult,System.String,System.String)" />
+      <Member Id="M:Azure.Data.AI.InferenceModelFactory.SemanticRerankingResult(System.Collections.Generic.IEnumerable{Azure.Data.AI.SemanticRerankingScore},Azure.Data.AI.SemanticRerankingMetadata)" />
+      <Member Id="M:Azure.Data.AI.InferenceModelFactory.SemanticRerankingScore(System.Nullable{System.Int32},System.String,System.Nullable{System.Single},System.Collections.Generic.IEnumerable{Azure.Data.AI.SentenceScore})" />
+      <Member Id="M:Azure.Data.AI.InferenceModelFactory.SentenceScore(System.Int32,System.Single)" />
+      <Member Id="M:Azure.Data.AI.InferenceModelFactory.TokenUsageResult(System.Nullable{System.Int32})" />
+    </Type>
+    <Type Name="Azure.Data.AI.LatencyResult" Id="T:Azure.Data.AI.LatencyResult">
+      <Member Id="M:Azure.Data.AI.LatencyResult.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.LatencyResult.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.LatencyResult.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.LatencyResult.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.LatencyResult.System#ClientModel#Primitives#IJsonModel&lt;Azure#Data#AI#LatencyResult&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.LatencyResult.System#ClientModel#Primitives#IJsonModel&lt;Azure#Data#AI#LatencyResult&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.LatencyResult.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#LatencyResult&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.LatencyResult.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#LatencyResult&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.LatencyResult.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#LatencyResult&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.Data.AI.LatencyResult.DataPreprocessDuration" />
+      <Member Id="P:Azure.Data.AI.LatencyResult.InferenceDuration" />
+      <Member Id="P:Azure.Data.AI.LatencyResult.PostProcessDuration" />
+    </Type>
+    <Type Name="Azure.Data.AI.SemanticRerankingContent" Id="T:Azure.Data.AI.SemanticRerankingContent">
+      <Member Id="M:Azure.Data.AI.SemanticRerankingContent.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingContent.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingContent.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingContent.op_Implicit(Azure.Data.AI.SemanticRerankingContent)~Azure.Core.RequestContent" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingContent.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingContent.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingContent.System#ClientModel#Primitives#IJsonModel&lt;Azure#Data#AI#SemanticRerankingContent&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingContent.System#ClientModel#Primitives#IJsonModel&lt;Azure#Data#AI#SemanticRerankingContent&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingContent.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#SemanticRerankingContent&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingContent.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#SemanticRerankingContent&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingContent.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#SemanticRerankingContent&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingContent.BatchSize" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingContent.Documents" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingContent.DocumentType" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingContent.Model" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingContent.Query" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingContent.ReturnDocuments" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingContent.ReturnSentenceScore" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingContent.Sort" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingContent.TargetPaths" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingContent.TopK" />
+    </Type>
+    <Type Name="Azure.Data.AI.SemanticRerankingDocumentType" Id="T:Azure.Data.AI.SemanticRerankingDocumentType">
+      <Member Id="M:Azure.Data.AI.SemanticRerankingDocumentType.#ctor(System.String)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingDocumentType.Equals(Azure.Data.AI.SemanticRerankingDocumentType)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingDocumentType.Equals(System.Object)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingDocumentType.GetHashCode" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingDocumentType.op_Equality(Azure.Data.AI.SemanticRerankingDocumentType,Azure.Data.AI.SemanticRerankingDocumentType)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingDocumentType.op_Implicit(System.String)~Azure.Data.AI.SemanticRerankingDocumentType" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingDocumentType.op_Implicit(System.String)~System.Nullable{Azure.Data.AI.SemanticRerankingDocumentType}" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingDocumentType.op_Inequality(Azure.Data.AI.SemanticRerankingDocumentType,Azure.Data.AI.SemanticRerankingDocumentType)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingDocumentType.ToString" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingDocumentType.Json" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingDocumentType.Text" />
+    </Type>
+    <Type Name="Azure.Data.AI.SemanticRerankingMetadata" Id="T:Azure.Data.AI.SemanticRerankingMetadata">
+      <Member Id="M:Azure.Data.AI.SemanticRerankingMetadata.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingMetadata.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingMetadata.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingMetadata.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingMetadata.System#ClientModel#Primitives#IJsonModel&lt;Azure#Data#AI#SemanticRerankingMetadata&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingMetadata.System#ClientModel#Primitives#IJsonModel&lt;Azure#Data#AI#SemanticRerankingMetadata&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingMetadata.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#SemanticRerankingMetadata&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingMetadata.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#SemanticRerankingMetadata&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingMetadata.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#SemanticRerankingMetadata&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingMetadata.Latency" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingMetadata.ModelName" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingMetadata.ModelVersion" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingMetadata.TokenUsage" />
+    </Type>
+    <Type Name="Azure.Data.AI.SemanticRerankingResult" Id="T:Azure.Data.AI.SemanticRerankingResult">
+      <Member Id="M:Azure.Data.AI.SemanticRerankingResult.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingResult.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingResult.op_Explicit(Azure.Response)~Azure.Data.AI.SemanticRerankingResult" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingResult.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingResult.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingResult.System#ClientModel#Primitives#IJsonModel&lt;Azure#Data#AI#SemanticRerankingResult&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingResult.System#ClientModel#Primitives#IJsonModel&lt;Azure#Data#AI#SemanticRerankingResult&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingResult.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#SemanticRerankingResult&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingResult.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#SemanticRerankingResult&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingResult.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#SemanticRerankingResult&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingResult.Metadata" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingResult.Scores" />
+    </Type>
+    <Type Name="Azure.Data.AI.SemanticRerankingScore" Id="T:Azure.Data.AI.SemanticRerankingScore">
+      <Member Id="M:Azure.Data.AI.SemanticRerankingScore.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingScore.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingScore.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingScore.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingScore.System#ClientModel#Primitives#IJsonModel&lt;Azure#Data#AI#SemanticRerankingScore&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingScore.System#ClientModel#Primitives#IJsonModel&lt;Azure#Data#AI#SemanticRerankingScore&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingScore.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#SemanticRerankingScore&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingScore.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#SemanticRerankingScore&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SemanticRerankingScore.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#SemanticRerankingScore&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingScore.Document" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingScore.Index" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingScore.Score" />
+      <Member Id="P:Azure.Data.AI.SemanticRerankingScore.SentenceScores" />
+    </Type>
+    <Type Name="Azure.Data.AI.SentenceScore" Id="T:Azure.Data.AI.SentenceScore">
+      <Member Id="M:Azure.Data.AI.SentenceScore.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SentenceScore.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SentenceScore.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SentenceScore.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SentenceScore.System#ClientModel#Primitives#IJsonModel&lt;Azure#Data#AI#SentenceScore&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SentenceScore.System#ClientModel#Primitives#IJsonModel&lt;Azure#Data#AI#SentenceScore&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SentenceScore.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#SentenceScore&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SentenceScore.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#SentenceScore&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.SentenceScore.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#SentenceScore&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.Data.AI.SentenceScore.Index" />
+      <Member Id="P:Azure.Data.AI.SentenceScore.Score" />
+    </Type>
+    <Type Name="Azure.Data.AI.TokenUsageResult" Id="T:Azure.Data.AI.TokenUsageResult">
+      <Member Id="M:Azure.Data.AI.TokenUsageResult.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.TokenUsageResult.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.TokenUsageResult.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.TokenUsageResult.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.TokenUsageResult.System#ClientModel#Primitives#IJsonModel&lt;Azure#Data#AI#TokenUsageResult&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.TokenUsageResult.System#ClientModel#Primitives#IJsonModel&lt;Azure#Data#AI#TokenUsageResult&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.TokenUsageResult.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#TokenUsageResult&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.TokenUsageResult.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#TokenUsageResult&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="M:Azure.Data.AI.TokenUsageResult.System#ClientModel#Primitives#IPersistableModel&lt;Azure#Data#AI#TokenUsageResult&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <Member Id="P:Azure.Data.AI.TokenUsageResult.TotalTokens" />
     </Type>
   </Namespace>
   <Namespace Name="Azure.Data.AppConfiguration">

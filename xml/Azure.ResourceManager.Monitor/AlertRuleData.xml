@@ -28,11 +28,18 @@
       <InterfaceName>System.ClientModel.Primitives.IPersistableModel&lt;T&gt;</InterfaceName>
     </Interface>
   </Interfaces>
+  <Attributes>
+    <Attribute FrameworkAlternate="azure-dotnet-preview">
+      <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+    </Attribute>
+    <Attribute FrameworkAlternate="azure-dotnet-preview">
+      <AttributeName Language="C#">[System.Obsolete("This type is no longer supported.", false)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Obsolete("This type is no longer supported.", false)&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>
-            A class representing the AlertRule data model.
-            The alert rule resource.
-            </summary>
+    <summary> An alert rule resource data. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -56,13 +63,9 @@
       </Parameters>
       <Docs>
         <param name="location"> The location. </param>
-        <param name="alertRuleName"> the name of the alert rule. </param>
-        <param name="isEnabled"> the flag that indicates whether the alert rule is enabled. </param>
-        <param name="condition">
-            the condition that results in the alert rule being activated.
-            Please note <see cref="T:Azure.ResourceManager.Monitor.Models.AlertRuleCondition" /> is the base class. According to the scenario, a derived class of the base class might need to be assigned here, or this property needs to be casted to one of the possible derived classes.
-            The available derived classes include <see cref="T:Azure.ResourceManager.Monitor.Models.LocationThresholdRuleCondition" />, <see cref="T:Azure.ResourceManager.Monitor.Models.ManagementEventRuleCondition" /> and <see cref="T:Azure.ResourceManager.Monitor.Models.ThresholdRuleCondition" />.
-            </param>
+        <param name="alertRuleName"> The name of the alert rule. </param>
+        <param name="isEnabled"> Whether the alert rule is enabled. </param>
+        <param name="condition"> The condition that results in the alert rule being activated. </param>
         <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.Monitor.AlertRuleData" />. </summary>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -85,11 +88,7 @@
         <ReturnType>Azure.ResourceManager.Monitor.Models.AlertRuleAction</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-            Please note <see cref="T:Azure.ResourceManager.Monitor.Models.AlertRuleAction" /> is the base class. According to the scenario, a derived class of the base class might need to be assigned here, or this property needs to be casted to one of the possible derived classes.
-            The available derived classes include <see cref="T:Azure.ResourceManager.Monitor.Models.RuleEmailAction" /> and <see cref="T:Azure.ResourceManager.Monitor.Models.RuleWebhookAction" />.
-            </summary>
+        <summary> The action to execute when the alert rule fires. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -110,11 +109,7 @@
         <ReturnType>System.Collections.Generic.IList&lt;Azure.ResourceManager.Monitor.Models.AlertRuleAction&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-            Please note <see cref="T:Azure.ResourceManager.Monitor.Models.AlertRuleAction" /> is the base class. According to the scenario, a derived class of the base class might need to be assigned here, or this property needs to be casted to one of the possible derived classes.
-            The available derived classes include <see cref="T:Azure.ResourceManager.Monitor.Models.RuleEmailAction" /> and <see cref="T:Azure.ResourceManager.Monitor.Models.RuleWebhookAction" />.
-            </summary>
+        <summary> The actions to execute when the alert rule fires. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -135,7 +130,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> the name of the alert rule. </summary>
+        <summary> The alert rule name. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -156,11 +151,7 @@
         <ReturnType>Azure.ResourceManager.Monitor.Models.AlertRuleCondition</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            the condition that results in the alert rule being activated.
-            Please note <see cref="T:Azure.ResourceManager.Monitor.Models.AlertRuleCondition" /> is the base class. According to the scenario, a derived class of the base class might need to be assigned here, or this property needs to be casted to one of the possible derived classes.
-            The available derived classes include <see cref="T:Azure.ResourceManager.Monitor.Models.LocationThresholdRuleCondition" />, <see cref="T:Azure.ResourceManager.Monitor.Models.ManagementEventRuleCondition" /> and <see cref="T:Azure.ResourceManager.Monitor.Models.ThresholdRuleCondition" />.
-            </summary>
+        <summary> The condition that results in the alert rule being activated. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -181,7 +172,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> the description of the alert rule that will be included in the alert email. </summary>
+        <summary> The alert rule description. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -202,7 +193,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> the flag that indicates whether the alert rule is enabled. </summary>
+        <summary> Whether the alert rule is enabled. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -248,7 +239,7 @@
         <ReturnType>System.Nullable&lt;System.DateTimeOffset&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Last time the rule was updated in ISO8601 format. </summary>
+        <summary> The last updated time. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -269,7 +260,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> the provisioning state. </summary>
+        <summary> The provisioning state. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

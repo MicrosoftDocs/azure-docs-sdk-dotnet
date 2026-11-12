@@ -28,12 +28,18 @@
       <InterfaceName>System.Collections.IEnumerable</InterfaceName>
     </Interface>
   </Interfaces>
+  <Attributes>
+    <Attribute FrameworkAlternate="azure-dotnet-preview">
+      <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+    </Attribute>
+    <Attribute FrameworkAlternate="azure-dotnet-preview">
+      <AttributeName Language="C#">[System.Obsolete("This type is no longer supported.", false)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Obsolete("This type is no longer supported.", false)&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>
-            A class representing a collection of <see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /> and their operations.
-            Each <see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /> in the collection will belong to the same instance of <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" />.
-            To get an <see cref="T:Azure.ResourceManager.Monitor.AlertRuleCollection" /> instance call the GetAlertRules method from an instance of <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" />.
-            </summary>
+    <summary> A collection of <see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /> resources. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -76,15 +82,12 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="waitUntil">
-          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
-        <param name="ruleName"> The name of the rule. </param>
-        <param name="data"> The parameters of the rule to create or update. </param>
+        <param name="waitUntil"> Completion behavior for the operation. </param>
+        <param name="ruleName"> The rule name. </param>
+        <param name="data"> The alert rule data. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Creates or updates a classic metric alert rule.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_CreateOrUpdate</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Creates or updates an alert rule. </summary>
+        <returns> The alert rule operation. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
           <paramref name="ruleName" /> is an empty string, and was expected to be non-empty. </exception>
@@ -114,15 +117,12 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="waitUntil">
-          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
-        <param name="ruleName"> The name of the rule. </param>
-        <param name="data"> The parameters of the rule to create or update. </param>
+        <param name="waitUntil"> Completion behavior for the operation. </param>
+        <param name="ruleName"> The rule name. </param>
+        <param name="data"> The alert rule data. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Creates or updates a classic metric alert rule.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_CreateOrUpdate</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Creates or updates an alert rule. </summary>
+        <returns> The alert rule operation. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
           <paramref name="ruleName" /> is an empty string, and was expected to be non-empty. </exception>
@@ -150,12 +150,10 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="ruleName"> The name of the rule. </param>
+        <param name="ruleName"> The rule name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Checks to see if the resource exists in azure.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Get</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Checks whether the alert rule exists. </summary>
+        <returns> Whether the alert rule exists. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
           <paramref name="ruleName" /> is an empty string, and was expected to be non-empty. </exception>
@@ -183,12 +181,10 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="ruleName"> The name of the rule. </param>
+        <param name="ruleName"> The rule name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Checks to see if the resource exists in azure.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Get</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Checks whether the alert rule exists. </summary>
+        <returns> Whether the alert rule exists. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
           <paramref name="ruleName" /> is an empty string, and was expected to be non-empty. </exception>
@@ -216,12 +212,10 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="ruleName"> The name of the rule. </param>
+        <param name="ruleName"> The rule name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Gets a classic metric alert rule
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Get</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Gets an alert rule. </summary>
+        <returns> The alert rule resource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
           <paramref name="ruleName" /> is an empty string, and was expected to be non-empty. </exception>
@@ -249,10 +243,8 @@
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            List the classic metric alert rules within a resource group.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules</description></item><item><term>Operation Id</term><description>AlertRules_ListByResourceGroup</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns> A collection of <see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /> that may take multiple service requests to iterate over. </returns>
+        <summary> Gets all alert rules in the collection. </summary>
+        <returns> A collection of alert rules. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -276,10 +268,8 @@
       </Parameters>
       <Docs>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            List the classic metric alert rules within a resource group.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules</description></item><item><term>Operation Id</term><description>AlertRules_ListByResourceGroup</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns> An async collection of <see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /> that may take multiple service requests to iterate over. </returns>
+        <summary> Gets all alert rules in the collection. </summary>
+        <returns> A collection of alert rules. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -303,12 +293,10 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="ruleName"> The name of the rule. </param>
+        <param name="ruleName"> The rule name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Gets a classic metric alert rule
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Get</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Gets an alert rule. </summary>
+        <returns> The alert rule resource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
           <paramref name="ruleName" /> is an empty string, and was expected to be non-empty. </exception>
@@ -336,12 +324,10 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="ruleName"> The name of the rule. </param>
+        <param name="ruleName"> The rule name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Tries to get details for this resource from the service.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Get</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Gets an alert rule if it exists. </summary>
+        <returns> The alert rule resource if it exists. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
           <paramref name="ruleName" /> is an empty string, and was expected to be non-empty. </exception>
@@ -369,12 +355,10 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="ruleName"> The name of the rule. </param>
+        <param name="ruleName"> The rule name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
-        <summary>
-            Tries to get details for this resource from the service.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/alertrules/{ruleName}</description></item><item><term>Operation Id</term><description>AlertRules_Get</description></item><item><term>Default Api Version</term><description>2016-03-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.Monitor.AlertRuleResource" /></description></item></list></summary>
-        <returns>To be added.</returns>
+        <summary> Gets an alert rule if it exists. </summary>
+        <returns> The alert rule resource if it exists. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentException">
           <paramref name="ruleName" /> is an empty string, and was expected to be non-empty. </exception>
