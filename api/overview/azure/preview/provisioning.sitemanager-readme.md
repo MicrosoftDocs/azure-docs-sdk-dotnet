@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: sitemanager
 ---
-# Azure Provisioning Site Manager client library for .NET - version 1.0.0-alpha.20261111.1 
+# Azure Provisioning Site Manager client library for .NET - version 1.0.0-alpha.20261112.1 
 
 
 Azure.Provisioning.SiteManager simplifies declarative resource provisioning for Azure Site Manager in .NET.
