@@ -1,18 +1,17 @@
 ---
 title: Azure Semantic Reranker client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Data.AI, dataai
-ms.date: 09/29/2026
+ms.date: 11/12/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: dataai
 ---
-# Azure Semantic Reranker client library for .NET - version 1.0.0-beta.1 
+# Azure Semantic Reranker client library for .NET - version 1.1.0-alpha.20261112.1 
 
-
-> [!IMPORTANT]
-> `Azure.Data.AI` is a provisional package and namespace for the Semantic Reranker service. Product naming is not final.
 
 Azure.Data.AI provides semantic reranking operations for .NET applications.
+
+Version 1.0.0 is the first stable release and targets service API version `2026-10-30`.
 
 ## Getting started
 
@@ -21,11 +20,12 @@ Azure.Data.AI provides semantic reranking operations for .NET applications.
 Install the client library for .NET with [NuGet](https://www.nuget.org/):
 
 ```dotnetcli
-dotnet add package Azure.Data.AI --prerelease
+dotnet add package Azure.Data.AI
 ```
 
 ### Prerequisites
 
+- `Azure.Core` version 1.64.0 or later. This dependency is installed automatically; if your application references `Azure.Core` directly or pins it through central package management, update that reference to at least 1.64.0.
 - You must have a [Microsoft Azure subscription](https://azure.microsoft.com/free/dotnet/).
 - A Semantic Reranker endpoint.
 - Either an API key or a Microsoft Entra identity assigned the **Semantic Reranker User** role on the `Microsoft.InferenceService/inferenceAccounts` resource.
@@ -53,10 +53,15 @@ The generated bearer-token policy requests the `https://dbinference.azure.com/.d
 ## Key concepts
 
 Use `InferenceClient.SemanticRerank` or `SemanticRerankAsync` to rerank documents directly.
+Pass a `SemanticRerankingContent` instance and read the scores and `Metadata` from
+the returned `SemanticRerankingResult`. For JSON documents, set `DocumentType` to
+`SemanticRerankingDocumentType.Json` and add up to 100 property paths to the
+`TargetPaths` collection; the client serializes them as a comma-separated string.
+The API contract specifies a maximum of 100 paths.
 
 ## Examples
 
-See [Semantic reranking](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AI_1.0.0-beta.1/sdk/dataai/Azure.Data.AI/samples/Sample1_SemanticReranking.md).
+See [Semantic reranking](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/dataai/Azure.Data.AI/samples/Sample1_SemanticReranking.md).
 
 ## Troubleshooting
 
@@ -71,3 +76,4 @@ This project welcomes contributions and suggestions. Most contributions require 
 When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (for example, label, comment). Follow the instructions provided by the bot. You'll only need to do this action once across all repositories using our CLA.
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any other questions or comments.
+
