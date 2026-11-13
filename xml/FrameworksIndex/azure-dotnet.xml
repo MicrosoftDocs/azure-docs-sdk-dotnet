@@ -63,7 +63,7 @@
     <Assembly Name="Azure.Monitor.OpenTelemetry.AspNetCore" Version="1.6.0.0" />
     <Assembly Name="Azure.Monitor.OpenTelemetry.Exporter" Version="1.10.0.0" />
     <Assembly Name="Azure.Provisioning.AppConfiguration" Version="1.1.0.0" />
-    <Assembly Name="Azure.Provisioning.AppContainers" Version="1.2.0.0" />
+    <Assembly Name="Azure.Provisioning.AppContainers" Version="1.3.0.0" />
     <Assembly Name="Azure.Provisioning.ApplicationInsights" Version="1.1.0.0" />
     <Assembly Name="Azure.Provisioning.AppService" Version="1.3.1.0" />
     <Assembly Name="Azure.Provisioning.CognitiveServices" Version="1.2.0.0" />
@@ -39652,6 +39652,7 @@
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerApp.ManagedBy" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerApp.ManagedEnvironmentId" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerApp.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerApp.NetworkingOutboundVnetSubnetId" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerApp.OutboundIPAddressList" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerApp.ProvisioningState" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerApp.RunningStatus" />
@@ -39667,6 +39668,8 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerApp.ResourceVersions.V2024_03_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerApp.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerApp.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerApp.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerApp.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppAccessMode" Id="T:Azure.Provisioning.AppContainers.ContainerAppAccessMode">
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppAccessMode.ReadOnly" />
@@ -39717,6 +39720,8 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppAuthConfig.ResourceVersions.V2024_03_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppAuthConfig.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppAuthConfig.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppAuthConfig.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppAuthConfig.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppAuthPlatform" Id="T:Azure.Provisioning.AppContainers.ContainerAppAuthPlatform">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppAuthPlatform.#ctor" />
@@ -39771,6 +39776,17 @@
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppAzureStaticWebAppsConfiguration.IsEnabled" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppAzureStaticWebAppsConfiguration.RegistrationClientId" />
     </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppBaseContainer" Id="T:Azure.Provisioning.AppContainers.ContainerAppBaseContainer">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppBaseContainer.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppBaseContainer.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppBaseContainer.Args" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppBaseContainer.Command" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppBaseContainer.Env" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppBaseContainer.Image" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppBaseContainer.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppBaseContainer.Resources" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppBaseContainer.VolumeMounts" />
+    </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppCertificateKeyVaultProperties" Id="T:Azure.Provisioning.AppContainers.ContainerAppCertificateKeyVaultProperties">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppCertificateKeyVaultProperties.#ctor" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppCertificateKeyVaultProperties.DefineProvisionableProperties" />
@@ -39783,6 +39799,7 @@
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppCertificateProperties.CertificateKeyVaultProperties" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppCertificateProperties.DeploymentErrors" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppCertificateProperties.ExpireOn" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppCertificateProperties.ExpiresOn" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppCertificateProperties.IssueOn" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppCertificateProperties.Issuer" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppCertificateProperties.IsValid" />
@@ -39844,6 +39861,8 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironment.ResourceVersions.V2024_03_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironment.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironment.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironment.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironment.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentCertificate" Id="T:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentCertificate">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentCertificate.#ctor(System.String,System.String)" />
@@ -39863,6 +39882,8 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentCertificate.ResourceVersions.V2024_03_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentCertificate.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentCertificate.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentCertificate.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentCertificate.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentDaprComponent" Id="T:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentDaprComponent">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentDaprComponent.#ctor(System.String,System.String)" />
@@ -39889,6 +39910,8 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentDaprComponent.ResourceVersions.V2024_03_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentDaprComponent.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentDaprComponent.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentDaprComponent.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentDaprComponent.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentProvisioningState" Id="T:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentProvisioningState">
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentProvisioningState.Canceled" />
@@ -39917,18 +39940,34 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentStorage.ResourceVersions.V2024_03_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentStorage.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentStorage.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentStorage.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppConnectedEnvironmentStorage.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppContainer" Id="T:Azure.Provisioning.AppContainers.ContainerAppContainer">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppContainer.#ctor" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppContainer.DefineProvisionableProperties" />
-      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppContainer.Args" />
-      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppContainer.Command" />
-      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppContainer.Env" />
-      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppContainer.Image" />
-      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppContainer.Name" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppContainer.Probes" />
-      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppContainer.Resources" />
-      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppContainer.VolumeMounts" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppContainerPrivateEndpointConnection" Id="T:Azure.Provisioning.AppContainers.ContainerAppContainerPrivateEndpointConnection">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppContainerPrivateEndpointConnection.#ctor(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppContainerPrivateEndpointConnection.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppContainerPrivateEndpointConnection.FromExisting(System.String,System.String)" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppContainerPrivateEndpointConnection.ConnectionState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppContainerPrivateEndpointConnection.GroupIds" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppContainerPrivateEndpointConnection.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppContainerPrivateEndpointConnection.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppContainerPrivateEndpointConnection.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppContainerPrivateEndpointConnection.PrivateEndpointId" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppContainerPrivateEndpointConnection.ProvisioningState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppContainerPrivateEndpointConnection.SystemData" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppContainerPrivateEndpointConnection/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.ContainerAppContainerPrivateEndpointConnection.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppContainerPrivateEndpointConnection.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppContainerRunningState" Id="T:Azure.Provisioning.AppContainers.ContainerAppContainerRunningState">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppContainerRunningState.Running" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppContainerRunningState.Terminated" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppContainerRunningState.Waiting" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppCookieExpiration" Id="T:Azure.Provisioning.AppContainers.ContainerAppCookieExpiration">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppCookieExpiration.#ctor" />
@@ -39980,6 +40019,7 @@
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppCustomDomainConfiguration.CustomDomainVerificationId" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppCustomDomainConfiguration.DnsSuffix" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppCustomDomainConfiguration.ExpireOn" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppCustomDomainConfiguration.ExpiresOn" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppCustomDomainConfiguration.SubjectName" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppCustomDomainConfiguration.Thumbprint" />
     </Type>
@@ -40030,6 +40070,149 @@
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDefaultAuthorizationPolicy.DefineProvisionableProperties" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDefaultAuthorizationPolicy.AllowedApplications" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDefaultAuthorizationPolicy.AllowedPrincipals" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppDetector" Id="T:Azure.Provisioning.AppContainers.ContainerAppDetector">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDetector.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDetector.FromExisting(System.String,System.String)" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetector.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetector.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetector.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetector.Properties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetector.SystemData" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppDetector/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.ContainerAppDetector.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppDetector.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppDetector.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppDetectorProperty" Id="T:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.#ctor(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.Configuration" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.CustomDomainVerificationId" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.EnvironmentId" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.EventStreamEndpoint" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.ExtendedLocation" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.Identity" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.Kind" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.LatestReadyRevisionName" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.LatestRevisionFqdn" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.LatestRevisionName" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.Location" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.ManagedBy" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.ManagedEnvironmentId" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.NetworkingOutboundVnetSubnetId" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.OutboundIPAddressList" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.ProvisioningState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.RunningStatus" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.SystemData" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.Tags" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.Template" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.WorkloadProfileName" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppDetectorProperty/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppDetectorProperty.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision" Id="T:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.FromExisting(System.String,System.String)" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.CreatedOn" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.Fqdn" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.HealthState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.IsActive" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.LastActiveOn" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.ProvisioningError" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.ProvisioningState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.Replicas" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.RunningState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.SystemData" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.Template" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.TrafficWeight" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppDetectorPropertyRevision.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataColumn" Id="T:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataColumn">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataColumn.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataColumn.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataColumn.ColumnName" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataColumn.ColumnType" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataColumn.DataType" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataProviderMetadata" Id="T:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataProviderMetadata">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataProviderMetadata.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataProviderMetadata.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataProviderMetadata.PropertyBag" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataProviderMetadata.ProviderName" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataProviderMetadataPropertyBagItem" Id="T:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataProviderMetadataPropertyBagItem">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataProviderMetadataPropertyBagItem.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataProviderMetadataPropertyBagItem.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataProviderMetadataPropertyBagItem.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataProviderMetadataPropertyBagItem.Value" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataTableResult" Id="T:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataTableResult">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataTableResult.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataTableResult.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataTableResult.Columns" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataTableResult.Rows" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticDataTableResult.TableName" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppDiagnosticRendering" Id="T:Azure.Provisioning.AppContainers.ContainerAppDiagnosticRendering">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticRendering.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticRendering.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticRendering.Description" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticRendering.DiagnosticRenderingType" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticRendering.IsVisible" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticRendering.Title" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppDiagnosticsDataApiResult" Id="T:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsDataApiResult">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsDataApiResult.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsDataApiResult.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsDataApiResult.RenderingProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsDataApiResult.Table" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppDiagnosticsMetadata" Id="T:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsMetadata">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsMetadata.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsMetadata.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsMetadata.AnalysisTypes" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsMetadata.Author" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsMetadata.Category" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsMetadata.Description" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsMetadata.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsMetadata.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsMetadata.Score" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsMetadata.SupportTopicList" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsMetadata.SystemData" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsMetadata.Type" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppDiagnosticsProperties" Id="T:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsProperties">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsProperties.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsProperties.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsProperties.DataProviderMetadata" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsProperties.Dataset" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsProperties.Metadata" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsProperties.Status" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppDiagnosticsStatus" Id="T:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsStatus">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsStatus.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsStatus.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsStatus.Message" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticsStatus.StatusId" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppDiagnosticSupportTopic" Id="T:Azure.Provisioning.AppContainers.ContainerAppDiagnosticSupportTopic">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticSupportTopic.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppDiagnosticSupportTopic.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticSupportTopic.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppDiagnosticSupportTopic.PesId" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppEnvironmentProvisioningState" Id="T:Azure.Provisioning.AppContainers.ContainerAppEnvironmentProvisioningState">
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppEnvironmentProvisioningState.Canceled" />
@@ -40139,6 +40322,7 @@
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppHttpRouteConfig.#ctor(System.String,System.String)" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppHttpRouteConfig.DefineProvisionableProperties" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppHttpRouteConfig.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppHttpRouteConfig.GetResourceNameRequirements" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppHttpRouteConfig.Id" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppHttpRouteConfig.Name" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppHttpRouteConfig.Parent" />
@@ -40152,6 +40336,8 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppHttpRouteConfig.ResourceVersions.V2024_03_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppHttpRouteConfig.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppHttpRouteConfig.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppHttpRouteConfig.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppHttpRouteConfig.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppHttpRouteConfigProperties" Id="T:Azure.Provisioning.AppContainers.ContainerAppHttpRouteConfigProperties">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppHttpRouteConfigProperties.#ctor" />
@@ -40258,6 +40444,7 @@
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppIngressConfiguration.External" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppIngressConfiguration.Fqdn" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppIngressConfiguration.IPSecurityRestrictions" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppIngressConfiguration.StickySessionAffinity" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppIngressConfiguration.StickySessionsAffinity" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppIngressConfiguration.TargetPort" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppIngressConfiguration.Traffic" />
@@ -40272,13 +40459,6 @@
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppInitContainer" Id="T:Azure.Provisioning.AppContainers.ContainerAppInitContainer">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppInitContainer.#ctor" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppInitContainer.DefineProvisionableProperties" />
-      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppInitContainer.Args" />
-      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppInitContainer.Command" />
-      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppInitContainer.Env" />
-      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppInitContainer.Image" />
-      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppInitContainer.Name" />
-      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppInitContainer.Resources" />
-      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppInitContainer.VolumeMounts" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppIPRuleAction" Id="T:Azure.Provisioning.AppContainers.ContainerAppIPRuleAction">
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppIPRuleAction.Allow" />
@@ -40296,6 +40476,7 @@
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJob.#ctor(System.String,System.String)" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJob.DefineProvisionableProperties" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJob.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJob.GetResourceNameRequirements" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJob.Configuration" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJob.EnvironmentId" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJob.EventStreamEndpoint" />
@@ -40305,6 +40486,7 @@
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJob.Name" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJob.OutboundIPAddresses" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJob.ProvisioningState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJob.RunningState" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJob.SystemData" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJob.Tags" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJob.Template" />
@@ -40315,6 +40497,8 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJob.ResourceVersions.V2024_03_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJob.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJob.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJob.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJob.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppJobConfiguration" Id="T:Azure.Provisioning.AppContainers.ContainerAppJobConfiguration">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobConfiguration.#ctor" />
@@ -40329,12 +40513,95 @@
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobConfiguration.Secrets" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobConfiguration.TriggerType" />
     </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppJobDetector" Id="T:Azure.Provisioning.AppContainers.ContainerAppJobDetector">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobDetector.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobDetector.FromExisting(System.String,System.String)" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetector.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetector.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetector.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetector.Properties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetector.SystemData" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppJobDetector/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.ContainerAppJobDetector.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJobDetector.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJobDetector.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty" Id="T:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.#ctor(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.Configuration" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.EnvironmentId" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.EventStreamEndpoint" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.Identity" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.Location" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.OutboundIPAddresses" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.ProvisioningState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.RunningState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.SystemData" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.Tags" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.Template" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.WorkloadProfileName" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJobDetectorProperty.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppJobExecution" Id="T:Azure.Provisioning.AppContainers.ContainerAppJobExecution">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobExecution.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobExecution.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobExecution.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecution.DetailedStatusReplicas" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecution.EndsOn" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecution.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecution.Message" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecution.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecution.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecution.Reason" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecution.StartsOn" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecution.Status" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecution.SystemData" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecution.Template" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppJobExecution/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.ContainerAppJobExecution.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJobExecution.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJobExecution.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppJobExecutionContainerStatus" Id="T:Azure.Provisioning.AppContainers.ContainerAppJobExecutionContainerStatus">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobExecutionContainerStatus.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobExecutionContainerStatus.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecutionContainerStatus.AdditionalInformation" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecutionContainerStatus.Code" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecutionContainerStatus.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecutionContainerStatus.Status" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppJobExecutionReplicaStatus" Id="T:Azure.Provisioning.AppContainers.ContainerAppJobExecutionReplicaStatus">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobExecutionReplicaStatus.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobExecutionReplicaStatus.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecutionReplicaStatus.Containers" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecutionReplicaStatus.Name" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppJobExecutionTemplate" Id="T:Azure.Provisioning.AppContainers.ContainerAppJobExecutionTemplate">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobExecutionTemplate.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobExecutionTemplate.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecutionTemplate.Containers" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppJobExecutionTemplate.InitContainers" />
+    </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppJobProvisioningState" Id="T:Azure.Provisioning.AppContainers.ContainerAppJobProvisioningState">
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJobProvisioningState.Canceled" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJobProvisioningState.Deleting" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJobProvisioningState.Failed" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJobProvisioningState.InProgress" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJobProvisioningState.Succeeded" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppJobRunningState" Id="T:Azure.Provisioning.AppContainers.ContainerAppJobRunningState">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJobRunningState.Progressing" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJobRunningState.Ready" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppJobRunningState.Suspended" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppJobScale" Id="T:Azure.Provisioning.AppContainers.ContainerAppJobScale">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppJobScale.#ctor" />
@@ -40375,6 +40642,32 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppKind.Functionapp" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppKind.Workflowapp" />
     </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppLabelHistory" Id="T:Azure.Provisioning.AppContainers.ContainerAppLabelHistory">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppLabelHistory.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppLabelHistory.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppLabelHistory.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppLabelHistory.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppLabelHistory.LabelHistoryRecords" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppLabelHistory.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppLabelHistory.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppLabelHistory.SystemData" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppLabelHistory/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.ContainerAppLabelHistory.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppLabelHistory.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppLabelHistoryRecordItem" Id="T:Azure.Provisioning.AppContainers.ContainerAppLabelHistoryRecordItem">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppLabelHistoryRecordItem.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppLabelHistoryRecordItem.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppLabelHistoryRecordItem.Revision" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppLabelHistoryRecordItem.StartedOn" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppLabelHistoryRecordItem.Status" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppLabelHistoryRecordItem.StoppedOn" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppLabelHistoryStatus" Id="T:Azure.Provisioning.AppContainers.ContainerAppLabelHistoryStatus">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppLabelHistoryStatus.Failed" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppLabelHistoryStatus.Starting" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppLabelHistoryStatus.Succeeded" />
+    </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppLogAnalyticsConfiguration" Id="T:Azure.Provisioning.AppContainers.ContainerAppLogAnalyticsConfiguration">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppLogAnalyticsConfiguration.#ctor" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppLogAnalyticsConfiguration.DefineProvisionableProperties" />
@@ -40407,6 +40700,7 @@
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppMaintenanceConfiguration.#ctor(System.String,System.String)" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppMaintenanceConfiguration.DefineProvisionableProperties" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppMaintenanceConfiguration.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppMaintenanceConfiguration.GetResourceNameRequirements" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppMaintenanceConfiguration.Id" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppMaintenanceConfiguration.Name" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppMaintenanceConfiguration.Parent" />
@@ -40420,6 +40714,8 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppMaintenanceConfiguration.ResourceVersions.V2024_03_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppMaintenanceConfiguration.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppMaintenanceConfiguration.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppMaintenanceConfiguration.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppMaintenanceConfiguration.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppManagedCertificate" Id="T:Azure.Provisioning.AppContainers.ContainerAppManagedCertificate">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppManagedCertificate.#ctor(System.String,System.String)" />
@@ -40438,6 +40734,8 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedCertificate.ResourceVersions.V2024_03_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedCertificate.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedCertificate.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedCertificate.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedCertificate.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment" Id="T:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.#ctor(System.String,System.String)" />
@@ -40445,6 +40743,8 @@
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.CreateRoleAssignment(Azure.Provisioning.AppContainers.AppContainersBuiltInRole,Azure.Provisioning.Roles.UserAssignedIdentity)" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.DefineProvisionableProperties" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.AppInsightsConnectionString" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.AppLogsConfiguration" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.CustomDomainConfiguration" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.DaprAIConnectionString" />
@@ -40452,6 +40752,7 @@
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.DaprVersion" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.DefaultDomain" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.DeploymentErrors" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.EnvironmentMode" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.EventStreamEndpoint" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.Id" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.Identity" />
@@ -40464,6 +40765,9 @@
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.Kind" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.Location" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.OpenTelemetryConfiguration" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.PeerAuthenticationIsMtlsEnabled" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.PeerTrafficEncryptionIsEnabled" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.PrivateEndpointConnections" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.ProvisioningState" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.PublicNetworkAccess" />
@@ -40480,6 +40784,8 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.ResourceVersions.V2024_03_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironment.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentCertificate" Id="T:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentCertificate">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentCertificate.#ctor(System.String,System.String)" />
@@ -40500,6 +40806,8 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentCertificate.ResourceVersions.V2024_03_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentCertificate.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentCertificate.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentCertificate.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentCertificate.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDaprComponent" Id="T:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDaprComponent">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDaprComponent.#ctor(System.String,System.String)" />
@@ -40527,6 +40835,64 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDaprComponent.ResourceVersions.V2024_03_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDaprComponent.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDaprComponent.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDaprComponent.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDaprComponent.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetector" Id="T:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetector">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetector.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetector.FromExisting(System.String,System.String)" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetector.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetector.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetector.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetector.Properties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetector.SystemData" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetector/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetector.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetector.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetector.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty" Id="T:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.#ctor(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.CreateRoleAssignment(Azure.Provisioning.AppContainers.AppContainersBuiltInRole,Azure.Provisioning.BicepValue{Azure.Provisioning.Authorization.RoleManagementPrincipalType},Azure.Provisioning.BicepValue{System.Guid},System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.CreateRoleAssignment(Azure.Provisioning.AppContainers.AppContainersBuiltInRole,Azure.Provisioning.Roles.UserAssignedIdentity)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.AppInsightsConnectionString" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.AppLogsConfiguration" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.CustomDomainConfiguration" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.DaprAIConnectionString" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.DaprAIInstrumentationKey" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.DaprVersion" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.DefaultDomain" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.DeploymentErrors" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.EnvironmentMode" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.EventStreamEndpoint" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.Identity" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.InfrastructureResourceGroup" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.IngressConfiguration" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.IsZoneRedundant" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.KedaVersion" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.Kind" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.Location" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.OpenTelemetryConfiguration" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.PeerAuthenticationIsMtlsEnabled" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.PeerTrafficEncryptionIsEnabled" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.PrivateEndpointConnections" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.ProvisioningState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.PublicNetworkAccess" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.StaticIP" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.SystemData" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.Tags" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.VnetConfiguration" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.WorkloadProfiles" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentDetectorResourceProperty.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentOutBoundType" Id="T:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentOutBoundType">
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentOutBoundType.LoadBalancer" />
@@ -40550,6 +40916,8 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentStorage.ResourceVersions.V2024_03_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentStorage.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentStorage.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentStorage.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppManagedEnvironmentStorage.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppNfsAzureFileProperties" Id="T:Azure.Provisioning.AppContainers.ContainerAppNfsAzureFileProperties">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppNfsAzureFileProperties.#ctor" />
@@ -40589,6 +40957,30 @@
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppOpenIdConnectRegistration.ClientId" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppOpenIdConnectRegistration.OpenIdConnectConfiguration" />
     </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryDestinationsConfiguration" Id="T:Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryDestinationsConfiguration">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryDestinationsConfiguration.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryDestinationsConfiguration.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryDestinationsConfiguration.DataDogConfiguration" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryDestinationsConfiguration.OtlpConfigurations" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryMetricsConfiguration" Id="T:Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryMetricsConfiguration">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryMetricsConfiguration.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryMetricsConfiguration.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryMetricsConfiguration.Destinations" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryMetricsConfiguration.IsKedaIncluded" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryTracesConfiguration" Id="T:Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryTracesConfiguration">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryTracesConfiguration.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryTracesConfiguration.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryTracesConfiguration.Destinations" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppOpenTelemetryTracesConfiguration.IsDaprIncluded" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppOtlpHeader" Id="T:Azure.Provisioning.AppContainers.ContainerAppOtlpHeader">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppOtlpHeader.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppOtlpHeader.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppOtlpHeader.Key" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppOtlpHeader.Value" />
+    </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppPrivateEndpointConnection" Id="T:Azure.Provisioning.AppContainers.ContainerAppPrivateEndpointConnection">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppPrivateEndpointConnection.#ctor(System.String,System.String)" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppPrivateEndpointConnection.DefineProvisionableProperties" />
@@ -40609,6 +41001,8 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppPrivateEndpointConnection.ResourceVersions.V2024_03_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppPrivateEndpointConnection.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppPrivateEndpointConnection.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppPrivateEndpointConnection.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppPrivateEndpointConnection.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppPrivateEndpointConnectionProvisioningState" Id="T:Azure.Provisioning.AppContainers.ContainerAppPrivateEndpointConnectionProvisioningState">
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppPrivateEndpointConnectionProvisioningState.Canceled" />
@@ -40695,6 +41089,77 @@
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRegistryInfo.RegistryServer" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRegistryInfo.RegistryUserName" />
     </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppReplica" Id="T:Azure.Provisioning.AppContainers.ContainerAppReplica">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppReplica.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppReplica.FromExisting(System.String,System.String)" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplica.Containers" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplica.CreatedOn" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplica.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplica.InitContainers" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplica.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplica.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplica.RunningState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplica.RunningStateDetails" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplica.SystemData" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppReplica/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.ContainerAppReplica.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppReplica.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppReplica.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppReplicaContainer" Id="T:Azure.Provisioning.AppContainers.ContainerAppReplicaContainer">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppReplicaContainer.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppReplicaContainer.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplicaContainer.ContainerId" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplicaContainer.DebugEndpoint" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplicaContainer.ExecEndpoint" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplicaContainer.IsReady" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplicaContainer.IsStarted" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplicaContainer.LogStreamEndpoint" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplicaContainer.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplicaContainer.RestartCount" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplicaContainer.RunningState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppReplicaContainer.RunningStateDetails" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppReplicaRunningState" Id="T:Azure.Provisioning.AppContainers.ContainerAppReplicaRunningState">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppReplicaRunningState.NotRunning" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppReplicaRunningState.Running" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppReplicaRunningState.Unknown" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppRevision" Id="T:Azure.Provisioning.AppContainers.ContainerAppRevision">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppRevision.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppRevision.FromExisting(System.String,System.String)" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRevision.CreatedOn" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRevision.Fqdn" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRevision.HealthState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRevision.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRevision.IsActive" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRevision.LastActiveOn" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRevision.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRevision.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRevision.ProvisioningError" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRevision.ProvisioningState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRevision.Replicas" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRevision.RunningState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRevision.SystemData" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRevision.Template" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppRevision.TrafficWeight" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppRevision/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.ContainerAppRevision.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppRevision.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppRevision.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppRevisionHealthState" Id="T:Azure.Provisioning.AppContainers.ContainerAppRevisionHealthState">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppRevisionHealthState.Healthy" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppRevisionHealthState.None" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppRevisionHealthState.Unhealthy" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppRevisionProvisioningState" Id="T:Azure.Provisioning.AppContainers.ContainerAppRevisionProvisioningState">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppRevisionProvisioningState.Deprovisioned" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppRevisionProvisioningState.Deprovisioning" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppRevisionProvisioningState.Failed" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppRevisionProvisioningState.Provisioned" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppRevisionProvisioningState.Provisioning" />
+    </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppRevisionTrafficWeight" Id="T:Azure.Provisioning.AppContainers.ContainerAppRevisionTrafficWeight">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppRevisionTrafficWeight.#ctor" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppRevisionTrafficWeight.DefineProvisionableProperties" />
@@ -40713,6 +41178,7 @@
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppScale" Id="T:Azure.Provisioning.AppContainers.ContainerAppScale">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppScale.#ctor" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppScale.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppScale.AllowScalingRuleOverride" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppScale.CooldownPeriod" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppScale.MaxReplicas" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppScale.MinReplicas" />
@@ -40746,6 +41212,27 @@
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppServiceBind.Name" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppServiceBind.ServiceId" />
     </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppsFunction" Id="T:Azure.Provisioning.AppContainers.ContainerAppsFunction">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppsFunction.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppsFunction.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppsFunction.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsFunction.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsFunction.InvokeUrlTemplate" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsFunction.IsDisabled" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsFunction.Language" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsFunction.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsFunction.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsFunction.State" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsFunction.SystemData" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsFunction.TriggerType" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppsFunction/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.ContainerAppsFunction.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppsFunction.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppsFunctionState" Id="T:Azure.Provisioning.AppContainers.ContainerAppsFunctionState">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppsFunctionState.Disabled" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppsFunctionState.Enabled" />
+    </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppSourceControl" Id="T:Azure.Provisioning.AppContainers.ContainerAppSourceControl">
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppSourceControl.#ctor(System.String,System.String)" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppSourceControl.DefineProvisionableProperties" />
@@ -40766,12 +41253,32 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppSourceControl.ResourceVersions.V2024_03_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppSourceControl.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppSourceControl.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppSourceControl.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppSourceControl.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppSourceControlOperationState" Id="T:Azure.Provisioning.AppContainers.ContainerAppSourceControlOperationState">
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppSourceControlOperationState.Canceled" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppSourceControlOperationState.Failed" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppSourceControlOperationState.InProgress" />
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppSourceControlOperationState.Succeeded" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction" Id="T:Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction">
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction.InvokeUrlTemplate" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction.IsDisabled" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction.Language" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction.State" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction.SystemData" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction.TriggerType" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppsRevisionFunction.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppStorageType" Id="T:Azure.Provisioning.AppContainers.ContainerAppStorageType">
       <Member Id="F:Azure.Provisioning.AppContainers.ContainerAppStorageType.AzureFile" />
@@ -40807,7 +41314,10 @@
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppTokenStore.#ctor" />
       <Member Id="M:Azure.Provisioning.AppContainers.ContainerAppTokenStore.DefineProvisionableProperties" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppTokenStore.AzureBlobStorageSasUrlSettingName" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppTokenStore.BlobContainerUri" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppTokenStore.ClientId" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppTokenStore.IsEnabled" />
+      <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppTokenStore.ManagedIdentityResourceId" />
       <Member Id="P:Azure.Provisioning.AppContainers.ContainerAppTokenStore.TokenRefreshExtensionHours" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ContainerAppTwitterConfiguration" Id="T:Azure.Provisioning.AppContainers.ContainerAppTwitterConfiguration">
@@ -40896,6 +41406,91 @@
       <Member Id="F:Azure.Provisioning.AppContainers.DaprComponentProvisioningState.InProgress" />
       <Member Id="F:Azure.Provisioning.AppContainers.DaprComponentProvisioningState.Succeeded" />
     </Type>
+    <Type Name="Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicy" Id="T:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicy">
+      <Member Id="M:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicy.#ctor(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicy.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicy.FromExisting(System.String,System.String)" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicy.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicy.InboundPolicy" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicy.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicy.OutboundPolicy" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicy.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicy.SystemData" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicy/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicy.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicy.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyCircuitBreakerPolicyConfiguration" Id="T:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyCircuitBreakerPolicyConfiguration">
+      <Member Id="M:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyCircuitBreakerPolicyConfiguration.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyCircuitBreakerPolicyConfiguration.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyCircuitBreakerPolicyConfiguration.ConsecutiveErrors" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyCircuitBreakerPolicyConfiguration.IntervalInSeconds" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyCircuitBreakerPolicyConfiguration.TimeoutInSeconds" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyConfiguration" Id="T:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyConfiguration">
+      <Member Id="M:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyConfiguration.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyConfiguration.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyConfiguration.CircuitBreakerPolicy" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyConfiguration.HttpRetryPolicy" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyConfiguration.ResponseTimeoutInSeconds" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyHttpRetryBackOffConfiguration" Id="T:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyHttpRetryBackOffConfiguration">
+      <Member Id="M:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyHttpRetryBackOffConfiguration.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyHttpRetryBackOffConfiguration.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyHttpRetryBackOffConfiguration.InitialDelayInMilliseconds" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyHttpRetryBackOffConfiguration.MaxIntervalInMilliseconds" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyHttpRetryPolicyConfiguration" Id="T:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyHttpRetryPolicyConfiguration">
+      <Member Id="M:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyHttpRetryPolicyConfiguration.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyHttpRetryPolicyConfiguration.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyHttpRetryPolicyConfiguration.MaxRetries" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DaprComponentResiliencyPolicyHttpRetryPolicyConfiguration.RetryBackOff" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.DataDogConfiguration" Id="T:Azure.Provisioning.AppContainers.DataDogConfiguration">
+      <Member Id="M:Azure.Provisioning.AppContainers.DataDogConfiguration.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.DataDogConfiguration.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DataDogConfiguration.Key" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DataDogConfiguration.Site" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.DotNetComponent" Id="T:Azure.Provisioning.AppContainers.DotNetComponent">
+      <Member Id="M:Azure.Provisioning.AppContainers.DotNetComponent.#ctor(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.DotNetComponent.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.DotNetComponent.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.DotNetComponent.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DotNetComponent.ComponentType" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DotNetComponent.Configurations" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DotNetComponent.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DotNetComponent.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DotNetComponent.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DotNetComponent.ProvisioningState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DotNetComponent.ServiceBinds" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DotNetComponent.SystemData" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.DotNetComponent/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.DotNetComponent.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.DotNetComponent.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.DotNetComponentConfigurationProperty" Id="T:Azure.Provisioning.AppContainers.DotNetComponentConfigurationProperty">
+      <Member Id="M:Azure.Provisioning.AppContainers.DotNetComponentConfigurationProperty.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.DotNetComponentConfigurationProperty.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DotNetComponentConfigurationProperty.PropertyName" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DotNetComponentConfigurationProperty.Value" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.DotNetComponentProvisioningState" Id="T:Azure.Provisioning.AppContainers.DotNetComponentProvisioningState">
+      <Member Id="F:Azure.Provisioning.AppContainers.DotNetComponentProvisioningState.Canceled" />
+      <Member Id="F:Azure.Provisioning.AppContainers.DotNetComponentProvisioningState.Deleting" />
+      <Member Id="F:Azure.Provisioning.AppContainers.DotNetComponentProvisioningState.Failed" />
+      <Member Id="F:Azure.Provisioning.AppContainers.DotNetComponentProvisioningState.InProgress" />
+      <Member Id="F:Azure.Provisioning.AppContainers.DotNetComponentProvisioningState.Succeeded" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.DotNetComponentServiceBind" Id="T:Azure.Provisioning.AppContainers.DotNetComponentServiceBind">
+      <Member Id="M:Azure.Provisioning.AppContainers.DotNetComponentServiceBind.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.DotNetComponentServiceBind.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DotNetComponentServiceBind.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.DotNetComponentServiceBind.ServiceId" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.DotNetComponentType" Id="T:Azure.Provisioning.AppContainers.DotNetComponentType">
+      <Member Id="F:Azure.Provisioning.AppContainers.DotNetComponentType.AspireDashboard" />
+    </Type>
     <Type Name="Azure.Provisioning.AppContainers.EncryptionSettings" Id="T:Azure.Provisioning.AppContainers.EncryptionSettings">
       <Member Id="M:Azure.Provisioning.AppContainers.EncryptionSettings.#ctor" />
       <Member Id="M:Azure.Provisioning.AppContainers.EncryptionSettings.DefineProvisionableProperties" />
@@ -40920,6 +41515,7 @@
       <Member Id="M:Azure.Provisioning.AppContainers.JavaComponent.#ctor(System.String,System.String)" />
       <Member Id="M:Azure.Provisioning.AppContainers.JavaComponent.DefineProvisionableProperties" />
       <Member Id="M:Azure.Provisioning.AppContainers.JavaComponent.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.JavaComponent.GetResourceNameRequirements" />
       <Member Id="P:Azure.Provisioning.AppContainers.JavaComponent.Id" />
       <Member Id="P:Azure.Provisioning.AppContainers.JavaComponent.Name" />
       <Member Id="P:Azure.Provisioning.AppContainers.JavaComponent.Parent" />
@@ -40929,6 +41525,8 @@
     <Type Name="Azure.Provisioning.AppContainers.JavaComponent/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.JavaComponent.ResourceVersions">
       <Member Id="F:Azure.Provisioning.AppContainers.JavaComponent.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.JavaComponent.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.JavaComponent.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.JavaComponent.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.JavaComponentConfigurationProperty" Id="T:Azure.Provisioning.AppContainers.JavaComponentConfigurationProperty">
       <Member Id="M:Azure.Provisioning.AppContainers.JavaComponentConfigurationProperty.#ctor" />
@@ -40976,16 +41574,86 @@
       <Member Id="P:Azure.Provisioning.AppContainers.JobConfigurationScheduleTriggerConfig.Parallelism" />
       <Member Id="P:Azure.Provisioning.AppContainers.JobConfigurationScheduleTriggerConfig.ReplicaCompletionCount" />
     </Type>
+    <Type Name="Azure.Provisioning.AppContainers.JobExecutionContainer" Id="T:Azure.Provisioning.AppContainers.JobExecutionContainer">
+      <Member Id="M:Azure.Provisioning.AppContainers.JobExecutionContainer.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.JobExecutionContainer.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.JobExecutionContainer.Args" />
+      <Member Id="P:Azure.Provisioning.AppContainers.JobExecutionContainer.Command" />
+      <Member Id="P:Azure.Provisioning.AppContainers.JobExecutionContainer.Env" />
+      <Member Id="P:Azure.Provisioning.AppContainers.JobExecutionContainer.Image" />
+      <Member Id="P:Azure.Provisioning.AppContainers.JobExecutionContainer.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.JobExecutionContainer.Resources" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.JobExecutionRunningState" Id="T:Azure.Provisioning.AppContainers.JobExecutionRunningState">
+      <Member Id="F:Azure.Provisioning.AppContainers.JobExecutionRunningState.Degraded" />
+      <Member Id="F:Azure.Provisioning.AppContainers.JobExecutionRunningState.Failed" />
+      <Member Id="F:Azure.Provisioning.AppContainers.JobExecutionRunningState.Processing" />
+      <Member Id="F:Azure.Provisioning.AppContainers.JobExecutionRunningState.Running" />
+      <Member Id="F:Azure.Provisioning.AppContainers.JobExecutionRunningState.Stopped" />
+      <Member Id="F:Azure.Provisioning.AppContainers.JobExecutionRunningState.Succeeded" />
+      <Member Id="F:Azure.Provisioning.AppContainers.JobExecutionRunningState.Unknown" />
+    </Type>
     <Type Name="Azure.Provisioning.AppContainers.LogicApp" Id="T:Azure.Provisioning.AppContainers.LogicApp">
       <Member Id="M:Azure.Provisioning.AppContainers.LogicApp.#ctor(System.String,System.String)" />
       <Member Id="M:Azure.Provisioning.AppContainers.LogicApp.DefineProvisionableProperties" />
       <Member Id="M:Azure.Provisioning.AppContainers.LogicApp.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.LogicApp.GetResourceNameRequirements" />
       <Member Id="P:Azure.Provisioning.AppContainers.LogicApp.Id" />
       <Member Id="P:Azure.Provisioning.AppContainers.LogicApp.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.LogicApp.Scope" />
       <Member Id="P:Azure.Provisioning.AppContainers.LogicApp.SystemData" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.LogicApp/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.LogicApp.ResourceVersions">
       <Member Id="F:Azure.Provisioning.AppContainers.LogicApp.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicApp.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicApp.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelope" Id="T:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelope">
+      <Member Id="M:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelope.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelope.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelope.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelope.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelope.Kind" />
+      <Member Id="P:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelope.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelope.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelope.Properties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelope.SystemData" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelope/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelope.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelope.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelope.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelopeProperties" Id="T:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelopeProperties">
+      <Member Id="M:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelopeProperties.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelopeProperties.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelopeProperties.Files" />
+      <Member Id="P:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelopeProperties.FlowState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.LogicAppWorkflowEnvelopeProperties.Health" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.LogicAppWorkflowHealth" Id="T:Azure.Provisioning.AppContainers.LogicAppWorkflowHealth">
+      <Member Id="M:Azure.Provisioning.AppContainers.LogicAppWorkflowHealth.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.LogicAppWorkflowHealth.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.LogicAppWorkflowHealth.Error" />
+      <Member Id="P:Azure.Provisioning.AppContainers.LogicAppWorkflowHealth.State" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.LogicAppWorkflowHealthState" Id="T:Azure.Provisioning.AppContainers.LogicAppWorkflowHealthState">
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicAppWorkflowHealthState.Healthy" />
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicAppWorkflowHealthState.NotSpecified" />
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicAppWorkflowHealthState.Unhealthy" />
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicAppWorkflowHealthState.Unknown" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.LogicAppWorkflowKind" Id="T:Azure.Provisioning.AppContainers.LogicAppWorkflowKind">
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicAppWorkflowKind.Agentic" />
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicAppWorkflowKind.Stateful" />
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicAppWorkflowKind.Stateless" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.LogicAppWorkflowState" Id="T:Azure.Provisioning.AppContainers.LogicAppWorkflowState">
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicAppWorkflowState.Completed" />
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicAppWorkflowState.Deleted" />
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicAppWorkflowState.Disabled" />
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicAppWorkflowState.Enabled" />
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicAppWorkflowState.NotSpecified" />
+      <Member Id="F:Azure.Provisioning.AppContainers.LogicAppWorkflowState.Suspended" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.ManagedCertificateDomainControlValidation" Id="T:Azure.Provisioning.AppContainers.ManagedCertificateDomainControlValidation">
       <Member Id="F:Azure.Provisioning.AppContainers.ManagedCertificateDomainControlValidation.Cname" />
@@ -41009,6 +41677,12 @@
       <Member Id="P:Azure.Provisioning.AppContainers.ManagedEnvironmentIngressConfiguration.TerminationGracePeriodSeconds" />
       <Member Id="P:Azure.Provisioning.AppContainers.ManagedEnvironmentIngressConfiguration.WorkloadProfileName" />
     </Type>
+    <Type Name="Azure.Provisioning.AppContainers.ManagedEnvironmentMode" Id="T:Azure.Provisioning.AppContainers.ManagedEnvironmentMode">
+      <Member Id="F:Azure.Provisioning.AppContainers.ManagedEnvironmentMode.Archived" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ManagedEnvironmentMode.ConsumptionOnly" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ManagedEnvironmentMode.Express" />
+      <Member Id="F:Azure.Provisioning.AppContainers.ManagedEnvironmentMode.WorkloadProfiles" />
+    </Type>
     <Type Name="Azure.Provisioning.AppContainers.ManagedEnvironmentScheduledEntry" Id="T:Azure.Provisioning.AppContainers.ManagedEnvironmentScheduledEntry">
       <Member Id="M:Azure.Provisioning.AppContainers.ManagedEnvironmentScheduledEntry.#ctor" />
       <Member Id="M:Azure.Provisioning.AppContainers.ManagedEnvironmentScheduledEntry.DefineProvisionableProperties" />
@@ -41031,9 +41705,91 @@
       <Member Id="F:Azure.Provisioning.AppContainers.ManagedEnvironmentWeekDay.Tuesday" />
       <Member Id="F:Azure.Provisioning.AppContainers.ManagedEnvironmentWeekDay.Wednesday" />
     </Type>
+    <Type Name="Azure.Provisioning.AppContainers.OpenTelemetryConfiguration" Id="T:Azure.Provisioning.AppContainers.OpenTelemetryConfiguration">
+      <Member Id="M:Azure.Provisioning.AppContainers.OpenTelemetryConfiguration.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.OpenTelemetryConfiguration.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.OpenTelemetryConfiguration.DestinationsConfiguration" />
+      <Member Id="P:Azure.Provisioning.AppContainers.OpenTelemetryConfiguration.LogsDestinations" />
+      <Member Id="P:Azure.Provisioning.AppContainers.OpenTelemetryConfiguration.MetricsConfiguration" />
+      <Member Id="P:Azure.Provisioning.AppContainers.OpenTelemetryConfiguration.TracesConfiguration" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.OtlpConfiguration" Id="T:Azure.Provisioning.AppContainers.OtlpConfiguration">
+      <Member Id="M:Azure.Provisioning.AppContainers.OtlpConfiguration.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.OtlpConfiguration.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.OtlpConfiguration.Endpoint" />
+      <Member Id="P:Azure.Provisioning.AppContainers.OtlpConfiguration.Headers" />
+      <Member Id="P:Azure.Provisioning.AppContainers.OtlpConfiguration.IsInsecure" />
+      <Member Id="P:Azure.Provisioning.AppContainers.OtlpConfiguration.Name" />
+    </Type>
     <Type Name="Azure.Provisioning.AppContainers.PoolManagementType" Id="T:Azure.Provisioning.AppContainers.PoolManagementType">
       <Member Id="F:Azure.Provisioning.AppContainers.PoolManagementType.Dynamic" />
       <Member Id="F:Azure.Provisioning.AppContainers.PoolManagementType.Manual" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.RevisionRunningState" Id="T:Azure.Provisioning.AppContainers.RevisionRunningState">
+      <Member Id="F:Azure.Provisioning.AppContainers.RevisionRunningState.Degraded" />
+      <Member Id="F:Azure.Provisioning.AppContainers.RevisionRunningState.Failed" />
+      <Member Id="F:Azure.Provisioning.AppContainers.RevisionRunningState.Processing" />
+      <Member Id="F:Azure.Provisioning.AppContainers.RevisionRunningState.Running" />
+      <Member Id="F:Azure.Provisioning.AppContainers.RevisionRunningState.Stopped" />
+      <Member Id="F:Azure.Provisioning.AppContainers.RevisionRunningState.Unknown" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.SandboxGroup" Id="T:Azure.Provisioning.AppContainers.SandboxGroup">
+      <Member Id="M:Azure.Provisioning.AppContainers.SandboxGroup.#ctor(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.SandboxGroup.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.SandboxGroup.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.SandboxGroup.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SandboxGroup.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SandboxGroup.Location" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SandboxGroup.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SandboxGroup.Properties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SandboxGroup.SystemData" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SandboxGroup.Tags" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.SandboxGroup/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.SandboxGroup.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.SandboxGroup.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.SandboxGroupProperties" Id="T:Azure.Provisioning.AppContainers.SandboxGroupProperties">
+      <Member Id="M:Azure.Provisioning.AppContainers.SandboxGroupProperties.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.SandboxGroupProperties.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SandboxGroupProperties.DefaultDomain" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SandboxGroupProperties.EnvironmentId" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SandboxGroupProperties.ProvisioningState" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.SandboxGroupProvisioningState" Id="T:Azure.Provisioning.AppContainers.SandboxGroupProvisioningState">
+      <Member Id="F:Azure.Provisioning.AppContainers.SandboxGroupProvisioningState.Canceled" />
+      <Member Id="F:Azure.Provisioning.AppContainers.SandboxGroupProvisioningState.Deleting" />
+      <Member Id="F:Azure.Provisioning.AppContainers.SandboxGroupProvisioningState.Failed" />
+      <Member Id="F:Azure.Provisioning.AppContainers.SandboxGroupProvisioningState.InProgress" />
+      <Member Id="F:Azure.Provisioning.AppContainers.SandboxGroupProvisioningState.Succeeded" />
+      <Member Id="F:Azure.Provisioning.AppContainers.SandboxGroupProvisioningState.Updating" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.SandboxGroupVnetConnection" Id="T:Azure.Provisioning.AppContainers.SandboxGroupVnetConnection">
+      <Member Id="M:Azure.Provisioning.AppContainers.SandboxGroupVnetConnection.#ctor(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.SandboxGroupVnetConnection.DefineProvisionableProperties" />
+      <Member Id="M:Azure.Provisioning.AppContainers.SandboxGroupVnetConnection.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.SandboxGroupVnetConnection.GetResourceNameRequirements" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SandboxGroupVnetConnection.Id" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SandboxGroupVnetConnection.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SandboxGroupVnetConnection.Parent" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SandboxGroupVnetConnection.Properties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SandboxGroupVnetConnection.SystemData" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.SandboxGroupVnetConnection/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.SandboxGroupVnetConnection.ResourceVersions">
+      <Member Id="F:Azure.Provisioning.AppContainers.SandboxGroupVnetConnection.ResourceVersions.V2026_07_01" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.SandboxGroupVnetConnectionProperties" Id="T:Azure.Provisioning.AppContainers.SandboxGroupVnetConnectionProperties">
+      <Member Id="M:Azure.Provisioning.AppContainers.SandboxGroupVnetConnectionProperties.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.SandboxGroupVnetConnectionProperties.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SandboxGroupVnetConnectionProperties.ProvisioningState" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SandboxGroupVnetConnectionProperties.SubnetId" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.SandboxGroupVnetConnectionProvisioningState" Id="T:Azure.Provisioning.AppContainers.SandboxGroupVnetConnectionProvisioningState">
+      <Member Id="F:Azure.Provisioning.AppContainers.SandboxGroupVnetConnectionProvisioningState.Canceled" />
+      <Member Id="F:Azure.Provisioning.AppContainers.SandboxGroupVnetConnectionProvisioningState.Deleting" />
+      <Member Id="F:Azure.Provisioning.AppContainers.SandboxGroupVnetConnectionProvisioningState.Failed" />
+      <Member Id="F:Azure.Provisioning.AppContainers.SandboxGroupVnetConnectionProvisioningState.InProgress" />
+      <Member Id="F:Azure.Provisioning.AppContainers.SandboxGroupVnetConnectionProvisioningState.Succeeded" />
+      <Member Id="F:Azure.Provisioning.AppContainers.SandboxGroupVnetConnectionProvisioningState.Updating" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.SecretVolumeItem" Id="T:Azure.Provisioning.AppContainers.SecretVolumeItem">
       <Member Id="M:Azure.Provisioning.AppContainers.SecretVolumeItem.#ctor" />
@@ -41049,6 +41805,7 @@
       <Member Id="P:Azure.Provisioning.AppContainers.SessionContainer.Env" />
       <Member Id="P:Azure.Provisioning.AppContainers.SessionContainer.Image" />
       <Member Id="P:Azure.Provisioning.AppContainers.SessionContainer.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionContainer.Probes" />
       <Member Id="P:Azure.Provisioning.AppContainers.SessionContainer.Resources" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.SessionContainerResources" Id="T:Azure.Provisioning.AppContainers.SessionContainerResources">
@@ -41065,6 +41822,7 @@
       <Member Id="M:Azure.Provisioning.AppContainers.SessionPool.#ctor(System.String,System.String)" />
       <Member Id="M:Azure.Provisioning.AppContainers.SessionPool.DefineProvisionableProperties" />
       <Member Id="M:Azure.Provisioning.AppContainers.SessionPool.FromExisting(System.String,System.String)" />
+      <Member Id="M:Azure.Provisioning.AppContainers.SessionPool.GetResourceNameRequirements" />
       <Member Id="P:Azure.Provisioning.AppContainers.SessionPool.ContainerType" />
       <Member Id="P:Azure.Provisioning.AppContainers.SessionPool.CustomContainerTemplate" />
       <Member Id="P:Azure.Provisioning.AppContainers.SessionPool.DynamicPoolLifecycleConfiguration" />
@@ -41087,6 +41845,8 @@
     <Type Name="Azure.Provisioning.AppContainers.SessionPool/ResourceVersions" Id="T:Azure.Provisioning.AppContainers.SessionPool.ResourceVersions">
       <Member Id="F:Azure.Provisioning.AppContainers.SessionPool.ResourceVersions.V2025_01_01" />
       <Member Id="F:Azure.Provisioning.AppContainers.SessionPool.ResourceVersions.V2025_07_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.SessionPool.ResourceVersions.V2026_01_01" />
+      <Member Id="F:Azure.Provisioning.AppContainers.SessionPool.ResourceVersions.V2026_07_01" />
     </Type>
     <Type Name="Azure.Provisioning.AppContainers.SessionPoolLifecycleConfiguration" Id="T:Azure.Provisioning.AppContainers.SessionPoolLifecycleConfiguration">
       <Member Id="M:Azure.Provisioning.AppContainers.SessionPoolLifecycleConfiguration.#ctor" />
@@ -41124,6 +41884,44 @@
       <Member Id="P:Azure.Provisioning.AppContainers.SessionPoolSecret.Name" />
       <Member Id="P:Azure.Provisioning.AppContainers.SessionPoolSecret.Value" />
     </Type>
+    <Type Name="Azure.Provisioning.AppContainers.SessionProbe" Id="T:Azure.Provisioning.AppContainers.SessionProbe">
+      <Member Id="M:Azure.Provisioning.AppContainers.SessionProbe.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.SessionProbe.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbe.FailureThreshold" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbe.HttpGet" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbe.InitialDelaySeconds" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbe.PeriodSeconds" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbe.SuccessThreshold" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbe.TcpSocket" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbe.TerminationGracePeriodSeconds" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbe.TimeoutSeconds" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbe.Type" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.SessionProbeHttpGet" Id="T:Azure.Provisioning.AppContainers.SessionProbeHttpGet">
+      <Member Id="M:Azure.Provisioning.AppContainers.SessionProbeHttpGet.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.SessionProbeHttpGet.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbeHttpGet.Host" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbeHttpGet.HttpHeaders" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbeHttpGet.Path" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbeHttpGet.Port" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbeHttpGet.Scheme" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.SessionProbeHttpGetHttpHeadersItem" Id="T:Azure.Provisioning.AppContainers.SessionProbeHttpGetHttpHeadersItem">
+      <Member Id="M:Azure.Provisioning.AppContainers.SessionProbeHttpGetHttpHeadersItem.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.SessionProbeHttpGetHttpHeadersItem.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbeHttpGetHttpHeadersItem.Name" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbeHttpGetHttpHeadersItem.Value" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.SessionProbeTcpSocket" Id="T:Azure.Provisioning.AppContainers.SessionProbeTcpSocket">
+      <Member Id="M:Azure.Provisioning.AppContainers.SessionProbeTcpSocket.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.SessionProbeTcpSocket.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbeTcpSocket.Host" />
+      <Member Id="P:Azure.Provisioning.AppContainers.SessionProbeTcpSocket.Port" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.SessionProbeType" Id="T:Azure.Provisioning.AppContainers.SessionProbeType">
+      <Member Id="F:Azure.Provisioning.AppContainers.SessionProbeType.Liveness" />
+      <Member Id="F:Azure.Provisioning.AppContainers.SessionProbeType.Startup" />
+    </Type>
     <Type Name="Azure.Provisioning.AppContainers.SessionRegistryCredentials" Id="T:Azure.Provisioning.AppContainers.SessionRegistryCredentials">
       <Member Id="M:Azure.Provisioning.AppContainers.SessionRegistryCredentials.#ctor" />
       <Member Id="M:Azure.Provisioning.AppContainers.SessionRegistryCredentials.DefineProvisionableProperties" />
@@ -41149,6 +41947,18 @@
     <Type Name="Azure.Provisioning.AppContainers.StickySessionAffinity" Id="T:Azure.Provisioning.AppContainers.StickySessionAffinity">
       <Member Id="F:Azure.Provisioning.AppContainers.StickySessionAffinity.None" />
       <Member Id="F:Azure.Provisioning.AppContainers.StickySessionAffinity.Sticky" />
+    </Type>
+    <Type Name="Azure.Provisioning.AppContainers.WorkflowErrorEntity" Id="T:Azure.Provisioning.AppContainers.WorkflowErrorEntity">
+      <Member Id="M:Azure.Provisioning.AppContainers.WorkflowErrorEntity.#ctor" />
+      <Member Id="M:Azure.Provisioning.AppContainers.WorkflowErrorEntity.DefineProvisionableProperties" />
+      <Member Id="P:Azure.Provisioning.AppContainers.WorkflowErrorEntity.Code" />
+      <Member Id="P:Azure.Provisioning.AppContainers.WorkflowErrorEntity.Details" />
+      <Member Id="P:Azure.Provisioning.AppContainers.WorkflowErrorEntity.ExtendedCode" />
+      <Member Id="P:Azure.Provisioning.AppContainers.WorkflowErrorEntity.InnerErrors" />
+      <Member Id="P:Azure.Provisioning.AppContainers.WorkflowErrorEntity.Message" />
+      <Member Id="P:Azure.Provisioning.AppContainers.WorkflowErrorEntity.MessageTemplate" />
+      <Member Id="P:Azure.Provisioning.AppContainers.WorkflowErrorEntity.Parameters" />
+      <Member Id="P:Azure.Provisioning.AppContainers.WorkflowErrorEntity.Target" />
     </Type>
   </Namespace>
   <Namespace Name="Azure.Provisioning.ApplicationInsights">
