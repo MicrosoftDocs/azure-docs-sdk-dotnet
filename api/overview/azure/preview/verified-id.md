@@ -1,0 +1,11 @@
+---
+title: Azure Verified ID SDK for .NET
+description: Reference for Azure Verified ID SDK for .NET
+ms.date: 11/13/2026
+ms.topic: reference
+ms.devlang: dotnet
+ms.service: verifiedid
+---
+# Azure Verified ID SDK for .NET - preview
+## Packages - preview
+[!INCLUDE [packages](verified-id-index.md)]
