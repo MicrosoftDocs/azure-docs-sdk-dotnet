@@ -1,6 +1,7 @@
 | Reference | Package | Source |
 |---|---|---|
 |[AI Agents Persistent](ai.agents.persistent-readme.md)|[Azure.AI.Agents.Persistent](https://www.nuget.org/packages/Azure.AI.Agents.Persistent)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/ai/Azure.AI.Agents.Persistent)|
+|[AI Agent Server - Activity](ai.agentserver.activity-readme.md)|[Azure.AI.AgentServer.Activity](https://www.nuget.org/packages/Azure.AI.AgentServer.Activity)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/agentserver/Azure.AI.AgentServer.Activity)|
 |[AI Agent Server - Agent Framework](ai.agentserver.agentframework-readme.md)|[Azure.AI.AgentServer.AgentFramework](https://www.nuget.org/packages/Azure.AI.AgentServer.AgentFramework)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/agentserver/Azure.AI.AgentServer.AgentFramework)|
 |[AI Agent Server - Contracts](ai.agentserver.contracts-readme.md)|[Azure.AI.AgentServer.Contracts](https://www.nuget.org/packages/Azure.AI.AgentServer.Contracts)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/agentserver/Azure.AI.AgentServer.Contracts)|
 |[AI Agent Server - Core](ai.agentserver.core-readme.md)|[Azure.AI.AgentServer.Core](https://www.nuget.org/packages/Azure.AI.AgentServer.Core)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/agentserver/Azure.AI.AgentServer.Core)|

@@ -1,8 +1,3 @@
 | Reference | Package | Source |
 |---|---|---|
-|[unknown](ai.agentserver.activity-readme.md)|[Azure.AI.AgentServer.Activity](https://www.nuget.org/packages/Azure.AI.AgentServer.Activity)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/agentserver/Azure.AI.AgentServer.Activity)|
-|[unknown](data.ai-readme.md)|[Azure.Data.AI](https://www.nuget.org/packages/Azure.Data.AI)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/dataai/Azure.Data.AI)|
-|[unknown](resourcemanager.aiinfraoptimization-readme.md)|[Azure.ResourceManager.AIInfraOptimization](https://www.nuget.org/packages/Azure.ResourceManager.AIInfraOptimization)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/aiinfraoptimization/Azure.ResourceManager.AIInfraOptimization)|
-|[unknown](resourcemanager.compute.workloadmanager-readme.md)|[Azure.ResourceManager.Compute.WorkloadManager](https://www.nuget.org/packages/Azure.ResourceManager.Compute.WorkloadManager)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/compute/Azure.ResourceManager.Compute.WorkloadManager)|
-|[unknown](resourcemanager.platformvalidation-readme.md)|[Azure.ResourceManager.PlatformValidation](https://www.nuget.org/packages/Azure.ResourceManager.PlatformValidation)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/platformvalidation/Azure.ResourceManager.PlatformValidation)|
 |[unknown](resourcemanager.privatetrafficmanager-readme.md)|[Azure.ResourceManager.PrivateTrafficManager](https://www.nuget.org/packages/Azure.ResourceManager.PrivateTrafficManager)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/privatetrafficmanager/Azure.ResourceManager.PrivateTrafficManager)|
