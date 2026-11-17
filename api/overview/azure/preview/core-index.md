@@ -1,3 +1,3 @@
 | Reference | Package | Source |
 |---|---|---|
-|[Resource Management - Core](resourcemanager-readme.md)|[Azure.ResourceManager](https://www.nuget.org/packages/Azure.ResourceManager)|[Github](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager)|
+|[Core Newtonsoft Json](microsoft.core.newtonsoftjson-readme.md)|[Microsoft.Azure.Core.NewtonsoftJson](https://www.nuget.org/packages/Microsoft.Azure.Core.NewtonsoftJson)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Microsoft.Azure.Core.NewtonsoftJson)|
