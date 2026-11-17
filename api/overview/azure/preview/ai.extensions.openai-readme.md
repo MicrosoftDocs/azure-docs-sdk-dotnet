@@ -1,12 +1,12 @@
 ---
 title: Azure AI Extensions OpenAI client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.AI.Extensions.OpenAI, ai
-ms.date: 10/31/2026
+ms.date: 11/17/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: ai
 ---
-# Azure AI Extensions OpenAI client library for .NET - version 3.0.0-beta.6 
+# Azure AI Extensions OpenAI client library for .NET - version 3.0.0-alpha.20261117.1 
 
 
 Develop Agents using the Azure AI Foundry platform, leveraging an extensive ecosystem of models, tools, and capabilities from OpenAI, Microsoft, and other LLM providers.
@@ -92,7 +92,7 @@ To use Azure AI Agents capabilities, you must have an [Azure subscription](https
 Install the client library for .NET with [NuGet](https://www.nuget.org/ ):
 
 ```shell
-dotnet add package Azure.AI.Extensions.OpenAI --prerelease
+dotnet add package Azure.AI.Extensions.OpenAI
 ```
 
 > You must have an [Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account) and [Cosmos DB account](/azure/cosmos-db/account-overview) (SQL API). In order to take advantage of the C# 8.0 syntax, it is recommended that you compile using the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher with a [language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) of `latest`.  It is also possible to compile with the .NET Core SDK 2.1.x using a language version of `preview`.
@@ -212,7 +212,7 @@ Console.WriteLine(response.GetOutputText());
 
 Alternatively, we can stream the response.
 ```C# Snippet:Sample_WriteOutput_ResponseStreaming_Async
-await foreach (StreamingResponseUpdate streamResponse in responsesClient.CreateResponseStreamingAsync("What is the size of France in square miles?"))
+await foreach (StreamingResponseUpdate streamResponse in await responsesClient.CreateResponseStreamingAsync("What is the size of France in square miles?"))
 {
     if (streamResponse is StreamingResponseCreatedUpdate createUpdate)
     {
@@ -546,7 +546,7 @@ Configure an Agent endpoint for Responses protocol.
 ```C# Snippet:Sample_CreateTheEndpoint_HostedAgent_Sync
 AgentEndpointConfiguration config = new()
 {
-    VersionSelector = new([new FixedRatioVersionSelectionRule(agentVersion: agentVersion.Version, trafficPercentage: 100)]),
+    VersionSelector = new() { VersionSelectionRules = { new FixedRatioVersionSelectionRule(agentVersion: agentVersion.Version, trafficPercentage: 100) } },
     ProtocolConfiguration = new()
     {
         Responses = new()
@@ -833,7 +833,7 @@ do
         if (responseItem is ComputerCallResponseItem computerCall)
         {
             currentScreenshot = ProcessComputerUseCall(computerCall, currentScreenshot);
-            responseOptions.InputItems.Add(ResponseItem.CreateComputerCallOutputItem(callId: computerCall.CallId, output: ComputerCallOutput.CreateScreenshotOutput(screenshotImageFileId: screenshots[currentScreenshot])));
+            responseOptions.InputItems.Add(ResponseItem.CreateComputerCallOutputItem(callId: computerCall.CallId, output: ComputerCallOutput.CreateComputerScreenshotOutput(screenshotImageFileId: screenshots[currentScreenshot])));
         }
     }
     limitIteration--;
@@ -1109,7 +1109,7 @@ ProjectsAgentVersion agentVersion = await projectClient.AgentAdministrationClien
 The Web search tool also can use the custom Bing instances to perform more specific search.
 **Note:** Please do not set `userLocation` parameter in the `CreateWebSearchTool` method as it will result in regular Web search.
 
-```C# Snippet:Sample_CreateAgent_WebSearchCustomStreaming_Sync
+```C# Snippet:Sample_CreateAgent_WebSearchCustomStreaming_Async
 AIProjectConnection bingConnection = projectClient.Connections.GetConnection(connectionName: connectionName);
 WebSearchTool webSearchTool = ResponseTool.CreateWebSearchTool();
 webSearchTool.CustomSearchConfiguration = new(bingConnection.Id, customInstanceName);
@@ -1118,7 +1118,7 @@ DeclarativeAgentDefinition agentDefinition = new(model: modelDeploymentName)
     Instructions = "You are a helpful agent.",
     Tools = { webSearchTool }
 };
-ProjectsAgentVersion agentVersion = projectClient.AgentAdministrationClient.CreateAgentVersion(
+ProjectsAgentVersion agentVersion = await projectClient.AgentAdministrationClient.CreateAgentVersionAsync(
     agentName: "myAgent",
     options: new(agentDefinition));
 ```
@@ -1231,7 +1231,7 @@ ProjectResponsesClient responseClient = projectClient.ProjectOpenAIClient.GetPro
 
 string annotation = "";
 string text = "";
-await foreach (StreamingResponseUpdate streamResponse in responseClient.CreateResponseStreamingAsync("What is the temperature rating of the cozynights sleeping bag?"))
+await foreach (StreamingResponseUpdate streamResponse in await responseClient.CreateResponseStreamingAsync("What is the temperature rating of the cozynights sleeping bag?"))
 {
     if (streamResponse is StreamingResponseCreatedUpdate createUpdate)
     {
@@ -1297,7 +1297,7 @@ ProjectResponsesClient responseClient = projectClient.ProjectOpenAIClient.GetPro
 
 string annotation = "";
 string text = "";
-await foreach (StreamingResponseUpdate streamResponse in responseClient.CreateResponseStreamingAsync("How does wikipedia explain Euler's Identity?"))
+await foreach (StreamingResponseUpdate streamResponse in await responseClient.CreateResponseStreamingAsync("How does wikipedia explain Euler's Identity?"))
 {
     if (streamResponse is StreamingResponseCreatedUpdate createUpdate)
     {
@@ -1588,7 +1588,7 @@ ProjectsAgentVersion agentVersion = await projectClient.AgentAdministrationClien
     options: new(agentDefinition));
 ```
 
-Create a streaming response. Require the agent to use a tool by setting `ToolChoice = ResponseToolChoice.CreateRequiredChoice()` on `CreateResponseOptions`. The [browser automation sample](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Extensions.OpenAI_3.0.0-beta.6/sdk/ai/Azure.AI.Extensions.OpenAI/samples/Sample23_BrowserAutomationTool.md) includes the `ParseResponse` helper and synchronous equivalent.
+Create a streaming response. Require the agent to use a tool by setting `ToolChoice = ResponseToolChoice.CreateRequiredChoice()` on `CreateResponseOptions`. The [browser automation sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/ai/Azure.AI.Extensions.OpenAI/samples/Sample23_BrowserAutomationTool.md) includes the `ParseResponse` helper and synchronous equivalent.
 
 **Warning:** Streaming text and complete messages may contain sensitive browser live-view URLs. Use these only in a trusted local terminal and redact them from saved logs or shared output.
 
@@ -1609,7 +1609,7 @@ CreateResponseOptions responseOptions = new()
             "Click on 'YTD' at the top of that chart, and report the percent value that shows up just below it.")
     }
 };
-await foreach (StreamingResponseUpdate update in responseClient.CreateResponseStreamingAsync(responseOptions))
+await foreach (StreamingResponseUpdate update in await responseClient.CreateResponseStreamingAsync(responseOptions))
 {
     ParseResponse(update);
 }
@@ -2073,7 +2073,7 @@ For tracing to Azure Monitor from your application, the preferred option is to u
 dotnet add package Azure.Monitor.OpenTelemetry.AspNetCore
 ```
 
-More information about using the Azure.Monitor.OpenTelemetry.AspNetCore package can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Extensions.OpenAI_3.0.0-beta.6/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/README.md).
+More information about using the Azure.Monitor.OpenTelemetry.AspNetCore package can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/README.md).
 
 Another option is to use Azure.Monitor.OpenTelemetry.Exporter package. Install the package with [NuGet](https://www.nuget.org/ ):
 ```dotnetcli
@@ -2161,7 +2161,7 @@ See the [Azure SDK CONTRIBUTING.md][aiprojects_contrib] for details on building,
 [product_doc]: https://aka.ms/azsdk/azure-ai-projects-v2/product-doc
 [azure_identity]: https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet
 [azure_identity_dac]: https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
-[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Extensions.OpenAI_3.0.0-beta.6/CONTRIBUTING.md
+[aiprojects_contrib]: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [code_of_conduct_faq]: https://opensource.microsoft.com/codeofconduct/faq/
