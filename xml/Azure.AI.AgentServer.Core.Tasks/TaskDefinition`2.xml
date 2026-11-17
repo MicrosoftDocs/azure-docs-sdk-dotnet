@@ -1,0 +1,355 @@
+<Type Name="TaskDefinition&lt;TInput,TOutput&gt;" FullName="Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt;">
+  <TypeSignature Language="C#" Value="public class TaskDefinition&lt;TInput,TOutput&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit TaskDefinition`2&lt;TInput, TOutput&gt; extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2" />
+  <TypeSignature Language="VB.NET" Value="Public Class TaskDefinition(Of TInput, TOutput)" />
+  <TypeSignature Language="F#" Value="type TaskDefinition&lt;'Input, 'Output&gt; = class" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <TypeParameters>
+    <TypeParameter Name="TInput">
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+    </TypeParameter>
+    <TypeParameter Name="TOutput">
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+    </TypeParameter>
+  </TypeParameters>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(0)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(0)&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <typeparam name="TInput">The task input type.</typeparam>
+    <typeparam name="TOutput">The task output type.</typeparam>
+    <summary>
+            A typed handle to a registered resilient task, returned by
+            <see cref="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTask``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{Azure.AI.AgentServer.Core.Tasks.TaskContext{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+            and <see cref="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{Azure.AI.AgentServer.Core.Tasks.TaskContext{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},System.Boolean,System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />.
+            The task name and its <typeparamref name="TInput" />/<typeparamref name="TOutput" /> types are
+            bound once at registration, so starting or running the task is strongly typed — an input or
+            output that does not match the registration is a compile-time error rather than a runtime failure.
+            The protected constructor and virtual members support substitution in consumer unit tests.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected TaskDefinition ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Initializes a new instance of the <see cref="T:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2" /> class for mocking.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task DeleteAsync (string taskId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task DeleteAsync(string taskId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.DeleteAsync(System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function DeleteAsync (taskId As String, Optional cancellationToken As CancellationToken = Nothing) As Task" />
+      <MemberSignature Language="F#" Value="abstract member DeleteAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&#xA;override this.DeleteAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task" Usage="taskDefinition.DeleteAsync (taskId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="taskId" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="taskId">The chain id.</param>
+        <param name="cancellationToken">A cancellation token.</param>
+        <summary>
+            Ends a multi-turn chain: cancels any in-flight turn, resolves queued callers as cancelled,
+            and removes the record. Idempotent — a no-op when the chain is absent.
+            </summary>
+        <returns>A task that completes when the chain has been removed.</returns>
+        <remarks>
+            Cancellation is requested before storage deletion. A storage failure does not undo
+            cancellation and does not authorize stream closure. Task-bound streams close after
+            deletion is confirmed and their producer has unwound. This method does not wait for
+            an in-flight handler to finish; that handler's completion may remain pending.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetActiveRunAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRun&lt;TOutput&gt;?&gt; GetActiveRunAsync (string taskId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.AI.AgentServer.Core.Tasks.TaskRun`1&lt;!TOutput&gt;&gt; GetActiveRunAsync(string taskId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.GetActiveRunAsync(System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetActiveRunAsync (taskId As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of TaskRun(Of TOutput))" />
+      <MemberSignature Language="F#" Value="abstract member GetActiveRunAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRun&lt;'Output&gt;&gt;&#xA;override this.GetActiveRunAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRun&lt;'Output&gt;&gt;" Usage="taskDefinition.GetActiveRunAsync (taskId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRun&lt;TOutput&gt;&gt;</ReturnType>
+        <Attributes>
+          <Attribute>
+            <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 1, 2, 1 })]</AttributeName>
+            <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 1, 2, 1 })&gt;]</AttributeName>
+          </Attribute>
+        </Attributes>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="taskId" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="taskId">The task id.</param>
+        <param name="cancellationToken">A cancellation token.</param>
+        <summary>
+            Returns the in-flight run for a one-shot task keyed by <paramref name="taskId" />, or
+            <see langword="null" /> when not in-flight in this process and not reclaimable inline.
+            </summary>
+        <returns>The in-flight run, or <see langword="null" />.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetActiveRunAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRun&lt;TOutput&gt;?&gt; GetActiveRunAsync (string taskId, string inputId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.AI.AgentServer.Core.Tasks.TaskRun`1&lt;!TOutput&gt;&gt; GetActiveRunAsync(string taskId, string inputId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.GetActiveRunAsync(System.String,System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetActiveRunAsync (taskId As String, inputId As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of TaskRun(Of TOutput))" />
+      <MemberSignature Language="F#" Value="abstract member GetActiveRunAsync : string * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRun&lt;'Output&gt;&gt;&#xA;override this.GetActiveRunAsync : string * string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRun&lt;'Output&gt;&gt;" Usage="taskDefinition.GetActiveRunAsync (taskId, inputId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRun&lt;TOutput&gt;&gt;</ReturnType>
+        <Attributes>
+          <Attribute>
+            <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 1, 2, 1 })]</AttributeName>
+            <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 1, 2, 1 })&gt;]</AttributeName>
+          </Attribute>
+        </Attributes>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="taskId" Type="System.String" />
+        <Parameter Name="inputId" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="taskId">The chain id.</param>
+        <param name="inputId">The input id of the turn to attach to.</param>
+        <param name="cancellationToken">A cancellation token.</param>
+        <summary>
+            Returns the in-flight run for a multi-turn task keyed by <paramref name="taskId" /> and
+            <paramref name="inputId" />, or <see langword="null" /> when not in-flight.
+            </summary>
+        <returns>The in-flight run, or <see langword="null" />.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetStatusAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRunStatus?&gt; GetStatusAsync (string taskId, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;valuetype System.Nullable`1&lt;valuetype Azure.AI.AgentServer.Core.Tasks.TaskRunStatus&gt;&gt; GetStatusAsync(string taskId, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.GetStatusAsync(System.String,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetStatusAsync (taskId As String, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Nullable(Of TaskRunStatus))" />
+      <MemberSignature Language="F#" Value="abstract member GetStatusAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Nullable&lt;Azure.AI.AgentServer.Core.Tasks.TaskRunStatus&gt;&gt;&#xA;override this.GetStatusAsync : string * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Nullable&lt;Azure.AI.AgentServer.Core.Tasks.TaskRunStatus&gt;&gt;" Usage="taskDefinition.GetStatusAsync (taskId, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;System.Nullable&lt;Azure.AI.AgentServer.Core.Tasks.TaskRunStatus&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="taskId" Type="System.String" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="taskId">The task id.</param>
+        <param name="cancellationToken">A cancellation token.</param>
+        <summary>
+            Returns the persisted status of the task keyed by <paramref name="taskId" />, or
+            <see langword="null" /> when no task owned by this definition exists.
+            </summary>
+        <returns>The persisted task status, or <see langword="null" />.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Name">
+      <MemberSignature Language="C#" Value="public virtual string Name { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Name" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.Name" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable ReadOnly Property Name As String" />
+      <MemberSignature Language="F#" Value="member this.Name : string" Usage="Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;'Input, 'Output&gt;.Name" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>The registered task name.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RunAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;TOutput&gt; RunAsync (TInput input, Azure.AI.AgentServer.Core.Tasks.RunOptions? options = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;!TOutput&gt; RunAsync(!TInput input, class Azure.AI.AgentServer.Core.Tasks.RunOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.RunAsync(`0,Azure.AI.AgentServer.Core.Tasks.RunOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function RunAsync (input As TInput, Optional options As RunOptions = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of TOutput)" />
+      <MemberSignature Language="F#" Value="abstract member RunAsync : 'Input * Azure.AI.AgentServer.Core.Tasks.RunOptions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;'Output&gt;&#xA;override this.RunAsync : 'Input * Azure.AI.AgentServer.Core.Tasks.RunOptions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;'Output&gt;" Usage="taskDefinition.RunAsync (input, options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;TOutput&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="input" Type="TInput" />
+        <Parameter Name="options" Type="Azure.AI.AgentServer.Core.Tasks.RunOptions">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="input">The typed input.</param>
+        <param name="options">Optional per-invocation options.</param>
+        <param name="cancellationToken">A cancellation token.</param>
+        <summary>Starts the task and awaits it to completion, returning the typed result.</summary>
+        <returns>The typed result.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRun&lt;TOutput&gt;&gt; StartAsync (TInput input, Azure.AI.AgentServer.Core.Tasks.RunOptions? options = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.AI.AgentServer.Core.Tasks.TaskRun`1&lt;!TOutput&gt;&gt; StartAsync(!TInput input, class Azure.AI.AgentServer.Core.Tasks.RunOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.StartAsync(`0,Azure.AI.AgentServer.Core.Tasks.RunOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function StartAsync (input As TInput, Optional options As RunOptions = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of TaskRun(Of TOutput))" />
+      <MemberSignature Language="F#" Value="abstract member StartAsync : 'Input * Azure.AI.AgentServer.Core.Tasks.RunOptions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRun&lt;'Output&gt;&gt;&#xA;override this.StartAsync : 'Input * Azure.AI.AgentServer.Core.Tasks.RunOptions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRun&lt;'Output&gt;&gt;" Usage="taskDefinition.StartAsync (input, options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRun&lt;TOutput&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="input" Type="TInput" />
+        <Parameter Name="options" Type="Azure.AI.AgentServer.Core.Tasks.RunOptions">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="input">The typed input.</param>
+        <param name="options">Optional per-invocation options.</param>
+        <param name="cancellationToken">A cancellation token.</param>
+        <summary>Starts the task and returns an awaitable handle once the creation round-trip succeeds.</summary>
+        <returns>An awaitable <see cref="T:Azure.AI.AgentServer.Core.Tasks.TaskRun`1" /> handle.</returns>
+        <remarks>
+            Concurrent starts for the same task id within one task engine coordinate initial creation.
+            Once started, a steerable multi-turn task queues each accepted input with its own handle;
+            a one-shot task converges on the existing run. Creation conflicts with another task engine
+            are not automatically converted into steering.
+            If a multi-turn execution suspends before accepting an input that was waiting to append,
+            the start is re-evaluated with the same input id, precondition, and cancellation token.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TryStartExistingAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRun&lt;TOutput&gt;?&gt; TryStartExistingAsync (TInput input, Azure.AI.AgentServer.Core.Tasks.RunOptions options, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.AI.AgentServer.Core.Tasks.TaskRun`1&lt;!TOutput&gt;&gt; TryStartExistingAsync(!TInput input, class Azure.AI.AgentServer.Core.Tasks.RunOptions options, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2.TryStartExistingAsync(`0,Azure.AI.AgentServer.Core.Tasks.RunOptions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function TryStartExistingAsync (input As TInput, options As RunOptions, Optional cancellationToken As CancellationToken = Nothing) As Task(Of TaskRun(Of TOutput))" />
+      <MemberSignature Language="F#" Value="abstract member TryStartExistingAsync : 'Input * Azure.AI.AgentServer.Core.Tasks.RunOptions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRun&lt;'Output&gt;&gt;&#xA;override this.TryStartExistingAsync : 'Input * Azure.AI.AgentServer.Core.Tasks.RunOptions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRun&lt;'Output&gt;&gt;" Usage="taskDefinition.TryStartExistingAsync (input, options, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.AI.AgentServer.Core.Tasks.TaskRun&lt;TOutput&gt;&gt;</ReturnType>
+        <Attributes>
+          <Attribute>
+            <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 1, 2, 1 })]</AttributeName>
+            <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 1, 2, 1 })&gt;]</AttributeName>
+          </Attribute>
+        </Attributes>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="input" Type="TInput" />
+        <Parameter Name="options" Type="Azure.AI.AgentServer.Core.Tasks.RunOptions" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="input">The typed input.</param>
+        <param name="options">Invocation options containing an explicit task ID.</param>
+        <param name="cancellationToken">A cancellation token.</param>
+        <summary>
+            Starts an existing multi-turn task without creating a record when the task ID is absent.
+            </summary>
+        <returns>The existing task run, or <see langword="null" /> when the record is absent.</returns>
+        <remarks>
+            This compatibility primitive is intended for protocol libraries migrating physical task
+            identifiers. It returns <see langword="null" /> if the existing record disappears before
+            the start boundary.
+            </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

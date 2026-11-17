@@ -47,7 +47,7 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> Compatibility declaration for the RouteData type. </summary>
+    <summary> Route resource. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -126,17 +126,21 @@
         <ReturnType>System.Nullable&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Gets or sets the HasBgpOverride compatibility property. </summary>
+        <summary> Gets whether this route overrides overlapping BGP routes. </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks> The setter is retained for compatibility with version 1.15.0. Assignments have no effect because the current service model treats this property as read-only. </remarks>
       </Docs>
     </Member>
     <Member MemberName="JsonModelCreateCore">
-      <MemberSignature Language="C#" Value="protected override Azure.ResourceManager.Network.Models.NetworkSubResource JsonModelCreateCore (ref System.Text.Json.Utf8JsonReader reader, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance class Azure.ResourceManager.Network.Models.NetworkSubResource JsonModelCreateCore(valuetype System.Text.Json.Utf8JsonReader&amp; reader, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="C#" Value="protected override Azure.ResourceManager.Network.Models.NetworkSubResource JsonModelCreateCore (ref System.Text.Json.Utf8JsonReader reader, System.ClientModel.Primitives.ModelReaderWriterOptions options);" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance class Azure.ResourceManager.Network.Models.NetworkSubResource JsonModelCreateCore(valuetype System.Text.Json.Utf8JsonReader&amp; reader, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.RouteData.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <MemberSignature Language="VB.NET" Value="Protected Overrides Function JsonModelCreateCore (ByRef reader As Utf8JsonReader, options As ModelReaderWriterOptions) As NetworkSubResource" />
-      <MemberSignature Language="F#" Value="override this.JsonModelCreateCore : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Network.Models.NetworkSubResource" Usage="routeData.JsonModelCreateCore (reader, options)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Function JsonModelCreateCore (ByRef reader As Utf8JsonReader, options As ModelReaderWriterOptions) As NetworkSubResource" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="F#" Value="override this.JsonModelCreateCore : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Network.Models.NetworkSubResource" Usage="routeData.JsonModelCreateCore (reader, options)" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="protected override Azure.ResourceManager.Network.Models.NetworkWritableResourceData JsonModelCreateCore (ref System.Text.Json.Utf8JsonReader reader, System.ClientModel.Primitives.ModelReaderWriterOptions options);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance class Azure.ResourceManager.Network.Models.NetworkWritableResourceData JsonModelCreateCore(valuetype System.Text.Json.Utf8JsonReader&amp; reader, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Function JsonModelCreateCore (ByRef reader As Utf8JsonReader, options As ModelReaderWriterOptions) As NetworkWritableResourceData" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="F#" Value="override this.JsonModelCreateCore : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Network.Models.NetworkWritableResourceData" Usage="routeData.JsonModelCreateCore (reader, options)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -144,7 +148,8 @@
         <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.ResourceManager.Network.Models.NetworkSubResource</ReturnType>
+        <ReturnType FrameworkAlternate="azure-dotnet">Azure.ResourceManager.Network.Models.NetworkSubResource</ReturnType>
+        <ReturnType FrameworkAlternate="azure-dotnet-preview">Azure.ResourceManager.Network.Models.NetworkWritableResourceData</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="reader" Type="System.Text.Json.Utf8JsonReader" RefType="ref" />
@@ -215,6 +220,25 @@
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
         <AssemblyVersion>1.17.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> List of next hop IP addresses for ECMP routing. Must contain between 2 and 64 IP addresses. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NextHopIPAddresses">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;string&gt; NextHopIPAddresses { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;string&gt; NextHopIPAddresses" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Network.RouteData.NextHopIPAddresses" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property NextHopIPAddresses As IList(Of String)" />
+      <MemberSignature Language="F#" Value="member this.NextHopIPAddresses : System.Collections.Generic.IList&lt;string&gt;" Usage="Azure.ResourceManager.Network.RouteData.NextHopIPAddresses" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
         <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -248,11 +272,15 @@
       </Docs>
     </Member>
     <Member MemberName="PersistableModelCreateCore">
-      <MemberSignature Language="C#" Value="protected override Azure.ResourceManager.Network.Models.NetworkSubResource PersistableModelCreateCore (BinaryData data, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance class Azure.ResourceManager.Network.Models.NetworkSubResource PersistableModelCreateCore(class System.BinaryData data, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="C#" Value="protected override Azure.ResourceManager.Network.Models.NetworkSubResource PersistableModelCreateCore (BinaryData data, System.ClientModel.Primitives.ModelReaderWriterOptions options);" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance class Azure.ResourceManager.Network.Models.NetworkSubResource PersistableModelCreateCore(class System.BinaryData data, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Network.RouteData.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
-      <MemberSignature Language="VB.NET" Value="Protected Overrides Function PersistableModelCreateCore (data As BinaryData, options As ModelReaderWriterOptions) As NetworkSubResource" />
-      <MemberSignature Language="F#" Value="override this.PersistableModelCreateCore : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Network.Models.NetworkSubResource" Usage="routeData.PersistableModelCreateCore (data, options)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Function PersistableModelCreateCore (data As BinaryData, options As ModelReaderWriterOptions) As NetworkSubResource" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="F#" Value="override this.PersistableModelCreateCore : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Network.Models.NetworkSubResource" Usage="routeData.PersistableModelCreateCore (data, options)" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="protected override Azure.ResourceManager.Network.Models.NetworkWritableResourceData PersistableModelCreateCore (BinaryData data, System.ClientModel.Primitives.ModelReaderWriterOptions options);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance class Azure.ResourceManager.Network.Models.NetworkWritableResourceData PersistableModelCreateCore(class System.BinaryData data, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Function PersistableModelCreateCore (data As BinaryData, options As ModelReaderWriterOptions) As NetworkWritableResourceData" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="F#" Value="override this.PersistableModelCreateCore : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Network.Models.NetworkWritableResourceData" Usage="routeData.PersistableModelCreateCore (data, options)" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Network</AssemblyName>
@@ -260,7 +288,8 @@
         <AssemblyVersion>1.18.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.ResourceManager.Network.Models.NetworkSubResource</ReturnType>
+        <ReturnType FrameworkAlternate="azure-dotnet">Azure.ResourceManager.Network.Models.NetworkSubResource</ReturnType>
+        <ReturnType FrameworkAlternate="azure-dotnet-preview">Azure.ResourceManager.Network.Models.NetworkWritableResourceData</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="data" Type="System.BinaryData" />

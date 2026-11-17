@@ -24,7 +24,7 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> The spot placement score for sku/region/zone combination. </summary>
+    <summary> The placement score for a virtual machine SKU, region, and availability zone combination. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -65,7 +65,7 @@
         <ReturnType>System.Nullable&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Whether the desired quota is available. </summary>
+        <summary> Indicates whether quota is available, when returned by an earlier API version. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -175,6 +175,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="PlacementPreference">
+      <MemberSignature Language="C#" Value="public int? PlacementPreference { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;int32&gt; PlacementPreference" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Compute.Recommender.Models.ComputeRecommenderPlacementScore.PlacementPreference" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property PlacementPreference As Nullable(Of Integer)" />
+      <MemberSignature Language="F#" Value="member this.PlacementPreference : Nullable&lt;int&gt;" Usage="Azure.ResourceManager.Compute.Recommender.Models.ComputeRecommenderPlacementScore.PlacementPreference" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Compute.Recommender</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;System.Int32&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Placement preference from 0 to 10 (inclusive). Higher is better. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Region">
       <MemberSignature Language="C#" Value="public Azure.Core.AzureLocation? Region { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.Core.AzureLocation&gt; Region" />
@@ -212,7 +232,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> A placement score indicating the likelihood of successfully allocating the specified Spot VM(s), as well as the expected lifetimes of the Spot VM(s) after allocation. </summary>
+        <summary> A placement score indicating the likelihood of successfully allocating the specified virtual machines. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

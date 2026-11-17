@@ -64,6 +64,66 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="EvaluatorDescription">
+      <MemberSignature Language="C#" Value="public string EvaluatorDescription { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string EvaluatorDescription" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Evaluation.EvaluatorGenerationJob.EvaluatorDescription" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property EvaluatorDescription As String" />
+      <MemberSignature Language="F#" Value="member this.EvaluatorDescription : string" Usage="Azure.AI.Projects.Evaluation.EvaluatorGenerationJob.EvaluatorDescription" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Optional human-friendly description for the resulting evaluator. Surfaced as `EvaluatorVersion.description` on the persisted evaluator. Typically collected from the UI alongside `evaluator_display_name`. The `evaluator_` prefix disambiguates this from any other description fields on related models. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EvaluatorDisplayName">
+      <MemberSignature Language="C#" Value="public string EvaluatorDisplayName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string EvaluatorDisplayName" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Evaluation.EvaluatorGenerationJob.EvaluatorDisplayName" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property EvaluatorDisplayName As String" />
+      <MemberSignature Language="F#" Value="member this.EvaluatorDisplayName : string" Usage="Azure.AI.Projects.Evaluation.EvaluatorGenerationJob.EvaluatorDisplayName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Optional human-friendly display name for the resulting evaluator. Surfaced as `EvaluatorVersion.display_name` on the persisted evaluator. When omitted, the service uses `evaluator_name` as the display name. The `evaluator_` prefix disambiguates this from the immutable `evaluator_name` identifier. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EvaluatorName">
+      <MemberSignature Language="C#" Value="public string EvaluatorName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string EvaluatorName" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Evaluation.EvaluatorGenerationJob.EvaluatorName" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property EvaluatorName As String" />
+      <MemberSignature Language="F#" Value="member this.EvaluatorName : string" Usage="Azure.AI.Projects.Evaluation.EvaluatorGenerationJob.EvaluatorName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The evaluator name (immutable identifier). 1-256 characters; allowed characters are ASCII letters, digits, underscore (`_`), period (`.`), tilde (`~`), and hyphen (`-`). The prefix `builtin.` is reserved for system-managed evaluators and is rejected by the service. If an evaluator with this name already exists in the project (and is rubric-subtype), the service creates a new version under the same name and uses the prior version's `dimensions` as context for incremental improvement (foundation of the post-//build adaptive loop). Old versions remain queryable via `get_version(name, version)`. If the existing evaluator is not a rubric-subtype evaluator (built-in, prompt-based, code-based), the request is rejected with `400 Bad Request`. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="FinishedOn">
       <MemberSignature Language="C#" Value="public DateTimeOffset? FinishedOn { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype System.DateTimeOffset&gt; FinishedOn" />
@@ -81,6 +141,32 @@
       <Docs>
         <summary> The timestamp when the job finished, represented in Unix time (seconds since January 1, 1970). </summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromClientResult">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.Evaluation.EvaluatorGenerationJob FromClientResult (System.ClientModel.ClientResult result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.Evaluation.EvaluatorGenerationJob FromClientResult(class System.ClientModel.ClientResult result) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Evaluation.EvaluatorGenerationJob.FromClientResult(System.ClientModel.ClientResult)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function FromClientResult (result As ClientResult) As EvaluatorGenerationJob" />
+      <MemberSignature Language="F#" Value="static member FromClientResult : System.ClientModel.ClientResult -&gt; Azure.AI.Projects.Evaluation.EvaluatorGenerationJob" Usage="Azure.AI.Projects.Evaluation.EvaluatorGenerationJob.FromClientResult result" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Projects.Evaluation.EvaluatorGenerationJob</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="result" Type="System.ClientModel.ClientResult" />
+      </Parameters>
+      <Docs>
+        <param name="result">The raw JSON, obtained from the service.</param>
+        <summary>
+            Parse the raw result.
+            </summary>
+        <returns />
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -120,26 +206,6 @@
       </ReturnValue>
       <Docs>
         <summary> Non-fatal input-quality advisories produced by the generation pipeline. Read-only; service-generated; populated only on terminal jobs when advisories fired. Omitted when generation was clean. Cleared when a subsequent `PATCH` to the paired `EvaluatorVersion.definition` invalidates the advisories. </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Inputs">
-      <MemberSignature Language="C#" Value="public Azure.AI.Projects.Evaluation.EvaluatorGenerationInputs Inputs { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.AI.Projects.Evaluation.EvaluatorGenerationInputs Inputs" />
-      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Evaluation.EvaluatorGenerationJob.Inputs" />
-      <MemberSignature Language="VB.NET" Value="Public Property Inputs As EvaluatorGenerationInputs" />
-      <MemberSignature Language="F#" Value="member this.Inputs : Azure.AI.Projects.Evaluation.EvaluatorGenerationInputs with get, set" Usage="Azure.AI.Projects.Evaluation.EvaluatorGenerationJob.Inputs" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.AI.Projects</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.AI.Projects.Evaluation.EvaluatorGenerationInputs</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary> Caller-supplied inputs. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -195,6 +261,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Model">
+      <MemberSignature Language="C#" Value="public string Model { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Model" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Evaluation.EvaluatorGenerationJob.Model" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Model As String" />
+      <MemberSignature Language="F#" Value="member this.Model : string" Usage="Azure.AI.Projects.Evaluation.EvaluatorGenerationJob.Model" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The LLM model to use for rubric generation (e.g., 'gpt-4o'). Required — users must provide their own model rather than relying on service-owned capacity. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="op_Explicit">
       <MemberSignature Language="C#" Value="public static explicit operator Azure.AI.Projects.Evaluation.EvaluatorGenerationJob (System.ClientModel.ClientResult result);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname class Azure.AI.Projects.Evaluation.EvaluatorGenerationJob op_Explicit(class System.ClientModel.ClientResult result) cil managed" />
@@ -214,30 +300,6 @@
       </Parameters>
       <Docs>
         <param name="result"> The <see cref="T:System.ClientModel.ClientResult" /> to deserialize the <see cref="T:Azure.AI.Projects.Evaluation.EvaluatorGenerationJob" /> from. </param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="op_Implicit">
-      <MemberSignature Language="C#" Value="public static implicit operator System.ClientModel.BinaryContent (Azure.AI.Projects.Evaluation.EvaluatorGenerationJob evaluatorGenerationJob);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname class System.ClientModel.BinaryContent op_Implicit(class Azure.AI.Projects.Evaluation.EvaluatorGenerationJob evaluatorGenerationJob) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Evaluation.EvaluatorGenerationJob.op_Implicit(Azure.AI.Projects.Evaluation.EvaluatorGenerationJob)~System.ClientModel.BinaryContent" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Widening Operator CType (evaluatorGenerationJob As EvaluatorGenerationJob) As BinaryContent" />
-      <MemberSignature Language="F#" Value="static member op_Implicit : Azure.AI.Projects.Evaluation.EvaluatorGenerationJob -&gt; System.ClientModel.BinaryContent" Usage="Azure.AI.Projects.Evaluation.EvaluatorGenerationJob.op_Implicit evaluatorGenerationJob" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.AI.Projects</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.ClientModel.BinaryContent</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="evaluatorGenerationJob" Type="Azure.AI.Projects.Evaluation.EvaluatorGenerationJob" />
-      </Parameters>
-      <Docs>
-        <param name="evaluatorGenerationJob"> The <see cref="T:Azure.AI.Projects.Evaluation.EvaluatorGenerationJob" /> to serialize into <see cref="T:System.ClientModel.BinaryContent" />. </param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
@@ -309,6 +371,26 @@
       </ReturnValue>
       <Docs>
         <summary> Result produced on success. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Sources">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.AI.Projects.Evaluation.EvaluatorGenerationJobSource&gt; Sources { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.AI.Projects.Evaluation.EvaluatorGenerationJobSource&gt; Sources" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Evaluation.EvaluatorGenerationJob.Sources" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Sources As IList(Of EvaluatorGenerationJobSource)" />
+      <MemberSignature Language="F#" Value="member this.Sources : System.Collections.Generic.IList&lt;Azure.AI.Projects.Evaluation.EvaluatorGenerationJobSource&gt;" Usage="Azure.AI.Projects.Evaluation.EvaluatorGenerationJob.Sources" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;Azure.AI.Projects.Evaluation.EvaluatorGenerationJobSource&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Source materials for generation — agent descriptions, prompts, traces, or datasets. Each entry is an `EvaluatorGenerationJobSource` variant discriminated by `type`. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

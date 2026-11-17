@@ -57,9 +57,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>A precondition requiring the task's last input id to equal this value (FR-006).</summary>
+        <summary>A precondition on the last accepted input id, including inputs still queued (FR-006).</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+            Requires an explicit <see cref="P:Azure.AI.AgentServer.Core.Tasks.RunOptions.InputId" />. A known accepted head must match this value.
+            If no accepted head has been recorded, the invocation seeds it with <see cref="P:Azure.AI.AgentServer.Core.Tasks.RunOptions.InputId" />.
+            </remarks>
       </Docs>
     </Member>
     <Member MemberName="InputId">
@@ -77,7 +80,10 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>An explicit per-turn input id; generated when omitted.</summary>
+        <summary>
+            An explicit per-turn input id; generated when omitted. When the task-bound stream is used,
+            the id must not be reused by a different task while that stream is retained.
+            </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

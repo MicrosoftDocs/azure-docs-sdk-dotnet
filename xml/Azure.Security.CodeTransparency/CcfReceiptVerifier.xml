@@ -7,6 +7,7 @@
   <AssemblyInfo>
     <AssemblyName>Azure.Security.CodeTransparency</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
@@ -31,6 +32,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Security.CodeTransparency</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
@@ -50,14 +52,15 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Security.CodeTransparency</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="receiptCoseSign1Bytes" Type="System.Byte[]" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="signedStatementCoseSign1Bytes" Type="System.Byte[]" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="verificationKey" Type="Azure.Security.CodeTransparency.CodeTransparencyVerificationKey" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="receiptCoseSign1Bytes" Type="System.Byte[]" />
+        <Parameter Name="signedStatementCoseSign1Bytes" Type="System.Byte[]" />
+        <Parameter Name="verificationKey" Type="Azure.Security.CodeTransparency.CodeTransparencyVerificationKey" />
       </Parameters>
       <Docs>
         <param name="receiptCoseSign1Bytes">Receipt in COSE_Sign1 CBOR bytes.</param>
@@ -85,14 +88,15 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Security.CodeTransparency</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="receiptCoseSign1Bytes" Type="System.Byte[]" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="signedStatementCoseSign1Bytes" Type="System.Byte[]" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="verificationKeys" Type="Azure.Security.CodeTransparency.CodeTransparencyVerificationKeySet" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="receiptCoseSign1Bytes" Type="System.Byte[]" />
+        <Parameter Name="signedStatementCoseSign1Bytes" Type="System.Byte[]" />
+        <Parameter Name="verificationKeys" Type="Azure.Security.CodeTransparency.CodeTransparencyVerificationKeySet" />
       </Parameters>
       <Docs>
         <param name="receiptCoseSign1Bytes">Receipt in COSE_Sign1 CBOR bytes.</param>
@@ -118,15 +122,16 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Security.CodeTransparency</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="receiptCoseSign1Bytes" Type="System.Byte[]" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="signedStatementCoseSign1Bytes" Type="System.Byte[]" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="keyId" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="publicKey" Type="System.Security.Cryptography.ECDsa" Index="3" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="receiptCoseSign1Bytes" Type="System.Byte[]" />
+        <Parameter Name="signedStatementCoseSign1Bytes" Type="System.Byte[]" />
+        <Parameter Name="keyId" Type="System.String" />
+        <Parameter Name="publicKey" Type="System.Security.Cryptography.ECDsa" />
       </Parameters>
       <Docs>
         <param name="receiptCoseSign1Bytes">Receipt in COSE_Sign1 CBOR bytes.</param>
@@ -142,39 +147,6 @@
           <paramref name="keyId" /> is null or empty.</exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="publicKey" /> is null.</exception>
-        <exception cref="T:System.InvalidOperationException">Thrown when the verification fails.</exception>
-      </Docs>
-    </Member>
-    <Member MemberName="VerifyTransparentStatementReceipt">
-      <MemberSignature Language="C#" Value="public static void VerifyTransparentStatementReceipt (Azure.Security.CodeTransparency.JsonWebKey jsonWebKey, byte[] receiptBytes, byte[] signedStatementBytes);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void VerifyTransparentStatementReceipt(class Azure.Security.CodeTransparency.JsonWebKey jsonWebKey, unsigned int8[] receiptBytes, unsigned int8[] signedStatementBytes) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Security.CodeTransparency.CcfReceiptVerifier.VerifyTransparentStatementReceipt(Azure.Security.CodeTransparency.JsonWebKey,System.Byte[],System.Byte[])" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Sub VerifyTransparentStatementReceipt (jsonWebKey As JsonWebKey, receiptBytes As Byte(), signedStatementBytes As Byte())" />
-      <MemberSignature Language="F#" Value="static member VerifyTransparentStatementReceipt : Azure.Security.CodeTransparency.JsonWebKey * byte[] * byte[] -&gt; unit" Usage="Azure.Security.CodeTransparency.CcfReceiptVerifier.VerifyTransparentStatementReceipt (jsonWebKey, receiptBytes, signedStatementBytes)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Security.CodeTransparency</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="jsonWebKey" Type="Azure.Security.CodeTransparency.JsonWebKey" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="receiptBytes" Type="System.Byte[]" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="signedStatementBytes" Type="System.Byte[]" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="jsonWebKey">The service certificate key (JWK).</param>
-        <param name="receiptBytes">Receipt in COSE_Sign1 cbor bytes.</param>
-        <param name="signedStatementBytes">The input signed statement bytes.</param>
-        <summary>
-            Verify a CCF SCITT receipt.
-            If the verification fails, an exception is thrown explaining in which step the verification failed.
-            #1 Reference: https://datatracker.ietf.org/doc/draft-ietf-scitt-architecture/
-            #2 Reference: https://datatracker.ietf.org/doc/draft-birkholz-cose-receipts-ccf-profile/
-            </summary>
-        <remarks>To be added.</remarks>
         <exception cref="T:System.InvalidOperationException">Thrown when the verification fails.</exception>
       </Docs>
     </Member>

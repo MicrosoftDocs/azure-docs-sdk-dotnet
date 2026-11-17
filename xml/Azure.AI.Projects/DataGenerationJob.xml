@@ -1,8 +1,8 @@
 <Type Name="DataGenerationJob" FullName="Azure.AI.Projects.DataGenerationJob">
-  <TypeSignature Language="C#" Value="public class DataGenerationJob : System.ClientModel.Primitives.IJsonModel&lt;Azure.AI.Projects.DataGenerationJob&gt;, System.ClientModel.Primitives.IPersistableModel&lt;Azure.AI.Projects.DataGenerationJob&gt;" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DataGenerationJob extends System.Object implements class System.ClientModel.Primitives.IJsonModel`1&lt;class Azure.AI.Projects.DataGenerationJob&gt;, class System.ClientModel.Primitives.IPersistableModel`1&lt;class Azure.AI.Projects.DataGenerationJob&gt;" />
+  <TypeSignature Language="C#" Value="public abstract class DataGenerationJob : System.ClientModel.Primitives.IJsonModel&lt;Azure.AI.Projects.DataGenerationJob&gt;, System.ClientModel.Primitives.IPersistableModel&lt;Azure.AI.Projects.DataGenerationJob&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit DataGenerationJob extends System.Object implements class System.ClientModel.Primitives.IJsonModel`1&lt;class Azure.AI.Projects.DataGenerationJob&gt;, class System.ClientModel.Primitives.IPersistableModel`1&lt;class Azure.AI.Projects.DataGenerationJob&gt;" />
   <TypeSignature Language="DocId" Value="T:Azure.AI.Projects.DataGenerationJob" />
-  <TypeSignature Language="VB.NET" Value="Public Class DataGenerationJob&#xA;Implements IJsonModel(Of DataGenerationJob), IPersistableModel(Of DataGenerationJob)" />
+  <TypeSignature Language="VB.NET" Value="Public MustInherit Class DataGenerationJob&#xA;Implements IJsonModel(Of DataGenerationJob), IPersistableModel(Of DataGenerationJob)" />
   <TypeSignature Language="F#" Value="type DataGenerationJob = class&#xA;    interface IJsonModel&lt;DataGenerationJob&gt;&#xA;    interface IPersistableModel&lt;DataGenerationJob&gt;" />
   <AssemblyInfo>
     <AssemblyName>Azure.AI.Projects</AssemblyName>
@@ -23,8 +23,17 @@
       <InterfaceName>System.ClientModel.Primitives.IPersistableModel&lt;T&gt;</InterfaceName>
     </Interface>
   </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName Language="C#">[System.ClientModel.Primitives.PersistableModelProxy(typeof(Azure.AI.Projects.UnknownDataGenerationJob))]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.ClientModel.Primitives.PersistableModelProxy(typeof(Azure.AI.Projects.UnknownDataGenerationJob))&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary> Data Generation Job resource. </summary>
+    <summary>
+            Data Generation Job resource.
+            Please note this is the abstract base class. The derived classes available for instantiation are: <see cref="T:Azure.AI.Projects.EvaluationDataGenerationJob" />, <see cref="T:Azure.AI.Projects.ReinforcementFineTuningDataGenerationJob" />, and <see cref="T:Azure.AI.Projects.SupervisedFineTuningDataGenerationJob" />.
+            </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -84,6 +93,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GenerationConfiguration">
+      <MemberSignature Language="C#" Value="public Azure.AI.Projects.DataGenerationJobConfiguration GenerationConfiguration { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.AI.Projects.DataGenerationJobConfiguration GenerationConfiguration" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.DataGenerationJob.GenerationConfiguration" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property GenerationConfiguration As DataGenerationJobConfiguration" />
+      <MemberSignature Language="F#" Value="member this.GenerationConfiguration : Azure.AI.Projects.DataGenerationJobConfiguration" Usage="Azure.AI.Projects.DataGenerationJob.GenerationConfiguration" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Projects.DataGenerationJobConfiguration</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The generation configuration for the data generation job. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Id">
       <MemberSignature Language="C#" Value="public string Id { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string Id" />
@@ -100,26 +129,6 @@
       </ReturnValue>
       <Docs>
         <summary> Server-assigned unique identifier. </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Inputs">
-      <MemberSignature Language="C#" Value="public Azure.AI.Projects.DataGenerationJobInputs Inputs { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.AI.Projects.DataGenerationJobInputs Inputs" />
-      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.DataGenerationJob.Inputs" />
-      <MemberSignature Language="VB.NET" Value="Public Property Inputs As DataGenerationJobInputs" />
-      <MemberSignature Language="F#" Value="member this.Inputs : Azure.AI.Projects.DataGenerationJobInputs with get, set" Usage="Azure.AI.Projects.DataGenerationJob.Inputs" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.AI.Projects</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.AI.Projects.DataGenerationJobInputs</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary> Caller-supplied inputs. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -175,6 +184,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Name">
+      <MemberSignature Language="C#" Value="public string Name { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Name" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.DataGenerationJob.Name" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Name As String" />
+      <MemberSignature Language="F#" Value="member this.Name : string" Usage="Azure.AI.Projects.DataGenerationJob.Name" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The display name of the data generation job. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="op_Explicit">
       <MemberSignature Language="C#" Value="public static explicit operator Azure.AI.Projects.DataGenerationJob (System.ClientModel.ClientResult result);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname class Azure.AI.Projects.DataGenerationJob op_Explicit(class System.ClientModel.ClientResult result) cil managed" />
@@ -194,30 +223,6 @@
       </Parameters>
       <Docs>
         <param name="result"> The <see cref="T:System.ClientModel.ClientResult" /> to deserialize the <see cref="T:Azure.AI.Projects.DataGenerationJob" /> from. </param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="op_Implicit">
-      <MemberSignature Language="C#" Value="public static implicit operator System.ClientModel.BinaryContent (Azure.AI.Projects.DataGenerationJob dataGenerationJob);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname class System.ClientModel.BinaryContent op_Implicit(class Azure.AI.Projects.DataGenerationJob dataGenerationJob) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.DataGenerationJob.op_Implicit(Azure.AI.Projects.DataGenerationJob)~System.ClientModel.BinaryContent" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Widening Operator CType (dataGenerationJob As DataGenerationJob) As BinaryContent" />
-      <MemberSignature Language="F#" Value="static member op_Implicit : Azure.AI.Projects.DataGenerationJob -&gt; System.ClientModel.BinaryContent" Usage="Azure.AI.Projects.DataGenerationJob.op_Implicit dataGenerationJob" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.AI.Projects</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.ClientModel.BinaryContent</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="dataGenerationJob" Type="Azure.AI.Projects.DataGenerationJob" />
-      </Parameters>
-      <Docs>
-        <param name="dataGenerationJob"> The <see cref="T:Azure.AI.Projects.DataGenerationJob" /> to serialize into <see cref="T:System.ClientModel.BinaryContent" />. </param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
@@ -289,6 +294,26 @@
       </ReturnValue>
       <Docs>
         <summary> Result produced on success. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Sources">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.AI.Projects.DataGenerationJobSource&gt; Sources { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.AI.Projects.DataGenerationJobSource&gt; Sources" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.DataGenerationJob.Sources" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Sources As IList(Of DataGenerationJobSource)" />
+      <MemberSignature Language="F#" Value="member this.Sources : System.Collections.Generic.IList&lt;Azure.AI.Projects.DataGenerationJobSource&gt;" Usage="Azure.AI.Projects.DataGenerationJob.Sources" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;Azure.AI.Projects.DataGenerationJobSource&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The sources used for the data generation job. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

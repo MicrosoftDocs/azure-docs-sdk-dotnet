@@ -23,66 +23,26 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> Terminal-state result body. Populated when status is succeeded or failed. </summary>
+    <summary> Partial or terminal result produced by an agent optimization job. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
-    <Member MemberName="Baseline">
-      <MemberSignature Language="C#" Value="public string Baseline { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string Baseline" />
-      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.AgentOptimizationJobResult.Baseline" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Baseline As String" />
-      <MemberSignature Language="F#" Value="member this.Baseline : string" Usage="Azure.AI.Projects.Agents.AgentOptimizationJobResult.Baseline" />
+    <Member MemberName="CandidateSummary">
+      <MemberSignature Language="C#" Value="public Azure.AI.Projects.Agents.AgentOptimizationResultCandidateSummary CandidateSummary { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.AI.Projects.Agents.AgentOptimizationResultCandidateSummary CandidateSummary" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.AgentOptimizationJobResult.CandidateSummary" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property CandidateSummary As AgentOptimizationResultCandidateSummary" />
+      <MemberSignature Language="F#" Value="member this.CandidateSummary : Azure.AI.Projects.Agents.AgentOptimizationResultCandidateSummary" Usage="Azure.AI.Projects.Agents.AgentOptimizationJobResult.CandidateSummary" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
         <AssemblyVersion>3.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>Azure.AI.Projects.Agents.AgentOptimizationResultCandidateSummary</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Candidate ID of the original (un-optimized) baseline evaluation. </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Best">
-      <MemberSignature Language="C#" Value="public string Best { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string Best" />
-      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.AgentOptimizationJobResult.Best" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Best As String" />
-      <MemberSignature Language="F#" Value="member this.Best : string" Usage="Azure.AI.Projects.Agents.AgentOptimizationJobResult.Best" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.String</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary> Candidate ID of the highest-scoring candidate found during optimization. </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Candidates">
-      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.AI.Projects.Agents.AgentOptimizationCandidate&gt; Candidates { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.AI.Projects.Agents.AgentOptimizationCandidate&gt; Candidates" />
-      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.AgentOptimizationJobResult.Candidates" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Candidates As IList(Of AgentOptimizationCandidate)" />
-      <MemberSignature Language="F#" Value="member this.Candidates : System.Collections.Generic.IList&lt;Azure.AI.Projects.Agents.AgentOptimizationCandidate&gt;" Usage="Azure.AI.Projects.Agents.AgentOptimizationJobResult.Candidates" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Collections.Generic.IList&lt;Azure.AI.Projects.Agents.AgentOptimizationCandidate&gt;</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary> All evaluated candidates including baseline. </summary>
+        <summary> Summary of candidates produced by the job. Omitted until candidate processing begins. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -135,6 +95,26 @@
         <param name="writer"> The JSON writer. </param>
         <param name="options"> The client options for reading and writing models. </param>
         <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LatencyMetrics">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.AI.Projects.Agents.AgentOptimizationJobLatency&gt; LatencyMetrics { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.AI.Projects.Agents.AgentOptimizationJobLatency&gt; LatencyMetrics" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.AgentOptimizationJobResult.LatencyMetrics" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property LatencyMetrics As IList(Of AgentOptimizationJobLatency)" />
+      <MemberSignature Language="F#" Value="member this.LatencyMetrics : System.Collections.Generic.IList&lt;Azure.AI.Projects.Agents.AgentOptimizationJobLatency&gt;" Usage="Azure.AI.Projects.Agents.AgentOptimizationJobResult.LatencyMetrics" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;Azure.AI.Projects.Agents.AgentOptimizationJobLatency&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Aggregate latency per stage and model. Always present; empty when no server-measured latency is available. </summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -349,6 +329,46 @@
         <param name="options"> The client options for reading and writing models. </param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TerminationReason">
+      <MemberSignature Language="C#" Value="public Azure.AI.Projects.Agents.AgentOptimizationTerminationReason? TerminationReason { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.AI.Projects.Agents.AgentOptimizationTerminationReason&gt; TerminationReason" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.AgentOptimizationJobResult.TerminationReason" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property TerminationReason As Nullable(Of AgentOptimizationTerminationReason)" />
+      <MemberSignature Language="F#" Value="member this.TerminationReason : Nullable&lt;Azure.AI.Projects.Agents.AgentOptimizationTerminationReason&gt;" Usage="Azure.AI.Projects.Agents.AgentOptimizationJobResult.TerminationReason" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;Azure.AI.Projects.Agents.AgentOptimizationTerminationReason&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Reason the candidate search terminated. Omitted for jobs that do not comparatively evaluate candidates and until the job reaches a terminal state. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TokenUsage">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.AI.Projects.Agents.AgentOptimizationJobTokenUsage&gt; TokenUsage { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.AI.Projects.Agents.AgentOptimizationJobTokenUsage&gt; TokenUsage" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.AgentOptimizationJobResult.TokenUsage" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property TokenUsage As IList(Of AgentOptimizationJobTokenUsage)" />
+      <MemberSignature Language="F#" Value="member this.TokenUsage : System.Collections.Generic.IList&lt;Azure.AI.Projects.Agents.AgentOptimizationJobTokenUsage&gt;" Usage="Azure.AI.Projects.Agents.AgentOptimizationJobResult.TokenUsage" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;Azure.AI.Projects.Agents.AgentOptimizationJobTokenUsage&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Aggregate token usage per stage and model. Always present; empty array when no calls were measured. </summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

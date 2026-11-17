@@ -7,6 +7,7 @@
   <AssemblyInfo>
     <AssemblyName>Azure.Data.AI</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
@@ -26,6 +27,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
@@ -43,6 +45,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="settings" Type="Azure.Data.AI.InferenceClientSettings" />
@@ -67,6 +70,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="endpoint" Type="System.Uri" />
@@ -91,6 +95,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="endpoint" Type="System.Uri" />
@@ -115,6 +120,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="endpoint" Type="System.Uri" />
@@ -141,6 +147,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="endpoint" Type="System.Uri" />
@@ -157,6 +164,318 @@
           <paramref name="endpoint" /> or <paramref name="credential" /> is null. </exception>
       </Docs>
     </Member>
+    <Member MemberName="GetEmbeddings">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response GetEmbeddings (Azure.Core.RequestContent content, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response GetEmbeddings(class Azure.Core.RequestContent content, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceClient.GetEmbeddings(Azure.Core.RequestContent,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetEmbeddings (content As RequestContent, Optional context As RequestContext = Nothing) As Response" />
+      <MemberSignature Language="F#" Value="abstract member GetEmbeddings : Azure.Core.RequestContent * Azure.RequestContext -&gt; Azure.Response&#xA;override this.GetEmbeddings : Azure.Core.RequestContent * Azure.RequestContext -&gt; Azure.Response" Usage="inferenceClient.GetEmbeddings (content, context)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Data.AI</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="content" Type="Azure.Core.RequestContent" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="context" Type="Azure.RequestContext" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="content"> The content to send as the body of the request. </param>
+        <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Embeds text, queries and document images and returns dense or multi-vector embeddings as numbers or base64. Text
+            and queries are sent inline. Images are read from the caller's Azure Blob Storage with a caller-signed user
+            delegation SAS (Microsoft Entra callers only). Results come back in the response or, with `delivery: link`, as a
+            time-limited read-only link.
+            <list type="bullet"><item><description> This <see href="https://aka.ms/azsdk/net/protocol-methods">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios. </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="content" /> is null. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEmbeddings">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Data.AI.EmbeddingResult&gt; GetEmbeddings (System.Collections.Generic.IEnumerable&lt;Azure.Data.AI.EmbeddingInput&gt; inputs, string model, Azure.Data.AI.EmbeddingVectorKind? vectorKind = default, int? dimensions = default, int? multiVectorDimensions = default, int? maxVectorCount = default, Azure.Data.AI.EmbeddingOutputDataKind? outputDataKind = default, Azure.Data.AI.EmbeddingEncodingFormat? encodingFormat = default, Azure.Data.AI.EmbeddingDelivery? delivery = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Data.AI.EmbeddingResult&gt; GetEmbeddings(class System.Collections.Generic.IEnumerable`1&lt;class Azure.Data.AI.EmbeddingInput&gt; inputs, string model, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingVectorKind&gt; vectorKind, valuetype System.Nullable`1&lt;int32&gt; dimensions, valuetype System.Nullable`1&lt;int32&gt; multiVectorDimensions, valuetype System.Nullable`1&lt;int32&gt; maxVectorCount, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingOutputDataKind&gt; outputDataKind, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingEncodingFormat&gt; encodingFormat, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingDelivery&gt; delivery, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceClient.GetEmbeddings(System.Collections.Generic.IEnumerable{Azure.Data.AI.EmbeddingInput},System.String,System.Nullable{Azure.Data.AI.EmbeddingVectorKind},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{Azure.Data.AI.EmbeddingOutputDataKind},System.Nullable{Azure.Data.AI.EmbeddingEncodingFormat},System.Nullable{Azure.Data.AI.EmbeddingDelivery},System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetEmbeddings (inputs As IEnumerable(Of EmbeddingInput), model As String, Optional vectorKind As Nullable(Of EmbeddingVectorKind) = Nothing, Optional dimensions As Nullable(Of Integer) = Nothing, Optional multiVectorDimensions As Nullable(Of Integer) = Nothing, Optional maxVectorCount As Nullable(Of Integer) = Nothing, Optional outputDataKind As Nullable(Of EmbeddingOutputDataKind) = Nothing, Optional encodingFormat As Nullable(Of EmbeddingEncodingFormat) = Nothing, Optional delivery As Nullable(Of EmbeddingDelivery) = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Response(Of EmbeddingResult)" />
+      <MemberSignature Language="F#" Value="abstract member GetEmbeddings : seq&lt;Azure.Data.AI.EmbeddingInput&gt; * string * Nullable&lt;Azure.Data.AI.EmbeddingVectorKind&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;Azure.Data.AI.EmbeddingOutputDataKind&gt; * Nullable&lt;Azure.Data.AI.EmbeddingEncodingFormat&gt; * Nullable&lt;Azure.Data.AI.EmbeddingDelivery&gt; * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Data.AI.EmbeddingResult&gt;&#xA;override this.GetEmbeddings : seq&lt;Azure.Data.AI.EmbeddingInput&gt; * string * Nullable&lt;Azure.Data.AI.EmbeddingVectorKind&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;Azure.Data.AI.EmbeddingOutputDataKind&gt; * Nullable&lt;Azure.Data.AI.EmbeddingEncodingFormat&gt; * Nullable&lt;Azure.Data.AI.EmbeddingDelivery&gt; * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Data.AI.EmbeddingResult&gt;" Usage="inferenceClient.GetEmbeddings (inputs, model, vectorKind, dimensions, multiVectorDimensions, maxVectorCount, outputDataKind, encodingFormat, delivery, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Data.AI</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.Data.AI.EmbeddingResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="inputs" Type="System.Collections.Generic.IEnumerable&lt;Azure.Data.AI.EmbeddingInput&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="model" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="vectorKind" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingVectorKind&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="dimensions" Type="System.Nullable&lt;System.Int32&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="multiVectorDimensions" Type="System.Nullable&lt;System.Int32&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="maxVectorCount" Type="System.Nullable&lt;System.Int32&gt;" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="outputDataKind" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingOutputDataKind&gt;" Index="6" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="encodingFormat" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingEncodingFormat&gt;" Index="7" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="delivery" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingDelivery&gt;" Index="8" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="9" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="inputs">
+            The items to embed, in order: 1 to 32 items. Currently a request can have at most one `text` or `query` item and
+            at most 8 images. Images can be up to 20 MiB and 50 megapixels each (JPEG, PNG, GIF or WebP), with at most 20 MiB
+            of images per request. The request body can be up to 30,000,000 bytes.
+            </param>
+        <param name="model"> The model to use, for example `microsoft-embedding-1-large` (Microsoft Embedding 1-large). </param>
+        <param name="vectorKind"> The kind of vectors to return. Defaults to `dense`. </param>
+        <param name="dimensions">
+            The number of dimensions per vector; with `dense_multi`, of the dense vector. Must be a value the model supports for the
+            requested vector kind; the model's native width is the default.
+            </param>
+        <param name="multiVectorDimensions">
+            For `dense_multi` only: the number of dimensions per multi-vector. Must be a value the model supports for multi-vectors;
+            the model's native multi-vector width is the default.
+            </param>
+        <param name="maxVectorCount"> For `multi` and `dense_multi` only: the most multi-vectors to return per item. </param>
+        <param name="outputDataKind">
+            The numeric type of the returned values, for every vector in the response. Defaults to `float32` for `dense` and
+            `float16` for `multi` and `dense_multi`.
+            </param>
+        <param name="encodingFormat"> How vectors are encoded in the response. Defaults to `float`. </param>
+        <param name="delivery">
+            How to return the results. An explicit value wins. Without it, a request with images gets `link` where the
+            endpoint has a result store, and every other request gets `inline`.
+            </param>
+        <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
+        <summary>
+            Embeds text, queries and document images and returns dense or multi-vector embeddings as numbers or base64. Text
+            and queries are sent inline. Images are read from the caller's Azure Blob Storage with a caller-signed user
+            delegation SAS (Microsoft Entra callers only). Results come back in the response or, with `delivery: link`, as a
+            time-limited read-only link.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="inputs" /> or <paramref name="model" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="model" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEmbeddings">
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Data.AI.EmbeddingResult&gt; GetEmbeddings (System.Collections.Generic.IEnumerable&lt;object&gt; inputs, string model, Azure.Data.AI.EmbeddingVectorKind? vectorKind = default, int? dimensions = default, int? multiVectorDimensions = default, int? maxVectorCount = default, Azure.Data.AI.EmbeddingOutputDataKind? outputDataKind = default, Azure.Data.AI.EmbeddingEncodingFormat? encodingFormat = default, Azure.Data.AI.EmbeddingDelivery? delivery = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Data.AI.EmbeddingResult&gt; GetEmbeddings(class System.Collections.Generic.IEnumerable`1&lt;object&gt; inputs, string model, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingVectorKind&gt; vectorKind, valuetype System.Nullable`1&lt;int32&gt; dimensions, valuetype System.Nullable`1&lt;int32&gt; multiVectorDimensions, valuetype System.Nullable`1&lt;int32&gt; maxVectorCount, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingOutputDataKind&gt; outputDataKind, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingEncodingFormat&gt; encodingFormat, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingDelivery&gt; delivery, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceClient.GetEmbeddings(System.Collections.Generic.IEnumerable{System.Object},System.String,System.Nullable{Azure.Data.AI.EmbeddingVectorKind},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{Azure.Data.AI.EmbeddingOutputDataKind},System.Nullable{Azure.Data.AI.EmbeddingEncodingFormat},System.Nullable{Azure.Data.AI.EmbeddingDelivery},System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetEmbeddings (inputs As IEnumerable(Of Object), model As String, Optional vectorKind As Nullable(Of EmbeddingVectorKind) = Nothing, Optional dimensions As Nullable(Of Integer) = Nothing, Optional multiVectorDimensions As Nullable(Of Integer) = Nothing, Optional maxVectorCount As Nullable(Of Integer) = Nothing, Optional outputDataKind As Nullable(Of EmbeddingOutputDataKind) = Nothing, Optional encodingFormat As Nullable(Of EmbeddingEncodingFormat) = Nothing, Optional delivery As Nullable(Of EmbeddingDelivery) = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Response(Of EmbeddingResult)" />
+      <MemberSignature Language="F#" Value="abstract member GetEmbeddings : seq&lt;obj&gt; * string * Nullable&lt;Azure.Data.AI.EmbeddingVectorKind&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;Azure.Data.AI.EmbeddingOutputDataKind&gt; * Nullable&lt;Azure.Data.AI.EmbeddingEncodingFormat&gt; * Nullable&lt;Azure.Data.AI.EmbeddingDelivery&gt; * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Data.AI.EmbeddingResult&gt;&#xA;override this.GetEmbeddings : seq&lt;obj&gt; * string * Nullable&lt;Azure.Data.AI.EmbeddingVectorKind&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;Azure.Data.AI.EmbeddingOutputDataKind&gt; * Nullable&lt;Azure.Data.AI.EmbeddingEncodingFormat&gt; * Nullable&lt;Azure.Data.AI.EmbeddingDelivery&gt; * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Data.AI.EmbeddingResult&gt;" Usage="inferenceClient.GetEmbeddings (inputs, model, vectorKind, dimensions, multiVectorDimensions, maxVectorCount, outputDataKind, encodingFormat, delivery, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Data.AI</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Response&lt;Azure.Data.AI.EmbeddingResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="inputs" Type="System.Collections.Generic.IEnumerable&lt;System.Object&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="model" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="vectorKind" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingVectorKind&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="dimensions" Type="System.Nullable&lt;System.Int32&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="multiVectorDimensions" Type="System.Nullable&lt;System.Int32&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="maxVectorCount" Type="System.Nullable&lt;System.Int32&gt;" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="outputDataKind" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingOutputDataKind&gt;" Index="6" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="encodingFormat" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingEncodingFormat&gt;" Index="7" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="delivery" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingDelivery&gt;" Index="8" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="9" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="inputs"> The items to embed. </param>
+        <param name="model"> The model to use. </param>
+        <param name="vectorKind"> The kind of vectors to return. </param>
+        <param name="dimensions"> The number of dimensions of the returned vectors. </param>
+        <param name="multiVectorDimensions"> The number of dimensions of multi-vector embeddings. </param>
+        <param name="maxVectorCount"> The maximum number of vectors per item. </param>
+        <param name="outputDataKind"> The data kind of the returned vectors. </param>
+        <param name="encodingFormat"> The encoding format of the returned vectors. </param>
+        <param name="delivery"> How results are delivered. </param>
+        <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
+        <summary>
+            Embeds text, queries and document images using loosely typed items, for example anonymous objects or dictionaries.
+            Each item is serialized to JSON with <see cref="T:System.Text.Json.JsonSerializer" /> using camelCase property and dictionary key naming and must produce
+            a JSON object with only the wire properties <c>kind</c> (optional, defaults to text), <c>id</c>, <c>content</c>, <c>url</c> and <c>sasToken</c>
+            (all optional, string values). C#-cased names such as <c>Content</c> map to the wire names and <see cref="T:Azure.Data.AI.EmbeddingContentKind" /> values
+            are written as their string value. <see cref="T:System.Text.Json.JsonElement" /> items must use the exact wire names. Unknown or duplicate properties are rejected.
+            <see cref="T:Azure.Data.AI.EmbeddingInput" /> instances are used as-is.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="model" />, <paramref name="inputs" /> or one of its items is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="model" /> is empty. An item is not a JSON object, has an unknown or duplicate property, or supplies a value of the wrong type (for example a <c>kind</c> that is not a non-empty string). A missing <c>kind</c> is allowed. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEmbeddingsAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&gt; GetEmbeddingsAsync (Azure.Core.RequestContent content, Azure.RequestContext context = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response&gt; GetEmbeddingsAsync(class Azure.Core.RequestContent content, class Azure.RequestContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceClient.GetEmbeddingsAsync(Azure.Core.RequestContent,Azure.RequestContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetEmbeddingsAsync (content As RequestContent, Optional context As RequestContext = Nothing) As Task(Of Response)" />
+      <MemberSignature Language="F#" Value="abstract member GetEmbeddingsAsync : Azure.Core.RequestContent * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;&#xA;override this.GetEmbeddingsAsync : Azure.Core.RequestContent * Azure.RequestContext -&gt; System.Threading.Tasks.Task&lt;Azure.Response&gt;" Usage="inferenceClient.GetEmbeddingsAsync (content, context)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Data.AI</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="content" Type="Azure.Core.RequestContent" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="context" Type="Azure.RequestContext" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="content"> The content to send as the body of the request. </param>
+        <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
+        <summary>
+            [Protocol Method] Embeds text, queries and document images and returns dense or multi-vector embeddings as numbers or base64. Text
+            and queries are sent inline. Images are read from the caller's Azure Blob Storage with a caller-signed user
+            delegation SAS (Microsoft Entra callers only). Results come back in the response or, with `delivery: link`, as a
+            time-limited read-only link.
+            <list type="bullet"><item><description> This <see href="https://aka.ms/azsdk/net/protocol-methods">protocol method</see> allows explicit creation of the request and processing of the response for advanced scenarios. </description></item></list></summary>
+        <returns> The response returned from the service. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="content" /> is null. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEmbeddingsAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Data.AI.EmbeddingResult&gt;&gt; GetEmbeddingsAsync (System.Collections.Generic.IEnumerable&lt;Azure.Data.AI.EmbeddingInput&gt; inputs, string model, Azure.Data.AI.EmbeddingVectorKind? vectorKind = default, int? dimensions = default, int? multiVectorDimensions = default, int? maxVectorCount = default, Azure.Data.AI.EmbeddingOutputDataKind? outputDataKind = default, Azure.Data.AI.EmbeddingEncodingFormat? encodingFormat = default, Azure.Data.AI.EmbeddingDelivery? delivery = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Data.AI.EmbeddingResult&gt;&gt; GetEmbeddingsAsync(class System.Collections.Generic.IEnumerable`1&lt;class Azure.Data.AI.EmbeddingInput&gt; inputs, string model, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingVectorKind&gt; vectorKind, valuetype System.Nullable`1&lt;int32&gt; dimensions, valuetype System.Nullable`1&lt;int32&gt; multiVectorDimensions, valuetype System.Nullable`1&lt;int32&gt; maxVectorCount, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingOutputDataKind&gt; outputDataKind, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingEncodingFormat&gt; encodingFormat, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingDelivery&gt; delivery, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceClient.GetEmbeddingsAsync(System.Collections.Generic.IEnumerable{Azure.Data.AI.EmbeddingInput},System.String,System.Nullable{Azure.Data.AI.EmbeddingVectorKind},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{Azure.Data.AI.EmbeddingOutputDataKind},System.Nullable{Azure.Data.AI.EmbeddingEncodingFormat},System.Nullable{Azure.Data.AI.EmbeddingDelivery},System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetEmbeddingsAsync (inputs As IEnumerable(Of EmbeddingInput), model As String, Optional vectorKind As Nullable(Of EmbeddingVectorKind) = Nothing, Optional dimensions As Nullable(Of Integer) = Nothing, Optional multiVectorDimensions As Nullable(Of Integer) = Nothing, Optional maxVectorCount As Nullable(Of Integer) = Nothing, Optional outputDataKind As Nullable(Of EmbeddingOutputDataKind) = Nothing, Optional encodingFormat As Nullable(Of EmbeddingEncodingFormat) = Nothing, Optional delivery As Nullable(Of EmbeddingDelivery) = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of EmbeddingResult))" />
+      <MemberSignature Language="F#" Value="abstract member GetEmbeddingsAsync : seq&lt;Azure.Data.AI.EmbeddingInput&gt; * string * Nullable&lt;Azure.Data.AI.EmbeddingVectorKind&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;Azure.Data.AI.EmbeddingOutputDataKind&gt; * Nullable&lt;Azure.Data.AI.EmbeddingEncodingFormat&gt; * Nullable&lt;Azure.Data.AI.EmbeddingDelivery&gt; * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Data.AI.EmbeddingResult&gt;&gt;&#xA;override this.GetEmbeddingsAsync : seq&lt;Azure.Data.AI.EmbeddingInput&gt; * string * Nullable&lt;Azure.Data.AI.EmbeddingVectorKind&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;Azure.Data.AI.EmbeddingOutputDataKind&gt; * Nullable&lt;Azure.Data.AI.EmbeddingEncodingFormat&gt; * Nullable&lt;Azure.Data.AI.EmbeddingDelivery&gt; * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Data.AI.EmbeddingResult&gt;&gt;" Usage="inferenceClient.GetEmbeddingsAsync (inputs, model, vectorKind, dimensions, multiVectorDimensions, maxVectorCount, outputDataKind, encodingFormat, delivery, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Data.AI</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Data.AI.EmbeddingResult&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="inputs" Type="System.Collections.Generic.IEnumerable&lt;Azure.Data.AI.EmbeddingInput&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="model" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="vectorKind" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingVectorKind&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="dimensions" Type="System.Nullable&lt;System.Int32&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="multiVectorDimensions" Type="System.Nullable&lt;System.Int32&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="maxVectorCount" Type="System.Nullable&lt;System.Int32&gt;" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="outputDataKind" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingOutputDataKind&gt;" Index="6" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="encodingFormat" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingEncodingFormat&gt;" Index="7" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="delivery" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingDelivery&gt;" Index="8" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="9" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="inputs">
+            The items to embed, in order: 1 to 32 items. Currently a request can have at most one `text` or `query` item and
+            at most 8 images. Images can be up to 20 MiB and 50 megapixels each (JPEG, PNG, GIF or WebP), with at most 20 MiB
+            of images per request. The request body can be up to 30,000,000 bytes.
+            </param>
+        <param name="model"> The model to use, for example `microsoft-embedding-1-large` (Microsoft Embedding 1-large). </param>
+        <param name="vectorKind"> The kind of vectors to return. Defaults to `dense`. </param>
+        <param name="dimensions">
+            The number of dimensions per vector; with `dense_multi`, of the dense vector. Must be a value the model supports for the
+            requested vector kind; the model's native width is the default.
+            </param>
+        <param name="multiVectorDimensions">
+            For `dense_multi` only: the number of dimensions per multi-vector. Must be a value the model supports for multi-vectors;
+            the model's native multi-vector width is the default.
+            </param>
+        <param name="maxVectorCount"> For `multi` and `dense_multi` only: the most multi-vectors to return per item. </param>
+        <param name="outputDataKind">
+            The numeric type of the returned values, for every vector in the response. Defaults to `float32` for `dense` and
+            `float16` for `multi` and `dense_multi`.
+            </param>
+        <param name="encodingFormat"> How vectors are encoded in the response. Defaults to `float`. </param>
+        <param name="delivery">
+            How to return the results. An explicit value wins. Without it, a request with images gets `link` where the
+            endpoint has a result store, and every other request gets `inline`.
+            </param>
+        <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
+        <summary>
+            Embeds text, queries and document images and returns dense or multi-vector embeddings as numbers or base64. Text
+            and queries are sent inline. Images are read from the caller's Azure Blob Storage with a caller-signed user
+            delegation SAS (Microsoft Entra callers only). Results come back in the response or, with `delivery: link`, as a
+            time-limited read-only link.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="inputs" /> or <paramref name="model" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="model" /> is an empty string, and was expected to be non-empty. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEmbeddingsAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Data.AI.EmbeddingResult&gt;&gt; GetEmbeddingsAsync (System.Collections.Generic.IEnumerable&lt;object&gt; inputs, string model, Azure.Data.AI.EmbeddingVectorKind? vectorKind = default, int? dimensions = default, int? multiVectorDimensions = default, int? maxVectorCount = default, Azure.Data.AI.EmbeddingOutputDataKind? outputDataKind = default, Azure.Data.AI.EmbeddingEncodingFormat? encodingFormat = default, Azure.Data.AI.EmbeddingDelivery? delivery = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Data.AI.EmbeddingResult&gt;&gt; GetEmbeddingsAsync(class System.Collections.Generic.IEnumerable`1&lt;object&gt; inputs, string model, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingVectorKind&gt; vectorKind, valuetype System.Nullable`1&lt;int32&gt; dimensions, valuetype System.Nullable`1&lt;int32&gt; multiVectorDimensions, valuetype System.Nullable`1&lt;int32&gt; maxVectorCount, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingOutputDataKind&gt; outputDataKind, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingEncodingFormat&gt; encodingFormat, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingDelivery&gt; delivery, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceClient.GetEmbeddingsAsync(System.Collections.Generic.IEnumerable{System.Object},System.String,System.Nullable{Azure.Data.AI.EmbeddingVectorKind},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{Azure.Data.AI.EmbeddingOutputDataKind},System.Nullable{Azure.Data.AI.EmbeddingEncodingFormat},System.Nullable{Azure.Data.AI.EmbeddingDelivery},System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function GetEmbeddingsAsync (inputs As IEnumerable(Of Object), model As String, Optional vectorKind As Nullable(Of EmbeddingVectorKind) = Nothing, Optional dimensions As Nullable(Of Integer) = Nothing, Optional multiVectorDimensions As Nullable(Of Integer) = Nothing, Optional maxVectorCount As Nullable(Of Integer) = Nothing, Optional outputDataKind As Nullable(Of EmbeddingOutputDataKind) = Nothing, Optional encodingFormat As Nullable(Of EmbeddingEncodingFormat) = Nothing, Optional delivery As Nullable(Of EmbeddingDelivery) = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of EmbeddingResult))" />
+      <MemberSignature Language="F#" Value="abstract member GetEmbeddingsAsync : seq&lt;obj&gt; * string * Nullable&lt;Azure.Data.AI.EmbeddingVectorKind&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;Azure.Data.AI.EmbeddingOutputDataKind&gt; * Nullable&lt;Azure.Data.AI.EmbeddingEncodingFormat&gt; * Nullable&lt;Azure.Data.AI.EmbeddingDelivery&gt; * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Data.AI.EmbeddingResult&gt;&gt;&#xA;override this.GetEmbeddingsAsync : seq&lt;obj&gt; * string * Nullable&lt;Azure.Data.AI.EmbeddingVectorKind&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;Azure.Data.AI.EmbeddingOutputDataKind&gt; * Nullable&lt;Azure.Data.AI.EmbeddingEncodingFormat&gt; * Nullable&lt;Azure.Data.AI.EmbeddingDelivery&gt; * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Data.AI.EmbeddingResult&gt;&gt;" Usage="inferenceClient.GetEmbeddingsAsync (inputs, model, vectorKind, dimensions, multiVectorDimensions, maxVectorCount, outputDataKind, encodingFormat, delivery, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Data.AI</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Data.AI.EmbeddingResult&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="inputs" Type="System.Collections.Generic.IEnumerable&lt;System.Object&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="model" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="vectorKind" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingVectorKind&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="dimensions" Type="System.Nullable&lt;System.Int32&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="multiVectorDimensions" Type="System.Nullable&lt;System.Int32&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="maxVectorCount" Type="System.Nullable&lt;System.Int32&gt;" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="outputDataKind" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingOutputDataKind&gt;" Index="6" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="encodingFormat" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingEncodingFormat&gt;" Index="7" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="delivery" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingDelivery&gt;" Index="8" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" Index="9" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="inputs"> The items to embed. </param>
+        <param name="model"> The model to use. </param>
+        <param name="vectorKind"> The kind of vectors to return. </param>
+        <param name="dimensions"> The number of dimensions of the returned vectors. </param>
+        <param name="multiVectorDimensions"> The number of dimensions of multi-vector embeddings. </param>
+        <param name="maxVectorCount"> The maximum number of vectors per item. </param>
+        <param name="outputDataKind"> The data kind of the returned vectors. </param>
+        <param name="encodingFormat"> The encoding format of the returned vectors. </param>
+        <param name="delivery"> How results are delivered. </param>
+        <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
+        <summary>
+            Embeds text, queries and document images using loosely typed items, for example anonymous objects or dictionaries.
+            Each item is serialized to JSON with <see cref="T:System.Text.Json.JsonSerializer" /> using camelCase property and dictionary key naming and must produce
+            a JSON object with only the wire properties <c>kind</c> (optional, defaults to text), <c>id</c>, <c>content</c>, <c>url</c> and <c>sasToken</c>
+            (all optional, string values). C#-cased names such as <c>Content</c> map to the wire names and <see cref="T:Azure.Data.AI.EmbeddingContentKind" /> values
+            are written as their string value. <see cref="T:System.Text.Json.JsonElement" /> items must use the exact wire names. Unknown or duplicate properties are rejected.
+            <see cref="T:Azure.Data.AI.EmbeddingInput" /> instances are used as-is.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="model" />, <paramref name="inputs" /> or one of its items is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="model" /> is empty. An item is not a JSON object, has an unknown or duplicate property, or supplies a value of the wrong type (for example a <c>kind</c> that is not a non-empty string). A missing <c>kind</c> is allowed. </exception>
+        <exception cref="T:Azure.RequestFailedException"> Service returned a non-success status code. </exception>
+      </Docs>
+    </Member>
     <Member MemberName="Pipeline">
       <MemberSignature Language="C#" Value="public virtual Azure.Core.Pipeline.HttpPipeline Pipeline { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Azure.Core.Pipeline.HttpPipeline Pipeline" />
@@ -167,6 +486,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Core.Pipeline.HttpPipeline</ReturnType>
@@ -187,6 +507,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response</ReturnType>
@@ -209,21 +530,22 @@
       </Docs>
     </Member>
     <Member MemberName="SemanticRerank">
-      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Data.AI.SemanticRerankingInferenceResult&gt; SemanticRerank (Azure.Data.AI.SemanticRerankingInferenceContent request, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Data.AI.SemanticRerankingInferenceResult&gt; SemanticRerank(class Azure.Data.AI.SemanticRerankingInferenceContent request, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceClient.SemanticRerank(Azure.Data.AI.SemanticRerankingInferenceContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function SemanticRerank (request As SemanticRerankingInferenceContent, Optional cancellationToken As CancellationToken = Nothing) As Response(Of SemanticRerankingInferenceResult)" />
-      <MemberSignature Language="F#" Value="abstract member SemanticRerank : Azure.Data.AI.SemanticRerankingInferenceContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Data.AI.SemanticRerankingInferenceResult&gt;&#xA;override this.SemanticRerank : Azure.Data.AI.SemanticRerankingInferenceContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Data.AI.SemanticRerankingInferenceResult&gt;" Usage="inferenceClient.SemanticRerank (request, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.Response&lt;Azure.Data.AI.SemanticRerankingResult&gt; SemanticRerank (Azure.Data.AI.SemanticRerankingContent request, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.Response`1&lt;class Azure.Data.AI.SemanticRerankingResult&gt; SemanticRerank(class Azure.Data.AI.SemanticRerankingContent request, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceClient.SemanticRerank(Azure.Data.AI.SemanticRerankingContent,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function SemanticRerank (request As SemanticRerankingContent, Optional cancellationToken As CancellationToken = Nothing) As Response(Of SemanticRerankingResult)" />
+      <MemberSignature Language="F#" Value="abstract member SemanticRerank : Azure.Data.AI.SemanticRerankingContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Data.AI.SemanticRerankingResult&gt;&#xA;override this.SemanticRerank : Azure.Data.AI.SemanticRerankingContent * System.Threading.CancellationToken -&gt; Azure.Response&lt;Azure.Data.AI.SemanticRerankingResult&gt;" Usage="inferenceClient.SemanticRerank (request, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.Response&lt;Azure.Data.AI.SemanticRerankingInferenceResult&gt;</ReturnType>
+        <ReturnType>Azure.Response&lt;Azure.Data.AI.SemanticRerankingResult&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="request" Type="Azure.Data.AI.SemanticRerankingInferenceContent" />
+        <Parameter Name="request" Type="Azure.Data.AI.SemanticRerankingContent" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
@@ -247,6 +569,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&gt;</ReturnType>
@@ -269,21 +592,22 @@
       </Docs>
     </Member>
     <Member MemberName="SemanticRerankAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Data.AI.SemanticRerankingInferenceResult&gt;&gt; SemanticRerankAsync (Azure.Data.AI.SemanticRerankingInferenceContent request, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Data.AI.SemanticRerankingInferenceResult&gt;&gt; SemanticRerankAsync(class Azure.Data.AI.SemanticRerankingInferenceContent request, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceClient.SemanticRerankAsync(Azure.Data.AI.SemanticRerankingInferenceContent,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function SemanticRerankAsync (request As SemanticRerankingInferenceContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of SemanticRerankingInferenceResult))" />
-      <MemberSignature Language="F#" Value="abstract member SemanticRerankAsync : Azure.Data.AI.SemanticRerankingInferenceContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Data.AI.SemanticRerankingInferenceResult&gt;&gt;&#xA;override this.SemanticRerankAsync : Azure.Data.AI.SemanticRerankingInferenceContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Data.AI.SemanticRerankingInferenceResult&gt;&gt;" Usage="inferenceClient.SemanticRerankAsync (request, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Data.AI.SemanticRerankingResult&gt;&gt; SemanticRerankAsync (Azure.Data.AI.SemanticRerankingContent request, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.Response`1&lt;class Azure.Data.AI.SemanticRerankingResult&gt;&gt; SemanticRerankAsync(class Azure.Data.AI.SemanticRerankingContent request, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceClient.SemanticRerankAsync(Azure.Data.AI.SemanticRerankingContent,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function SemanticRerankAsync (request As SemanticRerankingContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of Response(Of SemanticRerankingResult))" />
+      <MemberSignature Language="F#" Value="abstract member SemanticRerankAsync : Azure.Data.AI.SemanticRerankingContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Data.AI.SemanticRerankingResult&gt;&gt;&#xA;override this.SemanticRerankAsync : Azure.Data.AI.SemanticRerankingContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Data.AI.SemanticRerankingResult&gt;&gt;" Usage="inferenceClient.SemanticRerankAsync (request, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Data.AI.SemanticRerankingInferenceResult&gt;&gt;</ReturnType>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.Data.AI.SemanticRerankingResult&gt;&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="request" Type="Azure.Data.AI.SemanticRerankingInferenceContent" />
+        <Parameter Name="request" Type="Azure.Data.AI.SemanticRerankingContent" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>

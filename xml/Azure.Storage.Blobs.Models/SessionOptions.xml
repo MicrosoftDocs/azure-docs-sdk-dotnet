@@ -1,0 +1,121 @@
+<Type Name="SessionOptions" FullName="Azure.Storage.Blobs.Models.SessionOptions">
+  <TypeSignature Language="C#" Value="public class SessionOptions" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit SessionOptions extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Azure.Storage.Blobs.Models.SessionOptions" />
+  <TypeSignature Language="VB.NET" Value="Public Class SessionOptions" />
+  <TypeSignature Language="F#" Value="type SessionOptions = class" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.Storage.Blobs</AssemblyName>
+    <AssemblyVersion>12.31.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Options for configuring session token authentication for blob operations.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SessionOptions ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Blobs.Models.SessionOptions.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Blobs</AssemblyName>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AccountName">
+      <MemberSignature Language="C#" Value="public string AccountName { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string AccountName" />
+      <MemberSignature Language="DocId" Value="P:Azure.Storage.Blobs.Models.SessionOptions.AccountName" />
+      <MemberSignature Language="VB.NET" Value="Public Property AccountName As String" />
+      <MemberSignature Language="F#" Value="member this.AccountName : string with get, set" Usage="Azure.Storage.Blobs.Models.SessionOptions.AccountName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Blobs</AssemblyName>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The Account name to use for signing the session key. Optional.
+            </summary>
+        <value>To be added.</value>
+        <remarks>
+            When not set, the account name is derived from the client endpoint. Set this
+            explicitly when the endpoint is a custom URL from which the account name cannot
+            be derived. If the account name can be determined from neither this property nor
+            the endpoint, client construction throws when <see cref="P:Azure.Storage.Blobs.Models.SessionOptions.SessionMode" /> was
+            explicitly set to <see cref="F:Azure.Storage.Blobs.Models.SessionMode.Enabled" />; otherwise session
+            authentication is disabled for the client and all requests use bearer token
+            authentication instead.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SessionMode">
+      <MemberSignature Language="C#" Value="public Azure.Storage.Blobs.Models.SessionMode SessionMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Azure.Storage.Blobs.Models.SessionMode SessionMode" />
+      <MemberSignature Language="DocId" Value="P:Azure.Storage.Blobs.Models.SessionOptions.SessionMode" />
+      <MemberSignature Language="VB.NET" Value="Public Property SessionMode As SessionMode" />
+      <MemberSignature Language="F#" Value="member this.SessionMode : Azure.Storage.Blobs.Models.SessionMode with get, set" Usage="Azure.Storage.Blobs.Models.SessionOptions.SessionMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Blobs</AssemblyName>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Storage.Blobs.Models.SessionMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The session authentication mode to use for blob operations.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SessionProvider">
+      <MemberSignature Language="C#" Value="public Azure.Storage.Blobs.Models.SessionProvider SessionProvider { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Storage.Blobs.Models.SessionProvider SessionProvider" />
+      <MemberSignature Language="DocId" Value="P:Azure.Storage.Blobs.Models.SessionOptions.SessionProvider" />
+      <MemberSignature Language="VB.NET" Value="Public Property SessionProvider As SessionProvider" />
+      <MemberSignature Language="F#" Value="member this.SessionProvider : Azure.Storage.Blobs.Models.SessionProvider with get, set" Usage="Azure.Storage.Blobs.Models.SessionOptions.SessionProvider" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Blobs</AssemblyName>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Storage.Blobs.Models.SessionProvider</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            An optional session provider that owns the session cache and mints sessions.
+            Construct one with <see cref="M:Azure.Storage.Blobs.Models.ContainerSessionProvider.#ctor(System.Uri,Azure.Core.TokenCredential,Azure.Storage.Blobs.BlobClientOptions)" />,
+            which is for <see cref="T:Azure.Core.TokenCredential" /> authentication only.
+            The provider must target the same blob service endpoint as the client that this is attached to.
+            Sessions are cached per container, so clients configured with the same provider share its
+            cached sessions and a session is created once per container no matter how many clients use it.
+            When not set, the client creates a provider of its own, shared only with the clients derived from
+            it (for example the container and blob clients created from a service client). Separately
+            constructed clients do not share a cache, so each creates its own sessions.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

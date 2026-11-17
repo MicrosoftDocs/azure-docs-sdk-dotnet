@@ -24,7 +24,7 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> Extra details needed to run the user's request. </summary>
+    <summary> The execution settings for a bulk action. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -42,6 +42,30 @@
       <Parameters />
       <Docs>
         <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.Compute.BulkActions.Models.BulkActionExecutionParameterDetail" />. </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AdditionalCreateParameters">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IDictionary&lt;string,BinaryData&gt; AdditionalCreateParameters { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IDictionary`2&lt;string, class System.BinaryData&gt; AdditionalCreateParameters" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Compute.BulkActions.Models.BulkActionExecutionParameterDetail.AdditionalCreateParameters" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property AdditionalCreateParameters As IDictionary(Of String, BinaryData)" />
+      <MemberSignature Language="F#" Value="member this.AdditionalCreateParameters : System.Collections.Generic.IDictionary&lt;string, BinaryData&gt;" Usage="Azure.ResourceManager.Compute.BulkActions.Models.BulkActionExecutionParameterDetail.AdditionalCreateParameters" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Compute.BulkActions</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IDictionary&lt;System.String,System.BinaryData&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Additional configuration for Create.
+            <para> To assign an object to the value of this property use <see cref="M:System.BinaryData.FromObjectAsJson``1(``0,System.Text.Json.JsonSerializerOptions)" />. </para><para> To assign an already formatted json string to this property use <see cref="M:System.BinaryData.FromString(System.String)" />. </para><para>
+            Examples:
+            <list type="bullet"><item><term> BinaryData.FromObjectAsJson("foo"). </term><description> Creates a payload of "foo". </description></item><item><term> BinaryData.FromString("\"foo\""). </term><description> Creates a payload of "foo". </description></item><item><term> BinaryData.FromObjectAsJson(new { key = "value" }). </term><description> Creates a payload of { "key": "value" }. </description></item><item><term> BinaryData.FromString("{\"key\": \"value\"}"). </term><description> Creates a payload of { "key": "value" }. </description></item></list></para></summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -186,7 +210,7 @@
         <ReturnType>Azure.ResourceManager.Compute.BulkActions.Models.BulkOperationRetryPolicy</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Retry policy the user can pass. </summary>
+        <summary> The retry settings for the bulk action. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -206,7 +230,7 @@
         <ReturnType>System.Nullable&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> When true on an executeStart request, run a post-Start VM agent health check and engage the fallback chain if the guest agent does not report Ready. Ignored for non-Start operations. </summary>
+        <summary> If true, Bulk Actions verifies the virtual machine guest agent health after a start operation. Setting this property to true for any other operation causes the request to fail. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

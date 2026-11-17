@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.ResourceManager.Storage, storage
-ms.date: 09/25/2026
+ms.date: 10/29/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: storage
@@ -43,7 +43,7 @@ Set up a way to authenticate to Microsoft Azure with Azure Identity.
 Some options are:
 - Through the [Azure CLI Sign in](https://learn.microsoft.com/cli/azure/authenticate-azure-cli).
 - Via [Visual Studio](https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet#authenticating-via-visual-studio).
-- Setting [Environment Variables](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.8.0/sdk/resourcemanager/Azure.ResourceManager/docs/AuthUsingEnvironmentVariables.md).
+- Setting [Environment Variables](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.9.0/sdk/resourcemanager/Azure.ResourceManager/docs/AuthUsingEnvironmentVariables.md).
 
 More information and different authentication approaches using Microsoft Azure Identity can be found in [this document](https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet).
 
@@ -65,14 +65,14 @@ More documentation for the `Azure.Identity.DefaultAzureCredential` class can be 
 
 ## Key concepts
 
-Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.8.0/sdk/resourcemanager/Azure.ResourceManager/README.md#key-concepts)
+Key concepts of the Microsoft Azure SDK for .NET can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.9.0/sdk/resourcemanager/Azure.ResourceManager/README.md#key-concepts)
 
 ## Examples
 
-- [Managing Storage Accounts](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.8.0/sdk/storage/Azure.ResourceManager.Storage/samples/Sample1_ManagingStorageAccounts.md).
+- [Managing Storage Accounts](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.9.0/sdk/storage/Azure.ResourceManager.Storage/samples/Sample1_ManagingStorageAccounts.md).
 
-- [Managing Blob Containers](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.8.0/sdk/storage/Azure.ResourceManager.Storage/samples/Sample2_ManagingBlobContainers.md).
-- [Managing File Shares](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.8.0/sdk/storage/Azure.ResourceManager.Storage/samples/Sample3_ManagingFileShares.md).
+- [Managing Blob Containers](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.9.0/sdk/storage/Azure.ResourceManager.Storage/samples/Sample2_ManagingBlobContainers.md).
+- [Managing File Shares](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.9.0/sdk/storage/Azure.ResourceManager.Storage/samples/Sample3_ManagingFileShares.md).
 
 ## Troubleshooting
 
@@ -107,7 +107,7 @@ more information, see the [Code of Conduct FAQ][coc_faq] or contact
 <opencode@microsoft.com> with any other questions or comments.
 
 <!-- LINKS -->
-[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.8.0/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
+[cg]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Storage_1.9.0/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 

@@ -58,12 +58,16 @@
       <Docs>
         <summary>
             Gets or sets the maximum number of conversation history items that
-            <see cref="M:Azure.AI.AgentServer.Responses.ResponseContext.GetHistoryAsync(System.Threading.CancellationToken)" /> fetches. Default: 100.
-            Can also be configured via the <c>DEFAULT_FETCH_HISTORY_ITEM_COUNT</c>
-            environment variable (integer value). Programmatic configuration takes precedence.
+            <see cref="M:Azure.AI.AgentServer.Responses.ResponseContext.GetHistoryAsync(System.Threading.CancellationToken)" /> fetches, or <c>-1</c> to fetch
+            all available history. Default: <c>-1</c>.
+            Hosted applications can bind this through
+            <see cref="P:Azure.AI.AgentServer.Responses.ResponsesServerSettings.DefaultFetchHistoryCount" />.
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown when the value is zero or less than <c>-1</c>.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="DefaultModel">
@@ -115,9 +119,10 @@
             <see langword="false" /> (the default), an interrupted background response
             transitions to a failed terminal state and is not re-invoked.
             <para>
-            Enabling this option requires resilient-capable response, task, and stream
-            persistence providers to be registered; the server fails loudly at startup when
-            they are missing rather than silently downgrading to weaker durability.
+            Enabling this option automatically opts the host into the Core resilient-task runtime and
+            requires resilient-capable response, task, and stream persistence providers; the server
+            fails loudly at startup when they are missing rather than silently downgrading to weaker
+            durability.
             </para></summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
@@ -183,6 +188,10 @@
             forks are rejected with <c>409 conversation_fork_not_supported</c>, and overlapping
             turns are rejected with <c>409 conversation_locked</c>. When <see langword="false" />
             (the default), steering is disabled.
+            Enabling steering requires the Core resilient-task runtime; set
+            <see cref="P:Azure.AI.AgentServer.Responses.ResponsesServerOptions.ResilientBackground" /> or call
+            <see cref="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions.SetResilientTasksEnabled(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean)" />
+            before host startup.
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>

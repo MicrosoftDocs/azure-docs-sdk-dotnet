@@ -1,0 +1,137 @@
+<Type Name="ShareChangeFeedClientOptions" FullName="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions">
+  <TypeSignature Language="C#" Value="public class ShareChangeFeedClientOptions" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ShareChangeFeedClientOptions extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions" />
+  <TypeSignature Language="VB.NET" Value="Public Class ShareChangeFeedClientOptions" />
+  <TypeSignature Language="F#" Value="type ShareChangeFeedClientOptions = class" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+    <AssemblyVersion>12.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Options for configuring the behavior of <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient" />.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ShareChangeFeedClientOptions ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IncludeNonFinalizedEvents">
+      <MemberSignature Language="C#" Value="public bool IncludeNonFinalizedEvents { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IncludeNonFinalizedEvents" />
+      <MemberSignature Language="DocId" Value="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions.IncludeNonFinalizedEvents" />
+      <MemberSignature Language="VB.NET" Value="Public Property IncludeNonFinalizedEvents As Boolean" />
+      <MemberSignature Language="F#" Value="member this.IncludeNonFinalizedEvents : bool with get, set" Usage="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions.IncludeNonFinalizedEvents" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+             When set to <c>true</c>, the change feed reader will return events whose timestamps
+             are after the change feed's last consumable (finalized) watermark. By default
+             (<c>false</c>), reads are capped at the watermark to ensure all events for a given
+             time window are durably finalized before being returned.
+             </summary>
+        <value>To be added.</value>
+        <remarks>
+             Enable this option when consuming the most recent activity is more important than
+             completeness. Events read past the watermark may be from segments the service has
+             not yet finalized, which means: (1) the set of events returned for a given time
+             window may be incomplete; (2) two consecutive reads of the same window may return
+             different events; and (3) segments may appear, grow, or be partially written
+             between calls.
+            
+             While this option is enabled, change feed pages do not carry a continuation token
+             (<see cref="P:Azure.Page`1.ContinuationToken" /> is <c>null</c>), and the
+             <see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChanges(System.String)" /> /
+             <see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChangesAsync(System.String)" /> overloads will throw
+             <see cref="T:System.ArgumentException" />. Resumption is unsupported in this mode because
+             the underlying segments may change between calls.
+             </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaximumTransferSizeInBytes">
+      <MemberSignature Language="C#" Value="public long? MaximumTransferSizeInBytes { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;int64&gt; MaximumTransferSizeInBytes" />
+      <MemberSignature Language="DocId" Value="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions.MaximumTransferSizeInBytes" />
+      <MemberSignature Language="VB.NET" Value="Public Property MaximumTransferSizeInBytes As Nullable(Of Long)" />
+      <MemberSignature Language="F#" Value="member this.MaximumTransferSizeInBytes : Nullable&lt;int64&gt; with get, set" Usage="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions.MaximumTransferSizeInBytes" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;System.Int64&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The maximum size, in bytes, for a single blob download transfer when reading change feed segments.
+            If not set, the default transfer size is used.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResetPolicy">
+      <MemberSignature Language="C#" Value="public Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy? ResetPolicy { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy&gt; ResetPolicy" />
+      <MemberSignature Language="DocId" Value="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions.ResetPolicy" />
+      <MemberSignature Language="VB.NET" Value="Public Property ResetPolicy As Nullable(Of ShareChangeFeedResetPolicy)" />
+      <MemberSignature Language="F#" Value="member this.ResetPolicy : Nullable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy&gt; with get, set" Usage="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClientOptions.ResetPolicy" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+             Controls how the <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient" /> reacts when it discovers a
+             change feed reset marker during enumeration.
+             </summary>
+        <value>To be added.</value>
+        <remarks>
+             When <c>null</c> (the default), the client applies a per-API smart default:
+             batched APIs
+             (<see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChanges(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})" />,
+             <see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChangesBetweenSnapshots(System.String,System.String)" />, and
+             their continuation-token / async counterparts) default to
+             <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />; streaming APIs
+             (<see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChanges" /> and
+             <see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChanges(System.String)" /> plus their async counterparts)
+             default to <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ContinueOnReset" />.
+            
+             Explicitly setting this property applies the chosen policy to every method on the
+             client, overriding the per-API smart default.
+             </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

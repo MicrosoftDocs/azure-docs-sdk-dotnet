@@ -22,14 +22,8 @@
       <InterfaceName>System.ClientModel.Primitives.IPersistableModel&lt;T&gt;</InterfaceName>
     </Interface>
   </Interfaces>
-  <Attributes>
-    <Attribute>
-      <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(0)]</AttributeName>
-      <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(0)&gt;]</AttributeName>
-    </Attribute>
-  </Attributes>
   <Docs>
-    <summary> A first-class, explicitly-created durable key-value store (spec §2, §4.1). </summary>
+    <summary> A first-class, explicitly-created durable key-value store. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -48,7 +42,7 @@
         <ReturnType>System.Int64</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Creation time. </summary>
+        <summary> Creation time in Unix epoch seconds. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -74,7 +68,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Optional free-form description. Mutable via `updateStateStore`. </summary>
+        <summary>Gets the optional free-form description.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -94,7 +88,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Server-assigned, read-only. Not used for addressing (the `name` is). </summary>
+        <summary> Server-assigned, read-only identifier. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -114,7 +108,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Store-wide default TTL (seconds) inherited by every item, write-sliding per item. `-1` = never expire. Immutable. </summary>
+        <summary> Store-wide default TTL in seconds. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -185,7 +179,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Caller-chosen logical name. Unique within [project_id, agent_guid]. May contain `/` as a hierarchy separator. Immutable. </summary>
+        <summary> Caller-chosen logical name. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -205,7 +199,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Always `"state_store"`. </summary>
+        <summary> The wire object type. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -228,7 +222,7 @@
         <Parameter Name="result" Type="System.ClientModel.ClientResult" />
       </Parameters>
       <Docs>
-        <param name="result"> The <see cref="T:System.ClientModel.ClientResult" /> to deserialize the <see cref="T:Azure.AI.AgentServer.Core.Storage.StateStore" /> from. </param>
+        <param name="result">The <see cref="T:System.ClientModel.ClientResult" /> to deserialize.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
@@ -439,7 +433,7 @@
         <ReturnType>System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Optional string-to-string labels. Mutable (replaced wholesale) via `updateStateStore`. </summary>
+        <summary> Optional string-to-string labels. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -459,7 +453,7 @@
         <ReturnType>System.Int64</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Last metadata-update time. </summary>
+        <summary> Last metadata-update time in Unix epoch seconds. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -479,7 +473,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Whether item operations are partitioned per resolved user (spec §3). Omitted at create -&gt; `false`. Immutable. </summary>
+        <summary> Whether item operations are partitioned per resolved user. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

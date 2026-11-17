@@ -1,0 +1,176 @@
+<Type Name="ShareChangeFeedResetEvent" FullName="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent">
+  <TypeSignature Language="C#" Value="public class ShareChangeFeedResetEvent : Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ShareChangeFeedResetEvent extends Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent" />
+  <TypeSignature Language="DocId" Value="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent" />
+  <TypeSignature Language="VB.NET" Value="Public Class ShareChangeFeedResetEvent&#xA;Inherits ShareChangeFeedEvent" />
+  <TypeSignature Language="F#" Value="type ShareChangeFeedResetEvent = class&#xA;    inherit ShareChangeFeedEvent" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+    <AssemblyVersion>12.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            A specialized <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent" /> that represents an Azure Files
+            Change Feed reset marker. Reset markers are emitted by the service on events such as
+            HardFailover or classic account migration. When observed, log-sequence continuity has
+            been broken from this point onward and consumers must decide whether to stop,
+            re-baseline, or continue reading past the marker.
+            </summary>
+    <remarks>
+            A reset event is surfaced in-band on <see cref="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedClient.GetChanges" />
+            enumerations (default <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ContinueOnReset" />) at its
+            ordered position in the stream, or via <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetException.ResetEvent" />
+            when the client is configured with <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetPolicy.ThrowOnReset" />.
+            The base <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent.Reason" /> is always
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedReasonKind.Reset" />; the base <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent.Id" />
+            holds the reset event GUID as its string form; the base
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent.EventOccurredOn" /> holds the reset time.
+            </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="AccountName">
+      <MemberSignature Language="C#" Value="public string AccountName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string AccountName" />
+      <MemberSignature Language="DocId" Value="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent.AccountName" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property AccountName As String" />
+      <MemberSignature Language="F#" Value="member this.AccountName : string" Usage="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent.AccountName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Unversioned account name recorded on the reset event.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ContainerName">
+      <MemberSignature Language="C#" Value="public string ContainerName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string ContainerName" />
+      <MemberSignature Language="DocId" Value="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent.ContainerName" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ContainerName As String" />
+      <MemberSignature Language="F#" Value="member this.ContainerName : string" Usage="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent.ContainerName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Unversioned share (container) name recorded on the reset event.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResetFileTime">
+      <MemberSignature Language="C#" Value="public long ResetFileTime { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int64 ResetFileTime" />
+      <MemberSignature Language="DocId" Value="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent.ResetFileTime" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ResetFileTime As Long" />
+      <MemberSignature Language="F#" Value="member this.ResetFileTime : int64" Usage="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent.ResetFileTime" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int64</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Windows FILETIME ticks (100 ns since 1601 UTC) at which the reset was emitted.
+            Monotonic per stamp and also encoded into the per-event blob key.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResetId">
+      <MemberSignature Language="C#" Value="public Guid ResetId { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid ResetId" />
+      <MemberSignature Language="DocId" Value="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent.ResetId" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ResetId As Guid" />
+      <MemberSignature Language="F#" Value="member this.ResetId : Guid" Usage="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent.ResetId" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Server-generated GUID identifying this reset event. Matches the
+            <c>resetId</c> field in the per-event marker JSON.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResetReason">
+      <MemberSignature Language="C#" Value="public string ResetReason { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string ResetReason" />
+      <MemberSignature Language="DocId" Value="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent.ResetReason" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ResetReason As String" />
+      <MemberSignature Language="F#" Value="member this.ResetReason : string" Usage="Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent.ResetReason" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Verbatim, human-readable cause of the reset (for example,
+            "Customer-managed unplanned failover" or "Tracking State Reset"). This is the free-form
+            <c>reason</c> field from the reset marker JSON; it is exposed here under a distinct
+            name to avoid shadowing the inherited <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedEvent.Reason" /> property
+            (which is the strongly-typed <see cref="T:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedReasonKind" /> and is always
+            <see cref="P:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedReasonKind.Reset" /> for a reset event).
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToString">
+      <MemberSignature Language="C#" Value="public override string ToString ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance string ToString() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Files.Shares.ChangeFeed.ShareChangeFeedResetEvent.ToString" />
+      <MemberSignature Language="VB.NET" Value="Public Overrides Function ToString () As String" />
+      <MemberSignature Language="F#" Value="override this.ToString : unit -&gt; string" Usage="shareChangeFeedResetEvent.ToString " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Files.Shares.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Returns a human-readable string summarizing the reset event.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

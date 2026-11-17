@@ -7,6 +7,7 @@
   <AssemblyInfo>
     <AssemblyName>Azure.Security.Attestation</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
@@ -33,7 +34,7 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
@@ -52,7 +53,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Security.Attestation.AttestationTokenValidationOptions</ReturnType>
@@ -75,14 +76,15 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
-            Expected Issuer for the token, if present.
+            The base URI of the attestation provider which must have issued the token, for example "https://contoso.attest.azure.net".
+            When a token is validated by <see cref="T:Azure.Security.Attestation.AttestationClient" /> or <see cref="T:Azure.Security.Attestation.AttestationAdministrationClient" /> and this is not set, the client's endpoint is used.
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
@@ -97,7 +99,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Int64</ReturnType>
@@ -105,7 +107,7 @@
       <Docs>
         <summary>
             Allowable slack in time validations - used to account for differences between the clock on the client
-            and the clock on the server.
+            and the clock on the server, in seconds. Defaults to 5 seconds.
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
@@ -120,7 +122,7 @@
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Core.SyncAsyncEventHandler&lt;Azure.Security.Attestation.AttestationTokenValidationEventArgs&gt;</ReturnType>
@@ -129,7 +131,9 @@
         <summary>
             Raised when an attestation token should be validated.
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+            The token is rejected if any handler sets <see cref="P:Azure.Security.Attestation.AttestationTokenValidationEventArgs.IsValid" /> to false.
+            </remarks>
       </Docs>
     </Member>
     <Member MemberName="ValidateExpirationTime">
@@ -141,7 +145,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
@@ -163,14 +167,14 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
-            Specifies whether or not the validation logic should validate the Issuer of the token, if present.
+            Specifies whether or not the validation logic should require the Issuer of the token to match <see cref="P:Azure.Security.Attestation.AttestationTokenValidationOptions.ExpectedIssuer" />. Defaults to true.
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
@@ -185,7 +189,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
@@ -207,7 +211,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>

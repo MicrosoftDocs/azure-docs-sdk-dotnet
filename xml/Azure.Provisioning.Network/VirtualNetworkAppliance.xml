@@ -7,44 +7,58 @@
   <AssemblyInfo>
     <AssemblyName>Azure.Provisioning.Network</AssemblyName>
     <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>Azure.Provisioning.Primitives.ProvisionableResource</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            VirtualNetworkAppliance.
-            </summary>
+    <summary> A virtual network appliance in a resource group. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public VirtualNetworkAppliance (string bicepIdentifier, string? resourceVersion = default);" />
+      <MemberSignature Language="C#" Value="public VirtualNetworkAppliance (string bicepIdentifier, string? resourceVersion = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string bicepIdentifier, string resourceVersion) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Provisioning.Network.VirtualNetworkAppliance.#ctor(System.String,System.String)" />
       <MemberSignature Language="VB.NET" Value="Public Sub New (bicepIdentifier As String, Optional resourceVersion As String = Nothing)" />
       <MemberSignature Language="F#" Value="new Azure.Provisioning.Network.VirtualNetworkAppliance : string * string -&gt; Azure.Provisioning.Network.VirtualNetworkAppliance" Usage="new Azure.Provisioning.Network.VirtualNetworkAppliance (bicepIdentifier, resourceVersion)" />
+      <MemberSignature Language="C#" Value="public VirtualNetworkAppliance (string bicepIdentifier, string resourceVersion = default);" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Network</AssemblyName>
         <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="bicepIdentifier" Type="System.String" />
         <Parameter Name="resourceVersion" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="bicepIdentifier">
-            The the Bicep identifier name of the VirtualNetworkAppliance resource.
-            This can be used to refer to the resource in expressions, but is not
-            the Azure name of the resource.  This value can contain letters,
-            numbers, and underscores.
-            </param>
-        <param name="resourceVersion">Version of the VirtualNetworkAppliance.</param>
-        <summary>
-            Creates a new VirtualNetworkAppliance.
-            </summary>
+        <param name="bicepIdentifier"> The bicep identifier name. </param>
+        <param name="resourceVersion"> The resource API version. </param>
+        <summary> Creates a new VirtualNetworkAppliance. </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BandwidthGbps">
+      <MemberSignature Language="C#" Value="public Azure.Provisioning.BicepValue&lt;double&gt; BandwidthGbps { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Provisioning.BicepValue`1&lt;float64&gt; BandwidthGbps" />
+      <MemberSignature Language="DocId" Value="P:Azure.Provisioning.Network.VirtualNetworkAppliance.BandwidthGbps" />
+      <MemberSignature Language="VB.NET" Value="Public Property BandwidthGbps As BicepValue(Of Double)" />
+      <MemberSignature Language="F#" Value="member this.BandwidthGbps : Azure.Provisioning.BicepValue&lt;double&gt; with get, set" Usage="Azure.Provisioning.Network.VirtualNetworkAppliance.BandwidthGbps" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Provisioning.Network</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Provisioning.BicepValue&lt;System.Double&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Gets or sets the BandwidthGbps. </summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -58,14 +72,43 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Network</AssemblyName>
         <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.Obsolete("This property is deprecated and it will be removed in a future version. Please use BandwidthGbps instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Obsolete("This property is deprecated and it will be removed in a future version. Please use BandwidthGbps instead.")&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.String&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Bandwidth of the VirtualNetworkAppliance resource in Gbps.
-            </summary>
+        <summary> Gets or sets the bandwidth in gigabits per second as a string. </summary>
+        <value>To be added.</value>
+        <remarks> This property has independent storage from BandwidthGbps. Set only one of the two properties. </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CapacityProviderId">
+      <MemberSignature Language="C#" Value="public Azure.Provisioning.BicepValue&lt;Azure.Core.ResourceIdentifier&gt; CapacityProviderId { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Provisioning.BicepValue`1&lt;class Azure.Core.ResourceIdentifier&gt; CapacityProviderId" />
+      <MemberSignature Language="DocId" Value="P:Azure.Provisioning.Network.VirtualNetworkAppliance.CapacityProviderId" />
+      <MemberSignature Language="VB.NET" Value="Public Property CapacityProviderId As BicepValue(Of ResourceIdentifier)" />
+      <MemberSignature Language="F#" Value="member this.CapacityProviderId : Azure.Provisioning.BicepValue&lt;Azure.Core.ResourceIdentifier&gt; with get, set" Usage="Azure.Provisioning.Network.VirtualNetworkAppliance.CapacityProviderId" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Provisioning.Network</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Core.ResourceIdentifier&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Gets or sets the Id. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -80,15 +123,14 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Network</AssemblyName>
         <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>
-            Define all the provisionable properties of VirtualNetworkAppliance.
-            </summary>
+        <summary> Define all the provisionable properties for VirtualNetworkAppliance. </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -102,28 +144,29 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Network</AssemblyName>
         <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.ETag&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            A unique read-only string that changes whenever the resource is updated.
-            </summary>
+        <summary> Gets the ETag. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="FromExisting">
-      <MemberSignature Language="C#" Value="public static Azure.Provisioning.Network.VirtualNetworkAppliance FromExisting (string bicepIdentifier, string? resourceVersion = default);" />
+      <MemberSignature Language="C#" Value="public static Azure.Provisioning.Network.VirtualNetworkAppliance FromExisting (string bicepIdentifier, string? resourceVersion = default);" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Provisioning.Network.VirtualNetworkAppliance FromExisting(string bicepIdentifier, string resourceVersion) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Provisioning.Network.VirtualNetworkAppliance.FromExisting(System.String,System.String)" />
       <MemberSignature Language="VB.NET" Value="Public Shared Function FromExisting (bicepIdentifier As String, Optional resourceVersion As String = Nothing) As VirtualNetworkAppliance" />
       <MemberSignature Language="F#" Value="static member FromExisting : string * string -&gt; Azure.Provisioning.Network.VirtualNetworkAppliance" Usage="Azure.Provisioning.Network.VirtualNetworkAppliance.FromExisting (bicepIdentifier, resourceVersion)" />
+      <MemberSignature Language="C#" Value="public static Azure.Provisioning.Network.VirtualNetworkAppliance FromExisting (string bicepIdentifier, string resourceVersion = default);" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Network</AssemblyName>
         <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Provisioning.Network.VirtualNetworkAppliance</ReturnType>
@@ -133,17 +176,37 @@
         <Parameter Name="resourceVersion" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="bicepIdentifier">
-            The the Bicep identifier name of the VirtualNetworkAppliance resource.
-            This can be used to refer to the resource in expressions, but is not
-            the Azure name of the resource.  This value can contain letters,
-            numbers, and underscores.
-            </param>
-        <param name="resourceVersion">Version of the VirtualNetworkAppliance.</param>
-        <summary>
-            Creates a reference to an existing VirtualNetworkAppliance.
-            </summary>
+        <param name="bicepIdentifier"> The bicep identifier name. </param>
+        <param name="resourceVersion"> The resource API version. </param>
+        <summary> Creates a reference to an existing VirtualNetworkAppliance. </summary>
         <returns>The existing VirtualNetworkAppliance resource.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetResourceNameRequirements">
+      <MemberSignature Language="C#" Value="public override Azure.Provisioning.Primitives.ResourceNameRequirements GetResourceNameRequirements ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance valuetype Azure.Provisioning.Primitives.ResourceNameRequirements GetResourceNameRequirements() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Provisioning.Network.VirtualNetworkAppliance.GetResourceNameRequirements" />
+      <MemberSignature Language="VB.NET" Value="Public Overrides Function GetResourceNameRequirements () As ResourceNameRequirements" />
+      <MemberSignature Language="F#" Value="override this.GetResourceNameRequirements : unit -&gt; Azure.Provisioning.Primitives.ResourceNameRequirements" Usage="virtualNetworkAppliance.GetResourceNameRequirements " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Provisioning.Network</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute FrameworkAlternate="azure-dotnet-preview">
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Azure.Provisioning.Primitives.ResourceNameRequirements</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary> Get the requirements for naming this resource. </summary>
+        <returns> Naming requirements. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -157,14 +220,13 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Network</AssemblyName>
         <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Core.ResourceIdentifier&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Resource ID.
-            </summary>
+        <summary> Gets the Id. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -179,14 +241,13 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Network</AssemblyName>
         <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Provisioning.BicepList&lt;Azure.Provisioning.Network.VirtualNetworkApplianceIPConfiguration&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            A list of IPConfigurations of the virtual network appliance.
-            </summary>
+        <summary> Gets the IPConfigurations. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -201,14 +262,13 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Network</AssemblyName>
         <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Core.AzureLocation&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Resource location.
-            </summary>
+        <summary> Gets or sets the Location. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -223,14 +283,33 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Network</AssemblyName>
         <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.String&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The name of the virtual network appliance.
-            </summary>
+        <summary> Gets or sets the Name. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PrivateIPAddressVersion">
+      <MemberSignature Language="C#" Value="public Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Network.VirtualNetworkApplianceIPVersionType&gt; PrivateIPAddressVersion { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Provisioning.BicepValue`1&lt;valuetype Azure.Provisioning.Network.VirtualNetworkApplianceIPVersionType&gt; PrivateIPAddressVersion" />
+      <MemberSignature Language="DocId" Value="P:Azure.Provisioning.Network.VirtualNetworkAppliance.PrivateIPAddressVersion" />
+      <MemberSignature Language="VB.NET" Value="Public Property PrivateIPAddressVersion As BicepValue(Of VirtualNetworkApplianceIPVersionType)" />
+      <MemberSignature Language="F#" Value="member this.PrivateIPAddressVersion : Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Network.VirtualNetworkApplianceIPVersionType&gt; with get, set" Usage="Azure.Provisioning.Network.VirtualNetworkAppliance.PrivateIPAddressVersion" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Provisioning.Network</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Network.VirtualNetworkApplianceIPVersionType&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Gets or sets the PrivateIPAddressVersion. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -245,14 +324,13 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Network</AssemblyName>
         <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Provisioning.BicepValue&lt;Azure.Provisioning.Network.NetworkProvisioningState&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The provisioning state of the virtual network appliance resource.
-            </summary>
+        <summary> Gets the ProvisioningState. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -267,14 +345,13 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Network</AssemblyName>
         <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Provisioning.BicepValue&lt;System.Guid&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The resource GUID property of the virtual network appliance resource.
-            </summary>
+        <summary> Gets the ResourceGuid. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -289,14 +366,13 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Network</AssemblyName>
         <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Provisioning.Network.SubnetResource</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The reference to the subnet resource.
-            </summary>
+        <summary> Gets or sets the Subnet. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -311,14 +387,13 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Provisioning.Network</AssemblyName>
         <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Provisioning.BicepDictionary&lt;System.String&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Resource tags.
-            </summary>
+        <summary> Gets or sets the Tags. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

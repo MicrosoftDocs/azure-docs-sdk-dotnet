@@ -23,7 +23,7 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> Agent optimization job resource — a long-running job that optimizes an agent's configuration (instructions, model, skills, tools) to maximize evaluation scores. On success, the result contains scored candidates. </summary>
+    <summary> Agent optimization job resource — a long-running job that produces candidate changes to a Foundry agent configuration. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -41,6 +41,30 @@
       <Docs>
         <summary> Initializes a new instance of <see cref="T:Azure.AI.Projects.Agents.AgentOptimizationJob" />. </summary>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public AgentOptimizationJob (Azure.AI.Projects.Agents.AgentOptimizationModelConfiguration optimizationModelConfiguration, Azure.AI.Projects.Agents.AgentOptimizationConfigurationBase optimizationConfiguration);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.AI.Projects.Agents.AgentOptimizationModelConfiguration optimizationModelConfiguration, class Azure.AI.Projects.Agents.AgentOptimizationConfigurationBase optimizationConfiguration) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJob.#ctor(Azure.AI.Projects.Agents.AgentOptimizationModelConfiguration,Azure.AI.Projects.Agents.AgentOptimizationConfigurationBase)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (optimizationModelConfiguration As AgentOptimizationModelConfiguration, optimizationConfiguration As AgentOptimizationConfigurationBase)" />
+      <MemberSignature Language="F#" Value="new Azure.AI.Projects.Agents.AgentOptimizationJob : Azure.AI.Projects.Agents.AgentOptimizationModelConfiguration * Azure.AI.Projects.Agents.AgentOptimizationConfigurationBase -&gt; Azure.AI.Projects.Agents.AgentOptimizationJob" Usage="new Azure.AI.Projects.Agents.AgentOptimizationJob (optimizationModelConfiguration, optimizationConfiguration)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="optimizationModelConfiguration" Type="Azure.AI.Projects.Agents.AgentOptimizationModelConfiguration" />
+        <Parameter Name="optimizationConfiguration" Type="Azure.AI.Projects.Agents.AgentOptimizationConfigurationBase" />
+      </Parameters>
+      <Docs>
+        <param name="optimizationModelConfiguration"> Model used to generate candidate changes. An existing deployment name is also accepted. </param>
+        <param name="optimizationConfiguration"> Type-specific optimization configuration. </param>
+        <summary> Initializes a new instance of <see cref="T:Azure.AI.Projects.Agents.AgentOptimizationJob" />. </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="optimizationModelConfiguration" /> or <paramref name="optimizationConfiguration" /> is null. </exception>
       </Docs>
     </Member>
     <Member MemberName="CreatedOn">
@@ -63,6 +87,52 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="DisplayName">
+      <MemberSignature Language="C#" Value="public string DisplayName { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string DisplayName" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.AgentOptimizationJob.DisplayName" />
+      <MemberSignature Language="VB.NET" Value="Public Property DisplayName As String" />
+      <MemberSignature Language="F#" Value="member this.DisplayName : string with get, set" Usage="Azure.AI.Projects.Agents.AgentOptimizationJob.DisplayName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Human-readable label. Omitted when no label is needed; it has no uniqueness, routing, or idempotency semantics. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromClientResult">
+      <MemberSignature Language="C#" Value="public static Azure.AI.Projects.Agents.AgentOptimizationJob FromClientResult (System.ClientModel.ClientResult result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.Projects.Agents.AgentOptimizationJob FromClientResult(class System.ClientModel.ClientResult result) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Agents.AgentOptimizationJob.FromClientResult(System.ClientModel.ClientResult)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function FromClientResult (result As ClientResult) As AgentOptimizationJob" />
+      <MemberSignature Language="F#" Value="static member FromClientResult : System.ClientModel.ClientResult -&gt; Azure.AI.Projects.Agents.AgentOptimizationJob" Usage="Azure.AI.Projects.Agents.AgentOptimizationJob.FromClientResult result" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Projects.Agents.AgentOptimizationJob</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="result" Type="System.ClientModel.ClientResult" />
+      </Parameters>
+      <Docs>
+        <param name="result">The raw JSON, obtained from the service.</param>
+        <summary>
+            Parse the raw result.
+            </summary>
+        <returns />
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Id">
       <MemberSignature Language="C#" Value="public string Id { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string Id" />
@@ -79,26 +149,6 @@
       </ReturnValue>
       <Docs>
         <summary> Server-assigned unique identifier. </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Inputs">
-      <MemberSignature Language="C#" Value="public Azure.AI.Projects.Agents.AgentOptimizationJobInputs Inputs { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.AI.Projects.Agents.AgentOptimizationJobInputs Inputs" />
-      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.AgentOptimizationJob.Inputs" />
-      <MemberSignature Language="VB.NET" Value="Public Property Inputs As AgentOptimizationJobInputs" />
-      <MemberSignature Language="F#" Value="member this.Inputs : Azure.AI.Projects.Agents.AgentOptimizationJobInputs with get, set" Usage="Azure.AI.Projects.Agents.AgentOptimizationJob.Inputs" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.AI.Projects.Agents.AgentOptimizationJobInputs</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary> Caller-supplied inputs. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -202,6 +252,46 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="OptimizationConfiguration">
+      <MemberSignature Language="C#" Value="public Azure.AI.Projects.Agents.AgentOptimizationConfigurationBase OptimizationConfiguration { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.AI.Projects.Agents.AgentOptimizationConfigurationBase OptimizationConfiguration" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.AgentOptimizationJob.OptimizationConfiguration" />
+      <MemberSignature Language="VB.NET" Value="Public Property OptimizationConfiguration As AgentOptimizationConfigurationBase" />
+      <MemberSignature Language="F#" Value="member this.OptimizationConfiguration : Azure.AI.Projects.Agents.AgentOptimizationConfigurationBase with get, set" Usage="Azure.AI.Projects.Agents.AgentOptimizationJob.OptimizationConfiguration" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Projects.Agents.AgentOptimizationConfigurationBase</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Type-specific optimization configuration. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OptimizationModelConfiguration">
+      <MemberSignature Language="C#" Value="public Azure.AI.Projects.Agents.AgentOptimizationModelConfiguration OptimizationModelConfiguration { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.AI.Projects.Agents.AgentOptimizationModelConfiguration OptimizationModelConfiguration" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.AgentOptimizationJob.OptimizationModelConfiguration" />
+      <MemberSignature Language="VB.NET" Value="Public Property OptimizationModelConfiguration As AgentOptimizationModelConfiguration" />
+      <MemberSignature Language="F#" Value="member this.OptimizationModelConfiguration : Azure.AI.Projects.Agents.AgentOptimizationModelConfiguration with get, set" Usage="Azure.AI.Projects.Agents.AgentOptimizationJob.OptimizationModelConfiguration" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Projects.Agents.AgentOptimizationModelConfiguration</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Model used to generate candidate changes. An existing deployment name is also accepted. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="PersistableModelCreateCore">
       <MemberSignature Language="C#" Value="protected virtual Azure.AI.Projects.Agents.AgentOptimizationJob PersistableModelCreateCore (BinaryData data, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
       <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance class Azure.AI.Projects.Agents.AgentOptimizationJob PersistableModelCreateCore(class System.BinaryData data, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
@@ -252,26 +342,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Progress">
-      <MemberSignature Language="C#" Value="public Azure.AI.Projects.Agents.AgentOptimizationJobProgress Progress { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Azure.AI.Projects.Agents.AgentOptimizationJobProgress Progress" />
-      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.AgentOptimizationJob.Progress" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Progress As AgentOptimizationJobProgress" />
-      <MemberSignature Language="F#" Value="member this.Progress : Azure.AI.Projects.Agents.AgentOptimizationJobProgress" Usage="Azure.AI.Projects.Agents.AgentOptimizationJob.Progress" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.AI.Projects.Agents.AgentOptimizationJobProgress</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary> Progress snapshot. May be present in terminal states reflecting last-known progress. </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Result">
       <MemberSignature Language="C#" Value="public Azure.AI.Projects.Agents.AgentOptimizationJobResult Result { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Azure.AI.Projects.Agents.AgentOptimizationJobResult Result" />
@@ -288,6 +358,26 @@
       </ReturnValue>
       <Docs>
         <summary> Result produced on success. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RunDurationMs">
+      <MemberSignature Language="C#" Value="public TimeSpan RunDurationMs { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.TimeSpan RunDurationMs" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.AgentOptimizationJob.RunDurationMs" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property RunDurationMs As TimeSpan" />
+      <MemberSignature Language="F#" Value="member this.RunDurationMs : TimeSpan" Usage="Azure.AI.Projects.Agents.AgentOptimizationJob.RunDurationMs" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.TimeSpan</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Duration for which the job has been running, in milliseconds. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -452,6 +542,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="TargetConfiguration">
+      <MemberSignature Language="C#" Value="public Azure.AI.Projects.Agents.AgentOptimizationTargetConfiguration TargetConfiguration { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.AI.Projects.Agents.AgentOptimizationTargetConfiguration TargetConfiguration" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.AgentOptimizationJob.TargetConfiguration" />
+      <MemberSignature Language="VB.NET" Value="Public Property TargetConfiguration As AgentOptimizationTargetConfiguration" />
+      <MemberSignature Language="F#" Value="member this.TargetConfiguration : Azure.AI.Projects.Agents.AgentOptimizationTargetConfiguration with get, set" Usage="Azure.AI.Projects.Agents.AgentOptimizationJob.TargetConfiguration" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Projects.Agents.AgentOptimizationTargetConfiguration</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Foundry agent whose configuration is optimized. Omitted when the workflow does not target a registered Foundry agent. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="UpdatedOn">
       <MemberSignature Language="C#" Value="public DateTimeOffset UpdatedOn { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTimeOffset UpdatedOn" />
@@ -487,7 +597,7 @@
         <ReturnType>System.Collections.Generic.IReadOnlyList&lt;System.String&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Non-fatal warnings emitted at any point during optimization. </summary>
+        <summary> Non-fatal warnings emitted during optimization. Omitted when no warnings were produced. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

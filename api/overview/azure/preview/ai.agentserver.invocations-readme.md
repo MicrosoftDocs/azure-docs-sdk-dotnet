@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: Azure, dotnet, SDK, API, Azure.AI.AgentServer.Invocations, agentserver
-ms.date: 09/08/2026
+ms.date: 10/29/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: agentserver
@@ -86,11 +86,11 @@ Provides request metadata to the handler. All properties are read-only and resol
 ### Customizing the host
 
 When you need to add services, configure middleware, or compose multiple protocols on a single host, see the hosting tier samples:
-- [Tier 1 hosting customization](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.7/sdk/agentserver/Azure.AI.AgentServer.Invocations/samples/Sample5_Tier1HostingCustomize.md)
-- [Tier 2 builder](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.7/sdk/agentserver/Azure.AI.AgentServer.Invocations/samples/Sample6_Tier2HostingBuilder.md)
-- [Tier 3 self-hosting](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.7/sdk/agentserver/Azure.AI.AgentServer.Invocations/samples/Sample7_Tier3SelfHosting.md)
+- [Tier 1 hosting customization](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.8/sdk/agentserver/Azure.AI.AgentServer.Invocations/samples/Sample5_Tier1HostingCustomize.md)
+- [Tier 2 builder](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.8/sdk/agentserver/Azure.AI.AgentServer.Invocations/samples/Sample6_Tier2HostingBuilder.md)
+- [Tier 3 self-hosting](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.8/sdk/agentserver/Azure.AI.AgentServer.Invocations/samples/Sample7_Tier3SelfHosting.md)
 
-`InvocationsServerOptions` can be configured via the `AddInvocationsServer(options => { ... })` delegate on any tier. See the [Tier 3 self-hosting](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.7/sdk/agentserver/Azure.AI.AgentServer.Invocations/samples/Sample7_Tier3SelfHosting.md) sample for a complete example.
+`InvocationsServerOptions` can be configured via the `AddInvocationsServer(options => { ... })` delegate on any tier. See the [Tier 3 self-hosting](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.8/sdk/agentserver/Azure.AI.AgentServer.Invocations/samples/Sample7_Tier3SelfHosting.md) sample for a complete example.
 
 ### Handler lifetime
 
@@ -161,7 +161,32 @@ For typed Voice endpoints, the SDK suppresses the generic ASP.NET Core request s
 
 ### Typed Voice relay
 
-`VoiceHandler` layers immutable Voice Live Bridge Protocol 1.0 messages over the existing `/invocations_ws` transport. The application explicitly sends readiness, responses, output, completion, control, and error messages.
+`VoiceHandler` layers immutable Voice Live Bridge Protocol 1.0 messages over
+`/voice_conversation_engine` and the existing `/invocations_ws` transport. Registering
+with `AddVoice<THandler>()` exposes both routes; existing Voice applications keep
+the same startup code and legacy WS registration. Generic `AddInvocations()` raw
+WebSocket handlers do not expose CE. The application explicitly sends readiness,
+responses, output, completion, control, and error messages.
+
+To use standalone CE, declare `voice_conversation_engine` version `1.0.0` in the hosted
+agent definition. New-schema definitions use `protocol_versions`; legacy
+definitions use `container_protocol_versions`. The library does not create or
+modify these declarations, and registering the container route alone does not
+enable the public Foundry endpoint. CE does not require `invocations_ws`,
+`voiceLiveCompatible`, or `bridgeProtocolVersion` declarations. Existing legacy
+Agent manifests and metadata can remain unchanged.
+
+The Voice Agent configuration field `conversation_engine` is separate from the
+Hosted Agent protocol name and remains unchanged.
+
+Both routes reuse the same callbacks, transport limits, tracing, and cleanup;
+neither redirects to or falls back to the other. The Bridge message handshake
+remains `session.start.protocol_version="1.0"`, independent of the CE container
+protocol version `1.0.0`. Rebuild the container with a library build containing CE
+support, and deploy Foundry CE routing and CE-aware Voice Live before enabling a
+CE-declaring agent version. Local library tests do not establish deployment readiness.
+
+Caller interruptions use `user.barge_in`, `VoiceUserBargeInEvent`, and `OnUserBargeInAsync`. Voice Live senders must use the same event contract. Generic raw WebSocket handlers and application-owned cancellation/history are unchanged.
 
 The typed Voice relay is experimental and may change or be removed. To use any of its APIs, suppress the `AAAS001` warning:
 
@@ -233,9 +258,11 @@ The Voice layer is deliberately a typed event relay:
 - Callbacks are awaited in wire order. Start and track long-running model or tool work in application-owned tasks, then return so later barge-in, timeout, and cancellation events can be dispatched.
 - `OnConnectionTerminating` runs once after the session becomes unwritable and before transport close. Use it only to signal cancellation of application-owned work; do not block or send from it.
 
-See [Typed Voice relay](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.7/sdk/agentserver/Azure.AI.AgentServer.Invocations/samples/SampleVoice1_TypedRelay.md) for a full sample with application-owned response tasks and cancellation.
+See [Typed Voice relay](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.8/sdk/agentserver/Azure.AI.AgentServer.Invocations/samples/SampleVoice1_TypedRelay.md) for a full sample with application-owned response tasks and cancellation.
 
 #### WebSocket configuration
+
+Bridge protocol remains `1.0`. `VoiceUserMessageEvent.ContentParts` preserves ordered `VoiceInputTextPart` and `VoiceInputDataPart` values; the existing `Content` property remains the text projection for existing handlers. Data is an application JSON object represented by copied `BinaryData`. Send `VoiceResponseOutputDataDoneMessage` after explicitly opening a response, and finish with `VoiceResponseDoneMessage`. A data item is atomic, cannot interrupt an unfinished text item, and produces no speech. For a successful operation with no output, explicitly send `VoiceResponseNoneMessage` with reason `acknowledged` after required persistence finishes. The relay never infers business completion. Update both the Bridge and library before using the extension; no version change or runtime negotiation is introduced.
 
 | Environment variable | Default | Description |
 |---|---|---|
@@ -243,7 +270,7 @@ See [Typed Voice relay](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI
 
 ## Examples
 
-You can familiarise yourself with different APIs using [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.7/sdk/agentserver/Azure.AI.AgentServer.Invocations/samples).
+You can familiarise yourself with different APIs using [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.8/sdk/agentserver/Azure.AI.AgentServer.Invocations/samples).
 
 ### Multi-user session (per-request call ID)
 
@@ -310,9 +337,9 @@ The library emits OpenTelemetry traces via the `Azure.AI.AgentServer.Invocations
 
 ## Next steps
 
-- [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.7/sdk/agentserver/Azure.AI.AgentServer.Invocations/samples) — Getting started, custom operations
-- [Azure.AI.AgentServer.Core](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.7/sdk/agentserver/Azure.AI.AgentServer.Core) — Shared hosting foundation
-- [Azure.AI.AgentServer.Responses](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.7/sdk/agentserver/Azure.AI.AgentServer.Responses) — Responses protocol implementation
+- [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.8/sdk/agentserver/Azure.AI.AgentServer.Invocations/samples) — Getting started, custom operations
+- [Azure.AI.AgentServer.Core](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.8/sdk/agentserver/Azure.AI.AgentServer.Core) — Shared hosting foundation
+- [Azure.AI.AgentServer.Responses](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.8/sdk/agentserver/Azure.AI.AgentServer.Responses) — Responses protocol implementation
 
 ## Contributing
 
@@ -323,7 +350,7 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 <!-- LINKS -->
-[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.7/sdk/agentserver/Azure.AI.AgentServer.Invocations/src
+[source]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.8/sdk/agentserver/Azure.AI.AgentServer.Invocations/src
 [nuget]: https://www.nuget.org/packages/Azure.AI.AgentServer.Invocations
 [product_doc]: https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agents
 

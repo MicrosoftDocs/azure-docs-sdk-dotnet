@@ -1,0 +1,323 @@
+<Type Name="ActivityServer" FullName="Azure.AI.AgentServer.Activity.ActivityServer">
+  <TypeSignature Language="C#" Value="public static class ActivityServer" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit ActivityServer extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Azure.AI.AgentServer.Activity.ActivityServer" />
+  <TypeSignature Language="VB.NET" Value="Public Class ActivityServer" />
+  <TypeSignature Language="F#" Value="type ActivityServer = class" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(0)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(0)&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+            One-line entry point for running an Activity protocol server. Each overload creates the Core host builder,
+            registers the Activity protocol, builds, and runs (wiring OpenTelemetry, health probes, and the
+            Foundry middleware for you).
+            </summary>
+    <remarks>
+      <para>Pick the overload that matches how your agent is constructed:</para>
+      <list type="bullet">
+        <item>
+          <see cref="M:Azure.AI.AgentServer.Activity.ActivityServer.Run``1(System.String[],System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions},System.Action{Azure.AI.AgentServer.Core.AgentHostBuilder})" />
+                — host a Microsoft 365 Agents SDK <see cref="T:Microsoft.Agents.Builder.App.AgentApplication" /><b>by type</b> (handlers
+                registered in its constructor). The fastest path to a working server.</item>
+        <item>
+          <see cref="M:Azure.AI.AgentServer.Activity.ActivityServer.Run(System.Func{System.IServiceProvider,Microsoft.Agents.Builder.App.AgentApplication},System.String[],System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions},System.Action{Azure.AI.AgentServer.Core.AgentHostBuilder})" />
+                — host an application created by a <b>factory</b> with access to the service provider.</item>
+        <item>
+          <see cref="M:Azure.AI.AgentServer.Activity.ActivityServer.Run(Microsoft.Agents.Builder.App.AgentApplication,System.String[],System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions},System.Action{Azure.AI.AgentServer.Core.AgentHostBuilder})" />
+                — host a <b>pre-built</b> application instance as-is.</item>
+        <item>
+          <see cref="M:Azure.AI.AgentServer.Activity.ActivityServer.Run(System.Action{Microsoft.Agents.Builder.App.AgentApplication},System.String[],System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions},System.Action{Azure.AI.AgentServer.Core.AgentHostBuilder})" />
+                — build the stack and register handlers <b>inline</b> on the application (no agent class
+                required).</item>
+        <item>
+          <see cref="M:Azure.AI.AgentServer.Activity.ActivityServer.Run(Microsoft.AspNetCore.Http.RequestDelegate,System.String[],System.Action{Azure.AI.AgentServer.Core.AgentHostBuilder})" /> — own the request
+                pipeline entirely; the Microsoft 365 Agents SDK is not initialized.</item>
+      </list>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Run">
+      <MemberSignature Language="C#" Value="public static void Run (Microsoft.AspNetCore.Http.RequestDelegate requestHandler, string[]? args = default, Action&lt;Azure.AI.AgentServer.Core.AgentHostBuilder&gt;? configure = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Run(class Microsoft.AspNetCore.Http.RequestDelegate requestHandler, string[] args, class System.Action`1&lt;class Azure.AI.AgentServer.Core.AgentHostBuilder&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Activity.ActivityServer.Run(Microsoft.AspNetCore.Http.RequestDelegate,System.String[],System.Action{Azure.AI.AgentServer.Core.AgentHostBuilder})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Sub Run (requestHandler As RequestDelegate, Optional args As String() = Nothing, Optional configure As Action(Of AgentHostBuilder) = Nothing)" />
+      <MemberSignature Language="F#" Value="static member Run : Microsoft.AspNetCore.Http.RequestDelegate * string[] * Action&lt;Azure.AI.AgentServer.Core.AgentHostBuilder&gt; -&gt; unit" Usage="Azure.AI.AgentServer.Activity.ActivityServer.Run (requestHandler, args, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="requestHandler" Type="Microsoft.AspNetCore.Http.RequestDelegate" />
+        <Parameter Name="args" Type="System.String[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Core.AgentHostBuilder&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="requestHandler">The request handler that processes inbound activities.</param>
+        <param name="args">Optional command-line arguments forwarded to the host builder.</param>
+        <param name="configure">Optional callback to further configure the <see cref="T:Azure.AI.AgentServer.Core.AgentHostBuilder" />.</param>
+        <summary>
+            Builds and runs an Activity protocol server that owns the request pipeline entirely. The
+            Microsoft 365 Agents SDK is not initialized; the supplied delegate receives each inbound
+            <c>POST /activity/messages</c> request.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Run">
+      <MemberSignature Language="C#" Value="public static void Run (Microsoft.Agents.Builder.App.AgentApplication agentApp, string[]? args = default, Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;? configureOptions = default, Action&lt;Azure.AI.AgentServer.Core.AgentHostBuilder&gt;? configure = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Run(class Microsoft.Agents.Builder.App.AgentApplication agentApp, string[] args, class System.Action`1&lt;class Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; configureOptions, class System.Action`1&lt;class Azure.AI.AgentServer.Core.AgentHostBuilder&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Activity.ActivityServer.Run(Microsoft.Agents.Builder.App.AgentApplication,System.String[],System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions},System.Action{Azure.AI.AgentServer.Core.AgentHostBuilder})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Sub Run (agentApp As AgentApplication, Optional args As String() = Nothing, Optional configureOptions As Action(Of ActivityServerOptions) = Nothing, Optional configure As Action(Of AgentHostBuilder) = Nothing)" />
+      <MemberSignature Language="F#" Value="static member Run : Microsoft.Agents.Builder.App.AgentApplication * string[] * Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; * Action&lt;Azure.AI.AgentServer.Core.AgentHostBuilder&gt; -&gt; unit" Usage="Azure.AI.AgentServer.Activity.ActivityServer.Run (agentApp, args, configureOptions, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="agentApp" Type="Microsoft.Agents.Builder.App.AgentApplication" />
+        <Parameter Name="args" Type="System.String[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+        <Parameter Name="configureOptions" Type="System.Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Core.AgentHostBuilder&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="agentApp">The application to host.</param>
+        <param name="args">Optional command-line arguments forwarded to the host builder.</param>
+        <param name="configureOptions">Optional callback to configure <see cref="T:Azure.AI.AgentServer.Activity.ActivityServerOptions" />.</param>
+        <param name="configure">Optional callback to further configure the <see cref="T:Azure.AI.AgentServer.Core.AgentHostBuilder" />.</param>
+        <summary>
+            Builds and runs an Activity protocol server hosting a pre-built Microsoft 365 Agents SDK
+            <see cref="T:Microsoft.Agents.Builder.App.AgentApplication" /> as-is (with its handlers already registered).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Run">
+      <MemberSignature Language="C#" Value="public static void Run (Action&lt;Microsoft.Agents.Builder.App.AgentApplication&gt; configureAgent, string[]? args = default, Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;? configureOptions = default, Action&lt;Azure.AI.AgentServer.Core.AgentHostBuilder&gt;? configure = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Run(class System.Action`1&lt;class Microsoft.Agents.Builder.App.AgentApplication&gt; configureAgent, string[] args, class System.Action`1&lt;class Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; configureOptions, class System.Action`1&lt;class Azure.AI.AgentServer.Core.AgentHostBuilder&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Activity.ActivityServer.Run(System.Action{Microsoft.Agents.Builder.App.AgentApplication},System.String[],System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions},System.Action{Azure.AI.AgentServer.Core.AgentHostBuilder})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Sub Run (configureAgent As Action(Of AgentApplication), Optional args As String() = Nothing, Optional configureOptions As Action(Of ActivityServerOptions) = Nothing, Optional configure As Action(Of AgentHostBuilder) = Nothing)" />
+      <MemberSignature Language="F#" Value="static member Run : Action&lt;Microsoft.Agents.Builder.App.AgentApplication&gt; * string[] * Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; * Action&lt;Azure.AI.AgentServer.Core.AgentHostBuilder&gt; -&gt; unit" Usage="Azure.AI.AgentServer.Activity.ActivityServer.Run (configureAgent, args, configureOptions, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="configureAgent" Type="System.Action&lt;Microsoft.Agents.Builder.App.AgentApplication&gt;" />
+        <Parameter Name="args" Type="System.String[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+        <Parameter Name="configureOptions" Type="System.Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Core.AgentHostBuilder&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="configureAgent">Callback that receives the created <see cref="T:Microsoft.Agents.Builder.App.AgentApplication" />
+            to register handlers on (for example <c>app.OnActivity(...)</c>).</param>
+        <param name="args">Optional command-line arguments forwarded to the host builder.</param>
+        <param name="configureOptions">Optional callback to configure <see cref="T:Azure.AI.AgentServer.Activity.ActivityServerOptions" />.</param>
+        <param name="configure">Optional callback to further configure the <see cref="T:Azure.AI.AgentServer.Core.AgentHostBuilder" />.</param>
+        <summary>
+            Builds the Microsoft 365 Agents SDK stack from the environment, lets you register handlers
+            <b>inline</b> on the created <see cref="T:Microsoft.Agents.Builder.App.AgentApplication" /> (no agent class required), and
+            runs the server.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Run">
+      <MemberSignature Language="C#" Value="public static void Run (Func&lt;IServiceProvider,Microsoft.Agents.Builder.App.AgentApplication&gt; factory, string[]? args = default, Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;? configureOptions = default, Action&lt;Azure.AI.AgentServer.Core.AgentHostBuilder&gt;? configure = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Run(class System.Func`2&lt;class System.IServiceProvider, class Microsoft.Agents.Builder.App.AgentApplication&gt; factory, string[] args, class System.Action`1&lt;class Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; configureOptions, class System.Action`1&lt;class Azure.AI.AgentServer.Core.AgentHostBuilder&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Activity.ActivityServer.Run(System.Func{System.IServiceProvider,Microsoft.Agents.Builder.App.AgentApplication},System.String[],System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions},System.Action{Azure.AI.AgentServer.Core.AgentHostBuilder})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Sub Run (factory As Func(Of IServiceProvider, AgentApplication), Optional args As String() = Nothing, Optional configureOptions As Action(Of ActivityServerOptions) = Nothing, Optional configure As Action(Of AgentHostBuilder) = Nothing)" />
+      <MemberSignature Language="F#" Value="static member Run : Func&lt;IServiceProvider, Microsoft.Agents.Builder.App.AgentApplication&gt; * string[] * Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; * Action&lt;Azure.AI.AgentServer.Core.AgentHostBuilder&gt; -&gt; unit" Usage="Azure.AI.AgentServer.Activity.ActivityServer.Run (factory, args, configureOptions, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="factory" Type="System.Func&lt;System.IServiceProvider,Microsoft.Agents.Builder.App.AgentApplication&gt;" />
+        <Parameter Name="args" Type="System.String[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+        <Parameter Name="configureOptions" Type="System.Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Core.AgentHostBuilder&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="factory">A factory that receives the service provider and returns an
+            <see cref="T:Microsoft.Agents.Builder.App.AgentApplication" />.</param>
+        <param name="args">Optional command-line arguments forwarded to the host builder.</param>
+        <param name="configureOptions">Optional callback to configure <see cref="T:Azure.AI.AgentServer.Activity.ActivityServerOptions" />.</param>
+        <param name="configure">Optional callback to further configure the <see cref="T:Azure.AI.AgentServer.Core.AgentHostBuilder" />.</param>
+        <summary>
+            Builds and runs an Activity protocol server using a factory delegate that creates the
+            Microsoft 365 Agents SDK <see cref="T:Microsoft.Agents.Builder.App.AgentApplication" />. Use this when you need full control
+            over how the application is constructed while still having access to the
+            <see cref="T:System.IServiceProvider" />.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Run&lt;TAgent&gt;">
+      <MemberSignature Language="C#" Value="public static void Run&lt;TAgent&gt; (string[]? args = default, Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;? configureOptions = default, Action&lt;Azure.AI.AgentServer.Core.AgentHostBuilder&gt;? configure = default) where TAgent : Microsoft.Agents.Builder.App.AgentApplication;" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Run&lt;(class Microsoft.Agents.Builder.App.AgentApplication) TAgent&gt;(string[] args, class System.Action`1&lt;class Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; configureOptions, class System.Action`1&lt;class Azure.AI.AgentServer.Core.AgentHostBuilder&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Activity.ActivityServer.Run``1(System.String[],System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions},System.Action{Azure.AI.AgentServer.Core.AgentHostBuilder})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Sub Run(Of TAgent As AgentApplication) (Optional args As String() = Nothing, Optional configureOptions As Action(Of ActivityServerOptions) = Nothing, Optional configure As Action(Of AgentHostBuilder) = Nothing)" />
+      <MemberSignature Language="F#" Value="static member Run : string[] * Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; * Action&lt;Azure.AI.AgentServer.Core.AgentHostBuilder&gt; -&gt; unit (requires 'Agent :&gt; Microsoft.Agents.Builder.App.AgentApplication)" Usage="Azure.AI.AgentServer.Activity.ActivityServer.Run (args, configureOptions, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TAgent">
+          <Constraints>
+            <BaseTypeName>Microsoft.Agents.Builder.App.AgentApplication</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="args" Type="System.String[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+        <Parameter Name="configureOptions" Type="System.Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Core.AgentHostBuilder&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="TAgent">The <see cref="T:Microsoft.Agents.Builder.App.AgentApplication" /> implementation to host. Its
+            handlers are registered in its constructor.</typeparam>
+        <param name="args">Optional command-line arguments forwarded to the host builder.</param>
+        <param name="configureOptions">Optional callback to configure <see cref="T:Azure.AI.AgentServer.Activity.ActivityServerOptions" />
+            (for example to select the digital-worker outbound-auth model or override storage).</param>
+        <param name="configure">Optional callback to further configure the <see cref="T:Azure.AI.AgentServer.Core.AgentHostBuilder" />
+            (register services, configure tracing/shutdown) before the server runs.</param>
+        <summary>
+            Builds and runs an Activity protocol server using the specified Microsoft 365 Agents SDK
+            <typeparamref name="TAgent" /> — the fastest path to a working server, one line of code.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

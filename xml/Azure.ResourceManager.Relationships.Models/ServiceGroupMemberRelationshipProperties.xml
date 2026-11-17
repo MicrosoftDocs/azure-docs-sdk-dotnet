@@ -28,25 +28,31 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public ServiceGroupMemberRelationshipProperties (Azure.Core.ResourceIdentifier targetId);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Core.ResourceIdentifier targetId) cil managed" />
+      <MemberSignature Language="C#" Value="public ServiceGroupMemberRelationshipProperties (Azure.Core.ResourceIdentifier sourceId);" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Core.ResourceIdentifier sourceId) cil managed" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties.#ctor(Azure.Core.ResourceIdentifier)" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (targetId As ResourceIdentifier)" />
-      <MemberSignature Language="F#" Value="new Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties : Azure.Core.ResourceIdentifier -&gt; Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties" Usage="new Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties targetId" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (sourceId As ResourceIdentifier)" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="F#" Value="new Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties : Azure.Core.ResourceIdentifier -&gt; Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties" Usage="new Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties sourceId" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public ServiceGroupMemberRelationshipProperties (Azure.Core.ResourceIdentifier targetId);" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Core.ResourceIdentifier targetId) cil managed" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (targetId As ResourceIdentifier)" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="F#" Value="new Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties : Azure.Core.ResourceIdentifier -&gt; Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties" Usage="new Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties targetId" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Relationships</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="targetId" Type="Azure.Core.ResourceIdentifier" />
+        <Parameter Name="sourceId" Type="Azure.Core.ResourceIdentifier" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="targetId" Type="Azure.Core.ResourceIdentifier" Index="0" FrameworkAlternate="azure-dotnet-preview" />
       </Parameters>
       <Docs>
+        <param name="sourceId"> The relationship source resource id. Must be a service group. </param>
         <param name="targetId"> The relationship target resource id. </param>
         <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties" />. </summary>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="targetId" /> is null. </exception>
+          <paramref name="sourceId" /> is null. </exception>
       </Docs>
     </Member>
     <Member MemberName="JsonModelCreateCore">
@@ -211,11 +217,14 @@
       </Docs>
     </Member>
     <Member MemberName="SourceId">
-      <MemberSignature Language="C#" Value="public Azure.Core.ResourceIdentifier SourceId { get; }" />
+      <MemberSignature Language="C#" Value="public Azure.Core.ResourceIdentifier SourceId { get; set; }" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".property instance class Azure.Core.ResourceIdentifier SourceId" />
       <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties.SourceId" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property SourceId As ResourceIdentifier" />
-      <MemberSignature Language="F#" Value="member this.SourceId : Azure.Core.ResourceIdentifier" Usage="Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties.SourceId" />
+      <MemberSignature Language="VB.NET" Value="Public Property SourceId As ResourceIdentifier" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="F#" Value="member this.SourceId : Azure.Core.ResourceIdentifier with get, set" Usage="Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties.SourceId" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public Azure.Core.ResourceIdentifier SourceId { get; }" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property SourceId As ResourceIdentifier" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="F#" Value="member this.SourceId : Azure.Core.ResourceIdentifier" Usage="Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties.SourceId" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Relationships</AssemblyName>
@@ -225,7 +234,27 @@
         <ReturnType>Azure.Core.ResourceIdentifier</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The relationship source resource id. </summary>
+        <summary> The relationship source resource id. Must be a service group. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SourceTenant">
+      <MemberSignature Language="C#" Value="public string SourceTenant { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string SourceTenant" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties.SourceTenant" />
+      <MemberSignature Language="VB.NET" Value="Public Property SourceTenant As String" />
+      <MemberSignature Language="F#" Value="member this.SourceTenant : string with get, set" Usage="Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties.SourceTenant" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Relationships</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The relationship source tenant id. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -371,11 +400,14 @@
       </Docs>
     </Member>
     <Member MemberName="TargetId">
-      <MemberSignature Language="C#" Value="public Azure.Core.ResourceIdentifier TargetId { get; set; }" />
+      <MemberSignature Language="C#" Value="public Azure.Core.ResourceIdentifier TargetId { get; }" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="ILAsm" Value=".property instance class Azure.Core.ResourceIdentifier TargetId" />
       <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties.TargetId" />
-      <MemberSignature Language="VB.NET" Value="Public Property TargetId As ResourceIdentifier" />
-      <MemberSignature Language="F#" Value="member this.TargetId : Azure.Core.ResourceIdentifier with get, set" Usage="Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties.TargetId" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property TargetId As ResourceIdentifier" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="F#" Value="member this.TargetId : Azure.Core.ResourceIdentifier" Usage="Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties.TargetId" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public Azure.Core.ResourceIdentifier TargetId { get; set; }" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Property TargetId As ResourceIdentifier" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="F#" Value="member this.TargetId : Azure.Core.ResourceIdentifier with get, set" Usage="Azure.ResourceManager.Relationships.Models.ServiceGroupMemberRelationshipProperties.TargetId" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Relationships</AssemblyName>
@@ -385,7 +417,7 @@
         <ReturnType>Azure.Core.ResourceIdentifier</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The relationship target resource id. </summary>
+        <summary> The relationship target resource id. Server-derived from the scoped resource. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

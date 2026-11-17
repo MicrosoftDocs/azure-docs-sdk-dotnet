@@ -1,12 +1,12 @@
 ---
 title: Azure WebJobs SignalR Service client library for .NET
 keywords: Azure, dotnet, SDK, API, Microsoft.Azure.WebJobs.Extensions.SignalRService, signalr
-ms.date: 08/16/2026
+ms.date: 11/03/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: signalr
 ---
-# Azure WebJobs SignalR Service client library for .NET - version 2.2.0 
+# Azure WebJobs SignalR Service client library for .NET - version 2.3.0 
 
 
 This extension provides functionality for accessing [Azure SignalR Service](https://aka.ms/signalr_service) from an Azure Function.
@@ -98,7 +98,7 @@ Please follow the [Azure SignalR trigger](https://learn.microsoft.com/azure/azur
 - Negotiate for a SignalR client.
 - Manage group like add/remove a single user/connection in a group.
 - Send messages to a single user/connection, to a group, to all users/connections.
-- Use multiple Azure SignalR Service instances for resiliency and disaster recovery in Azure Functions. See details in [Multiple Azure SignalR Service Instances Support in Azure Functions](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.SignalRService_2.2.0/sdk/signalr/Microsoft.Azure.WebJobs.Extensions.SignalRService/docs/sharding.md).
+- Use multiple Azure SignalR Service instances for resiliency and disaster recovery in Azure Functions. See details in [Multiple Azure SignalR Service Instances Support in Azure Functions](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.SignalRService_2.3.0/sdk/signalr/Microsoft.Azure.WebJobs.Extensions.SignalRService/docs/sharding.md).
 
 ## Examples
 
@@ -239,7 +239,7 @@ additional questions or comments.
 <!-- LINKS -->
 [nuget]: https://www.nuget.org/
 
-[contrib]: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.SignalRService_2.2.0/CONTRIBUTING.md
+[contrib]: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.SignalRService_2.3.0/CONTRIBUTING.md
 [cla]: https://cla.microsoft.com
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/

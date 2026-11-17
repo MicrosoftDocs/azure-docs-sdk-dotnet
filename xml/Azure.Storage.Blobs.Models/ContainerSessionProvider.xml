@@ -1,0 +1,63 @@
+<Type Name="ContainerSessionProvider" FullName="Azure.Storage.Blobs.Models.ContainerSessionProvider">
+  <TypeSignature Language="C#" Value="public class ContainerSessionProvider : Azure.Storage.Blobs.Models.SessionProvider" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ContainerSessionProvider extends Azure.Storage.Blobs.Models.SessionProvider" />
+  <TypeSignature Language="DocId" Value="T:Azure.Storage.Blobs.Models.ContainerSessionProvider" />
+  <TypeSignature Language="VB.NET" Value="Public Class ContainerSessionProvider&#xA;Inherits SessionProvider" />
+  <TypeSignature Language="F#" Value="type ContainerSessionProvider = class&#xA;    inherit SessionProvider" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.Storage.Blobs</AssemblyName>
+    <AssemblyVersion>12.31.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Azure.Storage.Blobs.Models.SessionProvider</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            A <see cref="T:Azure.Storage.Blobs.Models.SessionProvider" /> that mints session tokens using a
+            <see cref="T:Azure.Core.TokenCredential" /> (OAuth/bearer) and caches them per container.
+            This provider is for <see cref="T:Azure.Core.TokenCredential" /> authentication only; clients
+            using shared key or SAS credentials do not use it.
+            <para>
+            The service URI passed to the constructor is expected to be a
+            blob service endpoint (for example, https://{account}.blob.core.windows.net);
+            session creation uses the blob Create Session API.
+            </para></summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ContainerSessionProvider (Uri serviceUri, Azure.Core.TokenCredential credential, Azure.Storage.Blobs.BlobClientOptions options = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Uri serviceUri, class Azure.Core.TokenCredential credential, class Azure.Storage.Blobs.BlobClientOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Storage.Blobs.Models.ContainerSessionProvider.#ctor(System.Uri,Azure.Core.TokenCredential,Azure.Storage.Blobs.BlobClientOptions)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (serviceUri As Uri, credential As TokenCredential, Optional options As BlobClientOptions = Nothing)" />
+      <MemberSignature Language="F#" Value="new Azure.Storage.Blobs.Models.ContainerSessionProvider : Uri * Azure.Core.TokenCredential * Azure.Storage.Blobs.BlobClientOptions -&gt; Azure.Storage.Blobs.Models.ContainerSessionProvider" Usage="new Azure.Storage.Blobs.Models.ContainerSessionProvider (serviceUri, credential, options)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Blobs</AssemblyName>
+        <AssemblyVersion>12.31.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="serviceUri" Type="System.Uri" />
+        <Parameter Name="credential" Type="Azure.Core.TokenCredential" />
+        <Parameter Name="options" Type="Azure.Storage.Blobs.BlobClientOptions" />
+      </Parameters>
+      <Docs>
+        <param name="serviceUri">
+            A <see cref="T:System.Uri" /> belonging to the target storage account.
+            The URI is reduced to the account's blob service endpoint, following
+            this format: <c>https://{account}.blob.core.windows.net</c>.
+            </param>
+        <param name="credential">The token credential used to mint sessions.</param>
+        <param name="options">
+            Optional client options applied to the internal <see cref="T:Azure.Storage.Blobs.BlobServiceClient" />
+            used to issue Create Session requests. When null, default options are used.
+            </param>
+        <summary>
+            Initializes a new instance of the <see cref="T:Azure.Storage.Blobs.Models.ContainerSessionProvider" /> class.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -39,8 +39,8 @@
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="plan" Type="System.String" />
-        <Parameter Name="resources" Type="Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupResources" />
+        <Parameter Name="plan" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="resources" Type="Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupResources" Index="1" FrameworkAlternate="azure-dotnet-preview" />
       </Parameters>
       <Docs>
         <param name="plan"> The Commvault Plan to be associated with the Protection Group. </param>
@@ -49,6 +49,30 @@
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="plan" /> or <paramref name="resources" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ProtectionGroupProperties (string plan, Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupResourceSelection resourceSelection);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string plan, class Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupResourceSelection resourceSelection) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupProperties.#ctor(System.String,Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupResourceSelection)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (plan As String, resourceSelection As ProtectionGroupResourceSelection)" />
+      <MemberSignature Language="F#" Value="new Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupProperties : string * Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupResourceSelection -&gt; Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupProperties" Usage="new Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupProperties (plan, resourceSelection)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CommvaultContentStore</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="plan" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="resourceSelection" Type="Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupResourceSelection" Index="1" FrameworkAlternate="azure-dotnet" />
+      </Parameters>
+      <Docs>
+        <param name="plan"> The Commvault Plan to be associated with the Protection Group. </param>
+        <param name="resourceSelection"> The resources to be protected under Protection Group. </param>
+        <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupProperties" />. </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="plan" /> or <paramref name="resourceSelection" /> is null. </exception>
       </Docs>
     </Member>
     <Member MemberName="BackupActivityStatus">
@@ -139,6 +163,26 @@
         <param name="writer"> The JSON writer. </param>
         <param name="options"> The client options for reading and writing models. </param>
         <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LastBackupTime">
+      <MemberSignature Language="C#" Value="public long LastBackupTime { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int64 LastBackupTime" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupProperties.LastBackupTime" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property LastBackupTime As Long" />
+      <MemberSignature Language="F#" Value="member this.LastBackupTime : int64" Usage="Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupProperties.LastBackupTime" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CommvaultContentStore</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int64</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The Commvault Protection Group backup time. </summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -252,19 +296,44 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="ProtectionStatus">
-      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CommvaultContentStore.Models.CommvaultProtectionStatus? ProtectionStatus { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.CommvaultContentStore.Models.CommvaultProtectionStatus&gt; ProtectionStatus" />
-      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupProperties.ProtectionStatus" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ProtectionStatus As Nullable(Of CommvaultProtectionStatus)" />
-      <MemberSignature Language="F#" Value="member this.ProtectionStatus : Nullable&lt;Azure.ResourceManager.CommvaultContentStore.Models.CommvaultProtectionStatus&gt;" Usage="Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupProperties.ProtectionStatus" />
+    <Member MemberName="ProtectedItemCount">
+      <MemberSignature Language="C#" Value="public int ProtectedItemCount { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 ProtectedItemCount" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupProperties.ProtectedItemCount" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ProtectedItemCount As Integer" />
+      <MemberSignature Language="F#" Value="member this.ProtectedItemCount : int" Usage="Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupProperties.ProtectedItemCount" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CommvaultContentStore</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Nullable&lt;Azure.ResourceManager.CommvaultContentStore.Models.CommvaultProtectionStatus&gt;</ReturnType>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The number of ProtectedItems under the Protection Group. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ProtectionStatus">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CommvaultContentStore.Models.CommvaultProtectionStatus ProtectionStatus { get; }" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Azure.ResourceManager.CommvaultContentStore.Models.CommvaultProtectionStatus ProtectionStatus" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupProperties.ProtectionStatus" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ProtectionStatus As CommvaultProtectionStatus" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="F#" Value="member this.ProtectionStatus : Azure.ResourceManager.CommvaultContentStore.Models.CommvaultProtectionStatus" Usage="Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupProperties.ProtectionStatus" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CommvaultContentStore.Models.CommvaultProtectionStatus? ProtectionStatus { get; }" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.CommvaultContentStore.Models.CommvaultProtectionStatus&gt; ProtectionStatus" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ProtectionStatus As Nullable(Of CommvaultProtectionStatus)" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="F#" Value="member this.ProtectionStatus : Nullable&lt;Azure.ResourceManager.CommvaultContentStore.Models.CommvaultProtectionStatus&gt;" Usage="Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupProperties.ProtectionStatus" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CommvaultContentStore</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType FrameworkAlternate="azure-dotnet">Azure.ResourceManager.CommvaultContentStore.Models.CommvaultProtectionStatus</ReturnType>
+        <ReturnType FrameworkAlternate="azure-dotnet-preview">System.Nullable&lt;Azure.ResourceManager.CommvaultContentStore.Models.CommvaultProtectionStatus&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> The protection group schedule. </summary>
@@ -305,6 +374,26 @@
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupResources</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The resources to be protected under Protection Group. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResourceSelection">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupResourceSelection ResourceSelection { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupResourceSelection ResourceSelection" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupProperties.ResourceSelection" />
+      <MemberSignature Language="VB.NET" Value="Public Property ResourceSelection As ProtectionGroupResourceSelection" />
+      <MemberSignature Language="F#" Value="member this.ResourceSelection : Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupResourceSelection with get, set" Usage="Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupProperties.ResourceSelection" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CommvaultContentStore</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.CommvaultContentStore.Models.ProtectionGroupResourceSelection</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> The resources to be protected under Protection Group. </summary>

@@ -23,7 +23,11 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> Input audio noise reduction configuration. </summary>
+    <summary>
+            Input audio noise reduction configuration. `azure_deep_noise_suppression_headset` and
+            `azure_personal_noise_suppression` are modes for local voice activity detection that
+            enhance detection audio without changing the audio used for recognition.
+            </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -42,7 +46,15 @@
         <Parameter Name="type" Type="Azure.AI.Projects.Agents.VoiceAgentNoiseReductionType" />
       </Parameters>
       <Docs>
-        <param name="type"> The noise reduction mode. </param>
+        <param name="type">
+            The noise reduction mode. `azure_deep_noise_suppression_headset` provides
+            headset-optimized noise suppression for local voice activity detection, optimized for
+            low-sample-rate audio including 8 kHz telephony audio without changing recognition audio (not
+            restricted to headset devices). `azure_personal_noise_suppression` starts with headset
+            suppression for local voice activity detection and personalizes detection after automatic speaker
+            enrollment while keeping recognition audio unchanged and keeping headset suppression active when
+            personalization is unavailable.
+            </param>
         <summary> Initializes a new instance of <see cref="T:Azure.AI.Projects.Agents.VoiceAgentNoiseReduction" />. </summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -303,7 +315,15 @@
         <ReturnType>Azure.AI.Projects.Agents.VoiceAgentNoiseReductionType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The noise reduction mode. </summary>
+        <summary>
+            The noise reduction mode. `azure_deep_noise_suppression_headset` provides
+            headset-optimized noise suppression for local voice activity detection, optimized for
+            low-sample-rate audio including 8 kHz telephony audio without changing recognition audio (not
+            restricted to headset devices). `azure_personal_noise_suppression` starts with headset
+            suppression for local voice activity detection and personalizes detection after automatic speaker
+            enrollment while keeping recognition audio unchanged and keeping headset suppression active when
+            personalization is unavailable.
+            </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

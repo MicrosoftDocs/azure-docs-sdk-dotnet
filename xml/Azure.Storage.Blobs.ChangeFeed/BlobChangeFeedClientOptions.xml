@@ -35,6 +35,45 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="IncludeNonFinalizedEvents">
+      <MemberSignature Language="C#" Value="public bool IncludeNonFinalizedEvents { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IncludeNonFinalizedEvents" />
+      <MemberSignature Language="DocId" Value="P:Azure.Storage.Blobs.ChangeFeed.BlobChangeFeedClientOptions.IncludeNonFinalizedEvents" />
+      <MemberSignature Language="VB.NET" Value="Public Property IncludeNonFinalizedEvents As Boolean" />
+      <MemberSignature Language="F#" Value="member this.IncludeNonFinalizedEvents : bool with get, set" Usage="Azure.Storage.Blobs.ChangeFeed.BlobChangeFeedClientOptions.IncludeNonFinalizedEvents" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Storage.Blobs.ChangeFeed</AssemblyName>
+        <AssemblyVersion>12.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+             When set to <c>true</c>, the change feed reader will return events whose timestamps
+             are after the change feed's last consumable (finalized) watermark. By default
+             (<c>false</c>), reads are capped at the watermark to ensure all events for a given
+             time window are durably finalized before being returned.
+             </summary>
+        <value>To be added.</value>
+        <remarks>
+             Enable this option when consuming the most recent activity is more important than
+             completeness. Events read past the watermark may be from segments the service has
+             not yet finalized, which means: (1) the set of events returned for a given time
+             window may be incomplete; (2) two consecutive reads of the same window may return
+             different events; and (3) segments may appear, grow, or be partially written
+             between calls.
+            
+             While this option is enabled, change feed pages do not carry a continuation token
+             (<see cref="P:Azure.Page`1.ContinuationToken" /> is <c>null</c>), and the
+             <see cref="M:Azure.Storage.Blobs.ChangeFeed.BlobChangeFeedClient.GetChanges(System.String)" /> /
+             <see cref="M:Azure.Storage.Blobs.ChangeFeed.BlobChangeFeedClient.GetChangesAsync(System.String)" /> overloads will throw
+             <see cref="T:System.ArgumentException" />. Resumption is unsupported in this mode because
+             the underlying segments may change between calls.
+             </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="MaximumTransferSize">
       <MemberSignature Language="C#" Value="public long? MaximumTransferSize { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;int64&gt; MaximumTransferSize" />

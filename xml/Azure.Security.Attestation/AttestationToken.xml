@@ -7,6 +7,7 @@
   <AssemblyInfo>
     <AssemblyName>Azure.Security.Attestation</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
@@ -27,7 +28,7 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
@@ -46,7 +47,7 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="signingKey" Type="Azure.Security.Attestation.AttestationTokenSigningKey" />
@@ -69,7 +70,7 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="body" Type="System.BinaryData" />
@@ -91,7 +92,7 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="body" Type="System.BinaryData" />
@@ -116,7 +117,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
@@ -139,7 +140,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
@@ -163,7 +164,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
@@ -185,7 +186,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Nullable&lt;System.Boolean&gt;</ReturnType>
@@ -207,7 +208,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Security.Attestation.AttestationToken</ReturnType>
@@ -233,7 +234,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Nullable&lt;System.DateTimeOffset&gt;</ReturnType>
@@ -243,7 +244,7 @@
             Expiration time for the token.
             </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>A claim beyond the range of <see cref="T:System.DateTimeOffset" /> is returned as <see cref="F:System.DateTimeOffset.MinValue" /> or <see cref="F:System.DateTimeOffset.MaxValue" />.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetBody&lt;T&gt;">
@@ -255,7 +256,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>T</ReturnType>
@@ -273,8 +274,12 @@
         <summary>
             Retrieves the body of the AttestationToken as the specified type.
             </summary>
-        <returns>Returns the body of the attestation token.</returns>
-        <remarks>To be added.</remarks>
+        <returns>Returns the body of the attestation token, or null if the token has an empty body.</returns>
+        <remarks>
+            The attestation service uses a token with an empty body to represent the absence of a value, for
+            instance when an attestation type has no policy configured. Such a token has nothing to deserialize,
+            so null is returned rather than surfacing a deserialization failure to the caller.
+            </remarks>
       </Docs>
     </Member>
     <Member MemberName="IssuedAtTime">
@@ -286,7 +291,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Nullable&lt;System.DateTimeOffset&gt;</ReturnType>
@@ -296,7 +301,7 @@
             Time at which this token was issued.
             </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>A claim beyond the range of <see cref="T:System.DateTimeOffset" /> is returned as <see cref="F:System.DateTimeOffset.MinValue" /> or <see cref="F:System.DateTimeOffset.MaxValue" />.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Issuer">
@@ -308,7 +313,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
@@ -330,7 +335,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
@@ -352,7 +357,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Uri</ReturnType>
@@ -374,7 +379,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Nullable&lt;System.DateTimeOffset&gt;</ReturnType>
@@ -384,7 +389,7 @@
             Time before which this token is not valid.
             </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>A claim beyond the range of <see cref="T:System.DateTimeOffset" /> is returned as <see cref="F:System.DateTimeOffset.MinValue" /> or <see cref="F:System.DateTimeOffset.MaxValue" />.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Serialize">
@@ -396,7 +401,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
@@ -419,7 +424,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Security.Attestation.AttestationSigner</ReturnType>
@@ -443,7 +448,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.ReadOnlyMemory&lt;System.Byte&gt;</ReturnType>
@@ -465,7 +470,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.ReadOnlyMemory&lt;System.Byte&gt;</ReturnType>
@@ -487,7 +492,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.ReadOnlyMemory&lt;System.Byte&gt;</ReturnType>
@@ -509,7 +514,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
@@ -533,7 +538,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
@@ -545,18 +550,22 @@
       </Parameters>
       <Docs>
         <param name="options">Options used while validating the attestation token.</param>
-        <param name="attestationSigningCertificates">Signing Certificates used to validate the token.</param>
+        <param name="attestationSigningCertificates">The signing certificates trusted to have signed the token, such as those returned by
+            <see cref="M:Azure.Security.Attestation.AttestationClient.GetSigningCertificates(System.Threading.CancellationToken)" /> for the attestation provider the token must come from.</param>
         <param name="cancellationToken">Token used to cancel this operation if necessary.</param>
         <summary>
             Validate a JSON Web Token returned by the MAA.
             <para />
-            If the caller provides a set of signers, than that set of signers will be used as the complete set of candidates for signing.
-            If the caller does not provide a set of signers, then the <see cref="M:Azure.Security.Attestation.AttestationToken.ValidateToken(Azure.Security.Attestation.AttestationTokenValidationOptions,System.Collections.Generic.IReadOnlyList{Azure.Security.Attestation.AttestationSigner},System.Threading.CancellationToken)" />
-            API will a set of callers derived from the contents of the attestation token.
+            The token must have been signed by one of <paramref name="attestationSigningCertificates" />. Certificates and keys carried in
+            the token itself are never trusted to sign it.
             </summary>
         <returns>true if the token was valid, false otherwise.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">Thrown if the signing certificates provided are invalid.</exception>
+        <remarks>
+            An unsecured token (one whose <see cref="P:Azure.Security.Attestation.AttestationToken.Algorithm" /> is "none") carries no signature and never passes
+            validation, regardless of any handler attached to <see cref="E:Azure.Security.Attestation.AttestationTokenValidationOptions.TokenValidated" />. Neither does a token without an algorithm.
+            </remarks>
+        <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="options" /> or <paramref name="attestationSigningCertificates" /> is null, <paramref name="attestationSigningCertificates" /> contains null, or <see cref="P:Azure.Security.Attestation.AttestationTokenValidationOptions.ValidateIssuer" /> is true and <see cref="P:Azure.Security.Attestation.AttestationTokenValidationOptions.ExpectedIssuer" /> is null.</exception>
+        <exception cref="T:System.ArgumentException">Thrown if <paramref name="attestationSigningCertificates" /> is empty, or one of its signers has no signing certificate.</exception>
         <exception cref="T:System.Exception">Thrown if validation fails.</exception>
       </Docs>
     </Member>
@@ -569,7 +578,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;System.Boolean&gt;</ReturnType>
@@ -581,18 +590,22 @@
       </Parameters>
       <Docs>
         <param name="options">Options used while validating the attestation token.</param>
-        <param name="attestationSigningCertificates">Signing Certificates used to validate the token.</param>
+        <param name="attestationSigningCertificates">The signing certificates trusted to have signed the token, such as those returned by
+            <see cref="M:Azure.Security.Attestation.AttestationClient.GetSigningCertificatesAsync(System.Threading.CancellationToken)" /> for the attestation provider the token must come from.</param>
         <param name="cancellationToken">Token used to cancel this operation if necessary.</param>
         <summary>
             Validate a JSON Web Token returned by the MAA.
             <para />
-            If the caller provides a set of signers, than that set of signers will be used as the complete set of candidates for signing.
-            If the caller does not provide a set of signers, then the <see cref="M:Azure.Security.Attestation.AttestationToken.ValidateTokenAsync(Azure.Security.Attestation.AttestationTokenValidationOptions,System.Collections.Generic.IReadOnlyList{Azure.Security.Attestation.AttestationSigner},System.Threading.CancellationToken)" />
-            API will a set of callers derived from the contents of the attestation token.
+            The token must have been signed by one of <paramref name="attestationSigningCertificates" />. Certificates and keys carried in
+            the token itself are never trusted to sign it.
             </summary>
         <returns>true if the token was valid, false otherwise.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">Thrown if the signing certificates provided are invalid.</exception>
+        <remarks>
+            An unsecured token (one whose <see cref="P:Azure.Security.Attestation.AttestationToken.Algorithm" /> is "none") carries no signature and never passes
+            validation, regardless of any handler attached to <see cref="E:Azure.Security.Attestation.AttestationTokenValidationOptions.TokenValidated" />. Neither does a token without an algorithm.
+            </remarks>
+        <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="options" /> or <paramref name="attestationSigningCertificates" /> is null, <paramref name="attestationSigningCertificates" /> contains null, or <see cref="P:Azure.Security.Attestation.AttestationTokenValidationOptions.ValidateIssuer" /> is true and <see cref="P:Azure.Security.Attestation.AttestationTokenValidationOptions.ExpectedIssuer" /> is null.</exception>
+        <exception cref="T:System.ArgumentException">Thrown if <paramref name="attestationSigningCertificates" /> is empty, or one of its signers has no signing certificate.</exception>
         <exception cref="T:System.Exception">Thrown if validation fails.</exception>
       </Docs>
     </Member>
@@ -605,7 +618,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Security.Cryptography.X509Certificates.X509Certificate2[]</ReturnType>
@@ -613,9 +626,12 @@
       <Docs>
         <summary>
             An array of <see cref="T:System.Security.Cryptography.X509Certificates.X509Certificate" /> which represent a certificate chain used to sign the token.  <seealso href="https://www.rfc-editor.org/rfc/rfc7515.html#section-4.1.6">RFC 7515 section 4.1.6</seealso> for details.
+            Empty if the token's header has no certificate chain.
             </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+            The certificates are read from the token and are not validated; a token is never trusted because of the certificates it carries.
+            </remarks>
       </Docs>
     </Member>
     <Member MemberName="X509CertificateSha256Thumbprint">
@@ -627,7 +643,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
@@ -649,7 +665,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
@@ -671,7 +687,7 @@
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Security.Attestation</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Uri</ReturnType>

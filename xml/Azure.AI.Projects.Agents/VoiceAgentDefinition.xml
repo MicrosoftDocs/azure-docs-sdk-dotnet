@@ -242,27 +242,23 @@
       </Docs>
     </Member>
     <Member MemberName="MaxOutputTokens">
-      <MemberSignature Language="C#" Value="public BinaryData MaxOutputTokens { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class System.BinaryData MaxOutputTokens" />
+      <MemberSignature Language="C#" Value="public Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens MaxOutputTokens { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens MaxOutputTokens" />
       <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.VoiceAgentDefinition.MaxOutputTokens" />
-      <MemberSignature Language="VB.NET" Value="Public Property MaxOutputTokens As BinaryData" />
-      <MemberSignature Language="F#" Value="member this.MaxOutputTokens : BinaryData with get, set" Usage="Azure.AI.Projects.Agents.VoiceAgentDefinition.MaxOutputTokens" />
+      <MemberSignature Language="VB.NET" Value="Public Property MaxOutputTokens As VoiceAgentMaxOutputTokens" />
+      <MemberSignature Language="F#" Value="member this.MaxOutputTokens : Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens with get, set" Usage="Azure.AI.Projects.Agents.VoiceAgentDefinition.MaxOutputTokens" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
         <AssemblyVersion>3.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.BinaryData</ReturnType>
+        <ReturnType>Azure.AI.Projects.Agents.VoiceAgentMaxOutputTokens</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
-            The maximum output-token count for one response.
-            <para> To assign an object to this property use <see cref="M:System.BinaryData.FromObjectAsJson``1(``0,System.Text.Json.JsonSerializerOptions)" />. </para><para> To assign an already formatted json string to this property use <see cref="M:System.BinaryData.FromString(System.String)" />. </para><para><remarks>
-            Supported types:
-            <list type="bullet"><item><description><see cref="T:System.Int32" />. </description></item><item><description> "inf". </description></item></list></remarks></para><para>
-            Examples:
-            <list type="bullet"><item><term> BinaryData.FromObjectAsJson("foo"). </term><description> Creates a payload of "foo". </description></item><item><term> BinaryData.FromString("\"foo\""). </term><description> Creates a payload of "foo". </description></item><item><term> BinaryData.FromObjectAsJson(new { key = "value" }). </term><description> Creates a payload of { "key": "value" }. </description></item><item><term> BinaryData.FromString("{\"key\": \"value\"}"). </term><description> Creates a payload of { "key": "value" }. </description></item></list></para></summary>
+            The maximum output-token count for one response, -1 means infinity.
+            </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -397,6 +393,46 @@
         <param name="options"> The client options for reading and writing models. </param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PostCall">
+      <MemberSignature Language="C#" Value="public Azure.AI.Projects.Agents.VoiceAgentPostCallConfig PostCall { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.AI.Projects.Agents.VoiceAgentPostCallConfig PostCall" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.VoiceAgentDefinition.PostCall" />
+      <MemberSignature Language="VB.NET" Value="Public Property PostCall As VoiceAgentPostCallConfig" />
+      <MemberSignature Language="F#" Value="member this.PostCall : Azure.AI.Projects.Agents.VoiceAgentPostCallConfig with get, set" Usage="Azure.AI.Projects.Agents.VoiceAgentDefinition.PostCall" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Projects.Agents.VoiceAgentPostCallConfig</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Optional post-call delivery configuration. After each session ends, the service notifies the configured destinations. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Soundscape">
+      <MemberSignature Language="C#" Value="public Azure.AI.Projects.Agents.VoiceAgentSoundscapeConfig Soundscape { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.AI.Projects.Agents.VoiceAgentSoundscapeConfig Soundscape" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.VoiceAgentDefinition.Soundscape" />
+      <MemberSignature Language="VB.NET" Value="Public Property Soundscape As VoiceAgentSoundscapeConfig" />
+      <MemberSignature Language="F#" Value="member this.Soundscape : Azure.AI.Projects.Agents.VoiceAgentSoundscapeConfig with get, set" Usage="Azure.AI.Projects.Agents.VoiceAgentDefinition.Soundscape" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.Projects.Agents.VoiceAgentSoundscapeConfig</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Optional background ambience and event cues, stored with the agent version and separate from the audio configuration. Currently rendered only for telephony calls, not browser WebRTC or direct voice WebSocket sessions. Omit this property to disable all auxiliary audio. Persisted conversation recordings do not include the soundscape mix. </summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -608,29 +644,25 @@
       </Docs>
     </Member>
     <Member MemberName="ToolChoice">
-      <MemberSignature Language="C#" Value="public BinaryData ToolChoice { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class System.BinaryData ToolChoice" />
+      <MemberSignature Language="C#" Value="public Azure.AI.Projects.Agents.ToolChoiceOption ToolChoice { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.AI.Projects.Agents.ToolChoiceOption ToolChoice" />
       <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Agents.VoiceAgentDefinition.ToolChoice" />
-      <MemberSignature Language="VB.NET" Value="Public Property ToolChoice As BinaryData" />
-      <MemberSignature Language="F#" Value="member this.ToolChoice : BinaryData with get, set" Usage="Azure.AI.Projects.Agents.VoiceAgentDefinition.ToolChoice" />
+      <MemberSignature Language="VB.NET" Value="Public Property ToolChoice As ToolChoiceOption" />
+      <MemberSignature Language="F#" Value="member this.ToolChoice : Azure.AI.Projects.Agents.ToolChoiceOption with get, set" Usage="Azure.AI.Projects.Agents.VoiceAgentDefinition.ToolChoice" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects.Agents</AssemblyName>
         <AssemblyVersion>3.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.BinaryData</ReturnType>
+        <ReturnType>Azure.AI.Projects.Agents.ToolChoiceOption</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
             How the model chooses tools for generated responses. `none` prevents tool calls, `auto` lets the model decide,
             `required` requires at least one tool call, and a specific function or MCP tool can be selected with an object.
             Defaults to `auto`.
-            <para> To assign an object to this property use <see cref="M:System.BinaryData.FromObjectAsJson``1(``0,System.Text.Json.JsonSerializerOptions)" />. </para><para> To assign an already formatted json string to this property use <see cref="M:System.BinaryData.FromString(System.String)" />. </para><para><remarks>
-            Supported types:
-            <list type="bullet"><item><description> "none". </description></item><item><description> "auto". </description></item><item><description> "required". </description></item><item><description><see cref="T:OpenAI.Realtime.RealtimeCustomFunctionToolChoice" />. </description></item><item><description><see cref="T:OpenAI.Realtime.RealtimeCustomMcpToolChoice" />. </description></item></list></remarks></para><para>
-            Examples:
-            <list type="bullet"><item><term> BinaryData.FromObjectAsJson("foo"). </term><description> Creates a payload of "foo". </description></item><item><term> BinaryData.FromString("\"foo\""). </term><description> Creates a payload of "foo". </description></item><item><term> BinaryData.FromObjectAsJson(new { key = "value" }). </term><description> Creates a payload of { "key": "value" }. </description></item><item><term> BinaryData.FromString("{\"key\": \"value\"}"). </term><description> Creates a payload of { "key": "value" }. </description></item></list></para></summary>
+            </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

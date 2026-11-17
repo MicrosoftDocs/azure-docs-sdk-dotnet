@@ -1,0 +1,162 @@
+<Type Name="ActivityBuilderExtensions" FullName="Azure.AI.AgentServer.Activity.ActivityBuilderExtensions">
+  <TypeSignature Language="C#" Value="public static class ActivityBuilderExtensions" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit ActivityBuilderExtensions extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Azure.AI.AgentServer.Activity.ActivityBuilderExtensions" />
+  <TypeSignature Language="VB.NET" Value="Public Module ActivityBuilderExtensions" />
+  <TypeSignature Language="F#" Value="type ActivityBuilderExtensions = class" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(0)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(0)&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+            Extension methods for <see cref="T:Azure.AI.AgentServer.Core.AgentHostBuilder" /> that register the Activity protocol
+            on the Foundry Core host builder. It composes the Activity protocol onto a host built with
+            <see cref="M:Azure.AI.AgentServer.Core.AgentHost.CreateBuilder(System.String[])" />, giving you full control over service
+            registration, configuration, and tracing while still leveraging the Core framework
+            infrastructure (OpenTelemetry, health probes, middleware).
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="AddActivity">
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.AgentHostBuilder AddActivity (this Azure.AI.AgentServer.Core.AgentHostBuilder builder, Microsoft.Agents.Builder.App.AgentApplication agentApp, Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;? configure = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.AgentHostBuilder AddActivity(class Azure.AI.AgentServer.Core.AgentHostBuilder builder, class Microsoft.Agents.Builder.App.AgentApplication agentApp, class System.Action`1&lt;class Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Activity.ActivityBuilderExtensions.AddActivity(Azure.AI.AgentServer.Core.AgentHostBuilder,Microsoft.Agents.Builder.App.AgentApplication,System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddActivity (builder As AgentHostBuilder, agentApp As AgentApplication, Optional configure As Action(Of ActivityServerOptions) = Nothing) As AgentHostBuilder" />
+      <MemberSignature Language="F#" Value="static member AddActivity : Azure.AI.AgentServer.Core.AgentHostBuilder * Microsoft.Agents.Builder.App.AgentApplication * Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; -&gt; Azure.AI.AgentServer.Core.AgentHostBuilder" Usage="Azure.AI.AgentServer.Activity.ActivityBuilderExtensions.AddActivity (builder, agentApp, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.AgentServer.Core.AgentHostBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="builder" Type="Azure.AI.AgentServer.Core.AgentHostBuilder" RefType="this" />
+        <Parameter Name="agentApp" Type="Microsoft.Agents.Builder.App.AgentApplication" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="builder">The agent server builder.</param>
+        <param name="agentApp">The application instance to host.</param>
+        <param name="configure">Optional callback to configure <see cref="T:Azure.AI.AgentServer.Activity.ActivityServerOptions" />.</param>
+        <summary>
+            Registers the Activity protocol with a pre-built Microsoft 365 Agents SDK
+            <see cref="T:Microsoft.Agents.Builder.App.AgentApplication" /> instance (with its handlers already registered).
+            </summary>
+        <returns>The builder for chaining.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddActivity">
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.AgentHostBuilder AddActivity (this Azure.AI.AgentServer.Core.AgentHostBuilder builder, Func&lt;IServiceProvider,Microsoft.Agents.Builder.App.AgentApplication&gt; factory, Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;? configure = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.AgentHostBuilder AddActivity(class Azure.AI.AgentServer.Core.AgentHostBuilder builder, class System.Func`2&lt;class System.IServiceProvider, class Microsoft.Agents.Builder.App.AgentApplication&gt; factory, class System.Action`1&lt;class Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Activity.ActivityBuilderExtensions.AddActivity(Azure.AI.AgentServer.Core.AgentHostBuilder,System.Func{System.IServiceProvider,Microsoft.Agents.Builder.App.AgentApplication},System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddActivity (builder As AgentHostBuilder, factory As Func(Of IServiceProvider, AgentApplication), Optional configure As Action(Of ActivityServerOptions) = Nothing) As AgentHostBuilder" />
+      <MemberSignature Language="F#" Value="static member AddActivity : Azure.AI.AgentServer.Core.AgentHostBuilder * Func&lt;IServiceProvider, Microsoft.Agents.Builder.App.AgentApplication&gt; * Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; -&gt; Azure.AI.AgentServer.Core.AgentHostBuilder" Usage="Azure.AI.AgentServer.Activity.ActivityBuilderExtensions.AddActivity (builder, factory, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.AgentServer.Core.AgentHostBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="builder" Type="Azure.AI.AgentServer.Core.AgentHostBuilder" RefType="this" />
+        <Parameter Name="factory" Type="System.Func&lt;System.IServiceProvider,Microsoft.Agents.Builder.App.AgentApplication&gt;" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="builder">The agent server builder.</param>
+        <param name="factory">A factory that receives the service provider and returns an
+            <see cref="T:Microsoft.Agents.Builder.App.AgentApplication" />.</param>
+        <param name="configure">Optional callback to configure <see cref="T:Azure.AI.AgentServer.Activity.ActivityServerOptions" />.</param>
+        <summary>
+            Registers the Activity protocol with a factory delegate that creates the Microsoft 365 Agents
+            SDK <see cref="T:Microsoft.Agents.Builder.App.AgentApplication" />. Use this overload when you need full control over how the
+            application is constructed while still having access to the <see cref="T:System.IServiceProvider" />.
+            </summary>
+        <returns>The builder for chaining.</returns>
+        <remarks>This mirrors the Microsoft 365 Agents SDK's <c>builder.AddAgent(sp =&gt; ...)</c> factory
+            registration.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddActivity&lt;TAgent&gt;">
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.AgentHostBuilder AddActivity&lt;TAgent&gt; (this Azure.AI.AgentServer.Core.AgentHostBuilder builder, Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;? configure = default) where TAgent : Microsoft.Agents.Builder.App.AgentApplication;" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.AgentHostBuilder AddActivity&lt;(class Microsoft.Agents.Builder.App.AgentApplication) TAgent&gt;(class Azure.AI.AgentServer.Core.AgentHostBuilder builder, class System.Action`1&lt;class Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Activity.ActivityBuilderExtensions.AddActivity``1(Azure.AI.AgentServer.Core.AgentHostBuilder,System.Action{Azure.AI.AgentServer.Activity.ActivityServerOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddActivity(Of TAgent As AgentApplication) (builder As AgentHostBuilder, Optional configure As Action(Of ActivityServerOptions) = Nothing) As AgentHostBuilder" />
+      <MemberSignature Language="F#" Value="static member AddActivity : Azure.AI.AgentServer.Core.AgentHostBuilder * Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt; -&gt; Azure.AI.AgentServer.Core.AgentHostBuilder (requires 'Agent :&gt; Microsoft.Agents.Builder.App.AgentApplication)" Usage="Azure.AI.AgentServer.Activity.ActivityBuilderExtensions.AddActivity (builder, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.AgentServer.Core.AgentHostBuilder</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TAgent">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(0)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(0)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+          <Constraints>
+            <BaseTypeName>Microsoft.Agents.Builder.App.AgentApplication</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="builder" Type="Azure.AI.AgentServer.Core.AgentHostBuilder" RefType="this" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Activity.ActivityServerOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="TAgent">The <see cref="T:Microsoft.Agents.Builder.App.AgentApplication" /> implementation to host.</typeparam>
+        <param name="builder">The agent server builder.</param>
+        <param name="configure">Optional callback to configure <see cref="T:Azure.AI.AgentServer.Activity.ActivityServerOptions" />.</param>
+        <summary>
+            Registers the Activity protocol with the agent server builder using the specified
+            <typeparamref name="TAgent" /> as the Microsoft 365 Agents SDK application.
+            </summary>
+        <returns>The builder for chaining.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

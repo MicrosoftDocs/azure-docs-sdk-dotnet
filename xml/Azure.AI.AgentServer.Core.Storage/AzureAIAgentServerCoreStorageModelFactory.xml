@@ -12,12 +12,6 @@
     <BaseTypeName>System.Object</BaseTypeName>
   </Base>
   <Interfaces />
-  <Attributes>
-    <Attribute>
-      <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(0)]</AttributeName>
-      <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(0)&gt;]</AttributeName>
-    </Attribute>
-  </Attributes>
   <Docs>
     <summary> A factory class for creating instances of the models for mocking. </summary>
     <remarks>To be added.</remarks>
@@ -53,7 +47,7 @@
         <param name="id"> Present when the store existed; absent when the delete was a no-op (already gone). </param>
         <param name="name" />
         <param name="deleted"> Always `true`. </param>
-        <summary> Response for `deleteStateStore` (spec §4.1.5). Idempotent. </summary>
+        <summary>Creates a deleted state-store model for mocking.</summary>
         <returns> A new <see cref="T:Azure.AI.AgentServer.Core.Storage.DeletedStateStore" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -88,7 +82,7 @@
         <param name="id"> Present when the item existed; absent when the delete was a no-op (already gone). </param>
         <param name="key" />
         <param name="deleted"> Always `true`. </param>
-        <summary> Response for `deleteItem` (spec §4.2.4). Idempotent. </summary>
+        <summary>Creates a deleted state-store item model for mocking.</summary>
         <returns> A new <see cref="T:Azure.AI.AgentServer.Core.Storage.DeletedStateStoreItem" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -133,17 +127,17 @@
         <param name="tags"> Optional string-to-string labels. Mutable (replaced wholesale) via `updateStateStore`. </param>
         <param name="createdAt"> Creation time. </param>
         <param name="updatedAt"> Last metadata-update time. </param>
-        <summary> A first-class, explicitly-created durable key-value store (spec §2, §4.1). </summary>
+        <summary>Creates a state-store model for mocking.</summary>
         <returns> A new <see cref="T:Azure.AI.AgentServer.Core.Storage.StateStore" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="StateStoreItem">
-      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Storage.StateStoreItem StateStoreItem (string id = default, string key = default, System.Collections.Generic.IDictionary&lt;string,BinaryData&gt; value = default, System.Collections.Generic.IDictionary&lt;string,string&gt; tags = default, string etag = default, long createdAt = 0, long updatedAt = 0);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Storage.StateStoreItem StateStoreItem(string id, string key, class System.Collections.Generic.IDictionary`2&lt;string, class System.BinaryData&gt; value, class System.Collections.Generic.IDictionary`2&lt;string, string&gt; tags, string etag, int64 createdAt, int64 updatedAt) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItem(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.BinaryData},System.Collections.Generic.IDictionary{System.String,System.String},System.String,System.Int64,System.Int64)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function StateStoreItem (Optional id As String = Nothing, Optional key As String = Nothing, Optional value As IDictionary(Of String, BinaryData) = Nothing, Optional tags As IDictionary(Of String, String) = Nothing, Optional etag As String = Nothing, Optional createdAt As Long = 0, Optional updatedAt As Long = 0) As StateStoreItem" />
-      <MemberSignature Language="F#" Value="static member StateStoreItem : string * string * System.Collections.Generic.IDictionary&lt;string, BinaryData&gt; * System.Collections.Generic.IDictionary&lt;string, string&gt; * string * int64 * int64 -&gt; Azure.AI.AgentServer.Core.Storage.StateStoreItem" Usage="Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItem (id, key, value, tags, etag, createdAt, updatedAt)" />
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Storage.StateStoreItem StateStoreItem (string id = default, string key = default, System.Collections.Generic.IDictionary&lt;string,BinaryData&gt; value = default, System.Collections.Generic.IDictionary&lt;string,string&gt; tags = default, Azure.ETag etag = default, long createdAt = 0, long updatedAt = 0);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Storage.StateStoreItem StateStoreItem(string id, string key, class System.Collections.Generic.IDictionary`2&lt;string, class System.BinaryData&gt; value, class System.Collections.Generic.IDictionary`2&lt;string, string&gt; tags, valuetype Azure.ETag etag, int64 createdAt, int64 updatedAt) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItem(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.BinaryData},System.Collections.Generic.IDictionary{System.String,System.String},Azure.ETag,System.Int64,System.Int64)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function StateStoreItem (Optional id As String = Nothing, Optional key As String = Nothing, Optional value As IDictionary(Of String, BinaryData) = Nothing, Optional tags As IDictionary(Of String, String) = Nothing, Optional etag As ETag = Nothing, Optional createdAt As Long = 0, Optional updatedAt As Long = 0) As StateStoreItem" />
+      <MemberSignature Language="F#" Value="static member StateStoreItem : string * string * System.Collections.Generic.IDictionary&lt;string, BinaryData&gt; * System.Collections.Generic.IDictionary&lt;string, string&gt; * Azure.ETag * int64 * int64 -&gt; Azure.AI.AgentServer.Core.Storage.StateStoreItem" Usage="Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItem (id, key, value, tags, etag, createdAt, updatedAt)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
@@ -157,29 +151,29 @@
         <Parameter Name="key" Type="System.String" />
         <Parameter Name="value" Type="System.Collections.Generic.IDictionary&lt;System.String,System.BinaryData&gt;" />
         <Parameter Name="tags" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" />
-        <Parameter Name="etag" Type="System.String" />
+        <Parameter Name="etag" Type="Azure.ETag" />
         <Parameter Name="createdAt" Type="System.Int64" />
         <Parameter Name="updatedAt" Type="System.Int64" />
       </Parameters>
       <Docs>
-        <param name="id"> Server-assigned, read-only. Not used for addressing (the `key` is.). </param>
-        <param name="key"> Logical key, unique within the store. May contain `/`. </param>
-        <param name="value"> Opaque JSON object; stored and returned verbatim. &lt;= 1 MB serialized inline. </param>
-        <param name="tags"> Optional labels used to filter `listKeys`. Replaced wholesale on write. </param>
-        <param name="etag"> Optimistic-concurrency token for this item; also echoed in the `ETag` response header. </param>
-        <param name="createdAt" />
-        <param name="updatedAt" />
-        <summary> A single `key -&gt; value` record within a state store (spec §2, §4.2). </summary>
+        <param name="id"> The server-assigned identifier. </param>
+        <param name="key"> The logical item key. </param>
+        <param name="value"> The opaque JSON object stored for the item. </param>
+        <param name="tags"> Optional labels for filtering item keys. </param>
+        <param name="etag"> The optimistic-concurrency token. </param>
+        <param name="createdAt"> Creation time in Unix epoch seconds. </param>
+        <param name="updatedAt"> Last update time in Unix epoch seconds. </param>
+        <summary> A single key-value record within a state store. </summary>
         <returns> A new <see cref="T:Azure.AI.AgentServer.Core.Storage.StateStoreItem" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="StateStoreItemKey">
-      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Storage.StateStoreItemKey StateStoreItemKey (string id = default, string key = default, System.Collections.Generic.IDictionary&lt;string,string&gt; tags = default, string etag = default, long createdAt = 0, long updatedAt = 0);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Storage.StateStoreItemKey StateStoreItemKey(string id, string key, class System.Collections.Generic.IDictionary`2&lt;string, string&gt; tags, string etag, int64 createdAt, int64 updatedAt) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItemKey(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.String,System.Int64,System.Int64)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function StateStoreItemKey (Optional id As String = Nothing, Optional key As String = Nothing, Optional tags As IDictionary(Of String, String) = Nothing, Optional etag As String = Nothing, Optional createdAt As Long = 0, Optional updatedAt As Long = 0) As StateStoreItemKey" />
-      <MemberSignature Language="F#" Value="static member StateStoreItemKey : string * string * System.Collections.Generic.IDictionary&lt;string, string&gt; * string * int64 * int64 -&gt; Azure.AI.AgentServer.Core.Storage.StateStoreItemKey" Usage="Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItemKey (id, key, tags, etag, createdAt, updatedAt)" />
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Storage.StateStoreItemKey StateStoreItemKey (string id = default, string key = default, System.Collections.Generic.IDictionary&lt;string,string&gt; tags = default, Azure.ETag etag = default, long createdAt = 0, long updatedAt = 0);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Storage.StateStoreItemKey StateStoreItemKey(string id, string key, class System.Collections.Generic.IDictionary`2&lt;string, string&gt; tags, valuetype Azure.ETag etag, int64 createdAt, int64 updatedAt) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItemKey(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},Azure.ETag,System.Int64,System.Int64)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function StateStoreItemKey (Optional id As String = Nothing, Optional key As String = Nothing, Optional tags As IDictionary(Of String, String) = Nothing, Optional etag As ETag = Nothing, Optional createdAt As Long = 0, Optional updatedAt As Long = 0) As StateStoreItemKey" />
+      <MemberSignature Language="F#" Value="static member StateStoreItemKey : string * string * System.Collections.Generic.IDictionary&lt;string, string&gt; * Azure.ETag * int64 * int64 -&gt; Azure.AI.AgentServer.Core.Storage.StateStoreItemKey" Usage="Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItemKey (id, key, tags, etag, createdAt, updatedAt)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
@@ -192,28 +186,28 @@
         <Parameter Name="id" Type="System.String" />
         <Parameter Name="key" Type="System.String" />
         <Parameter Name="tags" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" />
-        <Parameter Name="etag" Type="System.String" />
+        <Parameter Name="etag" Type="Azure.ETag" />
         <Parameter Name="createdAt" Type="System.Int64" />
         <Parameter Name="updatedAt" Type="System.Int64" />
       </Parameters>
       <Docs>
-        <param name="id" />
-        <param name="key" />
-        <param name="tags" />
-        <param name="etag" />
-        <param name="createdAt" />
-        <param name="updatedAt" />
-        <summary> A keys-only projection entry returned by `listKeys` (spec §4.2.5) -- never includes `value`. </summary>
+        <param name="id"> The server-assigned identifier. </param>
+        <param name="key"> The logical item key. </param>
+        <param name="tags"> Optional labels for filtering item keys. </param>
+        <param name="etag"> The optimistic-concurrency token. </param>
+        <param name="createdAt"> Creation time in Unix epoch seconds. </param>
+        <param name="updatedAt"> Last update time in Unix epoch seconds. </param>
+        <summary> A keys-only projection of a state-store item. </summary>
         <returns> A new <see cref="T:Azure.AI.AgentServer.Core.Storage.StateStoreItemKey" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="StateStoreItemRef">
-      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Storage.StateStoreItemRef StateStoreItemRef (string id = default, string key = default, string etag = default, long createdAt = 0, long updatedAt = 0);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Storage.StateStoreItemRef StateStoreItemRef(string id, string key, string etag, int64 createdAt, int64 updatedAt) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItemRef(System.String,System.String,System.String,System.Int64,System.Int64)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function StateStoreItemRef (Optional id As String = Nothing, Optional key As String = Nothing, Optional etag As String = Nothing, Optional createdAt As Long = 0, Optional updatedAt As Long = 0) As StateStoreItemRef" />
-      <MemberSignature Language="F#" Value="static member StateStoreItemRef : string * string * string * int64 * int64 -&gt; Azure.AI.AgentServer.Core.Storage.StateStoreItemRef" Usage="Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItemRef (id, key, etag, createdAt, updatedAt)" />
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Storage.StateStoreItemRef StateStoreItemRef (string id = default, string key = default, Azure.ETag etag = default, long createdAt = 0, long updatedAt = 0);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Storage.StateStoreItemRef StateStoreItemRef(string id, string key, valuetype Azure.ETag etag, int64 createdAt, int64 updatedAt) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItemRef(System.String,System.String,Azure.ETag,System.Int64,System.Int64)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function StateStoreItemRef (Optional id As String = Nothing, Optional key As String = Nothing, Optional etag As ETag = Nothing, Optional createdAt As Long = 0, Optional updatedAt As Long = 0) As StateStoreItemRef" />
+      <MemberSignature Language="F#" Value="static member StateStoreItemRef : string * string * Azure.ETag * int64 * int64 -&gt; Azure.AI.AgentServer.Core.Storage.StateStoreItemRef" Usage="Azure.AI.AgentServer.Core.Storage.AzureAIAgentServerCoreStorageModelFactory.StateStoreItemRef (id, key, etag, createdAt, updatedAt)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
@@ -225,20 +219,17 @@
       <Parameters>
         <Parameter Name="id" Type="System.String" />
         <Parameter Name="key" Type="System.String" />
-        <Parameter Name="etag" Type="System.String" />
+        <Parameter Name="etag" Type="Azure.ETag" />
         <Parameter Name="createdAt" Type="System.Int64" />
         <Parameter Name="updatedAt" Type="System.Int64" />
       </Parameters>
       <Docs>
-        <param name="id" />
-        <param name="key" />
-        <param name="etag" />
-        <param name="createdAt" />
-        <param name="updatedAt" />
-        <summary>
-            Response for `createItem` / `putItem` (spec §4.2.1/§4.2.2) — server
-            metadata only, no `value` echoed back.
-            </summary>
+        <param name="id"> The server-assigned identifier. </param>
+        <param name="key"> The logical item key. </param>
+        <param name="etag"> The optimistic-concurrency token. </param>
+        <param name="createdAt"> Creation time in Unix epoch seconds. </param>
+        <param name="updatedAt"> Last update time in Unix epoch seconds. </param>
+        <summary> Server metadata for a written state-store item. </summary>
         <returns> A new <see cref="T:Azure.AI.AgentServer.Core.Storage.StateStoreItemRef" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>

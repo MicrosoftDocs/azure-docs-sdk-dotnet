@@ -84,7 +84,15 @@
         <ReturnType>System.Nullable&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Auto-repair. </summary>
+        <summary>
+            autoRepair specifies whether health checks should be enabled for machines
+            in the NodePool. Enabling this feature will cause the controller to
+            automatically delete unhealthy machines. The unhealthy criteria are
+            determined by checking the Node Ready condition and a timeout that might
+            vary depending on the platform provider. autoRepair will not take action
+            when more than 2 Nodes are unhealthy at the same time, giving time for
+            the cluster to stabilize or for the user to manually intervene.
+            </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -156,9 +164,9 @@
       </ReturnValue>
       <Docs>
         <summary>
-            Kubernetes labels to propagate to the NodePool Nodes
+            Kubernetes labels to propagate to the NodePool Nodes.
             Note that when the labels are updated this is only applied to newly
-            create nodes in the Nodepool, existing node labels remain unchanged.
+            created nodes in the NodePool, existing node labels remain unchanged.
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
@@ -305,22 +313,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="StatusConditions">
-      <MemberSignature Language="C#" Value="public System.Collections.Generic.IReadOnlyList&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt; StatusConditions { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IReadOnlyList`1&lt;class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt; StatusConditions" />
-      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolProperties.StatusConditions" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property StatusConditions As IReadOnlyList(Of HcpOpenShiftClusterCondition)" />
-      <MemberSignature Language="F#" Value="member this.StatusConditions : System.Collections.Generic.IReadOnlyList&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt;" Usage="Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolProperties.StatusConditions" />
+    <Member MemberName="Status">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolResourceStatus Status { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolResourceStatus Status" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolProperties.Status" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Status As HcpOpenShiftClusterNodePoolResourceStatus" />
+      <MemberSignature Language="F#" Value="member this.Status : Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolResourceStatus" Usage="Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolProperties.Status" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RedHatOpenShiftHcp</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Collections.Generic.IReadOnlyList&lt;Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterCondition&gt;</ReturnType>
+        <ReturnType>Azure.ResourceManager.RedHatOpenShiftHcp.Models.HcpOpenShiftClusterNodePoolResourceStatus</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The conditions on the resource. </summary>
+        <summary> Status of the node pool resource. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

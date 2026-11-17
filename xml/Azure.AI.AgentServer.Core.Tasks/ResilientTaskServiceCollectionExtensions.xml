@@ -20,28 +20,816 @@
   </Attributes>
   <Docs>
     <summary>
-            Registration entry point for the resilient-tasks feature. There is no global
-            configuration object: backend selection (local/hosted), lease durations, and
-            retry/timeout defaults are not developer-configurable (Python parity). The
-            optional <see cref="T:Azure.Core.TokenCredential" /> is the only knob; it is required when
-            running against hosted task storage and ignored by the local file-backed store.
+            Registration entry points for the resilient-tasks feature. Hosted storage can be configured
+            with an explicit credential and endpoint, or through configuration-bound
+            <see cref="T:Azure.AI.AgentServer.Core.Tasks.ResilientTaskSettings" /> on an <see cref="T:Microsoft.Extensions.Hosting.IHostApplicationBuilder" />.
+            Without an explicit endpoint, the hosted credential can also be supplied through
+            <see cref="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTasks(Microsoft.Extensions.DependencyInjection.IServiceCollection,Azure.Core.TokenCredential)" /> or a registered
+            <see cref="T:Azure.Core.TokenCredential" /> service. Lease durations and retry/timeout defaults are
+            configured per task rather than globally.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
-    <Member MemberName="AddResilientTasks">
-      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Tasks.ResilientTaskBuilder AddResilientTasks (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, Azure.Core.TokenCredential? credential = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Tasks.ResilientTaskBuilder AddResilientTasks(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, class Azure.Core.TokenCredential credential) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTasks(Microsoft.Extensions.DependencyInjection.IServiceCollection,Azure.Core.TokenCredential)" />
-      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddResilientTasks (services As IServiceCollection, Optional credential As TokenCredential = Nothing) As ResilientTaskBuilder" />
-      <MemberSignature Language="F#" Value="static member AddResilientTasks : Microsoft.Extensions.DependencyInjection.IServiceCollection * Azure.Core.TokenCredential -&gt; Azure.AI.AgentServer.Core.Tasks.ResilientTaskBuilder" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTasks (services, credential)" />
+    <Member MemberName="AddResilientMultiTurnTask&lt;TInput,TOutput&gt;">
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt; AddResilientMultiTurnTask&lt;TInput,TOutput&gt; (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, Func&lt;Azure.AI.AgentServer.Core.Tasks.TaskContext&lt;TInput&gt;,System.Threading.CancellationToken,System.Threading.Tasks.Task&lt;TOutput&gt;&gt; handler, bool steerable = false, Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;? configure = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2&lt;!!TInput, !!TOutput&gt; AddResilientMultiTurnTask&lt;TInput, TOutput&gt;(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, class System.Func`3&lt;class Azure.AI.AgentServer.Core.Tasks.TaskContext`1&lt;!!TInput&gt;, valuetype System.Threading.CancellationToken, class System.Threading.Tasks.Task`1&lt;!!TOutput&gt;&gt; handler, bool steerable, class System.Action`1&lt;class Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{Azure.AI.AgentServer.Core.Tasks.TaskContext{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},System.Boolean,System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddResilientMultiTurnTask(Of TInput, TOutput) (services As IServiceCollection, name As String, handler As Func(Of TaskContext(Of TInput), CancellationToken, Task(Of TOutput)), Optional steerable As Boolean = false, Optional configure As Action(Of TaskRegistrationOptions) = Nothing) As TaskDefinition(Of TInput, TOutput)" />
+      <MemberSignature Language="F#" Value="static member AddResilientMultiTurnTask : Microsoft.Extensions.DependencyInjection.IServiceCollection * string * Func&lt;Azure.AI.AgentServer.Core.Tasks.TaskContext&lt;'Input&gt;, System.Threading.CancellationToken, System.Threading.Tasks.Task&lt;'Output&gt;&gt; * bool * Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; -&gt; Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;'Input, 'Output&gt;" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask (services, name, handler, steerable, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.RequiresDynamicCode("This overload serializes the task input using reflection-based JSON serialization, which may require runtime code generation. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.RequiresDynamicCode("This overload serializes the task input using reflection-based JSON serialization, which may require runtime code generation. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")&gt;]</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This overload serializes the task input using reflection-based JSON serialization, which is not compatible with trimming. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This overload serializes the task input using reflection-based JSON serialization, which is not compatible with trimming. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TInput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+        <TypeParameter Name="TOutput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="handler" Type="System.Func&lt;Azure.AI.AgentServer.Core.Tasks.TaskContext&lt;TInput&gt;,System.Threading.CancellationToken,System.Threading.Tasks.Task&lt;TOutput&gt;&gt;" />
+        <Parameter Name="steerable" Type="System.Boolean" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="TInput">The task input type.</typeparam>
+        <typeparam name="TOutput">The task output type.</typeparam>
+        <param name="services">The service collection.</param>
+        <param name="name">The unique task name.</param>
+        <param name="handler">The handler delegate.</param>
+        <param name="steerable">Whether the task accepts steering input.</param>
+        <param name="configure">An optional callback to configure per-task options.</param>
+        <summary>
+            Registers a multi-turn task (Python <c>@multi_turn_task</c>), optionally steerable, and
+            returns a typed <see cref="T:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2" /> handle bound to it. The handle
+            is also registered as a keyed singleton service — keyed by <paramref name="name" /> — so it
+            can be resolved later with <see cref="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceProviderExtensions.GetResilientTask``2(System.IServiceProvider,System.String)" />.
+            The first call to any <c>AddResilientTask</c>/<c>AddResilientMultiTurnTask</c> method registers
+            the lazy resilient-task services if they are not already present; it does not enable them.
+            </summary>
+        <returns>A typed <see cref="T:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2" /> for running the registered task.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddResilientMultiTurnTask&lt;TInput,TOutput&gt;">
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt; AddResilientMultiTurnTask&lt;TInput,TOutput&gt; (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, Func&lt;Azure.AI.AgentServer.Core.Tasks.TaskContext&lt;TInput&gt;,System.Threading.CancellationToken,System.Threading.Tasks.Task&lt;TOutput&gt;&gt; handler, Func&lt;bool&gt; isSteerable, Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;? configure = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2&lt;!!TInput, !!TOutput&gt; AddResilientMultiTurnTask&lt;TInput, TOutput&gt;(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, class System.Func`3&lt;class Azure.AI.AgentServer.Core.Tasks.TaskContext`1&lt;!!TInput&gt;, valuetype System.Threading.CancellationToken, class System.Threading.Tasks.Task`1&lt;!!TOutput&gt;&gt; handler, class System.Func`1&lt;bool&gt; isSteerable, class System.Action`1&lt;class Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{Azure.AI.AgentServer.Core.Tasks.TaskContext{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},System.Func{System.Boolean},System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddResilientMultiTurnTask(Of TInput, TOutput) (services As IServiceCollection, name As String, handler As Func(Of TaskContext(Of TInput), CancellationToken, Task(Of TOutput)), isSteerable As Func(Of Boolean), Optional configure As Action(Of TaskRegistrationOptions) = Nothing) As TaskDefinition(Of TInput, TOutput)" />
+      <MemberSignature Language="F#" Value="static member AddResilientMultiTurnTask : Microsoft.Extensions.DependencyInjection.IServiceCollection * string * Func&lt;Azure.AI.AgentServer.Core.Tasks.TaskContext&lt;'Input&gt;, System.Threading.CancellationToken, System.Threading.Tasks.Task&lt;'Output&gt;&gt; * Func&lt;bool&gt; * Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; -&gt; Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;'Input, 'Output&gt;" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask (services, name, handler, isSteerable, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.RequiresDynamicCode("This overload serializes the task input using reflection-based JSON serialization, which may require runtime code generation. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.RequiresDynamicCode("This overload serializes the task input using reflection-based JSON serialization, which may require runtime code generation. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")&gt;]</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This overload serializes the task input using reflection-based JSON serialization, which is not compatible with trimming. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This overload serializes the task input using reflection-based JSON serialization, which is not compatible with trimming. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TInput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+        <TypeParameter Name="TOutput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="handler" Type="System.Func&lt;Azure.AI.AgentServer.Core.Tasks.TaskContext&lt;TInput&gt;,System.Threading.CancellationToken,System.Threading.Tasks.Task&lt;TOutput&gt;&gt;" />
+        <Parameter Name="isSteerable" Type="System.Func&lt;System.Boolean&gt;" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="TInput">The task input type.</typeparam>
+        <typeparam name="TOutput">The task output type.</typeparam>
+        <param name="services">The service collection.</param>
+        <param name="name">The unique task name.</param>
+        <param name="handler">The handler delegate.</param>
+        <param name="isSteerable">Resolves whether the task accepts steering.</param>
+        <param name="configure">An optional callback to configure per-task options.</param>
+        <summary>
+            Registers a multi-turn task whose steerability is resolved when a run starts.
+            </summary>
+        <returns>A typed task definition.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddResilientMultiTurnTask&lt;TInput,TOutput&gt;">
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt; AddResilientMultiTurnTask&lt;TInput,TOutput&gt; (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, Func&lt;Azure.AI.AgentServer.Core.Tasks.TaskContext&lt;TInput&gt;,System.Threading.CancellationToken,System.Threading.Tasks.Task&lt;TOutput&gt;&gt; handler, System.Text.Json.Serialization.Metadata.JsonTypeInfo&lt;TInput&gt; inputTypeInfo, bool steerable = false, Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;? configure = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2&lt;!!TInput, !!TOutput&gt; AddResilientMultiTurnTask&lt;TInput, TOutput&gt;(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, class System.Func`3&lt;class Azure.AI.AgentServer.Core.Tasks.TaskContext`1&lt;!!TInput&gt;, valuetype System.Threading.CancellationToken, class System.Threading.Tasks.Task`1&lt;!!TOutput&gt;&gt; handler, class System.Text.Json.Serialization.Metadata.JsonTypeInfo`1&lt;!!TInput&gt; inputTypeInfo, bool steerable, class System.Action`1&lt;class Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{Azure.AI.AgentServer.Core.Tasks.TaskContext{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},System.Text.Json.Serialization.Metadata.JsonTypeInfo{``0},System.Boolean,System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddResilientMultiTurnTask(Of TInput, TOutput) (services As IServiceCollection, name As String, handler As Func(Of TaskContext(Of TInput), CancellationToken, Task(Of TOutput)), inputTypeInfo As JsonTypeInfo(Of TInput), Optional steerable As Boolean = false, Optional configure As Action(Of TaskRegistrationOptions) = Nothing) As TaskDefinition(Of TInput, TOutput)" />
+      <MemberSignature Language="F#" Value="static member AddResilientMultiTurnTask : Microsoft.Extensions.DependencyInjection.IServiceCollection * string * Func&lt;Azure.AI.AgentServer.Core.Tasks.TaskContext&lt;'Input&gt;, System.Threading.CancellationToken, System.Threading.Tasks.Task&lt;'Output&gt;&gt; * System.Text.Json.Serialization.Metadata.JsonTypeInfo&lt;'Input&gt; * bool * Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; -&gt; Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;'Input, 'Output&gt;" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask (services, name, handler, inputTypeInfo, steerable, configure)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Azure.AI.AgentServer.Core.Tasks.ResilientTaskBuilder</ReturnType>
+        <ReturnType>Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TInput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+        <TypeParameter Name="TOutput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="handler" Type="System.Func&lt;Azure.AI.AgentServer.Core.Tasks.TaskContext&lt;TInput&gt;,System.Threading.CancellationToken,System.Threading.Tasks.Task&lt;TOutput&gt;&gt;" />
+        <Parameter Name="inputTypeInfo" Type="System.Text.Json.Serialization.Metadata.JsonTypeInfo&lt;TInput&gt;" />
+        <Parameter Name="steerable" Type="System.Boolean" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="TInput">The task input type.</typeparam>
+        <typeparam name="TOutput">The task output type.</typeparam>
+        <param name="services">The service collection.</param>
+        <param name="name">The unique task name.</param>
+        <param name="handler">The handler delegate.</param>
+        <param name="inputTypeInfo">The source-generated serialization metadata for <typeparamref name="TInput" />.</param>
+        <param name="steerable">Whether the task accepts steering input.</param>
+        <param name="configure">An optional callback to configure per-task options.</param>
+        <summary>
+            Registers a multi-turn task (optionally steerable) using a source-generated
+            <see cref="T:System.Text.Json.Serialization.Metadata.JsonTypeInfo`1" /> for the input type (Native-AOT / trimming-safe). The returned
+            handle is also registered as a keyed singleton service, keyed by <paramref name="name" />.
+            </summary>
+        <returns>A typed <see cref="T:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2" /> for running the registered task.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddResilientMultiTurnTask&lt;TInput,TOutput,THandler&gt;">
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt; AddResilientMultiTurnTask&lt;TInput,TOutput,THandler&gt; (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, bool steerable = false, Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;? configure = default) where THandler : class, Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler&lt;TInput,TOutput&gt;;" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2&lt;!!TInput, !!TOutput&gt; AddResilientMultiTurnTask&lt;TInput, TOutput, class (class Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler`2&lt;!!TInput, !!TOutput&gt;) THandler&gt;(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, bool steerable, class System.Action`1&lt;class Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask``3(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Boolean,System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddResilientMultiTurnTask(Of TInput, TOutput, THandler) (services As IServiceCollection, name As String, Optional steerable As Boolean = false, Optional configure As Action(Of TaskRegistrationOptions) = Nothing) As TaskDefinition(Of TInput, TOutput)" />
+      <MemberSignature Language="F#" Value="static member AddResilientMultiTurnTask : Microsoft.Extensions.DependencyInjection.IServiceCollection * string * bool * Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; -&gt; Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;'Input, 'Output&gt; (requires 'Handler : null and 'Handler :&gt; Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler&lt;'Input, 'Output&gt;)" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask (services, name, steerable, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.RequiresDynamicCode("This overload serializes the task input using reflection-based JSON serialization, which may require runtime code generation. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.RequiresDynamicCode("This overload serializes the task input using reflection-based JSON serialization, which may require runtime code generation. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")&gt;]</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This overload serializes the task input using reflection-based JSON serialization, which is not compatible with trimming. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This overload serializes the task input using reflection-based JSON serialization, which is not compatible with trimming. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TInput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+        <TypeParameter Name="TOutput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+        <TypeParameter Name="THandler">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+          <Constraints>
+            <ParameterAttribute>ReferenceTypeConstraint</ParameterAttribute>
+            <InterfaceName>Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler&lt;TInput,TOutput&gt;</InterfaceName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="steerable" Type="System.Boolean" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="TInput">The task input type.</typeparam>
+        <typeparam name="TOutput">The task output type.</typeparam>
+        <typeparam name="THandler">The scoped task handler type.</typeparam>
+        <param name="services">The service collection.</param>
+        <param name="name">The unique task name.</param>
+        <param name="steerable">Whether the task accepts steering input.</param>
+        <param name="configure">An optional callback to configure per-task options.</param>
+        <summary>
+            Registers a multi-turn task whose handler and dependencies are resolved from a fresh
+            dependency-injection scope for each execution attempt.
+            </summary>
+        <returns>A typed task definition for running the registered task.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddResilientMultiTurnTask&lt;TInput,TOutput,THandler&gt;">
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt; AddResilientMultiTurnTask&lt;TInput,TOutput,THandler&gt; (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, Func&lt;bool&gt; isSteerable, Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;? configure = default) where THandler : class, Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler&lt;TInput,TOutput&gt;;" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2&lt;!!TInput, !!TOutput&gt; AddResilientMultiTurnTask&lt;TInput, TOutput, class (class Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler`2&lt;!!TInput, !!TOutput&gt;) THandler&gt;(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, class System.Func`1&lt;bool&gt; isSteerable, class System.Action`1&lt;class Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask``3(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{System.Boolean},System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddResilientMultiTurnTask(Of TInput, TOutput, THandler) (services As IServiceCollection, name As String, isSteerable As Func(Of Boolean), Optional configure As Action(Of TaskRegistrationOptions) = Nothing) As TaskDefinition(Of TInput, TOutput)" />
+      <MemberSignature Language="F#" Value="static member AddResilientMultiTurnTask : Microsoft.Extensions.DependencyInjection.IServiceCollection * string * Func&lt;bool&gt; * Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; -&gt; Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;'Input, 'Output&gt; (requires 'Handler : null and 'Handler :&gt; Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler&lt;'Input, 'Output&gt;)" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask (services, name, isSteerable, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.RequiresDynamicCode("This overload serializes the task input using reflection-based JSON serialization, which may require runtime code generation. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.RequiresDynamicCode("This overload serializes the task input using reflection-based JSON serialization, which may require runtime code generation. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")&gt;]</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This overload serializes the task input using reflection-based JSON serialization, which is not compatible with trimming. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This overload serializes the task input using reflection-based JSON serialization, which is not compatible with trimming. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TInput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+        <TypeParameter Name="TOutput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+        <TypeParameter Name="THandler">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+          <Constraints>
+            <ParameterAttribute>ReferenceTypeConstraint</ParameterAttribute>
+            <InterfaceName>Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler&lt;TInput,TOutput&gt;</InterfaceName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="isSteerable" Type="System.Func&lt;System.Boolean&gt;" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="TInput">The task input type.</typeparam>
+        <typeparam name="TOutput">The task output type.</typeparam>
+        <typeparam name="THandler">The scoped task handler type.</typeparam>
+        <param name="services">The service collection.</param>
+        <param name="name">The unique task name.</param>
+        <param name="isSteerable">Resolves whether the task accepts steering.</param>
+        <param name="configure">An optional callback to configure per-task options.</param>
+        <summary>
+            Registers a scoped multi-turn task whose steerability is resolved when a run starts.
+            </summary>
+        <returns>A typed task definition for running the registered task.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddResilientMultiTurnTask&lt;TInput,TOutput,THandler&gt;">
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt; AddResilientMultiTurnTask&lt;TInput,TOutput,THandler&gt; (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, System.Text.Json.Serialization.Metadata.JsonTypeInfo&lt;TInput&gt; inputTypeInfo, bool steerable = false, Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;? configure = default) where THandler : class, Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler&lt;TInput,TOutput&gt;;" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2&lt;!!TInput, !!TOutput&gt; AddResilientMultiTurnTask&lt;TInput, TOutput, class (class Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler`2&lt;!!TInput, !!TOutput&gt;) THandler&gt;(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, class System.Text.Json.Serialization.Metadata.JsonTypeInfo`1&lt;!!TInput&gt; inputTypeInfo, bool steerable, class System.Action`1&lt;class Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask``3(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Text.Json.Serialization.Metadata.JsonTypeInfo{``0},System.Boolean,System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddResilientMultiTurnTask(Of TInput, TOutput, THandler) (services As IServiceCollection, name As String, inputTypeInfo As JsonTypeInfo(Of TInput), Optional steerable As Boolean = false, Optional configure As Action(Of TaskRegistrationOptions) = Nothing) As TaskDefinition(Of TInput, TOutput)" />
+      <MemberSignature Language="F#" Value="static member AddResilientMultiTurnTask : Microsoft.Extensions.DependencyInjection.IServiceCollection * string * System.Text.Json.Serialization.Metadata.JsonTypeInfo&lt;'Input&gt; * bool * Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; -&gt; Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;'Input, 'Output&gt; (requires 'Handler : null and 'Handler :&gt; Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler&lt;'Input, 'Output&gt;)" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientMultiTurnTask (services, name, inputTypeInfo, steerable, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TInput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+        <TypeParameter Name="TOutput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+        <TypeParameter Name="THandler">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+          <Constraints>
+            <ParameterAttribute>ReferenceTypeConstraint</ParameterAttribute>
+            <InterfaceName>Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler&lt;TInput,TOutput&gt;</InterfaceName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="inputTypeInfo" Type="System.Text.Json.Serialization.Metadata.JsonTypeInfo&lt;TInput&gt;" />
+        <Parameter Name="steerable" Type="System.Boolean" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="TInput">The task input type.</typeparam>
+        <typeparam name="TOutput">The task output type.</typeparam>
+        <typeparam name="THandler">The scoped task handler type.</typeparam>
+        <param name="services">The service collection.</param>
+        <param name="name">The unique task name.</param>
+        <param name="inputTypeInfo">The source-generated serialization metadata for the input.</param>
+        <param name="steerable">Whether the task accepts steering input.</param>
+        <param name="configure">An optional callback to configure per-task options.</param>
+        <summary>
+            Registers a multi-turn scoped task handler using source-generated input serialization metadata.
+            </summary>
+        <returns>A typed task definition for running the registered task.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddResilientTask&lt;TInput,TOutput&gt;">
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt; AddResilientTask&lt;TInput,TOutput&gt; (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, Func&lt;Azure.AI.AgentServer.Core.Tasks.TaskContext&lt;TInput&gt;,System.Threading.CancellationToken,System.Threading.Tasks.Task&lt;TOutput&gt;&gt; handler, Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;? configure = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2&lt;!!TInput, !!TOutput&gt; AddResilientTask&lt;TInput, TOutput&gt;(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, class System.Func`3&lt;class Azure.AI.AgentServer.Core.Tasks.TaskContext`1&lt;!!TInput&gt;, valuetype System.Threading.CancellationToken, class System.Threading.Tasks.Task`1&lt;!!TOutput&gt;&gt; handler, class System.Action`1&lt;class Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTask``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{Azure.AI.AgentServer.Core.Tasks.TaskContext{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddResilientTask(Of TInput, TOutput) (services As IServiceCollection, name As String, handler As Func(Of TaskContext(Of TInput), CancellationToken, Task(Of TOutput)), Optional configure As Action(Of TaskRegistrationOptions) = Nothing) As TaskDefinition(Of TInput, TOutput)" />
+      <MemberSignature Language="F#" Value="static member AddResilientTask : Microsoft.Extensions.DependencyInjection.IServiceCollection * string * Func&lt;Azure.AI.AgentServer.Core.Tasks.TaskContext&lt;'Input&gt;, System.Threading.CancellationToken, System.Threading.Tasks.Task&lt;'Output&gt;&gt; * Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; -&gt; Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;'Input, 'Output&gt;" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTask (services, name, handler, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.RequiresDynamicCode("This overload serializes the task input using reflection-based JSON serialization, which may require runtime code generation. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.RequiresDynamicCode("This overload serializes the task input using reflection-based JSON serialization, which may require runtime code generation. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")&gt;]</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This overload serializes the task input using reflection-based JSON serialization, which is not compatible with trimming. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This overload serializes the task input using reflection-based JSON serialization, which is not compatible with trimming. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TInput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+        <TypeParameter Name="TOutput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="handler" Type="System.Func&lt;Azure.AI.AgentServer.Core.Tasks.TaskContext&lt;TInput&gt;,System.Threading.CancellationToken,System.Threading.Tasks.Task&lt;TOutput&gt;&gt;" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="TInput">The task input type.</typeparam>
+        <typeparam name="TOutput">The task output type.</typeparam>
+        <param name="services">The service collection.</param>
+        <param name="name">The unique task name.</param>
+        <param name="handler">The handler delegate.</param>
+        <param name="configure">An optional callback to configure per-task options.</param>
+        <summary>
+            Registers a one-shot task (Python <c>@task</c>) and returns a typed
+            <see cref="T:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2" /> handle bound to it. The handle is also
+            registered as a keyed singleton service — keyed by <paramref name="name" /> — so it can be
+            resolved later with <see cref="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceProviderExtensions.GetResilientTask``2(System.IServiceProvider,System.String)" />.
+            The first call to any <c>AddResilientTask</c>/<c>AddResilientMultiTurnTask</c> method registers
+            the lazy resilient-task services if they are not already present; it does not enable them.
+            </summary>
+        <returns>A typed <see cref="T:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2" /> for running the registered task.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddResilientTask&lt;TInput,TOutput&gt;">
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt; AddResilientTask&lt;TInput,TOutput&gt; (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, Func&lt;Azure.AI.AgentServer.Core.Tasks.TaskContext&lt;TInput&gt;,System.Threading.CancellationToken,System.Threading.Tasks.Task&lt;TOutput&gt;&gt; handler, System.Text.Json.Serialization.Metadata.JsonTypeInfo&lt;TInput&gt; inputTypeInfo, Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;? configure = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2&lt;!!TInput, !!TOutput&gt; AddResilientTask&lt;TInput, TOutput&gt;(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, class System.Func`3&lt;class Azure.AI.AgentServer.Core.Tasks.TaskContext`1&lt;!!TInput&gt;, valuetype System.Threading.CancellationToken, class System.Threading.Tasks.Task`1&lt;!!TOutput&gt;&gt; handler, class System.Text.Json.Serialization.Metadata.JsonTypeInfo`1&lt;!!TInput&gt; inputTypeInfo, class System.Action`1&lt;class Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTask``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Func{Azure.AI.AgentServer.Core.Tasks.TaskContext{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},System.Text.Json.Serialization.Metadata.JsonTypeInfo{``0},System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddResilientTask(Of TInput, TOutput) (services As IServiceCollection, name As String, handler As Func(Of TaskContext(Of TInput), CancellationToken, Task(Of TOutput)), inputTypeInfo As JsonTypeInfo(Of TInput), Optional configure As Action(Of TaskRegistrationOptions) = Nothing) As TaskDefinition(Of TInput, TOutput)" />
+      <MemberSignature Language="F#" Value="static member AddResilientTask : Microsoft.Extensions.DependencyInjection.IServiceCollection * string * Func&lt;Azure.AI.AgentServer.Core.Tasks.TaskContext&lt;'Input&gt;, System.Threading.CancellationToken, System.Threading.Tasks.Task&lt;'Output&gt;&gt; * System.Text.Json.Serialization.Metadata.JsonTypeInfo&lt;'Input&gt; * Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; -&gt; Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;'Input, 'Output&gt;" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTask (services, name, handler, inputTypeInfo, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TInput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+        <TypeParameter Name="TOutput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="handler" Type="System.Func&lt;Azure.AI.AgentServer.Core.Tasks.TaskContext&lt;TInput&gt;,System.Threading.CancellationToken,System.Threading.Tasks.Task&lt;TOutput&gt;&gt;" />
+        <Parameter Name="inputTypeInfo" Type="System.Text.Json.Serialization.Metadata.JsonTypeInfo&lt;TInput&gt;" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="TInput">The task input type.</typeparam>
+        <typeparam name="TOutput">The task output type.</typeparam>
+        <param name="services">The service collection.</param>
+        <param name="name">The unique task name.</param>
+        <param name="handler">The handler delegate.</param>
+        <param name="inputTypeInfo">The source-generated serialization metadata for <typeparamref name="TInput" />.</param>
+        <param name="configure">An optional callback to configure per-task options.</param>
+        <summary>
+            Registers a one-shot task using a source-generated <see cref="T:System.Text.Json.Serialization.Metadata.JsonTypeInfo`1" /> for the
+            input type, so the task input is serialized without runtime reflection (Native-AOT /
+            trimming-safe). The returned handle is also registered as a keyed singleton service, keyed
+            by <paramref name="name" />.
+            </summary>
+        <returns>A typed <see cref="T:Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2" /> for running the registered task.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddResilientTask&lt;TInput,TOutput,THandler&gt;">
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt; AddResilientTask&lt;TInput,TOutput,THandler&gt; (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;? configure = default) where THandler : class, Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler&lt;TInput,TOutput&gt;;" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2&lt;!!TInput, !!TOutput&gt; AddResilientTask&lt;TInput, TOutput, class (class Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler`2&lt;!!TInput, !!TOutput&gt;) THandler&gt;(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, class System.Action`1&lt;class Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTask``3(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddResilientTask(Of TInput, TOutput, THandler) (services As IServiceCollection, name As String, Optional configure As Action(Of TaskRegistrationOptions) = Nothing) As TaskDefinition(Of TInput, TOutput)" />
+      <MemberSignature Language="F#" Value="static member AddResilientTask : Microsoft.Extensions.DependencyInjection.IServiceCollection * string * Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; -&gt; Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;'Input, 'Output&gt; (requires 'Handler : null and 'Handler :&gt; Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler&lt;'Input, 'Output&gt;)" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTask (services, name, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.RequiresDynamicCode("This overload serializes the task input using reflection-based JSON serialization, which may require runtime code generation. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.RequiresDynamicCode("This overload serializes the task input using reflection-based JSON serialization, which may require runtime code generation. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")&gt;]</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This overload serializes the task input using reflection-based JSON serialization, which is not compatible with trimming. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This overload serializes the task input using reflection-based JSON serialization, which is not compatible with trimming. Use the overload that accepts a JsonTypeInfo&lt;TInput&gt; instead.")&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TInput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+        <TypeParameter Name="TOutput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+        <TypeParameter Name="THandler">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+          <Constraints>
+            <ParameterAttribute>ReferenceTypeConstraint</ParameterAttribute>
+            <InterfaceName>Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler&lt;TInput,TOutput&gt;</InterfaceName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="TInput">The task input type.</typeparam>
+        <typeparam name="TOutput">The task output type.</typeparam>
+        <typeparam name="THandler">The scoped task handler type.</typeparam>
+        <param name="services">The service collection.</param>
+        <param name="name">The unique task name.</param>
+        <param name="configure">An optional callback to configure per-task options.</param>
+        <summary>
+            Registers a one-shot task whose handler and dependencies are resolved from a fresh
+            dependency-injection scope for each execution attempt.
+            </summary>
+        <returns>A typed task definition for running the registered task.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddResilientTask&lt;TInput,TOutput,THandler&gt;">
+      <MemberSignature Language="C#" Value="public static Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt; AddResilientTask&lt;TInput,TOutput,THandler&gt; (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, System.Text.Json.Serialization.Metadata.JsonTypeInfo&lt;TInput&gt; inputTypeInfo, Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;? configure = default) where THandler : class, Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler&lt;TInput,TOutput&gt;;" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.AI.AgentServer.Core.Tasks.TaskDefinition`2&lt;!!TInput, !!TOutput&gt; AddResilientTask&lt;TInput, TOutput, class (class Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler`2&lt;!!TInput, !!TOutput&gt;) THandler&gt;(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, string name, class System.Text.Json.Serialization.Metadata.JsonTypeInfo`1&lt;!!TInput&gt; inputTypeInfo, class System.Action`1&lt;class Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; configure) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTask``3(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Text.Json.Serialization.Metadata.JsonTypeInfo{``0},System.Action{Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddResilientTask(Of TInput, TOutput, THandler) (services As IServiceCollection, name As String, inputTypeInfo As JsonTypeInfo(Of TInput), Optional configure As Action(Of TaskRegistrationOptions) = Nothing) As TaskDefinition(Of TInput, TOutput)" />
+      <MemberSignature Language="F#" Value="static member AddResilientTask : Microsoft.Extensions.DependencyInjection.IServiceCollection * string * System.Text.Json.Serialization.Metadata.JsonTypeInfo&lt;'Input&gt; * Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt; -&gt; Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;'Input, 'Output&gt; (requires 'Handler : null and 'Handler :&gt; Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler&lt;'Input, 'Output&gt;)" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTask (services, name, inputTypeInfo, configure)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.AI.AgentServer.Core.Tasks.TaskDefinition&lt;TInput,TOutput&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TInput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+        <TypeParameter Name="TOutput">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(2)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(2)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </TypeParameter>
+        <TypeParameter Name="THandler">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+          <Constraints>
+            <ParameterAttribute>ReferenceTypeConstraint</ParameterAttribute>
+            <InterfaceName>Azure.AI.AgentServer.Core.Tasks.IResilientTaskHandler&lt;TInput,TOutput&gt;</InterfaceName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="inputTypeInfo" Type="System.Text.Json.Serialization.Metadata.JsonTypeInfo&lt;TInput&gt;" />
+        <Parameter Name="configure" Type="System.Action&lt;Azure.AI.AgentServer.Core.Tasks.TaskRegistrationOptions&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+              <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="TInput">The task input type.</typeparam>
+        <typeparam name="TOutput">The task output type.</typeparam>
+        <typeparam name="THandler">The scoped task handler type.</typeparam>
+        <param name="services">The service collection.</param>
+        <param name="name">The unique task name.</param>
+        <param name="inputTypeInfo">The source-generated serialization metadata for the input.</param>
+        <param name="configure">An optional callback to configure per-task options.</param>
+        <summary>
+            Registers a one-shot scoped task handler using source-generated input serialization metadata.
+            </summary>
+        <returns>A typed task definition for running the registered task.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddResilientTaskCredentialDefault">
+      <MemberSignature Language="C#" Value="public static Microsoft.Extensions.DependencyInjection.IServiceCollection AddResilientTaskCredentialDefault (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, Func&lt;IServiceProvider,Azure.Core.TokenCredential&gt; credentialFactory);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.Extensions.DependencyInjection.IServiceCollection AddResilientTaskCredentialDefault(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, class System.Func`2&lt;class System.IServiceProvider, class Azure.Core.TokenCredential&gt; credentialFactory) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTaskCredentialDefault(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{System.IServiceProvider,Azure.Core.TokenCredential})" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddResilientTaskCredentialDefault (services As IServiceCollection, credentialFactory As Func(Of IServiceProvider, TokenCredential)) As IServiceCollection" />
+      <MemberSignature Language="F#" Value="static member AddResilientTaskCredentialDefault : Microsoft.Extensions.DependencyInjection.IServiceCollection * Func&lt;IServiceProvider, Azure.Core.TokenCredential&gt; -&gt; Microsoft.Extensions.DependencyInjection.IServiceCollection" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTaskCredentialDefault (services, credentialFactory)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.Extensions.DependencyInjection.IServiceCollection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="credentialFactory" Type="System.Func&lt;System.IServiceProvider,Azure.Core.TokenCredential&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="services">The service collection.</param>
+        <param name="credentialFactory">Creates the fallback credential from the built provider.</param>
+        <summary>
+            Registers a replaceable framework-default hosted credential. An explicit credential supplied
+            later through <see cref="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTasks(Microsoft.Extensions.DependencyInjection.IServiceCollection,Azure.Core.TokenCredential)" /> supersedes
+            this fallback; consumer credential registrations remain authoritative.
+            </summary>
+        <returns>The service collection.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddResilientTasks">
+      <MemberSignature Language="C#" Value="public static Microsoft.Extensions.DependencyInjection.IServiceCollection AddResilientTasks (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, Azure.Core.TokenCredential? credential = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.Extensions.DependencyInjection.IServiceCollection AddResilientTasks(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, class Azure.Core.TokenCredential credential) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTasks(Microsoft.Extensions.DependencyInjection.IServiceCollection,Azure.Core.TokenCredential)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddResilientTasks (services As IServiceCollection, Optional credential As TokenCredential = Nothing) As IServiceCollection" />
+      <MemberSignature Language="F#" Value="static member AddResilientTasks : Microsoft.Extensions.DependencyInjection.IServiceCollection * Azure.Core.TokenCredential -&gt; Microsoft.Extensions.DependencyInjection.IServiceCollection" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTasks (services, credential)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Extensions.DependencyInjection.IServiceCollection</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
@@ -58,9 +846,54 @@
         <param name="services">The service collection.</param>
         <param name="credential">A credential for hosted-mode authentication. Required when running in a hosted environment.</param>
         <summary>
-            Adds the resilient-tasks services and returns a builder for registering tasks.
+            Registers the lazy resilient-task services, optionally supplying the hosted-storage credential.
+            Calling <c>AddResilientTask</c>/<c>AddResilientMultiTurnTask</c> directly also performs this
+            setup on first use, but neither registration path enables execution or recovery. Call
+            <see cref="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskEnablementExtensions.SetResilientTasksEnabled(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean)" />
+            before host startup to opt in. This method only needs to be called explicitly to supply a
+            hosted credential. The credential may be supplied before or after task registrations while
+            composing the service collection. A <see cref="T:Azure.Core.TokenCredential" /> registered directly in the
+            service collection is also supported; when both forms are used they must resolve to the same
+            instance.
             </summary>
-        <returns>An <see cref="T:Azure.AI.AgentServer.Core.Tasks.ResilientTaskBuilder" /> for registering tasks.</returns>
+        <returns>The service collection, for chaining.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddResilientTasks">
+      <MemberSignature Language="C#" Value="public static Microsoft.Extensions.DependencyInjection.IServiceCollection AddResilientTasks (this Microsoft.Extensions.DependencyInjection.IServiceCollection services, Azure.Core.TokenCredential credential, Uri endpoint);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Microsoft.Extensions.DependencyInjection.IServiceCollection AddResilientTasks(class Microsoft.Extensions.DependencyInjection.IServiceCollection services, class Azure.Core.TokenCredential credential, class System.Uri endpoint) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTasks(Microsoft.Extensions.DependencyInjection.IServiceCollection,Azure.Core.TokenCredential,System.Uri)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddResilientTasks (services As IServiceCollection, credential As TokenCredential, endpoint As Uri) As IServiceCollection" />
+      <MemberSignature Language="F#" Value="static member AddResilientTasks : Microsoft.Extensions.DependencyInjection.IServiceCollection * Azure.Core.TokenCredential * Uri -&gt; Microsoft.Extensions.DependencyInjection.IServiceCollection" Usage="Azure.AI.AgentServer.Core.Tasks.ResilientTaskServiceCollectionExtensions.AddResilientTasks (services, credential, endpoint)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Core</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.Extensions.DependencyInjection.IServiceCollection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="services" Type="Microsoft.Extensions.DependencyInjection.IServiceCollection" RefType="this" />
+        <Parameter Name="credential" Type="Azure.Core.TokenCredential" />
+        <Parameter Name="endpoint" Type="System.Uri" />
+      </Parameters>
+      <Docs>
+        <param name="services">The service collection.</param>
+        <param name="credential">The credential for hosted task storage.</param>
+        <param name="endpoint">The Azure AI Foundry project endpoint.</param>
+        <summary>
+            Sets up resilient-task services with an explicit hosted-storage credential and project
+            endpoint. Use the host-builder overload when binding these values from configuration.
+            </summary>
+        <returns>The service collection.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -61,10 +61,9 @@
         <param name="model">The name of the voice agent to connect to (used as the <c>{agentName}</c> path segment).</param>
         <param name="intent">The client intent.</param>
         <param name="options">
-            Additional connection options. <see cref="P:OpenAI.Realtime.RealtimeSessionClientOptions.QueryString" /> is
-            used to pass Foundry's "store" option (a Foundry-only concept with no equivalent on this
-            method's own signature) as <c>"store=true"</c> or <c>"store=false"</c>; see
-            <see cref="M:Azure.AI.Projects.ProjectsRealtimeSessionClient.ConnectAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)" />, which merges it with api-version.
+            Additional connection options. Use <see cref="P:Azure.AI.Projects.ProjectsRealtimeSessionClientOptions.Transport" />
+            to select a Voice Agent transport, or <see cref="P:OpenAI.Realtime.RealtimeSessionClientOptions.QueryString" />
+            to pass Foundry's "store" option as <c>"store=true"</c> or <c>"store=false"</c>.
             </param>
         <param name="cancellationToken" />
         <summary>
@@ -81,6 +80,7 @@
             even under C# 9+ override covariance, unlike a method's own direct return type).
             </returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">The selected transport has no value.</exception>
       </Docs>
     </Member>
   </Members>

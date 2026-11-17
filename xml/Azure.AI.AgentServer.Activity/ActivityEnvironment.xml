@@ -1,0 +1,84 @@
+<Type Name="ActivityEnvironment" FullName="Azure.AI.AgentServer.Activity.ActivityEnvironment">
+  <TypeSignature Language="C#" Value="public static class ActivityEnvironment" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit ActivityEnvironment extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Azure.AI.AgentServer.Activity.ActivityEnvironment" />
+  <TypeSignature Language="VB.NET" Value="Public Class ActivityEnvironment" />
+  <TypeSignature Language="F#" Value="type ActivityEnvironment = class" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Resolves the Microsoft 365 Agents SDK connection settings (the <c>Connections:*</c> /
+            <c>ConnectionsMap:*</c> keys) from the Foundry-native identity and returns them as a plain
+            configuration map.
+            </summary>
+    <remarks>
+      <para>
+        <see cref="M:Azure.AI.AgentServer.Activity.ActivityEnvironment.GetHostedAgentConfiguration(System.Boolean)" /> is a <b>pure function</b>: it reads the current
+            environment at call time and <b>never mutates it</b>. Feed the returned map into a configuration
+            builder (for example <c>new ConfigurationBuilder().AddEnvironmentVariables().AddInMemoryCollection(config)</c>)
+            so the M365 Agents SDK can read the settings.
+            </para>
+      <para>Each setting is resolved with the following precedence:</para>
+      <list type="number">
+        <item>An existing explicit connection value in the environment (never overridden).</item>
+        <item>A value derived from the Foundry-native identity.</item>
+        <item>A static default for non-critical options.</item>
+      </list>
+      <para>
+            The identity source differs by auth model:
+            <list type="bullet"><item><b>Simple</b> (<c>digitalWorker: false</c>, default): the <em>instance</em> identity
+                (<c>FOUNDRY_AGENT_INSTANCE_CLIENT_ID</c>) mints the Bot Connector token directly, scoped to
+                <c>https://api.botframework.com/.default</c>.</item><item><b>Digital worker</b> (<c>digitalWorker: true</c>): the <em>blueprint</em> identity
+                (<c>FOUNDRY_AGENT_BLUEPRINT_CLIENT_ID</c>) is used with the federated-identity exchange,
+                scoped to the agentic resource.</item></list></para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="GetHostedAgentConfiguration">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IReadOnlyDictionary&lt;string,string?&gt; GetHostedAgentConfiguration (bool digitalWorker = false);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IReadOnlyDictionary`2&lt;string, string&gt; GetHostedAgentConfiguration(bool digitalWorker) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Activity.ActivityEnvironment.GetHostedAgentConfiguration(System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function GetHostedAgentConfiguration (Optional digitalWorker As Boolean = false) As IReadOnlyDictionary(Of String, String)" />
+      <MemberSignature Language="F#" Value="static member GetHostedAgentConfiguration : bool -&gt; System.Collections.Generic.IReadOnlyDictionary&lt;string, string&gt;" Usage="Azure.AI.AgentServer.Activity.ActivityEnvironment.GetHostedAgentConfiguration digitalWorker" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IReadOnlyDictionary&lt;System.String,System.String&gt;</ReturnType>
+        <Attributes>
+          <Attribute>
+            <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 1, 1, 2 })]</AttributeName>
+            <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 1, 1, 2 })&gt;]</AttributeName>
+          </Attribute>
+        </Attributes>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="digitalWorker" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="digitalWorker">
+          <c>false</c> (default) for the simple agent-instance-identity model;
+            <c>true</c> for the digital-worker (blueprint + FMI exchange) model.
+            </param>
+        <summary>
+            Resolves the M365 SDK connection settings for the selected outbound-auth model as a
+            configuration map. Does not mutate the process environment.
+            </summary>
+        <returns>
+            The effective connection settings (existing environment value where present, otherwise the
+            derived value) keyed by their M365 configuration names.
+            </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

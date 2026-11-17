@@ -45,6 +45,28 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ComputeRecommenderGenerateContent (System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.Compute.Recommender.Models.ComputeRecommenderResourceSize&gt; desiredSizes);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.Compute.Recommender.Models.ComputeRecommenderResourceSize&gt; desiredSizes) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Compute.Recommender.Models.ComputeRecommenderGenerateContent.#ctor(System.Collections.Generic.IEnumerable{Azure.ResourceManager.Compute.Recommender.Models.ComputeRecommenderResourceSize})" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (desiredSizes As IEnumerable(Of ComputeRecommenderResourceSize))" />
+      <MemberSignature Language="F#" Value="new Azure.ResourceManager.Compute.Recommender.Models.ComputeRecommenderGenerateContent : seq&lt;Azure.ResourceManager.Compute.Recommender.Models.ComputeRecommenderResourceSize&gt; -&gt; Azure.ResourceManager.Compute.Recommender.Models.ComputeRecommenderGenerateContent" Usage="new Azure.ResourceManager.Compute.Recommender.Models.ComputeRecommenderGenerateContent desiredSizes" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Compute.Recommender</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="desiredSizes" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.Compute.Recommender.Models.ComputeRecommenderResourceSize&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="desiredSizes"> The desired virtual machine SKU sizes. </param>
+        <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.Compute.Recommender.Models.ComputeRecommenderGenerateContent" />. </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="desiredSizes" /> is null. </exception>
+      </Docs>
+    </Member>
     <Member MemberName="AvailabilityZones">
       <MemberSignature Language="C#" Value="public bool? AvailabilityZones { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;bool&gt; AvailabilityZones" />
@@ -82,7 +104,7 @@
         <ReturnType>System.Nullable&lt;System.Int32&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Desired instance count per region/zone based on the scope. </summary>
+        <summary> Desired instance count per region/zone based on the scope. If not set, defaults to 1. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -103,7 +125,7 @@
         <ReturnType>System.Collections.Generic.IList&lt;Azure.Core.AzureLocation&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The desired regions. </summary>
+        <summary> The desired regions. If not set, the location from the request URI is used as the desired location. Each location in this list must be a valid Azure region. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

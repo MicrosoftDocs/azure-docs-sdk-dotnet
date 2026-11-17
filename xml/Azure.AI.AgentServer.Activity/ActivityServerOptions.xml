@@ -1,0 +1,191 @@
+<Type Name="ActivityServerOptions" FullName="Azure.AI.AgentServer.Activity.ActivityServerOptions">
+  <TypeSignature Language="C#" Value="public class ActivityServerOptions" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ActivityServerOptions extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Azure.AI.AgentServer.Activity.ActivityServerOptions" />
+  <TypeSignature Language="VB.NET" Value="Public Class ActivityServerOptions" />
+  <TypeSignature Language="F#" Value="type ActivityServerOptions = class" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(0)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(0)&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+            Configuration options for the Activity protocol server. Every property is optional; leave the
+            defaults to have the host build the whole Microsoft 365 Agents SDK stack from the environment.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ActivityServerOptions ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.AgentServer.Activity.ActivityServerOptions.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ConfigureServices">
+      <MemberSignature Language="C#" Value="public Action&lt;Microsoft.Extensions.DependencyInjection.IServiceCollection&gt;? ConfigureServices { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Action`1&lt;class Microsoft.Extensions.DependencyInjection.IServiceCollection&gt; ConfigureServices" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Activity.ActivityServerOptions.ConfigureServices" />
+      <MemberSignature Language="VB.NET" Value="Public Property ConfigureServices As Action(Of IServiceCollection)" />
+      <MemberSignature Language="F#" Value="member this.ConfigureServices : Action&lt;Microsoft.Extensions.DependencyInjection.IServiceCollection&gt; with get, set" Usage="Azure.AI.AgentServer.Activity.ActivityServerOptions.ConfigureServices" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1 })&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Microsoft.Extensions.DependencyInjection.IServiceCollection&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Optional callback to register additional services into the host's dependency-injection
+            container after the Microsoft 365 Agents SDK defaults are added. Normal Microsoft DI
+            last-registration semantics ensure registrations here win — use it to plug in a custom
+            adapter, authorization, channel-service factory, or any other service.
+            To supply a custom outbound-auth provider, prefer <see cref="P:Azure.AI.AgentServer.Activity.ActivityServerOptions.Connections" /> — a value there is
+            substituted after this callback runs and takes precedence over any
+            <see cref="T:Microsoft.Agents.Authentication.IConnections" /> registered here.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ConnectionConfiguration">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IReadOnlyDictionary&lt;string,string?&gt;? ConnectionConfiguration { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IReadOnlyDictionary`2&lt;string, string&gt; ConnectionConfiguration" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Activity.ActivityServerOptions.ConnectionConfiguration" />
+      <MemberSignature Language="VB.NET" Value="Public Property ConnectionConfiguration As IReadOnlyDictionary(Of String, String)" />
+      <MemberSignature Language="F#" Value="member this.ConnectionConfiguration : System.Collections.Generic.IReadOnlyDictionary&lt;string, string&gt; with get, set" Usage="Azure.AI.AgentServer.Activity.ActivityServerOptions.ConnectionConfiguration" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1, 2 })]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Runtime.CompilerServices.Nullable(new System.Byte[] { 2, 1, 2 })&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IReadOnlyDictionary&lt;System.String,System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Optional connection configuration (the M365 <c>Connections:*</c> mapping) for the built
+            stack. Leave <c>null</c> to derive the settings from the Foundry-native identity (via
+            <see cref="M:Azure.AI.AgentServer.Activity.ActivityEnvironment.GetHostedAgentConfiguration(System.Boolean)" />). When supplied, these
+            settings are used as-is instead of the derived values.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Connections">
+      <MemberSignature Language="C#" Value="public Microsoft.Agents.Authentication.IConnections? Connections { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Agents.Authentication.IConnections Connections" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Activity.ActivityServerOptions.Connections" />
+      <MemberSignature Language="VB.NET" Value="Public Property Connections As IConnections" />
+      <MemberSignature Language="F#" Value="member this.Connections : Microsoft.Agents.Authentication.IConnections with get, set" Usage="Azure.AI.AgentServer.Activity.ActivityServerOptions.Connections" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Agents.Authentication.IConnections</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Optional connection provider used to acquire outbound (Bot Connector) tokens. Leave
+            <c>null</c> to use the Microsoft 365 Agents SDK's native connection provider, configured from
+            the Foundry-derived <c>Connections:*</c> settings (managed identity for the simple model,
+            the identity-proxy exchange for the digital-worker model). Supply your own to control
+            outbound-auth entirely.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DigitalWorker">
+      <MemberSignature Language="C#" Value="public bool DigitalWorker { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool DigitalWorker" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Activity.ActivityServerOptions.DigitalWorker" />
+      <MemberSignature Language="VB.NET" Value="Public Property DigitalWorker As Boolean" />
+      <MemberSignature Language="F#" Value="member this.DigitalWorker : bool with get, set" Usage="Azure.AI.AgentServer.Activity.ActivityServerOptions.DigitalWorker" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+             Selects the outbound-auth model.
+            
+             <list type="bullet"><item><c>false</c> (default) — <b>Simple agent</b> model: the agent
+                 <em>instance</em> identity mints the Bot Connector token directly via
+                 Managed Identity (<c>FOUNDRY_AGENT_INSTANCE_CLIENT_ID</c>) scoped to
+                 <c>https://api.botframework.com/.default</c>. This is the standard
+                 single-tenant Teams bot pattern.</item><item><c>true</c> — <b>Digital worker</b> model: the <em>blueprint</em>
+                 identity (<c>FOUNDRY_AGENT_BLUEPRINT_CLIENT_ID</c>) performs a
+                 federated-identity (FMI) token exchange to obtain an agentic user
+                 token.</item></list></summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Storage">
+      <MemberSignature Language="C#" Value="public Microsoft.Agents.Storage.IStorage? Storage { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Agents.Storage.IStorage Storage" />
+      <MemberSignature Language="DocId" Value="P:Azure.AI.AgentServer.Activity.ActivityServerOptions.Storage" />
+      <MemberSignature Language="VB.NET" Value="Public Property Storage As IStorage" />
+      <MemberSignature Language="F#" Value="member this.Storage : Microsoft.Agents.Storage.IStorage with get, set" Usage="Azure.AI.AgentServer.Activity.ActivityServerOptions.Storage" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.AgentServer.Activity</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Agents.Storage.IStorage</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Optional storage backend for the Microsoft 365 Agents SDK turn state. Leave <c>null</c> to
+            use the built-in <c>MemoryStorage</c> (suitable for local and development use; conversation
+            state is not durable or shared across instances).
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,10 +1,10 @@
 ---
 title: Azure Health Bot SDK for .NET
 description: Reference for Azure Health Bot SDK for .NET
-ms.date: 10/12/2026
+ms.date: 11/16/2026
 ms.topic: reference
 ms.devlang: dotnet
-ms.service: azure-ai-health-bot
+ms.service: healthbot
 ---
 # Azure Health Bot SDK for .NET - preview
 ## Packages - preview

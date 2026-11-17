@@ -23,10 +23,32 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> Definition of goal assignment property. </summary>
+    <summary> Properties of a goal resource. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GoalResourceProperties (Azure.Core.ResourceIdentifier resourceArmId);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Core.ResourceIdentifier resourceArmId) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.ResilienceManagement.Models.GoalResourceProperties.#ctor(Azure.Core.ResourceIdentifier)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (resourceArmId As ResourceIdentifier)" />
+      <MemberSignature Language="F#" Value="new Azure.ResourceManager.ResilienceManagement.Models.GoalResourceProperties : Azure.Core.ResourceIdentifier -&gt; Azure.ResourceManager.ResilienceManagement.Models.GoalResourceProperties" Usage="new Azure.ResourceManager.ResilienceManagement.Models.GoalResourceProperties resourceArmId" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.ResilienceManagement</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="resourceArmId" Type="Azure.Core.ResourceIdentifier" Index="0" FrameworkAlternate="azure-dotnet" />
+      </Parameters>
+      <Docs>
+        <param name="resourceArmId"> The fully qualified ARM resource ID represented by this goal resource. </param>
+        <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.ResilienceManagement.Models.GoalResourceProperties" />. </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="resourceArmId" /> is null. </exception>
+      </Docs>
+    </Member>
     <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public GoalResourceProperties (Azure.Core.ResourceIdentifier resourceArmId, Azure.ResourceManager.ResilienceManagement.Models.ExclusionState highAvailabilityGoalParticipation, Azure.ResourceManager.ResilienceManagement.Models.AttestationState highAvailabilityAttestationStatus);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Azure.Core.ResourceIdentifier resourceArmId, valuetype Azure.ResourceManager.ResilienceManagement.Models.ExclusionState highAvailabilityGoalParticipation, valuetype Azure.ResourceManager.ResilienceManagement.Models.AttestationState highAvailabilityAttestationStatus) cil managed" />
@@ -39,9 +61,9 @@
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="resourceArmId" Type="Azure.Core.ResourceIdentifier" />
-        <Parameter Name="highAvailabilityGoalParticipation" Type="Azure.ResourceManager.ResilienceManagement.Models.ExclusionState" />
-        <Parameter Name="highAvailabilityAttestationStatus" Type="Azure.ResourceManager.ResilienceManagement.Models.AttestationState" />
+        <Parameter Name="resourceArmId" Type="Azure.Core.ResourceIdentifier" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="highAvailabilityGoalParticipation" Type="Azure.ResourceManager.ResilienceManagement.Models.ExclusionState" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="highAvailabilityAttestationStatus" Type="Azure.ResourceManager.ResilienceManagement.Models.AttestationState" Index="2" FrameworkAlternate="azure-dotnet-preview" />
       </Parameters>
       <Docs>
         <param name="resourceArmId"> Arm Id of resource under the SG for which the extension resource is maintained. </param>
@@ -289,7 +311,7 @@
         <ReturnType>System.Nullable&lt;Azure.ResourceManager.ResilienceManagement.Models.ResilienceManagementProvisioningState&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Provisioning state. </summary>
+        <summary> The provisioning state of the goal resource. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -309,7 +331,7 @@
         <ReturnType>Azure.Core.ResourceIdentifier</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Arm Id of resource under the SG for which the extension resource is maintained. </summary>
+        <summary> The fully qualified ARM resource ID represented by this goal resource. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -490,6 +512,26 @@
       </ReturnValue>
       <Docs>
         <summary> List of user confirmations for high availability solutions. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ZonalResiliency">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.ResilienceManagement.Models.GoalResourceResiliencyProperties ZonalResiliency { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.ResourceManager.ResilienceManagement.Models.GoalResourceResiliencyProperties ZonalResiliency" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.ResilienceManagement.Models.GoalResourceProperties.ZonalResiliency" />
+      <MemberSignature Language="VB.NET" Value="Public Property ZonalResiliency As GoalResourceResiliencyProperties" />
+      <MemberSignature Language="F#" Value="member this.ZonalResiliency : Azure.ResourceManager.ResilienceManagement.Models.GoalResourceResiliencyProperties with get, set" Usage="Azure.ResourceManager.ResilienceManagement.Models.GoalResourceProperties.ZonalResiliency" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.ResilienceManagement</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ResilienceManagement.Models.GoalResourceResiliencyProperties</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The zonal resiliency posture for the ARM resource, including participation, attestation, exclusion reason, and user confirmations. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

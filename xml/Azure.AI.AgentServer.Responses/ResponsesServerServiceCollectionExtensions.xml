@@ -56,9 +56,20 @@
         <param name="configure">Optional callback to configure <see cref="T:Azure.AI.AgentServer.Responses.ResponsesServerOptions" />.</param>
         <summary>
             Registers the Responses API server SDK services into the dependency injection container.
-            </summary>
+            <para>
+            This overload targets local / non-hosted scenarios (in-memory or file-backed storage), which
+            require no Azure credential or endpoint. In a hosted Foundry environment the Foundry
+            credential and endpoint must bind from configuration so response storage and resilient-task
+            storage cannot diverge; register via
+            <see cref="M:Azure.AI.AgentServer.Responses.ResponsesServerHostExtensions.AddResponsesServer(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String)" />
+            instead. Calling this overload in a hosted environment throws.
+            </para></summary>
         <returns>The service collection for chaining.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">
+            Thrown when called in a hosted Foundry environment; use the
+            <see cref="T:Microsoft.Extensions.Hosting.IHostApplicationBuilder" /> overload there.
+            </exception>
       </Docs>
     </Member>
   </Members>

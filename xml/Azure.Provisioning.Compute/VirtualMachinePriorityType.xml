@@ -12,7 +12,7 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary> Specifies the priority for a standalone virtual machine or the virtual machines in the scale set. 'Low' enum will be deprecated in the future, please use 'Spot' as the enum to deploy Azure Spot VM/VMSS. </summary>
+    <summary> Specifies the priority for a standalone virtual machine or the virtual machines in the scale set. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -32,7 +32,7 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary> Low. </summary>
+        <summary> Low priority for a standalone virtual machine or the virtual machines in the scale set. Will be Deprecated, use Spot instead. </summary>
       </Docs>
     </Member>
     <Member MemberName="Regular">
@@ -51,7 +51,10 @@
       </ReturnValue>
       <MemberValue>0</MemberValue>
       <Docs>
-        <summary> Regular. </summary>
+        <summary>
+            Regular Priority for a standalone virtual machine or the virtual machines in the scale set.
+            This is the default priority and it will be used to deploy regular VM/VMSS.
+            </summary>
       </Docs>
     </Member>
     <Member MemberName="Spot">
@@ -70,7 +73,30 @@
       </ReturnValue>
       <MemberValue>2</MemberValue>
       <Docs>
-        <summary> Spot. </summary>
+        <summary> Spot priority for a standalone virtual machine or the virtual machines in the scale set. </summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SpotPlus">
+      <MemberSignature Language="C#" Value="SpotPlus" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Azure.Provisioning.Compute.VirtualMachinePriorityType SpotPlus = int32(3)" />
+      <MemberSignature Language="DocId" Value="F:Azure.Provisioning.Compute.VirtualMachinePriorityType.SpotPlus" />
+      <MemberSignature Language="VB.NET" Value="SpotPlus" />
+      <MemberSignature Language="F#" Value="SpotPlus = 3" Usage="Azure.Provisioning.Compute.VirtualMachinePriorityType.SpotPlus" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Provisioning.Compute</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Provisioning.Compute.VirtualMachinePriorityType</ReturnType>
+      </ReturnValue>
+      <MemberValue>3</MemberValue>
+      <Docs>
+        <summary>
+            SpotPlus priority for a standalone virtual machine or the virtual machines in the scale set.
+            This is an enum value that will be used to deploy Azure Spot Plus VM/VMSS, which is the next
+            generation of Azure Spot VM/VMSS with more reliability and longer running time.
+            </summary>
       </Docs>
     </Member>
   </Members>

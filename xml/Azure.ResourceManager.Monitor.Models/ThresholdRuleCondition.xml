@@ -28,8 +28,18 @@
       <InterfaceName>System.ClientModel.Primitives.IPersistableModel&lt;T&gt;</InterfaceName>
     </Interface>
   </Interfaces>
+  <Attributes>
+    <Attribute FrameworkAlternate="azure-dotnet-preview">
+      <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+    </Attribute>
+    <Attribute FrameworkAlternate="azure-dotnet-preview">
+      <AttributeName Language="C#">[System.Obsolete("This type is no longer supported.", false)]</AttributeName>
+      <AttributeName Language="F#">[&lt;System.Obsolete("This type is no longer supported.", false)&gt;]</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary> A rule condition based on a metric crossing a threshold. </summary>
+    <summary> A threshold rule condition. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -50,8 +60,8 @@
         <Parameter Name="threshold" Type="System.Double" />
       </Parameters>
       <Docs>
-        <param name="operator"> the operator used to compare the data and the threshold. </param>
-        <param name="threshold"> the threshold value that activates the alert. </param>
+        <param name="operator"> The condition operator. </param>
+        <param name="threshold"> The threshold. </param>
         <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.Monitor.Models.ThresholdRuleCondition" />. </summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -97,7 +107,7 @@
         <ReturnType>Azure.ResourceManager.Monitor.Models.MonitorConditionOperator</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> the operator used to compare the data and the threshold. </summary>
+        <summary> The condition operator. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -277,7 +287,7 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> the threshold value that activates the alert. </summary>
+        <summary> The threshold. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -298,7 +308,7 @@
         <ReturnType>System.Nullable&lt;Azure.ResourceManager.Monitor.Models.ThresholdRuleConditionTimeAggregationType&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric. </summary>
+        <summary> The time aggregation type. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -319,7 +329,7 @@
         <ReturnType>System.Nullable&lt;System.TimeSpan&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day. </summary>
+        <summary> The time window over which to evaluate the condition. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
