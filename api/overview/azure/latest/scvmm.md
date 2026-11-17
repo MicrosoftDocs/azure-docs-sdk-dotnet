@@ -1,7 +1,7 @@
 ---
 title: Azure ScVmm SDK for .NET
 description: Reference for Azure ScVmm SDK for .NET
-ms.date: 11/16/2026
+ms.date: 11/17/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: scvmm
