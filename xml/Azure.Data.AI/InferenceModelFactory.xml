@@ -7,6 +7,7 @@
   <AssemblyInfo>
     <AssemblyName>Azure.Data.AI</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
@@ -17,6 +18,220 @@
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
+    <Member MemberName="EmbeddingInput">
+      <MemberSignature Language="C#" Value="public static Azure.Data.AI.EmbeddingInput EmbeddingInput (string id = default, Azure.Data.AI.EmbeddingContentKind? contentKind = default, string content = default, Uri uri = default, string sasToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Data.AI.EmbeddingInput EmbeddingInput(string id, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingContentKind&gt; contentKind, string content, class System.Uri uri, string sasToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceModelFactory.EmbeddingInput(System.String,System.Nullable{Azure.Data.AI.EmbeddingContentKind},System.String,System.Uri,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function EmbeddingInput (Optional id As String = Nothing, Optional contentKind As Nullable(Of EmbeddingContentKind) = Nothing, Optional content As String = Nothing, Optional uri As Uri = Nothing, Optional sasToken As String = Nothing) As EmbeddingInput" />
+      <MemberSignature Language="F#" Value="static member EmbeddingInput : string * Nullable&lt;Azure.Data.AI.EmbeddingContentKind&gt; * string * Uri * string -&gt; Azure.Data.AI.EmbeddingInput" Usage="Azure.Data.AI.InferenceModelFactory.EmbeddingInput (id, contentKind, content, uri, sasToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Data.AI</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Data.AI.EmbeddingInput</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="contentKind" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingContentKind&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="content" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="uri" Type="System.Uri" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="sasToken" Type="System.String" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="id"> A caller-chosen identifier, up to 256 characters, echoed on the matching result. </param>
+        <param name="contentKind"> What the item is: a document (`text`, the default), a search query (`query`) or a document image (`image`). </param>
+        <param name="content">
+            The item, inline. For `text` and `query`: the text, up to 100,000 characters; text over the model's token limit
+            (currently 8,192 tokens) isn't rejected: only its start is embedded, and the result is flagged with `truncated` and
+            an `EMBEDDING_INPUT_TRUNCATED` warning. For `image`, only where the endpoint accepts inline images (off by
+            default): a `data:image/...;base64,` URI or raw base64. The service never fetches URLs in `content`.
+            </param>
+        <param name="uri">
+            For `text` and `image` items, from Microsoft Entra callers, where enabled: the Azure Blob Storage URL of the blob
+            to embed, `https://{account}.blob.core.windows.net/{container}/{blob}`, with no query string. This is how images
+            are sent by default. Text blobs are read as UTF-8, currently up to 1 MiB. Queries must be sent inline.
+            </param>
+        <param name="sasToken">
+            Required with `url`: a user delegation SAS for that one blob (its query string, with or without a leading `?`):
+            read-only (`sp=r`), for the blob (`sr=b`), https-only (`spr=https`), and signed by the identity that calls this
+            API. A SAS valid for more than 15 minutes is accepted with warning `EMBEDDING_SAS_LONG_LIVED`. The service uses
+            it for one read and never stores, logs or returns it.
+            </param>
+        <summary> One item to embed, defaulting to text: an optional `id` and exactly one source, `content` or `url` with `sasToken`. </summary>
+        <returns> A new <see cref="T:Azure.Data.AI.EmbeddingInput" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EmbeddingItem">
+      <MemberSignature Language="C#" Value="public static Azure.Data.AI.EmbeddingItem EmbeddingItem (string kind = default, int index = 0, string id = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Data.AI.EmbeddingItem EmbeddingItem(string kind, int32 index, string id) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceModelFactory.EmbeddingItem(System.String,System.Int32,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function EmbeddingItem (Optional kind As String = Nothing, Optional index As Integer = 0, Optional id As String = Nothing) As EmbeddingItem" />
+      <MemberSignature Language="F#" Value="static member EmbeddingItem : string * int * string -&gt; Azure.Data.AI.EmbeddingItem" Usage="Azure.Data.AI.InferenceModelFactory.EmbeddingItem (kind, index, id)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Data.AI</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Data.AI.EmbeddingItem</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="kind" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="index" Type="System.Int32" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="id" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="kind"> The discriminator value. </param>
+        <param name="index"> The index of the embedding. </param>
+        <param name="id"> The embedding identifier. </param>
+        <summary> Initializes a new instance of <see cref="T:Azure.Data.AI.EmbeddingItem" />. </summary>
+        <returns> A new <see cref="T:Azure.Data.AI.EmbeddingItem" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EmbeddingOutput">
+      <MemberSignature Language="C#" Value="public static Azure.Data.AI.EmbeddingOutput EmbeddingOutput (string id = default, Uri uri = default, string sasToken = default, DateTimeOffset expiresOn = default, int recordCount = 0, long sizeInBytes = 0, string sha256 = default, string contentType = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Data.AI.EmbeddingOutput EmbeddingOutput(string id, class System.Uri uri, string sasToken, valuetype System.DateTimeOffset expiresOn, int32 recordCount, int64 sizeInBytes, string sha256, string contentType) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceModelFactory.EmbeddingOutput(System.String,System.Uri,System.String,System.DateTimeOffset,System.Int32,System.Int64,System.String,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function EmbeddingOutput (Optional id As String = Nothing, Optional uri As Uri = Nothing, Optional sasToken As String = Nothing, Optional expiresOn As DateTimeOffset = Nothing, Optional recordCount As Integer = 0, Optional sizeInBytes As Long = 0, Optional sha256 As String = Nothing, Optional contentType As String = Nothing) As EmbeddingOutput" />
+      <MemberSignature Language="F#" Value="static member EmbeddingOutput : string * Uri * string * DateTimeOffset * int * int64 * string * string -&gt; Azure.Data.AI.EmbeddingOutput" Usage="Azure.Data.AI.InferenceModelFactory.EmbeddingOutput (id, uri, sasToken, expiresOn, recordCount, sizeInBytes, sha256, contentType)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Data.AI</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Data.AI.EmbeddingOutput</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="uri" Type="System.Uri" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="sasToken" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="expiresOn" Type="System.DateTimeOffset" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="recordCount" Type="System.Int32" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="sizeInBytes" Type="System.Int64" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="sha256" Type="System.String" Index="6" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="contentType" Type="System.String" Index="7" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="id"> The result's identifier, for support requests. </param>
+        <param name="uri"> The result file's URL, without a query string. Read it with `sasToken`. </param>
+        <param name="sasToken">
+            A read-only SAS for the result file only, valid until `expiresAt` (at most 15 minutes). Read the file with
+            `GET {url}?{sasToken}`.
+            </param>
+        <param name="expiresOn"> When `sasToken` stops working. After that, send the request again, or use `delivery: inline`. </param>
+        <param name="recordCount"> The number of `data` items in the file. </param>
+        <param name="sizeInBytes"> The size of the file in bytes. </param>
+        <param name="sha256"> The lowercase hexadecimal SHA-256 hash of the file. </param>
+        <param name="contentType"> The media type of the file: `application/json`. </param>
+        <summary>
+            A `delivery: link` result: a JSON file with the complete response (the same body as an inline response, including
+            `data`), readable with `sasToken` until `expiresAt`.
+            </summary>
+        <returns> A new <see cref="T:Azure.Data.AI.EmbeddingOutput" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EmbeddingResult">
+      <MemberSignature Language="C#" Value="public static Azure.Data.AI.EmbeddingResult EmbeddingResult (string model = default, Azure.Data.AI.EmbeddingOutputDataKind outputDataKind = default, System.Collections.Generic.IEnumerable&lt;Azure.Data.AI.EmbeddingItem&gt; data = default, Azure.Data.AI.EmbeddingUsage usage = default, System.Collections.Generic.IEnumerable&lt;Azure.Data.AI.EmbeddingWarning&gt; warnings = default, Azure.Data.AI.EmbeddingOutput output = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Data.AI.EmbeddingResult EmbeddingResult(string model, valuetype Azure.Data.AI.EmbeddingOutputDataKind outputDataKind, class System.Collections.Generic.IEnumerable`1&lt;class Azure.Data.AI.EmbeddingItem&gt; data, class Azure.Data.AI.EmbeddingUsage usage, class System.Collections.Generic.IEnumerable`1&lt;class Azure.Data.AI.EmbeddingWarning&gt; warnings, class Azure.Data.AI.EmbeddingOutput output) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceModelFactory.EmbeddingResult(System.String,Azure.Data.AI.EmbeddingOutputDataKind,System.Collections.Generic.IEnumerable{Azure.Data.AI.EmbeddingItem},Azure.Data.AI.EmbeddingUsage,System.Collections.Generic.IEnumerable{Azure.Data.AI.EmbeddingWarning},Azure.Data.AI.EmbeddingOutput)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function EmbeddingResult (Optional model As String = Nothing, Optional outputDataKind As EmbeddingOutputDataKind = Nothing, Optional data As IEnumerable(Of EmbeddingItem) = Nothing, Optional usage As EmbeddingUsage = Nothing, Optional warnings As IEnumerable(Of EmbeddingWarning) = Nothing, Optional output As EmbeddingOutput = Nothing) As EmbeddingResult" />
+      <MemberSignature Language="F#" Value="static member EmbeddingResult : string * Azure.Data.AI.EmbeddingOutputDataKind * seq&lt;Azure.Data.AI.EmbeddingItem&gt; * Azure.Data.AI.EmbeddingUsage * seq&lt;Azure.Data.AI.EmbeddingWarning&gt; * Azure.Data.AI.EmbeddingOutput -&gt; Azure.Data.AI.EmbeddingResult" Usage="Azure.Data.AI.InferenceModelFactory.EmbeddingResult (model, outputDataKind, data, usage, warnings, output)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Data.AI</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Data.AI.EmbeddingResult</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="model" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="outputDataKind" Type="Azure.Data.AI.EmbeddingOutputDataKind" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="data" Type="System.Collections.Generic.IEnumerable&lt;Azure.Data.AI.EmbeddingItem&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="usage" Type="Azure.Data.AI.EmbeddingUsage" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="warnings" Type="System.Collections.Generic.IEnumerable&lt;Azure.Data.AI.EmbeddingWarning&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="output" Type="Azure.Data.AI.EmbeddingOutput" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="model"> The name of the model that produced the vectors. </param>
+        <param name="outputDataKind"> The numeric type of the returned values. </param>
+        <param name="data"> One entry per item in `inputs`, in request order. Empty when `output` is present. </param>
+        <param name="usage"> Usage for the operation. </param>
+        <param name="warnings"> Things to know about a successful response, such as truncated items. Omitted when there are none. </param>
+        <param name="output"> With `delivery: link`: where to read the results. </param>
+        <summary> The result of an embedding operation. </summary>
+        <returns> A new <see cref="T:Azure.Data.AI.EmbeddingResult" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EmbeddingUsage">
+      <MemberSignature Language="C#" Value="public static Azure.Data.AI.EmbeddingUsage EmbeddingUsage (string kind = default, long? promptTokens = default, long? totalTokens = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Data.AI.EmbeddingUsage EmbeddingUsage(string kind, valuetype System.Nullable`1&lt;int64&gt; promptTokens, valuetype System.Nullable`1&lt;int64&gt; totalTokens) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceModelFactory.EmbeddingUsage(System.String,System.Nullable{System.Int64},System.Nullable{System.Int64})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function EmbeddingUsage (Optional kind As String = Nothing, Optional promptTokens As Nullable(Of Long) = Nothing, Optional totalTokens As Nullable(Of Long) = Nothing) As EmbeddingUsage" />
+      <MemberSignature Language="F#" Value="static member EmbeddingUsage : string * Nullable&lt;int64&gt; * Nullable&lt;int64&gt; -&gt; Azure.Data.AI.EmbeddingUsage" Usage="Azure.Data.AI.InferenceModelFactory.EmbeddingUsage (kind, promptTokens, totalTokens)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Data.AI</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Data.AI.EmbeddingUsage</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="kind" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="promptTokens" Type="System.Nullable&lt;System.Int64&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="totalTokens" Type="System.Nullable&lt;System.Int64&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="kind"> The discriminator value. </param>
+        <param name="promptTokens"> The number of prompt tokens. </param>
+        <param name="totalTokens"> The total number of tokens. </param>
+        <summary> Initializes a new instance of <see cref="T:Azure.Data.AI.EmbeddingUsage" />. </summary>
+        <returns> A new <see cref="T:Azure.Data.AI.EmbeddingUsage" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EmbeddingWarning">
+      <MemberSignature Language="C#" Value="public static Azure.Data.AI.EmbeddingWarning EmbeddingWarning (Azure.Data.AI.EmbeddingWarningCode code = default, int? codeNumber = default, int index = 0, long? inputTokens = default, long? tokens = default, string message = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Data.AI.EmbeddingWarning EmbeddingWarning(valuetype Azure.Data.AI.EmbeddingWarningCode code, valuetype System.Nullable`1&lt;int32&gt; codeNumber, int32 index, valuetype System.Nullable`1&lt;int64&gt; inputTokens, valuetype System.Nullable`1&lt;int64&gt; tokens, string message) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceModelFactory.EmbeddingWarning(Azure.Data.AI.EmbeddingWarningCode,System.Nullable{System.Int32},System.Int32,System.Nullable{System.Int64},System.Nullable{System.Int64},System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function EmbeddingWarning (Optional code As EmbeddingWarningCode = Nothing, Optional codeNumber As Nullable(Of Integer) = Nothing, Optional index As Integer = 0, Optional inputTokens As Nullable(Of Long) = Nothing, Optional tokens As Nullable(Of Long) = Nothing, Optional message As String = Nothing) As EmbeddingWarning" />
+      <MemberSignature Language="F#" Value="static member EmbeddingWarning : Azure.Data.AI.EmbeddingWarningCode * Nullable&lt;int&gt; * int * Nullable&lt;int64&gt; * Nullable&lt;int64&gt; * string -&gt; Azure.Data.AI.EmbeddingWarning" Usage="Azure.Data.AI.InferenceModelFactory.EmbeddingWarning (code, codeNumber, index, inputTokens, tokens, message)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Data.AI</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Data.AI.EmbeddingWarning</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="code" Type="Azure.Data.AI.EmbeddingWarningCode" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="codeNumber" Type="System.Nullable&lt;System.Int32&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="index" Type="System.Int32" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="inputTokens" Type="System.Nullable&lt;System.Int64&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="tokens" Type="System.Nullable&lt;System.Int64&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="message" Type="System.String" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="code"> A machine-readable warning code. </param>
+        <param name="codeNumber"> A stable numeric alias of `code`: `1001` for `EMBEDDING_INPUT_TRUNCATED`, `1002` for `EMBEDDING_SAS_LONG_LIVED`. </param>
+        <param name="index"> The zero-based position of the item the warning is about, in `inputs` and `data`. </param>
+        <param name="inputTokens"> For `EMBEDDING_INPUT_TRUNCATED`: the item's tokens before truncation. </param>
+        <param name="tokens"> For `EMBEDDING_INPUT_TRUNCATED`: the tokens embedded. </param>
+        <param name="message"> A human-readable description that names the item, for example `inputs[1]`. </param>
+        <summary> Something about a successful multimodal embedding response the caller should know. </summary>
+        <returns> A new <see cref="T:Azure.Data.AI.EmbeddingWarning" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="LatencyResult">
       <MemberSignature Language="C#" Value="public static Azure.Data.AI.LatencyResult LatencyResult (TimeSpan? dataPreprocessDuration = default, TimeSpan? inferenceDuration = default, TimeSpan? postProcessDuration = default);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Data.AI.LatencyResult LatencyResult(valuetype System.Nullable`1&lt;valuetype System.TimeSpan&gt; dataPreprocessDuration, valuetype System.Nullable`1&lt;valuetype System.TimeSpan&gt; inferenceDuration, valuetype System.Nullable`1&lt;valuetype System.TimeSpan&gt; postProcessDuration) cil managed" />
@@ -27,6 +242,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Data.AI.LatencyResult</ReturnType>
@@ -45,6 +261,211 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="MultimodalDenseAndMultiVectorEmbedding">
+      <MemberSignature Language="C#" Value="public static Azure.Data.AI.MultimodalDenseAndMultiVectorEmbedding MultimodalDenseAndMultiVectorEmbedding (int index = 0, string id = default, Azure.Data.AI.EmbeddingContentKind contentKind = default, int? width = default, int? height = default, Azure.Data.AI.EmbeddingImageFormat? format = default, long? tokens = default, long? visualTokens = default, bool? isTruncated = default, long? inputTokens = default, System.Collections.Generic.IEnumerable&lt;int&gt; shape = default, BinaryData embedding = default, BinaryData multiEmbedding = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Data.AI.MultimodalDenseAndMultiVectorEmbedding MultimodalDenseAndMultiVectorEmbedding(int32 index, string id, valuetype Azure.Data.AI.EmbeddingContentKind contentKind, valuetype System.Nullable`1&lt;int32&gt; width, valuetype System.Nullable`1&lt;int32&gt; height, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingImageFormat&gt; format, valuetype System.Nullable`1&lt;int64&gt; tokens, valuetype System.Nullable`1&lt;int64&gt; visualTokens, valuetype System.Nullable`1&lt;bool&gt; isTruncated, valuetype System.Nullable`1&lt;int64&gt; inputTokens, class System.Collections.Generic.IEnumerable`1&lt;int32&gt; shape, class System.BinaryData embedding, class System.BinaryData multiEmbedding) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceModelFactory.MultimodalDenseAndMultiVectorEmbedding(System.Int32,System.String,Azure.Data.AI.EmbeddingContentKind,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{Azure.Data.AI.EmbeddingImageFormat},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Boolean},System.Nullable{System.Int64},System.Collections.Generic.IEnumerable{System.Int32},System.BinaryData,System.BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function MultimodalDenseAndMultiVectorEmbedding (Optional index As Integer = 0, Optional id As String = Nothing, Optional contentKind As EmbeddingContentKind = Nothing, Optional width As Nullable(Of Integer) = Nothing, Optional height As Nullable(Of Integer) = Nothing, Optional format As Nullable(Of EmbeddingImageFormat) = Nothing, Optional tokens As Nullable(Of Long) = Nothing, Optional visualTokens As Nullable(Of Long) = Nothing, Optional isTruncated As Nullable(Of Boolean) = Nothing, Optional inputTokens As Nullable(Of Long) = Nothing, Optional shape As IEnumerable(Of Integer) = Nothing, Optional embedding As BinaryData = Nothing, Optional multiEmbedding As BinaryData = Nothing) As MultimodalDenseAndMultiVectorEmbedding" />
+      <MemberSignature Language="F#" Value="static member MultimodalDenseAndMultiVectorEmbedding : int * string * Azure.Data.AI.EmbeddingContentKind * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;Azure.Data.AI.EmbeddingImageFormat&gt; * Nullable&lt;int64&gt; * Nullable&lt;int64&gt; * Nullable&lt;bool&gt; * Nullable&lt;int64&gt; * seq&lt;int&gt; * BinaryData * BinaryData -&gt; Azure.Data.AI.MultimodalDenseAndMultiVectorEmbedding" Usage="Azure.Data.AI.InferenceModelFactory.MultimodalDenseAndMultiVectorEmbedding (index, id, contentKind, width, height, format, tokens, visualTokens, isTruncated, inputTokens, shape, embedding, multiEmbedding)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Data.AI</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Data.AI.MultimodalDenseAndMultiVectorEmbedding</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.Int32" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="id" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="contentKind" Type="Azure.Data.AI.EmbeddingContentKind" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="width" Type="System.Nullable&lt;System.Int32&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="height" Type="System.Nullable&lt;System.Int32&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="format" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingImageFormat&gt;" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="tokens" Type="System.Nullable&lt;System.Int64&gt;" Index="6" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="visualTokens" Type="System.Nullable&lt;System.Int64&gt;" Index="7" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="isTruncated" Type="System.Nullable&lt;System.Boolean&gt;" Index="8" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="inputTokens" Type="System.Nullable&lt;System.Int64&gt;" Index="9" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="shape" Type="System.Collections.Generic.IEnumerable&lt;System.Int32&gt;" Index="10" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="embedding" Type="System.BinaryData" Index="11" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="multiEmbedding" Type="System.BinaryData" Index="12" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="index"> The zero-based position of the item in the request. </param>
+        <param name="id"> The item's `id` from the request, if it had one. </param>
+        <param name="contentKind"> The item's content kind, as supplied in the request's `kind`. </param>
+        <param name="width"> For images: the width in pixels. </param>
+        <param name="height"> For images: the height in pixels. </param>
+        <param name="format"> For images: the detected image format. </param>
+        <param name="tokens">
+            The tokens the model read for this item, including any text the service adds to queries and, for images, the
+            image prompt and image tokens. For a truncated item, the tokens embedded. Omitted when the model doesn't report it.
+            </param>
+        <param name="visualTokens"> For images: how many of `tokens` were image tokens. </param>
+        <param name="isTruncated">
+            `true` when the item was over the model's token limit and only its start was embedded; `warnings` then has an
+            `EMBEDDING_INPUT_TRUNCATED` entry for it. Omitted otherwise.
+            </param>
+        <param name="inputTokens"> For truncated items only: the item's tokens before truncation. </param>
+        <param name="shape"> The number of multi-vectors and their number of dimensions: `[vectors, multiDimensions]`. </param>
+        <param name="embedding">
+            The dense vector: an array of numbers, or, when `encodingFormat` is `base64`, a base64 string of its little-endian
+            `outputDataKind` values.
+            </param>
+        <param name="multiEmbedding">
+            The multi-vectors: an array of arrays of numbers, or, when `encodingFormat` is `base64`, one base64 string of all
+            their little-endian `outputDataKind` values in row-major order. Decode it and reshape it to `shape`.
+            </param>
+        <summary> The result for one item when `vectorKind` is `dense_multi`: a dense vector and one vector per token, from one model run. </summary>
+        <returns> A new <see cref="T:Azure.Data.AI.MultimodalDenseAndMultiVectorEmbedding" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MultimodalDenseEmbedding">
+      <MemberSignature Language="C#" Value="public static Azure.Data.AI.MultimodalDenseEmbedding MultimodalDenseEmbedding (int index = 0, string id = default, Azure.Data.AI.EmbeddingContentKind contentKind = default, int? width = default, int? height = default, Azure.Data.AI.EmbeddingImageFormat? format = default, long? tokens = default, long? visualTokens = default, bool? isTruncated = default, long? inputTokens = default, BinaryData embedding = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Data.AI.MultimodalDenseEmbedding MultimodalDenseEmbedding(int32 index, string id, valuetype Azure.Data.AI.EmbeddingContentKind contentKind, valuetype System.Nullable`1&lt;int32&gt; width, valuetype System.Nullable`1&lt;int32&gt; height, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingImageFormat&gt; format, valuetype System.Nullable`1&lt;int64&gt; tokens, valuetype System.Nullable`1&lt;int64&gt; visualTokens, valuetype System.Nullable`1&lt;bool&gt; isTruncated, valuetype System.Nullable`1&lt;int64&gt; inputTokens, class System.BinaryData embedding) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceModelFactory.MultimodalDenseEmbedding(System.Int32,System.String,Azure.Data.AI.EmbeddingContentKind,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{Azure.Data.AI.EmbeddingImageFormat},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Boolean},System.Nullable{System.Int64},System.BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function MultimodalDenseEmbedding (Optional index As Integer = 0, Optional id As String = Nothing, Optional contentKind As EmbeddingContentKind = Nothing, Optional width As Nullable(Of Integer) = Nothing, Optional height As Nullable(Of Integer) = Nothing, Optional format As Nullable(Of EmbeddingImageFormat) = Nothing, Optional tokens As Nullable(Of Long) = Nothing, Optional visualTokens As Nullable(Of Long) = Nothing, Optional isTruncated As Nullable(Of Boolean) = Nothing, Optional inputTokens As Nullable(Of Long) = Nothing, Optional embedding As BinaryData = Nothing) As MultimodalDenseEmbedding" />
+      <MemberSignature Language="F#" Value="static member MultimodalDenseEmbedding : int * string * Azure.Data.AI.EmbeddingContentKind * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;Azure.Data.AI.EmbeddingImageFormat&gt; * Nullable&lt;int64&gt; * Nullable&lt;int64&gt; * Nullable&lt;bool&gt; * Nullable&lt;int64&gt; * BinaryData -&gt; Azure.Data.AI.MultimodalDenseEmbedding" Usage="Azure.Data.AI.InferenceModelFactory.MultimodalDenseEmbedding (index, id, contentKind, width, height, format, tokens, visualTokens, isTruncated, inputTokens, embedding)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Data.AI</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Data.AI.MultimodalDenseEmbedding</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.Int32" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="id" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="contentKind" Type="Azure.Data.AI.EmbeddingContentKind" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="width" Type="System.Nullable&lt;System.Int32&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="height" Type="System.Nullable&lt;System.Int32&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="format" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingImageFormat&gt;" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="tokens" Type="System.Nullable&lt;System.Int64&gt;" Index="6" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="visualTokens" Type="System.Nullable&lt;System.Int64&gt;" Index="7" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="isTruncated" Type="System.Nullable&lt;System.Boolean&gt;" Index="8" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="inputTokens" Type="System.Nullable&lt;System.Int64&gt;" Index="9" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="embedding" Type="System.BinaryData" Index="10" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="index"> The zero-based position of the item in the request. </param>
+        <param name="id"> The item's `id` from the request, if it had one. </param>
+        <param name="contentKind"> The item's content kind, as supplied in the request's `kind`. </param>
+        <param name="width"> For images: the width in pixels. </param>
+        <param name="height"> For images: the height in pixels. </param>
+        <param name="format"> For images: the detected image format. </param>
+        <param name="tokens">
+            The tokens the model read for this item, including any text the service adds to queries and, for images, the
+            image prompt and image tokens. For a truncated item, the tokens embedded. Omitted when the model doesn't report it.
+            </param>
+        <param name="visualTokens"> For images: how many of `tokens` were image tokens. </param>
+        <param name="isTruncated">
+            `true` when the item was over the model's token limit and only its start was embedded; `warnings` then has an
+            `EMBEDDING_INPUT_TRUNCATED` entry for it. Omitted otherwise.
+            </param>
+        <param name="inputTokens"> For truncated items only: the item's tokens before truncation. </param>
+        <param name="embedding">
+            The vector: an array of numbers, or, when `encodingFormat` is `base64`, a base64 string of its little-endian
+            `outputDataKind` values.
+            </param>
+        <summary> The result for one item when `vectorKind` is `dense`: one vector. </summary>
+        <returns> A new <see cref="T:Azure.Data.AI.MultimodalDenseEmbedding" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MultimodalEmbeddingUsage">
+      <MemberSignature Language="C#" Value="public static Azure.Data.AI.MultimodalEmbeddingUsage MultimodalEmbeddingUsage (long? promptTokens = default, long? totalTokens = default, long? textTokens = default, int imageCount = 0, long? visualTokens = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Data.AI.MultimodalEmbeddingUsage MultimodalEmbeddingUsage(valuetype System.Nullable`1&lt;int64&gt; promptTokens, valuetype System.Nullable`1&lt;int64&gt; totalTokens, valuetype System.Nullable`1&lt;int64&gt; textTokens, int32 imageCount, valuetype System.Nullable`1&lt;int64&gt; visualTokens) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceModelFactory.MultimodalEmbeddingUsage(System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Int32,System.Nullable{System.Int64})" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function MultimodalEmbeddingUsage (Optional promptTokens As Nullable(Of Long) = Nothing, Optional totalTokens As Nullable(Of Long) = Nothing, Optional textTokens As Nullable(Of Long) = Nothing, Optional imageCount As Integer = 0, Optional visualTokens As Nullable(Of Long) = Nothing) As MultimodalEmbeddingUsage" />
+      <MemberSignature Language="F#" Value="static member MultimodalEmbeddingUsage : Nullable&lt;int64&gt; * Nullable&lt;int64&gt; * Nullable&lt;int64&gt; * int * Nullable&lt;int64&gt; -&gt; Azure.Data.AI.MultimodalEmbeddingUsage" Usage="Azure.Data.AI.InferenceModelFactory.MultimodalEmbeddingUsage (promptTokens, totalTokens, textTokens, imageCount, visualTokens)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Data.AI</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Data.AI.MultimodalEmbeddingUsage</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="promptTokens" Type="System.Nullable&lt;System.Int64&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="totalTokens" Type="System.Nullable&lt;System.Int64&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="textTokens" Type="System.Nullable&lt;System.Int64&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="imageCount" Type="System.Int32" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="visualTokens" Type="System.Nullable&lt;System.Int64&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="promptTokens"> The number of input tokens. </param>
+        <param name="totalTokens"> The total number of tokens. </param>
+        <param name="textTokens">
+            Tokens that aren't image tokens: the query and text items (including the query instruction) and the short prompt
+            the model adds around each image. Equal to `promptTokens` minus `visualTokens`, so text and image tokens can be
+            priced separately. Omitted when the split isn't known: `promptTokens` isn't reported, or the request has images
+            and `visualTokens` isn't reported.
+            </param>
+        <param name="imageCount"> The number of images embedded. </param>
+        <param name="visualTokens"> The number of tokens the images produced. </param>
+        <summary> Usage for a multimodal embedding operation. </summary>
+        <returns> A new <see cref="T:Azure.Data.AI.MultimodalEmbeddingUsage" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MultimodalMultiVectorEmbedding">
+      <MemberSignature Language="C#" Value="public static Azure.Data.AI.MultimodalMultiVectorEmbedding MultimodalMultiVectorEmbedding (int index = 0, string id = default, Azure.Data.AI.EmbeddingContentKind contentKind = default, int? width = default, int? height = default, Azure.Data.AI.EmbeddingImageFormat? format = default, long? tokens = default, long? visualTokens = default, bool? isTruncated = default, long? inputTokens = default, System.Collections.Generic.IEnumerable&lt;int&gt; shape = default, BinaryData multiEmbedding = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Data.AI.MultimodalMultiVectorEmbedding MultimodalMultiVectorEmbedding(int32 index, string id, valuetype Azure.Data.AI.EmbeddingContentKind contentKind, valuetype System.Nullable`1&lt;int32&gt; width, valuetype System.Nullable`1&lt;int32&gt; height, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.EmbeddingImageFormat&gt; format, valuetype System.Nullable`1&lt;int64&gt; tokens, valuetype System.Nullable`1&lt;int64&gt; visualTokens, valuetype System.Nullable`1&lt;bool&gt; isTruncated, valuetype System.Nullable`1&lt;int64&gt; inputTokens, class System.Collections.Generic.IEnumerable`1&lt;int32&gt; shape, class System.BinaryData multiEmbedding) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceModelFactory.MultimodalMultiVectorEmbedding(System.Int32,System.String,Azure.Data.AI.EmbeddingContentKind,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{Azure.Data.AI.EmbeddingImageFormat},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Boolean},System.Nullable{System.Int64},System.Collections.Generic.IEnumerable{System.Int32},System.BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function MultimodalMultiVectorEmbedding (Optional index As Integer = 0, Optional id As String = Nothing, Optional contentKind As EmbeddingContentKind = Nothing, Optional width As Nullable(Of Integer) = Nothing, Optional height As Nullable(Of Integer) = Nothing, Optional format As Nullable(Of EmbeddingImageFormat) = Nothing, Optional tokens As Nullable(Of Long) = Nothing, Optional visualTokens As Nullable(Of Long) = Nothing, Optional isTruncated As Nullable(Of Boolean) = Nothing, Optional inputTokens As Nullable(Of Long) = Nothing, Optional shape As IEnumerable(Of Integer) = Nothing, Optional multiEmbedding As BinaryData = Nothing) As MultimodalMultiVectorEmbedding" />
+      <MemberSignature Language="F#" Value="static member MultimodalMultiVectorEmbedding : int * string * Azure.Data.AI.EmbeddingContentKind * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;Azure.Data.AI.EmbeddingImageFormat&gt; * Nullable&lt;int64&gt; * Nullable&lt;int64&gt; * Nullable&lt;bool&gt; * Nullable&lt;int64&gt; * seq&lt;int&gt; * BinaryData -&gt; Azure.Data.AI.MultimodalMultiVectorEmbedding" Usage="Azure.Data.AI.InferenceModelFactory.MultimodalMultiVectorEmbedding (index, id, contentKind, width, height, format, tokens, visualTokens, isTruncated, inputTokens, shape, multiEmbedding)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Data.AI</AssemblyName>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Data.AI.MultimodalMultiVectorEmbedding</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.Int32" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="id" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="contentKind" Type="Azure.Data.AI.EmbeddingContentKind" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="width" Type="System.Nullable&lt;System.Int32&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="height" Type="System.Nullable&lt;System.Int32&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="format" Type="System.Nullable&lt;Azure.Data.AI.EmbeddingImageFormat&gt;" Index="5" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="tokens" Type="System.Nullable&lt;System.Int64&gt;" Index="6" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="visualTokens" Type="System.Nullable&lt;System.Int64&gt;" Index="7" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="isTruncated" Type="System.Nullable&lt;System.Boolean&gt;" Index="8" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="inputTokens" Type="System.Nullable&lt;System.Int64&gt;" Index="9" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="shape" Type="System.Collections.Generic.IEnumerable&lt;System.Int32&gt;" Index="10" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="multiEmbedding" Type="System.BinaryData" Index="11" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="index"> The zero-based position of the item in the request. </param>
+        <param name="id"> The item's `id` from the request, if it had one. </param>
+        <param name="contentKind"> The item's content kind, as supplied in the request's `kind`. </param>
+        <param name="width"> For images: the width in pixels. </param>
+        <param name="height"> For images: the height in pixels. </param>
+        <param name="format"> For images: the detected image format. </param>
+        <param name="tokens">
+            The tokens the model read for this item, including any text the service adds to queries and, for images, the
+            image prompt and image tokens. For a truncated item, the tokens embedded. Omitted when the model doesn't report it.
+            </param>
+        <param name="visualTokens"> For images: how many of `tokens` were image tokens. </param>
+        <param name="isTruncated">
+            `true` when the item was over the model's token limit and only its start was embedded; `warnings` then has an
+            `EMBEDDING_INPUT_TRUNCATED` entry for it. Omitted otherwise.
+            </param>
+        <param name="inputTokens"> For truncated items only: the item's tokens before truncation. </param>
+        <param name="shape"> The number of vectors and the number of dimensions: `[vectors, dimensions]`. </param>
+        <param name="multiEmbedding">
+            The vectors: an array of arrays of numbers, or, when `encodingFormat` is `base64`, one base64 string of all their
+            little-endian `outputDataKind` values in row-major order. Decode it and reshape it to `shape`.
+            </param>
+        <summary> The result for one item when `vectorKind` is `multi`: one vector per token, for late-interaction (MaxSim) scoring. </summary>
+        <returns> A new <see cref="T:Azure.Data.AI.MultimodalMultiVectorEmbedding" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SemanticRerankingContent">
       <MemberSignature Language="C#" Value="public static Azure.Data.AI.SemanticRerankingContent SemanticRerankingContent (string query = default, System.Collections.Generic.IEnumerable&lt;string&gt; documents = default, bool? returnDocuments = default, int? topK = default, int? batchSize = default, bool? sort = default, Azure.Data.AI.SemanticRerankingDocumentType? documentType = default, System.Collections.Generic.IEnumerable&lt;string&gt; targetPaths = default, string model = default, bool? returnSentenceScore = default);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Data.AI.SemanticRerankingContent SemanticRerankingContent(string query, class System.Collections.Generic.IEnumerable`1&lt;string&gt; documents, valuetype System.Nullable`1&lt;bool&gt; returnDocuments, valuetype System.Nullable`1&lt;int32&gt; topK, valuetype System.Nullable`1&lt;int32&gt; batchSize, valuetype System.Nullable`1&lt;bool&gt; sort, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.SemanticRerankingDocumentType&gt; documentType, class System.Collections.Generic.IEnumerable`1&lt;string&gt; targetPaths, string model, valuetype System.Nullable`1&lt;bool&gt; returnSentenceScore) cil managed" />
@@ -55,21 +476,22 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Data.AI.SemanticRerankingContent</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="query" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="documents" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="returnDocuments" Type="System.Nullable&lt;System.Boolean&gt;" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="topK" Type="System.Nullable&lt;System.Int32&gt;" Index="3" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="batchSize" Type="System.Nullable&lt;System.Int32&gt;" Index="4" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="sort" Type="System.Nullable&lt;System.Boolean&gt;" Index="5" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="documentType" Type="System.Nullable&lt;Azure.Data.AI.SemanticRerankingDocumentType&gt;" Index="6" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="targetPaths" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="7" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="model" Type="System.String" Index="8" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="returnSentenceScore" Type="System.Nullable&lt;System.Boolean&gt;" Index="9" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="query" Type="System.String" />
+        <Parameter Name="documents" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" />
+        <Parameter Name="returnDocuments" Type="System.Nullable&lt;System.Boolean&gt;" />
+        <Parameter Name="topK" Type="System.Nullable&lt;System.Int32&gt;" />
+        <Parameter Name="batchSize" Type="System.Nullable&lt;System.Int32&gt;" />
+        <Parameter Name="sort" Type="System.Nullable&lt;System.Boolean&gt;" />
+        <Parameter Name="documentType" Type="System.Nullable&lt;Azure.Data.AI.SemanticRerankingDocumentType&gt;" />
+        <Parameter Name="targetPaths" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" />
+        <Parameter Name="model" Type="System.String" />
+        <Parameter Name="returnSentenceScore" Type="System.Nullable&lt;System.Boolean&gt;" />
       </Parameters>
       <Docs>
         <param name="query"> The query used to rank the documents. </param>
@@ -91,78 +513,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SemanticRerankingInferenceContent">
-      <MemberSignature Language="C#" Value="public static Azure.Data.AI.SemanticRerankingInferenceContent SemanticRerankingInferenceContent (string query = default, System.Collections.Generic.IEnumerable&lt;string&gt; documents = default, bool? returnDocuments = default, int? topK = default, int? batchSize = default, bool? sort = default, Azure.Data.AI.SemanticRerankingDocumentType? documentType = default, string targetPaths = default, string model = default, bool? returnSentenceScore = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Data.AI.SemanticRerankingInferenceContent SemanticRerankingInferenceContent(string query, class System.Collections.Generic.IEnumerable`1&lt;string&gt; documents, valuetype System.Nullable`1&lt;bool&gt; returnDocuments, valuetype System.Nullable`1&lt;int32&gt; topK, valuetype System.Nullable`1&lt;int32&gt; batchSize, valuetype System.Nullable`1&lt;bool&gt; sort, valuetype System.Nullable`1&lt;valuetype Azure.Data.AI.SemanticRerankingDocumentType&gt; documentType, string targetPaths, string model, valuetype System.Nullable`1&lt;bool&gt; returnSentenceScore) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceModelFactory.SemanticRerankingInferenceContent(System.String,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{Azure.Data.AI.SemanticRerankingDocumentType},System.String,System.String,System.Nullable{System.Boolean})" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function SemanticRerankingInferenceContent (Optional query As String = Nothing, Optional documents As IEnumerable(Of String) = Nothing, Optional returnDocuments As Nullable(Of Boolean) = Nothing, Optional topK As Nullable(Of Integer) = Nothing, Optional batchSize As Nullable(Of Integer) = Nothing, Optional sort As Nullable(Of Boolean) = Nothing, Optional documentType As Nullable(Of SemanticRerankingDocumentType) = Nothing, Optional targetPaths As String = Nothing, Optional model As String = Nothing, Optional returnSentenceScore As Nullable(Of Boolean) = Nothing) As SemanticRerankingInferenceContent" />
-      <MemberSignature Language="F#" Value="static member SemanticRerankingInferenceContent : string * seq&lt;string&gt; * Nullable&lt;bool&gt; * Nullable&lt;int&gt; * Nullable&lt;int&gt; * Nullable&lt;bool&gt; * Nullable&lt;Azure.Data.AI.SemanticRerankingDocumentType&gt; * string * string * Nullable&lt;bool&gt; -&gt; Azure.Data.AI.SemanticRerankingInferenceContent" Usage="Azure.Data.AI.InferenceModelFactory.SemanticRerankingInferenceContent (query, documents, returnDocuments, topK, batchSize, sort, documentType, targetPaths, model, returnSentenceScore)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Data.AI</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.Data.AI.SemanticRerankingInferenceContent</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="query" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="documents" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="returnDocuments" Type="System.Nullable&lt;System.Boolean&gt;" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="topK" Type="System.Nullable&lt;System.Int32&gt;" Index="3" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="batchSize" Type="System.Nullable&lt;System.Int32&gt;" Index="4" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="sort" Type="System.Nullable&lt;System.Boolean&gt;" Index="5" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="documentType" Type="System.Nullable&lt;Azure.Data.AI.SemanticRerankingDocumentType&gt;" Index="6" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="targetPaths" Type="System.String" Index="7" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="model" Type="System.String" Index="8" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="returnSentenceScore" Type="System.Nullable&lt;System.Boolean&gt;" Index="9" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="query"> The query used to rank the documents. </param>
-        <param name="documents"> The documents to rank against the query. </param>
-        <param name="returnDocuments"> Whether the response should include the submitted documents. </param>
-        <param name="topK"> The maximum number of ranked documents to return. </param>
-        <param name="batchSize"> The number of documents processed in each batch. </param>
-        <param name="sort"> Whether to return documents sorted by relevance score. </param>
-        <param name="documentType"> The format of the submitted documents. </param>
-        <param name="targetPaths">
-            The property containing text to rank when the document type is JSON.
-            This property is required for JSON documents. Use dot notation for a nested property, for example `meta.content`.
-            You can specify multiple property paths separated by commas, for example `meta.content,id`.
-            </param>
-        <param name="model"> The name of the model used for the semantic reranking operation. </param>
-        <param name="returnSentenceScore"> Whether to return sentence-level scores in the response. </param>
-        <summary> The input for a semantic reranking operation. </summary>
-        <returns> A new <see cref="T:Azure.Data.AI.SemanticRerankingInferenceContent" /> instance for mocking. </returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SemanticRerankingInferenceResult">
-      <MemberSignature Language="C#" Value="public static Azure.Data.AI.SemanticRerankingInferenceResult SemanticRerankingInferenceResult (System.Collections.Generic.IEnumerable&lt;Azure.Data.AI.SemanticRerankingScore&gt; scores = default, Azure.Data.AI.SemanticRerankingMetaResult meta = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Data.AI.SemanticRerankingInferenceResult SemanticRerankingInferenceResult(class System.Collections.Generic.IEnumerable`1&lt;class Azure.Data.AI.SemanticRerankingScore&gt; scores, class Azure.Data.AI.SemanticRerankingMetaResult meta) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceModelFactory.SemanticRerankingInferenceResult(System.Collections.Generic.IEnumerable{Azure.Data.AI.SemanticRerankingScore},Azure.Data.AI.SemanticRerankingMetaResult)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function SemanticRerankingInferenceResult (Optional scores As IEnumerable(Of SemanticRerankingScore) = Nothing, Optional meta As SemanticRerankingMetaResult = Nothing) As SemanticRerankingInferenceResult" />
-      <MemberSignature Language="F#" Value="static member SemanticRerankingInferenceResult : seq&lt;Azure.Data.AI.SemanticRerankingScore&gt; * Azure.Data.AI.SemanticRerankingMetaResult -&gt; Azure.Data.AI.SemanticRerankingInferenceResult" Usage="Azure.Data.AI.InferenceModelFactory.SemanticRerankingInferenceResult (scores, meta)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Data.AI</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.Data.AI.SemanticRerankingInferenceResult</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="scores" Type="System.Collections.Generic.IEnumerable&lt;Azure.Data.AI.SemanticRerankingScore&gt;" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="meta" Type="Azure.Data.AI.SemanticRerankingMetaResult" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="scores"> The relevance scores for the submitted documents. </param>
-        <param name="meta"> Additional metadata about the semantic reranking operation. </param>
-        <summary> The result of a semantic reranking operation. </summary>
-        <returns> A new <see cref="T:Azure.Data.AI.SemanticRerankingInferenceResult" /> instance for mocking. </returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="SemanticRerankingMetadata">
       <MemberSignature Language="C#" Value="public static Azure.Data.AI.SemanticRerankingMetadata SemanticRerankingMetadata (Azure.Data.AI.TokenUsageResult tokenUsage = default, Azure.Data.AI.LatencyResult latency = default, string modelName = default, string modelVersion = default);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Data.AI.SemanticRerankingMetadata SemanticRerankingMetadata(class Azure.Data.AI.TokenUsageResult tokenUsage, class Azure.Data.AI.LatencyResult latency, string modelName, string modelVersion) cil managed" />
@@ -173,15 +523,16 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Data.AI.SemanticRerankingMetadata</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="tokenUsage" Type="Azure.Data.AI.TokenUsageResult" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="latency" Type="Azure.Data.AI.LatencyResult" Index="1" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="modelName" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="modelVersion" Type="System.String" Index="3" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="tokenUsage" Type="Azure.Data.AI.TokenUsageResult" />
+        <Parameter Name="latency" Type="Azure.Data.AI.LatencyResult" />
+        <Parameter Name="modelName" Type="System.String" />
+        <Parameter Name="modelVersion" Type="System.String" />
       </Parameters>
       <Docs>
         <param name="tokenUsage"> The number of tokens processed in the request. </param>
@@ -190,36 +541,6 @@
         <param name="modelVersion"> The version of the model used for the semantic reranking operation. </param>
         <summary> Additional metadata about the semantic reranking operation. </summary>
         <returns> A new <see cref="T:Azure.Data.AI.SemanticRerankingMetadata" /> instance for mocking. </returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SemanticRerankingMetaResult">
-      <MemberSignature Language="C#" Value="public static Azure.Data.AI.SemanticRerankingMetaResult SemanticRerankingMetaResult (Azure.Data.AI.TokenUsageResult tokenUsage = default, Azure.Data.AI.LatencyResult latency = default, string modelName = default, string modelVersion = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Data.AI.SemanticRerankingMetaResult SemanticRerankingMetaResult(class Azure.Data.AI.TokenUsageResult tokenUsage, class Azure.Data.AI.LatencyResult latency, string modelName, string modelVersion) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.Data.AI.InferenceModelFactory.SemanticRerankingMetaResult(Azure.Data.AI.TokenUsageResult,Azure.Data.AI.LatencyResult,System.String,System.String)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function SemanticRerankingMetaResult (Optional tokenUsage As TokenUsageResult = Nothing, Optional latency As LatencyResult = Nothing, Optional modelName As String = Nothing, Optional modelVersion As String = Nothing) As SemanticRerankingMetaResult" />
-      <MemberSignature Language="F#" Value="static member SemanticRerankingMetaResult : Azure.Data.AI.TokenUsageResult * Azure.Data.AI.LatencyResult * string * string -&gt; Azure.Data.AI.SemanticRerankingMetaResult" Usage="Azure.Data.AI.InferenceModelFactory.SemanticRerankingMetaResult (tokenUsage, latency, modelName, modelVersion)" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyName>Azure.Data.AI</AssemblyName>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Azure.Data.AI.SemanticRerankingMetaResult</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="tokenUsage" Type="Azure.Data.AI.TokenUsageResult" Index="0" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="latency" Type="Azure.Data.AI.LatencyResult" Index="1" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="modelName" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet-preview" />
-        <Parameter Name="modelVersion" Type="System.String" Index="3" FrameworkAlternate="azure-dotnet-preview" />
-      </Parameters>
-      <Docs>
-        <param name="tokenUsage"> The number of tokens processed in the request. </param>
-        <param name="latency"> The latency of the semantic reranking operation. </param>
-        <param name="modelName"> The name of the model used for the semantic reranking operation. </param>
-        <param name="modelVersion"> The version of the model used for the semantic reranking operation. </param>
-        <summary> Additional metadata about the semantic reranking operation. </summary>
-        <returns> A new <see cref="T:Azure.Data.AI.SemanticRerankingMetaResult" /> instance for mocking. </returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -233,13 +554,14 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Data.AI.SemanticRerankingResult</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="scores" Type="System.Collections.Generic.IEnumerable&lt;Azure.Data.AI.SemanticRerankingScore&gt;" Index="0" FrameworkAlternate="azure-dotnet" />
-        <Parameter Name="metadata" Type="Azure.Data.AI.SemanticRerankingMetadata" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="scores" Type="System.Collections.Generic.IEnumerable&lt;Azure.Data.AI.SemanticRerankingScore&gt;" />
+        <Parameter Name="metadata" Type="Azure.Data.AI.SemanticRerankingMetadata" />
       </Parameters>
       <Docs>
         <param name="scores"> The relevance scores for the submitted documents. </param>
@@ -259,6 +581,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Data.AI.SemanticRerankingScore</ReturnType>
@@ -289,6 +612,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Data.AI.SentenceScore</ReturnType>
@@ -315,6 +639,7 @@
       <AssemblyInfo>
         <AssemblyName>Azure.Data.AI</AssemblyName>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Data.AI.TokenUsageResult</ReturnType>
