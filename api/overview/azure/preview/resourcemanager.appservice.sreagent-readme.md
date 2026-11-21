@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: sreagent
 ---
-# Azure App Service SRE Agent management client library for .NET - version 1.0.0-alpha.20261120.1 
+# Azure App Service SRE Agent management client library for .NET - version 1.0.0-alpha.20261121.1 
 
 
 This library supports managing Microsoft Azure resources.
