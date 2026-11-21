@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: platformvalidation
 ---
-# Azure Platform Validation management client library for .NET - version 1.0.0-alpha.20261120.1 
+# Azure Platform Validation management client library for .NET - version 1.0.0-alpha.20261121.1 
 
 
 This library supports managing Azure Platform Validation resources, including cloud validations, validation execution plans, and execution plan runs, and retrieving validation test results and catalog entries.
