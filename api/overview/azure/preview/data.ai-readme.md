@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: dataai
 ---
-# Azure Data AI client library for .NET - version 1.1.0-alpha.20261120.1 
+# Azure Data AI client library for .NET - version 1.1.0-alpha.20261121.1 
 
 
 Azure.Data.AI provides semantic reranking and multimodal embedding operations for .NET applications.
