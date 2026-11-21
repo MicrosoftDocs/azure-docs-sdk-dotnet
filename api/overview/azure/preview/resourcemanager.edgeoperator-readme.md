@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: edgeoperator
 ---
-# Azure ResourceManager.EdgeOperator management client library for .NET - version 1.0.0-alpha.20261120.1 
+# Azure ResourceManager.EdgeOperator management client library for .NET - version 1.0.0-alpha.20261121.1 
 
 
 This library supports managing Microsoft Azure resources.
