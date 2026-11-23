@@ -1,12 +1,12 @@
 ---
 title: Azure Data AI client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Data.AI, dataai
-ms.date: 11/14/2026
+ms.date: 11/23/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: dataai
 ---
-# Azure Data AI client library for .NET - version 1.1.0-beta.1 
+# Azure Data AI client library for .NET - version 1.1.0-alpha.20261123.1 
 
 
 Azure.Data.AI provides semantic reranking and multimodal embedding operations for .NET applications.
@@ -121,7 +121,7 @@ constructor and optional `ContentKind`, so text inputs only need `Content`. `Emb
 `EmbeddingItem` and `EmbeddingUsage` bases; cast to the concrete multimodal models to access their
 vector payloads and modality-specific metadata.
 
-See [Semantic reranking](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AI_1.1.0-beta.1/sdk/dataai/Azure.Data.AI/samples/Sample1_SemanticReranking.md).
+See [Semantic reranking](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/dataai/Azure.Data.AI/samples/Sample1_SemanticReranking.md).
 
 ## Troubleshooting
 
