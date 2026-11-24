@@ -24,10 +24,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            Extension methods to add <see cref="T:Azure.Search.Documents.SearchClient" /> to the Azure client
-            builder.
-            </summary>
+    <summary> Extension methods to add clients to <see cref="T:Azure.Core.Extensions.IAzureClientBuilder`2" />. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -40,7 +37,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Search.Documents</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -61,21 +57,54 @@
       </Parameters>
       <Docs>
         <typeparam name="TBuilder">Type of the client factory builder.</typeparam>
+        <param name="builder"> The builder to register with. </param>
+        <param name="endpoint" />
+        <param name="indexName" />
+        <param name="credential" />
+        <summary> Registers a <see cref="T:Azure.Search.Documents.SearchClient" /> client with the specified <see cref="T:Azure.Core.Extensions.IAzureClientBuilder`2" />. </summary>
+        <returns>An Azure client builder.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddSearchClient&lt;TBuilder&gt;">
+      <MemberSignature Language="C#" Value="public static Azure.Core.Extensions.IAzureClientBuilder&lt;Azure.Search.Documents.SearchClient,Azure.Search.Documents.SearchClientOptions&gt; AddSearchClient&lt;TBuilder&gt; (this TBuilder builder, Uri endpoint, string indexName, Azure.Core.TokenCredential credential) where TBuilder : Azure.Core.Extensions.IAzureClientFactoryBuilder;" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Core.Extensions.IAzureClientBuilder`2&lt;class Azure.Search.Documents.SearchClient, class Azure.Search.Documents.SearchClientOptions&gt; AddSearchClient&lt;(class Azure.Core.Extensions.IAzureClientFactoryBuilder) TBuilder&gt;(!!TBuilder builder, class System.Uri endpoint, string indexName, class Azure.Core.TokenCredential credential) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Extensions.Azure.SearchClientBuilderExtensions.AddSearchClient``1(``0,System.Uri,System.String,Azure.Core.TokenCredential)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddSearchClient(Of TBuilder As IAzureClientFactoryBuilder) (builder As TBuilder, endpoint As Uri, indexName As String, credential As TokenCredential) As IAzureClientBuilder(Of SearchClient, SearchClientOptions)" />
+      <MemberSignature Language="F#" Value="static member AddSearchClient : 'Builder * Uri * string * Azure.Core.TokenCredential -&gt; Azure.Core.Extensions.IAzureClientBuilder&lt;Azure.Search.Documents.SearchClient, Azure.Search.Documents.SearchClientOptions&gt; (requires 'Builder :&gt; Azure.Core.Extensions.IAzureClientFactoryBuilder)" Usage="Microsoft.Extensions.Azure.SearchClientBuilderExtensions.AddSearchClient (builder, endpoint, indexName, credential)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Search.Documents</AssemblyName>
+        <AssemblyVersion>12.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Core.Extensions.IAzureClientBuilder&lt;Azure.Search.Documents.SearchClient,Azure.Search.Documents.SearchClientOptions&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TBuilder">
+          <Constraints>
+            <InterfaceName>Azure.Core.Extensions.IAzureClientFactoryBuilder</InterfaceName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="builder" Type="TBuilder" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
+        <Parameter Name="endpoint" Type="System.Uri" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="indexName" Type="System.String" Index="2" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="credential" Type="Azure.Core.TokenCredential" Index="3" FrameworkAlternate="azure-dotnet" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TBuilder">Type of the client factory builder.</typeparam>
         <param name="builder">The client factory builder.</param>
         <param name="endpoint">
-            Required.  The URI endpoint of the Search Service.  This is likely
+            Required. The URI endpoint of the Search Service. This is likely
             to be similar to "https://{search_service}.search.windows.net".
             The URI must use HTTPS.
             </param>
-        <param name="indexName">
-            Required.  The name of the Search Index.
-            </param>
+        <param name="indexName">Required. The name of the Search Index.</param>
         <param name="credential">
-            Required.  The API key credential used to authenticate requests
-            against the search service.  You need to use an admin key to
-            modify the documents in a Search Index.  See
-            <see href="https://docs.microsoft.com/azure/search/search-security-api-keys">Create and manage api-keys for an Azure Cognitive Search service</see>
-            for more information about API keys in Azure Cognitive Search.
+            Required. The token credential used to authenticate requests
+            against the search service.
             </param>
         <summary>
             Registers a <see cref="T:Azure.Search.Documents.SearchClient" /> instance with the provided
@@ -95,7 +124,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Search.Documents</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -116,13 +144,9 @@
       <Docs>
         <typeparam name="TBuilder">Type of the client factory builder.</typeparam>
         <typeparam name="TConfiguration">Type of the configuration.</typeparam>
-        <param name="builder">The client factory builder.</param>
-        <param name="configuration">The client configuration.</param>
-        <summary>
-            Registers a <see cref="T:Azure.Search.Documents.SearchClient" /> instance with connection
-            options loaded from the provided <paramref name="configuration" />
-            instance.
-            </summary>
+        <param name="builder"> The builder to register with. </param>
+        <param name="configuration"> The configuration to use for the client. </param>
+        <summary> Registers a <see cref="T:Azure.Search.Documents.SearchClient" /> client with the specified <see cref="T:Azure.Core.Extensions.IAzureClientBuilder`2" />. </summary>
         <returns>An Azure client builder.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -136,7 +160,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Search.Documents</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -156,18 +179,51 @@
       </Parameters>
       <Docs>
         <typeparam name="TBuilder">Type of the client factory builder.</typeparam>
+        <param name="builder"> The builder to register with. </param>
+        <param name="endpoint" />
+        <param name="credential" />
+        <summary> Registers a <see cref="T:Azure.Search.Documents.Indexes.SearchIndexClient" /> client with the specified <see cref="T:Azure.Core.Extensions.IAzureClientBuilder`2" />. </summary>
+        <returns>An Azure client builder.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddSearchIndexClient&lt;TBuilder&gt;">
+      <MemberSignature Language="C#" Value="public static Azure.Core.Extensions.IAzureClientBuilder&lt;Azure.Search.Documents.Indexes.SearchIndexClient,Azure.Search.Documents.SearchClientOptions&gt; AddSearchIndexClient&lt;TBuilder&gt; (this TBuilder builder, Uri endpoint, Azure.Core.TokenCredential credential) where TBuilder : Azure.Core.Extensions.IAzureClientFactoryBuilder;" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Core.Extensions.IAzureClientBuilder`2&lt;class Azure.Search.Documents.Indexes.SearchIndexClient, class Azure.Search.Documents.SearchClientOptions&gt; AddSearchIndexClient&lt;(class Azure.Core.Extensions.IAzureClientFactoryBuilder) TBuilder&gt;(!!TBuilder builder, class System.Uri endpoint, class Azure.Core.TokenCredential credential) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Extensions.Azure.SearchClientBuilderExtensions.AddSearchIndexClient``1(``0,System.Uri,Azure.Core.TokenCredential)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddSearchIndexClient(Of TBuilder As IAzureClientFactoryBuilder) (builder As TBuilder, endpoint As Uri, credential As TokenCredential) As IAzureClientBuilder(Of SearchIndexClient, SearchClientOptions)" />
+      <MemberSignature Language="F#" Value="static member AddSearchIndexClient : 'Builder * Uri * Azure.Core.TokenCredential -&gt; Azure.Core.Extensions.IAzureClientBuilder&lt;Azure.Search.Documents.Indexes.SearchIndexClient, Azure.Search.Documents.SearchClientOptions&gt; (requires 'Builder :&gt; Azure.Core.Extensions.IAzureClientFactoryBuilder)" Usage="Microsoft.Extensions.Azure.SearchClientBuilderExtensions.AddSearchIndexClient (builder, endpoint, credential)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Search.Documents</AssemblyName>
+        <AssemblyVersion>12.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Core.Extensions.IAzureClientBuilder&lt;Azure.Search.Documents.Indexes.SearchIndexClient,Azure.Search.Documents.SearchClientOptions&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TBuilder">
+          <Constraints>
+            <InterfaceName>Azure.Core.Extensions.IAzureClientFactoryBuilder</InterfaceName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="builder" Type="TBuilder" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
+        <Parameter Name="endpoint" Type="System.Uri" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="credential" Type="Azure.Core.TokenCredential" Index="2" FrameworkAlternate="azure-dotnet" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TBuilder">Type of the client factory builder.</typeparam>
         <param name="builder">The client factory builder.</param>
         <param name="endpoint">
-            Required.  The URI endpoint of the Search Service.  This is likely
+            Required. The URI endpoint of the Search Service. This is likely
             to be similar to "https://{search_service}.search.windows.net".
             The URI must use HTTPS.
             </param>
         <param name="credential">
-            Required.  The API key credential used to authenticate requests
-            against the search service.  You need to use an admin key to
-            modify the documents in a Search Index.  See
-            <see href="https://docs.microsoft.com/azure/search/search-security-api-keys">Create and manage api-keys for an Azure Cognitive Search service</see>
-            for more information about API keys in Azure Cognitive Search.
+            Required. The token credential used to authenticate requests
+            against the search service.
             </param>
         <summary>
             Registers a <see cref="T:Azure.Search.Documents.Indexes.SearchIndexClient" /> instance with the
@@ -186,7 +242,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Search.Documents</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -207,13 +262,9 @@
       <Docs>
         <typeparam name="TBuilder">Type of the client factory builder.</typeparam>
         <typeparam name="TConfiguration">Type of the configuration.</typeparam>
-        <param name="builder">The client factory builder.</param>
-        <param name="configuration">The client configuration.</param>
-        <summary>
-            Registers a <see cref="T:Azure.Search.Documents.Indexes.SearchIndexClient" /> instance with connection
-            options loaded from the provided <paramref name="configuration" />
-            instance.
-            </summary>
+        <param name="builder"> The builder to register with. </param>
+        <param name="configuration"> The configuration to use for the client. </param>
+        <summary> Registers a <see cref="T:Azure.Search.Documents.Indexes.SearchIndexClient" /> client with the specified <see cref="T:Azure.Core.Extensions.IAzureClientBuilder`2" />. </summary>
         <returns>An Azure client builder.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -227,7 +278,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Search.Documents</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -247,18 +297,51 @@
       </Parameters>
       <Docs>
         <typeparam name="TBuilder">Type of the client factory builder.</typeparam>
+        <param name="builder"> The builder to register with. </param>
+        <param name="endpoint" />
+        <param name="credential" />
+        <summary> Registers a <see cref="T:Azure.Search.Documents.Indexes.SearchIndexerClient" /> client with the specified <see cref="T:Azure.Core.Extensions.IAzureClientBuilder`2" />. </summary>
+        <returns>An Azure client builder.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddSearchIndexerClient&lt;TBuilder&gt;">
+      <MemberSignature Language="C#" Value="public static Azure.Core.Extensions.IAzureClientBuilder&lt;Azure.Search.Documents.Indexes.SearchIndexerClient,Azure.Search.Documents.SearchClientOptions&gt; AddSearchIndexerClient&lt;TBuilder&gt; (this TBuilder builder, Uri endpoint, Azure.Core.TokenCredential credential) where TBuilder : Azure.Core.Extensions.IAzureClientFactoryBuilder;" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Core.Extensions.IAzureClientBuilder`2&lt;class Azure.Search.Documents.Indexes.SearchIndexerClient, class Azure.Search.Documents.SearchClientOptions&gt; AddSearchIndexerClient&lt;(class Azure.Core.Extensions.IAzureClientFactoryBuilder) TBuilder&gt;(!!TBuilder builder, class System.Uri endpoint, class Azure.Core.TokenCredential credential) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Extensions.Azure.SearchClientBuilderExtensions.AddSearchIndexerClient``1(``0,System.Uri,Azure.Core.TokenCredential)" />
+      <MemberSignature Language="VB.NET" Value="&lt;Extension()&gt;&#xA;Public Function AddSearchIndexerClient(Of TBuilder As IAzureClientFactoryBuilder) (builder As TBuilder, endpoint As Uri, credential As TokenCredential) As IAzureClientBuilder(Of SearchIndexerClient, SearchClientOptions)" />
+      <MemberSignature Language="F#" Value="static member AddSearchIndexerClient : 'Builder * Uri * Azure.Core.TokenCredential -&gt; Azure.Core.Extensions.IAzureClientBuilder&lt;Azure.Search.Documents.Indexes.SearchIndexerClient, Azure.Search.Documents.SearchClientOptions&gt; (requires 'Builder :&gt; Azure.Core.Extensions.IAzureClientFactoryBuilder)" Usage="Microsoft.Extensions.Azure.SearchClientBuilderExtensions.AddSearchIndexerClient (builder, endpoint, credential)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Search.Documents</AssemblyName>
+        <AssemblyVersion>12.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Core.Extensions.IAzureClientBuilder&lt;Azure.Search.Documents.Indexes.SearchIndexerClient,Azure.Search.Documents.SearchClientOptions&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TBuilder">
+          <Constraints>
+            <InterfaceName>Azure.Core.Extensions.IAzureClientFactoryBuilder</InterfaceName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="builder" Type="TBuilder" Index="0" FrameworkAlternate="azure-dotnet" RefType="this" />
+        <Parameter Name="endpoint" Type="System.Uri" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="credential" Type="Azure.Core.TokenCredential" Index="2" FrameworkAlternate="azure-dotnet" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TBuilder">Type of the client factory builder.</typeparam>
         <param name="builder">The client factory builder.</param>
         <param name="endpoint">
-            Required.  The URI endpoint of the Search Service.  This is likely
+            Required. The URI endpoint of the Search Service. This is likely
             to be similar to "https://{search_service}.search.windows.net".
             The URI must use HTTPS.
             </param>
         <param name="credential">
-            Required.  The API key credential used to authenticate requests
-            against the search service.  You need to use an admin key to
-            modify the documents in a Search Index.  See
-            <see href="https://docs.microsoft.com/azure/search/search-security-api-keys">Create and manage api-keys for an Azure Cognitive Search service</see>
-            for more information about API keys in Azure Cognitive Search.
+            Required. The token credential used to authenticate requests
+            against the search service.
             </param>
         <summary>
             Registers a <see cref="T:Azure.Search.Documents.Indexes.SearchIndexerClient" /> instance with the
@@ -277,7 +360,6 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Search.Documents</AssemblyName>
-        <AssemblyVersion>12.0.0.0</AssemblyVersion>
         <AssemblyVersion>12.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
@@ -298,13 +380,9 @@
       <Docs>
         <typeparam name="TBuilder">Type of the client factory builder.</typeparam>
         <typeparam name="TConfiguration">Type of the configuration.</typeparam>
-        <param name="builder">The client factory builder.</param>
-        <param name="configuration">The client configuration.</param>
-        <summary>
-            Registers a <see cref="T:Azure.Search.Documents.Indexes.SearchIndexerClient" /> instance with connection
-            options loaded from the provided <paramref name="configuration" />
-            instance.
-            </summary>
+        <param name="builder"> The builder to register with. </param>
+        <param name="configuration"> The configuration to use for the client. </param>
+        <summary> Registers a <see cref="T:Azure.Search.Documents.Indexes.SearchIndexerClient" /> client with the specified <see cref="T:Azure.Core.Extensions.IAzureClientBuilder`2" />. </summary>
         <returns>An Azure client builder.</returns>
         <remarks>To be added.</remarks>
       </Docs>

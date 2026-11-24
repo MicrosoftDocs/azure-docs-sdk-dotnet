@@ -40,9 +40,35 @@
         <AssemblyVersion>3.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="id" Type="System.String" />
-        <Parameter Name="description" Type="System.String" />
-        <Parameter Name="weight" Type="System.Int32" />
+        <Parameter Name="id" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="description" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet-preview" />
+        <Parameter Name="weight" Type="System.Int32" Index="2" FrameworkAlternate="azure-dotnet-preview" />
+      </Parameters>
+      <Docs>
+        <param name="id"> Stable identifier for this dimension (snake_case, e.g., `correct_resolution`). Required. Provided by the user when manually creating a rubric evaluator or during human-in-the-loop review of a generated set; the generation pipeline produces an initial value the user can edit. Editable when saving new versions. </param>
+        <param name="description"> What this dimension measures (e.g., 'Correctly identifies the user's reservation intent and pursues the appropriate workflow'). </param>
+        <param name="weight"> Relative weight of this dimension (1-10). The generation pipeline assigns exactly one dimension weight 8-10; all others use 1-6. User edits are not constrained by this heuristic. </param>
+        <summary> Initializes a new instance of <see cref="T:Azure.AI.Projects.Evaluation.EvaluationsDimension" />. </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="id" /> or <paramref name="description" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public EvaluationsDimension (string id, string description, int? weight);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string id, string description, valuetype System.Nullable`1&lt;int32&gt; weight) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.AI.Projects.Evaluation.EvaluationsDimension.#ctor(System.String,System.String,System.Nullable{System.Int32})" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (id As String, description As String, weight As Nullable(Of Integer))" />
+      <MemberSignature Language="F#" Value="new Azure.AI.Projects.Evaluation.EvaluationsDimension : string * string * Nullable&lt;int&gt; -&gt; Azure.AI.Projects.Evaluation.EvaluationsDimension" Usage="new Azure.AI.Projects.Evaluation.EvaluationsDimension (id, description, weight)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.AI.Projects</AssemblyName>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="id" Type="System.String" Index="0" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="description" Type="System.String" Index="1" FrameworkAlternate="azure-dotnet" />
+        <Parameter Name="weight" Type="System.Nullable&lt;System.Int32&gt;" Index="2" FrameworkAlternate="azure-dotnet" />
       </Parameters>
       <Docs>
         <param name="id"> Stable identifier for this dimension (snake_case, e.g., `correct_resolution`). Required. Provided by the user when manually creating a rubric evaluator or during human-in-the-loop review of a generated set; the generation pipeline produces an initial value the user can edit. Editable when saving new versions. </param>
@@ -356,18 +382,23 @@
       </Docs>
     </Member>
     <Member MemberName="Weight">
-      <MemberSignature Language="C#" Value="public int Weight { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance int32 Weight" />
+      <MemberSignature Language="C#" Value="public int? Weight { get; set; }" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;int32&gt; Weight" FrameworkAlternate="azure-dotnet" />
       <MemberSignature Language="DocId" Value="P:Azure.AI.Projects.Evaluation.EvaluationsDimension.Weight" />
-      <MemberSignature Language="VB.NET" Value="Public Property Weight As Integer" />
-      <MemberSignature Language="F#" Value="member this.Weight : int with get, set" Usage="Azure.AI.Projects.Evaluation.EvaluationsDimension.Weight" />
+      <MemberSignature Language="VB.NET" Value="Public Property Weight As Nullable(Of Integer)" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="F#" Value="member this.Weight : Nullable&lt;int&gt; with get, set" Usage="Azure.AI.Projects.Evaluation.EvaluationsDimension.Weight" FrameworkAlternate="azure-dotnet" />
+      <MemberSignature Language="C#" Value="public int Weight { get; set; }" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 Weight" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="VB.NET" Value="Public Property Weight As Integer" FrameworkAlternate="azure-dotnet-preview" />
+      <MemberSignature Language="F#" Value="member this.Weight : int with get, set" Usage="Azure.AI.Projects.Evaluation.EvaluationsDimension.Weight" FrameworkAlternate="azure-dotnet-preview" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.AI.Projects</AssemblyName>
         <AssemblyVersion>3.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
+        <ReturnType FrameworkAlternate="azure-dotnet">System.Nullable&lt;System.Int32&gt;</ReturnType>
+        <ReturnType FrameworkAlternate="azure-dotnet-preview">System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
         <summary> Relative weight of this dimension (1-10). The generation pipeline assigns exactly one dimension weight 8-10; all others use 1-6. User edits are not constrained by this heuristic. </summary>
