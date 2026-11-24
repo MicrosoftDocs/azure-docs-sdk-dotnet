@@ -167,11 +167,11 @@ To Test Token Augmentation, please do the following.
   "source":"/tenants/{tenantId}/applications/{resourceAppId}",
   "data":{
     "@odata.type": "microsoft.graph.onTokenIssuanceStartCalloutData",
-    "tenantId": "30000000-0000-0000-0000-000000000003",
+    "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "authenticationEventListenerId1": "10000000-0000-0000-0000-000000000001",
     "customAuthenticationExtensionId": "10000000-0000-0000-0000-000000000002",
     "authenticationContext1":{
-      "correlationId": "20000000-0000-0000-0000-000000000002",
+      "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
       "client": {
         "ip": "127.0.0.1",
         "locale": "en-us",
@@ -180,13 +180,13 @@ To Test Token Augmentation, please do the following.
       "authenticationProtocol": "OAUTH2.0",
       "clientServicePrincipal": {
         "id": "40000000-0000-0000-0000-000000000001",
-        "appId": "40000000-0000-0000-0000-000000000002",
+        "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
         "appDisplayName": "Test client app",
         "displayName": "Test client application"
       },
       "resourceServicePrincipal": {
         "id": "40000000-0000-0000-0000-000000000003",
-        "appId": "40000000-0000-0000-0000-000000000004",
+        "appId": "11112222-bbbb-3333-cccc-4444dddd5555",
         "appDisplayName": "Test resource app",
         "displayName": "Test resource application"
       },
@@ -278,4 +278,3 @@ more information see the [Code of Conduct FAQ][coc_faq] or contact
 [cg]: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents_1.0.0-beta.8/sdk/resourcemanager/Azure.ResourceManager/docs/CONTRIBUTING.md
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
-
