@@ -1,2 +1,8 @@
 | Reference | Package | Source |
 |---|---|---|
+|[unknown](storage.files.shares.changefeed-readme.md)|[Azure.Storage.Files.Shares.ChangeFeed](https://www.nuget.org/packages/Azure.Storage.Files.Shares.ChangeFeed)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Files.Shares.ChangeFeed)|
+|[unknown](resourcemanager.containerservicesafeguards-readme.md)|[Azure.ResourceManager.ContainerServiceSafeguards](https://www.nuget.org/packages/Azure.ResourceManager.ContainerServiceSafeguards)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/containerservicesafeguards/Azure.ResourceManager.ContainerServiceSafeguards)|
+|[unknown](resourcemanager.imagebuilder-readme.md)|[Azure.ResourceManager.ImageBuilder](https://www.nuget.org/packages/Azure.ResourceManager.ImageBuilder)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/imagebuilder/Azure.ResourceManager.ImageBuilder)|
+|[unknown](resourcemanager.koreaiartemis-readme.md)|[Azure.ResourceManager.KoreAIArtemis](https://www.nuget.org/packages/Azure.ResourceManager.KoreAIArtemis)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/koreaiartemis/Azure.ResourceManager.KoreAIArtemis)|
+|[unknown](resourcemanager.networksecurity-readme.md)|[Azure.ResourceManager.NetworkSecurity](https://www.nuget.org/packages/Azure.ResourceManager.NetworkSecurity)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/networksecurity/Azure.ResourceManager.NetworkSecurity)|
+|[unknown](resourcemanager.sovereign-readme.md)|[Azure.ResourceManager.Sovereign](https://www.nuget.org/packages/Azure.ResourceManager.Sovereign)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/sovereign/Azure.ResourceManager.Sovereign)|
