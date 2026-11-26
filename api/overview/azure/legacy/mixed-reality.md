@@ -1,7 +1,7 @@
 ---
 title: Azure Mixed Reality SDK for .NET
 description: Reference for Azure Mixed Reality SDK for .NET
-ms.date: 11/25/2026
+ms.date: 11/26/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: mixedreality
