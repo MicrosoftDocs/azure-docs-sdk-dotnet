@@ -11,13 +11,14 @@
     <AssemblyVersion>1.2.1.0</AssemblyVersion>
     <AssemblyVersion>1.3.0.0</AssemblyVersion>
     <AssemblyVersion>1.3.1.0</AssemblyVersion>
+    <AssemblyVersion>1.4.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>Azure.ResourceManager.ArmResource</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
-    <summary> A class to add extension methods to ResourceGroupResource. </summary>
+    <summary> A class to add extension methods to <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" />. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -29,12 +30,86 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary> Initializes a new instance of the <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.Mocking.MockableRecoveryServicesSiteRecoveryResourceGroupResource" /> class for mocking. </summary>
+        <summary> Initializes a new instance of MockableRecoveryServicesSiteRecoveryResourceGroupResource for mocking. </summary>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ExportSiteRecoveryJob">
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryJobResource&gt; ExportSiteRecoveryJob (Azure.WaitUntil waitUntil, string resourceName, Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryJobQueryContent content, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryJobResource&gt; ExportSiteRecoveryJob(valuetype Azure.WaitUntil waitUntil, string resourceName, class Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryJobQueryContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RecoveryServicesSiteRecovery.Mocking.MockableRecoveryServicesSiteRecoveryResourceGroupResource.ExportSiteRecoveryJob(Azure.WaitUntil,System.String,Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryJobQueryContent,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function ExportSiteRecoveryJob (waitUntil As WaitUntil, resourceName As String, content As SiteRecoveryJobQueryContent, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation(Of SiteRecoveryJobResource)" />
+      <MemberSignature Language="F#" Value="abstract member ExportSiteRecoveryJob : Azure.WaitUntil * string * Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryJobQueryContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryJobResource&gt;&#xA;override this.ExportSiteRecoveryJob : Azure.WaitUntil * string * Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryJobQueryContent * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryJobResource&gt;" Usage="mockableRecoveryServicesSiteRecoveryResourceGroupResource.ExportSiteRecoveryJob (waitUntil, resourceName, content, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryJobResource&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
+        <Parameter Name="resourceName" Type="System.String" />
+        <Parameter Name="content" Type="Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryJobQueryContent" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="waitUntil">
+          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
+        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="content"> The request body. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            The operation to export the details of the Azure Site Recovery jobs of the vault.
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationJobs/export. </description></item><item><term> Operation Id. </term><description> ReplicationJobsOperationGroup_Export. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="resourceName" /> or <paramref name="content" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="ExportSiteRecoveryJobAsync">
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryJobResource&gt;&gt; ExportSiteRecoveryJobAsync (Azure.WaitUntil waitUntil, string resourceName, Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryJobQueryContent content, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryJobResource&gt;&gt; ExportSiteRecoveryJobAsync(valuetype Azure.WaitUntil waitUntil, string resourceName, class Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryJobQueryContent content, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.RecoveryServicesSiteRecovery.Mocking.MockableRecoveryServicesSiteRecoveryResourceGroupResource.ExportSiteRecoveryJobAsync(Azure.WaitUntil,System.String,Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryJobQueryContent,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function ExportSiteRecoveryJobAsync (waitUntil As WaitUntil, resourceName As String, content As SiteRecoveryJobQueryContent, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation(Of SiteRecoveryJobResource))" />
+      <MemberSignature Language="F#" Value="abstract member ExportSiteRecoveryJobAsync : Azure.WaitUntil * string * Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryJobQueryContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryJobResource&gt;&gt;&#xA;override this.ExportSiteRecoveryJobAsync : Azure.WaitUntil * string * Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryJobQueryContent * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryJobResource&gt;&gt;" Usage="mockableRecoveryServicesSiteRecoveryResourceGroupResource.ExportSiteRecoveryJobAsync (waitUntil, resourceName, content, cancellationToken)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryJobResource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
+        <Parameter Name="resourceName" Type="System.String" />
+        <Parameter Name="content" Type="Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryJobQueryContent" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
+      </Parameters>
+      <Docs>
+        <param name="waitUntil">
+          <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
+        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="content"> The request body. </param>
+        <param name="cancellationToken"> The cancellation token to use. </param>
+        <summary>
+            The operation to export the details of the Azure Site Recovery jobs of the vault.
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationJobs/export. </description></item><item><term> Operation Id. </term><description> ReplicationJobsOperationGroup_Export. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="resourceName" /> or <paramref name="content" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetProtectionContainerMappings">
@@ -46,7 +121,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.ProtectionContainerMappingResource&gt;</ReturnType>
@@ -60,13 +135,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists the protection container mappings in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionContainerMappings</description></item><item><term>Operation Id</term><description>ReplicationProtectionContainerMappings_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ProtectionContainerMappingResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionContainerMappings. </description></item><item><term> Operation Id. </term><description> ReplicationProtectionContainerMappingsOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ProtectionContainerMappingResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetProtectionContainerMappingsAsync">
@@ -78,7 +153,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.ProtectionContainerMappingResource&gt;</ReturnType>
@@ -92,13 +167,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists the protection container mappings in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionContainerMappings</description></item><item><term>Operation Id</term><description>ReplicationProtectionContainerMappings_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ProtectionContainerMappingResource" /></description></item></list></summary>
-        <returns> An async collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ProtectionContainerMappingResource" /> that may take multiple service requests to iterate over. </returns>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionContainerMappings. </description></item><item><term> Operation Id. </term><description> ReplicationProtectionContainerMappingsOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
+        <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ProtectionContainerMappingResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetReplicationAppliances">
@@ -110,7 +185,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryReplicationAppliance&gt;</ReturnType>
@@ -126,13 +201,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the list of Azure Site Recovery appliances for the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationAppliances</description></item><item><term>Operation Id</term><description>ReplicationAppliances_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationAppliances. </description></item><item><term> Operation Id. </term><description> ReplicationAppliancesOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryReplicationAppliance" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetReplicationAppliancesAsync">
@@ -144,7 +219,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryReplicationAppliance&gt;</ReturnType>
@@ -160,13 +235,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the list of Azure Site Recovery appliances for the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationAppliances</description></item><item><term>Operation Id</term><description>ReplicationAppliances_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item></list></summary>
-        <returns> An async collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryReplicationAppliance" /> that may take multiple service requests to iterate over. </returns>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationAppliances. </description></item><item><term> Operation Id. </term><description> ReplicationAppliancesOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
+        <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoveryReplicationAppliance" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetReplicationEligibilityResult">
@@ -178,8 +253,18 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName Language="C#">[System.Obsolete("This method is deprecated and will be removed in a future version. ReplicationEligibilityResult is now modeled as a singleton scoped to a virtual machine; use ArmClient.GetReplicationEligibilityResult(ResourceIdentifier) instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Obsolete("This method is deprecated and will be removed in a future version. ReplicationEligibilityResult is now modeled as a singleton scoped to a virtual machine; use ArmClient.GetReplicationEligibilityResult(ResourceIdentifier) instead.")&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationEligibilityResultResource&gt;</ReturnType>
       </ReturnValue>
@@ -191,8 +276,11 @@
         <param name="virtualMachineName"> Virtual Machine name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
-            Validates whether a given VM can be protected or not in which case returns list of errors.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/providers/Microsoft.RecoveryServices/replicationEligibilityResults/default</description></item><item><term>Operation Id</term><description>ReplicationEligibilityResults_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationEligibilityResultResource" /></description></item></list></summary>
+            Gets a <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationEligibilityResultResource" /> for the specified virtual machine.
+            Preserved only for backward compatibility; the resource is now modeled as a singleton scoped
+            to a virtual machine. Use <c>ArmClient.GetReplicationEligibilityResult(ResourceIdentifier)</c>
+            passing the virtual machine identifier instead.
+            </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -210,8 +298,18 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName Language="C#">[System.Obsolete("This method is deprecated and will be removed in a future version. ReplicationEligibilityResult is now modeled as a singleton scoped to a virtual machine; use ArmClient.GetReplicationEligibilityResult(ResourceIdentifier) instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Obsolete("This method is deprecated and will be removed in a future version. ReplicationEligibilityResult is now modeled as a singleton scoped to a virtual machine; use ArmClient.GetReplicationEligibilityResult(ResourceIdentifier) instead.")&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationEligibilityResultResource&gt;&gt;</ReturnType>
       </ReturnValue>
@@ -223,8 +321,11 @@
         <param name="virtualMachineName"> Virtual Machine name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
-            Validates whether a given VM can be protected or not in which case returns list of errors.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/providers/Microsoft.RecoveryServices/replicationEligibilityResults/default</description></item><item><term>Operation Id</term><description>ReplicationEligibilityResults_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationEligibilityResultResource" /></description></item></list></summary>
+            Gets a <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationEligibilityResultResource" /> for the specified virtual machine.
+            Preserved only for backward compatibility; the resource is now modeled as a singleton scoped
+            to a virtual machine. Use <c>ArmClient.GetReplicationEligibilityResult(ResourceIdentifier)</c>
+            passing the virtual machine identifier instead.
+            </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -242,8 +343,18 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName Language="C#">[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)&gt;]</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName Language="C#">[System.Obsolete("This method is deprecated and will be removed in a future version. ReplicationEligibilityResult is now modeled as a singleton scoped to a virtual machine; use ArmClient.GetReplicationEligibilityResult(ResourceIdentifier) instead.")]</AttributeName>
+          <AttributeName Language="F#">[&lt;System.Obsolete("This method is deprecated and will be removed in a future version. ReplicationEligibilityResult is now modeled as a singleton scoped to a virtual machine; use ArmClient.GetReplicationEligibilityResult(ResourceIdentifier) instead.")&gt;]</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationEligibilityResultCollection</ReturnType>
       </ReturnValue>
@@ -252,7 +363,12 @@
       </Parameters>
       <Docs>
         <param name="virtualMachineName"> Virtual Machine name. </param>
-        <summary> Gets a collection of ReplicationEligibilityResultResources in the ResourceGroupResource. </summary>
+        <summary>
+            Gets a collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationEligibilityResultResource" /> for the specified virtual machine.
+            Preserved only for backward compatibility; the resource is now modeled as a singleton scoped
+            to a virtual machine. Use <c>ArmClient.GetReplicationEligibilityResult(ResourceIdentifier)</c>
+            passing the virtual machine identifier instead.
+            </summary>
         <returns> An object representing collection of ReplicationEligibilityResultResources and their operations over a ReplicationEligibilityResultResource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -270,7 +386,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationProtectedItemResource&gt;</ReturnType>
@@ -288,13 +404,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the list of ASR replication protected items in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectedItems</description></item><item><term>Operation Id</term><description>ReplicationProtectedItems_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationProtectedItemResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectedItems. </description></item><item><term> Operation Id. </term><description> ReplicationProtectedItemsOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationProtectedItemResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetReplicationProtectedItemsAsync">
@@ -306,7 +422,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationProtectedItemResource&gt;</ReturnType>
@@ -324,13 +440,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the list of ASR replication protected items in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectedItems</description></item><item><term>Operation Id</term><description>ReplicationProtectedItems_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationProtectedItemResource" /></description></item></list></summary>
-        <returns> An async collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationProtectedItemResource" /> that may take multiple service requests to iterate over. </returns>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectedItems. </description></item><item><term> Operation Id. </term><description> ReplicationProtectedItemsOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
+        <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationProtectedItemResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetReplicationProtectionIntent">
@@ -342,7 +458,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationProtectionIntentResource&gt;</ReturnType>
@@ -353,18 +469,18 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="resourceName"> The resourceName for the resource. </param>
         <param name="intentObjectName"> Replication protection intent name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the details of an ASR replication protection intent.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionIntents/{intentObjectName}</description></item><item><term>Operation Id</term><description>ReplicationProtectionIntents_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationProtectionIntentResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionIntents/{intentObjectName}. </description></item><item><term> Operation Id. </term><description> ReplicationProtectionIntents_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="resourceName" /> or <paramref name="intentObjectName" /> is null. </exception>
+          <paramref name="intentObjectName" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> or <paramref name="intentObjectName" /> is an empty string, and was expected to be non-empty. </exception>
+          <paramref name="intentObjectName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetReplicationProtectionIntentAsync">
@@ -376,7 +492,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationProtectionIntentResource&gt;&gt;</ReturnType>
@@ -387,18 +503,18 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="resourceName"> The resourceName for the resource. </param>
         <param name="intentObjectName"> Replication protection intent name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the details of an ASR replication protection intent.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionIntents/{intentObjectName}</description></item><item><term>Operation Id</term><description>ReplicationProtectionIntents_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationProtectionIntentResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionIntents/{intentObjectName}. </description></item><item><term> Operation Id. </term><description> ReplicationProtectionIntents_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="resourceName" /> or <paramref name="intentObjectName" /> is null. </exception>
+          <paramref name="intentObjectName" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> or <paramref name="intentObjectName" /> is an empty string, and was expected to be non-empty. </exception>
+          <paramref name="intentObjectName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetReplicationProtectionIntents">
@@ -410,7 +526,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesSiteRecovery.ReplicationProtectionIntentCollection</ReturnType>
@@ -419,9 +535,9 @@
         <Parameter Name="resourceName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
-        <summary> Gets a collection of ReplicationProtectionIntentResources in the ResourceGroupResource. </summary>
-        <returns> An object representing collection of ReplicationProtectionIntentResources and their operations over a ReplicationProtectionIntentResource. </returns>
+        <param name="resourceName"> The resourceName for the resource. </param>
+        <summary> Gets a collection of ReplicationProtectionIntents in the <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" />. </summary>
+        <returns> An object representing collection of ReplicationProtectionIntents and their operations over a ReplicationProtectionIntentResource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
@@ -438,7 +554,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.VaultHealthDetails&gt;</ReturnType>
@@ -452,13 +568,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the health details of the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationVaultHealth</description></item><item><term>Operation Id</term><description>ReplicationVaultHealth_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationVaultHealth. </description></item><item><term> Operation Id. </term><description> ReplicationVaultHealthOperationGroup_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetReplicationVaultHealthAsync">
@@ -470,7 +586,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.VaultHealthDetails&gt;&gt;</ReturnType>
@@ -484,13 +600,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the health details of the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationVaultHealth</description></item><item><term>Operation Id</term><description>ReplicationVaultHealth_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationVaultHealth. </description></item><item><term> Operation Id. </term><description> ReplicationVaultHealthOperationGroup_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryAlert">
@@ -502,7 +618,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryAlertResource&gt;</ReturnType>
@@ -513,18 +629,18 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="resourceName"> The resourceName for the resource. </param>
         <param name="alertSettingName"> The name of the email notification configuration. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the details of the specified email notification(alert) configuration.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationAlertSettings/{alertSettingName}</description></item><item><term>Operation Id</term><description>ReplicationAlertSettings_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryAlertResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationAlertSettings/{alertSettingName}. </description></item><item><term> Operation Id. </term><description> Alerts_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="resourceName" /> or <paramref name="alertSettingName" /> is null. </exception>
+          <paramref name="alertSettingName" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> or <paramref name="alertSettingName" /> is an empty string, and was expected to be non-empty. </exception>
+          <paramref name="alertSettingName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryAlertAsync">
@@ -536,7 +652,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryAlertResource&gt;&gt;</ReturnType>
@@ -547,18 +663,18 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="resourceName"> The resourceName for the resource. </param>
         <param name="alertSettingName"> The name of the email notification configuration. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the details of the specified email notification(alert) configuration.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationAlertSettings/{alertSettingName}</description></item><item><term>Operation Id</term><description>ReplicationAlertSettings_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryAlertResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationAlertSettings/{alertSettingName}. </description></item><item><term> Operation Id. </term><description> Alerts_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="resourceName" /> or <paramref name="alertSettingName" /> is null. </exception>
+          <paramref name="alertSettingName" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> or <paramref name="alertSettingName" /> is an empty string, and was expected to be non-empty. </exception>
+          <paramref name="alertSettingName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryAlerts">
@@ -570,7 +686,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryAlertCollection</ReturnType>
@@ -579,9 +695,9 @@
         <Parameter Name="resourceName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
-        <summary> Gets a collection of SiteRecoveryAlertResources in the ResourceGroupResource. </summary>
-        <returns> An object representing collection of SiteRecoveryAlertResources and their operations over a SiteRecoveryAlertResource. </returns>
+        <param name="resourceName"> The resourceName for the resource. </param>
+        <summary> Gets a collection of SiteRecoveryAlerts in the <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" />. </summary>
+        <returns> An object representing collection of SiteRecoveryAlerts and their operations over a SiteRecoveryAlertResource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
@@ -598,7 +714,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryEventResource&gt;</ReturnType>
@@ -609,18 +725,18 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="resourceName"> The resourceName for the resource. </param>
         <param name="eventName"> The name of the Azure Site Recovery event. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             The operation to get the details of an Azure Site recovery event.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationEvents/{eventName}</description></item><item><term>Operation Id</term><description>ReplicationEvents_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryEventResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationEvents/{eventName}. </description></item><item><term> Operation Id. </term><description> Events_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="resourceName" /> or <paramref name="eventName" /> is null. </exception>
+          <paramref name="eventName" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> or <paramref name="eventName" /> is an empty string, and was expected to be non-empty. </exception>
+          <paramref name="eventName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryEventAsync">
@@ -632,7 +748,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryEventResource&gt;&gt;</ReturnType>
@@ -643,18 +759,18 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="resourceName"> The resourceName for the resource. </param>
         <param name="eventName"> The name of the Azure Site Recovery event. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             The operation to get the details of an Azure Site recovery event.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationEvents/{eventName}</description></item><item><term>Operation Id</term><description>ReplicationEvents_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryEventResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationEvents/{eventName}. </description></item><item><term> Operation Id. </term><description> Events_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="resourceName" /> or <paramref name="eventName" /> is null. </exception>
+          <paramref name="eventName" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> or <paramref name="eventName" /> is an empty string, and was expected to be non-empty. </exception>
+          <paramref name="eventName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryEvents">
@@ -666,7 +782,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryEventCollection</ReturnType>
@@ -675,9 +791,9 @@
         <Parameter Name="resourceName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
-        <summary> Gets a collection of SiteRecoveryEventResources in the ResourceGroupResource. </summary>
-        <returns> An object representing collection of SiteRecoveryEventResources and their operations over a SiteRecoveryEventResource. </returns>
+        <param name="resourceName"> The resourceName for the resource. </param>
+        <summary> Gets a collection of SiteRecoveryEvents in the <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" />. </summary>
+        <returns> An object representing collection of SiteRecoveryEvents and their operations over a SiteRecoveryEventResource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
@@ -694,7 +810,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryFabricResource&gt;</ReturnType>
@@ -706,19 +822,19 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="resourceName"> The resourceName for the resource. </param>
         <param name="fabricName"> Fabric name. </param>
         <param name="filter"> OData filter options. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the details of an Azure Site Recovery fabric.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}</description></item><item><term>Operation Id</term><description>ReplicationFabrics_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryFabricResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}. </description></item><item><term> Operation Id. </term><description> Fabrics_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="resourceName" /> or <paramref name="fabricName" /> is null. </exception>
+          <paramref name="fabricName" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> or <paramref name="fabricName" /> is an empty string, and was expected to be non-empty. </exception>
+          <paramref name="fabricName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryFabricAsync">
@@ -730,7 +846,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryFabricResource&gt;&gt;</ReturnType>
@@ -742,19 +858,19 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="resourceName"> The resourceName for the resource. </param>
         <param name="fabricName"> Fabric name. </param>
         <param name="filter"> OData filter options. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the details of an Azure Site Recovery fabric.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}</description></item><item><term>Operation Id</term><description>ReplicationFabrics_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryFabricResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}. </description></item><item><term> Operation Id. </term><description> Fabrics_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="resourceName" /> or <paramref name="fabricName" /> is null. </exception>
+          <paramref name="fabricName" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> or <paramref name="fabricName" /> is an empty string, and was expected to be non-empty. </exception>
+          <paramref name="fabricName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryFabrics">
@@ -766,7 +882,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryFabricCollection</ReturnType>
@@ -775,9 +891,9 @@
         <Parameter Name="resourceName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
-        <summary> Gets a collection of SiteRecoveryFabricResources in the ResourceGroupResource. </summary>
-        <returns> An object representing collection of SiteRecoveryFabricResources and their operations over a SiteRecoveryFabricResource. </returns>
+        <param name="resourceName"> The resourceName for the resource. </param>
+        <summary> Gets a collection of SiteRecoveryFabrics in the <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" />. </summary>
+        <returns> An object representing collection of SiteRecoveryFabrics and their operations over a SiteRecoveryFabricResource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
@@ -794,7 +910,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryJobResource&gt;</ReturnType>
@@ -805,18 +921,18 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="resourceName"> The resourceName for the resource. </param>
         <param name="jobName"> Job identifier. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Get the details of an Azure Site Recovery job.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationJobs/{jobName}</description></item><item><term>Operation Id</term><description>ReplicationJobs_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryJobResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationJobs/{jobName}. </description></item><item><term> Operation Id. </term><description> Jobs_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="resourceName" /> or <paramref name="jobName" /> is null. </exception>
+          <paramref name="jobName" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> or <paramref name="jobName" /> is an empty string, and was expected to be non-empty. </exception>
+          <paramref name="jobName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryJobAsync">
@@ -828,7 +944,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryJobResource&gt;&gt;</ReturnType>
@@ -839,18 +955,18 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="resourceName"> The resourceName for the resource. </param>
         <param name="jobName"> Job identifier. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Get the details of an Azure Site Recovery job.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationJobs/{jobName}</description></item><item><term>Operation Id</term><description>ReplicationJobs_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryJobResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationJobs/{jobName}. </description></item><item><term> Operation Id. </term><description> Jobs_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="resourceName" /> or <paramref name="jobName" /> is null. </exception>
+          <paramref name="jobName" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> or <paramref name="jobName" /> is an empty string, and was expected to be non-empty. </exception>
+          <paramref name="jobName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryJobs">
@@ -862,7 +978,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryJobCollection</ReturnType>
@@ -871,9 +987,9 @@
         <Parameter Name="resourceName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
-        <summary> Gets a collection of SiteRecoveryJobResources in the ResourceGroupResource. </summary>
-        <returns> An object representing collection of SiteRecoveryJobResources and their operations over a SiteRecoveryJobResource. </returns>
+        <param name="resourceName"> The resourceName for the resource. </param>
+        <summary> Gets a collection of SiteRecoveryJobs in the <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" />. </summary>
+        <returns> An object representing collection of SiteRecoveryJobs and their operations over a SiteRecoveryJobResource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
@@ -890,7 +1006,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryMigrationItemResource&gt;</ReturnType>
@@ -910,13 +1026,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the list of migration items in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationMigrationItems</description></item><item><term>Operation Id</term><description>ReplicationMigrationItems_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryMigrationItemResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationMigrationItems. </description></item><item><term> Operation Id. </term><description> ReplicationMigrationItemsOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryMigrationItemResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryMigrationItemsAsync">
@@ -928,7 +1044,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryMigrationItemResource&gt;</ReturnType>
@@ -948,13 +1064,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the list of migration items in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationMigrationItems</description></item><item><term>Operation Id</term><description>ReplicationMigrationItems_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryMigrationItemResource" /></description></item></list></summary>
-        <returns> An async collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryMigrationItemResource" /> that may take multiple service requests to iterate over. </returns>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationMigrationItems. </description></item><item><term> Operation Id. </term><description> ReplicationMigrationItemsOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
+        <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryMigrationItemResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryNetworkMappings">
@@ -966,7 +1082,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryNetworkMappingResource&gt;</ReturnType>
@@ -980,13 +1096,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists all ASR network mappings in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationNetworkMappings</description></item><item><term>Operation Id</term><description>ReplicationNetworkMappings_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryNetworkMappingResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationNetworkMappings. </description></item><item><term> Operation Id. </term><description> ReplicationNetworkMappingsOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryNetworkMappingResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryNetworkMappingsAsync">
@@ -998,7 +1114,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryNetworkMappingResource&gt;</ReturnType>
@@ -1012,13 +1128,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists all ASR network mappings in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationNetworkMappings</description></item><item><term>Operation Id</term><description>ReplicationNetworkMappings_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryNetworkMappingResource" /></description></item></list></summary>
-        <returns> An async collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryNetworkMappingResource" /> that may take multiple service requests to iterate over. </returns>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationNetworkMappings. </description></item><item><term> Operation Id. </term><description> ReplicationNetworkMappingsOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
+        <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryNetworkMappingResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryNetworks">
@@ -1030,7 +1146,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryNetworkResource&gt;</ReturnType>
@@ -1044,13 +1160,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists the networks available in a vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationNetworks</description></item><item><term>Operation Id</term><description>ReplicationNetworks_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryNetworkResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationNetworks. </description></item><item><term> Operation Id. </term><description> ReplicationNetworksOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryNetworkResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryNetworksAsync">
@@ -1062,7 +1178,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryNetworkResource&gt;</ReturnType>
@@ -1076,13 +1192,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists the networks available in a vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationNetworks</description></item><item><term>Operation Id</term><description>ReplicationNetworks_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryNetworkResource" /></description></item></list></summary>
-        <returns> An async collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryNetworkResource" /> that may take multiple service requests to iterate over. </returns>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationNetworks. </description></item><item><term> Operation Id. </term><description> ReplicationNetworksOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
+        <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryNetworkResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryPolicies">
@@ -1094,7 +1210,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryPolicyCollection</ReturnType>
@@ -1103,9 +1219,9 @@
         <Parameter Name="resourceName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
-        <summary> Gets a collection of SiteRecoveryPolicyResources in the ResourceGroupResource. </summary>
-        <returns> An object representing collection of SiteRecoveryPolicyResources and their operations over a SiteRecoveryPolicyResource. </returns>
+        <param name="resourceName"> The resourceName for the resource. </param>
+        <summary> Gets a collection of SiteRecoveryPolicies in the <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" />. </summary>
+        <returns> An object representing collection of SiteRecoveryPolicies and their operations over a SiteRecoveryPolicyResource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
@@ -1122,7 +1238,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryPolicyResource&gt;</ReturnType>
@@ -1133,18 +1249,18 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="resourceName"> The resourceName for the resource. </param>
         <param name="policyName"> Replication policy name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the details of a replication policy.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationPolicies/{policyName}</description></item><item><term>Operation Id</term><description>ReplicationPolicies_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryPolicyResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationPolicies/{policyName}. </description></item><item><term> Operation Id. </term><description> Policies_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="resourceName" /> or <paramref name="policyName" /> is null. </exception>
+          <paramref name="policyName" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> or <paramref name="policyName" /> is an empty string, and was expected to be non-empty. </exception>
+          <paramref name="policyName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryPolicyAsync">
@@ -1156,7 +1272,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryPolicyResource&gt;&gt;</ReturnType>
@@ -1167,18 +1283,18 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="resourceName"> The resourceName for the resource. </param>
         <param name="policyName"> Replication policy name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the details of a replication policy.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationPolicies/{policyName}</description></item><item><term>Operation Id</term><description>ReplicationPolicies_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryPolicyResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationPolicies/{policyName}. </description></item><item><term> Operation Id. </term><description> Policies_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="resourceName" /> or <paramref name="policyName" /> is null. </exception>
+          <paramref name="policyName" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> or <paramref name="policyName" /> is an empty string, and was expected to be non-empty. </exception>
+          <paramref name="policyName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryProtectionContainers">
@@ -1190,7 +1306,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryProtectionContainerResource&gt;</ReturnType>
@@ -1204,13 +1320,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists the protection containers in a vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionContainers</description></item><item><term>Operation Id</term><description>ReplicationProtectionContainers_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryProtectionContainerResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionContainers. </description></item><item><term> Operation Id. </term><description> ReplicationProtectionContainersOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryProtectionContainerResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryProtectionContainersAsync">
@@ -1222,7 +1338,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryProtectionContainerResource&gt;</ReturnType>
@@ -1236,13 +1352,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists the protection containers in a vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionContainers</description></item><item><term>Operation Id</term><description>ReplicationProtectionContainers_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryProtectionContainerResource" /></description></item></list></summary>
-        <returns> An async collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryProtectionContainerResource" /> that may take multiple service requests to iterate over. </returns>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionContainers. </description></item><item><term> Operation Id. </term><description> ReplicationProtectionContainersOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
+        <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryProtectionContainerResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryRecoveryPlan">
@@ -1254,7 +1370,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryRecoveryPlanResource&gt;</ReturnType>
@@ -1265,18 +1381,18 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="resourceName"> The resourceName for the resource. </param>
         <param name="recoveryPlanName"> Name of the recovery plan. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the details of the recovery plan.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationRecoveryPlans/{recoveryPlanName}</description></item><item><term>Operation Id</term><description>ReplicationRecoveryPlans_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryRecoveryPlanResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationRecoveryPlans/{recoveryPlanName}. </description></item><item><term> Operation Id. </term><description> RecoveryPlans_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="resourceName" /> or <paramref name="recoveryPlanName" /> is null. </exception>
+          <paramref name="recoveryPlanName" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> or <paramref name="recoveryPlanName" /> is an empty string, and was expected to be non-empty. </exception>
+          <paramref name="recoveryPlanName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryRecoveryPlanAsync">
@@ -1288,7 +1404,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryRecoveryPlanResource&gt;&gt;</ReturnType>
@@ -1299,18 +1415,18 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="resourceName"> The resourceName for the resource. </param>
         <param name="recoveryPlanName"> Name of the recovery plan. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the details of the recovery plan.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationRecoveryPlans/{recoveryPlanName}</description></item><item><term>Operation Id</term><description>ReplicationRecoveryPlans_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryRecoveryPlanResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationRecoveryPlans/{recoveryPlanName}. </description></item><item><term> Operation Id. </term><description> RecoveryPlans_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="resourceName" /> or <paramref name="recoveryPlanName" /> is null. </exception>
+          <paramref name="recoveryPlanName" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> or <paramref name="recoveryPlanName" /> is an empty string, and was expected to be non-empty. </exception>
+          <paramref name="recoveryPlanName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryRecoveryPlans">
@@ -1322,7 +1438,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryRecoveryPlanCollection</ReturnType>
@@ -1331,9 +1447,9 @@
         <Parameter Name="resourceName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
-        <summary> Gets a collection of SiteRecoveryRecoveryPlanResources in the ResourceGroupResource. </summary>
-        <returns> An object representing collection of SiteRecoveryRecoveryPlanResources and their operations over a SiteRecoveryRecoveryPlanResource. </returns>
+        <param name="resourceName"> The resourceName for the resource. </param>
+        <summary> Gets a collection of SiteRecoveryRecoveryPlans in the <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" />. </summary>
+        <returns> An object representing collection of SiteRecoveryRecoveryPlans and their operations over a SiteRecoveryRecoveryPlanResource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
@@ -1350,7 +1466,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryReplicationProtectionClusterResource&gt;</ReturnType>
@@ -1368,13 +1484,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the list of ASR replication protected clusters in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionClusters</description></item><item><term>Operation Id</term><description>ReplicationProtectionClusters_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryReplicationProtectionClusterResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionClusters. </description></item><item><term> Operation Id. </term><description> ReplicationProtectionClustersOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryReplicationProtectionClusterResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryReplicationProtectionClusterResourcesAsync">
@@ -1386,7 +1502,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryReplicationProtectionClusterResource&gt;</ReturnType>
@@ -1404,13 +1520,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the list of ASR replication protected clusters in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionClusters</description></item><item><term>Operation Id</term><description>ReplicationProtectionClusters_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryReplicationProtectionClusterResource" /></description></item></list></summary>
-        <returns> An async collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryReplicationProtectionClusterResource" /> that may take multiple service requests to iterate over. </returns>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionClusters. </description></item><item><term> Operation Id. </term><description> ReplicationProtectionClustersOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
+        <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryReplicationProtectionClusterResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryServicesProviders">
@@ -1422,7 +1538,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryServicesProviderResource&gt;</ReturnType>
@@ -1436,13 +1552,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists the registered recovery services providers in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationRecoveryServicesProviders</description></item><item><term>Operation Id</term><description>ReplicationRecoveryServicesProviders_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryServicesProviderResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationRecoveryServicesProviders. </description></item><item><term> Operation Id. </term><description> ReplicationRecoveryServicesProvidersOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryServicesProviderResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryServicesProvidersAsync">
@@ -1454,7 +1570,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryServicesProviderResource&gt;</ReturnType>
@@ -1468,13 +1584,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists the registered recovery services providers in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationRecoveryServicesProviders</description></item><item><term>Operation Id</term><description>ReplicationRecoveryServicesProviders_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryServicesProviderResource" /></description></item></list></summary>
-        <returns> An async collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryServicesProviderResource" /> that may take multiple service requests to iterate over. </returns>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationRecoveryServicesProviders. </description></item><item><term> Operation Id. </term><description> ReplicationRecoveryServicesProvidersOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
+        <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryServicesProviderResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryVaultSetting">
@@ -1486,7 +1602,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryVaultSettingResource&gt;</ReturnType>
@@ -1497,18 +1613,18 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="resourceName"> The resourceName for the resource. </param>
         <param name="vaultSettingName"> Vault setting name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the vault setting. This includes the Migration Hub connection settings.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationVaultSettings/{vaultSettingName}</description></item><item><term>Operation Id</term><description>ReplicationVaultSetting_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryVaultSettingResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationVaultSettings/{vaultSettingName}. </description></item><item><term> Operation Id. </term><description> VaultSettings_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="resourceName" /> or <paramref name="vaultSettingName" /> is null. </exception>
+          <paramref name="vaultSettingName" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> or <paramref name="vaultSettingName" /> is an empty string, and was expected to be non-empty. </exception>
+          <paramref name="vaultSettingName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryVaultSettingAsync">
@@ -1520,7 +1636,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryVaultSettingResource&gt;&gt;</ReturnType>
@@ -1531,18 +1647,18 @@
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
+        <param name="resourceName"> The resourceName for the resource. </param>
         <param name="vaultSettingName"> Vault setting name. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the vault setting. This includes the Migration Hub connection settings.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationVaultSettings/{vaultSettingName}</description></item><item><term>Operation Id</term><description>ReplicationVaultSetting_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryVaultSettingResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationVaultSettings/{vaultSettingName}. </description></item><item><term> Operation Id. </term><description> VaultSettings_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="resourceName" /> or <paramref name="vaultSettingName" /> is null. </exception>
+          <paramref name="vaultSettingName" /> is null. </exception>
         <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> or <paramref name="vaultSettingName" /> is an empty string, and was expected to be non-empty. </exception>
+          <paramref name="vaultSettingName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryVaultSettings">
@@ -1554,7 +1670,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryVaultSettingCollection</ReturnType>
@@ -1563,9 +1679,9 @@
         <Parameter Name="resourceName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="resourceName"> The name of the recovery services vault. </param>
-        <summary> Gets a collection of SiteRecoveryVaultSettingResources in the ResourceGroupResource. </summary>
-        <returns> An object representing collection of SiteRecoveryVaultSettingResources and their operations over a SiteRecoveryVaultSettingResource. </returns>
+        <param name="resourceName"> The resourceName for the resource. </param>
+        <summary> Gets a collection of SiteRecoveryVaultSettings in the <see cref="T:Azure.ResourceManager.Resources.ResourceGroupResource" />. </summary>
+        <returns> An object representing collection of SiteRecoveryVaultSettings and their operations over a SiteRecoveryVaultSettingResource. </returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
@@ -1582,7 +1698,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryVCenterResource&gt;</ReturnType>
@@ -1596,13 +1712,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists the vCenter servers registered in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationvCenters</description></item><item><term>Operation Id</term><description>ReplicationvCenters_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryVCenterResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationvCenters. </description></item><item><term> Operation Id. </term><description> ReplicationvCentersOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryVCenterResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSiteRecoveryVCentersAsync">
@@ -1614,7 +1730,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryVCenterResource&gt;</ReturnType>
@@ -1628,13 +1744,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists the vCenter servers registered in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationvCenters</description></item><item><term>Operation Id</term><description>ReplicationvCenters_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryVCenterResource" /></description></item></list></summary>
-        <returns> An async collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryVCenterResource" /> that may take multiple service requests to iterate over. </returns>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationvCenters. </description></item><item><term> Operation Id. </term><description> ReplicationvCentersOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
+        <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.SiteRecoveryVCenterResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetStorageClassificationMappings">
@@ -1646,7 +1762,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.StorageClassificationMappingResource&gt;</ReturnType>
@@ -1660,13 +1776,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists the storage classification mappings in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationStorageClassificationMappings</description></item><item><term>Operation Id</term><description>ReplicationStorageClassificationMappings_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.StorageClassificationMappingResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationStorageClassificationMappings. </description></item><item><term> Operation Id. </term><description> ReplicationStorageClassificationMappingsOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.StorageClassificationMappingResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetStorageClassificationMappingsAsync">
@@ -1678,7 +1794,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.StorageClassificationMappingResource&gt;</ReturnType>
@@ -1692,13 +1808,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists the storage classification mappings in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationStorageClassificationMappings</description></item><item><term>Operation Id</term><description>ReplicationStorageClassificationMappings_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.StorageClassificationMappingResource" /></description></item></list></summary>
-        <returns> An async collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.StorageClassificationMappingResource" /> that may take multiple service requests to iterate over. </returns>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationStorageClassificationMappings. </description></item><item><term> Operation Id. </term><description> ReplicationStorageClassificationMappingsOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
+        <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.StorageClassificationMappingResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetStorageClassifications">
@@ -1710,7 +1826,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Pageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.StorageClassificationResource&gt;</ReturnType>
@@ -1724,13 +1840,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists the storage classifications in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationStorageClassifications</description></item><item><term>Operation Id</term><description>ReplicationStorageClassifications_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.StorageClassificationResource" /></description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationStorageClassifications. </description></item><item><term> Operation Id. </term><description> ReplicationStorageClassificationsOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.StorageClassificationResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetStorageClassificationsAsync">
@@ -1742,7 +1858,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.AsyncPageable&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.StorageClassificationResource&gt;</ReturnType>
@@ -1756,13 +1872,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Lists the storage classifications in the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationStorageClassifications</description></item><item><term>Operation Id</term><description>ReplicationStorageClassifications_List</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item><item><term>Resource</term><description><see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.StorageClassificationResource" /></description></item></list></summary>
-        <returns> An async collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.StorageClassificationResource" /> that may take multiple service requests to iterate over. </returns>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationStorageClassifications. </description></item><item><term> Operation Id. </term><description> ReplicationStorageClassificationsOperationGroup_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
+        <returns> A collection of <see cref="T:Azure.ResourceManager.RecoveryServicesSiteRecovery.StorageClassificationResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSupportedOperatingSystem">
@@ -1774,7 +1890,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoverySupportedOperatingSystems&gt;</ReturnType>
@@ -1790,13 +1906,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the data of supported operating systems by SRS.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationSupportedOperatingSystems</description></item><item><term>Operation Id</term><description>SupportedOperatingSystems_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationSupportedOperatingSystems. </description></item><item><term> Operation Id. </term><description> SupportedOperatingSystemsOperationGroup_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="GetSupportedOperatingSystemAsync">
@@ -1808,7 +1924,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.Response&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.SiteRecoverySupportedOperatingSystems&gt;&gt;</ReturnType>
@@ -1824,13 +1940,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Gets the data of supported operating systems by SRS.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationSupportedOperatingSystems</description></item><item><term>Operation Id</term><description>SupportedOperatingSystems_Get</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationSupportedOperatingSystems. </description></item><item><term> Operation Id. </term><description> SupportedOperatingSystemsOperationGroup_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="RefreshReplicationVaultHealth">
@@ -1842,7 +1958,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.VaultHealthDetails&gt;</ReturnType>
@@ -1859,13 +1975,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Refreshes health summary of the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationVaultHealth/default/refresh</description></item><item><term>Operation Id</term><description>ReplicationVaultHealth_Refresh</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationVaultHealth/default/refresh. </description></item><item><term> Operation Id. </term><description> ReplicationVaultHealthOperationGroup_Refresh. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
     <Member MemberName="RefreshReplicationVaultHealthAsync">
@@ -1877,7 +1993,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.RecoveryServicesSiteRecovery</AssemblyName>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.RecoveryServicesSiteRecovery.Models.VaultHealthDetails&gt;&gt;</ReturnType>
@@ -1894,13 +2010,13 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Refreshes health summary of the vault.
-            <list type="bullet"><item><term>Request Path</term><description>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationVaultHealth/default/refresh</description></item><item><term>Operation Id</term><description>ReplicationVaultHealth_Refresh</description></item><item><term>Default Api Version</term><description>2025-01-01</description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationVaultHealth/default/refresh. </description></item><item><term> Operation Id. </term><description> ReplicationVaultHealthOperationGroup_Refresh. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">
-          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="resourceName" /> is null. </exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="resourceName" /> is an empty string, and was expected to be non-empty. </exception>
       </Docs>
     </Member>
   </Members>
