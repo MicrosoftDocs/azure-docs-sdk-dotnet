@@ -1,0 +1,4 @@
+| Reference | Package | Source |
+|---|---|---|
+|[Provisioning - Kubernetes Configuration - Extension Types](provisioning.kubernetesconfiguration.extensiontypes-readme.md)|[Azure.Provisioning.KubernetesConfiguration.ExtensionTypes](https://www.nuget.org/packages/Azure.Provisioning.KubernetesConfiguration.ExtensionTypes)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/kubernetesconfiguration/Azure.Provisioning.KubernetesConfiguration.ExtensionTypes)|
+|[Resource Management - Kubernetes Configuration - Extension Types](resourcemanager.kubernetesconfiguration.extensiontypes-readme.md)|[Azure.ResourceManager.KubernetesConfiguration.ExtensionTypes](https://www.nuget.org/packages/Azure.ResourceManager.KubernetesConfiguration.ExtensionTypes)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/kubernetesconfiguration/Azure.ResourceManager.KubernetesConfiguration.ExtensionTypes)|

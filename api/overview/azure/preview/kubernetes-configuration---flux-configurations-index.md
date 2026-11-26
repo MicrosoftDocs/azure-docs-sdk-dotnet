@@ -1,0 +1,4 @@
+| Reference | Package | Source |
+|---|---|---|
+|[Provisioning - Kubernetes Configuration - Flux Configurations](provisioning.kubernetesconfiguration.fluxconfigurations-readme.md)|[Azure.Provisioning.KubernetesConfiguration.FluxConfigurations](https://www.nuget.org/packages/Azure.Provisioning.KubernetesConfiguration.FluxConfigurations)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/kubernetesconfiguration/Azure.Provisioning.KubernetesConfiguration.FluxConfigurations)|
+|[Resource Management - Kubernetes Configuration - Flux Configurations](resourcemanager.kubernetesconfiguration.fluxconfigurations-readme.md)|[Azure.ResourceManager.KubernetesConfiguration.FluxConfigurations](https://www.nuget.org/packages/Azure.ResourceManager.KubernetesConfiguration.FluxConfigurations)|[GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/kubernetesconfiguration/Azure.ResourceManager.KubernetesConfiguration.FluxConfigurations)|
