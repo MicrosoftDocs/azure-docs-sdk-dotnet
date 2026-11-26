@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: dotnet
 ms.service: containerservice
 ---
-# Azure Provisioning ContainerService client library for .NET - version 1.1.0-alpha.20261125.1 
+# Azure Provisioning ContainerService client library for .NET - version 1.1.0-alpha.20261126.1 
 
 
 Azure.Provisioning.ContainerService simplifies declarative resource provisioning in .NET.
