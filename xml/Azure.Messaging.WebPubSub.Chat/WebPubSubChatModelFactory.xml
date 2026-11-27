@@ -17,12 +17,84 @@
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
+    <Member MemberName="ChatTopic">
+      <MemberSignature Language="C#" Value="public static Azure.Messaging.WebPubSub.Chat.ChatTopic ChatTopic (string id = default, string title = default, DateTimeOffset createdOn = default, string createdBy = default, Azure.Messaging.WebPubSub.Chat.ChatTopicState state = default, string conversationId = default, Azure.ETag etag = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Messaging.WebPubSub.Chat.ChatTopic ChatTopic(string id, string title, valuetype System.DateTimeOffset createdOn, string createdBy, valuetype Azure.Messaging.WebPubSub.Chat.ChatTopicState state, string conversationId, valuetype Azure.ETag etag) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Messaging.WebPubSub.Chat.WebPubSubChatModelFactory.ChatTopic(System.String,System.String,System.DateTimeOffset,System.String,Azure.Messaging.WebPubSub.Chat.ChatTopicState,System.String,Azure.ETag)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ChatTopic (Optional id As String = Nothing, Optional title As String = Nothing, Optional createdOn As DateTimeOffset = Nothing, Optional createdBy As String = Nothing, Optional state As ChatTopicState = Nothing, Optional conversationId As String = Nothing, Optional etag As ETag = Nothing) As ChatTopic" />
+      <MemberSignature Language="F#" Value="static member ChatTopic : string * string * DateTimeOffset * string * Azure.Messaging.WebPubSub.Chat.ChatTopicState * string * Azure.ETag -&gt; Azure.Messaging.WebPubSub.Chat.ChatTopic" Usage="Azure.Messaging.WebPubSub.Chat.WebPubSubChatModelFactory.ChatTopic (id, title, createdOn, createdBy, state, conversationId, etag)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Messaging.WebPubSub.Chat</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Messaging.WebPubSub.Chat.ChatTopic</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="System.String" />
+        <Parameter Name="title" Type="System.String" />
+        <Parameter Name="createdOn" Type="System.DateTimeOffset" />
+        <Parameter Name="createdBy" Type="System.String" />
+        <Parameter Name="state" Type="Azure.Messaging.WebPubSub.Chat.ChatTopicState" />
+        <Parameter Name="conversationId" Type="System.String" />
+        <Parameter Name="etag" Type="Azure.ETag" />
+      </Parameters>
+      <Docs>
+        <param name="id"> Topic identifier unique within the room. </param>
+        <param name="title"> Topic title. </param>
+        <param name="createdOn"> Timestamp when the topic was created. </param>
+        <param name="createdBy"> User who created the topic. </param>
+        <param name="state"> Current lifecycle state of the topic. </param>
+        <param name="conversationId"> Conversation associated with this topic. </param>
+        <param name="etag"> The entity tag for this resource. </param>
+        <summary> Represents a chat topic in a room. </summary>
+        <returns> A new <see cref="T:Azure.Messaging.WebPubSub.Chat.ChatTopic" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ChatUserRoom">
+      <MemberSignature Language="C#" Value="public static Azure.Messaging.WebPubSub.Chat.ChatUserRoom ChatUserRoom (string id = default, string title = default, string defaultConversation = default, Azure.ETag etag = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Messaging.WebPubSub.Chat.ChatUserRoom ChatUserRoom(string id, string title, string defaultConversation, valuetype Azure.ETag etag) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Messaging.WebPubSub.Chat.WebPubSubChatModelFactory.ChatUserRoom(System.String,System.String,System.String,Azure.ETag)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function ChatUserRoom (Optional id As String = Nothing, Optional title As String = Nothing, Optional defaultConversation As String = Nothing, Optional etag As ETag = Nothing) As ChatUserRoom" />
+      <MemberSignature Language="F#" Value="static member ChatUserRoom : string * string * string * Azure.ETag -&gt; Azure.Messaging.WebPubSub.Chat.ChatUserRoom" Usage="Azure.Messaging.WebPubSub.Chat.WebPubSubChatModelFactory.ChatUserRoom (id, title, defaultConversation, etag)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Messaging.WebPubSub.Chat</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Messaging.WebPubSub.Chat.ChatUserRoom</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="System.String" />
+        <Parameter Name="title" Type="System.String" />
+        <Parameter Name="defaultConversation" Type="System.String" />
+        <Parameter Name="etag" Type="Azure.ETag" />
+      </Parameters>
+      <Docs>
+        <param name="id"> Room identifier. </param>
+        <param name="title"> Room title. </param>
+        <param name="defaultConversation"> Default conversation ID for this room. </param>
+        <param name="etag"> The entity tag for this resource. </param>
+        <summary>
+            Represents a read-only room projection used to list rooms associated with a user.
+            This model enables the standard resource operation to derive the
+            `/api/hubs/{hub}/chat/users/{userId}/rooms` collection path because
+            `ChatRoom` is a child of `Hub`, not `ChatUser`.
+            This model does not define an independent room lifecycle.
+            </summary>
+        <returns> A new <see cref="T:Azure.Messaging.WebPubSub.Chat.ChatUserRoom" /> instance for mocking. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="WebPubSubChatConversation">
-      <MemberSignature Language="C#" Value="public static Azure.Messaging.WebPubSub.Chat.WebPubSubChatConversation WebPubSubChatConversation (string id = default, string parentRoom = default, Azure.ETag etag = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Messaging.WebPubSub.Chat.WebPubSubChatConversation WebPubSubChatConversation(string id, string parentRoom, valuetype Azure.ETag etag) cil managed" />
+      <MemberSignature Language="C#" Value="public static Azure.Messaging.WebPubSub.Chat.WebPubSubChatConversation WebPubSubChatConversation (string id = default, string roomId = default, Azure.ETag etag = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Messaging.WebPubSub.Chat.WebPubSubChatConversation WebPubSubChatConversation(string id, string roomId, valuetype Azure.ETag etag) cil managed" />
       <MemberSignature Language="DocId" Value="M:Azure.Messaging.WebPubSub.Chat.WebPubSubChatModelFactory.WebPubSubChatConversation(System.String,System.String,Azure.ETag)" />
-      <MemberSignature Language="VB.NET" Value="Public Shared Function WebPubSubChatConversation (Optional id As String = Nothing, Optional parentRoom As String = Nothing, Optional etag As ETag = Nothing) As WebPubSubChatConversation" />
-      <MemberSignature Language="F#" Value="static member WebPubSubChatConversation : string * string * Azure.ETag -&gt; Azure.Messaging.WebPubSub.Chat.WebPubSubChatConversation" Usage="Azure.Messaging.WebPubSub.Chat.WebPubSubChatModelFactory.WebPubSubChatConversation (id, parentRoom, etag)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function WebPubSubChatConversation (Optional id As String = Nothing, Optional roomId As String = Nothing, Optional etag As ETag = Nothing) As WebPubSubChatConversation" />
+      <MemberSignature Language="F#" Value="static member WebPubSubChatConversation : string * string * Azure.ETag -&gt; Azure.Messaging.WebPubSub.Chat.WebPubSubChatConversation" Usage="Azure.Messaging.WebPubSub.Chat.WebPubSubChatModelFactory.WebPubSubChatConversation (id, roomId, etag)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Messaging.WebPubSub.Chat</AssemblyName>
@@ -33,12 +105,12 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="id" Type="System.String" />
-        <Parameter Name="parentRoom" Type="System.String" />
+        <Parameter Name="roomId" Type="System.String" />
         <Parameter Name="etag" Type="Azure.ETag" />
       </Parameters>
       <Docs>
         <param name="id"> Conversation identifier. </param>
-        <param name="parentRoom"> Parent room identifier. </param>
+        <param name="roomId"> Parent room identifier. </param>
         <param name="etag"> The entity tag for this resource. </param>
         <summary> Represents a chat conversation. </summary>
         <returns> A new <see cref="T:Azure.Messaging.WebPubSub.Chat.WebPubSubChatConversation" /> instance for mocking. </returns>

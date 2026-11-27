@@ -44,11 +44,11 @@
       </Docs>
     </Member>
     <Member MemberName="Binary">
-      <MemberSignature Language="C#" Value="public BinaryData Binary { get; set; }" />
+      <MemberSignature Language="C#" Value="public BinaryData Binary { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class System.BinaryData Binary" />
       <MemberSignature Language="DocId" Value="P:Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent.Binary" />
-      <MemberSignature Language="VB.NET" Value="Public Property Binary As BinaryData" />
-      <MemberSignature Language="F#" Value="member this.Binary : BinaryData with get, set" Usage="Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent.Binary" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Binary As BinaryData" />
+      <MemberSignature Language="F#" Value="member this.Binary : BinaryData" Usage="Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent.Binary" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Messaging.WebPubSub.Chat</AssemblyName>
@@ -58,16 +58,61 @@
         <ReturnType>System.BinaryData</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Binary content (base64 encoded).
-            <para>
-            To assign a byte[] to this property use <see cref="M:System.BinaryData.FromBytes(System.Byte[])" />.
-            The byte[] will be serialized to a Base64 encoded string.
-            </para><para>
-            Examples:
-            <list type="bullet"><item><term> BinaryData.FromBytes(new byte[] { 1, 2, 3 }). </term><description> Creates a payload of "AQID". </description></item></list></para></summary>
+        <summary> Gets the binary content, serialized as a Base64-encoded string. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromBinary">
+      <MemberSignature Language="C#" Value="public static Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent FromBinary (BinaryData binary);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent FromBinary(class System.BinaryData binary) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent.FromBinary(System.BinaryData)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function FromBinary (binary As BinaryData) As WebPubSubChatMessageContent" />
+      <MemberSignature Language="F#" Value="static member FromBinary : BinaryData -&gt; Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent" Usage="Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent.FromBinary binary" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Messaging.WebPubSub.Chat</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="binary" Type="System.BinaryData" />
+      </Parameters>
+      <Docs>
+        <param name="binary"> The binary content. </param>
+        <summary> Creates message content containing binary data. </summary>
+        <returns> Message content containing only binary data. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="binary" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="FromText">
+      <MemberSignature Language="C#" Value="public static Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent FromText (string text);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent FromText(string text) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent.FromText(System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function FromText (text As String) As WebPubSubChatMessageContent" />
+      <MemberSignature Language="F#" Value="static member FromText : string -&gt; Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent" Usage="Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent.FromText text" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.Messaging.WebPubSub.Chat</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="text" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="text"> The text content. </param>
+        <summary> Creates message content containing text. </summary>
+        <returns> Message content containing only text. </returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="text" /> is null. </exception>
       </Docs>
     </Member>
     <Member MemberName="JsonModelCreateCore">
@@ -312,11 +357,11 @@
       </Docs>
     </Member>
     <Member MemberName="Text">
-      <MemberSignature Language="C#" Value="public string Text { get; set; }" />
+      <MemberSignature Language="C#" Value="public string Text { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string Text" />
       <MemberSignature Language="DocId" Value="P:Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent.Text" />
-      <MemberSignature Language="VB.NET" Value="Public Property Text As String" />
-      <MemberSignature Language="F#" Value="member this.Text : string with get, set" Usage="Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent.Text" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Text As String" />
+      <MemberSignature Language="F#" Value="member this.Text : string" Usage="Azure.Messaging.WebPubSub.Chat.WebPubSubChatMessageContent.Text" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.Messaging.WebPubSub.Chat</AssemblyName>
@@ -326,7 +371,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Text content. </summary>
+        <summary> Gets the text content. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
