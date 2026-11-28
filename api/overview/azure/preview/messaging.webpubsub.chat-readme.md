@@ -1,12 +1,12 @@
 ---
 title: Azure Web PubSub Chat client library for .NET
 keywords: Azure, dotnet, SDK, API, Azure.Messaging.WebPubSub.Chat, webpubsub
-ms.date: 11/26/2026
+ms.date: 11/28/2026
 ms.topic: reference
 ms.devlang: dotnet
 ms.service: webpubsub
 ---
-# Azure Web PubSub Chat client library for .NET - version 1.0.0-beta.2 
+# Azure Web PubSub Chat client library for .NET - version 1.0.0-alpha.20261127.1 
 
 
 Azure Web PubSub Chat provides rooms, membership, roles, topics, and persistent
@@ -20,12 +20,12 @@ Use the client library for Azure Web PubSub Chat to:
 - Read message history and update or delete messages.
 - Generate access URIs for real-time chat clients.
 
-[Source code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub.Chat_1.0.0-beta.2/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat) |
+[Source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat) |
 [Package (NuGet)](https://www.nuget.org/packages/Azure.Messaging.WebPubSub.Chat) |
 [API reference documentation](https://learn.microsoft.com/dotnet/api/azure.messaging.webpubsub.chat) |
 [Product documentation](https://learn.microsoft.com/azure/azure-web-pubsub/) |
-[Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub.Chat_1.0.0-beta.2/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/tests/Samples) |
-[Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.WebPubSub.Chat_1.0.0-beta.2/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/CHANGELOG.md)
+[Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/tests/Samples) |
+[Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/CHANGELOG.md)
 
 ## Getting started
 
@@ -162,7 +162,7 @@ WebPubSubChatRoom room = client.CreateOrReplaceRoom("room1", new WebPubSubChatRo
 Console.WriteLine($"Room {room.Id} default conversation: {room.DefaultConversation}");
 ```
 
-See [Manage rooms and members](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.WebPubSub.Chat_1.0.0-beta.2/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/tests/Samples/Sample1_ManageRoomsAndMembers.md)
+See [Manage rooms and members](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/tests/Samples/Sample1_ManageRoomsAndMembers.md)
 for separate examples of creating users and adding members.
 
 ### Discover rooms
@@ -211,7 +211,7 @@ ChatTopic topic = await client.CreateOrReplaceTopicAsync(
 Console.WriteLine($"{topic.Id}: {topic.ConversationId}");
 ```
 
-See [Topics and discovery](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.WebPubSub.Chat_1.0.0-beta.2/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/tests/Samples/Sample4_TopicsAndDiscovery.md)
+See [Topics and discovery](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/tests/Samples/Sample4_TopicsAndDiscovery.md)
 for separate examples of listing, retrieving, archiving, and soft deleting
 topics, as well as resuming pagination.
 
@@ -231,7 +231,7 @@ foreach (WebPubSubChatMessage message in client.GetMessages(room.DefaultConversa
 // </ChatDotNet_ReadMessageHistory>
 ```
 
-See [Read and manage messages](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.WebPubSub.Chat_1.0.0-beta.2/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/tests/Samples/Sample3_Messages.md)
+See [Read and manage messages](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/tests/Samples/Sample3_Messages.md)
 for querying a conversation and updating or deleting messages.
 
 ### Generate a client access URI
@@ -250,7 +250,7 @@ Uri clientAccessUri = client.GetClientAccessUri(new ClientAccessUriOptions
 // </ChatDotNet_GenerateClientAccessUri>
 ```
 
-See [Roles and permissions](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.WebPubSub.Chat_1.0.0-beta.2/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/tests/Samples/Sample2_RolesAndPermissions.md)
+See [Roles and permissions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/tests/Samples/Sample2_RolesAndPermissions.md)
 to define custom permissions and inspect built-in roles.
 
 ## Troubleshooting
@@ -269,7 +269,7 @@ Avoid enabling content logging for sensitive chat messages in production.
 
 ## Next steps
 
-- Browse the [compiled samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub.Chat_1.0.0-beta.2/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/tests/Samples)
+- Browse the [compiled samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/tests/Samples)
   for membership, roles, message history, topics, and pagination.
 - Read the [Azure Web PubSub documentation](https://learn.microsoft.com/azure/azure-web-pubsub/)
   for resource provisioning, authentication, and real-time application design.
