@@ -7,6 +7,7 @@
   <AssemblyInfo>
     <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
     <AssemblyVersion>1.7.0.0</AssemblyVersion>
+    <AssemblyVersion>1.8.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
@@ -23,48 +24,126 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> The customer-authored settings of a cost control. </summary>
+    <summary>
+            The consumption budget and its traffic selection, notifications, and enforcement actions.
+            A cost control applies within its owner's scope.
+            </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public CostControlProperties (System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlRule&gt; rules);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.CognitiveServices.Models.CostControlRule&gt; rules) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.#ctor(System.Collections.Generic.IEnumerable{Azure.ResourceManager.CognitiveServices.Models.CostControlRule})" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (rules As IEnumerable(Of CostControlRule))" />
-      <MemberSignature Language="F#" Value="new Azure.ResourceManager.CognitiveServices.Models.CostControlProperties : seq&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlRule&gt; -&gt; Azure.ResourceManager.CognitiveServices.Models.CostControlProperties" Usage="new Azure.ResourceManager.CognitiveServices.Models.CostControlProperties rules" />
+      <MemberSignature Language="C#" Value="public CostControlProperties (Azure.ResourceManager.CognitiveServices.Models.CostControlCategory category, double amount, Azure.ResourceManager.CognitiveServices.Models.CostControlTimeGrain timeGrain, Azure.ResourceManager.CognitiveServices.Models.CostControlTimePeriod timePeriod);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Azure.ResourceManager.CognitiveServices.Models.CostControlCategory category, float64 amount, valuetype Azure.ResourceManager.CognitiveServices.Models.CostControlTimeGrain timeGrain, class Azure.ResourceManager.CognitiveServices.Models.CostControlTimePeriod timePeriod) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.#ctor(Azure.ResourceManager.CognitiveServices.Models.CostControlCategory,System.Double,Azure.ResourceManager.CognitiveServices.Models.CostControlTimeGrain,Azure.ResourceManager.CognitiveServices.Models.CostControlTimePeriod)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (category As CostControlCategory, amount As Double, timeGrain As CostControlTimeGrain, timePeriod As CostControlTimePeriod)" />
+      <MemberSignature Language="F#" Value="new Azure.ResourceManager.CognitiveServices.Models.CostControlProperties : Azure.ResourceManager.CognitiveServices.Models.CostControlCategory * double * Azure.ResourceManager.CognitiveServices.Models.CostControlTimeGrain * Azure.ResourceManager.CognitiveServices.Models.CostControlTimePeriod -&gt; Azure.ResourceManager.CognitiveServices.Models.CostControlProperties" Usage="new Azure.ResourceManager.CognitiveServices.Models.CostControlProperties (category, amount, timeGrain, timePeriod)" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="rules" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlRule&gt;" />
+        <Parameter Name="category" Type="Azure.ResourceManager.CognitiveServices.Models.CostControlCategory" />
+        <Parameter Name="amount" Type="System.Double" />
+        <Parameter Name="timeGrain" Type="Azure.ResourceManager.CognitiveServices.Models.CostControlTimeGrain" />
+        <Parameter Name="timePeriod" Type="Azure.ResourceManager.CognitiveServices.Models.CostControlTimePeriod" />
       </Parameters>
       <Docs>
-        <param name="rules"> The rules enforced by the cost control. </param>
+        <param name="category"> Whether the budget measures estimated cost in United States dollars or token consumption. This category cannot be changed after creation. </param>
+        <param name="amount">
+            The positive budget amount, measured in United States dollars for the Cost category or in tokens for the Tokens category.
+            Token amounts must be whole numbers.
+            </param>
+        <param name="timeGrain"> The calendar-aligned UTC interval at which consumption counters renew within the validity window. </param>
+        <param name="timePeriod"> The finite UTC validity window during which the control applies. </param>
         <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.CognitiveServices.Models.CostControlProperties" />. </summary>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="rules" /> is null. </exception>
+          <paramref name="timePeriod" /> is null. </exception>
       </Docs>
     </Member>
-    <Member MemberName="DisplayName">
-      <MemberSignature Language="C#" Value="public string DisplayName { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string DisplayName" />
-      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.DisplayName" />
-      <MemberSignature Language="VB.NET" Value="Public Property DisplayName As String" />
-      <MemberSignature Language="F#" Value="member this.DisplayName : string with get, set" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.DisplayName" />
+    <Member MemberName="Amount">
+      <MemberSignature Language="C#" Value="public double Amount { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float64 Amount" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.Amount" />
+      <MemberSignature Language="VB.NET" Value="Public Property Amount As Double" />
+      <MemberSignature Language="F#" Value="member this.Amount : double with get, set" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.Amount" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> An optional human-readable name for the cost control. </summary>
+        <summary>
+            The positive budget amount, measured in United States dollars for the Cost category or in tokens for the Tokens category.
+            Token amounts must be whole numbers.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Category">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CognitiveServices.Models.CostControlCategory Category { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Azure.ResourceManager.CognitiveServices.Models.CostControlCategory Category" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.Category" />
+      <MemberSignature Language="VB.NET" Value="Public Property Category As CostControlCategory" />
+      <MemberSignature Language="F#" Value="member this.Category : Azure.ResourceManager.CognitiveServices.Models.CostControlCategory with get, set" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.Category" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.CognitiveServices.Models.CostControlCategory</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Whether the budget measures estimated cost in United States dollars or token consumption. This category cannot be changed after creation. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Filter">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CognitiveServices.Models.CostControlFilter Filter { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.ResourceManager.CognitiveServices.Models.CostControlFilter Filter" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.Filter" />
+      <MemberSignature Language="VB.NET" Value="Public Property Filter As CostControlFilter" />
+      <MemberSignature Language="F#" Value="member this.Filter : Azure.ResourceManager.CognitiveServices.Models.CostControlFilter with get, set" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.Filter" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.CognitiveServices.Models.CostControlFilter</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Optional traffic selection. Omission selects all eligible traffic within the owner's scope. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Grouping">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlGrouping&gt; Grouping { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.ResourceManager.CognitiveServices.Models.CostControlGrouping&gt; Grouping" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.Grouping" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Grouping As IList(Of CostControlGrouping)" />
+      <MemberSignature Language="F#" Value="member this.Grouping : System.Collections.Generic.IList&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlGrouping&gt;" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.Grouping" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlGrouping&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Optional additional partitioning of consumption. Omission or an empty array uses one counter for the owning account or Foundry project.
+            Responses omit owner-default grouping. A project-owned control cannot explicitly group by project.
+            </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -78,7 +157,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.CognitiveServices.Models.CostControlProperties</ReturnType>
@@ -104,7 +183,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
@@ -120,6 +199,30 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Notifications">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IDictionary&lt;string,Azure.ResourceManager.CognitiveServices.Models.CostControlNotification&gt; Notifications { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IDictionary`2&lt;string, class Azure.ResourceManager.CognitiveServices.Models.CostControlNotification&gt; Notifications" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.Notifications" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Notifications As IDictionary(Of String, CostControlNotification)" />
+      <MemberSignature Language="F#" Value="member this.Notifications : System.Collections.Generic.IDictionary&lt;string, Azure.ResourceManager.CognitiveServices.Models.CostControlNotification&gt;" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.Notifications" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IDictionary&lt;System.String,Azure.ResourceManager.CognitiveServices.Models.CostControlNotification&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Alert notifications keyed by nonempty, case-insensitively unique names. Each notification supplies its own Event Grid connection.
+            PUT and the complete merged PATCH result may contain at most one notification, including disabled notifications.
+            Omission on creation creates no notifications.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="PersistableModelCreateCore">
       <MemberSignature Language="C#" Value="protected virtual Azure.ResourceManager.CognitiveServices.Models.CostControlProperties PersistableModelCreateCore (BinaryData data, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
       <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance class Azure.ResourceManager.CognitiveServices.Models.CostControlProperties PersistableModelCreateCore(class System.BinaryData data, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
@@ -129,7 +232,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.CognitiveServices.Models.CostControlProperties</ReturnType>
@@ -155,7 +258,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.BinaryData</ReturnType>
@@ -170,22 +273,46 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Rules">
-      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlRule&gt; Rules { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.ResourceManager.CognitiveServices.Models.CostControlRule&gt; Rules" />
-      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.Rules" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Rules As IList(Of CostControlRule)" />
-      <MemberSignature Language="F#" Value="member this.Rules : System.Collections.Generic.IList&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlRule&gt;" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.Rules" />
+    <Member MemberName="Provider">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CognitiveServices.Models.CostControlPropertiesProvider? Provider { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.CognitiveServices.Models.CostControlPropertiesProvider&gt; Provider" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.Provider" />
+      <MemberSignature Language="VB.NET" Value="Public Property Provider As Nullable(Of CostControlPropertiesProvider)" />
+      <MemberSignature Language="F#" Value="member this.Provider : Nullable&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlPropertiesProvider&gt; with get, set" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.Provider" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Collections.Generic.IList&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlRule&gt;</ReturnType>
+        <ReturnType>System.Nullable&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlPropertiesProvider&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The rules enforced by the cost control. </summary>
+        <summary> The resource provider for this budget. Omission selects Microsoft.CognitiveServices; responses return that value. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ProviderActions">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IDictionary&lt;string,Azure.ResourceManager.CognitiveServices.Models.CostControlAction&gt; ProviderActions { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IDictionary`2&lt;string, class Azure.ResourceManager.CognitiveServices.Models.CostControlAction&gt; ProviderActions" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.ProviderActions" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ProviderActions As IDictionary(Of String, CostControlAction)" />
+      <MemberSignature Language="F#" Value="member this.ProviderActions : System.Collections.Generic.IDictionary&lt;string, Azure.ResourceManager.CognitiveServices.Models.CostControlAction&gt;" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.ProviderActions" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IDictionary&lt;System.String,Azure.ResourceManager.CognitiveServices.Models.CostControlAction&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Blocking actions keyed by nonempty, case-insensitively unique names.
+            PUT and the complete merged PATCH result may contain at most one Block action, independently of the notification limit.
+            Omission on creation creates no blocking actions.
+            </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -202,7 +329,7 @@
       </Implements>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.CognitiveServices.Models.CostControlProperties</ReturnType>
@@ -231,7 +358,7 @@
       </Implements>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
@@ -259,7 +386,7 @@
       </Implements>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.CognitiveServices.Models.CostControlProperties</ReturnType>
@@ -288,7 +415,7 @@
       </Implements>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
@@ -315,7 +442,7 @@
       </Implements>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.BinaryData</ReturnType>
@@ -327,6 +454,46 @@
         <param name="options"> The client options for reading and writing models. </param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TimeGrain">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CognitiveServices.Models.CostControlTimeGrain TimeGrain { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Azure.ResourceManager.CognitiveServices.Models.CostControlTimeGrain TimeGrain" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.TimeGrain" />
+      <MemberSignature Language="VB.NET" Value="Public Property TimeGrain As CostControlTimeGrain" />
+      <MemberSignature Language="F#" Value="member this.TimeGrain : Azure.ResourceManager.CognitiveServices.Models.CostControlTimeGrain with get, set" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.TimeGrain" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.CognitiveServices.Models.CostControlTimeGrain</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The calendar-aligned UTC interval at which consumption counters renew within the validity window. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TimePeriod">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CognitiveServices.Models.CostControlTimePeriod TimePeriod { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.ResourceManager.CognitiveServices.Models.CostControlTimePeriod TimePeriod" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.TimePeriod" />
+      <MemberSignature Language="VB.NET" Value="Public Property TimePeriod As CostControlTimePeriod" />
+      <MemberSignature Language="F#" Value="member this.TimePeriod : Azure.ResourceManager.CognitiveServices.Models.CostControlTimePeriod with get, set" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlProperties.TimePeriod" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.CognitiveServices.Models.CostControlTimePeriod</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The finite UTC validity window during which the control applies. </summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

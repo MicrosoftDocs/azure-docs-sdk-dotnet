@@ -28,27 +28,19 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public ScenarioProperties (System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.Chaos.Models.ChaosScenarioParameterInfo&gt; parameters, System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.Chaos.Models.ScenarioAction&gt; actions);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.Chaos.Models.ChaosScenarioParameterInfo&gt; parameters, class System.Collections.Generic.IEnumerable`1&lt;class Azure.ResourceManager.Chaos.Models.ScenarioAction&gt; actions) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.ScenarioProperties.#ctor(System.Collections.Generic.IEnumerable{Azure.ResourceManager.Chaos.Models.ChaosScenarioParameterInfo},System.Collections.Generic.IEnumerable{Azure.ResourceManager.Chaos.Models.ScenarioAction})" />
-      <MemberSignature Language="VB.NET" Value="Public Sub New (parameters As IEnumerable(Of ChaosScenarioParameterInfo), actions As IEnumerable(Of ScenarioAction))" />
-      <MemberSignature Language="F#" Value="new Azure.ResourceManager.Chaos.Models.ScenarioProperties : seq&lt;Azure.ResourceManager.Chaos.Models.ChaosScenarioParameterInfo&gt; * seq&lt;Azure.ResourceManager.Chaos.Models.ScenarioAction&gt; -&gt; Azure.ResourceManager.Chaos.Models.ScenarioProperties" Usage="new Azure.ResourceManager.Chaos.Models.ScenarioProperties (parameters, actions)" />
+      <MemberSignature Language="C#" Value="public ScenarioProperties ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.ScenarioProperties.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
         <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Parameters>
-        <Parameter Name="parameters" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.Chaos.Models.ChaosScenarioParameterInfo&gt;" />
-        <Parameter Name="actions" Type="System.Collections.Generic.IEnumerable&lt;Azure.ResourceManager.Chaos.Models.ScenarioAction&gt;" />
-      </Parameters>
+      <Parameters />
       <Docs>
-        <param name="parameters"> Parameter definitions for the scenario. </param>
-        <param name="actions"> Array of actions that define the scenario's orchestration. </param>
         <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.Chaos.Models.ScenarioProperties" />. </summary>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">
-          <paramref name="parameters" /> or <paramref name="actions" /> is null. </exception>
       </Docs>
     </Member>
     <Member MemberName="Actions">
@@ -72,11 +64,11 @@
       </Docs>
     </Member>
     <Member MemberName="CreatedFrom">
-      <MemberSignature Language="C#" Value="public string CreatedFrom { get; }" />
+      <MemberSignature Language="C#" Value="public string CreatedFrom { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string CreatedFrom" />
       <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Chaos.Models.ScenarioProperties.CreatedFrom" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property CreatedFrom As String" />
-      <MemberSignature Language="F#" Value="member this.CreatedFrom : string" Usage="Azure.ResourceManager.Chaos.Models.ScenarioProperties.CreatedFrom" />
+      <MemberSignature Language="VB.NET" Value="Public Property CreatedFrom As String" />
+      <MemberSignature Language="F#" Value="member this.CreatedFrom : string with get, set" Usage="Azure.ResourceManager.Chaos.Models.ScenarioProperties.CreatedFrom" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
@@ -86,7 +78,19 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Resource ID of the template version this scenario was created from (optional). </summary>
+        <summary>
+            Resource ID of the template version this scenario was created from (optional).
+            The ID has the form
+            `/providers/Microsoft.Chaos/scenarioTemplates/{scenarioTemplateName}/versions/{version}`.
+            This property retains its existing string representation for compatibility
+            with earlier API versions and SDKs.
+            A scenario's structure comes from exactly one of two mutually exclusive sources.
+            When `createdFrom` is supplied on create, the referenced template version is the
+            authoritative source for the scenario's structure; inline `parameters` and
+            `actions` are not used. When `createdFrom` is absent, the structure comes from
+            the inline `parameters` and `actions` supplied in the request.
+            Supplying neither source is rejected by request validation.
+            </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -107,6 +111,35 @@
       </ReturnValue>
       <Docs>
         <summary> Description of what this scenario does (optional). </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FailureBehavior">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.Chaos.Models.ScenarioFailureBehavior? FailureBehavior { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.Chaos.Models.ScenarioFailureBehavior&gt; FailureBehavior" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Chaos.Models.ScenarioProperties.FailureBehavior" />
+      <MemberSignature Language="VB.NET" Value="Public Property FailureBehavior As Nullable(Of ScenarioFailureBehavior)" />
+      <MemberSignature Language="F#" Value="member this.FailureBehavior : Nullable&lt;Azure.ResourceManager.Chaos.Models.ScenarioFailureBehavior&gt; with get, set" Usage="Azure.ResourceManager.Chaos.Models.ScenarioProperties.FailureBehavior" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;Azure.ResourceManager.Chaos.Models.ScenarioFailureBehavior&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Scenario-wide default for how a scenario run reacts when one of its actions fails.
+            An action that does not supply its own `failureBehavior` inherits this value; when
+            neither is supplied the effective behavior is `Stop`.
+            Not used when `createdFrom` is supplied, for the same reason as `parameters` and
+            `actions`: the referenced template version is then the authoritative source for the
+            scenario's structure, and it supplies this policy too. A value sent in the request is
+            ignored in that case — on create the referenced template's policy is used, and on update
+            the policy of the already persisted template is preserved.
+            </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -413,11 +446,11 @@
       </Docs>
     </Member>
     <Member MemberName="Version">
-      <MemberSignature Language="C#" Value="public string Version { get; }" />
+      <MemberSignature Language="C#" Value="public string Version { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string Version" />
       <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Chaos.Models.ScenarioProperties.Version" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Version As String" />
-      <MemberSignature Language="F#" Value="member this.Version : string" Usage="Azure.ResourceManager.Chaos.Models.ScenarioProperties.Version" />
+      <MemberSignature Language="VB.NET" Value="Public Property Version As String" />
+      <MemberSignature Language="F#" Value="member this.Version : string with get, set" Usage="Azure.ResourceManager.Chaos.Models.ScenarioProperties.Version" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
@@ -427,7 +460,11 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> Version of the scenario. </summary>
+        <summary>
+            Version of the scenario, supplied by the author. Defaults to `1.0` when not
+            supplied on create. This is the scenario's own version and is independent of
+            the version of any template it was created from.
+            </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

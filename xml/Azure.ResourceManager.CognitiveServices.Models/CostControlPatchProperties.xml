@@ -7,6 +7,7 @@
   <AssemblyInfo>
     <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
     <AssemblyVersion>1.7.0.0</AssemblyVersion>
+    <AssemblyVersion>1.8.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
     <BaseTypeName>System.Object</BaseTypeName>
@@ -23,7 +24,13 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary> The properties that can be changed on a cost control. </summary>
+    <summary>
+            Edits applied when properties is a non-empty object. Omitted fields retain their existing values; no defaults are applied.
+            The complete merged result may contain at most one notification, including disabled notifications, and one Block action.
+            Exceeding either limit returns HTTP 400 without changing the stored definition.
+            Missing registration returns 403 FeatureNotRegistered before merging or no-op detection.
+            Omitting or removing identity selections does not require this registration; omitted stored selections are preserved, subject to existing validation rules.
+            </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -35,7 +42,7 @@
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters />
       <Docs>
@@ -43,22 +50,82 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="DisplayName">
-      <MemberSignature Language="C#" Value="public string DisplayName { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string DisplayName" />
-      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.DisplayName" />
-      <MemberSignature Language="VB.NET" Value="Public Property DisplayName As String" />
-      <MemberSignature Language="F#" Value="member this.DisplayName : string with get, set" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.DisplayName" />
+    <Member MemberName="Amount">
+      <MemberSignature Language="C#" Value="public double? Amount { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;float64&gt; Amount" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.Amount" />
+      <MemberSignature Language="VB.NET" Value="Public Property Amount As Nullable(Of Double)" />
+      <MemberSignature Language="F#" Value="member this.Amount : Nullable&lt;double&gt; with get, set" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.Amount" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>System.Nullable&lt;System.Double&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> An optional human-readable name for the cost control. Set this property to null to clear it. </summary>
+        <summary> Replaces the positive budget amount, measured in United States dollars for the Cost category or in whole tokens for the Tokens category. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Category">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CognitiveServices.Models.CostControlCategory? Category { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.CognitiveServices.Models.CostControlCategory&gt; Category" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.Category" />
+      <MemberSignature Language="VB.NET" Value="Public Property Category As Nullable(Of CostControlCategory)" />
+      <MemberSignature Language="F#" Value="member this.Category : Nullable&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlCategory&gt; with get, set" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.Category" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlCategory&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> The existing measurement category. Changing it after creation is not supported. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Filter">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CognitiveServices.Models.CostControlFilter Filter { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.ResourceManager.CognitiveServices.Models.CostControlFilter Filter" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.Filter" />
+      <MemberSignature Language="VB.NET" Value="Public Property Filter As CostControlFilter" />
+      <MemberSignature Language="F#" Value="member this.Filter : Azure.ResourceManager.CognitiveServices.Models.CostControlFilter with get, set" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.Filter" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.CognitiveServices.Models.CostControlFilter</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Replaces the complete traffic filter. Set to null to select all eligible traffic within the owner's scope. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Grouping">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlGrouping&gt; Grouping { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.ResourceManager.CognitiveServices.Models.CostControlGrouping&gt; Grouping" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.Grouping" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Grouping As IList(Of CostControlGrouping)" />
+      <MemberSignature Language="F#" Value="member this.Grouping : System.Collections.Generic.IList&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlGrouping&gt;" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.Grouping" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlGrouping&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Replaces additional grouping. Omission preserves grouping; an empty array restores the owner's default counter. Null is not accepted. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -72,7 +139,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties</ReturnType>
@@ -98,7 +165,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
@@ -114,6 +181,30 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Notifications">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IDictionary&lt;string,Azure.ResourceManager.CognitiveServices.Models.CostControlNotificationPatch&gt; Notifications { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IDictionary`2&lt;string, class Azure.ResourceManager.CognitiveServices.Models.CostControlNotificationPatch&gt; Notifications" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.Notifications" />
+      <MemberSignature Language="VB.NET" Value="Public Property Notifications As IDictionary(Of String, CostControlNotificationPatch)" />
+      <MemberSignature Language="F#" Value="member this.Notifications : System.Collections.Generic.IDictionary&lt;string, Azure.ResourceManager.CognitiveServices.Models.CostControlNotificationPatch&gt; with get, set" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.Notifications" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IDictionary&lt;System.String,Azure.ResourceManager.CognitiveServices.Models.CostControlNotificationPatch&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Merges notifications by case-insensitive name, preserving existing name casing. Null entries delete notifications; null clears the collection.
+            Omission or an empty object preserves existing notifications. New entries must supply all required notification fields after merging.
+            The complete merged result may contain at most one notification, including disabled notifications; otherwise the request returns HTTP 400.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="PersistableModelCreateCore">
       <MemberSignature Language="C#" Value="protected virtual Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties PersistableModelCreateCore (BinaryData data, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
       <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance class Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties PersistableModelCreateCore(class System.BinaryData data, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
@@ -123,7 +214,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties</ReturnType>
@@ -149,7 +240,7 @@
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.BinaryData</ReturnType>
@@ -164,22 +255,42 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Rules">
-      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlRule&gt; Rules { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.ResourceManager.CognitiveServices.Models.CostControlRule&gt; Rules" />
-      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.Rules" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Rules As IList(Of CostControlRule)" />
-      <MemberSignature Language="F#" Value="member this.Rules : System.Collections.Generic.IList&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlRule&gt;" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.Rules" />
+    <Member MemberName="Provider">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CognitiveServices.Models.CostControlPatchPropertiesProvider? Provider { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.CognitiveServices.Models.CostControlPatchPropertiesProvider&gt; Provider" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.Provider" />
+      <MemberSignature Language="VB.NET" Value="Public Property Provider As Nullable(Of CostControlPatchPropertiesProvider)" />
+      <MemberSignature Language="F#" Value="member this.Provider : Nullable&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlPatchPropertiesProvider&gt; with get, set" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.Provider" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Collections.Generic.IList&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlRule&gt;</ReturnType>
+        <ReturnType>System.Nullable&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlPatchPropertiesProvider&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The complete replacement set of cost control rules. </summary>
+        <summary> The resource provider. If supplied, it must be Microsoft.CognitiveServices and cannot be null. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ProviderProperties">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CognitiveServices.Models.CostControlProviderPropertiesPatch ProviderProperties { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.ResourceManager.CognitiveServices.Models.CostControlProviderPropertiesPatch ProviderProperties" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.ProviderProperties" />
+      <MemberSignature Language="VB.NET" Value="Public Property ProviderProperties As CostControlProviderPropertiesPatch" />
+      <MemberSignature Language="F#" Value="member this.ProviderProperties : Azure.ResourceManager.CognitiveServices.Models.CostControlProviderPropertiesPatch with get, set" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.ProviderProperties" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.CognitiveServices.Models.CostControlProviderPropertiesPatch</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Merges provider-specific settings. Set to null to remove all blocking actions; omission preserves them. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -196,7 +307,7 @@
       </Implements>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties</ReturnType>
@@ -225,7 +336,7 @@
       </Implements>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
@@ -253,7 +364,7 @@
       </Implements>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties</ReturnType>
@@ -282,7 +393,7 @@
       </Implements>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
@@ -309,7 +420,7 @@
       </Implements>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
-        <AssemblyVersion>1.7.0.0</AssemblyVersion>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.BinaryData</ReturnType>
@@ -321,6 +432,46 @@
         <param name="options"> The client options for reading and writing models. </param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TimeGrain">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CognitiveServices.Models.CostControlTimeGrain? TimeGrain { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.CognitiveServices.Models.CostControlTimeGrain&gt; TimeGrain" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.TimeGrain" />
+      <MemberSignature Language="VB.NET" Value="Public Property TimeGrain As Nullable(Of CostControlTimeGrain)" />
+      <MemberSignature Language="F#" Value="member this.TimeGrain : Nullable&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlTimeGrain&gt; with get, set" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.TimeGrain" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;Azure.ResourceManager.CognitiveServices.Models.CostControlTimeGrain&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Replaces the calendar-aligned UTC renewal interval. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TimePeriod">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.CognitiveServices.Models.CostControlTimePeriodPatch TimePeriod { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.ResourceManager.CognitiveServices.Models.CostControlTimePeriodPatch TimePeriod" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.TimePeriod" />
+      <MemberSignature Language="VB.NET" Value="Public Property TimePeriod As CostControlTimePeriodPatch" />
+      <MemberSignature Language="F#" Value="member this.TimePeriod : Azure.ResourceManager.CognitiveServices.Models.CostControlTimePeriodPatch with get, set" Usage="Azure.ResourceManager.CognitiveServices.Models.CostControlPatchProperties.TimePeriod" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.CognitiveServices</AssemblyName>
+        <AssemblyVersion>1.8.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.CognitiveServices.Models.CostControlTimePeriodPatch</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Merges supplied dates into the existing validity window; omitted dates remain unchanged. </summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

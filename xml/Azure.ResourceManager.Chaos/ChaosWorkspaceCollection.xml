@@ -48,11 +48,11 @@
       </Docs>
     </Member>
     <Member MemberName="CreateOrUpdate">
-      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Chaos.ChaosWorkspaceResource&gt; CreateOrUpdate (Azure.WaitUntil waitUntil, string workspaceName, Azure.ResourceManager.Chaos.ChaosWorkspaceData data, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Chaos.ChaosWorkspaceResource&gt; CreateOrUpdate(valuetype Azure.WaitUntil waitUntil, string workspaceName, class Azure.ResourceManager.Chaos.ChaosWorkspaceData data, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.ChaosWorkspaceCollection.CreateOrUpdate(Azure.WaitUntil,System.String,Azure.ResourceManager.Chaos.ChaosWorkspaceData,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdate (waitUntil As WaitUntil, workspaceName As String, data As ChaosWorkspaceData, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation(Of ChaosWorkspaceResource)" />
-      <MemberSignature Language="F#" Value="abstract member CreateOrUpdate : Azure.WaitUntil * string * Azure.ResourceManager.Chaos.ChaosWorkspaceData * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Chaos.ChaosWorkspaceResource&gt;&#xA;override this.CreateOrUpdate : Azure.WaitUntil * string * Azure.ResourceManager.Chaos.ChaosWorkspaceData * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Chaos.ChaosWorkspaceResource&gt;" Usage="chaosWorkspaceCollection.CreateOrUpdate (waitUntil, workspaceName, data, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Chaos.ChaosWorkspaceResource&gt; CreateOrUpdate (Azure.WaitUntil waitUntil, string workspaceName, Azure.ResourceManager.Chaos.ChaosWorkspaceData data, Azure.MatchConditions matchConditions = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Chaos.ChaosWorkspaceResource&gt; CreateOrUpdate(valuetype Azure.WaitUntil waitUntil, string workspaceName, class Azure.ResourceManager.Chaos.ChaosWorkspaceData data, class Azure.MatchConditions matchConditions, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.ChaosWorkspaceCollection.CreateOrUpdate(Azure.WaitUntil,System.String,Azure.ResourceManager.Chaos.ChaosWorkspaceData,Azure.MatchConditions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdate (waitUntil As WaitUntil, workspaceName As String, data As ChaosWorkspaceData, Optional matchConditions As MatchConditions = Nothing, Optional cancellationToken As CancellationToken = Nothing) As ArmOperation(Of ChaosWorkspaceResource)" />
+      <MemberSignature Language="F#" Value="abstract member CreateOrUpdate : Azure.WaitUntil * string * Azure.ResourceManager.Chaos.ChaosWorkspaceData * Azure.MatchConditions * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Chaos.ChaosWorkspaceResource&gt;&#xA;override this.CreateOrUpdate : Azure.WaitUntil * string * Azure.ResourceManager.Chaos.ChaosWorkspaceData * Azure.MatchConditions * System.Threading.CancellationToken -&gt; Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Chaos.ChaosWorkspaceResource&gt;" Usage="chaosWorkspaceCollection.CreateOrUpdate (waitUntil, workspaceName, data, matchConditions, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
@@ -65,6 +65,7 @@
         <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
         <Parameter Name="workspaceName" Type="System.String" />
         <Parameter Name="data" Type="Azure.ResourceManager.Chaos.ChaosWorkspaceData" />
+        <Parameter Name="matchConditions" Type="Azure.MatchConditions" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
@@ -72,10 +73,11 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="workspaceName"> String that represents a Workspace resource name. </param>
         <param name="data"> Workspace resource to be created or updated. </param>
+        <param name="matchConditions"> The content to send as the request conditions of the request. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Create or update a Workspace resource.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces/{workspaceName}. </description></item><item><term> Operation Id. </term><description> Workspaces_CreateOrUpdate. </description></item><item><term> Default Api Version. </term><description> 2026-08-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces/{workspaceName}. </description></item><item><term> Operation Id. </term><description> Workspaces_CreateOrUpdate. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -85,11 +87,11 @@
       </Docs>
     </Member>
     <Member MemberName="CreateOrUpdateAsync">
-      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Chaos.ChaosWorkspaceResource&gt;&gt; CreateOrUpdateAsync (Azure.WaitUntil waitUntil, string workspaceName, Azure.ResourceManager.Chaos.ChaosWorkspaceData data, System.Threading.CancellationToken cancellationToken = default);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Chaos.ChaosWorkspaceResource&gt;&gt; CreateOrUpdateAsync(valuetype Azure.WaitUntil waitUntil, string workspaceName, class Azure.ResourceManager.Chaos.ChaosWorkspaceData data, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
-      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.ChaosWorkspaceCollection.CreateOrUpdateAsync(Azure.WaitUntil,System.String,Azure.ResourceManager.Chaos.ChaosWorkspaceData,System.Threading.CancellationToken)" />
-      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateAsync (waitUntil As WaitUntil, workspaceName As String, data As ChaosWorkspaceData, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation(Of ChaosWorkspaceResource))" />
-      <MemberSignature Language="F#" Value="abstract member CreateOrUpdateAsync : Azure.WaitUntil * string * Azure.ResourceManager.Chaos.ChaosWorkspaceData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Chaos.ChaosWorkspaceResource&gt;&gt;&#xA;override this.CreateOrUpdateAsync : Azure.WaitUntil * string * Azure.ResourceManager.Chaos.ChaosWorkspaceData * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Chaos.ChaosWorkspaceResource&gt;&gt;" Usage="chaosWorkspaceCollection.CreateOrUpdateAsync (waitUntil, workspaceName, data, cancellationToken)" />
+      <MemberSignature Language="C#" Value="public virtual System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Chaos.ChaosWorkspaceResource&gt;&gt; CreateOrUpdateAsync (Azure.WaitUntil waitUntil, string workspaceName, Azure.ResourceManager.Chaos.ChaosWorkspaceData data, Azure.MatchConditions matchConditions = default, System.Threading.CancellationToken cancellationToken = default);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Threading.Tasks.Task`1&lt;class Azure.ResourceManager.ArmOperation`1&lt;class Azure.ResourceManager.Chaos.ChaosWorkspaceResource&gt;&gt; CreateOrUpdateAsync(valuetype Azure.WaitUntil waitUntil, string workspaceName, class Azure.ResourceManager.Chaos.ChaosWorkspaceData data, class Azure.MatchConditions matchConditions, valuetype System.Threading.CancellationToken cancellationToken) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.ChaosWorkspaceCollection.CreateOrUpdateAsync(Azure.WaitUntil,System.String,Azure.ResourceManager.Chaos.ChaosWorkspaceData,Azure.MatchConditions,System.Threading.CancellationToken)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function CreateOrUpdateAsync (waitUntil As WaitUntil, workspaceName As String, data As ChaosWorkspaceData, Optional matchConditions As MatchConditions = Nothing, Optional cancellationToken As CancellationToken = Nothing) As Task(Of ArmOperation(Of ChaosWorkspaceResource))" />
+      <MemberSignature Language="F#" Value="abstract member CreateOrUpdateAsync : Azure.WaitUntil * string * Azure.ResourceManager.Chaos.ChaosWorkspaceData * Azure.MatchConditions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Chaos.ChaosWorkspaceResource&gt;&gt;&#xA;override this.CreateOrUpdateAsync : Azure.WaitUntil * string * Azure.ResourceManager.Chaos.ChaosWorkspaceData * Azure.MatchConditions * System.Threading.CancellationToken -&gt; System.Threading.Tasks.Task&lt;Azure.ResourceManager.ArmOperation&lt;Azure.ResourceManager.Chaos.ChaosWorkspaceResource&gt;&gt;" Usage="chaosWorkspaceCollection.CreateOrUpdateAsync (waitUntil, workspaceName, data, matchConditions, cancellationToken)" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
@@ -102,6 +104,7 @@
         <Parameter Name="waitUntil" Type="Azure.WaitUntil" />
         <Parameter Name="workspaceName" Type="System.String" />
         <Parameter Name="data" Type="Azure.ResourceManager.Chaos.ChaosWorkspaceData" />
+        <Parameter Name="matchConditions" Type="Azure.MatchConditions" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" />
       </Parameters>
       <Docs>
@@ -109,10 +112,11 @@
           <see cref="F:Azure.WaitUntil.Completed" /> if the method should wait to return until the long-running operation has completed on the service; <see cref="F:Azure.WaitUntil.Started" /> if it should return after starting the operation. For more information on long-running operations, please see <see href="https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/LongRunningOperations.md"> Azure.Core Long-Running Operation samples</see>. </param>
         <param name="workspaceName"> String that represents a Workspace resource name. </param>
         <param name="data"> Workspace resource to be created or updated. </param>
+        <param name="matchConditions"> The content to send as the request conditions of the request. </param>
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Create or update a Workspace resource.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces/{workspaceName}. </description></item><item><term> Operation Id. </term><description> Workspaces_CreateOrUpdate. </description></item><item><term> Default Api Version. </term><description> 2026-08-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces/{workspaceName}. </description></item><item><term> Operation Id. </term><description> Workspaces_CreateOrUpdate. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -144,7 +148,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Checks to see if the resource exists in azure.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces/{workspaceName}. </description></item><item><term> Operation Id. </term><description> Workspaces_Get. </description></item><item><term> Default Api Version. </term><description> 2026-08-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces/{workspaceName}. </description></item><item><term> Operation Id. </term><description> Workspaces_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -176,7 +180,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Checks to see if the resource exists in azure.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces/{workspaceName}. </description></item><item><term> Operation Id. </term><description> Workspaces_Get. </description></item><item><term> Default Api Version. </term><description> 2026-08-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces/{workspaceName}. </description></item><item><term> Operation Id. </term><description> Workspaces_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -208,7 +212,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Get a Workspace resource.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces/{workspaceName}. </description></item><item><term> Operation Id. </term><description> Workspaces_Get. </description></item><item><term> Default Api Version. </term><description> 2026-08-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces/{workspaceName}. </description></item><item><term> Operation Id. </term><description> Workspaces_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -240,7 +244,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Get a list of Workspace resources in a resource group.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces. </description></item><item><term> Operation Id. </term><description> Workspaces_List. </description></item><item><term> Default Api Version. </term><description> 2026-08-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces. </description></item><item><term> Operation Id. </term><description> Workspaces_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.Chaos.ChaosWorkspaceResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -268,7 +272,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Get a list of Workspace resources in a resource group.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces. </description></item><item><term> Operation Id. </term><description> Workspaces_List. </description></item><item><term> Default Api Version. </term><description> 2026-08-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces. </description></item><item><term> Operation Id. </term><description> Workspaces_List. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns> A collection of <see cref="T:Azure.ResourceManager.Chaos.ChaosWorkspaceResource" /> that may take multiple service requests to iterate over. </returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -296,7 +300,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Get a Workspace resource.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces/{workspaceName}. </description></item><item><term> Operation Id. </term><description> Workspaces_Get. </description></item><item><term> Default Api Version. </term><description> 2026-08-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces/{workspaceName}. </description></item><item><term> Operation Id. </term><description> Workspaces_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -328,7 +332,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Tries to get details for this resource from the service.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces/{workspaceName}. </description></item><item><term> Operation Id. </term><description> Workspaces_Get. </description></item><item><term> Default Api Version. </term><description> 2026-08-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces/{workspaceName}. </description></item><item><term> Operation Id. </term><description> Workspaces_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -360,7 +364,7 @@
         <param name="cancellationToken"> The cancellation token to use. </param>
         <summary>
             Tries to get details for this resource from the service.
-            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces/{workspaceName}. </description></item><item><term> Operation Id. </term><description> Workspaces_Get. </description></item><item><term> Default Api Version. </term><description> 2026-08-01-preview. </description></item></list></summary>
+            <list type="bullet"><item><term> Request Path. </term><description> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/workspaces/{workspaceName}. </description></item><item><term> Operation Id. </term><description> Workspaces_Get. </description></item><item><term> Default Api Version. </term><description> 2026-11-01. </description></item></list></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">

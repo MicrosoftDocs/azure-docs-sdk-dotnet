@@ -1,0 +1,402 @@
+<Type Name="ScenarioTemplateVersionProperties" FullName="Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties">
+  <TypeSignature Language="C#" Value="public class ScenarioTemplateVersionProperties : System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;, System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ScenarioTemplateVersionProperties extends System.Object implements class System.ClientModel.Primitives.IJsonModel`1&lt;class Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;, class System.ClientModel.Primitives.IPersistableModel`1&lt;class Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;" />
+  <TypeSignature Language="DocId" Value="T:Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties" />
+  <TypeSignature Language="VB.NET" Value="Public Class ScenarioTemplateVersionProperties&#xA;Implements IJsonModel(Of ScenarioTemplateVersionProperties), IPersistableModel(Of ScenarioTemplateVersionProperties)" />
+  <TypeSignature Language="F#" Value="type ScenarioTemplateVersionProperties = class&#xA;    interface IJsonModel&lt;ScenarioTemplateVersionProperties&gt;&#xA;    interface IPersistableModel&lt;ScenarioTemplateVersionProperties&gt;" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.ClientModel.Primitives.IPersistableModel&lt;T&gt;</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>
+            Model that represents the properties of a single published version of a scenario template —
+            the blueprint content itself.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Actions">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IReadOnlyList&lt;Azure.ResourceManager.Chaos.Models.ScenarioAction&gt; Actions { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IReadOnlyList`1&lt;class Azure.ResourceManager.Chaos.Models.ScenarioAction&gt; Actions" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.Actions" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Actions As IReadOnlyList(Of ScenarioAction)" />
+      <MemberSignature Language="F#" Value="member this.Actions : System.Collections.Generic.IReadOnlyList&lt;Azure.ResourceManager.Chaos.Models.ScenarioAction&gt;" Usage="Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.Actions" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IReadOnlyList&lt;Azure.ResourceManager.Chaos.Models.ScenarioAction&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The actions that define the template's orchestration. These are the same model a scenario
+            publishes, and carry unresolved `%%\{...\}%%` macros; the macros are substituted when the
+            scenario runs, not when it is read or created.
+            Three macro namespaces may appear:
+            <list type="bullet"><item><description>`%%\{parameters.\&lt;name\&gt;\}%%` — resolves from the parameter values supplied when the</description></item></list>
+            scenario is configured. The accepted names are declared by `parameters`.
+            <list type="bullet"><item><description>`%%\{resourceTargeting.include.\&lt;dimension\&gt;\}%%` — resolves from the resource targeting</description></item></list>
+            of the scenario's configuration (for example `zones`, `locations`). The template does not
+            declare these; they are dimensions of the configuration supplied at run time.
+            <list type="bullet"><item><description>`%%\{filters.\&lt;dimension\&gt;\}%%` — deprecated spelling of `resourceTargeting.include.`,</description></item></list>
+            retained only so that superseded template versions keep resolving. Do not depend on it;
+            the newest version of every template uses `resourceTargeting.include.`.
+            An action's `failureBehavior` overrides the template-wide `failureBehavior` for that action
+            alone; an action that does not carry one inherits the template-wide value.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Description">
+      <MemberSignature Language="C#" Value="public string Description { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Description" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.Description" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Description As String" />
+      <MemberSignature Language="F#" Value="member this.Description : string" Usage="Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.Description" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Description of what the template does, and what resilience question it answers. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DisplayName">
+      <MemberSignature Language="C#" Value="public string DisplayName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string DisplayName" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.DisplayName" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property DisplayName As String" />
+      <MemberSignature Language="F#" Value="member this.DisplayName : string" Usage="Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.DisplayName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary> Localized display name of the template. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FailureBehavior">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.Chaos.Models.ScenarioFailureBehavior? FailureBehavior { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.Chaos.Models.ScenarioFailureBehavior&gt; FailureBehavior" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.FailureBehavior" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property FailureBehavior As Nullable(Of ScenarioFailureBehavior)" />
+      <MemberSignature Language="F#" Value="member this.FailureBehavior : Nullable&lt;Azure.ResourceManager.Chaos.Models.ScenarioFailureBehavior&gt;" Usage="Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.FailureBehavior" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;Azure.ResourceManager.Chaos.Models.ScenarioFailureBehavior&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Template-wide default for how a scenario run reacts when one of this template's actions
+            fails. An action that does not carry its own `failureBehavior` inherits this value; when
+            neither is present the effective behavior is `Stop`.
+            A scenario created from this template takes this policy with the rest of the template's
+            structure, so it is also the scenario's resolved `failureBehavior`. Template versions
+            published before this policy existed do not carry one and report it as absent, which the
+            run resolves as `Stop`.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="JsonModelCreateCore">
+      <MemberSignature Language="C#" Value="protected virtual Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties JsonModelCreateCore (ref System.Text.Json.Utf8JsonReader reader, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance class Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties JsonModelCreateCore(valuetype System.Text.Json.Utf8JsonReader&amp; reader, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Function JsonModelCreateCore (ByRef reader As Utf8JsonReader, options As ModelReaderWriterOptions) As ScenarioTemplateVersionProperties" />
+      <MemberSignature Language="F#" Value="abstract member JsonModelCreateCore : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&#xA;override this.JsonModelCreateCore : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties" Usage="scenarioTemplateVersionProperties.JsonModelCreateCore (reader, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="reader" Type="System.Text.Json.Utf8JsonReader" RefType="ref" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="reader"> The JSON reader. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="JsonModelWriteCore">
+      <MemberSignature Language="C#" Value="protected virtual void JsonModelWriteCore (System.Text.Json.Utf8JsonWriter writer, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance void JsonModelWriteCore(class System.Text.Json.Utf8JsonWriter writer, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Sub JsonModelWriteCore (writer As Utf8JsonWriter, options As ModelReaderWriterOptions)" />
+      <MemberSignature Language="F#" Value="abstract member JsonModelWriteCore : System.Text.Json.Utf8JsonWriter * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; unit&#xA;override this.JsonModelWriteCore : System.Text.Json.Utf8JsonWriter * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; unit" Usage="scenarioTemplateVersionProperties.JsonModelWriteCore (writer, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="writer" Type="System.Text.Json.Utf8JsonWriter" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="writer"> The JSON writer. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Parameters">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IReadOnlyList&lt;Azure.ResourceManager.Chaos.Models.ChaosScenarioParameterInfo&gt; Parameters { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IReadOnlyList`1&lt;class Azure.ResourceManager.Chaos.Models.ChaosScenarioParameterInfo&gt; Parameters" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.Parameters" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Parameters As IReadOnlyList(Of ChaosScenarioParameterInfo)" />
+      <MemberSignature Language="F#" Value="member this.Parameters : System.Collections.Generic.IReadOnlyList&lt;Azure.ResourceManager.Chaos.Models.ChaosScenarioParameterInfo&gt;" Usage="Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.Parameters" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IReadOnlyList&lt;Azure.ResourceManager.Chaos.Models.ChaosScenarioParameterInfo&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Parameter definitions the template accepts. Values are supplied when the scenario created
+            from this template is configured, and are referenced from an action through the
+            `%%\{parameters.\&lt;name\&gt;\}%%` macro.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PersistableModelCreateCore">
+      <MemberSignature Language="C#" Value="protected virtual Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties PersistableModelCreateCore (BinaryData data, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance class Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties PersistableModelCreateCore(class System.BinaryData data, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Function PersistableModelCreateCore (data As BinaryData, options As ModelReaderWriterOptions) As ScenarioTemplateVersionProperties" />
+      <MemberSignature Language="F#" Value="abstract member PersistableModelCreateCore : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&#xA;override this.PersistableModelCreateCore : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties" Usage="scenarioTemplateVersionProperties.PersistableModelCreateCore (data, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="data" Type="System.BinaryData" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="data"> The data to parse. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PersistableModelWriteCore">
+      <MemberSignature Language="C#" Value="protected virtual BinaryData PersistableModelWriteCore (System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance class System.BinaryData PersistableModelWriteCore(class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Function PersistableModelWriteCore (options As ModelReaderWriterOptions) As BinaryData" />
+      <MemberSignature Language="F#" Value="abstract member PersistableModelWriteCore : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; BinaryData&#xA;override this.PersistableModelWriteCore : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; BinaryData" Usage="scenarioTemplateVersionProperties.PersistableModelWriteCore options" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.BinaryData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Create">
+      <MemberSignature Language="C#" Value="Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties IJsonModel&lt;ScenarioTemplateVersionProperties&gt;.Create (ref System.Text.Json.Utf8JsonReader reader, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance class Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Create(valuetype System.Text.Json.Utf8JsonReader&amp; reader, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Chaos#Models#ScenarioTemplateVersionProperties&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Function Create (ByRef reader As Utf8JsonReader, options As ModelReaderWriterOptions) As ScenarioTemplateVersionProperties Implements IJsonModel(Of ScenarioTemplateVersionProperties).Create" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Create : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&#xA;override this.System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Create : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties" Usage="scenarioTemplateVersionProperties.System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Create (reader, options)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IJsonModel`1.Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="reader" Type="System.Text.Json.Utf8JsonReader" RefType="ref" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="reader"> The JSON reader. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Write">
+      <MemberSignature Language="C#" Value="void IJsonModel&lt;ScenarioTemplateVersionProperties&gt;.Write (System.Text.Json.Utf8JsonWriter writer, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance void System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Write(class System.Text.Json.Utf8JsonWriter writer, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Chaos#Models#ScenarioTemplateVersionProperties&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Sub Write (writer As Utf8JsonWriter, options As ModelReaderWriterOptions) Implements IJsonModel(Of ScenarioTemplateVersionProperties).Write" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Write : System.Text.Json.Utf8JsonWriter * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; unit&#xA;override this.System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Write : System.Text.Json.Utf8JsonWriter * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; unit" Usage="scenarioTemplateVersionProperties.System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Write (writer, options)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IJsonModel`1.Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="writer" Type="System.Text.Json.Utf8JsonWriter" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="writer"> The JSON writer. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Create">
+      <MemberSignature Language="C#" Value="Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties IPersistableModel&lt;ScenarioTemplateVersionProperties&gt;.Create (BinaryData data, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance class Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Create(class System.BinaryData data, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Chaos#Models#ScenarioTemplateVersionProperties&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Function Create (data As BinaryData, options As ModelReaderWriterOptions) As ScenarioTemplateVersionProperties Implements IPersistableModel(Of ScenarioTemplateVersionProperties).Create" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Create : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&#xA;override this.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Create : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties" Usage="scenarioTemplateVersionProperties.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Create (data, options)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IPersistableModel`1.Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="data" Type="System.BinaryData" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="data"> The data to parse. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.GetFormatFromOptions">
+      <MemberSignature Language="C#" Value="string IPersistableModel&lt;ScenarioTemplateVersionProperties&gt;.GetFormatFromOptions (System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance string System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.GetFormatFromOptions(class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Chaos#Models#ScenarioTemplateVersionProperties&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Function GetFormatFromOptions (options As ModelReaderWriterOptions) As String Implements IPersistableModel(Of ScenarioTemplateVersionProperties).GetFormatFromOptions" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.GetFormatFromOptions : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; string&#xA;override this.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.GetFormatFromOptions : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; string" Usage="scenarioTemplateVersionProperties.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.GetFormatFromOptions options" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IPersistableModel`1.GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Write">
+      <MemberSignature Language="C#" Value="BinaryData IPersistableModel&lt;ScenarioTemplateVersionProperties&gt;.Write (System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance class System.BinaryData System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Write(class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Chaos#Models#ScenarioTemplateVersionProperties&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Function Write (options As ModelReaderWriterOptions) As BinaryData Implements IPersistableModel(Of ScenarioTemplateVersionProperties).Write" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Write : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; BinaryData&#xA;override this.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Write : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; BinaryData" Usage="scenarioTemplateVersionProperties.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.ScenarioTemplateVersionProperties&gt;.Write options" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IPersistableModel`1.Write(System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.BinaryData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

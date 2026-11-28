@@ -1,0 +1,380 @@
+<Type Name="WorkspaceCustomerManagedKeyEncryption" FullName="Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption">
+  <TypeSignature Language="C#" Value="public class WorkspaceCustomerManagedKeyEncryption : System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;, System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit WorkspaceCustomerManagedKeyEncryption extends System.Object implements class System.ClientModel.Primitives.IJsonModel`1&lt;class Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;, class System.ClientModel.Primitives.IPersistableModel`1&lt;class Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;" />
+  <TypeSignature Language="DocId" Value="T:Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption" />
+  <TypeSignature Language="VB.NET" Value="Public Class WorkspaceCustomerManagedKeyEncryption&#xA;Implements IJsonModel(Of WorkspaceCustomerManagedKeyEncryption), IPersistableModel(Of WorkspaceCustomerManagedKeyEncryption)" />
+  <TypeSignature Language="F#" Value="type WorkspaceCustomerManagedKeyEncryption = class&#xA;    interface IJsonModel&lt;WorkspaceCustomerManagedKeyEncryption&gt;&#xA;    interface IPersistableModel&lt;WorkspaceCustomerManagedKeyEncryption&gt;" />
+  <AssemblyInfo>
+    <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.ClientModel.Primitives.IPersistableModel&lt;T&gt;</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary> A customer-managed key reference, not key material. </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public WorkspaceCustomerManagedKeyEncryption (Uri keyEncryptionKeyUri, Azure.Core.ResourceIdentifier keyVaultResourceId);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Uri keyEncryptionKeyUri, class Azure.Core.ResourceIdentifier keyVaultResourceId) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption.#ctor(System.Uri,Azure.Core.ResourceIdentifier)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (keyEncryptionKeyUri As Uri, keyVaultResourceId As ResourceIdentifier)" />
+      <MemberSignature Language="F#" Value="new Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption : Uri * Azure.Core.ResourceIdentifier -&gt; Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption" Usage="new Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption (keyEncryptionKeyUri, keyVaultResourceId)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="keyEncryptionKeyUri" Type="System.Uri" />
+        <Parameter Name="keyVaultResourceId" Type="Azure.Core.ResourceIdentifier" />
+      </Parameters>
+      <Docs>
+        <param name="keyEncryptionKeyUri">
+            The versionless HTTPS Key Vault key URI in the supported cloud and Workspace
+            tenant. The key vault must belong to the same Microsoft Entra tenant as
+            the Workspace. Its HTTPS origin must match the vault referenced by
+            keyVaultResourceId. The service validates the effective pair and caller
+            vault-read permission synchronously through Azure Resource Manager before
+            creating public operation metadata, accepting the configuration operation,
+            persisting requested encryption, or changing Storage or customer data.
+            Supports RSA keys in Azure Key Vault and RSA-HSM keys in Premium Key Vault,
+            with key sizes of 2048, 3072, or 4096 bits. Premium RSA-HSM keys use the same
+            vault URL. The separate Azure Managed HSM service is not supported;
+            Managed HSM endpoints are rejected before operation acceptance.
+            A key version, query string, or fragment is not permitted.
+            Azure Storage follows key versions automatically. Keep the previous version
+            available for at least 24 hours after rotation.
+            </param>
+        <param name="keyVaultResourceId">
+            The fully qualified Azure resource ID of the key vault that contains the key.
+            Use /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName},
+            not a key child resource, Managed HSM, or URL. Full PUT with CMK and PATCH
+            that changes either CMK member require Microsoft.KeyVault/vaults/read on
+            the effective vault. The service compares its canonical ID, tenant, and
+            vault URI with the requested pair before accepting the operation.
+            </param>
+        <summary> Initializes a new instance of <see cref="T:Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption" />. </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="keyEncryptionKeyUri" /> or <paramref name="keyVaultResourceId" /> is null. </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="JsonModelCreateCore">
+      <MemberSignature Language="C#" Value="protected virtual Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption JsonModelCreateCore (ref System.Text.Json.Utf8JsonReader reader, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance class Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption JsonModelCreateCore(valuetype System.Text.Json.Utf8JsonReader&amp; reader, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption.JsonModelCreateCore(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Function JsonModelCreateCore (ByRef reader As Utf8JsonReader, options As ModelReaderWriterOptions) As WorkspaceCustomerManagedKeyEncryption" />
+      <MemberSignature Language="F#" Value="abstract member JsonModelCreateCore : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&#xA;override this.JsonModelCreateCore : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption" Usage="workspaceCustomerManagedKeyEncryption.JsonModelCreateCore (reader, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="reader" Type="System.Text.Json.Utf8JsonReader" RefType="ref" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="reader"> The JSON reader. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="JsonModelWriteCore">
+      <MemberSignature Language="C#" Value="protected virtual void JsonModelWriteCore (System.Text.Json.Utf8JsonWriter writer, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance void JsonModelWriteCore(class System.Text.Json.Utf8JsonWriter writer, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption.JsonModelWriteCore(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Sub JsonModelWriteCore (writer As Utf8JsonWriter, options As ModelReaderWriterOptions)" />
+      <MemberSignature Language="F#" Value="abstract member JsonModelWriteCore : System.Text.Json.Utf8JsonWriter * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; unit&#xA;override this.JsonModelWriteCore : System.Text.Json.Utf8JsonWriter * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; unit" Usage="workspaceCustomerManagedKeyEncryption.JsonModelWriteCore (writer, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="writer" Type="System.Text.Json.Utf8JsonWriter" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="writer"> The JSON writer. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="KeyEncryptionKeyUri">
+      <MemberSignature Language="C#" Value="public Uri KeyEncryptionKeyUri { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Uri KeyEncryptionKeyUri" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption.KeyEncryptionKeyUri" />
+      <MemberSignature Language="VB.NET" Value="Public Property KeyEncryptionKeyUri As Uri" />
+      <MemberSignature Language="F#" Value="member this.KeyEncryptionKeyUri : Uri with get, set" Usage="Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption.KeyEncryptionKeyUri" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Uri</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The versionless HTTPS Key Vault key URI in the supported cloud and Workspace
+            tenant. The key vault must belong to the same Microsoft Entra tenant as
+            the Workspace. Its HTTPS origin must match the vault referenced by
+            keyVaultResourceId. The service validates the effective pair and caller
+            vault-read permission synchronously through Azure Resource Manager before
+            creating public operation metadata, accepting the configuration operation,
+            persisting requested encryption, or changing Storage or customer data.
+            Supports RSA keys in Azure Key Vault and RSA-HSM keys in Premium Key Vault,
+            with key sizes of 2048, 3072, or 4096 bits. Premium RSA-HSM keys use the same
+            vault URL. The separate Azure Managed HSM service is not supported;
+            Managed HSM endpoints are rejected before operation acceptance.
+            A key version, query string, or fragment is not permitted.
+            Azure Storage follows key versions automatically. Keep the previous version
+            available for at least 24 hours after rotation.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="KeyVaultResourceId">
+      <MemberSignature Language="C#" Value="public Azure.Core.ResourceIdentifier KeyVaultResourceId { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Core.ResourceIdentifier KeyVaultResourceId" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption.KeyVaultResourceId" />
+      <MemberSignature Language="VB.NET" Value="Public Property KeyVaultResourceId As ResourceIdentifier" />
+      <MemberSignature Language="F#" Value="member this.KeyVaultResourceId : Azure.Core.ResourceIdentifier with get, set" Usage="Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption.KeyVaultResourceId" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.Core.ResourceIdentifier</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The fully qualified Azure resource ID of the key vault that contains the key.
+            Use /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName},
+            not a key child resource, Managed HSM, or URL. Full PUT with CMK and PATCH
+            that changes either CMK member require Microsoft.KeyVault/vaults/read on
+            the effective vault. The service compares its canonical ID, tenant, and
+            vault URI with the requested pair before accepting the operation.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PersistableModelCreateCore">
+      <MemberSignature Language="C#" Value="protected virtual Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption PersistableModelCreateCore (BinaryData data, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance class Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption PersistableModelCreateCore(class System.BinaryData data, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption.PersistableModelCreateCore(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Function PersistableModelCreateCore (data As BinaryData, options As ModelReaderWriterOptions) As WorkspaceCustomerManagedKeyEncryption" />
+      <MemberSignature Language="F#" Value="abstract member PersistableModelCreateCore : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&#xA;override this.PersistableModelCreateCore : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption" Usage="workspaceCustomerManagedKeyEncryption.PersistableModelCreateCore (data, options)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="data" Type="System.BinaryData" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="data"> The data to parse. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PersistableModelWriteCore">
+      <MemberSignature Language="C#" Value="protected virtual BinaryData PersistableModelWriteCore (System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance class System.BinaryData PersistableModelWriteCore(class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption.PersistableModelWriteCore(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overridable Function PersistableModelWriteCore (options As ModelReaderWriterOptions) As BinaryData" />
+      <MemberSignature Language="F#" Value="abstract member PersistableModelWriteCore : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; BinaryData&#xA;override this.PersistableModelWriteCore : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; BinaryData" Usage="workspaceCustomerManagedKeyEncryption.PersistableModelWriteCore options" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.BinaryData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Create">
+      <MemberSignature Language="C#" Value="Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption IJsonModel&lt;WorkspaceCustomerManagedKeyEncryption&gt;.Create (ref System.Text.Json.Utf8JsonReader reader, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance class Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Create(valuetype System.Text.Json.Utf8JsonReader&amp; reader, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Chaos#Models#WorkspaceCustomerManagedKeyEncryption&gt;#Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Function Create (ByRef reader As Utf8JsonReader, options As ModelReaderWriterOptions) As WorkspaceCustomerManagedKeyEncryption Implements IJsonModel(Of WorkspaceCustomerManagedKeyEncryption).Create" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Create : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&#xA;override this.System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Create : Utf8JsonReader * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption" Usage="workspaceCustomerManagedKeyEncryption.System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Create (reader, options)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IJsonModel`1.Create(System.Text.Json.Utf8JsonReader@,System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="reader" Type="System.Text.Json.Utf8JsonReader" RefType="ref" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="reader"> The JSON reader. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Write">
+      <MemberSignature Language="C#" Value="void IJsonModel&lt;WorkspaceCustomerManagedKeyEncryption&gt;.Write (System.Text.Json.Utf8JsonWriter writer, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance void System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Write(class System.Text.Json.Utf8JsonWriter writer, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption.System#ClientModel#Primitives#IJsonModel&lt;Azure#ResourceManager#Chaos#Models#WorkspaceCustomerManagedKeyEncryption&gt;#Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Sub Write (writer As Utf8JsonWriter, options As ModelReaderWriterOptions) Implements IJsonModel(Of WorkspaceCustomerManagedKeyEncryption).Write" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Write : System.Text.Json.Utf8JsonWriter * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; unit&#xA;override this.System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Write : System.Text.Json.Utf8JsonWriter * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; unit" Usage="workspaceCustomerManagedKeyEncryption.System.ClientModel.Primitives.IJsonModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Write (writer, options)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IJsonModel`1.Write(System.Text.Json.Utf8JsonWriter,System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="writer" Type="System.Text.Json.Utf8JsonWriter" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="writer"> The JSON writer. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Create">
+      <MemberSignature Language="C#" Value="Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption IPersistableModel&lt;WorkspaceCustomerManagedKeyEncryption&gt;.Create (BinaryData data, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance class Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Create(class System.BinaryData data, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Chaos#Models#WorkspaceCustomerManagedKeyEncryption&gt;#Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Function Create (data As BinaryData, options As ModelReaderWriterOptions) As WorkspaceCustomerManagedKeyEncryption Implements IPersistableModel(Of WorkspaceCustomerManagedKeyEncryption).Create" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Create : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&#xA;override this.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Create : BinaryData * System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption" Usage="workspaceCustomerManagedKeyEncryption.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Create (data, options)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IPersistableModel`1.Create(System.BinaryData,System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="data" Type="System.BinaryData" />
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="data"> The data to parse. </param>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.GetFormatFromOptions">
+      <MemberSignature Language="C#" Value="string IPersistableModel&lt;WorkspaceCustomerManagedKeyEncryption&gt;.GetFormatFromOptions (System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance string System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.GetFormatFromOptions(class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Chaos#Models#WorkspaceCustomerManagedKeyEncryption&gt;#GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Function GetFormatFromOptions (options As ModelReaderWriterOptions) As String Implements IPersistableModel(Of WorkspaceCustomerManagedKeyEncryption).GetFormatFromOptions" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.GetFormatFromOptions : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; string&#xA;override this.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.GetFormatFromOptions : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; string" Usage="workspaceCustomerManagedKeyEncryption.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.GetFormatFromOptions options" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IPersistableModel`1.GetFormatFromOptions(System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Write">
+      <MemberSignature Language="C#" Value="BinaryData IPersistableModel&lt;WorkspaceCustomerManagedKeyEncryption&gt;.Write (System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance class System.BinaryData System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Write(class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption.System#ClientModel#Primitives#IPersistableModel&lt;Azure#ResourceManager#Chaos#Models#WorkspaceCustomerManagedKeyEncryption&gt;#Write(System.ClientModel.Primitives.ModelReaderWriterOptions)" />
+      <MemberSignature Language="VB.NET" Value="Function Write (options As ModelReaderWriterOptions) As BinaryData Implements IPersistableModel(Of WorkspaceCustomerManagedKeyEncryption).Write" />
+      <MemberSignature Language="F#" Value="abstract member System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Write : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; BinaryData&#xA;override this.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Write : System.ClientModel.Primitives.ModelReaderWriterOptions -&gt; BinaryData" Usage="workspaceCustomerManagedKeyEncryption.System.ClientModel.Primitives.IPersistableModel&lt;Azure.ResourceManager.Chaos.Models.WorkspaceCustomerManagedKeyEncryption&gt;.Write options" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ClientModel.Primitives.IPersistableModel`1.Write(System.ClientModel.Primitives.ModelReaderWriterOptions)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.BinaryData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="System.ClientModel.Primitives.ModelReaderWriterOptions" />
+      </Parameters>
+      <Docs>
+        <param name="options"> The client options for reading and writing models. </param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

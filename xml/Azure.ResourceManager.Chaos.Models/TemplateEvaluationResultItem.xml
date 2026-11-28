@@ -289,26 +289,21 @@
       </Docs>
     </Member>
     <Member MemberName="TemplateId">
-      <MemberSignature Language="C#" Value="public string TemplateId { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string TemplateId" />
+      <MemberSignature Language="C#" Value="public Azure.Core.ResourceIdentifier TemplateId { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.Core.ResourceIdentifier TemplateId" />
       <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Chaos.Models.TemplateEvaluationResultItem.TemplateId" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property TemplateId As String" />
-      <MemberSignature Language="F#" Value="member this.TemplateId : string" Usage="Azure.ResourceManager.Chaos.Models.TemplateEvaluationResultItem.TemplateId" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property TemplateId As ResourceIdentifier" />
+      <MemberSignature Language="F#" Value="member this.TemplateId : Azure.Core.ResourceIdentifier" Usage="Azure.ResourceManager.Chaos.Models.TemplateEvaluationResultItem.TemplateId" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
         <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>Azure.Core.ResourceIdentifier</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            The template ID that was evaluated. Optional because the underlying BE field may
-            be null for legacy evaluations created before template-centric persistence landed;
-            the GW falls back to `scenarioName` in that case (`scenario.Id == templateId` by BE
-            convention), so ARM responses are typically populated in practice.
-            </summary>
+        <summary> The canonical ARM ID of the evaluated scenario-template version. Scenario IDs and versionless template aliases are not valid substitutes. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -328,7 +323,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The template name that was evaluated. Optional for the same reason as `templateId`. </summary>
+        <summary> The stable catalog name of the evaluated scenario template, not a localized display name. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -113,6 +113,30 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="FailureBehavior">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.Chaos.Models.ScenarioFailureBehavior? FailureBehavior { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;valuetype Azure.ResourceManager.Chaos.Models.ScenarioFailureBehavior&gt; FailureBehavior" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Chaos.Models.ScenarioAction.FailureBehavior" />
+      <MemberSignature Language="VB.NET" Value="Public Property FailureBehavior As Nullable(Of ScenarioFailureBehavior)" />
+      <MemberSignature Language="F#" Value="member this.FailureBehavior : Nullable&lt;Azure.ResourceManager.Chaos.Models.ScenarioFailureBehavior&gt; with get, set" Usage="Azure.ResourceManager.Chaos.Models.ScenarioAction.FailureBehavior" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;Azure.ResourceManager.Chaos.Models.ScenarioFailureBehavior&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Per-action override for how the scenario run reacts when this action fails. When omitted,
+            the action inherits the scenario-level `failureBehavior`; when neither is supplied the
+            effective behavior is `Stop`.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="JsonModelCreateCore">
       <MemberSignature Language="C#" Value="protected virtual Azure.ResourceManager.Chaos.Models.ScenarioAction JsonModelCreateCore (ref System.Text.Json.Utf8JsonReader reader, System.ClientModel.Primitives.ModelReaderWriterOptions options);" />
       <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance class Azure.ResourceManager.Chaos.Models.ScenarioAction JsonModelCreateCore(valuetype System.Text.Json.Utf8JsonReader&amp; reader, class System.ClientModel.Primitives.ModelReaderWriterOptions options) cil managed" />
@@ -290,6 +314,31 @@
       </ReturnValue>
       <Docs>
         <summary> Action dependencies that control when this action starts. </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Selectors">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Azure.ResourceManager.Chaos.Models.ScenarioActionSelector&gt; Selectors { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Azure.ResourceManager.Chaos.Models.ScenarioActionSelector&gt; Selectors" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Chaos.Models.ScenarioAction.Selectors" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Selectors As IList(Of ScenarioActionSelector)" />
+      <MemberSignature Language="F#" Value="member this.Selectors : System.Collections.Generic.IList&lt;Azure.ResourceManager.Chaos.Models.ScenarioActionSelector&gt;" Usage="Azure.ResourceManager.Chaos.Models.ScenarioAction.Selectors" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;Azure.ResourceManager.Chaos.Models.ScenarioActionSelector&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Action-specific target selectors evaluated during execution. When provided,
+            the collection must contain either `logicalZone` and `location`, or `physicalZone`.
+            Selector names must be unique, the two modes cannot be combined, and the service
+            enforces the cross-item combination at runtime.
+            </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

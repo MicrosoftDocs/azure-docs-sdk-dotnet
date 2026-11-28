@@ -49,22 +49,28 @@
           <paramref name="scopes" /> is null. </exception>
       </Docs>
     </Member>
-    <Member MemberName="CommunicationEndpoint">
-      <MemberSignature Language="C#" Value="public string CommunicationEndpoint { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string CommunicationEndpoint" />
-      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Chaos.Models.WorkspaceProperties.CommunicationEndpoint" />
-      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property CommunicationEndpoint As String" />
-      <MemberSignature Language="F#" Value="member this.CommunicationEndpoint : string" Usage="Azure.ResourceManager.Chaos.Models.WorkspaceProperties.CommunicationEndpoint" />
+    <Member MemberName="Encryption">
+      <MemberSignature Language="C#" Value="public Azure.ResourceManager.Chaos.Models.WorkspaceEncryption Encryption { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Azure.ResourceManager.Chaos.Models.WorkspaceEncryption Encryption" />
+      <MemberSignature Language="DocId" Value="P:Azure.ResourceManager.Chaos.Models.WorkspaceProperties.Encryption" />
+      <MemberSignature Language="VB.NET" Value="Public Property Encryption As WorkspaceEncryption" />
+      <MemberSignature Language="F#" Value="member this.Encryption : Azure.ResourceManager.Chaos.Models.WorkspaceEncryption with get, set" Usage="Azure.ResourceManager.Chaos.Models.WorkspaceProperties.Encryption" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyName>Azure.ResourceManager.Chaos</AssemblyName>
         <AssemblyVersion>1.2.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>Azure.ResourceManager.Chaos.Models.WorkspaceEncryption</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary> The communication endpoint used to connect and communicate with the workspace for fault-injection orchestration. </summary>
+        <summary>
+            The requested customer key and service observations. Accepted creation fixes
+            whether customerManagedKeyEncryption is present. On PUT, omission of
+            encryption or its CMK object, or an empty encryption object, is valid for
+            Microsoft-managed Workspaces but rejected for CMK-created Workspaces.
+            Null is not a valid PUT value. A CMK-created Workspace can replace its key.
+            </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
